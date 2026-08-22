@@ -1,0 +1,229 @@
+{
+  "arms": {
+    "ACTIVE_PLAN_RESIDUAL": "single injection of own episode r_PLAN(t2)",
+    "GENERIC_HISTORY": "non-plan transcript/history residual, rescaled to active norm",
+    "NEXT_ACTION_PRESERVED_LATE_NULL": "residual from the mandatory 128-token slot containing the exact same first reference action but destroying later plan structure, rescaled to active norm",
+    "NO_PATCH": "identical reset/session with no hook",
+    "RANDOM_EQ_NORM": "deterministic SHA256 Rademacher direction with active residual dimension and exact active residual norm",
+    "SELF_REPLACE": "replace selected reset hidden state by an exact captured clone of itself once; plumbing sentinel; must be numerically behavior-equivalent to NO_PATCH within engineering tolerance",
+    "SHUFFLED_PLAN": "same-plan clause-permutation residual, rescaled to active norm",
+    "UNRELATED_PLAN": "pre-frozen cyclic different-family plan residual, rescaled to active norm",
+    "VISIBLE_TEXT_PLAN": "positive ceiling: original 128-token plan slot visible in reset context; no activation intervention",
+    "ZERO_ADD": "one hook adding exact zero vector; plumbing sentinel, not a primary specificity control"
+  },
+  "authorization_prerequisites": {
+    "engineering": "Capture-only sanity engineering/result cannot authorize T1. T1 requires a separately engineered persistent-session single-injection runtime and independent executable-readiness review.",
+    "forbidden": "Do not execute causal development or confirmation after FAIL_REPLAY_RESIDUAL_SANITY or INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES.",
+    "sanity_scientific_gate": "A future canonical ReplayResidual sanity result must be exactly PASS_REPLAY_RESIDUAL_SANITY under SHA 394222b7... before any causal development request."
+  },
+  "causal_development": {
+    "freeze_before_confirmation": "selected layer/alpha plus exact implementation/runtime/vector hashes and all development-only aggregates must be content-hashed before the first confirmation model/environment request.",
+    "global_grid": {
+      "alpha": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "layers": [
+        7,
+        14,
+        21,
+        27
+      ],
+      "source_anchor": [
+        "t2_only"
+      ],
+      "target_site": [
+        "same_layer_reset_prefix_last_token_before_ACTION"
+      ]
+    },
+    "population": "fixed development indices0..31 only; run only after valid sanity PASS; use all naturally qualified families, no replacement; require >=16/32 qualified else INCONCLUSIVE_T1_DEVELOPMENT_EXPRESSIVITY",
+    "selection_metric": "For each global layer/alpha, compute family later_plan_agreement (LPA) excluding the first post-reset action. Select the point maximizing median across fixed development families of ACTIVE_LPA - max_specificity_control_LPA; tie-break by higher ACTIVE TaskSuccess, then lower alpha, then earlier layer. No per-family point selection.",
+    "vector_rule": "ACTIVE uses alpha * raw r_PLAN(t2). Every nonzero residual/random control is deterministically rescaled to ||r_PLAN||_2 before multiplying by the same alpha. If ||r_PLAN||<=1e-8 the active vector is zero and the family cannot count as a positive comparison."
+  },
+  "confirmation": {
+    "effect_guards": [
+      "mean d_no_patch >= 0.15",
+      "mean d_specificity >= 0.10",
+      "at least 70% of all20 have d_no_patch>0",
+      "at least 65% of all20 have d_specificity>0",
+      "ACTIVE TaskSuccess rate >= 0.50 across all20",
+      "ACTIVE TaskSuccess - NO_PATCH TaskSuccess >= 0.15",
+      "ACTIVE TaskSuccess - max(RANDOM_EQ_NORM,NEXT_ACTION_PRESERVED_LATE_NULL,UNRELATED_PLAN) TaskSuccess >= 0.10",
+      "ACTIVE valid-action rate is not more than 0.10 below NO_PATCH"
+    ],
+    "family_comparisons": {
+      "d_no_patch": "LPA_ACTIVE-LPA_NO_PATCH",
+      "d_specificity": "LPA_ACTIVE-max(LPA_RANDOM_EQ_NORM,LPA_NEXT_ACTION_PRESERVED_LATE_NULL,LPA_UNRELATED_PLAN,LPA_SHUFFLED_PLAN,LPA_GENERIC_HISTORY)"
+    },
+    "interpretation": "Only causal episode-specific active-plan transport across one real context reset with multi-step effect. Does not yet establish cross-family/model/environment generality or compact/minimal checkpoint.",
+    "natural_trajectory_gate": "require >=16/20 targets with valid own-plan checkpoint/control construction. If fewer, stop INCONCLUSIVE_T1_CONFIRMATION_EXPRESSIVITY. If gate passes, all20 remain in primary denominators; any unqualified/unconstructible family receives zero LPA and nonpositive pairwise differences and cannot count as sign success.",
+    "null_label": "REFUTED_REPLAY_RESIDUAL_T1",
+    "operating_point": "import exact frozen global layer/alpha from causal development; no layer/site/scale/per-family selection",
+    "population": "exact untouched confirmation n=20, source indices32..51 from population binding; no replacement, no confirmation tuning",
+    "primary_specificity_controls": [
+      "RANDOM_EQ_NORM",
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "UNRELATED_PLAN",
+      "SHUFFLED_PLAN",
+      "GENERIC_HISTORY"
+    ],
+    "supported_label": "SUPPORTED_REPLAY_RESIDUAL_T1",
+    "tests": [
+      "Exact one-sided Binomial/sign test n=20 for d_no_patch>0; zero/nonpositive is failure.",
+      "Exact one-sided Binomial/sign test n=20 for d_specificity>0; zero/nonpositive is failure.",
+      "Holm step-down FWER=0.05 across these two co-primary tests."
+    ]
+  },
+  "created_utc": "2026-08-21T01:33:00Z",
+  "frozen_sources": {
+    "fresh_cohort": {
+      "path": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json",
+      "sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009"
+    },
+    "independent_sanity_prereg_review": {
+      "path": "results/design/plancarry_replay_residual_independent_sanity_review_a4_final_20260821.json",
+      "sha256": "7438b2ae6813b2994bac8029e2789cd7b0a2d6794b62398bd0e098f39c6543fa"
+    },
+    "sanity_prereg": {
+      "path": "results/design/plancarry_replay_residual_sanity_prereg_v1_1_20260821.json",
+      "sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c"
+    },
+    "t1_population_binding": {
+      "path": "results/design/plancarry_replay_residual_t1_population_binding_v1_20260821.json",
+      "sha256": "e84e6fe28594cab88e9d08b636fb3aaad164459eae2eb967fdb0bf36e5456c23"
+    },
+    "untouched_population": {
+      "path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json",
+      "sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+    }
+  },
+  "high_tier_claim_boundary": {
+    "candidate_novel_claim": "An episode-specific within-trajectory plan residual, injected exactly once after a real context reset and carried only by the persistent model state, causally preserves later plan commitment and task behavior beyond matched next-action, history, unrelated-plan, shuffled-plan and equal-norm random controls.",
+    "minimum_paper_ladder": "Representation sanity PASS -> untouched causal T1 support -> no-retuning family-disjoint T1R. A persistence/decay or compactness tier and cross-model/environment replication are required for strongest ICLR/NeurIPS framing.",
+    "prior_art_not_claimed": [
+      "replay pairing",
+      "activation-difference steering",
+      "single-token activation intervention",
+      "hidden-state memory",
+      "procedural activation memory"
+    ]
+  },
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_PREREG_V1",
+  "latent_payload_provenance": "inherit sanity v1.1 required SHA256 metadata; additionally bind reset_snapshot_sha256, reset_prefix_sha256, active_residual_sha256, injected_vector_sha256, selected_alpha, selected_layer, hook_count, session_id_hash and arm name for every causal rollout.",
+  "model_runtime": {
+    "device": "cuda",
+    "device_name_required": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "generation": {
+      "admissible_action_constrained": true,
+      "enable_thinking": false,
+      "temperature": 0.0
+    },
+    "id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "rebind_policy": "technical-only runtime rebind requires separate pre-outcome audit; no model-family/precision change within T1.",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "natural_checkpoint": {
+    "planner_executor": "same model as sanity; model-own explicit <PLAN> block and uninterrupted trajectory, no expert/oracle plan/action fields",
+    "qualification": "inherit sanity v1.1 exact plan<=96 token, no reasoning trace, success<=12 actions, interruption with >=2 completed and >=2 remaining; no replacement",
+    "reset_boundary": "immediately after the second completed post-plan ACTION/OBSERVATION cycle (sanity t2) when >=2 reference actions remain",
+    "source_capture_site": "last token immediately before the next ACTION: field at t2, residual-stream output of selected transformer block",
+    "source_residual": "r_PLAN(layer,t2)=h_PLAN(layer,t2)-h_NEUTRAL_FILLER(layer,t2), raw FP32 before intervention scaling"
+  },
+  "parent_hypothesis_id": "2c4031ca-7269-43af-98dd-225c29e030a9",
+  "phase_guards": [
+    "No T1 causal request before canonical sanity PASS.",
+    "No confirmation access before content-hashed development selection.",
+    "No replication access before supported primary confirmation.",
+    "No threshold relaxation, family replacement/filtering, alternate filler rescue, prompt rescue, or model switch within this lineage.",
+    "No repeated intervention.",
+    "No partial confirmation inspection to alter protocol.",
+    "valid_seen/valid_unseen remain untouched."
+  ],
+  "primary_endpoint": {
+    "definition": "Let reference remaining actions after reset be a1..am (m>=2). For an arm rollout, action1 is deliberately excluded. LPA = (1/(m-1)) * sum_{j=2..m} I[arm action_j equals reference action_j AND pre-action world-state hash equals the uninterrupted reference hash]. If an arm diverges, terminates, or lacks action_j, that and subsequent unmatched positions score 0. Different successful routes therefore do not establish restoration of the original active plan.",
+    "name": "later_plan_agreement_LPA",
+    "why_first_action_excluded": "Immediate next-action copying cannot contribute to the primary endpoint."
+  },
+  "repair_provenance": {
+    "environment_execution": 0,
+    "independent_review_path": "results/design/plancarry_replay_residual_t1_independent_prereg_review_material_v1_20260821.json",
+    "independent_review_sha256": "a86260ef008e2caeb673fbbab51e36d3e723e6f402e8bc8316898915a4711329",
+    "model_calls": 0,
+    "scientific_outcomes_accessed": false,
+    "scientific_variables_changed": [
+      "T1R_DECISION_RULE_COMPLETION_ONLY"
+    ]
+  },
+  "replication_reserve": {
+    "attainable_geometry": {
+      "holm_first_step_alpha": 0.025,
+      "holm_second_step_alpha": 0.05,
+      "n": 12,
+      "note": "10/12 is the first attainable count with one-sided p<=0.025; therefore both co-primary tests can pass Holm when each has >=10/12 positive family differences.",
+      "null_sign_probability": 0.5,
+      "successes_10_of_12_one_sided_p": 0.019287109375,
+      "successes_9_of_12_one_sided_p": 0.072998046875
+    },
+    "decision_rule": "REPLICATED_REPLAY_RESIDUAL_T1 iff natural-trajectory gate passes, BOTH exact sign tests pass Holm FWER .05, and ALL replication effect/task-success/valid-action guards pass. Otherwise, if gate passed and execution is valid, label NOT_REPLICATED_REPLAY_RESIDUAL_T1. Technical/provenance violations are TECHNICAL_INVALID_T1R.",
+    "effect_guards": [
+      "mean d_no_patch >= 0.15 across all12",
+      "mean d_specificity >= 0.10 across all12",
+      "at least 9/12 families have d_no_patch>0 (mechanical integer realization of primary >=70% guard)",
+      "at least 8/12 families have d_specificity>0 (mechanical integer realization of primary >=65% guard)",
+      "ACTIVE TaskSuccess rate >= 0.50 across all12",
+      "ACTIVE TaskSuccess - NO_PATCH TaskSuccess >= 0.15 across all12",
+      "ACTIVE TaskSuccess - max(RANDOM_EQ_NORM,NEXT_ACTION_PRESERVED_LATE_NULL,UNRELATED_PLAN) TaskSuccess >= 0.10 across all12",
+      "ACTIVE valid-action rate is not more than 0.10 below NO_PATCH across all12"
+    ],
+    "family_comparisons": {
+      "d_no_patch": "LPA_ACTIVE-LPA_NO_PATCH",
+      "d_specificity": "LPA_ACTIVE-max(LPA_RANDOM_EQ_NORM,LPA_NEXT_ACTION_PRESERVED_LATE_NULL,LPA_UNRELATED_PLAN,LPA_SHUFFLED_PLAN,LPA_GENERIC_HISTORY)"
+    },
+    "labels": {
+      "inconclusive": "INCONCLUSIVE_T1R_EXPRESSIVITY",
+      "null": "NOT_REPLICATED_REPLAY_RESIDUAL_T1",
+      "support": "REPLICATED_REPLAY_RESIDUAL_T1",
+      "technical_invalid": "TECHNICAL_INVALID_T1R"
+    },
+    "natural_trajectory_gate": "Require >=10/12 fixed reserve families to yield a valid model-own plan checkpoint and all mandatory control constructions under the exact imported primary protocol. If fewer than 10/12 are valid, stop INCONCLUSIVE_T1R_EXPRESSIVITY. If the gate passes, ALL 12 fixed families remain in every primary replication denominator; any invalid/unconstructible family receives LPA=0 for ACTIVE and nonpositive d_no_patch/d_specificity, cannot count as a sign success, and is never replaced.",
+    "no_rescue": "T1R cannot rescue a null/invalid primary confirmation. A null T1R cannot be rescued by retuning layer/site/alpha, changing thresholds, dropping/replacing families, switching model/prompt/environment, inspecting a new reserve, or relaxing multiplicity/effect guards. Any later larger replication must be separately frozen before T1R outcome access and reported as a distinct evidence family.",
+    "population": "exact n=12 source indices52..63, untouched until valid SUPPORTED_REPLAY_RESIDUAL_T1",
+    "power_note": "n=12 is a robustness replication with limited power: under a true per-family positive-difference probability of 0.80, P[X>=10] is about 0.558. Therefore a failure is evidence against exact replication but does not by itself establish absence of the mechanism outside this preregistered reserve; the primary n=20 remains the main causal confirmation.",
+    "role": "family-disjoint T1R robustness; cannot rescue a null primary confirmation",
+    "rule": "import exact confirmation layer/alpha, vector normalization, runtime, endpoints, thresholds and arm definitions with no retuning/replacement",
+    "scientific_role": "FAMILY_DISJOINT_NO_RETUNING_REPLICATION",
+    "tests": [
+      "Exact one-sided Binomial/sign test n=12 for d_no_patch>0; zero/nonpositive is failure.",
+      "Exact one-sided Binomial/sign test n=12 for d_specificity>0; zero/nonpositive is failure.",
+      "Holm step-down FWER=0.05 across these two co-primary replication tests."
+    ]
+  },
+  "reset_and_session_contract": {
+    "external_state": "clone the exact environment snapshot at reset; world-state hash, current observation, admissible-action set, task instruction and reset serialization must match across all causal arms",
+    "failure_label": "INVALID_REPEATED_INTERVENTION if hook_count !=1, reset prefix is recomputed, KV session is restarted, or a vector is injected after the reset-prefix forward.",
+    "persistence": "all later generated action tokens and appended environment observations continue through the SAME KV/session. Never rebuild the reset prefix and never re-inject/recompute the intervention.",
+    "reset_context": "task instruction + current reset observation + current admissible actions + ACTION: field; no pre-reset plan text, no old dialogue/history, no expert state",
+    "single_injection": "exactly one hook application on the reset-prefix forward at the selected layer and last token immediately before ACTION:. Hook counter MUST equal 1, then hook is removed permanently."
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_DESIGN_ONLY",
+  "scientific_role": "CAUSAL_T1_PROSPECTIVE_ONLY",
+  "secondary_endpoints": {
+    "first_action_match": "reported descriptively only and cannot rescue LPA",
+    "task_success": "binary environment success within <=12 post-reset environment actions",
+    "valid_action_rate": "fraction of generated actions accepted by the environment",
+    "visible_text_ceiling": "LPA and TaskSuccess under VISIBLE_TEXT_PLAN, descriptive positive ceiling"
+  },
+  "supersedes": {
+    "path": "results/design/plancarry_replay_residual_t1_prereg_v1_20260821.json",
+    "reason": "Pre-outcome completion of explicit T1R decision rule required by independent review; no primary T1 or population change.",
+    "sha256": "8ae963cfd6894a96b2c11097c82f460598b67d2e618c2b4ff39cf7c43ce5f858"
+  }
+}

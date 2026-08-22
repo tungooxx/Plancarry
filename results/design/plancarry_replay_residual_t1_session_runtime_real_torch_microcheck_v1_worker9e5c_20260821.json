@@ -1,0 +1,47 @@
+{
+  "alfworld_execution": 0,
+  "checks": {
+    "candidate_scoring_live_cache_byte_identical": true,
+    "candidate_scoring_live_length_identical": true,
+    "device_cuda_if_available": true,
+    "direct_ids_hashes_present": true,
+    "dynamic_cache_live_nonempty": true,
+    "hook_count_exactly_one": true,
+    "no_alfworld_or_textworld_imports": true,
+    "no_confirmation_or_valid_split_science_path": true,
+    "same_session_cache_extended": true,
+    "source_hash_nonempty": true,
+    "tests_hash_nonempty": true,
+    "zero_add_cache_exact": true,
+    "zero_add_equivalent_atol_1e_6": true
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_SESSION_RUNTIME_REAL_TORCH_SYNTHETIC_MICROCHECK_V1",
+  "model_calls": "SYNTHETIC_TINY_TORCH_ONLY",
+  "pre_outcome": true,
+  "replayresidual_family_access": 0,
+  "runtime": {
+    "cublas_workspace_config": ":4096:8",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.bfloat16",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "source_sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+  "synthetic": {
+    "cache_sha_after_score": "3dba9cf9aea3196393c590f0c57b7fd1ca86816ab2996b1d4d609fcacd75ee70",
+    "cache_sha_before_score": "3dba9cf9aea3196393c590f0c57b7fd1ca86816ab2996b1d4d609fcacd75ee70",
+    "candidate_count": 2,
+    "chosen_command": "alpha",
+    "context_after_action": 6,
+    "context_after_observation": 9,
+    "engineering_equiv_atol": 1e-06,
+    "hook_count": 1,
+    "prefix_len": 4,
+    "zero_add_next_logits_maxabs": 0.0
+  },
+  "tests_sha256": "234a4f56a25fd8cce7c9d7edf74c9415c17916598f592dca315d29f44eb849e7"
+}

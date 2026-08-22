@@ -1,0 +1,312 @@
+{
+  "alfworld_calls": 0,
+  "capture_only": {
+    "capture": [
+      200,
+      {
+        "ok": true,
+        "provenance": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        },
+        "result": {
+          "backend": "mock",
+          "hidden_size": 8,
+          "layer": 1,
+          "token_index_requested": -1,
+          "token_index_resolved": -1,
+          "vector": [
+            -0.45882352941176474,
+            0.2313725490196079,
+            -0.2705882352941177,
+            0.1215686274509804,
+            0.4980392156862745,
+            0.4745098039215687,
+            -0.7176470588235294,
+            -0.34901960784313724
+          ]
+        }
+      }
+    ],
+    "health": [
+      200,
+      {
+        "ok": true,
+        "result": {
+          "api_version": "plancarry-whitebox-v1",
+          "device_name": "NO_MODEL_LOADED",
+          "mode": "mock",
+          "model_id": "mock/no-model",
+          "ok": true,
+          "scientific_result": "NOT_ASSESSED",
+          "uptime_seconds": 0.026
+        }
+      }
+    ],
+    "model_info": [
+      200,
+      {
+        "ok": true,
+        "result": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        }
+      }
+    ],
+    "patch": [
+      404,
+      {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "unknown endpoint"
+        },
+        "ok": false
+      }
+    ],
+    "patch_calls": 0,
+    "score": [
+      200,
+      {
+        "ok": true,
+        "provenance": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        },
+        "result": {
+          "backend": "mock",
+          "scores": [
+            {
+              "logprob_sum": -2.00018,
+              "suffix": " A",
+              "token_count": 1
+            },
+            {
+              "logprob_sum": -2.00701,
+              "suffix": " B",
+              "token_count": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "legacy": {
+    "capture": [
+      200,
+      {
+        "ok": true,
+        "provenance": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        },
+        "result": {
+          "backend": "mock",
+          "hidden_size": 8,
+          "layer": 1,
+          "token_index_requested": -1,
+          "token_index_resolved": -1,
+          "vector": [
+            -0.45882352941176474,
+            0.2313725490196079,
+            -0.2705882352941177,
+            0.1215686274509804,
+            0.4980392156862745,
+            0.4745098039215687,
+            -0.7176470588235294,
+            -0.34901960784313724
+          ]
+        }
+      }
+    ],
+    "health": [
+      200,
+      {
+        "ok": true,
+        "result": {
+          "api_version": "plancarry-whitebox-v1",
+          "device_name": "NO_MODEL_LOADED",
+          "mode": "mock",
+          "model_id": "mock/no-model",
+          "ok": true,
+          "scientific_result": "NOT_ASSESSED",
+          "uptime_seconds": 0.003
+        }
+      }
+    ],
+    "model_info": [
+      200,
+      {
+        "ok": true,
+        "result": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        }
+      }
+    ],
+    "patch": [
+      200,
+      {
+        "ok": true,
+        "provenance": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        },
+        "result": {
+          "backend": "mock",
+          "layer": 1,
+          "mode": "add",
+          "patch_vector_l2_input": 0.0,
+          "patch_vector_sha256": "772678da0f939586f29ed95648d14ec71733cc13d13a47a5a83552cc2f4906ab",
+          "scale": 1.0,
+          "scores": [
+            {
+              "logprob_sum": -2.00018,
+              "suffix": " A",
+              "token_count": 1
+            },
+            {
+              "logprob_sum": -2.00701,
+              "suffix": " B",
+              "token_count": 1
+            }
+          ],
+          "token_index_requested": -1
+        }
+      }
+    ],
+    "patch_calls": 1,
+    "score": [
+      200,
+      {
+        "ok": true,
+        "provenance": {
+          "api_version": "plancarry-whitebox-v1",
+          "device": "cpu-mock",
+          "device_name": "NO_MODEL_LOADED",
+          "dtype": "mock",
+          "hidden_size": 8,
+          "mode": "mock",
+          "model_commit_resolved": "mock",
+          "model_id": "mock/no-model",
+          "model_revision_requested": "mock",
+          "num_layers": 4,
+          "parameter_count": 0,
+          "python_version": "3.13.15",
+          "quantization": "NONE",
+          "scientific_result": "NOT_ASSESSED",
+          "tokenizers_version": null,
+          "torch_version": null,
+          "transformers_version": null
+        },
+        "result": {
+          "backend": "mock",
+          "scores": [
+            {
+              "logprob_sum": -2.00018,
+              "suffix": " A",
+              "token_count": 1
+            },
+            {
+              "logprob_sum": -2.00701,
+              "suffix": " B",
+              "token_count": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "model_calls": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "PASS"
+}

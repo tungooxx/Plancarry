@@ -1,0 +1,151 @@
+{
+  "backbone": {
+    "config_subset": {
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "head_dim": 128,
+      "hidden_size": 2560,
+      "intermediate_size": 9728,
+      "max_position_embeddings": 262144,
+      "num_attention_heads": 32,
+      "num_hidden_layers": 36,
+      "num_key_value_heads": 8,
+      "rope_theta": 5000000,
+      "torch_dtype": "bfloat16",
+      "vocab_size": 151936
+    },
+    "hf_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554"
+  },
+  "compute_feasibility": {
+    "adapter_checkpoint_bytes": 1719857634,
+    "backbone_layers": 36,
+    "base_fp16_parameter_storage_lower_bound_bytes": 8000000000,
+    "context_tokens": 128000,
+    "head_dim": 128,
+    "kv_cache_128k_fp16_theoretical_bytes": 18874368000,
+    "kv_formula": "context_tokens * num_layers * 2(K,V) * num_kv_heads * head_dim * 2 bytes",
+    "kv_heads": 8,
+    "note": "Conservative feasibility accounting. 4B is a label-based lower-bound for parameter count, not an exact parameter census; actual inference also needs activations, logits, allocator/workspace and TransMem runtime memory. A 4GB GTX1650 cannot execute the full official 128k paired reproduction.",
+    "sum_lower_bound_before_activations_allocator_bytes": 28594225634
+  },
+  "execution_guards": [
+    "Verify all repo/model/adapter/dataset hashes/revisions before inference.",
+    "Use checkpoint N=4 with no inference-time N override for primary reproduction.",
+    "Use paired mode so student and TransMem share exact examples/prompt budget.",
+    "Greedy deterministic decoding as official TransMem evaluator.",
+    "Complete all 13 sources; no smoke/partial result promoted as full.",
+    "Run external judge for longmemeval_s* and infbench_sum_eng_shots2 under frozen judge protocol.",
+    "Report per-source metrics; do not manufacture an official cross-source MAB average.",
+    "Do not interpret this generic-memory benchmark as direct evidence for PlanCarry-Latent causal plan-state hypothesis."
+  ],
+  "future_execution_command_template": "CUDA_VISIBLE_DEVICES=0 python scripts/eval/eval_memory_agent_bench.py --model_path <QWEN3_4B_INSTRUCT_2507_PINNED> --mode paired --ckpt <BEST_PT_PINNED> --checkpoint_id hf://Rayleihaodong/TransMem-qwen3-4B-D4@85ba1010eb226e312e208940180bb60424a2cb79/best.pt --mab_root <MAB_CODE_455306d> --data_dir <MAB_PROCESSED_DATA_FROM_DATASET_7ea0669> --agent_input_tokens 128000 --output_dir <OUT>",
+  "judge_protocol": {
+    "default_judge_model": "gpt-4o",
+    "path": "results/design/transmem_memoryagentbench_judge_protocol_v1.json",
+    "sha256": "c17c6a47d6abdaad480ee5c41ffe52e9834760709728038859e14c0de206877a"
+  },
+  "kind": "TRANSMEM_NAMED_RELEASE_MEMORYAGENTBENCH_REPRO_CONTRACT_V2",
+  "memoryagentbench": {
+    "agent_input_tokens": 128000,
+    "code_head_at_freeze": "455306dcabc3842526eb83cd4e225e5d486c5c5d",
+    "code_repo": "https://github.com/HUST-AI-HYZ/MemoryAgentBench",
+    "dataset_hf_id": "ai-hyz/MemoryAgentBench",
+    "dataset_last_modified": "2026-06-21T10:21:33Z",
+    "dataset_revision": "7ea066982b140a19337e17e60d45d4076e042faf",
+    "reporting_rule": "Report each source student_primary and transmem_primary; longmemeval_s* and infbench_sum_eng_shots2 require the frozen external judge protocol for official scores; lexical first-pass metrics are proxy only.",
+    "sources": [
+      "ruler_qa1_197K",
+      "ruler_qa2_421K",
+      "longmemeval_s*",
+      "eventqa_full",
+      "icl_banking77_5900shot_balance",
+      "icl_clinic150_7050shot_balance",
+      "icl_nlu_8296shot_balance",
+      "icl_trec_coarse_6600shot_balance",
+      "icl_trec_fine_6400shot_balance",
+      "recsys_redial_full",
+      "infbench_sum_eng_shots2",
+      "factconsolidation_sh_262k",
+      "factconsolidation_mh_262k"
+    ]
+  },
+  "paper": {
+    "arxiv": "2607.29032",
+    "id": "d01f4a22-61c4-4c85-9e07-cadb55333fe5",
+    "paper_aggregate_role": "context_only_not_direct_reproduction_target",
+    "reported_mab_student_percent": 29.54,
+    "reported_mab_transmem_percent": 40.0
+  },
+  "provenance": {
+    "adapter_tensor_payload_downloaded": false,
+    "memoryagentbench_outcomes_seen": false,
+    "model_inference_performed": false
+  },
+  "released_adapter": {
+    "bytes": 1719857634,
+    "checkpoint": {
+      "D": 4,
+      "N": 4,
+      "best_step": 1250,
+      "best_val": 0.2872940377936396,
+      "config": {
+        "a_init": 1.0,
+        "attn_impl": "sdpa",
+        "block_depth": 1,
+        "causal": true,
+        "dim": 2560,
+        "final_norm": true,
+        "gate_granularity": "token_scalar",
+        "gate_init": 1.0,
+        "gate_max": 2.0,
+        "gate_mode": "centered_sigmoid",
+        "gate_temperature": 1.0,
+        "head_dim": 128,
+        "hm_mode": "floor",
+        "initializer_range": 0.02,
+        "inject_layers": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "intermediate_size": 9728,
+        "layered": true,
+        "learnable_a": false,
+        "max_position_embeddings": 262144,
+        "max_queries": 256,
+        "n_mem": 4,
+        "num_heads": 32,
+        "num_kv_heads": 8,
+        "pos_mode": "rope",
+        "rms_norm_eps": 1e-06,
+        "rope_theta": 5000000.0,
+        "zero_init_out": true
+      },
+      "epoch": 2,
+      "global_step": 1250,
+      "init_scheme": "scratch_joint",
+      "joint_finetune_steps": 1250,
+      "seed": 20260714,
+      "train_mode": "inloop_tf"
+    },
+    "file": "best.pt",
+    "hf_commit_title": "Upload TransMem D=4 dynamic-gate checkpoint",
+    "hf_id": "Rayleihaodong/TransMem-qwen3-4B-D4",
+    "hf_revision": "85ba1010eb226e312e208940180bb60424a2cb79",
+    "lfs_sha256": "f338bb669c2be6982077a46196573daefa86f78415e43e2de4c0bcd8e6bedae2",
+    "metadata_extraction": "HTTP Range read of torch ZIP central directory + 13,351-byte data.pkl; model tensor storages were not downloaded."
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "Official-source reproduction contract for the named public released adapter only. Future results must be reported per MemoryAgentBench source. This artifact does not claim the released best.pt is the exact checkpoint underlying the paper-level 40.00% aggregate because the public release card does not state that mapping and MemoryAgentBench itself defines per-source metrics rather than one official cross-source overall.",
+  "transmem_repo": {
+    "commit": "6d7a6127967ad44482c958b555d8c83bfb75e9b9",
+    "evaluator_path": "scripts/eval/eval_memory_agent_bench.py",
+    "evaluator_sha256": "64cfde7b4dac3eb6f4e06fdda85ee60441f6c8d113386d4ce3bf836c601c2927",
+    "parallel_launcher_path": "scripts/eval/Qwen3-4B-Instruct-2507/run_eval_memory_agent_bench_parallel.sh",
+    "parallel_launcher_sha256": "23a9f07020280237acd11f2eb3a610072c55d13fb958398ac486d44949d3212d",
+    "url": "https://github.com/Haodong-Lei-Ray/TransMem"
+  }
+}

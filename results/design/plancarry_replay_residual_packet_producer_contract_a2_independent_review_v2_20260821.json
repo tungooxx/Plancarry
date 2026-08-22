@@ -1,0 +1,75 @@
+{
+  "authorization": "DO_NOT_ENGINEER_OR_EXECUTE_V1; successor unified-v2 contract requires fresh independent review before science.",
+  "checks": {
+    "admissible_only_action_policy": true,
+    "atomic_all32_publish": true,
+    "capture_patch_injection_forbidden": true,
+    "contract_hash_exact": true,
+    "cut_exact_2": true,
+    "execution_contract_is_current_canonical_realization": false,
+    "executor_serialization_matches_latest_resolution": false,
+    "indices_exact_0_31": true,
+    "max12_actions": true,
+    "mean_teacher_forced_logprob": true,
+    "no_cut_search": true,
+    "no_replacement": true,
+    "no_traj_data_expert_oracle": true,
+    "no_valid_seen_unseen": true,
+    "nontrivial_action_semantics_match_canonical": false,
+    "planner_max_new_tokens_matches_latest_resolution_128": false,
+    "sealed_reserve_matches_canonical_32_63": false,
+    "single_plan_attempt_no_retry": true,
+    "task_instruction_source_matches_latest_resolution_live_observation": false,
+    "thinking_disabled": true,
+    "unrelated_plan_donor_selection_non_circular": false
+  },
+  "contract_path": "results/design/plancarry_replay_residual_natural_packet_producer_contract_v1_20260821.json",
+  "contract_sha256": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752",
+  "created_utc": "2026-08-21T08:04:00Z",
+  "environment_execution": 0,
+  "fresh_cohort_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_PACKET_PRODUCER_CONTRACT_A2_INDEPENDENT_REVIEW_V2",
+  "latest_conflict_audit_sha256": "43a08cba3b69b42570c059ce30e0a4fbac96405b3fd87a5185333175ca40b247",
+  "material_findings": [
+    {
+      "id": "SEALED_RESERVE_METADATA_MISMATCH",
+      "impact": "immutable execution lineage metadata mismatch; old registration/contract must not execute.",
+      "observed": "v1 packet contract declares sealed_indices=32..83; registered Experiment 5ac34da1 also stores [32,83].",
+      "required": "authoritative sanity v1.1 and fresh cohort bind future reserve to indices32..63."
+    },
+    {
+      "id": "NONTRIVIAL_ACTION_SEMANTICS_MISMATCH",
+      "impact": "can change which natural trajectories qualify and whether >=2 meaningful actions remain after reset.",
+      "observed": "v1 contract says every command passed to AlfRuntime.step counts as an environment action and qualification only requires len(actions)>=4.",
+      "required": "latest prospective resolution excludes exact help/inventory/look and requires first two nontrivial plus at least two post-cut nontrivial actions."
+    },
+    {
+      "id": "UNRELATED_DONOR_QUALIFICATION_CIRCULARITY",
+      "impact": "without two-stage rule the donor set can depend on qualification fixed point and create outcome-dependent ambiguity.",
+      "observed": "v1 selects unrelated donor from other qualified families while all-seven-control constructibility itself is required for qualification.",
+      "required": "freeze trajectory-eligible set first, then deterministic next-different-family donor over that fixed set, then final control-constructibility qualification; no alternate donor/rescue."
+    },
+    {
+      "id": "SUPERSEDED_EXECUTION_REALIZATION",
+      "impact": "v1 is no longer the current executable realization; independently approving it would reintroduce a researcher degree of freedom.",
+      "observed": "v1 uses max_new_tokens=112, family-derived task instruction, different planner/executor prompts/serialization, and older action semantics.",
+      "required": "WorkItem 88ab2f5b freezes unified v2: max_new_tokens=128, live initial-observation task extraction, exact selected prompts/chat serialization, canonical 32..63 reserve, two-stage qualification and atomic publish."
+    }
+  ],
+  "model_calls": 0,
+  "prior_independent_review_consistency": {
+    "note": "Agreement is coordination metadata only; this review independently verified material defects from artifacts and canonical registration.",
+    "path": "results/design/plancarry_replay_residual_packet_producer_contract_independent_review_v1_20260821.json",
+    "prior_verdict": "MATERIAL_REPAIR_REQUIRED",
+    "sha256": "2ab863662761312bbdfb7b36eee5a34d1a4d6d035d0338f24e4df4185a445ce9"
+  },
+  "registered_experiment_id": "5ac34da1-426c-410d-a468-83758ae6b4f5",
+  "reviewer": "LLM A2",
+  "sanity_prereg_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "successor_work_item_id": "88ab2f5b-3473-4c25-8644-5110bf2953bd",
+  "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "1975785c-9b7d-466f-9075-9080f8a1540b"
+}

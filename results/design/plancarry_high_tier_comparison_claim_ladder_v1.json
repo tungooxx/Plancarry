@@ -1,0 +1,204 @@
+{
+  "canonical_t1_experiment_id": "e436f81c-e31f-43e9-8fef-f3e3c2c6e250",
+  "claim_ladder": [
+    {
+      "claim": "A content-specific active-plan component causally controls the first post-reset plan-relevant branch under matched observable state.",
+      "forbidden_claims": [
+        "checkpoint persistence",
+        "memory",
+        "compactness",
+        "generality",
+        "end-to-end superiority"
+      ],
+      "go": "Run pre-frozen family-disjoint T1 replication; do not alter layer/alpha.",
+      "minimum_evidence": [
+        "canonical v2.4 confirmation passes all frozen validity/expressivity/sign/Holm/effect/bidirectionality gates"
+      ],
+      "no_go": "Valid null/weak specificity -> weaken single-site contrast mechanism; do not rescue via retuning.",
+      "rung": "T1"
+    },
+    {
+      "claim": "The T1 causal branch-control effect is robust to disjoint task families within the same model/environment.",
+      "forbidden_claims": [
+        "multi-step persistence",
+        "memory system",
+        "cross-model/environment generality"
+      ],
+      "go": "Register/execute T2 single-injection persistence study.",
+      "minimum_evidence": [
+        "pre-frozen 20-family train reserve passes identical no-retuning gates"
+      ],
+      "no_go": "Do not promote high-tier general mechanism claim; investigate cohort dependence prospectively.",
+      "rung": "T1R"
+    },
+    {
+      "claim": "A single restored plan carrier persists causally across >=1 identical action/observation cycle without reinjection and affects a later plan branch.",
+      "forbidden_claims": [
+        "long-horizon persistence beyond tested cycles",
+        "compact/minimal representation",
+        "endogenous self-generated plan state"
+      ],
+      "go": "T3 endogenous checkpoint/minimality/storage.",
+      "minimum_evidence": [
+        "single initial injection",
+        "identical forced common prefix",
+        "persistent KV/cache session",
+        "no repeated patch",
+        "later reciprocal branch effect beyond controls"
+      ],
+      "no_go": "Classify FAIL_PERSISTENCE: T1 was transient action/branch steering, not plan memory.",
+      "rung": "T2"
+    },
+    {
+      "claim": "An endogenous pre-interruption plan state can be checkpointed/restored with meaningful compression/minimality and retained causal function.",
+      "forbidden_claims": [
+        "broad generality from one model/environment"
+      ],
+      "go": "Second model family + second environment replication.",
+      "minimum_evidence": [
+        "agent-generated plan source",
+        "checkpoint before interruption",
+        "restore after fresh context",
+        "ablation/minimality",
+        "global basis + per-episode storage accounting",
+        "matched text/latent controls"
+      ],
+      "no_go": "Do not sell compact memory; retain narrower mechanistic result if valid.",
+      "rung": "T3"
+    },
+    {
+      "claim": "The mechanism generalizes across model family and environment and supports end-to-end interruption robustness.",
+      "forbidden_claims": [],
+      "go": "High-tier main claim is defensible.",
+      "minimum_evidence": [
+        "second model family",
+        "second environment",
+        "matched end-to-end baselines",
+        "task competence/success and causal endpoints",
+        "no benchmark switching after nulls"
+      ],
+      "no_go": "Scope paper to mechanistic findings actually replicated.",
+      "rung": "G"
+    }
+  ],
+  "end_to_end_baseline_policy": {
+    "do_not_do": [
+      "do not place published numbers from different models/tasks into one table as if directly comparable",
+      "do not call k<=32 compact without global-basis amortization",
+      "do not use a stronger model for our method than baselines"
+    ],
+    "fairness": [
+      "same base model/revision/precision",
+      "same task split/cohort",
+      "same interruption protocol",
+      "same action budget",
+      "report actual text tokens + latent storage bytes/bits + global learned/shared overhead",
+      "same model-call budget where applicable",
+      "separate reported-literature context from our matched reruns"
+    ],
+    "matched_baselines": [
+      "no memory",
+      "full/recent history where budget-feasible",
+      "token-matched generic summary",
+      "structured textual PlanCarry",
+      "matched latent-memory method(s) reproducible on same model/task/hardware",
+      "state-conditioned memory method(s) reproducible/applicable"
+    ],
+    "when": "Only after T1R and T2 support; do not spend core compute on performance benchmarking before the mechanism survives."
+  },
+  "kind": "PLANCARRY_HIGH_TIER_COMPARISON_CLAIM_LADDER_V1",
+  "mechanism_comparisons": [
+    {
+      "name": "NO_PATCH",
+      "required_at": "T1+",
+      "role": "matched causal base"
+    },
+    {
+      "name": "ZERO_ADD",
+      "required_at": "T1+",
+      "role": "plumbing identity"
+    },
+    {
+      "name": "SELF_PATCH",
+      "required_at": "T1+",
+      "role": "plumbing/competence identity"
+    },
+    {
+      "name": "ARCHIVED_ORDER",
+      "required_at": "T1+",
+      "role": "order-token/lexical null without active commitment"
+    },
+    {
+      "name": "RANDOM_SAME_NORM",
+      "required_at": "T1+",
+      "role": "generic perturbation null"
+    },
+    {
+      "name": "UNRELATED_PLAN",
+      "required_at": "T1+",
+      "role": "plan-specificity null with frozen independent donor"
+    },
+    {
+      "name": "PREFIX_ONLY_REENCODE",
+      "required_at": "T2",
+      "role": "later-state/text leakage control; destroys carried latent state while preserving later observable state"
+    },
+    {
+      "name": "first-action/common-prefix discriminator",
+      "required_at": "T2",
+      "role": "rules out immediate next-action-feature interpretation"
+    }
+  ],
+  "model_outcomes_seen": false,
+  "principle": "Do not promote a later-rung claim from evidence collected for an earlier rung. A positive T1 is causal branch control, not memory; latent-memory performance is prior art and cannot be the novelty claim.",
+  "prior_art_boundary": [
+    {
+      "already_covers": "decoding/localization and activation patching of future-plan information",
+      "family": "Where’s the Plan? / causal planning localization",
+      "our_required_difference": "interrupted embodied-agent active-plan identity, matched-world transplant, later persistence"
+    },
+    {
+      "already_covers": "causal or transported internal vectors/states",
+      "family": "Function vectors / activation transfer / StateBridge",
+      "our_required_difference": "episode-specific active-plan semantic identity and interruption persistence"
+    },
+    {
+      "already_covers": "latent/hidden-state memory or latent guidance",
+      "family": "TransMem / Memory Inception / MemGen",
+      "our_required_difference": "causally identified plan carrier rather than generic memory/guidance"
+    },
+    {
+      "already_covers": "state-conditioned/learned latent memory for embodied agents and ALFWorld-like performance",
+      "family": "MemCompiler / ElasticMem",
+      "our_required_difference": "causal plan-state identification/checkpoint/restore; ALFWorld gains alone are not novelty"
+    }
+  ],
+  "reviewer_go_no_go": [
+    {
+      "question": "Could T1 be mere order-token steering?",
+      "required_answer": "ARCHIVED_ORDER + lexical matching + bidirectional active contrast must separate it."
+    },
+    {
+      "question": "Could T1 be generic activation sensitivity?",
+      "required_answer": "RANDOM_SAME_NORM + UNRELATED_PLAN specificity and competence guards."
+    },
+    {
+      "question": "Could T1 be immediate-action copying rather than plan state?",
+      "required_answer": "T2 shared-prefix/single-injection later divergence."
+    },
+    {
+      "question": "Could result be cohort-specific?",
+      "required_answer": "pre-frozen no-retuning family-disjoint T1 reserve."
+    },
+    {
+      "question": "Could novelty just be latent memory?",
+      "required_answer": "No; paper framing and experiments center causal identification/persistence; MemCompiler/ElasticMem/etc. are explicit prior-art boundaries."
+    },
+    {
+      "question": "Could compression claim ignore shared basis cost?",
+      "required_answer": "Report basis k*d*precision, per-episode coefficients/checkpoint, raw state, amortization and text-token baseline."
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "status": "FROZEN_OUTCOME_FREE"
+}

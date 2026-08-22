@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "action_scoring_frozen": true,
+    "bidirectional_guard": true,
+    "both_orders_environment_success": true,
+    "compactness_claim_forbidden": true,
+    "competence_numeric": true,
+    "confirmation_20": true,
+    "confirmation_delayed_ge8": true,
+    "fixed_alpha": true,
+    "fixed_layers": true,
+    "fp16_no_quantization": true,
+    "lexical_multiset_equal": true,
+    "manifest_40_actual_pairs": true,
+    "multiplicity_holm": true,
+    "no_expert_plan": true,
+    "no_model_pair_construction": true,
+    "no_valid_seen_unseen": true,
+    "rtx3050_only": true,
+    "self_patch_numeric": true,
+    "single_source_claim_forbidden": true,
+    "tie_frozen": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_STATIC_PREREG_AUDIT",
+  "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "pass": true,
+  "prereg_sha256": "763400a293df3e689525a1b05f66106f2766ce529a73b44a3d55a5a8ef9ade8d",
+  "scientific_outcomes_seen": false,
+  "scientific_result": "NOT_ASSESSED"
+}

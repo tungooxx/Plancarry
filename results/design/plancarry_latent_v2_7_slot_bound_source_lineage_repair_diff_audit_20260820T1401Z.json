@@ -1,0 +1,48 @@
+{
+  "changed_paths": [
+    "artifact_integrity.policy",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "pre_registration_static_review.status",
+    "validity_guards[10]"
+  ],
+  "confirmation_accessed": false,
+  "core_exact_equal_checks": {
+    "action_scoring": true,
+    "confirmation_primary": true,
+    "data": true,
+    "development_selection": true,
+    "expected_direction": true,
+    "fail_condition": true,
+    "intervention_math": true,
+    "model_expressivity_gate": true,
+    "novelty_scope": true,
+    "pair_variable": true,
+    "pass_condition": true,
+    "plumbing_guard": true,
+    "primary_metric": true,
+    "secondary_metrics": true,
+    "secondary_predeclared": true,
+    "source_and_target_sites": true
+  },
+  "expected_changed_paths": [
+    "artifact_integrity.policy",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "pre_registration_static_review.status",
+    "validity_guards[10]"
+  ],
+  "kind": "PLANCARRY_LATENT_V2_7_LINEAGE_ONLY_REPAIR_DIFF_AUDIT",
+  "model_calls": 0,
+  "pass": true,
+  "repair_basis_review_sha256": "7299f79c85c97aea1505be3a66c5bfad81eda6e989dbcb69529c0dc4676c5414",
+  "repair_basis_review_work_item_id": "83eba193-27fa-40a2-abd4-f0cc36154173",
+  "repaired_path": "results/design/plancarry_latent_v2_7_slot_bound_source_lineage_repaired_20260820T1401Z.json",
+  "repaired_sha256": "0b25f09d2010358c23838f0e999ce7c7bd41b1e68ce84f4f14aecafafd5bdc51",
+  "scientific_variables_changed": [],
+  "source_path": "results/design/plancarry_latent_v2_7_slot_bound_source_frozen_design_20260820T1347Z.json",
+  "source_sha256": "b87069baa1e5ebb181dcaccfb2694ae0cc8dc158edb2bd960d5437d06ddcc054",
+  "unexpected_changed_paths": [],
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false
+}

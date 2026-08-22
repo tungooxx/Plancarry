@@ -1,0 +1,87 @@
+{
+  "checks": {
+    "all_observed_families_eligible": true,
+    "candidate_count_positive": true,
+    "checkpoint_exact": true,
+    "design_science_access_zero": true,
+    "exact_four_per_eligible_family": true,
+    "manifest_science_access_zero": true,
+    "no_replacement": true,
+    "selected_paths_exist": true
+  },
+  "design_sha256": "a660b175f3f91f756c13030cb4b510e22498619d5d5e3073edc774bad5ac648f",
+  "environment_execution": 0,
+  "family_summary": {
+    "look_at_obj_in_light": {
+      "candidate_count": 18,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_141958_463362/game.tw-pddl",
+        "valid_unseen/look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133953_562557/game.tw-pddl",
+        "valid_unseen/look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133935_066606/game.tw-pddl",
+        "valid_unseen/look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201421_021646/game.tw-pddl"
+      ]
+    },
+    "pick_and_place_simple": {
+      "candidate_count": 24,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074524_006355/game.tw-pddl",
+        "valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205221_748352/game.tw-pddl",
+        "valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205204_244321/game.tw-pddl",
+        "valid_unseen/pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021650_880235/game.tw-pddl"
+      ]
+    },
+    "pick_clean_then_place_in_recep": {
+      "candidate_count": 31,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032434_013084/game.tw-pddl",
+        "valid_unseen/pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213420_728917/game.tw-pddl",
+        "valid_unseen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022321_380927/game.tw-pddl",
+        "valid_unseen/pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080825_222432/game.tw-pddl"
+      ]
+    },
+    "pick_cool_then_place_in_recep": {
+      "candidate_count": 21,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091835_825830/game.tw-pddl",
+        "valid_unseen/pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102608_318800/game.tw-pddl",
+        "valid_unseen/pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102710_795182/game.tw-pddl",
+        "valid_unseen/pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_174807_646433/game.tw-pddl"
+      ]
+    },
+    "pick_heat_then_place_in_recep": {
+      "candidate_count": 23,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083346_800823/game.tw-pddl",
+        "valid_unseen/pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161745_664033/game.tw-pddl",
+        "valid_unseen/pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021100_341887/game.tw-pddl",
+        "valid_unseen/pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182435_622538/game.tw-pddl"
+      ]
+    },
+    "pick_two_obj_and_place": {
+      "candidate_count": 17,
+      "eligible": true,
+      "selected_count": 4,
+      "selected_paths": [
+        "valid_unseen/pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_011803_423115/game.tw-pddl",
+        "valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435/game.tw-pddl",
+        "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265/game.tw-pddl",
+        "valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051056_585414/game.tw-pddl"
+      ]
+    }
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_VALID_UNSEEN_CROSS_TASK_FREEZE_AUDIT_V1",
+  "manifest_sha256": "75c282a07b012c709cc395e1f8e7b93659a81e818ab6efa28a60e2c69aca84e7",
+  "model_calls": 0,
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": []
+}

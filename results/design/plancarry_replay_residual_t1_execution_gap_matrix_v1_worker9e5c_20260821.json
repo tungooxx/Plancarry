@@ -1,0 +1,144 @@
+{
+  "authoritative_t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "components": [
+    {
+      "component": "T1 scientific design + decision rule",
+      "evidence": [
+        "t1_prereg_v1_1 SHA 77a7d9c9...",
+        "independent review SHA 9e70694d...",
+        "A4 reaudit SHA 9cfc1ea9..."
+      ],
+      "note": "No science may execute before canonical sanity PASS.",
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "T1 population binding and untouched confirmation",
+      "evidence": [
+        "population binding SHA e84e6fe2...",
+        "untouched confirmation SHA 14a13254..."
+      ],
+      "note": "Development indices0..31; confirmation source indices32..51; reserve52..63 remains sealed by prereg.",
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "V2.1 natural-plan packet production and control construction",
+      "evidence": [
+        "producer SHA bb05eb8b...",
+        "validator SHA f63fc850...",
+        "V2.1 contract SHA 83370fbf..."
+      ],
+      "note": "Engineering is sanity-only and intentionally contains no causal code; usable as natural trajectory/control source for a future T1 runner.",
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "Representation capture-only runtime",
+      "evidence": [
+        "sanity runner SHA 5d64a1a9..."
+      ],
+      "note": "Explicitly cannot patch/inject and therefore cannot execute T1.",
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "Generic one-request activation patch scoring plumbing",
+      "evidence": [
+        "whitebox bridge prefixstable SHA d8c5ad9a...",
+        "whitebox client SHA 65e4d526..."
+      ],
+      "note": "/patch_score patches one prefix forward and teacher-forces text suffixes. It reconstructs tokenization from prompt and prompt+suffix strings; it does not expose the V2.1 exact chat-template prefix IDs + separately encoded suffix IDs contract as an API.",
+      "status": "PRESENT_NEEDS_REVIEW"
+    },
+    {
+      "component": "Persistent-session single-injection causal runtime",
+      "evidence": [
+        "T1 prereg authorization_prerequisites.engineering",
+        "reset_and_session_contract.single_injection",
+        "reset_and_session_contract.persistence"
+      ],
+      "note": "Required behavior: exact reset prefix forward, hook_count==1, remove hook permanently, continue all generated actions and appended observations through the SAME KV/session, never rebuild reset prefix, never reinject. Existing bridge has no persistent scientific session API.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "Exact-token admissible-action scoring inside persistent session",
+      "evidence": [
+        "V2.1 packet producer exact prefix/suffix token contract",
+        "existing bridge _continuation_ids uses tokenizer(prompt) and tokenizer(prompt+suffix)"
+      ],
+      "note": "Need pretokenized/chat-template-consistent prefix/suffix handling with separate suffix IDs and FP32 suffix mean logprob / lexical tie-break, without joint retokenization.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "T1 causal development runner",
+      "evidence": [
+        "causal_development.global_grid layers=[7,14,21,27], alpha=[0.25,0.5,1.0]",
+        "selection_metric and vector_rule in prereg"
+      ],
+      "note": "Must run all qualified dev0..31 with global point selection only and freeze content-hashed selected layer/alpha before any confirmation request.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "T1 confirmation runner + phase seal",
+      "evidence": [
+        "confirmation population all20 source indices32..51",
+        "phase_guards no confirmation before selection hash"
+      ],
+      "note": "Must fail closed on any early confirmation access and preserve all20 denominators after natural-trajectory gate.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "T1 primary statistics / validator",
+      "evidence": [
+        "two exact one-sided sign/binomial tests n20",
+        "Holm FWER .05",
+        "8 effect/competence guards"
+      ],
+      "note": "Old PlanCarry-Latent validators contain generic Holm/binomial utilities but are a different lineage and cannot be reused without an explicit new T1 validator binding.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "Task/environment reset snapshot cloning + world-state hash checks for causal arms",
+      "evidence": [
+        "reset_and_session_contract.external_state",
+        "primary_endpoint requires pre-action world-state hash equality"
+      ],
+      "note": "Must be implemented in T1 runner/runtime with exact arm-matched reset state; no outcome-driven recovery.",
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "Family-disjoint T1R execution",
+      "evidence": [
+        "replication_reserve in T1 prereg"
+      ],
+      "note": "Implementation may share reviewed T1 runtime but execution remains forbidden until SUPPORTED_REPLAY_RESIDUAL_T1 and exact no-retune import.",
+      "status": "CONDITIONAL_ON_SANITY_PASS"
+    }
+  ],
+  "conclusion": "T1 methodology is frozen and reviewed, but causal science is not executable yet. The bottleneck is engineering, not experimental design: build and independently review a sessionful exact-token one-shot intervention runtime plus a phase-sealed T1 runner/validator. This work can be performed pre-outcome using synthetic/no-science fixtures and must not inspect the live sanity result.",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_EXECUTION_GAP_MATRIX_V1",
+  "live_sanity_run_id": "55daaf8b-30c0-48ec-93c0-e7f46f6a7dac",
+  "model_calls": 0,
+  "pre_outcome": true,
+  "prohibited": [
+    "no current sanity outcome inspection",
+    "no real T1 model/environment science",
+    "no scientific-variable change",
+    "no confirmation access",
+    "no reserve/valid_seen/valid_unseen access"
+  ],
+  "sanity_outcomes_accessed": false,
+  "scientific_outcomes_accessed": false,
+  "source_hash_checks": {
+    "replay_residual_natural_packet_producer_v2_1.py": true,
+    "replay_residual_natural_packet_validator_v2_1.py": true,
+    "replay_residual_sanity_runner_v1.py": true,
+    "results/design/plancarry_replay_residual_t1_a4_independent_prereg_reaudit_v1_1_20260821.json": true,
+    "results/design/plancarry_replay_residual_t1_independent_prereg_review_v1_1_20260821.json": true,
+    "results/design/plancarry_replay_residual_t1_population_binding_v1_20260821.json": true,
+    "results/design/plancarry_replay_residual_t1_prereg_v1_1_20260821.json": true,
+    "results/design/plancarry_replay_residual_unified_execution_contract_v2_1_rw_20260821.json": true,
+    "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json": true,
+    "whitebox_bridge_prefixstable_proto.py": true,
+    "whitebox_client.py": true
+  },
+  "work_item_id": "5137a1c8-91f3-4173-a805-c7993efd91f8"
+}

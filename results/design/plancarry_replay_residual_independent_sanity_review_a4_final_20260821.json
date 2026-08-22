@@ -1,0 +1,258 @@
+{
+  "alfworld_science_calls": 0,
+  "authoritative_sha256": {
+    "cohort": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "contam": "b97a731eaaeb064cc10892a7736330627160bf336b745fc47242d6f2cf40ece6",
+    "diff": "73b9eb775aa9cc0011ba71e1e176fc069f69abc3e1fa3ef3000495875b38ff66",
+    "prereg": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "rebind": "a649dcb02aa2eecd658c0d32ed9cf714ea12f12d930d7c16909f98b8a4750155",
+    "rebound": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+  },
+  "authorization_boundary": "PASS authorizes capture-only sanity engineering only. It does not authorize ReplayResidual scientific execution. Before science, /patch_score must be runtime-unreachable in sanity mode and a fresh independent executable-readiness review must pass.",
+  "checks": [
+    {
+      "detail": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+      "name": "immutable_hash_prereg",
+      "pass": true
+    },
+    {
+      "detail": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+      "name": "immutable_hash_cohort",
+      "pass": true
+    },
+    {
+      "detail": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7",
+      "name": "immutable_hash_rebound",
+      "pass": true
+    },
+    {
+      "detail": "a649dcb02aa2eecd658c0d32ed9cf714ea12f12d930d7c16909f98b8a4750155",
+      "name": "immutable_hash_rebind",
+      "pass": true
+    },
+    {
+      "detail": "b97a731eaaeb064cc10892a7736330627160bf336b745fc47242d6f2cf40ece6",
+      "name": "immutable_hash_contam",
+      "pass": true
+    },
+    {
+      "detail": "73b9eb775aa9cc0011ba71e1e176fc069f69abc3e1fa3ef3000495875b38ff66",
+      "name": "immutable_hash_diff",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "fresh_fixed_population_64",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "unique_family_and_game_path_64",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "development_0_31_only",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "future_reserve_32_63_only",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "environment_only_selection_no_model_calls",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "deterministic_sha_selection_no_replacement",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_20_indices_32_51",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "replication_12_indices_52_63",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_replication_exact_source_identity",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "pairwise_disjoint_32_20_12",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_sealed_zero_access",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "contamination_audit_consistent",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "rebind_only_no_scientific_change",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "v1_to_v11_hardening_preoutcome_only",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "exact_qwen3_17b_revision",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "exact_runtime_precision",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "thinking_disabled_temperature_zero",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "reasoning_trace_fail_closed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "fixed_exact_128_token_slot",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "teacher_forced_identical_trajectory",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "frozen_anchors_layers_capture_site",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "explicit_residual_normalization",
+      "pass": true
+    },
+    {
+      "detail": "['ALT_NEUTRAL_POSITION', 'GENERIC_HISTORY', 'NEUTRAL_FILLER', 'NEXT_ACTION_PRESERVED_LATE_NULL', 'PLAN_PRESENT', 'SHUFFLED_PLAN', 'UNRELATED_PLAN']",
+      "name": "all_seven_replay_conditions",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "length_position_matching",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "next_action_copy_confound_control",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "late_null_mandatory_max_control",
+      "pass": true
+    },
+    {
+      "detail": "No intervention plumbing is scientifically active in sanity; downstream engineering must make patch endpoint unreachable.",
+      "name": "zero_self_not_applicable_capture_only",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "no_layer_site_scale_selection",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "future_norm_comparable_heldout",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "family_level_no_layer_selection",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "qualified_min_16_of_32",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "pass_fail_inconclusive_frozen",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "late_null_numeric_guard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "failure_kills_before_causal",
+      "pass": true
+    },
+    {
+      "detail": "[]",
+      "name": "latent_payload_provenance_complete",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "latent_payload_hash_failclosed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "no_family_filtering_replacement",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "no_sealed_reserve_model_calls",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "sanity_claim_boundary",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "rebound_binds_authoritative_v11",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "engineering_gate_separate_from_science",
+      "pass": true
+    }
+  ],
+  "kind": "PLANCARRY_REPLAYRESIDUAL_INDEPENDENT_SANITY_PREREG_REVIEW_A4_FINAL",
+  "model_calls": 0,
+  "passed_count": 47,
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_EXECUTION_PREREGISTRATION_AND_ISOLATION_REVIEW_ONLY",
+  "total_count": 47,
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_SANITY_ENGINEERING",
+  "work_item_id": "ca4d2f95-df5f-4350-82c5-62bf51a7754a"
+}

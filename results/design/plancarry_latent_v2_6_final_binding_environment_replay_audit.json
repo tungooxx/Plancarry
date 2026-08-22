@@ -1,0 +1,11 @@
+{
+  "confirmation_count": 20,
+  "contexts_sha256": "3c7a176afadbf2996dc016cf6650d0909c45ac20db6c0a3f97a9ca5a768e888e",
+  "discovery_count": 20,
+  "kind": "PLANCARRY_LATENT_V2_6_FINAL_BINDING_ENVIRONMENT_REPLAY_AUDIT",
+  "model_calls": 0,
+  "pair_count": 40,
+  "pass": true,
+  "scientific_result": "NOT_ASSESSED",
+  "unique_family_count": 40
+}

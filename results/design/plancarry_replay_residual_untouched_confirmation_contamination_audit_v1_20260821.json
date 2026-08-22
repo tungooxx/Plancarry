@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "all_game_paths_unique_64": true,
+    "all_sealed_phase_labels": true,
+    "confirmation_cyclic_donors_unique": true,
+    "confirmation_n_20": true,
+    "confirmation_replication_family_disjoint": true,
+    "confirmation_unaccessed": true,
+    "model_calls_zero": true,
+    "replication_cyclic_donors_unique": true,
+    "replication_n_12": true,
+    "replication_unaccessed": true,
+    "sanity_confirmation_family_disjoint": true,
+    "sanity_prereg_sha_matches": true,
+    "sanity_replication_family_disjoint": true,
+    "sealed_indices_exact_32_63": true,
+    "source_selected_n_64": true,
+    "source_sha_matches": true,
+    "valid_splits_unconsumed": true
+  },
+  "design_path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_20260821.json",
+  "design_sha256": "1bb9270305130c51d0ea2c41a5de5ef36b24460a93e3d8f7cf0dd181dea9ef03",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_UNTOUCHED_CONFIRMATION_CONTAMINATION_AUDIT_V1",
+  "model_calls": 0,
+  "passed": true,
+  "passed_count": 17,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_AUDIT_ONLY",
+  "total": 17,
+  "unexpected_overlap": {
+    "confirmation_replication": [],
+    "sanity_confirmation": [],
+    "sanity_replication": []
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "claim_boundary": "Engineering/provenance readiness only. Causal execution requires terminal dev gate >=16 and fresh independent review PASS. No scientific support is assigned.",
+  "deterministic_test": {
+    "path": "results/design/test_replay_residual_t1_direct_override_causal_dev_v1_2.py",
+    "sha256": "4639d0703d653c00fbeff114cfb1379c40d2440b5cacb295bb7ce632b843c419",
+    "status": "PASS"
+  },
+  "driver": {
+    "path": "replay_residual_t1_direct_override_causal_dev_v1_1.py",
+    "sha256": "7c91979472a1346193710126fc641da6968cf39815df178ba69c66125983dd8a"
+  },
+  "execution_authorized_by_this_audit": false,
+  "independent_review_required_work_item_id": "94449d1b-044f-44cd-be47-91ff0adb695f",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_CAUSAL_DEV_V1_2_ENGINEERING_AUDIT",
+  "original_prereg_sanity_pass_observed": false,
+  "preoutcome": true,
+  "runtime_hash_pins": {
+    "alfworld_runtime": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "phase_runner": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+    "producer": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "sanity_protocol": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "session_runtime": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "t1_prereg": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "textworld_py313_compat": "9506534d044fafff43e19db99cfaf93e808d670eb05572c8b338dd137b095da4",
+    "v21_contract": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "static_source_flags": {
+    "contains_confirmation_packet_path": false,
+    "contains_t1r_packet_path": false,
+    "contains_valid_seen_path": false,
+    "contains_valid_unseen_path": false
+  },
+  "user_directed_sanity_gate_override": true,
+  "verified_invariants": {
+    "confirmation_accessed": false,
+    "dependency_hashes_checked_before_causal_model_load": true,
+    "dev_indices_only_0_31": true,
+    "lpa_excludes_first_action": true,
+    "nonzero_controls_norm_matched": true,
+    "reset_snapshot_five_invariants_hashed": true,
+    "rollout_prereg_provenance_fields_bound": true,
+    "sequential_engineering_sentinels_for_4gib": true,
+    "single_reset_hook_same_persistent_kv": true,
+    "t1r_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false,
+    "world_state_hash_match_required": true,
+    "zero_semantic_control_preserved_exact_zero": true
+  }
+}

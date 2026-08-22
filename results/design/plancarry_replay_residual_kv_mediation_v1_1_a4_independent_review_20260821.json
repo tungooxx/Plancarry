@@ -1,0 +1,40 @@
+{
+  "authorization": "ENGINEERING_ONLY. Execution remains forbidden unless primary ReplayResidual T1 is prospectively SUPPORTED. This review is not T1 support and not an independent empirical origin.",
+  "checks": {
+    "arms_A_through_E_preserved": true,
+    "conditional_only_after_primary_T1_supported": true,
+    "exact_one_sided_family_sign_binomial_zeros_nonpositive": true,
+    "first_action_excluded_endpoint_preserved": true,
+    "forced_identical_first_plan_residual_greedy_action_and_observation": true,
+    "holm_fwer_005_across_exactly_three": true,
+    "median_positive_guard_preserved": true,
+    "no_non_KV_substrate_claim": true,
+    "no_reinjection": true,
+    "no_rescue_of_null_primary_T1": true,
+    "prefix_cycle_all_layer_partition_preserved": true,
+    "repair_1_total_fail_no_mechanistic_support_even_if_local_positive": true,
+    "repair_1_total_only_unresolved": true,
+    "repair_1_total_required_before_localization": true,
+    "repair_2_control_set_exact": [
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "UNRELATED_PLAN",
+      "EQUAL_NORM_RANDOM"
+    ],
+    "repair_2_max_controls_within_arm_never_pooled": true,
+    "repair_2_per_arm_delta_against_same_clean_D": true,
+    "same_empirical_origin_no_replication_claim": true,
+    "same_operating_point": true,
+    "same_primary_n20_families": true,
+    "scientific_outcomes_accessed": false,
+    "synthetic_pre_science_tolerance_guards_preserved": true,
+    "token_position_rope_mask_dtype_device_guards_preserved": true
+  },
+  "created_utc": "2026-08-21T08:19:14Z",
+  "failed_review_work_item_id": "37dfbd91-02a6-404d-a4e8-1b918a2f9efb",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_KV_MEDIATION_V1_1_A4_INDEPENDENT_REVIEW",
+  "review_work_item_id": "24fcc616-afd3-4164-98b6-345bbc828876",
+  "successor_experiment_id": "ff6ded3f-ff04-48e2-870b-1ab9d1b22fe1",
+  "successor_prediction_id": "fe99ff8f-fc47-4943-acee-ce1d249cb465",
+  "superseded_experiment_id": "36a0cf71-49c3-4cb8-808f-91442ab0c96d",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_KV_MEDIATION_ENGINEERING"
+}

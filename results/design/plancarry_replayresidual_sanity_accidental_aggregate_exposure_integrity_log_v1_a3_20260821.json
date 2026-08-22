@@ -1,0 +1,35 @@
+{
+  "binding_no_adaptation_rule": [
+    "no cohort replacement/filtering",
+    "no planner/executor prompt change",
+    "no qualification threshold/rule change",
+    "no donor/control construction change",
+    "no layer/anchor/metric/gate change",
+    "no model/revision/runtime switch",
+    "no rescue benchmark/split within this lineage"
+  ],
+  "created_utc": "2026-08-21T14:47:00Z",
+  "environment_execution": 0,
+  "experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "exposure": {
+    "causal_outcomes_exposed": false,
+    "control_representation_metrics_exposed": false,
+    "family_level_values_exposed": false,
+    "layer_values_exposed": false,
+    "mechanism": "mechanical frozen packet-validator stdout during duplicate technical repair",
+    "values_exposed_exactly": {
+      "attempted": 32,
+      "below_minimum_label": "INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES",
+      "qualified": 0,
+      "trajectory_eligible": 0
+    }
+  },
+  "failed_run_id": "e653ef3f-ee43-4429-a757-a8aa505fa285",
+  "interpretation": "This audit is not scientific evidence and cannot itself classify the Experiment. If the terminal artifact independently yields the same preregistered insufficient-natural-trajectories branch, report it transparently without rescue. Any discrepancy triggers technical provenance investigation only.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_SANITY_ACCIDENTAL_AGGREGATE_EXPOSURE_INTEGRITY_LOG_V1",
+  "model_calls": 0,
+  "required_next_step": "execute canonical representation-sanity Experiment with independently reviewed technical repair and unchanged frozen semantics; terminal artifact remains authoritative",
+  "scientific_result": "NOT_ASSESSED_BY_THIS_AUDIT",
+  "source_duplicate_work_item_id": "80fe9ac9-fcf7-4910-a73c-0ef79ed22d61",
+  "timing": "after frozen V2.1 design/qualification semantics and after loader-defect repair semantics were fixed; before a terminal canonical sanity artifact"
+}

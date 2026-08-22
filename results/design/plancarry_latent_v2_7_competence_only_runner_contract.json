@@ -1,0 +1,94 @@
+{
+  "competence": {
+    "active_a_pass": ">= +0.10",
+    "active_b_pass": "<= -0.10",
+    "cohort_pass": ">=12 of 20",
+    "margin_definition": "meanLP(exact action A suffix)-meanLP(exact action B suffix)",
+    "pair_pass": "both reciprocal conditions",
+    "pair_replacement": false,
+    "threshold_change_from_v26": false,
+    "tie_tolerance": 1e-06
+  },
+  "forbidden_operations": [
+    "no causal layer/alpha grid",
+    "no ACTIVE/reference/random/unrelated patch-effect CPSE calculation beyond technical ZERO_ADD/SELF_PATCH sentinel",
+    "no confirmation context construction",
+    "no confirmation score/capture/patch requests",
+    "no valid_seen",
+    "no valid_unseen",
+    "no template search",
+    "no threshold tuning"
+  ],
+  "kind": "PLANCARRY_LATENT_V2_7_COMPETENCE_ONLY_RUNNER_CONTRACT",
+  "model": {
+    "device_exact": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "float16",
+    "id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "quantization": "NONE",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizers": "0.20.3",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.46.3"
+  },
+  "output": {
+    "causal_grid_requests_made": false,
+    "confirmation_requests_made": false,
+    "fail_status": "INCONCLUSIVE_MODEL_EXPRESSIVITY_SOURCE_BINDING",
+    "fields": [
+      "status",
+      "competent_count",
+      "competence_by_pair",
+      "frozen_refs",
+      "model_info",
+      "plumbing",
+      "scientific_result",
+      "confirmation_requests_made",
+      "causal_grid_requests_made"
+    ],
+    "kind": "PLANCARRY_LATENT_V2_7_COMPETENCE_GATE",
+    "pass_status": "PASS_TO_V27_DEVELOPMENT_GRID",
+    "scientific_result": "NOT_ASSESSED_COMPETENCE_DEVELOPMENT_ONLY"
+  },
+  "phase": "DEVELOPMENT_SOURCE_COMPETENCE_ONLY",
+  "population": {
+    "confirmation_indices_forbidden": [
+      20,
+      39
+    ],
+    "expected_n": 20,
+    "indices": [
+      0,
+      19
+    ],
+    "split": "discovery",
+    "valid_seen_forbidden": true,
+    "valid_unseen_forbidden": true
+  },
+  "review_gate": "Independent WorkItem e4f0ab0c-4000-46be-842a-3ea623cff0d1 must return PASS_FOR_V27_COMPETENCE_ENGINEERING before canonical runner implementation/execution.",
+  "scientific_authority": "DESIGN_CONTRACT_ONLY_NO_MODEL_OUTCOME",
+  "source_template": {
+    "active_a": "{RESET_BLOCK}PLAN STEPS\\nSTEP 1: {CLAUSE_A}\\nSTEP 2: {CLAUSE_B}\\nSTEP TO USE IF ACTIVE: STEP 1\\nUSE THIS PLAN NOW: YES\\n<STATE_END>\\n",
+    "active_b": "same bytes except full CLAUSE_A and CLAUSE_B payloads swap STEP 1/STEP 2",
+    "reference_a": "{RESET_BLOCK}PLAN STEPS\\nSTEP 1: {CLAUSE_A}\\nSTEP 2: {CLAUSE_B}\\nSTEP TO USE IF ACTIVE: STEP 1\\nUSE THIS PLAN NOW: NO\\n<STATE_END>\\n",
+    "reference_b": "same bytes except full CLAUSE_A and CLAUSE_B payloads swap STEP 1/STEP 2",
+    "static_audit_sha256": "dfbb729a3592b4d9a71dd547ce017714a764022a5fbd755eef4dd2261fd80a66"
+  },
+  "source_v26_discovery_sha256": "626488c735c63815512c95538141b8ebb96a79dae3ba476dd0f194d01d57ce86",
+  "source_v26_run_id": "2e4777bf-f2db-4087-9ce1-9eecd6e34923",
+  "technical_guards": {
+    "active_ab_equal_token_length": true,
+    "active_reference_equal_total_length": true,
+    "exact_source_final_token_capture": true,
+    "output_overwrite_refusal": true,
+    "reference_ab_equal_token_length": true,
+    "request_timeout_seconds": 120.0,
+    "run_existing_v26_prefixstable_plumbing_guard_first": true,
+    "self_patch_max": 0.0001,
+    "zero_add_max": 1e-06
+  },
+  "transition": {
+    "if_fail": "Freeze artifact and stop v2.7 1.5B slot-bound source path. No confirmation.",
+    "if_pass": "Freeze competence artifact SHA; create a separate reviewed development-grid WorkItem using the unchanged v2.6 layers/alphas/controls and discovery 0..19 only. Do not run grid in this process."
+  },
+  "v27_design_sha256": "b87069baa1e5ebb181dcaccfb2694ae0cc8dc158edb2bd960d5437d06ddcc054"
+}

@@ -1,0 +1,35 @@
+{
+  "bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "change": "WhiteboxClient positional timeout argument 120.0 -> None only",
+  "checks": {
+    "ast_timeout_none": true,
+    "bridge_unchanged": true,
+    "compile": true,
+    "one_line_diff_only": true,
+    "qwen3_science_output_absent": true,
+    "scientific_variable_drift": false,
+    "shared_client_unchanged": true,
+    "validator_all_8": true,
+    "validator_unchanged": true
+  },
+  "engineering_task_id": "0b788463-0204-4a28-adad-ad7d50e6f70b",
+  "held_fixed": {
+    "dtype": "bfloat16",
+    "filtering_or_replacement": false,
+    "leading_space_suffix": true,
+    "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "model": "Qwen/Qwen3-1.7B@70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "n": 20,
+    "offload": "NONE",
+    "pass_min": 12,
+    "quantization": "NONE",
+    "source_a_min": 0.1,
+    "source_b_max": -0.1
+  },
+  "kind": "PLANCARRY_QWEN3_17B_NO_TIMEOUT_ENGINEERING_AUDIT",
+  "post_runner_sha256": "7365e11146dc1e098c065e9000ae75beb88030c63ae01cdac3c20355f8b0d606",
+  "pre_runner_sha256": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+  "scientific_result": "NOT_ASSESSED",
+  "validator_sha256": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28",
+  "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+}

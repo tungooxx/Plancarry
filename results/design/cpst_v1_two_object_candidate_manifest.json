@@ -1,0 +1,190 @@
+{
+  "candidate_count": 45,
+  "candidates": [
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Toilet-426/trial_T20190907_184729_585161/traj_data.json",
+      "rank_key": "03994e3e43ea42aae8425e79b380d08df526486e5c9b5dff2d02c4f5cbb287d1"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Box-None-CoffeeTable-230/trial_T20190908_124255_946115/traj_data.json",
+      "rank_key": "0b829e1fcdf21e401391c8999c5d1efca952751f2258083e4e4ffedece557a7a"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-GarbageCan-420/trial_T20190907_174658_354066/traj_data.json",
+      "rank_key": "0bcfef33bdc3ebb4f093afb7fd0741a405e9d241d048682ab2ee861f2b24e40c"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Cloth-None-Drawer-411/trial_T20190908_190008_902235/traj_data.json",
+      "rank_key": "13649ae3a0a30235cdb53c2aaf72364780983faa8f93b02391077db7c81aa5ad"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pillow-None-Ottoman-208/trial_T20190907_030106_770418/traj_data.json",
+      "rank_key": "165226cc67785f0588f1caf3deb2fd06cb9d364e402ec08fb4fb994447bc411d"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Book-None-Desk-309/trial_T20190909_061156_951604/traj_data.json",
+      "rank_key": "176d8190617b2f3fa672e0cbef7ff8849092d7c9ba0954ee552065f650729650"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-CoffeeTable-230/trial_T20190909_145658_750781/traj_data.json",
+      "rank_key": "286a229118afb471915d8f704e5da7eb8e37bf005865efaac7d71cfa929e03e8"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Sofa-225/trial_T20190907_143028_102387/traj_data.json",
+      "rank_key": "2c8457a6898fa5e5d3a423bef2502e5c95ad501c9bec60be46d72206f0bc49fa"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Cabinet-417/trial_T20190909_211711_664720/traj_data.json",
+      "rank_key": "331631e0d5a9486a67d8ba65813b43927d03b340ec08b0d2584467b924f8f3fa"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Safe-323/trial_T20190907_001424_961488/traj_data.json",
+      "rank_key": "3cd5e600597a3079a48ed5c491fe91817b8814061238dd7c410d1c8de329c193"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-CoffeeTable-220/trial_T20190909_145750_484036/traj_data.json",
+      "rank_key": "474137dec18c4e43dd363503cb04633acd9a88e2bc3076997dce2703e9b6af38"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Ottoman-208/trial_T20190907_232759_901444/traj_data.json",
+      "rank_key": "47457ecdfb33733c06c1b0b2bcee8c14b830299dd9f94f2338cc6280eb0ae454"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Drawer-318/trial_T20190908_104535_936869/traj_data.json",
+      "rank_key": "564bcbd1c6c78ee5791d9e3a826b0c522da1d4b08b57b6b6198c42b386ced382"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBar-None-Drawer-420/trial_T20190908_124733_053705/traj_data.json",
+      "rank_key": "56fd9a96cf01c52ba43b710636ae8df8c3d6663a200236191a34a059c2308e6a"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CD-None-Dresser-303/trial_T20190908_085826_396748/traj_data.json",
+      "rank_key": "59d324006f534d5b996a1aaf8a50e7dd9438adabff626177cfeeb4d53264787a"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-Sofa-207/trial_T20190908_111223_597180/traj_data.json",
+      "rank_key": "613b29640b09ef01ee359a7c503cd81db4edf3fbe2a8cd53dfe4415051b72377"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-ArmChair-208/trial_T20190908_000903_032547/traj_data.json",
+      "rank_key": "6a2a40a3d1642379885b6a6137e19f103e065d761762c96e251bb91dca627d26"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-DiningTable-230/trial_T20190909_145553_211575/traj_data.json",
+      "rank_key": "6e90c24cbb2c9548c8ebd77d5100f6ad23f4b08a85d1df5414a357a1ecbe0f2f"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pencil-None-SideTable-329/trial_T20190909_040132_412120/traj_data.json",
+      "rank_key": "7013aa14fa823d9f166c6d2c5f245d98d67aa752fd52d23061c6c17585ec7ee3"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-Toilet-417/trial_T20190908_071820_505015/traj_data.json",
+      "rank_key": "764f22f62700597746f748eb2eb1c334e3bdb42e7d14f685ac7ef1169f5ab1fa"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Newspaper-None-ArmChair-214/trial_T20190909_010843_771227/traj_data.json",
+      "rank_key": "78761e15d6408b82ef3dfbd96754c5a76b0a8838f15ea2068748585f79f1a63e"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Desk-312/trial_T20190908_122230_946481/traj_data.json",
+      "rank_key": "823229a2bd03b9a1a53a52c5fc4b824c77653aeed7799d629bfce3f8b361c7fa"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CD-None-Drawer-306/trial_T20190907_025539_829173/traj_data.json",
+      "rank_key": "84ee6e39d933d1694b855e32d66a315650d497d3a84412656b2e865affa1f8e7"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Toilet-405/trial_T20190909_065947_451268/traj_data.json",
+      "rank_key": "8747656d266e5dabb5c45fa74692e6ba1c2bfba1c2b127e3742b46e38afde264"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Desk-313/trial_T20190909_104504_038752/traj_data.json",
+      "rank_key": "8c9440b86231eaeb9d06f0a41eaeffc7a9bd205132657a01e3962a872a79ad9a"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Dresser-330/trial_T20190909_060924_095249/traj_data.json",
+      "rank_key": "94cd9fe858c6be766878bb04b8209e98bda4922ab32a2a514752b5bda3210f58"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Newspaper-None-Sofa-230/trial_T20190908_035335_001162/traj_data.json",
+      "rank_key": "950fbcb0f733fefc60fb5ef007be552e630e6d4f347d9e3984659466f3bc6838"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Watch-None-CoffeeTable-209/trial_T20190909_020350_646515/traj_data.json",
+      "rank_key": "95c94e8f5f5e95adf356facb11ea2dc704f07ebb5c92084824ce78f0f2944d83"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Drawer-409/trial_T20190906_193417_937668/traj_data.json",
+      "rank_key": "9c0f060cb82172a0dc47361b3bbc3211050ef668a6da53b60e8ec43dffd943fa"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Cabinet-412/trial_T20190908_141555_713466/traj_data.json",
+      "rank_key": "9c511e86536fc1c623bd53557d2185134683f87fb46e25f2c2b26b30553a6d3c"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-GarbageCan-413/trial_T20190912_044451_035192/traj_data.json",
+      "rank_key": "9db4d62136ad9279d8573cec9a1ba769a60a0426875a138cd454f41e091f7f54"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-Ottoman-210/trial_T20190906_202114_729948/traj_data.json",
+      "rank_key": "ada2a6a678cc2d0cba945dfb904fb9da755bbbe5b96d5db1defa0abeaa7b850b"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Cart-401/trial_T20190908_215242_345375/traj_data.json",
+      "rank_key": "b3fbfcb6177523912c54ba060bcd31e88dc03c7788b5f58ce92f207cca2a4956"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-DiningTable-329/trial_T20190918_154222_318527/traj_data.json",
+      "rank_key": "b49ffeab6822642535cc14fa00e20842a818450d2ad2d2e56456e57f4a6b4776"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Statue-None-Dresser-213/trial_T20190909_065309_623947/traj_data.json",
+      "rank_key": "b53ac5305fa233d8ed83ac8f5def6871369f20fca8500c555128fb2c4458668a"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-CounterTop-409/trial_T20190908_131755_202053/traj_data.json",
+      "rank_key": "b67af67e5bf5d2f87210309531c61f47c98ee297ceec9c73b7b9c930648dc092"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Candle-None-CounterTop-406/trial_T20190908_045958_916084/traj_data.json",
+      "rank_key": "b6eab5071458d089d12dec571db8054f7ffeddedda2366cd668bb4d4afc10e51"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Cup-None-Shelf-1/trial_T20190908_015402_128805/traj_data.json",
+      "rank_key": "bff6645f47b9f3235104ade20c3b2ce581091e8a687ba4ca20863b11e7a1370f"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Book-None-Desk-302/trial_T20190906_181314_259738/traj_data.json",
+      "rank_key": "caa68aaa0807a5787d5ae07ace864416d40454950273efc55aa9be3e8c925b45"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Dresser-318/trial_T20190907_181205_590674/traj_data.json",
+      "rank_key": "d4964e8205ecbbce295fa42908a867b6eb09a42d2a0315f30c4bca1e11fb73ff"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pencil-None-Drawer-327/trial_T20190908_103604_088470/traj_data.json",
+      "rank_key": "d4fda5c61a39183a637bdcd17f5f6faae1c55842d3bb05bbf5d1894cba48048b"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Drawer-329/trial_T20190909_030028_020737/traj_data.json",
+      "rank_key": "d51735821a8fec8361fec44ca6b456d6f081a9f47188eff000423cf944456aab"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Sofa-224/trial_T20190918_223409_525979/traj_data.json",
+      "rank_key": "dd9a8e17340591e511423f95b0aa6b19da33828776eeb3834da0a5c8b4037f45"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Sofa-206/trial_T20190906_203615_424745/traj_data.json",
+      "rank_key": "e0272c34d75c1c6c46dcf7477a04b3a20d7589d10a39f889a87263efb292c6f4"
+    },
+    {
+      "path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBar-None-Cabinet-428/trial_T20190910_231209_039518/traj_data.json",
+      "rank_key": "fe2eadc8d6355fe3defb897f6254fc943c05a9faa193cd1e64dc78a0425ecc03"
+    }
+  ],
+  "kind": "CPST_V1_CANDIDATE_MANIFEST",
+  "salt": "cpst-v1-two-object-plan-swap-2026-08-19",
+  "source_split": "valid_train",
+  "task_type": "pick_two_obj_and_place",
+  "valid_unseen_consumed": false
+}

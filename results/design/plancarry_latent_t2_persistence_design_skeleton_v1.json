@@ -1,0 +1,74 @@
+{
+  "claim_boundary": {
+    "if_T2_passes": "Supports persistence of a causally active plan-identity carrier across at least the tested number of action/observation cycles in the tested model/environment.",
+    "next_rung": "T3: endogenous pre-interruption plan checkpoint + compactness/minimality and longer-horizon restore, followed by second-model and second-environment replication.",
+    "still_not_claimable": [
+      "compact/minimal checkpoint",
+      "long-horizon persistence beyond tested cycles",
+      "cross-model/environment generality",
+      "end-to-end memory superiority",
+      "agent self-generated endogenous plan state unless the source plan is later made endogenous"
+    ]
+  },
+  "controls": {
+    "ARCHIVED_ORDER": "same source lexical/order information but ACTIVE ORDER NONE",
+    "IMMEDIATE_ACTION_NULL": "Because A/B source plans share the same forced first action/prefix, any donor-specific later divergence cannot be explained by copying a different immediate next action. Verify source A/B distributions over the first forced action are not used as a selection criterion.",
+    "NO_PATCH": "same fresh recipient, same forced prefix, no latent checkpoint",
+    "PREFIX_ONLY_REENCODE": "after the forced common prefix, start a brand-new unpatched context at the identical later state; this should remove any checkpoint-carried effect and diagnoses environment/text leakage",
+    "RANDOM_SAME_NORM": "same-norm frozen random direction",
+    "SELF_PATCH": "replace recipient boundary with its own residual and preserve session; must match NO_PATCH numerically",
+    "UNRELATED_PLAN": "causal carrier from a distinct disjoint family, frozen prospectively",
+    "ZERO_ADD": "identical session with zero additive intervention"
+  },
+  "core_design": {
+    "checkpoint": "Capture the T1-supported active-plan causal carrier at the selected causal site. T2 must use a single checkpoint/injection before the common prefix. No patch is permitted after the first forced action begins.",
+    "forced_shared_prefix": "Execute the exact same pre-frozen admissible common-prefix environment actions in both +A and +B transplant arms. Append each forced ACTION/OBSERVATION to the same recipient inference session while preserving the originally patched KV/cache state. The prefix must not contain A/B object identity or plan-order leakage.",
+    "later_test": "After the shared prefix reaches an exactly hash-matched world state where the plans first diverge, teacher-force score the two exact admissible divergent commands and measure donor-consistent later-branch shift.",
+    "no_reinjection": "The intervention hook is disabled after the initial boundary injection. Persistence requires the later effect to be carried by the resulting cached internal state through the forced action/observation cycles.",
+    "recipient": "Fresh-context recipient at the identical source world state with no post-reset active-order text.",
+    "source_state": "A matched ALFWorld state before a prospectively frozen common-prefix sequence. Active source A and B have identical visible task/world/options and differ only in ACTIVE ORDER A THEN B versus B THEN A."
+  },
+  "dependency": "Do not register or execute T2 unless canonical T1 v2.4 is independently reviewed, technically valid, reaches scoped SUPPORTED_T1, and the pre-frozen family-disjoint T1 replication also supports T1 without retuning.",
+  "high_tier_reason": "This separates causal persistence from one-step steering, the strongest interpretation gap left by a positive T1 and a central reviewer objection relative to activation-steering/planning-localization prior art.",
+  "kind": "PLANCARRY_LATENT_T2_PERSISTENCE_DESIGN_SKELETON_V1",
+  "model_outcomes_seen": false,
+  "nulls_and_failure_taxonomy": {
+    "FAIL_PERSISTENCE": "T1 immediate branch effect exists, but after identical forced common prefix the later donor-consistent effect fails the frozen causal/statistical/effect gates. Interpret as transient branch/action steering, not persistent plan state.",
+    "INCONCLUSIVE_EXPRESSIVITY": "Base model cannot represent both source plan commitments or cannot execute/score the later divergent commands under frozen eligibility rules.",
+    "INCONCLUSIVE_NONSPECIFIC": "Active checkpoint affects later branch but archived/random/unrelated controls are comparable or broad competence/logit collapse occurs.",
+    "INVALID_LEAKAGE": "Forced prefix, observation, prompt, state hash, admissible commands, or cache/session differs across A/B donor arms, or plan identity leaks into post-reset text.",
+    "INVALID_REPEATED_INTERVENTION": "The implementation re-applies/recomputes the causal patch after the initial boundary rather than advancing the same cached session.",
+    "SUPPORT_T2": "A single initial active-plan checkpoint produces a reciprocal donor-consistent later-branch effect after the identical forced prefix, exceeds archived/random/unrelated controls, preserves competence, and passes prospectively frozen multiple-testing/effect-size gates."
+  },
+  "primary_endpoint": {
+    "definition": "At the first post-prefix divergent decision, compare donor-plan-vs-recipient-plan command log-probability margin after one initial A/B checkpoint injection, relative to the same recipient NO_PATCH baseline. Reciprocal A->B and B->A effects are paired at family level.",
+    "name": "Later-branch donor-consistent persistence effect",
+    "persistence_requirement": "The shared prefix world-state and token transcript are identical across donor arms, the checkpoint was injected exactly once before the prefix, and no donor/plan identity appears in post-reset text. A significant effect only at the initial action but absent at later divergence is not a T2 pass."
+  },
+  "prospective_cohort": {
+    "eligibility": "Both A/B plans solve the same task; there is >=1 pre-frozen admissible common-prefix action from the source state; after the prefix the environment state hash and visible prompt are identical across A/B arms; the first post-prefix plan-relevant divergent commands are distinct and admissible; common-prefix action/observation text contains no A/B commitment label or future expert information.",
+    "source": "Prefer new ALFWorld train task families disjoint by family name and game path from the 40-family T1 primary cohort and the 20-family untouched T1 replication reserve; keep valid_seen/valid_unseen untouched.",
+    "target": "Freeze a complete cohort large enough for a strong-effect causal kill test before any T2 model outcome; no post-outcome replacement. Final n/statistic must be power-audited prospectively rather than inherited mechanically from T1."
+  },
+  "question": "Does a single restored active-plan checkpoint retain causal plan identity across one or more plan-independent action/observation cycles, rather than merely steering the immediate next action?",
+  "required_engineering_capability": {
+    "failure_if_unavailable": "INCONCLUSIVE_TECHNICAL. Recomputing the whole prompt with the patch on every step is repeated intervention and cannot support persistence.",
+    "persistent_session": "A bounded white-box session API that exposes one patched initial forward pass and then advances with past_key_values/KV cache across appended forced action/observation tokens without recomputing or patching the initial boundary again.",
+    "plumbing_controls": [
+      "ZERO_ADD persistent-session equivalence",
+      "SELF_PATCH persistent-session equivalence",
+      "cache-continuation determinism",
+      "single-injection counter proving exactly one intervention",
+      "exact token/prefix/world-state hashes at every forced step"
+    ]
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "secondary_endpoints": [
+    "Effect versus number of forced action/observation cycles (1 vs >=2 when naturally available)",
+    "Reciprocal bidirectionality at later divergence",
+    "Task-progress/success after releasing control at divergence",
+    "Checkpoint effect decay across successive later plan-relevant decisions without reinjection",
+    "Off-target action-distribution KL/entropy and invalid-action rate"
+  ],
+  "status": "DRAFT_PROSPECTIVE_NOT_REGISTERED"
+}

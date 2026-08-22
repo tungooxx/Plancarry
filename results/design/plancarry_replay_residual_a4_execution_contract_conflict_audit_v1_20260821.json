@@ -1,0 +1,92 @@
+{
+  "additional_findings": [
+    "Registered Experiment 5ac34da1 population.sealed_indices is [32,83], while authoritative sanity v1.1 cohort reserve is [32,63] and fresh cohort declares 32 sealed future reserve entries. Execution prohibition no indices>=32 prevents immediate leakage, but immutable registration metadata is not byte-consistent with the prereg lineage.",
+    "Qualifier addendum v1 and packet-producer contract v1 were both frozen pre-outcome but are not semantically equivalent executable realizations. Choosing either after observing qualification outcomes would create a researcher degree of freedom.",
+    "Existing packet-producer contract already provides desirable all32 atomic publication, but its prompt/task/nontrivial semantics cannot be silently imported because they differ from the later qualifier addendum and/or prereg interpretation."
+  ],
+  "canonical_nonnegotiables": {
+    "all_seven_controls_required": true,
+    "development_indices": [
+      0,
+      31
+    ],
+    "minimum_qualified": 16,
+    "no_partial_outcome_protocol_change": true,
+    "sealed_reserve_indices": [
+      32,
+      63
+    ]
+  },
+  "created_utc": "2026-08-21T03:03:01Z",
+  "environment_execution": 0,
+  "inputs": {
+    "fresh_cohort_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "packet_producer_contract_sha256": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752",
+    "qualifier_addendum_sha256": "d4864a864c27166ac1e677e5dba3583351ce8511753d273916632e825b671ea0",
+    "registered_experiment_id": "5ac34da1-426c-410d-a468-83758ae6b4f5",
+    "sanity_prereg_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c"
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_A4_PREOUTCOME_EXECUTION_CONTRACT_CONFLICT_AUDIT_V1",
+  "material_contract_conflicts": [
+    {
+      "addendum": "You are planning an ALFWorld household task. Produce a concise ordered plan using only information in the task instruction and initial observation. Do not reveal chain-of-thought or hidden reasoning. Do not invent hidden world facts. Output only one <PLAN>...</PLAN> block.",
+      "field": "planner.system",
+      "impact": "different plan distribution / qualified cohort",
+      "packet_contract": "You are planning an ALFWorld household task. Output only one concise ordered <PLAN>...</PLAN> block. Do not reveal reasoning, analysis, chain-of-thought, or hidden state. Use only information in the task and initial observation."
+    },
+    {
+      "addendum": "TASK\n{task_instruction}\nINITIAL OBSERVATION\n{initial_observation}\nWrite the action-level plan now. Keep the complete <PLAN>...</PLAN> block within 96 model tokens.",
+      "field": "planner.user_template",
+      "impact": "different plan distribution / qualified cohort",
+      "packet_contract": "TASK:\\n{task_instruction}\\n\\nINITIAL OBSERVATION:\\n{initial_observation}\\n\\nProduce the plan now."
+    },
+    {
+      "addendum": 128,
+      "field": "planner.max_new_tokens",
+      "impact": "different stopping envelope; can change qualification",
+      "packet_contract": 112
+    },
+    {
+      "addendum": "extract exactly from live initial TextWorld observation using the final occurrence matching /Your task is to:\\s*(.+?)(?:\\n|$)/i; normalized task instruction is captured text stripped, with terminal punctuation preserved; extraction failure => unqualified/technical packet, no alternate metadata source",
+      "field": "task_instruction_source",
+      "impact": "live task text vs family-derived canonical text; changes model input",
+      "packet_contract": "derive a canonical task instruction solely from the frozen family identifier pick_and_place_simple-OBJECT-None-RECEPTACLE-ID; do not open traj_data.json or any expert/oracle annotation field"
+    },
+    {
+      "addendum": "You are executing an ALFWorld household task. The visible plan is advisory state from your own earlier planning turn. Choose the single best current admissible command to continue the task. Do not invent actions or hidden facts.",
+      "field": "executor.system",
+      "impact": "different action ranking context / realized trajectory",
+      "packet_contract": "Continue the ALFWorld task using the retained plan and visible interaction history. The next response must be exactly one command from CURRENT ADMISSIBLE COMMANDS."
+    },
+    {
+      "addendum": "TASK\n{task_instruction}\nPLAN\n{plan_text}\nHISTORY\n{history}\nCURRENT OBSERVATION\n{observation}\nADMISSIBLE COMMANDS\n{commands}\nACTION:",
+      "field": "executor.action_prompt",
+      "impact": "different serialization and candidate likelihoods",
+      "packet_contract": "at each step, rebuild exact Qwen3 chat prompt from canonical task instruction, exact initial observation, the exact retained model-generated <PLAN> block, every preceding chosen ACTION and resulting OBSERVATION, current observation, and the current sorted admissible-command list"
+    },
+    {
+      "addendum": [
+        "help",
+        "inventory",
+        "look"
+      ],
+      "field": "nontrivial_action_definition",
+      "impact": "help/inventory/look excluded by addendum but counted by packet contract; can change qualification",
+      "packet_contract": "every chosen command passed to AlfRuntime.step counts as an environment action; no separate information-only model turns exist in this producer"
+    },
+    {
+      "addendum": [
+        32,
+        63
+      ],
+      "field": "sealed_index_binding",
+      "impact": "lineage metadata mismatch; canonical fresh cohort/sanity freeze is 32..63",
+      "packet_contract": "32..83"
+    }
+  ],
+  "model_calls": 0,
+  "required_resolution": "Before any ReplayResidual ALFWorld/model scientific execution, freeze one authoritative successor execution contract that resolves all conflicts prospectively, rebind or supersede the immutable experiment registration to exact canonical 32..63 metadata and the final contract hash, then obtain fresh independent pre-outcome review. Do not execute either v1 contract in the meantime.",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_COORDINATION_AUDIT_ONLY",
+  "verdict": "REPLAN_EXECUTION_CONTRACT_BEFORE_SCIENCE"
+}

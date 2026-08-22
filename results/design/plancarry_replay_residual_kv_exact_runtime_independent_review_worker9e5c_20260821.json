@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "bf16": true,
+    "cache_identity_exact": true,
+    "cublas_exact": true,
+    "cuda_rtx3050": true,
+    "deterministic": true,
+    "dynamic_cache_28_layers": true,
+    "experiment_binding": true,
+    "geometry_dtype_device_preserved": true,
+    "hashes_match": true,
+    "mechanistic_experiment_not_executed": true,
+    "no_alfworld": true,
+    "no_model_science": true,
+    "no_replayresidual_family_access": true,
+    "no_scientific_outcomes": true,
+    "prediction_binding": true,
+    "seen_tokens_preserved": true,
+    "sequence_dim_minus2": true,
+    "synthetic_endpoint_identity_exact": true,
+    "tokenizers_exact": true,
+    "tolerance_is_equivalence_only": true,
+    "torch_exact": true,
+    "transformers_exact": true
+  },
+  "created_utc": "2026-08-21T14:43:01.531312+00:00",
+  "engineering_result_id": "9d01a4da-edfc-4622-a92d-e1ffd70484ff",
+  "execution_authorization": "NONE: Experiment remains non-executable unless primary ReplayResidual T1 is prospectively SUPPORTED.",
+  "experiment_id": "ff6ded3f-ff04-48e2-870b-1ab9d1b22fe1",
+  "independent_runtime_check": {
+    "cache_identity_max_abs": {
+      "A_condition": 0.0,
+      "D_clean": 0.0,
+      "E_A": 0.0
+    },
+    "cublas_workspace_config": ":4096:8",
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "job_id": "local_2dca71a7d0bd4e22",
+    "layers": 28,
+    "python": "3.13.15",
+    "sequence_dim": -2,
+    "sequence_length": 12,
+    "synthetic_endpoint_max_abs": {
+      "A_condition": 0.0,
+      "D_clean": 0.0,
+      "E_A": 0.0
+    },
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_KV_EXACT_RUNTIME_INDEPENDENT_REVIEW_V1",
+  "prediction_id": "fe99ff8f-fc47-4943-acee-ce1d249cb465",
+  "reviewer_worker_id": "9e5c82b8-1181-4658-84c7-c59f3dd71801",
+  "science": {
+    "alfworld_execution": 0,
+    "model_calls": 0,
+    "replayresidual_family_access": 0,
+    "scientific_outcomes_accessed": false
+  },
+  "source_hashes": {
+    "code": "60890dbfa342faa18abc74ed0931e5ac6f767953e7a984f68a348b10a42a1856",
+    "microcheck": "140937aefffa20cf0ba1819f5195533516396057529aa84b2dd676c2d9c27260",
+    "test": "bbb47a10c9e826084f5203a79d507616f2a7262e42dc9bf558f37e052e0c2d2e"
+  },
+  "source_work_item_id": "224c842a-5e69-4a84-a9fa-32febfefcd49",
+  "tolerance_adjudication": {
+    "approved_scope": "future sham/clean numerical-equivalence guard only",
+    "basis": "Both persisted exact-runtime microcheck and fresh independent real-Torch/CUDA rerun observed exact 0.0 discrepancy on equivalent cache and synthetic endpoint paths.",
+    "forbidden_scope": "T1 or mechanistic scientific effect threshold",
+    "value": 1e-06
+  },
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_KV_ENGINEERING_READINESS",
+  "work_item_id": "a69a7b06-640f-4602-8f41-acb08e3d2974"
+}

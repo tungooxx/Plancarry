@@ -1,0 +1,13 @@
+{
+  "canonical_experiment_id": "d347c226-139a-4b14-8f25-4329ee08ea37",
+  "canonical_prediction_id": "d09895b5-8a13-43db-a5a4-6084630242f4",
+  "full_design_review_sha256_match": true,
+  "full_design_sha256_match": true,
+  "kind": "PLANCARRY_LATENT_V2_6_CORRECTED_REGISTRATION_WRAPPER_AUDIT",
+  "pass": true,
+  "quarantined_duplicate_rejected": true,
+  "scientific_override_count": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "v26_discovery_selection_barrier_present": true,
+  "wrapper_sha256": "2a8f9a98ebde73d7411fb6dffdf1c537996e135c2b9784deaf6d588f5718156f"
+}

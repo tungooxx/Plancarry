@@ -1,0 +1,17 @@
+{
+  "active_control_effects_computed": false,
+  "confirmation_accessed": false,
+  "diagnosis_supported": false,
+  "frozen_self_patch_tolerance": 0.0001,
+  "kind": "V24_SELFPATCH_SEQUENCE_SHAPE_DIAGNOSTIC",
+  "layer": 6,
+  "pair_index": 0,
+  "patch_index": 186,
+  "reset_sequence_length": 187,
+  "scientific_result": "NOT_ASSESSED",
+  "scoring_sequence_length": 189,
+  "self_patch_from_full_prompt_capture_maxabs": 0.0011632144451141357,
+  "self_patch_from_short_capture_maxabs": 0.0011632144451141357,
+  "short_vs_full_boundary_vector_l2": 0.0,
+  "short_vs_full_boundary_vector_maxabs": 0.0
+}

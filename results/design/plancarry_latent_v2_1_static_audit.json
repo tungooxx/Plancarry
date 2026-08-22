@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "action_marker_in_prompt": true,
+    "all20_primary": true,
+    "branch_success": true,
+    "command_only_suffix": true,
+    "competence_cohort_gate": true,
+    "exact_sign_test": true,
+    "explicit_patch_index": true,
+    "fixed_alphas": true,
+    "fixed_layers": true,
+    "hash_rademacher": true,
+    "holm_four": true,
+    "manifest_independent": true,
+    "no_quant": true,
+    "no_science_outcomes": true,
+    "rtx_only": true,
+    "same_manifest": true,
+    "ties_denominator20": true,
+    "zero_norm_rule": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_1_STATIC_AUDIT",
+  "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "pass": true,
+  "prereg_sha256": "d65c1df6a4490d12a262b1a414ac6ef735f3a22d08c460f57ba376698947b487",
+  "scientific_result": "NOT_ASSESSED"
+}

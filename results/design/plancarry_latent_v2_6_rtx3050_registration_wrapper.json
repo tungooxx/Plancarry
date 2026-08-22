@@ -1,0 +1,56 @@
+{
+  "execution_gates": {
+    "discovery_forbidden_until_readiness_pass": true,
+    "engineering_work_item_id": "885f50ae-d658-4ddd-8459-160a7371e7a8",
+    "independent_readiness_work_item_id": "502b241b-9095-486f-85c3-ce5f1e2a0112",
+    "required_live_noop": "8/8 frozen sentinels plus >=24 repeated no-op cases over >=3 cycles; ZERO_ADD<=1e-6; SELF_PATCH<=1e-4; every request <120 s; no monotonic latency/VRAM/resource blow-up"
+  },
+  "kind": "PLANCARRY_LATENT_V2_6_RTX3050_REGISTRATION_WRAPPER",
+  "phase_seal": {
+    "active_or_control_scientific_effects_accessed": false,
+    "confirmation_accessed": false,
+    "source_competence_accessed": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "prediction": "On the frozen 20-pair confirmation cohort, a development-selected active-plan residual contrast will produce a positive bidirectional causal plan-swap effect on the exact first divergent admissible actions, and that effect will exceed lexical/archive, unrelated-plan and random same-norm contrasts. Full-plan source prompts will first pass a frozen model-expressivity gate; otherwise the result is inconclusive rather than negative.",
+  "research_question": "Under an identical ALFWorld world state and identical visible fresh-reset prompt, does an internal contrast that differs only in which of two already-specified valid plan options is marked first causally shift Qwen2.5-1.5B action preference toward that active plan order beyond archived-order, unrelated-plan, random and no-patch controls?",
+  "research_role": "PROSPECTIVE_RUNTIME_ONLY_SUPERSESSION_BEFORE_T1_SCIENCE",
+  "runtime_supersession": {
+    "authorized_runtime_override_paths": [
+      "model.execution_host_policy",
+      "validity_guards.device_provenance_guard",
+      "runner.validate_bridge_info.device_name",
+      "bridge.expected_device_substring"
+    ],
+    "client_timeout_seconds": 120.0,
+    "compute_capability": "8.6",
+    "device_name_exact": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "device_required_substring": "RTX 3050",
+    "driver_version": "596.08",
+    "independent_review_path": "results/design/plancarry_latent_v2_6_rtx3050_independent_rebind_review_20260820T0855Z.json",
+    "independent_review_sha256": "2c4f0c1857a4e1ec49952af1d73ae614ccdb6718eab6bf0f8194de9b307c6e4e",
+    "independent_review_verdict": "PASS_FOR_V26_RTX3050_ENGINEERING",
+    "memory_total_mib": 4096,
+    "precision": "float16",
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "rebind_path": "results/design/plancarry_latent_v2_6_rtx3050_runtime_rebind_20260820T085141Z.json",
+    "rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+    "scientific_override_paths": [],
+    "tokenizers_version": "0.20.3",
+    "torch_cuda_runtime": "13.0",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.46.3"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "source_science": {
+    "canonical_experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+    "canonical_prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+    "frozen_design_path": "results/design/plancarry_latent_v2_5_frozen_design_20260820T0244Z.json",
+    "frozen_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+    "import_rule": "All scientific fields are imported exactly from the frozen v2.5 design by SHA256; this wrapper has no scientific override path."
+  },
+  "supersedes_experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+  "supersedes_prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e"
+}

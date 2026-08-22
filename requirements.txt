@@ -1,0 +1,4 @@
+openai>=2.0.0
+plancraft==0.4.9
+tiktoken>=0.11.0
+pytest>=8.0.0

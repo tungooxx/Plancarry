@@ -1,0 +1,85 @@
+{
+  "author_worker_id": "9e5c82b8-1181-4658-84c7-c59f3dd71801",
+  "checks": {
+    "activation_requires_frozen_operating_point": true,
+    "activation_requires_primary_t1_support": true,
+    "activation_requires_sanity_pass": true,
+    "all_frozen_hashes_exact": true,
+    "all_selected_paths_exist": true,
+    "all_seven_v21_controls_bound": true,
+    "candidate_universe_134": true,
+    "competence_guards_bound": true,
+    "exact_first4_sha_selection_matches_24_of_24": true,
+    "family_counts_exact": true,
+    "family_tests_multiplicity_effect_guards": true,
+    "first_action_excluded": true,
+    "no_replacement": true,
+    "no_rescue_primary_null": true,
+    "no_valid_unseen_tuning": true,
+    "one_reset_no_reinjection": true,
+    "requires_fresh_independent_review": true,
+    "same_model_no_switch": true,
+    "science_access_zero": true,
+    "selection_rule_authoritative_not_counts": true,
+    "six_operational_task_families": true,
+    "t1_prereg_mentions_persistent_session": false,
+    "zero_retuning": true
+  },
+  "environment_execution": 0,
+  "hash_checks": {
+    "results/design/plancarry_replay_residual_cross_task_valid_unseen_replication_not_registered_a2_20260821.json": true,
+    "results/design/plancarry_replay_residual_t1_prereg_v1_1_20260821.json": true,
+    "results/design/plancarry_replay_residual_unified_execution_contract_v2_1_rw_20260821.json": true,
+    "results/design/plancarry_replay_residual_valid_unseen_cross_task_freeze_audit_v1_worker9e5c_20260821.json": true,
+    "results/design/plancarry_replay_residual_valid_unseen_cross_task_manifest_v1_worker9e5c_20260821.json": true,
+    "results/design/plancarry_replay_residual_valid_unseen_cross_task_replication_v1_worker9e5c_20260821.json": true
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_VALID_UNSEEN_CROSS_TASK_INDEPENDENT_REVIEW_A2_V1",
+  "model_calls": 0,
+  "pre_outcome": true,
+  "recomputed_candidate_count": 134,
+  "recomputed_family_counts": {
+    "look_at_obj_in_light": 18,
+    "pick_and_place_simple": 24,
+    "pick_clean_then_place_in_recep": 31,
+    "pick_cool_then_place_in_recep": 21,
+    "pick_heat_then_place_in_recep": 23,
+    "pick_two_obj_and_place": 17
+  },
+  "recomputed_selected_count": 24,
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "scope_note": "PASS authorizes future registration only after sanity PASS + primary T1 support + frozen primary operating point. This mixed valid_unseen axis includes the primary pick_and_place_simple task plus five other ALFWorld task families, so the defensible interpretation is same-model cross-task/split external validity, not pure cross-task-only or model-family replication.",
+  "selection_exact_match_count": 24,
+  "source_to_successor_transfer_diff": {
+    "competence_guards": {
+      "source": "exact primary guards",
+      "successor": "exact primary T1 competence guards"
+    },
+    "intervention": {
+      "source": null,
+      "successor": "exact primary T1 one-reset-time intervention; no reinjection"
+    },
+    "model": {
+      "source": "same exact primary model/revision/runtime",
+      "successor": "exact same primary model/revision/runtime; no model switch"
+    },
+    "operating_point": {
+      "source": "import exact primary T1 selected layer/site/scale; zero retuning",
+      "successor": "import exact primary T1 selected layer/site/scale/residual operating point with ZERO retuning"
+    },
+    "statistics": {
+      "source": "exact primary family-level tests/multiplicity/effect guards",
+      "successor": "exact primary family-level tests, multiplicity correction, and effect guards"
+    },
+    "trajectory_and_controls": {
+      "source": "reuse exact canonical V2.1 natural-plan/qualification/control construction",
+      "successor": "exact canonical V2.1 natural-plan trajectory, qualification, and seven-control construction"
+    }
+  },
+  "task_family_definition_review": "ACCEPTED_AS_DETERMINISTIC_OPERATIONAL_ALFWORLD_TASK_TYPE_ENCODING: prefix before first hyphen in valid_unseen top-level game directory yields exactly the six observed ALFWorld task types across all 134 candidate game files. The selection rule, not the observed six/counts, remains authoritative.",
+  "transfer_diff_assessment": "NO_MATERIAL_SCIENTIFIC_DRIFT. Differences are wording expansions that bind the same primary T1/V2.1 authorities plus one explicit intervention clause (one reset-time intervention; no reinjection) already required by T1 v1.1. No model, population, threshold, operating-point selection, endpoint, control, competence, or statistical rule is changed.",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "e8eaa16b-0d97-44f2-9988-d4403053a9d9"
+}

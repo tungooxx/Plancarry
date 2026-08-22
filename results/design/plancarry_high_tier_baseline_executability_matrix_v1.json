@@ -1,0 +1,126 @@
+{
+  "baselines": [
+    {
+      "code_status": "PROVENANCE_UNRESOLVED",
+      "fair_use": "Use as method/novelty precedent. Do not claim superiority on ALFWorld. If code becomes available, reproduce one reported causal patching result only to validate intervention conventions.",
+      "layer": "mechanism precedent",
+      "name": "Where's the Plan?",
+      "native_tasks": "Rhyming-couplet completion; Qwen3/Gemma-3/Llama-3 mechanistic analysis.",
+      "official_repo": null,
+      "paper_id": "fd269db2-791d-4694-a7d2-bbaa50d18509",
+      "role": "Causal planning localization/activation-patching novelty boundary, not an embodied-memory system baseline.",
+      "source_support": [
+        "arXiv:2605.07984",
+        "canonical paper card fd269db2..."
+      ]
+    },
+    {
+      "code_status": "FAITHFUL_REIMPLEMENTATION_POSSIBLE_OFFICIAL_CODE_UNRESOLVED",
+      "fair_use": "For T3/G, implement from frozen equations only if official code remains unavailable; label as independent faithful reimplementation, never official reproduction. Compare matched input-state payload bytes, base model where architecture permits, same reset/interruption data and end-task competence.",
+      "layer": "mechanism transport",
+      "name": "StateBridge",
+      "native_tasks": "Math reasoning, code generation, QA; four-agent pipeline; Qwen3 and OLMo3.",
+      "official_repo": null,
+      "paper_id": "efd31c35-da57-4a10-87fd-2b94ae3b795b",
+      "paper_parameters": {
+        "K": 64,
+        "alpha": 0.3,
+        "lambda": 0.001,
+        "method": "whitened orthogonal Procrustes + norm calibration + vocabulary anchoring + continuous prefix"
+      },
+      "role": "Training-free hidden-state alignment/continuous-prefix transport baseline.",
+      "source_support": [
+        "arXiv:2608.13317 lines 42-120",
+        "canonical paper card efd31c35..."
+      ]
+    },
+    {
+      "code_status": "OFFICIAL_REPRODUCTION_CANDIDATE",
+      "fair_use": "First reproduce a native released benchmark/checkpoint to validate code. Any ALFWorld/PlanCarry interruption adaptation is a separate matched adaptation, not reproduction. Hold backbone/prompt/context/decoding and memory/storage accounting matched within each comparison.",
+      "layer": "mechanism/system latent memory",
+      "name": "TransMem",
+      "native_tasks": "LoCoMo, HotpotQA, MemoryAgentBench",
+      "official_repo": "https://github.com/Haodong-Lei-Ray/TransMem",
+      "paper_id": "d01f4a22-61c4-4c85-9e07-cadb55333fe5",
+      "pinned_public_head": "6d7a6127967ad44482c958b555d8c83bfb75e9b9",
+      "released_assets": [
+        "training code",
+        "evaluation adapters",
+        "released adapter identifiers including Rayleihaodong/TransMem-qwen3-4B-D4 and Rayleihaodong/TransMem-qwen2.5-14B-D4"
+      ],
+      "reported_anchor": {
+        "MemoryAgentBench_average_accuracy_student_percent": 29.54,
+        "MemoryAgentBench_average_accuracy_transmem_percent": 40.0
+      },
+      "role": "Learned sparse historical hidden-state memory with residual injection/gating.",
+      "source_support": [
+        "arXiv:2607.29032",
+        "official GitHub README at pinned public HEAD"
+      ]
+    },
+    {
+      "code_status": "OFFICIAL_EXECUTABLE_PROVENANCE_UNRESOLVED",
+      "fair_use": "High-priority system-layer comparator if official implementation becomes available. Until then, cite reported results but do not present an independent imitation as official. A later reimplementation must match Brief State inputs, text+Soft-Mem channels, backbone, environment version and latency/token accounting.",
+      "layer": "system embodied memory",
+      "name": "MemCompiler",
+      "native_tasks": "ALFWorld, EmbodiedBench, ScienceWorld",
+      "official_repo": null,
+      "paper_id": "97c84101-eae0-4df3-8dd2-f6ae388d9762",
+      "role": "Closest state-conditioned embodied-memory system baseline with ALFWorld and ScienceWorld.",
+      "source_support": [
+        "arXiv:2605.07594",
+        "Microsoft Research publication page",
+        "canonical paper card 97c84101..."
+      ]
+    },
+    {
+      "advertised_repo": "https://github.com/ulab-uiuc/ElasticMem",
+      "code_status": "ADVERTISED_REPO_CURRENTLY_UNAVAILABLE",
+      "fair_use": "Treat paper as conceptual/reported-results baseline until official repo becomes reachable. Do not fabricate official reproduction. When available, match Qwen backbone, ALFWorld protocol, token/latent budget, learned-memory training data and success/token-cost metrics.",
+      "layer": "system latent memory",
+      "name": "ElasticMem",
+      "native_tasks": "MemorySuite QA + ALFWorld with Qwen2.5-3B/7B.",
+      "paper_id": "3681e30e-36c8-4aea-a8a0-adc7146afda2",
+      "repo_probe": "404/not fetchable as of audit; git ls-remote not accessible",
+      "role": "Adaptive learned latent-memory bank and soft-memory injection; direct ALFWorld novelty/baseline boundary.",
+      "source_support": [
+        "arXiv:2605.30690 code link",
+        "canonical paper card 3681e30e..."
+      ]
+    }
+  ],
+  "created_utc": "2026-08-19T23:49Z",
+  "kind": "PLANCARRY_HIGH_TIER_BASELINE_EXECUTABILITY_MATRIX_V1",
+  "minimum_fair_comparison_contract": {
+    "claim_rule": "No superiority claim against an unavailable/unreproduced method. Use reported paper numbers only as reported-context references, never as direct matched benchmark evidence.",
+    "mechanism_layer": [
+      "same base-model family/precision when feasible",
+      "same visible reset/interruption state",
+      "same no-future/expert leakage",
+      "matched latent payload/storage accounting",
+      "matched action-scoring/decoding",
+      "report competence/plumbing failures separately from causal effect"
+    ],
+    "system_layer": [
+      "same environment split/version",
+      "same base model where executable",
+      "same interruption/context budget",
+      "same memory-building information access",
+      "same token/latent/storage budget accounting",
+      "same task-success/end-task competence",
+      "latency and GPU-memory reported",
+      "official reproduction distinguished from adaptation/reimplementation"
+    ]
+  },
+  "planCarry_outcomes_seen": false,
+  "priority": [
+    "1. Reproduce TransMem on one released native benchmark/checkpoint when resources permit.",
+    "2. If T3/G survives, implement StateBridge equations as a clearly labeled faithful mechanism-layer reimplementation unless official code appears.",
+    "3. Re-check MemCompiler and ElasticMem code release immediately before system-layer evaluation; prefer official code if available.",
+    "4. Do not delay T1/T1R/T2 on system-baseline training because they answer a different causal question."
+  ],
+  "purpose": "Freeze reviewer-facing baseline fidelity and fair-comparison requirements before PlanCarry T1 discovery is interpreted.",
+  "scientific_result": "NOT_ASSESSED",
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

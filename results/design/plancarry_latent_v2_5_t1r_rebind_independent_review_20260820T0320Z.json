@@ -1,0 +1,187 @@
+{
+  "checks": {
+    "all20": {
+      "detail": null,
+      "pass": false
+    },
+    "canonical_primary_experiment": {
+      "detail": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+      "pass": true
+    },
+    "canonical_primary_prediction": {
+      "detail": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+      "pass": true
+    },
+    "effect_bidirectional_60": {
+      "detail": [],
+      "pass": false
+    },
+    "effect_mean_active_010": {
+      "detail": [],
+      "pass": false
+    },
+    "effect_positive_70": {
+      "detail": [],
+      "pass": false
+    },
+    "effect_specificity_005": {
+      "detail": [],
+      "pass": false
+    },
+    "expressivity_delayed_8of12": {
+      "detail": null,
+      "pass": false
+    },
+    "expressivity_overall_16": {
+      "detail": null,
+      "pass": false
+    },
+    "forbids_null_invalid_inconclusive": {
+      "detail": "FORBIDDEN",
+      "pass": true
+    },
+    "four_tests": {
+      "detail": null,
+      "pass": false
+    },
+    "holm": {
+      "detail": null,
+      "pass": false
+    },
+    "model_id": {
+      "detail": "Qwen/Qwen2.5-1.5B-Instruct",
+      "pass": true
+    },
+    "model_revision": {
+      "detail": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "pass": true
+    },
+    "no_confirmation_access": {
+      "detail": false,
+      "pass": true
+    },
+    "no_retuning_layer_alpha": {
+      "detail": {
+        "primary_discovery_selection_currently_exists": false,
+        "rule": "After primary T1 support, import the exact content-hashed primary v2.5 discovery-selection artifact. Reuse selected_layer, selected_alpha, and all 20 frozen primary discovery active donor directions. No reserve layer/alpha selection, threshold tuning, donor recapture from confirmation, or control substitution.",
+        "selection_sha_must_be_recorded_before_any_reserve_model_request": true
+      },
+      "pass": false
+    },
+    "no_valid_seen_unseen": {
+      "detail": null,
+      "pass": true
+    },
+    "nonidentity_disclosed": {
+      "detail": false,
+      "pass": true
+    },
+    "plumbing_audit": {
+      "detail": "55e08892920a6d036e4c4f58b6377e786382f11a75da588d87bcc12474f29c54",
+      "pass": true
+    },
+    "precision": {
+      "detail": "float16",
+      "pass": true
+    },
+    "prefix_bridge": {
+      "detail": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+      "pass": true
+    },
+    "prefix_eng_result": {
+      "detail": "cb545b98-119b-49fa-a1eb-5b594ce0addc",
+      "pass": true
+    },
+    "quantization": {
+      "detail": "NONE",
+      "pass": true
+    },
+    "rebind_hash": {
+      "detail": "6f824adeeae12976fd6733ac30a990d628fae543493bc9f907f16779c8d69ae7",
+      "pass": true
+    },
+    "requires_supported_t1": {
+      "detail": "SUPPORTED_T1 after valid all-20 confirmation assessment",
+      "pass": true
+    },
+    "reserve_audit_ref_exact": {
+      "detail": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+      "pass": true
+    },
+    "reserve_audit_unique": {
+      "detail": [
+        "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json"
+      ],
+      "pass": true
+    },
+    "reserve_delayed_count": {
+      "detail": 12,
+      "pass": true
+    },
+    "reserve_donor_hash": {
+      "detail": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "pass": true
+    },
+    "reserve_donor_ref_exact": {
+      "detail": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "pass": true
+    },
+    "reserve_manifest_hash": {
+      "detail": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "pass": true
+    },
+    "reserve_manifest_ref_exact": {
+      "detail": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "pass": true
+    },
+    "reserve_model_calls_zero": {
+      "detail": 0,
+      "pass": true
+    },
+    "reserve_pair_count": {
+      "detail": 20,
+      "pass": true
+    },
+    "scientific_not_assessed": {
+      "detail": "NOT_ASSESSED",
+      "pass": true
+    },
+    "tokenizers": {
+      "detail": "0.20.3",
+      "pass": true
+    },
+    "transformers": {
+      "detail": "4.46.3",
+      "pass": true
+    },
+    "whitebox_client": {
+      "detail": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+      "pass": true
+    }
+  },
+  "checks_passed": 28,
+  "checks_total": 38,
+  "confirmation_accessed": false,
+  "failed_checks": [
+    "no_retuning_layer_alpha",
+    "four_tests",
+    "holm",
+    "all20",
+    "expressivity_overall_16",
+    "expressivity_delayed_8of12",
+    "effect_mean_active_010",
+    "effect_positive_70",
+    "effect_bidirectional_60",
+    "effect_specificity_005"
+  ],
+  "interpretation": "Administrative/prospective replication readiness only; does not support T1, persistence, compactness, or generalization.",
+  "kind": "PLANCARRY_V25_T1R_REBIND_INDEPENDENT_PREREG_REVIEW",
+  "primary_science_accessed": false,
+  "reserve_model_calls": 0,
+  "reviewed_artifact": "results/design/plancarry_latent_v2_5_t1r_rebind_frozen_20260820T0258Z.json",
+  "reviewed_sha256": "6f824adeeae12976fd6733ac30a990d628fae543493bc9f907f16779c8d69ae7",
+  "scientific_result": "NOT_ASSESSED",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

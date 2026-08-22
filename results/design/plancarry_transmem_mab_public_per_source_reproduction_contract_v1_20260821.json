@@ -1,0 +1,250 @@
+{
+  "adapter": {
+    "checkpoint_config": {
+      "D": 4,
+      "a_init": 1.0,
+      "block_depth": 1,
+      "dim": 2560,
+      "gate_granularity": "token_scalar",
+      "gate_init": 1.0,
+      "gate_max": 2.0,
+      "gate_mode": "centered_sigmoid",
+      "gate_temperature": 1.0,
+      "hm_mode": "floor",
+      "inject_layers": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "layered": true,
+      "learnable_a": false,
+      "pos_mode": "rope",
+      "train_mode": "inloop_tf",
+      "trained_n_mem": 4
+    },
+    "checkpoint_file": "best.pt",
+    "checkpoint_metadata_extraction": "bounded HTTP byte-range ZIP metadata inspection of exact public best.pt data.pkl only; tensor weight blobs not downloaded or executed",
+    "checkpoint_sha256": "f338bb669c2be6982077a46196573daefa86f78415e43e2de4c0bcd8e6bedae2",
+    "checkpoint_size_bytes": 1719857634,
+    "epoch": 2,
+    "global_step": 1250,
+    "inference_N_override": null,
+    "inference_N_rule": "no --N override; evaluator uses checkpoint n_mem=4",
+    "inference_n_mem": 4,
+    "init_scheme": "scratch_joint",
+    "repo_id": "Rayleihaodong/TransMem-qwen3-4B-D4",
+    "revision": "85ba1010eb226e312e208940180bb60424a2cb79",
+    "seed": 20260714
+  },
+  "backbone": {
+    "repo_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "required_local_load": "from_pretrained exact snapshot, local_files_only=True; evaluator dtype defaults/flags must be recorded in run provenance",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "revision_source": "Hugging Face model API snapshot pin"
+  },
+  "created_utc": "2026-08-21T08:15:47Z",
+  "evaluation": {
+    "agent_buffer_tokens": 4000,
+    "agent_input_tokens": 128000,
+    "command_template": [
+      "python scripts/eval/eval_memory_agent_bench.py --model_path \"$MODEL_PATH\" --mode paired --ckpt \"$CKPT\" --checkpoint_id \"hf://Rayleihaodong/TransMem-qwen3-4B-D4@85ba1010eb226e312e208940180bb60424a2cb79/best.pt#sha256=f338bb669c2be6982077a46196573daefa86f78415e43e2de4c0bcd8e6bedae2\" --mab_root \"$MAB_ROOT\" --data_dir \"$MAB_DATA\" --agent_input_tokens 128000 --output_dir \"$OUT\"",
+      "python scripts/eval/eval_memory_agent_bench_judge.py --mab_root \"$MAB_ROOT\" --output_dir \"$OUT\" --source \"longmemeval_s*\" --mode student --judge_model gpt-4o",
+      "python scripts/eval/eval_memory_agent_bench_judge.py --mab_root \"$MAB_ROOT\" --output_dir \"$OUT\" --source \"longmemeval_s*\" --mode transmem --judge_model gpt-4o",
+      "python scripts/eval/eval_memory_agent_bench_judge.py --mab_root \"$MAB_ROOT\" --output_dir \"$OUT\" --source infbench_sum_eng_shots2 --mode student --judge_model gpt-4o",
+      "python scripts/eval/eval_memory_agent_bench_judge.py --mab_root \"$MAB_ROOT\" --output_dir \"$OUT\" --source infbench_sum_eng_shots2 --mode transmem --judge_model gpt-4o"
+    ],
+    "dataset_root_policy": "explicit --data_dir pointing only to pinned ai-hyz/MemoryAgentBench snapshot data directory; no multiple cache roots and no network fallback",
+    "judge_api_requirement": "OPENAI_API_KEY; optional OPENAI_BASE_URL only if it is an OpenAI-compatible route to the same gpt-4o model identity and run provenance records it; official direct OpenAI endpoint preferred",
+    "judge_contract_source": "official MemoryAgentBench README plus exact benchmark judge assets loaded by TransMem judge adapter",
+    "judge_model": "gpt-4o",
+    "judge_required_sources": [
+      "longmemeval_s*",
+      "infbench_sum_eng_shots2"
+    ],
+    "mode": "paired",
+    "same_examples_and_prompt_budget_for_student_and_transmem": true,
+    "sources": [
+      {
+        "judge": null,
+        "max_new_tokens": 50,
+        "primary_metric": "substring_exact_match",
+        "question_count": 100,
+        "source": "ruler_qa1_197K",
+        "split": "Accurate_Retrieval"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 50,
+        "primary_metric": "substring_exact_match",
+        "question_count": 100,
+        "source": "ruler_qa2_421K",
+        "split": "Accurate_Retrieval"
+      },
+      {
+        "judge": "gpt-4o",
+        "max_new_tokens": 50,
+        "primary_metric": "llm_as_judge",
+        "question_count": 300,
+        "source": "longmemeval_s*",
+        "split": "Accurate_Retrieval"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 40,
+        "primary_metric": "substring_exact_match",
+        "question_count": 500,
+        "source": "eventqa_full",
+        "split": "Accurate_Retrieval"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 20,
+        "primary_metric": "exact_match",
+        "question_count": 100,
+        "source": "icl_banking77_5900shot_balance",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 20,
+        "primary_metric": "exact_match",
+        "question_count": 100,
+        "source": "icl_clinic150_7050shot_balance",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 20,
+        "primary_metric": "exact_match",
+        "question_count": 100,
+        "source": "icl_nlu_8296shot_balance",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 20,
+        "primary_metric": "exact_match",
+        "question_count": 100,
+        "source": "icl_trec_coarse_6600shot_balance",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 20,
+        "primary_metric": "exact_match",
+        "question_count": 100,
+        "source": "icl_trec_fine_6400shot_balance",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 300,
+        "primary_metric": "recsys_recall@5",
+        "question_count": 200,
+        "source": "recsys_redial_full",
+        "split": "Test_Time_Learning"
+      },
+      {
+        "judge": "gpt-4o",
+        "max_new_tokens": 1200,
+        "primary_metric": "official_compatible_llm_judged_summarization",
+        "question_count": 100,
+        "source": "infbench_sum_eng_shots2",
+        "split": "Long_Range_Understanding"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 10,
+        "primary_metric": "substring_exact_match",
+        "question_count": 100,
+        "source": "factconsolidation_sh_262k",
+        "split": "Conflict_Resolution"
+      },
+      {
+        "judge": null,
+        "max_new_tokens": 10,
+        "primary_metric": "substring_exact_match",
+        "question_count": 100,
+        "source": "factconsolidation_mh_262k",
+        "split": "Conflict_Resolution"
+      }
+    ],
+    "total_questions": 2000
+  },
+  "interpretation": {
+    "cross_source_official_overall_exists": false,
+    "macro_if_reported": "PROJECT-COMPUTED only; never label official MemoryAgentBench overall and never use as direct reproduction target for paper 29.54->40.00 headline",
+    "plan_carry_scientific_outcomes_accessed": false,
+    "primary_reporting": "per-source student_primary and transmem_primary only"
+  },
+  "kind": "PLANCARRY_TRANSMEM_MAB_PUBLIC_PER_SOURCE_REPRODUCTION_CONTRACT_V1",
+  "memoryagentbench_release": {
+    "commit": "fe1735de8cf8b9908e1e3d3b5612afc815698062",
+    "hf_dataset_repo": "ai-hyz/MemoryAgentBench",
+    "hf_dataset_revision": "7ea066982b140a19337e17e60d45d4076e042faf",
+    "long_context_agents_sha256": "f9ef74a9e915dab61a212b33cad7b20849b154dd2e2fa8880919402338d69b16",
+    "official_assets": {
+      "infbench_sum_config_sha256": "6f96cea4302eb000d4e2ed441b348d7fc3add12eea0090ec63f87a6de321dee0",
+      "longmem_qa_evaluate_sha256": "ceca59bddea4203a78b417be635e63fe3f685bd957e3df12150978e21972c540",
+      "longmemeval_config_sha256": "acb9169d982248bd6e676f86ab1ae9028fe9815286378c36ad0822798eb704d1",
+      "model_utils_openai_sha256": "6ea1ecc43d57927e6cbd10e3da620b7dad27bf041c3dfe7ad647791e0e85fda7",
+      "summarization_evaluate_sha256": "6951d19644cdb1972bcf6cdb272f4757aa995ae07099bf74012925158c376dd4"
+    },
+    "parquet_shards": {
+      "data/Accurate_Retrieval-00000-of-00001.parquet": {
+        "sha256": "56c3cd80fb6731a3e53cd1a6be3148f54df60ff2d290ee50e28f8acebf9655c1",
+        "size": 20024386
+      },
+      "data/Conflict_Resolution-00000-of-00001.parquet": {
+        "sha256": "24d5c3f09ce0ce15625cb9f8a98f44f0d864ca6c94d7b4ad04eb697ca3a5ff45",
+        "size": 1491588
+      },
+      "data/Long_Range_Understanding-00000-of-00001.parquet": {
+        "sha256": "5ab175461954db67770d4a4cb69e569b513ebb96aceb9ee79b57f67488bcd539",
+        "size": 49342452
+      },
+      "data/Test_Time_Learning-00000-of-00001.parquet": {
+        "sha256": "5338753be48f925d03318eed66117286e3489025fabe050a547bd086cd7d79c0",
+        "size": 3947476
+      }
+    },
+    "repository": "https://github.com/HUST-AI-HYZ/MemoryAgentBench.git"
+  },
+  "paper_id": "35e58e6d-56f1-4989-baaa-fad7a23cab49",
+  "pre_execution_guards": [
+    "verify local TransMem git HEAD exactly 6d7a6127967ad44482c958b555d8c83bfb75e9b9",
+    "verify local MemoryAgentBench git HEAD exactly fe1735de8cf8b9908e1e3d3b5612afc815698062",
+    "verify local Qwen snapshot exactly cdbee75f17c01a7cc42f958dc650907174af0554",
+    "verify local adapter best.pt SHA256 exactly f338bb669c2be6982077a46196573daefa86f78415e43e2de4c0bcd8e6bedae2",
+    "verify local dataset shard SHA256 values exactly match frozen four-shard manifest",
+    "verify checkpoint runtime reports global_step=1250, trained_n_mem=4, eval_n_mem=4, inject_layers=[32,33,34,35]",
+    "do not set inference --N override",
+    "do not silently substitute judge model",
+    "do not report cross-source macro as official benchmark overall"
+  ],
+  "prohibitions": [
+    "no PlanCarry scientific outcome access",
+    "no reverse engineering paper aggregate",
+    "no guessed release provenance",
+    "no claim that this public per-source comparison reproduces paper headline average"
+  ],
+  "scientific_role": "PUBLIC_BASELINE_REPRODUCTION_PROVENANCE_ONLY",
+  "transmem_release": {
+    "commit": "6d7a6127967ad44482c958b555d8c83bfb75e9b9",
+    "evaluator": {
+      "path": "scripts/eval/eval_memory_agent_bench.py",
+      "sha256": "64cfde7b4dac3eb6f4e06fdda85ee60441f6c8d113386d4ce3bf836c601c2927"
+    },
+    "judge_adapter": {
+      "path": "scripts/eval/eval_memory_agent_bench_judge.py",
+      "sha256": "5e04b6c96165c6d6ee3dee9336b3b1fe829aa84f6222c1ea3d808c06c5c82031"
+    },
+    "parallel_launcher": {
+      "path": "scripts/eval/Qwen3-4B-Instruct-2507/run_eval_memory_agent_bench_parallel.sh",
+      "sha256": "23a9f07020280237acd11f2eb3a610072c55d13fb958398ac486d44949d3212d"
+    },
+    "repository": "https://github.com/Haodong-Lei-Ray/TransMem.git"
+  },
+  "work_item_id": "15bc78f4-01cf-4bcd-8d20-7c61c5fd7c2b"
+}

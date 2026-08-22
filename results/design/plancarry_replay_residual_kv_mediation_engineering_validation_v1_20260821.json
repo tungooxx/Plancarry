@@ -1,0 +1,76 @@
+{
+  "arms": {
+    "A_PERSIST": "condition PREFIX + condition CYCLE",
+    "B_PREFIX_RESTORE": "clean PREFIX + condition CYCLE",
+    "C_CYCLE_RESTORE": "condition PREFIX + clean CYCLE",
+    "D_FULL_RESTORE": "clean PREFIX + clean CYCLE",
+    "E_SHAM_SPLICE": "no-op recompose condition PREFIX + condition CYCLE"
+  },
+  "cache_content_identity": {
+    "frozen_cache_content_atol": 0.0,
+    "full_restore_D_vs_clean_max_abs": 0.0,
+    "persist_A_vs_condition_max_abs": 0.0,
+    "rationale": "slice+concatenate copies exact cache values without arithmetic; synthetic fixture proves bit-exact content identity",
+    "sham_E_vs_A_max_abs": 0.0
+  },
+  "code_path": "replay_residual_kv_mediation_v1.py",
+  "code_sha256": "60890dbfa342faa18abc74ed0931e5ac6f767953e7a984f68a348b10a42a1856",
+  "contrast_contract": {
+    "DIRECT": "arm-matched C selective PLAN minus max C controls",
+    "PROPAGATED": "arm-matched B selective PLAN minus max B controls",
+    "TOTAL": "arm-matched A selective PLAN minus max A controls",
+    "pooled_controls_forbidden": true
+  },
+  "downstream_model_output_guard": {
+    "reason": "current Linux executor has no torch and no Windows host-process bridge; no numerical endpoint tolerance is invented",
+    "scientific_execution_blocked_until_frozen": true,
+    "status": "REAL_TORCH_MICROCHECK_REQUIRED_BEFORE_SCIENCE",
+    "tolerance": null
+  },
+  "engineering_task_id": "a4d61371-f183-49c5-b89f-a5ed6f2c0a34",
+  "environment": {
+    "local_executor_numpy": null,
+    "local_executor_pytest": null,
+    "local_executor_torch": null,
+    "windows_python_accessible_from_executor": false
+  },
+  "environment_execution": 0,
+  "experiment_id": "ff6ded3f-ff04-48e2-870b-1ab9d1b22fe1",
+  "implementation_work_item_id": "50a25907-e98e-450f-8236-260a69802df0",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_KV_MEDIATION_ENGINEERING_VALIDATION_V1",
+  "model_calls": 0,
+  "prediction_id": "fe99ff8f-fc47-4943-acee-ce1d249cb465",
+  "prohibitions_preserved": [
+    "no model/ALFWorld science",
+    "no family data",
+    "no reinjection",
+    "no token deletion/repositioning",
+    "no T1 mutation"
+  ],
+  "review_sha256": "9185b935dd60e24af2d747806e31dcd2e4f85d1e64301f2b5136beecb0d76899",
+  "review_work_item_id": "24fcc616-afd3-4164-98b6-345bbc828876",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "semantic_controls": [
+    "NEXT_ACTION_PRESERVED_LATE_NULL",
+    "UNRELATED_PLAN",
+    "EQUAL_NORM_RANDOM"
+  ],
+  "static_compatibility": {
+    "dynamic_cache_default_constructible": true,
+    "job_id": "local_24389cf74cd5428b",
+    "key_cache_value_cache_lists": true,
+    "seen_tokens_field": true,
+    "sequence_dimension": -2,
+    "transformers_version": "4.51.3 pinned source inspection"
+  },
+  "synthetic_tests": {
+    "failed": 0,
+    "framework": "stdlib unittest",
+    "job_id": "local_98461792816a484b",
+    "passed": 7
+  },
+  "test_path": "test_replay_residual_kv_mediation_v1.py",
+  "test_sha256": "bbb47a10c9e826084f5203a79d507616f2a7262e42dc9bf558f37e052e0c2d2e",
+  "verdict": "STATIC_AND_SYNTHETIC_CACHE_SPLICE_PASS_REAL_TORCH_GUARD_PENDING"
+}

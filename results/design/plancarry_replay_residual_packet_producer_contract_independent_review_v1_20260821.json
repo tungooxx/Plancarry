@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "action_admissible": true,
+    "all7": false,
+    "atomic_all32": true,
+    "contract_sha": true,
+    "cut2": true,
+    "cut_inherited": true,
+    "indices_0_31": true,
+    "manifest_only": true,
+    "max12": true,
+    "min16": true,
+    "no_causal": true,
+    "no_cut_search": true,
+    "no_heuristic": true,
+    "no_partial": true,
+    "no_replacement": true,
+    "no_traj_data": true,
+    "no_valid": true,
+    "one_plan_attempt": true,
+    "plan_96_semantics_exact": false,
+    "remaining2": true,
+    "runtime_exact": true,
+    "score_mean_logprob": true,
+    "sealed": true,
+    "thinking_off": true,
+    "unrelated_donor_fixed_point_unambiguous": false
+  },
+  "contract_sha256": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752",
+  "environment_execution": 0,
+  "failed_checks": [
+    "all7",
+    "plan_96_semantics_exact",
+    "unrelated_donor_fixed_point_unambiguous"
+  ],
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_PACKET_PRODUCER_CONTRACT_INDEPENDENT_REVIEW_V1",
+  "material_findings": [
+    {
+      "finding": "Frozen sanity language says plan block content <=96 model tokens, but producer contract accepts only when the full serialized <PLAN>...</PLAN> text is <=96. Before any model call, define the limit explicitly on the inner plan content and make producer/validator semantics match, or prospectively justify that content means the full serialized block. Avoid silently narrowing qualification.",
+      "id": "PLAN_CONTENT_96_SEMANTICS"
+    },
+    {
+      "finding": "UNRELATED_PLAN must come from the fixed qualified set, while required control constructibility itself can disqualify a family. Current contract does not specify whether donors are recomputed after disqualification, leaving outcome-dependent donor-set ambiguity. Freeze a deterministic simultaneous fixed-point rule before engineering/model calls.",
+      "id": "UNRELATED_DONOR_QUALIFICATION_FIXED_POINT"
+    }
+  ],
+  "model_calls": 0,
+  "passed_count": 22,
+  "sanity_prereg_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "total": 25,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

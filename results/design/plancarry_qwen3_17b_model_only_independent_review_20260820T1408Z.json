@@ -1,0 +1,37 @@
+{
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "confirmation_accessed": false,
+  "design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+  "failed_checks": [
+    {
+      "expected": "PairContext.suffixes == [\" \"+command_a, \" \"+command_b] as in corrected v2.6",
+      "impact": "Changes tokenizer boundary and teacher-forced logprob semantics, violating model-only recovery isolation.",
+      "name": "exact_v26_teacher_forced_suffix_semantics",
+      "observed": "Qwen3 runner PairContext.suffixes == [command_a, command_b] without leading spaces"
+    },
+    {
+      "expected": "Fail-closed validator/tokenizer assertion of exact leading-space suffix contract",
+      "name": "validator_guards_suffix_semantics",
+      "observed": "Current validator does not assert the invariant and can false-pass."
+    }
+  ],
+  "kind": "PLANCARRY_QWEN3_17B_MODEL_ONLY_INDEPENDENT_PREEXEC_REVIEW_V1",
+  "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "passed_checks": [
+    "model/runtime-only recovery frozen prospectively before Qwen3 ALFWorld outcomes",
+    "exact Qwen3-1.7B revision/BF16/no quantization/no offload runtime bound",
+    "synthetic 128-token hidden-state forward fits RTX3050 engineering-only",
+    "20-family development cohort frozen with zero overlap vs primary and T1R manifests",
+    "all 20 recovery families forbidden from future T1R/T2 confirmation",
+    "competence thresholds remain +0.10/-0.10 with n=20 and pass>=12",
+    "runner has no patch_score/capture/CPSE/causal layer-alpha path and refuses overwrite"
+  ],
+  "qwen3_alfworld_scientific_outcomes_inspected": false,
+  "required_repair": "Restore exact v2.6 leading-space suffix semantics and add a fail-closed validator/tokenizer assertion. No other scientific/runtime/cohort/prompt/threshold change permitted.",
+  "runner_sha256": "314a81f35936da7014024e55912ff02ec35d874fa66dbc714e53a612e15df54d",
+  "scientific_result": "NOT_ASSESSED_TECHNICAL_PREEXEC_BLOCK",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "validator_sha256": "2d33dcbf89824b4ac4e3dca61dc7183b93ffffab06207399471dad0e5fd11735",
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

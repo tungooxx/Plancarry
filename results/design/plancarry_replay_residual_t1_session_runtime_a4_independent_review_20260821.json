@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "alfworld_execution": 0,
+    "alfworld_literal_only_in_docstring": true,
+    "all_frozen_hashes_exact": true,
+    "cache_session_provenance_hashes_present": [
+      "reset_prefix_sha256",
+      "vector_sha256",
+      "session_id_hash",
+      "initial_cache_sha256",
+      "cache_sha256",
+      "hook_count",
+      "context_len"
+    ],
+    "candidate_scoring_clones_cache_and_live_cache_nonmutating": true,
+    "direct_exact_token_ids_no_tokenizer_reconstruction": true,
+    "no_executable_alfworld_import": true,
+    "no_textworld_import": true,
+    "no_valid_seen_or_valid_unseen_path": true,
+    "py_compile_pass": true,
+    "qwen3_action_context_len_after": 8,
+    "qwen3_candidate_cache_nonmutation": true,
+    "qwen3_device": "cuda:0",
+    "qwen3_dtype": "torch.bfloat16",
+    "qwen3_exact_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "qwen3_final_cache_len": 11,
+    "qwen3_hidden_size": 2048,
+    "qwen3_hook_count_final": 1,
+    "qwen3_hook_count_initial": 1,
+    "qwen3_layers": 28,
+    "qwen3_observation_context_len_before": 8,
+    "qwen3_zero_add_vs_no_patch_maxabs": 0.0,
+    "replayresidual_family_access": 0,
+    "reset_hook_exactly_once_and_removed": true,
+    "same_kv_session_action_observation_continuation": true,
+    "scientific_outcomes_accessed": false,
+    "suffix_metric": "FP32 arithmetic-mean token logprob",
+    "tie_break": "lexical command order",
+    "unit_tests": "5/5 PASS on real Torch/DynamicCache fixture",
+    "zero_add_no_patch_frozen_atol_1e_6_pass": true
+  },
+  "engineering_result_id": "35e2ccfc-78e5-4ae1-9b9c-de11af65ed93",
+  "engineering_task_id": "b63b7c66-5cfd-4c16-9302-ea09111c9d42",
+  "frozen_hashes": {
+    "author_microcheck": "dafef2c366c3d8af5b5e9a2d7fbfb23020c6b79190b874a4388ab53c5e4f801a",
+    "engineering_audit": "ac03db23cd977665e82b9d1438899e4c094ca4408248f7f56f8c9eb689785eb1",
+    "gap_matrix": "8cd22aff1d89b7a54eaa07b833dc75ecc1286f6938e39ee72256dd9705cba895",
+    "runtime": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "t1_prereg_v1_1": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "tests": "234a4f56a25fd8cce7c9d7edf74c9415c17916598f592dca315d29f44eb849e7",
+    "v2_1_contract": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158"
+  },
+  "independent_jobs": {
+    "hash_and_unit_tests": "local_8752d92ce7234283",
+    "qwen3_model_specific_microcheck": "local_5c8c345807c049d9",
+    "source_semantic_audit": "local_702330d750f149a1"
+  },
+  "notes": [
+    "Two early reviewer microcheck attempts failed because of reviewer-harness API assumptions (layer=None; nonexistent metadata key). Neither modified runtime bytes or accessed science. Final corrected exact-model microcheck passed."
+  ],
+  "review": "ReplayResidual T1 persistent-session runtime independent PRE-OUTCOME review",
+  "review_scope": "PASS authorizes T1 phase-runner engineering only. It does not authorize T1 scientific execution and is not evidence for ReplayResidual efficacy.",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_T1_SESSION_RUNTIME",
+  "work_item_id": "592e4b39-6345-4bdc-aae0-21702984e19f"
+}

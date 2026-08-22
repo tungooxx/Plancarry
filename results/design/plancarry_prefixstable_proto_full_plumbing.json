@@ -1,0 +1,70 @@
+{
+  "active_control_effects_computed": false,
+  "confirmation_accessed": false,
+  "kind": "PREFIX_STABLE_PROTO_FULL_FROZEN_PLUMBING",
+  "max_self_patch": 0.0,
+  "max_zero_add": 0.0,
+  "pass": true,
+  "rows": [
+    {
+      "layer": 6,
+      "pair_index": 0,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 0,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 0,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 0,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 6,
+      "pair_index": 1,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 1,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 1,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 1,
+      "pass": true,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "source_competence_computed": false,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

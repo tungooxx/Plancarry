@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "confirmation_delayed13": true,
+    "confirmation_n20": true,
+    "confirmation_not_accessed_at_rebind": true,
+    "data_zero_overlap": true,
+    "dev_n20": true,
+    "diff_audit_sha": true,
+    "diff_changed_exact_allowed": true,
+    "diff_changed_paths_12": true,
+    "diff_scientific_core_all_equal": true,
+    "diff_scientific_variables_changed_empty": true,
+    "diff_unexpected_empty": true,
+    "fresh_conditional_experiment_id": true,
+    "fresh_conditional_prediction_id": true,
+    "fresh_review_sha": true,
+    "fresh_runner_sha": true,
+    "no_model_calls_at_rebind": true,
+    "qwen3_outcome_not_accessed_at_rebind": true,
+    "rebound_sha": true,
+    "source_sha": true,
+    "stale_exp_explicitly_superseded": true,
+    "valid_splits_not_accessed_at_rebind": true,
+    "validity_guard_authorizes_fresh_exp": false,
+    "validity_guard_does_not_require_stale_exp": false,
+    "wrapper_sha": true
+  },
+  "confirmation_or_valid_split_outcome_inspected": false,
+  "diff_audit_sha256": "8c59764857186935c2c7b0fb12cebeb9a8ea7092faee4a8ee9a03a3c4189cf10",
+  "failed_checks": [
+    "validity_guard_authorizes_fresh_exp",
+    "validity_guard_does_not_require_stale_exp"
+  ],
+  "kind": "PLANCARRY_QWEN3_REBOUND_CONDITIONAL_T1_INDEPENDENT_REVIEW",
+  "material_finding": {
+    "allowed_repair": "Lineage/provenance-only: replace the stale validity-guard experiment reference with exact fresh Experiment 6612eb07-c515-46f4-a373-88ac5a51e54a; update content hash and diff audit; no scientific variables or outcomes may change/access.",
+    "expected": "No Qwen3 full causal T1 registration/execution unless frozen competence Experiment 6612eb07-c515-46f4-a373-88ac5a51e54a validly passes >=12/20.",
+    "observed": "No Qwen3 full causal T1 registration/execution unless frozen competence Experiment 919c2113... validly passes >=12/20.",
+    "path": "validity_guards[]",
+    "why_material": "The rebound conditional_activation authorizes fresh no-timeout Experiment 6612eb07..., while the validity guard still requires the superseded pre-timeout Experiment 919c2113.... This creates contradictory authorization semantics for future T1 registration/execution."
+  },
+  "qwen3_competence_outcome_inspected": false,
+  "rebound_sha256": "37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab",
+  "reviewer_worker_id": "c0eb2ca1-ed21-4545-8d5d-a73dfdc4b47f",
+  "scientific_core_otherwise_preserved": true,
+  "scientific_result": "NOT_ASSESSED",
+  "source_sha256": "0c9b86de0d2ab349a3ce2254d9f86047943dd0ec86b7c7ffb8735663367c0aad",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "c2d77d5f-ba0b-4087-b60a-b357a43a694e",
+  "wrapper_sha256": "41f17221a0097026b1b8b03e50d7511832f23f531349c86457c6911f6a24fc8f"
+}

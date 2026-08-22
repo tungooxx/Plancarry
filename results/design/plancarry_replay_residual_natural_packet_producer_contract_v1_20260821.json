@@ -1,0 +1,170 @@
+{
+  "action_policy": {
+    "assistant_prefix": "ACTION:",
+    "candidate_suffix": "single ASCII space + exact admissible command",
+    "choice": "argmax score; ties within exact float equality break by the order of the current sorted admissible-command list returned by alfworld_runtime; no top-k rescue or heuristic override",
+    "context": "at each step, rebuild exact Qwen3 chat prompt from canonical task instruction, exact initial observation, the exact retained model-generated <PLAN> block, every preceding chosen ACTION and resulting OBSERVATION, current observation, and the current sorted admissible-command list",
+    "expert_or_oracle_actions": false,
+    "invalid_command_possible": false,
+    "max_environment_actions": 12,
+    "policy": "deterministic admissible-constrained teacher-forced ranking; no free-form action generation",
+    "score": "mean teacher-forced log probability per suffix token, computed with the exact model in eval/no_grad mode; prefix shared within step",
+    "system": "Continue the ALFWorld task using the retained plan and visible interaction history. The next response must be exactly one command from CURRENT ADMISSIBLE COMMANDS."
+  },
+  "created_utc": "2026-08-21T02:32:00Z",
+  "engineering_test_policy": {
+    "before science": "static/source audit + synthetic non-ALFWorld model generation/action-ranking smoke only; optional ALFWorld environment-only structural test may inspect schema but must not call model on frozen candidates",
+    "scientific_result": "NOT_ASSESSED"
+  },
+  "execution_binding": "registered sanity Experiment 5ac34da1-426c-410d-a468-83758ae6b4f5 cannot execute until producer implementation has VERIFIED_REAL_EXECUTION and a fresh independent review returns exact PASS_FOR_REPLAYRESIDUAL_PACKET_PRODUCER_EXECUTION",
+  "experiment_id": "5ac34da1-426c-410d-a468-83758ae6b4f5",
+  "frozen_sources": {
+    "executable_readiness_sha256": "29e58aa4844293d3fa4f6bf77ef1697be53a0fc88478a531ff08a2be6d525a1c",
+    "fresh_cohort_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "sanity_prereg_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "sanity_protocol_sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "sanity_runner_sha256": "5d64a1a97c3ca10050920c7fa8802d1bf5226f253172c9b9e17059d5be7deecb",
+    "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "untouched_population_sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_NATURAL_PACKET_PRODUCER_CONTRACT_V1",
+  "output_semantics": {
+    "atomic_publish": "write all 32 packets + manifest + aggregate provenance to temporary directory, fsync files, verify exact index set 0..31, then atomic directory rename only if final target absent",
+    "partial_packet_inspection_forbidden": true,
+    "refuse_existing_target": true,
+    "resume": false,
+    "target_dir": "results/science/plancarry_replay_residual_sanity_packets_v1_1",
+    "temporary_dir": "same parent with unique .inprogress suffix"
+  },
+  "packet_schema": {
+    "actions": "ordered objects with command, observation, pre_state_hash, post_state_hash, admissible_commands_sha256; no hidden facts",
+    "one_packet_per_index": true,
+    "required_all": [
+      "frozen_index",
+      "family",
+      "game_path",
+      "task_instruction",
+      "initial_observation",
+      "qualified",
+      "qualification_reasons",
+      "model_id",
+      "model_revision",
+      "runtime_versions",
+      "plan_text",
+      "plan_sha256",
+      "success",
+      "actions",
+      "interruption_after",
+      "trajectory_sha256",
+      "world_state_hashes",
+      "admissible_command_hashes",
+      "producer_contract_sha256"
+    ],
+    "unqualified": "still emit one packet with frozen identity and explicit fail reason; never skip or replace"
+  },
+  "plan_generation": {
+    "acceptance": "decoded assistant continuation must contain exactly one complete <PLAN>...</PLAN> block, no non-whitespace text outside it, no reasoning marker, and full plan_text token length <=96 under exact tokenizer; otherwise candidate is unqualified",
+    "chat_template": "tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, enable_thinking=False)",
+    "decode": "single greedy generation; do_sample=False; temperature=None; max_new_tokens=112; no retry, no regeneration, no truncation rescue",
+    "no_expert_plan": true,
+    "system": "You are planning an ALFWorld household task. Output only one concise ordered <PLAN>...</PLAN> block. Do not reveal reasoning, analysis, chain-of-thought, or hidden state. Use only information in the task and initial observation.",
+    "user_template": "TASK:\\n{task_instruction}\\n\\nINITIAL OBSERVATION:\\n{initial_observation}\\n\\nProduce the plan now."
+  },
+  "population": {
+    "game_path_source": "frozen fresh-cohort game_path only; no directory discovery or outcome-dependent substitution",
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "manifest_rows": "selected[0:32] exactly",
+    "no_replacement": true,
+    "sealed_indices": "32..83",
+    "split": "train",
+    "task_type": "pick_and_place_simple",
+    "valid_seen": false,
+    "valid_unseen": false
+  },
+  "prediction_id": "cd301729-eb48-4e3d-877e-107e1c112e2a",
+  "prohibitions": [
+    "no model/environment calls for index>=32",
+    "no valid_seen/valid_unseen",
+    "no traj_data.json/expert fields",
+    "no expert/oracle plans or actions",
+    "no chain-of-thought",
+    "no retries after plan failure",
+    "no prompt/action-rule/cut/threshold changes based on qualification outcomes",
+    "no causal capture/patch/injection in packet producer",
+    "no partial-outcome inspection or optional stopping"
+  ],
+  "qualification": {
+    "control_constructibility": "for qualification validation use a deterministic placeholder unrelated plan drawn only after all 32 plan attempts are complete from the cyclic SHA256 order of other qualified families; if fewer than 2 qualified or any required control cannot construct, affected family is unqualified; no replacement",
+    "if_below_minimum": "sanity result INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES; no rescue",
+    "minimum_qualified": 16,
+    "qualified_iff": [
+      "plan_generation acceptance passes",
+      "trajectory success within <=12 actions",
+      "len(actions)>=4",
+      "interruption_after=2 leaves >=2 actions",
+      "all seven replay-condition slots construct exactly with replay_residual_sanity_protocol_v1 using the exact tokenizer"
+    ]
+  },
+  "runtime": {
+    "device_required": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "temperature": 0.0,
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_ENGINEERING_CONTRACT_ONLY",
+  "trajectory_and_interruption": {
+    "interruption_after": 2,
+    "no_cut_search": true,
+    "nontrivial_definition": "every chosen command passed to AlfRuntime.step counts as an environment action; no separate information-only model turns exist in this producer",
+    "provenance": "T1 prereg prospectively freezes reset immediately after second completed post-plan ACTION/OBSERVATION cycle",
+    "qualification_remaining_guard": "successful trajectory must contain at least 4 chosen environment actions, so after cut=2 at least 2 reference actions remain",
+    "run": "uninterrupted until ALFWorld won/done or 12 chosen environment actions; plan remains in every action prompt",
+    "success": "AlfRuntime.won is true within <=12 chosen actions"
+  },
+  "visible_task_text": {
+    "normalization": "split CamelCase into words, lowercase, preserve frozen family object/receptacle identity; fail closed if family does not exactly match pick_and_place_simple-OBJECT-None-RECEPTACLE-ID",
+    "planner_input": "canonical task instruction + exact TextWorld reset observation only",
+    "rule": "derive a canonical task instruction solely from the frozen family identifier pick_and_place_simple-OBJECT-None-RECEPTACLE-ID; do not open traj_data.json or any expert/oracle annotation field",
+    "template": "Place one {normalized_object_type} at the {normalized_receptacle_type}."
+  }
+}

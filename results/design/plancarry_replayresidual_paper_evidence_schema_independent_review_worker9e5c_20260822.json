@@ -1,0 +1,59 @@
+{
+  "bound": {
+    "schema_sha256": "4f0a1b35bda1cd941ff0c296a44937e05ba053c335656fe77fc01b9a8c577d70",
+    "static_audit_sha256": "471e88990c07dac9146ec0e6d065cd73919edef4e01881862a3bc34609b60cf5",
+    "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2"
+  },
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PAPER_EVIDENCE_SCHEMA_INDEPENDENT_REVIEW_V1",
+  "material_defects": [
+    {
+      "issue": "Schema does not enumerate the exact frozen T1 v1.1 arm set. It uses ZERO_OR_SELF_PLUMBING_AS_FROZEN, collapsing two distinct preregistered arms ZERO_ADD and SELF_REPLACE, and SHUFFLED_OR_NEUTRAL_PLAN_AS_FROZEN, which can substitute an unregistered neutral arm for exact SHUFFLED_PLAN. High-tier reporting contract must not permit arm omission/substitution.",
+      "path": "tables.T1_primary_causal_confirmation.required_arms",
+      "required_repair": [
+        "Enumerate exactly ACTIVE_PLAN_RESIDUAL",
+        "NO_PATCH",
+        "ZERO_ADD",
+        "SELF_REPLACE",
+        "RANDOM_EQ_NORM",
+        "NEXT_ACTION_PRESERVED_LATE_NULL",
+        "UNRELATED_PLAN",
+        "SHUFFLED_PLAN",
+        "GENERIC_HISTORY",
+        "VISIBLE_TEXT_PLAN"
+      ],
+      "scientific_variable_change": false
+    },
+    {
+      "issue": "Clarify that unavailable representation metrics under a technical-invalid run are rendered NA/NOT_ASSESSED with the exact violated guard; they must never be coerced to numerical zero or used in scientific aggregation. Existing outcome_invariance implies this but does not make the table-cell behavior machine-explicit.",
+      "path": "tables.T0_representation_sanity always_report semantics under TECHNICAL_INVALID",
+      "required_repair": [
+        "Add exact NA/NOT_ASSESSED rule for metrics not reached due technical invalidity; preserve all metric/gate definitions unchanged."
+      ],
+      "scientific_variable_change": false
+    }
+  ],
+  "model_calls": 0,
+  "passed_checks": {
+    "cross_task_vs_cross_model_separate_no_rescue": true,
+    "fixed_figure_set_outcome_independent": true,
+    "frozen_before_terminal_sanity_result": true,
+    "kv_total_propagated_direct_within_arm_and_conditional": true,
+    "novelty_boundary_conservative": true,
+    "sanity_all_four_layers_and_both_anchors": true,
+    "sanity_all_seven_conditions": true,
+    "sanity_all_six_gates": true,
+    "sanity_fixed_population_and_denominator": true,
+    "scientific_outcomes_accessed_false": true,
+    "systems_fairness_storage_latency_interventions_frozen": true,
+    "t1_first_action_excluded_lpa": true,
+    "t1_tasksuccess_valid_action_exact_tests_holm_effect_guards_required": true,
+    "t1r_and_extra_replication_separate_not_pooled": true,
+    "technical_invalid_explicitly_reportable": true
+  },
+  "repair_scope": "REPORTING/PROVENANCE ONLY. No model, cohort, endpoint, metric, threshold, control semantics, inference, claim boundary, or execution authorization may change. Produce a new immutable schema successor plus exact recursive diff audit, then fresh independent review.",
+  "reviewer_worker_id": "9e5c82b8-1181-4658-84c7-c59f3dd71801",
+  "scientific_outcomes_accessed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "9222d0cc-47bb-4dd2-8f79-d368b4f9199f"
+}

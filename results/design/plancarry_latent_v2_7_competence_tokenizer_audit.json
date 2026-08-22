@@ -1,0 +1,492 @@
+{
+  "all_pass": true,
+  "details": [
+    {
+      "pair": 0,
+      "pass": true,
+      "source_lengths": [
+        248,
+        248,
+        248,
+        248
+      ],
+      "suffix_token_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "suffixes": [
+        " take candle 2 from toilet 1",
+        " take candle 1 from toilet 1"
+      ]
+    },
+    {
+      "pair": 1,
+      "pass": true,
+      "source_lengths": [
+        297,
+        297,
+        297,
+        297
+      ],
+      "suffix_token_counts": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "suffixes": [
+        " take spraybottle 1 from sidetable 1",
+        " take spraybottle 2 from sidetable 1"
+      ]
+    },
+    {
+      "pair": 2,
+      "pass": true,
+      "source_lengths": [
+        262,
+        262,
+        262,
+        262
+      ],
+      "suffix_token_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "suffixes": [
+        " take cloth 2 from countertop 1",
+        " take cloth 1 from countertop 1"
+      ]
+    },
+    {
+      "pair": 3,
+      "pass": true,
+      "source_lengths": [
+        281,
+        281,
+        281,
+        281
+      ],
+      "suffix_token_counts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "suffixes": [
+        " take spraybottle 1 from toilet 1",
+        " take spraybottle 2 from toilet 1"
+      ]
+    },
+    {
+      "pair": 4,
+      "pass": true,
+      "source_lengths": [
+        306,
+        306,
+        306,
+        306
+      ],
+      "suffix_token_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "suffixes": [
+        " take cellphone 1 from desk 1",
+        " take cellphone 2 from desk 1"
+      ]
+    },
+    {
+      "pair": 5,
+      "pass": true,
+      "source_lengths": [
+        292,
+        292,
+        292,
+        292
+      ],
+      "suffix_token_counts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "suffixes": [
+        " take spraybottle 2 from dresser 1",
+        " take spraybottle 1 from dresser 1"
+      ]
+    },
+    {
+      "pair": 6,
+      "pass": true,
+      "source_lengths": [
+        237,
+        237,
+        237,
+        237
+      ],
+      "suffix_token_counts": [
+        5,
+        7,
+        5,
+        7,
+        5,
+        7,
+        5,
+        7
+      ],
+      "suffixes": [
+        " go to shelf 1",
+        " go to coffeetable 1"
+      ]
+    },
+    {
+      "pair": 7,
+      "pass": true,
+      "source_lengths": [
+        261,
+        261,
+        261,
+        261
+      ],
+      "suffix_token_counts": [
+        7,
+        6,
+        7,
+        6,
+        7,
+        6,
+        7,
+        6
+      ],
+      "suffixes": [
+        " go to coffeetable 1",
+        " go to diningtable 1"
+      ]
+    },
+    {
+      "pair": 8,
+      "pass": true,
+      "source_lengths": [
+        283,
+        283,
+        283,
+        283
+      ],
+      "suffix_token_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "suffixes": [
+        " take cd 3 from drawer 4",
+        " take cd 4 from drawer 4"
+      ]
+    },
+    {
+      "pair": 9,
+      "pass": true,
+      "source_lengths": [
+        294,
+        294,
+        294,
+        294
+      ],
+      "suffix_token_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "suffixes": [
+        " take creditcard 1 from dresser 1",
+        " take creditcard 2 from dresser 1"
+      ]
+    },
+    {
+      "pair": 10,
+      "pass": true,
+      "source_lengths": [
+        385,
+        385,
+        385,
+        385
+      ],
+      "suffix_token_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "suffixes": [
+        " take box 1 from diningtable 1",
+        " take box 2 from diningtable 1"
+      ]
+    },
+    {
+      "pair": 11,
+      "pass": true,
+      "source_lengths": [
+        368,
+        368,
+        368,
+        368
+      ],
+      "suffix_token_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "suffixes": [
+        " take cellphone 4 from armchair 1",
+        " take cellphone 3 from armchair 1"
+      ]
+    },
+    {
+      "pair": 12,
+      "pass": true,
+      "source_lengths": [
+        304,
+        304,
+        304,
+        304
+      ],
+      "suffix_token_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "suffixes": [
+        " take book 1 from bed 1",
+        " take book 2 from bed 1"
+      ]
+    },
+    {
+      "pair": 13,
+      "pass": true,
+      "source_lengths": [
+        270,
+        270,
+        270,
+        270
+      ],
+      "suffix_token_counts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "suffixes": [
+        " take keychain 2 from sidetable 1",
+        " take keychain 1 from sidetable 1"
+      ]
+    },
+    {
+      "pair": 14,
+      "pass": true,
+      "source_lengths": [
+        319,
+        319,
+        319,
+        319
+      ],
+      "suffix_token_counts": [
+        6,
+        5,
+        6,
+        5,
+        6,
+        5,
+        6,
+        5
+      ],
+      "suffixes": [
+        " go to garbagecan 1",
+        " go to toilet 1"
+      ]
+    },
+    {
+      "pair": 15,
+      "pass": true,
+      "source_lengths": [
+        263,
+        263,
+        263,
+        263
+      ],
+      "suffix_token_counts": [
+        5,
+        6,
+        5,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "suffixes": [
+        " go to shelf 1",
+        " go to sidetable 1"
+      ]
+    },
+    {
+      "pair": 16,
+      "pass": true,
+      "source_lengths": [
+        300,
+        300,
+        300,
+        300
+      ],
+      "suffix_token_counts": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "suffixes": [
+        " take remotecontrol 1 from tvstand 1",
+        " take remotecontrol 2 from tvstand 1"
+      ]
+    },
+    {
+      "pair": 17,
+      "pass": true,
+      "source_lengths": [
+        286,
+        286,
+        286,
+        286
+      ],
+      "suffix_token_counts": [
+        7,
+        6,
+        7,
+        6,
+        7,
+        6,
+        7,
+        6
+      ],
+      "suffixes": [
+        " go to sinkbasin 1",
+        " go to sidetable 1"
+      ]
+    },
+    {
+      "pair": 18,
+      "pass": true,
+      "source_lengths": [
+        365,
+        365,
+        365,
+        365
+      ],
+      "suffix_token_counts": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "suffixes": [
+        " take pencil 2 from diningtable 1",
+        " take pencil 1 from diningtable 1"
+      ]
+    },
+    {
+      "pair": 19,
+      "pass": true,
+      "source_lengths": [
+        301,
+        301,
+        301,
+        301
+      ],
+      "suffix_token_counts": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "suffixes": [
+        " take book 1 from bed 1",
+        " take book 2 from bed 1"
+      ]
+    }
+  ],
+  "env_export_sha256": "4485874719a1e24441f1a18906e78a17203aeb828998bb97bc0e55690ede9153",
+  "kind": "PLANCARRY_LATENT_V2_7_TOKENIZER_AUDIT",
+  "model_calls": 0,
+  "pass_count": 20,
+  "tokenizers": "0.20.3",
+  "total": 20,
+  "transformers": "4.46.3"
+}

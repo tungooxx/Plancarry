@@ -1,0 +1,21 @@
+{
+  "all_pass": true,
+  "checks": {
+    "all_branch_replays_won": true,
+    "donor_mapping_20": true,
+    "donor_unique_20": true,
+    "donors_exactly_primary_discovery_0_19": true,
+    "family_name_overlap_primary_zero": true,
+    "game_path_overlap_primary_zero": true,
+    "model_calls_zero": true,
+    "model_outcomes_seen_false": true,
+    "replication_pair_count_20": true,
+    "unique_replication_families": true,
+    "valid_seen_consumed_false": true,
+    "valid_unseen_consumed_false": true
+  },
+  "donor_map_sha256": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+  "kind": "PLANCARRY_LATENT_T1_REPLICATION_RESERVE_AUDIT_V1",
+  "primary_manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "replication_manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784"
+}

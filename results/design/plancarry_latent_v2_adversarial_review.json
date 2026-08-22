@@ -1,0 +1,64 @@
+{
+  "execution_gate": "Experiment 45e5b825... and Prediction 33158f24... must be marked superseded/non-executable. Register a v2.1 repair with exactly the above changes before any real RTX3050 model outcome. Manifest identities/split, model, layers, alpha grid, prompt semantic manipulation, controls and T1 claim scope otherwise remain unchanged.",
+  "experiment_id": "45e5b825-9a9b-4d4c-98f2-0c156589d291",
+  "kind": "PLANCARRY_LATENT_V2_ADVERSARIAL_REVIEW",
+  "leakage_audit": {
+    "expert_future_plan_leak": false,
+    "holdout_layer_alpha_leak": "DESIGN_OK if confirmation bridge access remains impossible until discovery selection artifact SHA exists.",
+    "reason": "Pair builder reads task-family goal identity plus reset facts/admissible commands and performs its own environment replay; expert high/low plan fields are not read.",
+    "valid_seen_unseen_leak": false
+  },
+  "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "material_defects": [
+    {
+      "code": "CONFIRMATION_COMPETENCE_FILTER_SELECTION",
+      "problem": "Primary analysis is defined on competent confirmation pairs only. Although competence is measured before interventions, conditioning the confirmatory sample on model behavior can be perceived as outcome-dependent sample selection and weakens the clean 20-pair randomization claim.",
+      "required_repair": "Use all 20 frozen confirmation pairs in the primary causal tests. Keep >=16/20 overall competence and >=8/13 delayed competence only as a cohort-level expressivity gate. Never replace/exclude an individual confirmation pair from the primary based on competence. Report competent-only analysis as secondary diagnostic if desired.",
+      "severity": "MATERIAL"
+    },
+    {
+      "code": "ACTION_PREFIX_INCLUDED_IN_SCORE",
+      "problem": "The frozen action suffix is \"\\nACTION: {command}\" and meanLP scores all suffix tokens. A plan-state intervention could change probability of the shared ACTION label/newline rather than discriminate the commands, contaminating the action margin.",
+      "required_repair": "Put literal \"\\nACTION:\" in the scoring prompt and score only suffix \" {EXACT_COMMAND}\". Patch the earlier <STATE_END> token using its explicit token index (capture.sequence_length-1), not the final scoring-prompt token. Freeze a tokenizer boundary guard for prompt+command.",
+      "severity": "MATERIAL"
+    },
+    {
+      "code": "ZERO_NORM_DIRECTION_UNDEFINED",
+      "problem": "normalize(h_A-h_B) is undefined when the source contrast norm is numerically zero/tiny, leaving post-hoc handling freedom.",
+      "required_repair": "Freeze epsilon=1e-8 FP32 L2. If norm<=epsilon, use the all-zero direction and define that control/intervention CPSE as the corresponding zero-patch effect; do not exclude/replace the pair. This is conservative against support.",
+      "severity": "MATERIAL"
+    },
+    {
+      "code": "RANDOM_VECTOR_GENERATOR_UNDERSPECIFIED",
+      "problem": "\"SHA256-seeded Gaussian\" does not freeze a PRNG implementation/version, so the actual control vector can vary.",
+      "required_repair": "Replace with package-independent SHA256 Rademacher: for dimension j, sign=+1 iff first byte of SHA256(base|j) is even else -1, vector=sign/sqrt(d). Freeze exact base string and orientation.",
+      "severity": "MATERIAL"
+    },
+    {
+      "code": "RANDOM_SIGN_TEST_JUSTIFICATION_UNSTATED",
+      "problem": "Random-sign permutation is named but the design-based symmetry source is not explicit.",
+      "required_repair": "State that per-pair OPTION A/B orientation is assigned by a frozen cryptographic-hash Rademacher bit before model access and the one-sided sign-randomization tests are interpreted as design-based randomization over that orientation. Freeze Holm ordering/ties lexicographically by test name.",
+      "severity": "MODERATE"
+    }
+  ],
+  "non_material_observations": [
+    "Archived-order control differs structurally from active context by ACTIVE ORDER:NONE; this is intentional because it tests order-token information without active commitment semantics. T1 scope must remain narrow.",
+    "The delayed-divergence subgroup is not post-injection persistence evidence; current prereg correctly says it cannot rescue the primary.",
+    "Paired A-minus-B direction still requires counterfactual B at extraction time; current T1 scope correctly forbids calling it a deployable checkpoint.",
+    "The target norm scaling and fixed [6,13,20,27] x [0.05,0.1,0.2] grid are acceptable once zero-norm handling is frozen."
+  ],
+  "prediction_id": "33158f24-6a15-475b-9696-330840395a74",
+  "prereg_sha256": "763400a293df3e689525a1b05f66106f2766ce529a73b44a3d55a5a8ef9ade8d",
+  "review_independence": "ROLE_SEPARATED_SELF_REVIEW; no second Lab worker was active and model-backed critic was unavailable due literature profile outage.",
+  "scientific_outcomes_seen": false,
+  "scientific_result": "NOT_ASSESSED",
+  "strengths": [
+    "40 actual pair objects from 40 independent task families; both A/B environment replays succeed before model access.",
+    "28/40 delayed-divergence pairs and 13/20 confirmation delayed pairs substantially improve the anti-trivial-action design.",
+    "OPTION descriptions are fixed-position; active source manipulation swaps only symbolic plan-order labels, with hash-frozen A/B orientation.",
+    "RTX3050-only FP16/no-quantization model policy removes the old hardware/quantization ambiguity.",
+    "No adjacent-layer fishing; discovery/confirmation split and Holm familywise correction are frozen.",
+    "T1-only claim scope correctly forbids checkpoint/compactness/persistence/generalization overreach."
+  ],
+  "verdict": "MATERIAL_REPAIR_REQUIRED_BEFORE_EXECUTION"
+}

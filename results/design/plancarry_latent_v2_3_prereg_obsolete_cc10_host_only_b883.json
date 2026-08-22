@@ -1,0 +1,214 @@
+{
+  "action_scoring": {
+    "candidate_suffix_serialization": " {EXACT_ADMISSIBLE_COMMAND}",
+    "margin": "m = meanLP(action_A)-meanLP(action_B). Positive favors A.",
+    "no_generation_primary": true,
+    "patch_token_rule": "Patch the explicit final <STATE_END> token of RESET_BLOCK using the capture-returned sequence_length-1 index. Appending \\nACTION: for scoring must not move the patch site.",
+    "score": "mean teacher-forced token log-probability over command suffix tokens only; the shared literal \\nACTION: is part of the scoring prompt and is never scored.",
+    "scoring_prompt": "{RESET_BLOCK}\\nACTION:",
+    "tie_rule": "abs(m)<=1e-6 is a tie; ties fail competence and count non-positive in sign summaries.",
+    "tie_tolerance_nats_per_token": 1e-06,
+    "tokenizer_boundary_guard": "tokenization(scoring_prompt) must be an exact prefix of tokenization(scoring_prompt + command_suffix) for both exact divergent commands, and command_suffix must contribute >=1 token. Failure is INVALID_TECHNICAL; no pair replacement."
+  },
+  "alternative_hypotheses": [
+    "Lexical/order-token steering rather than active plan semantics.",
+    "Generic residual perturbation rather than plan-specific control.",
+    "Unrelated plan/history state is equally effective.",
+    "The tested single last-token residual site is insufficient because plan state is distributed across tokens/layers.",
+    "No persistent causal plan state exists and continuation is reconstructed from context/world state."
+  ],
+  "confirmation_primary": {
+    "effect_size_guards": {
+      "bidirectional_pair_fraction_min": 0.6,
+      "mean_active_minus_each_control_min": 0.05,
+      "mean_cpse_active_min": 0.1,
+      "positive_pair_fraction_min": 0.7
+    },
+    "matched_controls": [
+      "CPSE_archived",
+      "CPSE_random",
+      "CPSE_unrelated"
+    ],
+    "negative_condition": "If cohort-level expressivity and all technical guards pass but active CPSE fails the preregistered sign-test/effect-size guards across all 20 frozen confirmation families => NOT_SUPPORTED/WEAKENED for the tested single-site contrast mechanism.",
+    "nonspecific_condition": "Active effect is positive/significant but any matched specificity comparison fails => INCONCLUSIVE_NONSPECIFIC_ACTIVATION_EFFECT, not support.",
+    "population": "All 20 frozen confirmation pairs, unfiltered. Pair-level source competence is recorded but never used to include/exclude/replace a confirmation pair in primary causal tests. The >=16/20 overall and >=8/13 delayed competence requirements are cohort-level expressivity gates only; if either fails, classify INCONCLUSIVE_MODEL_EXPRESSIVITY and do not interpret intervention efficacy.",
+    "primary_metric": "Across all 20 frozen confirmation families, CPSE_active = qA(+active)-qA(-active), where qA=sigmoid(meanLP(command_A)-meanLP(command_B)). Also record delta_A=qA(+active)-qA(NO_PATCH) and delta_B=qA(NO_PATCH)-qA(-active).",
+    "support_condition": "Cohort-level expressivity gate passes (>=16/20 overall and >=8/13 delayed competent) with all technical/lexical/isolation guards; all four Holm-adjusted exact sign-test p-values <=0.05 across all 20 confirmation families; mean CPSE_active>=0.10 across all 20; >=70% of all 20 have CPSE_active>0; mean active-minus-each-control>=0.05 across all 20; and >=60% of all 20 have both delta_A>0 and delta_B>0.",
+    "tests": {
+      "active_gt_archived": "For each family define x_i=CPSE_active_i-CPSE_archived_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_random": "For each family define x_i=CPSE_active_i-CPSE_random_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_unrelated": "For each family define x_i=CPSE_active_i-CPSE_unrelated_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_zero": "For each of all 20 independent frozen task families define x_i=CPSE_active_i. Success iff x_i>0; x_i<=0 (including exact zero) is failure.",
+      "independence_note": "For active_gt_unrelated, each confirmation statistic depends on one unique confirmation family and one distinct discovery-family donor direction frozen before confirmation. No confirmation family contributes activation to any other confirmation statistic; discovery donor directions are treated as fixed nuisance controls. The 20 confirmation task families remain the independent inferential units.",
+      "independence_unit": "One frozen unique ALFWorld task family/game per trial; manifest contains 20 distinct confirmation families.",
+      "method": "Exact one-sided independent-family sign test, fixed n=20. For k successes, raw p = sum_{j=k}^{20} C(20,j) * 0.5^20. No asymptotic approximation, no sign-randomization/permutation assumption, no competence filtering, and zeros remain conservative failures.",
+      "multiplicity": "Holm step-down correction across exactly four raw p-values at familywise alpha=0.05. Sort by (raw_p, test_name) with test_name lexicographic tie-break; report raw p, Holm adjusted p, k/20 for each."
+    }
+  },
+  "data": {
+    "confirmation_delayed_divergence_pairs": 13,
+    "confirmation_pairs": 20,
+    "construction_sources": "Task-family goal identity plus TextWorld reset facts/admissible commands only; no expert high/low plan fields, no model call, no valid_seen/valid_unseen.",
+    "discovery_pairs": 20,
+    "environment": "ALFWorld 0.4.2 TextWorld",
+    "manifest_path": "results/design/plancarry_latent_v2_matched_pair_manifest.json",
+    "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+    "pair_count": 40,
+    "selection_independence": "One salted-hash-selected trial per task family; final 40 families selected by a second frozen salt after environment-only A/B replay validity, before any model outcome.",
+    "split": "valid_train",
+    "task_type": "pick_two_obj_and_place",
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "development_selection": {
+    "cpse_definition": "For each patch, qA = sigmoid(meanLP(action_A)-meanLP(action_B)), a bounded length-normalized two-action preference index (not claimed to be a calibrated probability). CPSE_control = qA(+control_direction)-qA(-control_direction).",
+    "freeze_artifact_required": "Selected layer/alpha plus discovery-only aggregate table must be SHA256-frozen before any confirmation bridge request.",
+    "grid": "4 layers x 3 alphas, all active/archive/random/unrelated controls computed.",
+    "selection_score": "mean(CPSE_active) - max(abs(mean(CPSE_archived)), abs(mean(CPSE_random)), abs(mean(CPSE_unrelated))).",
+    "tie_break": "Higher selection_score; then higher mean CPSE_active; then smaller alpha; then smaller layer index.",
+    "uses": "Only competent frozen discovery pairs; confirmation prompts/captures/scores are not requested before freeze."
+  },
+  "estimated_gpu_cost_usd": 0.0,
+  "estimated_runtime_minutes": 180,
+  "expected_direction": "For each pair, +active contrast increases normalized preference for action A over B and -active contrast increases preference for B over A; active CPSE is positive and larger than all matched controls.",
+  "fail_condition": "As specified in confirmation_primary.negative_condition; nonspecific positive effects are inconclusive, technical/expressivity failures are invalid/inconclusive.",
+  "interpretation_if_fail": "If technically valid and expressive but active contrast fails, weaken the tested last-token/single-layer residual-contrast mechanism. Do not build a memory module. Next discriminate distributed multi-token/multi-layer causal state versus reconstructive/no-persistent-state alternatives.",
+  "interpretation_if_pass": "T1 scoped causal-plan evidence only. Next preregister untouched within-model replication, then single-source checkpoint extraction and first-action-clamp/multi-step persistence. Do not call the v2 paired difference a deployable PlanCarry checkpoint.",
+  "intervention_math": {
+    "active_direction": "Let r=h_active_A-h_active_B in FP32. If ||r||_2<=1e-8, d_active=all-zero vector; otherwise d_active=r/||r||_2. Zero direction never excludes/replaces a pair and its +/- CPSE is defined as the corresponding zero-patch effect (0 within plumbing tolerance).",
+    "alpha_grid": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "archived_direction": "Same FP32 epsilon rule: r=h_archived_A-h_archived_B; if ||r||_2<=1e-8 use all-zero direction, else normalize.",
+    "direction_epsilon": "FP32 L2 epsilon = 1e-8 for every active/archived/unrelated source contrast.",
+    "orientation": "d_active is A-minus-B; + injection is A direction, - injection is B direction. Archived/unrelated control orientations follow their own A-minus-B construction; random orientation is fixed by seed.",
+    "patch_operation": "ADD only for causal/control interventions. SELF_PATCH separately uses REPLACE with captured h_reset and scale=1.0.",
+    "random_direction": "Package-independent SHA256 Rademacher unit vector. Dimension d=model hidden width. Exact base UTF-8 string: \"{manifest_sha256}|{split}|{pair_index}|{layer_0based}|random_control_v2_1\". For coordinate j in [0,d): digest=SHA256((base+\"|\"+str(j)).encode(\"utf-8\")).digest(); sign_j=+1 iff digest[0] is even, else -1; vector_j=sign_j/sqrt(d). No PRNG/library RNG is used. Orientation is exactly this generated vector.",
+    "target_scale": "Capture h_reset at the same layer/site. Injection vector = sign * alpha * ||h_reset||_2 * d_control.",
+    "unrelated_direction": "DISCOVERY: retain frozen v2.1 discovery control construction solely for development selection. CONFIRMATION: for each confirmation family use the active A-minus-B source contrast from its unique discovery-family donor specified by results/design/plancarry_latent_v2_2_unrelated_donor_map.json SHA256 a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5. Every discovery donor is used exactly once across the 20 confirmation families; no confirmation activation is used as an unrelated donor. Donor direction is captured/frozen from discovery at the selected layer before any confirmation request. Apply FP32 epsilon 1e-8; <=epsilon => all-zero direction with no exclusion."
+  },
+  "kind": "PLANCARRY_LATENT_V2_3_HOST_POLICY_SUPERSESSION",
+  "model": {
+    "bridge_engineering_result_id": "edf75cc8-2d4f-467f-9651-d0fdc8b2f51a",
+    "bridge_required_real_verification": "Satisfied prospectively before scientific execution by EngineeringResult edf75cc8-2d4f-467f-9651-d0fdc8b2f51a: exact Qwen2.5-1.5B revision, FP16/no quantization, real capture/score/ZERO_ADD/SELF_PATCH/nonzero-ADD passed on authorized GTX1650 using current verified bridge SHA f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2.",
+    "execution_host_policy": "Real inference/activation work only on the user-authorized local CUDA device whose name contains GTX 1650. This host-only supersession is prospective and does not change model weights, revision, precision, quantization, or scientific design.",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "precision": "float16",
+    "quantization": "NONE",
+    "temperature": 0,
+    "tokenizers_required": "0.20.3",
+    "torch_rule": "CUDA-enabled torch version is recorded exactly by /model_info and then frozen for the run; no package/model changes mid-run.",
+    "transformers_required": "4.46.3"
+  },
+  "model_expressivity_gate": {
+    "confirmation_delayed_min_competent": 8,
+    "confirmation_min_competent": 16,
+    "confirmation_timing": "Discovery expressivity/site selection occurs first. Freeze selected layer/alpha artifact. Only then may confirmation source prompts be scored for the expressivity gate; no confirmation intervention/capture used for selection.",
+    "discovery_min_competent": 12,
+    "failure_class": "If confirmation overall competence <16/20 or delayed competence <8/13: INCONCLUSIVE_MODEL_EXPRESSIVITY before interpreting confirmation intervention efficacy. Discovery minimum remains 12/20 for development selection.",
+    "no_replacement": "No frozen pair is ever replaced. Discovery competence may be used only for development grid selection as already frozen. Confirmation competence is cohort-level gating only; if gate passes, all 20 confirmation pairs enter every primary test/effect-size summary, including individually incompetent pairs.",
+    "pair_competent_if": "m_source_A >= +0.10 nats/token AND m_source_B <= -0.10 nats/token.",
+    "performed_before_any_intervention": "Score both divergent actions under full source active A and active B prompts."
+  },
+  "novelty_scope": {
+    "allowed_if_pass": "T1 only: scoped evidence that active plan ordering has a content-specific causal internal component capable of controlling resumed branch preference after a context reset.",
+    "claim_ladder_artifact": "results/design/plancarry_latent_high_tier_claim_ladder_v1.json",
+    "claim_ladder_sha256": "3f4ede8dcd167064370b57ea6d18823168037eebe26ed68def5afb7f8271309a",
+    "forbidden_if_pass": [
+      "deployable single-source checkpoint",
+      "minimal or compact state",
+      "multi-step persistent plan state",
+      "cross-model generality",
+      "end-to-end agent superiority"
+    ]
+  },
+  "pair_variable": {
+    "clause_template": "Complete {OBJECT} from {SOURCE_RECEPTACLE} into {TARGET_RECEPTACLE}.",
+    "command_order": "Render reset admissible commands in Python lexicographic order, one exact command per line. The exact divergent action candidates must be members of the recomputed reset command set and match the frozen manifest.",
+    "definition": "Two target-object commitments solve the identical two-object goal. OPTION A and OPTION B descriptions are held in fixed positions; only the symbolic active order line swaps A THEN B versus B THEN A.",
+    "label_orientation": "For each frozen pair, OPTION A/B assignment is determined by bit = int(SHA256(manifest_sha256|pair_index|option_orientation_v1)[0:2],16)%2. bit=0 preserves manifest object_a/object_b; bit=1 swaps them. This bit is computed before model access and recorded in final runner output.",
+    "label_randomization_reason": "Frozen hash A/B orientation prevents systematic object naming/lexicographic bias and fixes causal direction before model access. It is NOT used to justify the primary p-values; primary inference uses exact independent-family sign tests.",
+    "lexical_guard": "Active A/B source prompts must have identical Unicode-word/punctuation multisets and identical tokenizer length. Archived A/B must satisfy the same. Failure invalidates that pair; no replacement is allowed.",
+    "reset_template": "TASK\n{TASK_TEXT}\nCURRENT OBSERVATION\n{RESET_OBSERVATION}\nADMISSIBLE COMMANDS\n{ONE_COMMAND_PER_LINE_LEXICOGRAPHIC}\n<STATE_END>",
+    "source_active_b_change": "Replace only ACTIVE ORDER: A THEN B with ACTIVE ORDER: B THEN A. OPTION A/B lines remain byte-identical and fixed-position.",
+    "source_active_template": "{RESET_BLOCK}\nPLAN OPTIONS\nOPTION A: {CLAUSE_A}\nOPTION B: {CLAUSE_B}\nACTIVE ORDER: A THEN B\n<STATE_END>",
+    "source_archived_b_change": "Replace only ARCHIVED ORDER: A THEN B with ARCHIVED ORDER: B THEN A; ACTIVE ORDER remains NONE.",
+    "source_archived_template": "{RESET_BLOCK}\nPLAN OPTIONS\nOPTION A: {CLAUSE_A}\nOPTION B: {CLAUSE_B}\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>",
+    "task_text_extraction": "Extract exact visible task sentence from the initial TextWorld observation using the unique line beginning \"Your task is to:\"; no traj_data expert-plan field is read."
+  },
+  "pass_condition": "As specified in confirmation_primary.support_condition with all guards and expressivity minimums passing.",
+  "plumbing_guard": {
+    "failure": "Any failure is INVALID_TECHNICAL; no scientific inference.",
+    "self_patch": "At every candidate layer on two frozen discovery sentinel pairs (indices 0 and 1), capture reset h then REPLACE the same vector during scoring. Maximum absolute change of each candidate action meanLP versus NO_PATCH must be <=1e-4 nats/token.",
+    "zero_add": "ADD with scale=0 must match NO_PATCH within <=1e-6 nats/token on the same sentinels."
+  },
+  "pre_registration_static_review": {
+    "host_supersession_only": true,
+    "model_scientific_outcomes_seen": false,
+    "note": "Independent re-review is required before scientific execution; no v2.2/v2.3 scientific result has been inspected.",
+    "prior_v2_2_independent_review_sha256": "2f5c24562d18305c94b9e571aad7225d00cffa1844f7290c0e9f44ad5d6941c6",
+    "real_engineering_result_id": "edf75cc8-2d4f-467f-9651-d0fdc8b2f51a",
+    "scientific_outcomes_seen": false
+  },
+  "prediction": "On the frozen 20-pair confirmation cohort, a development-selected active-plan residual contrast will produce a positive bidirectional causal plan-swap effect on the exact first divergent admissible actions, and that effect will exceed lexical/archive, unrelated-plan and random same-norm contrasts. Full-plan source prompts will first pass a frozen model-expressivity gate; otherwise the result is inconclusive rather than negative.",
+  "primary_metric": "Holm-corrected exact independent-family sign tests plus frozen effect-size guards for CPSE_active and its specificity advantages, all on the complete 20-family confirmation cohort after cohort-level expressivity gate.",
+  "repair_scope": "Host-policy-only prospective supersession before any v2.2/v2.3 scientific outcome. Scientific design, data, intervention, controls, statistics, thresholds, and T1 claim are unchanged from frozen v2.2.",
+  "research_question": "Under an identical ALFWorld world state and identical visible fresh-reset prompt, does an internal contrast that differs only in which of two already-specified valid plan options is marked first causally shift Qwen2.5-1.5B action preference toward that active plan order beyond archived-order, unrelated-plan, random and no-patch controls?",
+  "research_role": "PROSPECTIVE_CAUSAL_MECHANISM_KILL_TEST",
+  "scientific_result": "NOT_ASSESSED",
+  "secondary_metrics": [
+    "Frozen delayed-divergence subgroup CPSE",
+    "bidirectional branch flip rate",
+    "no-patch branch bias",
+    "source expressivity margins"
+  ],
+  "secondary_predeclared": {
+    "branch_flip_rate": "Fraction where +active makes m>0 and -active makes m<0.",
+    "delayed_subgroup": "Report the frozen delayed-divergence confirmation subgroup separately only if >=8 are competent; same selected layer/alpha, no retuning. This subgroup strengthens resistance to trivial initial-navigation confounds but is NOT by itself a post-injection multi-step persistence test and cannot rescue a failed primary.",
+    "no_patch_bias": "Report m_no_patch distribution.",
+    "source_competence": "Report source A/B margins for all frozen pairs before intervention."
+  },
+  "source_and_target_sites": {
+    "candidate_decoder_block_indices_0based": [
+      6,
+      13,
+      20,
+      27
+    ],
+    "source_capture_token": "last token of literal <STATE_END> in source prompt",
+    "target_patch_token": "explicit last token of literal <STATE_END> in RESET_BLOCK, index frozen as capture.sequence_length-1 before appending scoring label \\nACTION:",
+    "why_fixed": "Four predeclared depth locations spanning the 28-layer model; no adjacent-layer expansion or post-hoc layer fishing in v2."
+  },
+  "storage_accounting": {
+    "future_single_source_rule": "Any later compactness study must report per-episode coefficient/checkpoint bytes AND global basis/projection bytes, both amortized and non-amortized, compared with full FP16 residual, KV cache and UTF-8/tokenized plan text.",
+    "paired_diagnostic_payload": "Report two captured source residual vectors per pair: 2*d*16 bits, plus zero learned global basis in v2. For d=1536 this is 6144 bytes before serialization overhead.",
+    "v2_claim": "No compactness or deployable-checkpoint claim is permitted from v2."
+  },
+  "supersedes_experiment_id": "9701014b-3418-46a2-acb4-d59f235388dc",
+  "supersedes_prediction_id": "df6d5d79-dfcd-4c2a-b055-3330bdd87dc8",
+  "title": "PlanCarry-Latent v2.3: v2.2 causal active-plan contrast with prospectively authorized GTX1650 execution host",
+  "unrelated_donor_map_artifact": "results/design/plancarry_latent_v2_2_unrelated_donor_map.json",
+  "unrelated_donor_map_sha256": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+  "validity_guards": [
+    "Exact manifest SHA256 and pair split/index preserved.",
+    "One family and one game per frozen pair; no family reuse.",
+    "Both environment-only A/B branch replays remain successful and reset hashes/admissible-command hashes match manifest.",
+    "No expert plan fields, valid_seen or valid_unseen accessed.",
+    "GTX1650 device-name policy and exact model revision/FP16/no-quantization confirmed by bridge model_info and real EngineeringResult edf75cc8-2d4f-467f-9651-d0fdc8b2f51a.",
+    "Source A/B only differ in ACTIVE ORDER token order; OPTION descriptions and reset block are byte-identical. Archived control follows exact frozen template.",
+    "Active/archived A/B tokenizer lengths equal per pair.",
+    "No confirmation capture/scoring before layer/alpha freeze artifact exists.",
+    "No partial confirmation scientific outcome inspection.",
+    "No model/package/prompt/control/statistic substitution after registration.",
+    "Any HTTP/model/OOM/token-boundary/state-hash/SELF_PATCH failure is INVALID technical, not scientific refutation.",
+    "Confirmation primary population is exactly all 20 frozen families if cohort-level expressivity gate passes; no per-pair competence filtering/replacement.",
+    "Scoring prompt ends with literal ACTION: after RESET_BLOCK; only exact command suffix tokens are scored; patch index remains capture.sequence_length-1 for the earlier RESET_BLOCK <STATE_END>.",
+    "All source-contrast norms are computed FP32 with epsilon 1e-8; <=epsilon deterministically maps to zero direction and never excludes a pair.",
+    "Random same-norm control uses the exact package-independent SHA256 Rademacher construction random_control_v2_1.",
+    "Primary inference is exactly four n=20 one-sided independent-family binomial sign tests with zeros as failures and Holm correction using lexicographic tie-break.",
+    "Confirmation UNRELATED_PLAN donor mapping must exactly match donor-map SHA256 a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5; 20 unique discovery donors, each used once, zero confirmation donors, and mapping frozen before model access/confirmation requests."
+  ]
+}

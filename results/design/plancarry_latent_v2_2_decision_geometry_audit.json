@@ -1,0 +1,93 @@
+{
+  "active_positive_guard_count": 14,
+  "active_sign_p_at_14": 0.057659149169921875,
+  "active_sign_p_at_15": 0.020694732666015625,
+  "active_sign_p_at_16": 0.005908966064453125,
+  "bidirectional_guard_count": 12,
+  "exact_sign_tail": {
+    "10": 0.5880985260009766,
+    "11": 0.41190147399902344,
+    "12": 0.2517223358154297,
+    "13": 0.13158798217773438,
+    "14": 0.057659149169921875,
+    "15": 0.020694732666015625,
+    "16": 0.005908966064453125,
+    "17": 0.0012884140014648438,
+    "18": 0.00020122528076171875,
+    "19": 2.002716064453125e-05,
+    "20": 9.5367431640625e-07
+  },
+  "example_min_total_named_configurations": [
+    [
+      15,
+      15,
+      16,
+      16
+    ],
+    [
+      15,
+      16,
+      15,
+      16
+    ],
+    [
+      15,
+      16,
+      16,
+      15
+    ],
+    [
+      16,
+      15,
+      15,
+      16
+    ],
+    [
+      16,
+      15,
+      16,
+      15
+    ],
+    [
+      16,
+      16,
+      15,
+      15
+    ]
+  ],
+  "findings": [
+    "For n=20, raw one-sided sign p<=0.05 requires k>=15 positives; p<=0.025 also k>=15; p<=0.0166667 requires k>=16; p<=0.0125 requires k>=16.",
+    "Therefore a four-test Holm PASS requires the two smallest raw p-values to come from tests with >=16/20 successes; the remaining two require >=15/20. Equivalently the minimal sorted success-count pattern is [16,16,15,15], total 62 successes across the four binary sign summaries.",
+    "The frozen >=70% CPSE_active>0 guard (>=14/20) is weaker than the active_gt_zero sign requirement whenever that test participates in a full Holm PASS: active_gt_zero must have at least 15/20, and may require 16/20 depending on its Holm rank. Thus the 70% guard is mathematically redundant for PASS, though still interpretable as an effect-description threshold.",
+    "The >=60% bidirectional guard (>=12/20 with delta_A>0 and delta_B>0) is NOT implied by CPSE_active sign positivity because CPSE_active=delta_A+delta_B can be positive with one directional component negative. It is independently constraining and useful against one-sided steering.",
+    "The mean-effect guards (mean CPSE_active>=0.10 and mean active-minus-each-control>=0.05) are not implied by sign counts: arbitrarily small positive values can satisfy sign tests. Conversely large positive effects on fewer families can satisfy the mean while failing sign tests. They are complementary, not contradictory.",
+    "No mathematical impossibility or internal contradiction was found in the frozen PASS rule. It is stringent: specificity requires at least 15/20 positive family advantages for every control comparison, with at least two of the four tests reaching 16/20 after Holm ordering, plus mean-effect and bidirectionality guards."
+  ],
+  "holm_rank_thresholds": [
+    0.0125,
+    0.016666666666666666,
+    0.025,
+    0.05
+  ],
+  "minimal_rank_pattern_descending_k": [
+    16,
+    16,
+    15,
+    15
+  ],
+  "minimum_successes_by_holm_rank": [
+    16,
+    16,
+    15,
+    15
+  ],
+  "minimum_successes_each_named_test_over_some_passing_configuration": {
+    "active_gt_archived": 15,
+    "active_gt_random": 15,
+    "active_gt_unrelated": 15,
+    "active_gt_zero": 15
+  },
+  "minimum_total_successes_across_four_tests_for_full_holm_pass": 62,
+  "n": 20,
+  "verdict": "PASS_CALIBRATED_STRINGENT"
+}

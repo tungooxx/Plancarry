@@ -1,0 +1,76 @@
+{
+  "blockers_before_gpu_run": [
+    "Materialize exact HF adapter best.pt at pinned revision",
+    "Pin exact Qwen/Qwen3-4B-Instruct-2507 base-model revision",
+    "Materialize MAB GitHub + dataset at explicit revisions and verify evaluator data-layout compatibility",
+    "Determine judge model/protocol for judge-dependent sources or predeclare those as unresolved"
+  ],
+  "gpu_model_execution": false,
+  "kind": "TRANSMEM_NATIVE_REPRODUCTION_PROVENANCE_V1",
+  "memoryagentbench": {
+    "agent_input_tokens": 128000,
+    "current_files": [
+      "data/Accurate_Retrieval-00000-of-00001.parquet",
+      "data/Conflict_Resolution-00000-of-00001.parquet",
+      "data/Long_Range_Understanding-00000-of-00001.parquet",
+      "data/Test_Time_Learning-00000-of-00001.parquet",
+      "entity2id.json"
+    ],
+    "github_head_at_audit": "455306dcabc3842526eb83cd4e225e5d486c5c5d",
+    "hf_revision_at_audit": "7ea066982b140a19337e17e60d45d4076e042faf",
+    "official_github": "https://github.com/HUST-AI-HYZ/MemoryAgentBench",
+    "official_hf_dataset": "ai-hyz/MemoryAgentBench",
+    "transmem_eval_scope": "main 13 sources; paired student and TransMem use the same examples and prompt budget"
+  },
+  "official_eval_contract": {
+    "command": "CUDA_VISIBLE_DEVICES=0 python scripts/eval/eval_memory_agent_bench.py --model_path \"$MODEL_PATH\" --mode paired --ckpt \"$CKPT\" --checkpoint_id \"$CKPT\" --mab_root \"$MAB_ROOT\" --data_dir \"$MAB_DATA\" --agent_input_tokens 128000 --output_dir eval_results/mab_full",
+    "outputs": [
+      "<source>.progress.jsonl",
+      "<source>.summary.json",
+      "summary.json"
+    ],
+    "reporting_rule": "Report each source student_primary and transmem_primary. The official TransMem README explicitly states MemoryAgentBench does not define one official cross-source overall score; two judge-dependent sources require external LLM judging for official score."
+  },
+  "official_repo": {
+    "commit": "6d7a6127967ad44482c958b555d8c83bfb75e9b9",
+    "mab_evaluator_sha256": "64cfde7b4dac3eb6f4e06fdda85ee60441f6c8d113386d4ce3bf836c601c2927",
+    "qwen3_mab_shell_sha256": "0589ddc2f4a81e98343545dcbf9726a5d8288e935ee22d1aa8f31ca4a915cdd3",
+    "qwen3_parallel_shell_sha256": "23a9f07020280237acd11f2eb3a610072c55d13fb958398ac486d44949d3212d",
+    "readme_sha256": "fbc7405b16f0cb93828401bdab68f70dbba4da00a1cdf8f7138f89f5fd0a906b",
+    "url": "https://github.com/Haodong-Lei-Ray/TransMem"
+  },
+  "paper_aggregate_mapping": {
+    "reason": "The pinned official repository/Hugging Face releases expose multiple adapters/checkpoint conventions but do not establish which exact public adapter/checkpoint and dataset revision produced the paper-level 40.00% aggregate. Do not label a released-adapter reproduction as an exact reproduction of that aggregate unless additional author provenance is obtained.",
+    "reported_student_percent": 29.54,
+    "reported_transmem_percent": 40.0,
+    "status": "UNRESOLVED_TO_RELEASED_ADAPTER"
+  },
+  "plancarry_outcomes_seen": false,
+  "recommended_first_reproduction": {
+    "configuration": "Rayleihaodong/TransMem-qwen3-4B-D4 @ 85ba1010eb226e312e208940180bb60424a2cb79 with Qwen/Qwen3-4B-Instruct-2507 and pinned MemoryAgentBench checkout/data revision",
+    "scope": "OFFICIAL_CODE_RELEASED_CONFIGURATION_REPRODUCTION",
+    "success_criterion": "Evaluator completes paired main-13 with provenance fingerprints and per-source student_primary/transmem_primary. Compare to any repo-provided per-source references if available; do not compare the mean to 40.00% as an exact reproduction target."
+  },
+  "released_adapters": [
+    {
+      "files": [
+        "README.md",
+        "best.pt"
+      ],
+      "hf_revision": "85ba1010eb226e312e208940180bb60424a2cb79",
+      "id": "Rayleihaodong/TransMem-qwen3-4B-D4",
+      "matching_backbone_from_official_eval": "Qwen/Qwen3-4B-Instruct-2507"
+    },
+    {
+      "files": [
+        "README.md",
+        "best.pt"
+      ],
+      "hf_revision": "76e2f862646f3bf18fc6b61acd9630074ffc1632",
+      "id": "Rayleihaodong/TransMem-qwen2.5-14B-D4",
+      "matching_backbone_from_repo_naming_and_eval_scripts": "Qwen/Qwen2.5-14B-Instruct"
+    }
+  ],
+  "reproduction_id": "9321f528-845f-44ee-87b5-ae8d4a8c3aef",
+  "scientific_result": "NOT_ASSESSED"
+}

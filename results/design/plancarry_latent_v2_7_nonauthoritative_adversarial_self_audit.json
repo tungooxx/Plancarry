@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "claim_scope_t1_only": true,
+    "confirmation_untouched_declared": true,
+    "design_sha_match": true,
+    "diff_audit_sha_match": true,
+    "diff_unexpected_empty": true,
+    "single_template_only": true,
+    "static_40_pass": true,
+    "threshold_unchanged": true
+  },
+  "design_sha256": "b87069baa1e5ebb181dcaccfb2694ae0cc8dc158edb2bd960d5437d06ddcc054",
+  "diff_audit_sha256": "af00304e3bab5418a3c2d1c183de3caa94fa169bc3c8d311db5d9cd3f1d7dd2f",
+  "kind": "PLANCARRY_LATENT_V2_7_NONAUTHORITATIVE_ADVERSARIAL_SELF_AUDIT",
+  "null_analysis": [
+    {
+      "control": "Matched reference source uses identical STEP1/STEP2 clause permutation with USE THIS PLAN NOW: NO; primary active-minus-reference specificity must be positive and pass the unchanged control guard.",
+      "null": "Pure clause-position/order representation rather than active plan semantics",
+      "residual_risk": "YES/NO may gate attention to slot position. A positive T1 should therefore be called externally specified active-slot control, not endogenous planning or memory."
+    },
+    {
+      "control": "The reset block, including the complete admissible-command list and both exact candidate commands, is byte-identical across A/B. The only A/B change is permutation of semantic plan clauses; no candidate action string is added or removed by the source contrast.",
+      "null": "Direct divergent-action lexical steering",
+      "residual_risk": "Semantic object/receptacle words correlate with candidate actions; reference-order control remains necessary."
+    },
+    {
+      "control": "Unchanged RANDOM_SAME_NORM, UNRELATED_PLAN, NO_PATCH, ZERO_ADD and SELF_PATCH controls plus exact active>control sign/Holm/effect guards.",
+      "null": "Global perturbation / same-norm activation steering",
+      "residual_risk": "Single-site effect, even specific, does not establish persistent checkpoint storage."
+    },
+    {
+      "control": "v2.6 failure is frozen as negative result; v2.7 has one predeclared slot-bound successor, unchanged thresholds, same dev/confirmation split, no template tournament, untouched confirmation.",
+      "null": "Post-hoc rescue after v2.6 failure",
+      "residual_risk": "Development cohort was already observed under v2.6, so v2.7 discovery is development-only and cannot itself support T1."
+    }
+  ],
+  "passed_supporting_checks": true,
+  "recommendation": "LIKELY_READY_FOR_INDEPENDENT_REVIEW_ONLY; do not execute model science until WorkItem e4f0ab0c... returns an independent PASS verdict.",
+  "recommended_claim_if_future_confirmation_passes": "A causal, externally specified slot-bound active-plan control signal at the tested residual site. Do not claim endogenous plan discovery, persistence, compact checkpointing, or deployable memory until independent T1R and later T2/T3 gates pass.",
+  "scientific_authority": "SUPPORTING_ONLY_NOT_INDEPENDENT_NOT_EXECUTION_AUTHORITY",
+  "static_40family_sha256": "dfbb729a3592b4d9a71dd547ce017714a764022a5fbd755eef4dd2261fd80a66"
+}

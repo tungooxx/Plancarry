@@ -1,0 +1,20 @@
+{
+  "active_control_effects_accessed": false,
+  "bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+  "confirmation_accessed": false,
+  "experiment_id": "11eb1b96-b343-4395-98a0-aa2e3c7507be",
+  "frozen_bundle_pass": true,
+  "kind": "PLANCARRY_LATENT_V2_6_RTX3050_STATIC_ENGINEERING_AUDIT",
+  "prediction_id": "a552e9cc-4c02-4f6e-8eb8-578ff1070b9a",
+  "runner_sha256": "2a32eca7ad83d5d109872ac9c43403dbfaee3264768871017d585cfd3cd6cc90",
+  "scientific_override_count": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_runner_ast_mismatches": [],
+  "scientific_validator_ast_mismatches": [],
+  "source_competence_accessed": false,
+  "source_v25_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "validator_sha256": "f9e720b6fd1dabb42649a5da9a42678c4e893ed881e87239b2142bfa35279b31"
+}

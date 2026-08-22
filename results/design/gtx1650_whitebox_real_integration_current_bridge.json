@@ -1,0 +1,86 @@
+{
+  "base_scores": [
+    {
+      "logprob_sum": -17.273029327392578,
+      "patch_token_index_resolved": null,
+      "suffix": "alpha",
+      "token_count": 1
+    },
+    {
+      "logprob_sum": -12.974201202392578,
+      "patch_token_index_resolved": null,
+      "suffix": " beta",
+      "token_count": 1
+    }
+  ],
+  "bridge_sha256": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+  "capture": {
+    "backend": "real",
+    "hidden_size": 1536,
+    "layer": 6,
+    "sequence_length": 17,
+    "token_index_requested": -1,
+    "token_index_resolved": 16
+  },
+  "checks": {
+    "bridge_sha_exact": true,
+    "capture_ok": true,
+    "nonzero_add_changes_score": true,
+    "provenance_exact": true,
+    "score_ok": true,
+    "self_replace_le_1e_4": true,
+    "zero_add_le_1e_6": true
+  },
+  "dtype": "float16",
+  "engineering_status": "PASS",
+  "experiment_science_authorized": false,
+  "kind": "GTX1650_WHITEBOX_CURRENT_BRIDGE_REVALIDATION",
+  "memory": {
+    "allocated": 3096880640,
+    "peak_allocated": 3123326976,
+    "peak_reserved": 3330277376,
+    "reserved": 3330277376
+  },
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce GTX 1650",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.6.0+cu124",
+    "transformers_version": "4.46.3"
+  },
+  "nonzero_add_abs_delta_nats_per_token": [
+    0.0041904449462890625,
+    0.00028514862060546875
+  ],
+  "prompt_scope": "synthetic_non_ALFWorld_only",
+  "quantization": "NONE",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "scientific_result": "NOT_ASSESSED",
+  "self_replace_abs_delta_nats_per_token": [
+    0.0,
+    0.0
+  ],
+  "v2_2_science_host_policy_preserved": "RTX3050-only",
+  "versions": {
+    "tokenizers": "0.20.3",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.46.3"
+  },
+  "zero_add_abs_delta_nats_per_token": [
+    0.0,
+    0.0
+  ]
+}

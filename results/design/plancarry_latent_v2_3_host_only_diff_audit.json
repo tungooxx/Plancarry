@@ -1,0 +1,186 @@
+{
+  "diffs": [
+    {
+      "allowed": true,
+      "new": "PLANCARRY_LATENT_V2_3_HOST_POLICY_SUPERSESSION",
+      "old": "PLANCARRY_LATENT_V2_2_PREREG_FINAL",
+      "path": "kind"
+    },
+    {
+      "allowed": true,
+      "new": "edf75cc8-2d4f-467f-9651-d0fdc8b2f51a",
+      "old": "3e0f908b-ee8c-4f14-bda6-6fb5d4c95f1b",
+      "path": "model.bridge_engineering_result_id"
+    },
+    {
+      "allowed": true,
+      "new": "Satisfied prospectively before scientific execution by EngineeringResult edf75cc8-2d4f-467f-9651-d0fdc8b2f51a: exact Qwen2.5-1.5B revision, FP16/no quantization, real capture/score/ZERO_ADD/SELF_PATCH/nonzero-ADD passed on authorized GTX1650 using current verified bridge SHA f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2.",
+      "old": "Before scientific run, /model_info,/capture,/score_sequences,/patch_score and SELF_PATCH must pass on the authorized RTX3050 host. VERIFIED_TARGETED alone is insufficient.",
+      "path": "model.bridge_required_real_verification"
+    },
+    {
+      "allowed": true,
+      "new": "Real inference/activation work only on the user-authorized local CUDA device whose name contains GTX 1650. This host-only supersession is prospective and does not change model weights, revision, precision, quantization, or scientific design.",
+      "old": "Real inference/activation work only on CUDA device whose name contains RTX 3050. GTX 1650 is forbidden for this experiment.",
+      "path": "model.execution_host_policy"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "5a32831357414614e9824d05216f36a5cc9a3f48dfdfdc86b9b1b9bf9eb370b3",
+      "path": "pre_registration_static_review.adversarial_review_sha256"
+    },
+    {
+      "allowed": true,
+      "new": true,
+      "old": null,
+      "path": "pre_registration_static_review.host_supersession_only"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "UNAVAILABLE_LITERATURE_PROFILE",
+      "path": "pre_registration_static_review.model_backed_critic_status"
+    },
+    {
+      "allowed": true,
+      "new": false,
+      "old": null,
+      "path": "pre_registration_static_review.model_scientific_outcomes_seen"
+    },
+    {
+      "allowed": true,
+      "new": "Independent re-review is required before scientific execution; no v2.2/v2.3 scientific result has been inspected.",
+      "old": null,
+      "path": "pre_registration_static_review.note"
+    },
+    {
+      "allowed": true,
+      "new": "2f5c24562d18305c94b9e571aad7225d00cffa1844f7290c0e9f44ad5d6941c6",
+      "old": null,
+      "path": "pre_registration_static_review.prior_v2_2_independent_review_sha256"
+    },
+    {
+      "allowed": true,
+      "new": "edf75cc8-2d4f-467f-9651-d0fdc8b2f51a",
+      "old": null,
+      "path": "pre_registration_static_review.real_engineering_result_id"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "frozen hash-based A/B label orientation",
+      "path": "pre_registration_static_review.repairs_applied.0"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "unrelated control mapping independent of competence",
+      "path": "pre_registration_static_review.repairs_applied.1"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "exact n=20 independent-family one-sided sign tests with zeros as failures and lexicographic Holm correction",
+      "path": "pre_registration_static_review.repairs_applied.10"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "v2.2 unrelated control: confirmation donors changed from cyclic confirmation neighbors to a frozen one-to-one SHA256 discovery-to-confirmation bijection, eliminating cross-confirmation activation coupling",
+      "path": "pre_registration_static_review.repairs_applied.11"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "bidirectional no-patch improvement guard",
+      "path": "pre_registration_static_review.repairs_applied.2"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "qA renamed bounded preference index, not calibrated probability",
+      "path": "pre_registration_static_review.repairs_applied.3"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "confirmation expressivity timing clarified",
+      "path": "pre_registration_static_review.repairs_applied.4"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "delayed subgroup explicitly not persistence evidence",
+      "path": "pre_registration_static_review.repairs_applied.5"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "confirmation competence changed from pair filter to cohort-level gate with all 20 primary",
+      "path": "pre_registration_static_review.repairs_applied.6"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "ACTION label moved into scoring prompt and exact command suffix only is scored at explicit RESET_BLOCK STATE_END patch index",
+      "path": "pre_registration_static_review.repairs_applied.7"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "FP32 source-direction epsilon=1e-8 with zero direction/no exclusion",
+      "path": "pre_registration_static_review.repairs_applied.8"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "package-independent SHA256 Rademacher random control",
+      "path": "pre_registration_static_review.repairs_applied.9"
+    },
+    {
+      "allowed": true,
+      "new": null,
+      "old": "e817e5f2-97dd-4878-af99-eb0a5524b96e",
+      "path": "pre_registration_static_review.v2_1_dependence_anomaly_id"
+    },
+    {
+      "allowed": true,
+      "new": "Host-policy-only prospective supersession before any v2.2/v2.3 scientific outcome. Scientific design, data, intervention, controls, statistics, thresholds, and T1 claim are unchanged from frozen v2.2.",
+      "old": "Prospective v2.2 repair of confirmation UNRELATED_PLAN cross-family coupling only; no model/scientific outcome inspected. All v2.1 manifest/model/layers/alphas/semantic manipulation/scoring/statistics/effect thresholds/T1 scope remain unchanged.",
+      "path": "repair_scope"
+    },
+    {
+      "allowed": true,
+      "new": "9701014b-3418-46a2-acb4-d59f235388dc",
+      "old": "ded9498e-e326-4cb7-8466-f640a65578cc",
+      "path": "supersedes_experiment_id"
+    },
+    {
+      "allowed": true,
+      "new": "df6d5d79-dfcd-4c2a-b055-3330bdd87dc8",
+      "old": "2bacf7e1-55e0-4449-b1f3-8f0b3a845ef8",
+      "path": "supersedes_prediction_id"
+    },
+    {
+      "allowed": true,
+      "new": "PlanCarry-Latent v2.3: v2.2 causal active-plan contrast with prospectively authorized GTX1650 execution host",
+      "old": "PlanCarry-Latent v2.2: donor-independent lexical-counterbalanced causal active-plan contrast across context reset",
+      "path": "title"
+    },
+    {
+      "allowed": true,
+      "new": "GTX1650 device-name policy and exact model revision/FP16/no-quantization confirmed by bridge model_info and real EngineeringResult edf75cc8-2d4f-467f-9651-d0fdc8b2f51a.",
+      "old": "RTX3050 device-name policy and exact model revision/FP16/no-quantization confirmed by bridge model_info.",
+      "path": "validity_guards.4"
+    }
+  ],
+  "kind": "PLANCARRY_LATENT_V2_3_HOST_ONLY_DIFF_AUDIT_FINAL",
+  "scientific_core_equal_after_allowed_host_metadata_normalization": true,
+  "scientific_outcomes_seen": false,
+  "stale_rtx3050_literals": false,
+  "unexpected_diffs": [],
+  "v2_2_sha256": "a2682c209a0e7d7b52d93b8519ad54596209d7a01454380c06da2ec73f94eb47",
+  "v2_3_sha256": "b8834149ea098c9fa0c1df0a9d17e766c38bb9b9b78a58258808903454d93058",
+  "verdict": "PASS_HOST_ONLY"
+}

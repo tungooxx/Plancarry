@@ -1,0 +1,68 @@
+{
+  "checks": {
+    "canonical_output_absent": true,
+    "hashes_exact": {
+      "enumeration_test": true,
+      "launcher": true,
+      "metadata_test": true,
+      "repair_audit": true,
+      "runner": true
+    },
+    "launcher_pins": true,
+    "no_alfworld_executable": true,
+    "no_packet_producer_execution": true,
+    "runner_no_direct_alfworld_or_patch": true
+  },
+  "engineering_result_id": "65862756-6d0b-4cc0-ac44-c2274573263a",
+  "experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "failed_run_id": "e653ef3f-ee43-4429-a757-a8aa505fa285",
+  "independent_execution_checks": {
+    "bash_n": "PASS job local_0264824c79074b51",
+    "frozen_packet_validator_suppressed": "PASS exit0 job local_3a37fb09ef334634",
+    "loader_metadata_tests": "6/6 PASS job local_0264824c79074b51",
+    "packet_enumeration_tests": "6/6 PASS job local_0264824c79074b51",
+    "py_compile": "PASS job local_0264824c79074b51",
+    "runtime_code_drift": false
+  },
+  "loader_semantics": {
+    "episode_files_exact": "packet_00.json..packet_31.json",
+    "filename_index_mismatch_fails_closed": true,
+    "metadata_required_only": [
+      "manifest.json",
+      "provenance.json"
+    ],
+    "missing_metadata_fails_closed": true,
+    "missing_packet_fails_closed": true,
+    "out_of_range_fails_closed": true,
+    "unexpected_json_fails_closed": true
+  },
+  "note": "Authoritative pre-failure runner SHA 5d64a1a9... is not retained as a second local source copy; review therefore independently validates the repaired loader behavior, current source safety, frozen hash-chain validator, and exact launcher provenance rather than claiming a direct textual diff against unavailable bytes.",
+  "packet_integrity": {
+    "file_count": 34,
+    "packet_bytes_modified_by_review": false,
+    "validator_enforces_each_packet_file_sha256": true,
+    "validator_enforces_exact_file_set": true,
+    "validator_enforces_frozen_cohort_identity": true,
+    "validator_enforces_manifest_sha_chain": true
+  },
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scope": {
+    "contamination_log_sha256": "c39dece43ebe0f1704b07c172120bb63dfc3f1f06bc0d8a9f2ad8bd664c66e56",
+    "environment_execution": 0,
+    "model_calls": 0,
+    "no_scientific_adaptation_from_accidental_aggregate": true,
+    "pass_authorizes": "fresh Experiment-bound ResearchDecision + capture/evaluation-only technical retry using immutable packet directory",
+    "pass_does_not_authorize": [
+      "reserve32..63",
+      "valid_seen",
+      "valid_unseen",
+      "T1",
+      "T1R",
+      "scientific interpretation before terminal canonical result"
+    ],
+    "scientific_outcomes_accessed": false
+  },
+  "type": "PLANCARRY_REPLAYRESIDUAL_V2_1_SANITY_LOADER_RECOVERY_INDEPENDENT_REVIEW",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_V2_1_SANITY_LOADER_RECOVERY",
+  "work_item_id": "3d422c81-4e6e-43ab-a0d1-20afec61844b"
+}

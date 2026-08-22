@@ -1,0 +1,52 @@
+{
+  "all_pass": false,
+  "critical_equal": {
+    "confirmation_primary": true,
+    "data": true,
+    "development_selection": true,
+    "expected_direction": true,
+    "fail_condition": true,
+    "intervention_math": true,
+    "model_expressivity_gate": true,
+    "novelty_scope": true,
+    "pass_condition": true,
+    "prediction": true,
+    "primary_metric": true,
+    "secondary_metrics": true,
+    "unrelated_donor_map_sha256": true
+  },
+  "diff_leaf_count": 21,
+  "diff_paths": [
+    "action_scoring.patch_token_rule",
+    "action_scoring.score",
+    "action_scoring.scoring_prompt",
+    "action_scoring.tokenizer_boundary_guard",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "model.v2_3_synthetic_bridge_evidence",
+    "pair_variable.reset_template",
+    "pair_variable.source_active_template",
+    "pair_variable.source_archived_template",
+    "plumbing_guard.self_patch",
+    "pre_registration_static_review.repairs_applied.length",
+    "pre_registration_static_review.v2_3_boundary_diagnostic",
+    "repair_scope",
+    "source_and_target_sites.source_capture_token",
+    "source_and_target_sites.target_patch_token",
+    "supersedes_experiment_id",
+    "supersedes_prediction_id",
+    "title",
+    "validity_guards.4",
+    "validity_guards.12"
+  ],
+  "kind": "V23_RECOVERED_INDEPENDENT_DIFF_AUDIT",
+  "recovered_prereg_sha256": "cf3328317b145db2bf25c6fb881ba01682c35bf904ded0a7c8a6fd14bdd33591",
+  "scientific_result": "NOT_ASSESSED",
+  "unexpected_paths": [
+    "pair_variable.source_active_template",
+    "pair_variable.source_archived_template",
+    "plumbing_guard.self_patch",
+    "source_and_target_sites.source_capture_token",
+    "source_and_target_sites.target_patch_token"
+  ]
+}

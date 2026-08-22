@@ -1,0 +1,23 @@
+{
+  "all_scientific_fields_inherited_by_hash": true,
+  "confirmation_sealed": true,
+  "kind": "PLANCARRY_LATENT_V2_6_RUNTIME_REBIND_SUPERSESSION_AUDIT",
+  "new_gpu_contains_rtx3050": true,
+  "new_gpu_exact": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "no_model_or_environment_scientific_outcomes_accessed": true,
+  "rebind_path": "results/design/plancarry_latent_v2_6_rtx3050_runtime_rebind_20260820T085141Z.json",
+  "rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "runtime_only_override_paths": [
+    "model.execution_host_policy",
+    "validity_guards.device_provenance_guard",
+    "runner.validate_bridge_info.device_name",
+    "bridge.expected_device_substring"
+  ],
+  "scientific_override_count": 0,
+  "scientific_override_paths": [],
+  "scientific_result": "NOT_ASSESSED",
+  "source_v25_design_matches_expected": true,
+  "source_v25_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "valid_seen_unseen_untouched": true,
+  "verdict": "PASS_RUNTIME_ONLY_REBIND_FREEZE"
+}

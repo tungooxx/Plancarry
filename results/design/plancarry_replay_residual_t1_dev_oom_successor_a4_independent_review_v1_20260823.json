@@ -1,0 +1,46 @@
+{
+  "author_independence": "A4 did not author the OOM wrapper; EngineeringTask/Result were produced by A3 lineage before A4 review.",
+  "checks": {
+    "confirmation_32_51_prohibited": true,
+    "dev_indices_only_0_31": true,
+    "frozen_producer_and_v1_1_unchanged": true,
+    "mock_scorer_exact_equivalence_pass": true,
+    "no_skip_no_replacement": true,
+    "prior_orphan_not_assessed_no_output": true,
+    "real_synthetic_non_alfworld_qwen3_memory_smoke_pass": true,
+    "retry_exhaustion_fail_closed_before_publication": true,
+    "same_index_oom_retry_pass": true,
+    "scientific_variables_changed_empty": true,
+    "suffix_prediction_rows_selected_before_fp32_only": true,
+    "t1r_52_63_prohibited": true,
+    "valid_seen_unseen_prohibited": true
+  },
+  "claim_boundary": "PASS authorizes a fresh ResearchDecision-bound retry of the frozen technical-successor development checkpoint only. It does not satisfy original representation sanity, support T1, authorize confirmation, or permit scientific-variable changes.",
+  "engineering_result_id": "ebeee965-30d1-47ec-b9fd-0c4605c46bf1",
+  "engineering_task_id": "74a100b2-bfc2-47d8-881f-0489800823a1",
+  "experiment_id": "5de86c06-a63c-4ab8-85a9-93b2f2bbabd3",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_DEV_OOM_SUCCESSOR_A4_INDEPENDENT_REVIEW_V1",
+  "prior_successor_run": {
+    "canonical_outputs_present": false,
+    "run_id": "eebf98d7-6974-4169-abde-dc2947dcef3f",
+    "scientific_result": "NOT_ASSESSED",
+    "status": "TECHNICAL_ORPHANED"
+  },
+  "real_synthetic_memory_smoke": {
+    "gpu_total_mib": 4096,
+    "interpretation": "Engineering memory feasibility only; not scientific evidence.",
+    "job_id": "local_3393fc0c46b34c86",
+    "peak_allocated_mib": 3600.2,
+    "prefix_tokens": 700,
+    "reserved_mib": 3648.0,
+    "score_finite": true,
+    "study_data_used": false,
+    "suffix_tokens": 2
+  },
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "verdict": "PASS_FOR_T1_DEV_OOM_SUCCESSOR_RETRY",
+  "wrapper": {
+    "path": "replay_residual_t1_direct_override_dev_v1_2_oom_retry.py",
+    "sha256": "7554699b299a05b930e12830a9a8c5ba1b7ca2c4e885a7d506dbfeb134e80d00"
+  }
+}

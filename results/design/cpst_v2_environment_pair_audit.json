@@ -1,0 +1,1165 @@
+{
+  "expert_plan_fields_read": false,
+  "families_with_any_two_same_source": 31,
+  "family_count": 45,
+  "kind": "CPST_V2_ENVIRONMENT_ONLY_PAIR_AUDIT",
+  "model_calls": 0,
+  "one_trial_per_family_rule": "SHA256 salt selects exactly one trial per task family before any model outcome",
+  "openable_best_source": 2,
+  "rows": [
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_0_bar__minus_3_bar_1_bar_60",
+          "loc_bar_0_bar__minus_3_bar_1_bar_60",
+          "loc_bar_0_bar__minus_3_bar_1_bar_60",
+          "loc_bar_0_bar__minus_3_bar_1_bar_60"
+        ],
+        "objects": [
+          "Book_bar__plus_00_dot_81_bar__plus_00_dot_58_bar__minus_00_dot_65",
+          "Book_bar__plus_00_dot_81_bar__plus_00_dot_58_bar__minus_01_dot_13",
+          "Book_bar__plus_01_dot_68_bar__plus_00_dot_58_bar__minus_00_dot_65",
+          "Book_bar__plus_01_dot_68_bar__plus_00_dot_58_bar__minus_01_dot_37"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_0_bar__minus_3_bar_1_bar_60",
+        "source_receptacle": "Bed_bar__plus_01_dot_24_bar__plus_00_dot_00_bar__minus_00_dot_90",
+        "source_type": "Bed"
+      },
+      "family": "pick_two_obj_and_place-Book-None-Desk-302",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Book-None-Desk-302/trial_T20190906_181314_259738/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "Book",
+      "target_receptacle_instances": [
+        "?r",
+        "Desk_bar__minus_01_dot_01_bar__minus_00_dot_01_bar__minus_01_dot_12"
+      ],
+      "target_receptacle_type": "Desk",
+      "trial": "trial_T20190906_181314_259738"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_2_bar_3_bar_1_bar_45",
+          "loc_bar__minus_2_bar_3_bar_1_bar_45"
+        ],
+        "objects": [
+          "Book_bar__plus_01_dot_53_bar__plus_00_dot_83_bar__plus_00_dot_26",
+          "Book_bar__plus_01_dot_53_bar__plus_00_dot_83_bar__plus_01_dot_22"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_2_bar_3_bar_1_bar_45",
+        "source_receptacle": "Bed_bar__plus_00_dot_99_bar__plus_00_dot_03_bar__plus_00_dot_67",
+        "source_type": "Bed"
+      },
+      "family": "pick_two_obj_and_place-Book-None-Desk-309",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Book-None-Desk-309/trial_T20190909_061156_951604/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "Book",
+      "target_receptacle_instances": [
+        "?r",
+        "Desk_bar__minus_01_dot_27_bar__plus_01_dot_17_bar__minus_02_dot_99"
+      ],
+      "target_receptacle_type": "Desk",
+      "trial": "trial_T20190909_061156_951604"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_6_bar_9_bar_3_bar_45",
+          "loc_bar__minus_6_bar_9_bar_3_bar_45",
+          "loc_bar__minus_6_bar_9_bar_3_bar_45"
+        ],
+        "objects": [
+          "Box_bar__minus_02_dot_32_bar__plus_00_dot_91_bar__plus_02_dot_53",
+          "Box_bar__minus_03_dot_16_bar__plus_00_dot_91_bar__plus_02_dot_06",
+          "Box_bar__minus_03_dot_71_bar__plus_00_dot_91_bar__plus_01_dot_91"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_6_bar_9_bar_3_bar_45",
+        "source_receptacle": "DiningTable_bar__minus_02_dot_90_bar__plus_00_dot_01_bar__plus_02_dot_23",
+        "source_type": "DiningTable"
+      },
+      "family": "pick_two_obj_and_place-Box-None-CoffeeTable-230",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Box-None-CoffeeTable-230/trial_T20190908_124255_946115/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 3,
+      "target_object_type": "Box",
+      "target_receptacle_instances": [
+        "?r",
+        "CoffeeTable_bar__minus_03_dot_13_bar__plus_00_dot_02_bar__plus_08_dot_53",
+        "CoffeeTable_bar__minus_03_dot_24_bar__plus_00_dot_01_bar__plus_06_dot_60"
+      ],
+      "target_receptacle_type": "CoffeeTable",
+      "trial": "trial_T20190908_124255_946115"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-CD-None-Drawer-306",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CD-None-Drawer-306/trial_T20190907_025539_829173/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "CD",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__minus_00_dot_94_bar__plus_00_dot_21_bar__minus_01_dot_19",
+        "Drawer_bar__minus_00_dot_94_bar__plus_00_dot_49_bar__minus_01_dot_19",
+        "Drawer_bar__minus_00_dot_94_bar__plus_00_dot_73_bar__minus_01_dot_19",
+        "Drawer_bar__plus_02_dot_44_bar__plus_00_dot_13_bar__plus_01_dot_16",
+        "Drawer_bar__plus_02_dot_44_bar__plus_00_dot_36_bar__plus_01_dot_16"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190907_025539_829173"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_3_bar__minus_3_bar_3_bar_60",
+          "loc_bar__minus_3_bar__minus_3_bar_3_bar_60"
+        ],
+        "objects": [
+          "CD_bar__minus_01_dot_77_bar__plus_00_dot_22_bar__minus_01_dot_11",
+          "CD_bar__minus_01_dot_79_bar__plus_00_dot_22_bar__minus_01_dot_22"
+        ],
+        "openable": true,
+        "source_location": "loc_bar__minus_3_bar__minus_3_bar_3_bar_60",
+        "source_receptacle": "Drawer_bar__minus_01_dot_79_bar__plus_00_dot_25_bar__minus_01_dot_15",
+        "source_type": "Drawer"
+      },
+      "family": "pick_two_obj_and_place-CD-None-Dresser-303",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CD-None-Dresser-303/trial_T20190908_085826_396748/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "CD",
+      "target_receptacle_instances": [
+        "?r",
+        "Dresser_bar__plus_00_dot_44_bar__plus_00_dot_04_bar__minus_02_dot_65"
+      ],
+      "target_receptacle_type": "Dresser",
+      "trial": "trial_T20190908_085826_396748"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_2_bar_16_bar_1_bar_60",
+          "loc_bar__minus_2_bar_16_bar_1_bar_60"
+        ],
+        "objects": [
+          "Candle_bar__plus_00_dot_67_bar__plus_01_dot_06_bar__plus_04_dot_28",
+          "Candle_bar__plus_00_dot_67_bar__plus_01_dot_06_bar__plus_04_dot_41"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_2_bar_16_bar_1_bar_60",
+        "source_receptacle": "Toilet_bar__plus_00_dot_38_bar__plus_00_dot_00_bar__plus_04_dot_47",
+        "source_type": "Toilet"
+      },
+      "family": "pick_two_obj_and_place-Candle-None-CounterTop-406",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Candle-None-CounterTop-406/trial_T20190908_045958_916084/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "Candle",
+      "target_receptacle_instances": [
+        "?r",
+        "CounterTop_bar__plus_00_dot_49_bar__plus_01_dot_02_bar__plus_03_dot_09"
+      ],
+      "target_receptacle_type": "CounterTop",
+      "trial": "trial_T20190908_045958_916084"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_3_bar__minus_3_bar_3_bar_45",
+          "loc_bar_3_bar__minus_3_bar_3_bar_45"
+        ],
+        "objects": [
+          "CellPhone_bar__minus_01_dot_31_bar__plus_00_dot_51_bar__minus_00_dot_14",
+          "CellPhone_bar__minus_01_dot_31_bar__plus_00_dot_51_bar__minus_00_dot_39"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_3_bar__minus_3_bar_3_bar_45",
+        "source_receptacle": "Bed_bar__minus_00_dot_81_bar__minus_00_dot_01_bar__minus_00_dot_92",
+        "source_type": "Bed"
+      },
+      "family": "pick_two_obj_and_place-CellPhone-None-Desk-312",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Desk-312/trial_T20190908_122230_946481/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 3,
+      "target_object_type": "CellPhone",
+      "target_receptacle_instances": [
+        "?r",
+        "Desk_bar__plus_02_dot_24_bar_00_dot_00_bar__minus_01_dot_58"
+      ],
+      "target_receptacle_type": "Desk",
+      "trial": "trial_T20190908_122230_946481"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_4_bar_1_bar_1_bar_60",
+          "loc_bar_4_bar_1_bar_1_bar_60"
+        ],
+        "objects": [
+          "CellPhone_bar__plus_01_dot_81_bar__plus_00_dot_73_bar__plus_00_dot_24",
+          "CellPhone_bar__plus_02_dot_00_bar__plus_00_dot_73_bar__minus_00_dot_01"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_4_bar_1_bar_1_bar_60",
+        "source_receptacle": "Desk_bar__plus_01_dot_81_bar__minus_00_dot_01_bar__minus_00_dot_12",
+        "source_type": "Desk"
+      },
+      "family": "pick_two_obj_and_place-CellPhone-None-Drawer-318",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Drawer-318/trial_T20190908_104535_936869/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 2,
+      "target_object_count": 4,
+      "target_object_type": "CellPhone",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__minus_00_dot_57_bar__plus_00_dot_57_bar__plus_02_dot_24",
+        "Drawer_bar__minus_00_dot_58_bar__plus_00_dot_15_bar__plus_02_dot_96",
+        "Drawer_bar__minus_00_dot_58_bar__plus_00_dot_37_bar__plus_02_dot_96",
+        "Drawer_bar__minus_00_dot_58_bar__plus_00_dot_56_bar__plus_02_dot_96",
+        "Drawer_bar__minus_00_dot_70_bar__plus_00_dot_22_bar__minus_01_dot_32",
+        "Drawer_bar__minus_00_dot_70_bar__plus_00_dot_54_bar__minus_01_dot_32",
+        "Drawer_bar__minus_00_dot_70_bar__plus_00_dot_83_bar__minus_01_dot_32",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_15_bar__minus_00_dot_36",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_15_bar__minus_00_dot_78",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_36_bar__minus_00_dot_36",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_36_bar__minus_00_dot_78",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_57_bar__minus_00_dot_36",
+        "Drawer_bar__plus_01_dot_65_bar__plus_00_dot_57_bar__minus_00_dot_78"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190908_104535_936869"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-CellPhone-None-Drawer-329",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Drawer-329/trial_T20190909_030028_020737/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "CellPhone",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__minus_01_dot_20_bar__plus_00_dot_17_bar__minus_02_dot_39",
+        "Drawer_bar__minus_01_dot_20_bar__plus_00_dot_46_bar__minus_02_dot_39",
+        "Drawer_bar__plus_01_dot_00_bar__plus_00_dot_17_bar__minus_02_dot_39",
+        "Drawer_bar__plus_01_dot_00_bar__plus_00_dot_46_bar__minus_02_dot_39"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190909_030028_020737"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_9_bar_3_bar_0_bar_60",
+          "loc_bar_9_bar_3_bar_0_bar_60"
+        ],
+        "objects": [
+          "CellPhone_bar__plus_02_dot_41_bar__plus_00_dot_43_bar__plus_01_dot_59",
+          "CellPhone_bar__plus_02_dot_69_bar__plus_00_dot_44_bar__plus_02_dot_01"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_9_bar_3_bar_0_bar_60",
+        "source_receptacle": "ArmChair_bar__plus_02_dot_41_bar__plus_00_dot_01_bar__plus_02_dot_00",
+        "source_type": "ArmChair"
+      },
+      "family": "pick_two_obj_and_place-CellPhone-None-Dresser-330",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Dresser-330/trial_T20190909_060924_095249/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 3,
+      "target_object_type": "CellPhone",
+      "target_receptacle_instances": [
+        "?r",
+        "Dresser_bar__minus_01_dot_75_bar__plus_00_dot_00_bar__minus_00_dot_15",
+        "Dresser_bar__minus_01_dot_77_bar__minus_00_dot_01_bar__minus_02_dot_08"
+      ],
+      "target_receptacle_type": "Dresser",
+      "trial": "trial_T20190909_060924_095249"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_9_bar__minus_3_bar_2_bar_45",
+          "loc_bar__minus_9_bar__minus_3_bar_2_bar_45"
+        ],
+        "objects": [
+          "CellPhone_bar__minus_02_dot_85_bar__plus_00_dot_37_bar__minus_02_dot_02",
+          "CellPhone_bar__minus_02_dot_93_bar__plus_00_dot_36_bar__minus_01_dot_73"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_9_bar__minus_3_bar_2_bar_45",
+        "source_receptacle": "ArmChair_bar__minus_02_dot_86_bar__plus_00_dot_02_bar__minus_02_dot_04",
+        "source_type": "ArmChair"
+      },
+      "family": "pick_two_obj_and_place-CellPhone-None-Sofa-224",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CellPhone-None-Sofa-224/trial_T20190918_223409_525979/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 2,
+      "target_object_count": 4,
+      "target_object_type": "CellPhone",
+      "target_receptacle_instances": [
+        "?r",
+        "Sofa_bar__minus_02_dot_96_bar__plus_00_dot_08_bar__plus_01_dot_39"
+      ],
+      "target_receptacle_type": "Sofa",
+      "trial": "trial_T20190918_223409_525979"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_1_bar_8_bar_1_bar_45",
+          "loc_bar__minus_1_bar_8_bar_1_bar_45"
+        ],
+        "objects": [
+          "Cloth_bar__plus_00_dot_51_bar__plus_00_dot_74_bar__plus_02_dot_73",
+          "Cloth_bar__plus_00_dot_66_bar__plus_00_dot_74_bar__plus_01_dot_23"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_1_bar_8_bar_1_bar_45",
+        "source_receptacle": "CounterTop_bar__plus_00_dot_73_bar__plus_00_dot_70_bar__plus_01_dot_96",
+        "source_type": "CounterTop"
+      },
+      "family": "pick_two_obj_and_place-Cloth-None-Drawer-411",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Cloth-None-Drawer-411/trial_T20190908_190008_902235/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "Cloth",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__plus_00_dot_41_bar__plus_00_dot_32_bar__plus_01_dot_49",
+        "Drawer_bar__plus_00_dot_41_bar__plus_00_dot_32_bar__plus_02_dot_42",
+        "Drawer_bar__plus_00_dot_41_bar__plus_00_dot_55_bar__plus_01_dot_49",
+        "Drawer_bar__plus_00_dot_41_bar__plus_00_dot_55_bar__plus_02_dot_42"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190908_190008_902235"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_2_bar__minus_1_bar_1_bar_60",
+          "loc_bar_2_bar__minus_1_bar_1_bar_60"
+        ],
+        "objects": [
+          "CreditCard_bar__plus_01_dot_49_bar__plus_00_dot_71_bar__minus_00_dot_54",
+          "CreditCard_bar__plus_01_dot_52_bar__plus_00_dot_71_bar__minus_00_dot_62"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_2_bar__minus_1_bar_1_bar_60",
+        "source_receptacle": "SideTable_bar__plus_01_dot_56_bar__minus_00_dot_01_bar__minus_00_dot_47",
+        "source_type": "SideTable"
+      },
+      "family": "pick_two_obj_and_place-CreditCard-None-Desk-313",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Desk-313/trial_T20190909_104504_038752/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "CreditCard",
+      "target_receptacle_instances": [
+        "?r",
+        "Desk_bar__plus_00_dot_63_bar__minus_00_dot_04_bar__minus_01_dot_63"
+      ],
+      "target_receptacle_type": "Desk",
+      "trial": "trial_T20190909_104504_038752"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-CreditCard-None-DiningTable-329",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-DiningTable-329/trial_T20190918_154222_318527/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "CreditCard",
+      "target_receptacle_instances": [
+        "?r",
+        "DiningTable_bar__minus_00_dot_28_bar__minus_00_dot_01_bar__plus_00_dot_83"
+      ],
+      "target_receptacle_type": "DiningTable",
+      "trial": "trial_T20190918_154222_318527"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_9_bar_5_bar_1_bar_60",
+          "loc_bar_9_bar_5_bar_1_bar_60"
+        ],
+        "objects": [
+          "CreditCard_bar__plus_02_dot_73_bar__plus_01_dot_23_bar__plus_01_dot_28",
+          "CreditCard_bar__plus_02_dot_83_bar__plus_01_dot_23_bar__plus_01_dot_17"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_9_bar_5_bar_1_bar_60",
+        "source_receptacle": "Dresser_bar__plus_02_dot_68_bar_00_dot_00_bar__plus_01_dot_51",
+        "source_type": "Dresser"
+      },
+      "family": "pick_two_obj_and_place-CreditCard-None-Safe-323",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Safe-323/trial_T20190907_001424_961488/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "CreditCard",
+      "target_receptacle_instances": [
+        "?r",
+        "Safe_bar__plus_02_dot_70_bar__plus_01_dot_23_bar__plus_01_dot_77"
+      ],
+      "target_receptacle_type": "Safe",
+      "trial": "trial_T20190907_001424_961488"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_5_bar__minus_6_bar_3_bar_60",
+          "loc_bar_5_bar__minus_6_bar_3_bar_60"
+        ],
+        "objects": [
+          "CreditCard_bar__plus_00_dot_04_bar__plus_00_dot_48_bar__minus_01_dot_25",
+          "CreditCard_bar__plus_00_dot_49_bar__plus_00_dot_47_bar__minus_01_dot_00"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_5_bar__minus_6_bar_3_bar_60",
+        "source_receptacle": "CoffeeTable_bar__plus_00_dot_02_bar_00_dot_00_bar__minus_01_dot_11",
+        "source_type": "CoffeeTable"
+      },
+      "family": "pick_two_obj_and_place-CreditCard-None-Sofa-206",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-CreditCard-None-Sofa-206/trial_T20190906_203615_424745/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "CreditCard",
+      "target_receptacle_instances": [
+        "?r",
+        "Sofa_bar__plus_00_dot_13_bar__plus_00_dot_00_bar__plus_01_dot_19"
+      ],
+      "target_receptacle_type": "Sofa",
+      "trial": "trial_T20190906_203615_424745"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_2_bar__minus_7_bar_2_bar__minus_30",
+          "loc_bar_2_bar__minus_7_bar_2_bar__minus_30"
+        ],
+        "objects": [
+          "Cup_bar__plus_00_dot_51_bar__plus_01_dot_66_bar__minus_02_dot_53",
+          "Cup_bar__plus_00_dot_51_bar__plus_01_dot_66_bar__minus_02_dot_63"
+        ],
+        "openable": true,
+        "source_location": "loc_bar_2_bar__minus_7_bar_2_bar__minus_30",
+        "source_receptacle": "Cabinet_bar__plus_00_dot_68_bar__plus_02_dot_02_bar__minus_02_dot_46",
+        "source_type": "Cabinet"
+      },
+      "family": "pick_two_obj_and_place-Cup-None-Shelf-1",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Cup-None-Shelf-1/trial_T20190908_015402_128805/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "Cup",
+      "target_receptacle_instances": [
+        "?r",
+        "Shelf_bar__plus_01_dot_80_bar__plus_00_dot_16_bar__minus_02_dot_56",
+        "Shelf_bar__plus_01_dot_80_bar__plus_00_dot_54_bar__minus_02_dot_56",
+        "Shelf_bar__plus_01_dot_80_bar__plus_00_dot_87_bar__minus_02_dot_56"
+      ],
+      "target_receptacle_type": "Shelf",
+      "trial": "trial_T20190908_015402_128805"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_4_bar_6_bar_1_bar_60",
+          "loc_bar_4_bar_6_bar_1_bar_60"
+        ],
+        "objects": [
+          "KeyChain_bar__plus_01_dot_76_bar__plus_00_dot_44_bar__plus_01_dot_33",
+          "KeyChain_bar__plus_01_dot_76_bar__plus_00_dot_44_bar__plus_01_dot_88"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_4_bar_6_bar_1_bar_60",
+        "source_receptacle": "ArmChair_bar__plus_01_dot_83_bar__plus_00_dot_01_bar__plus_01_dot_61",
+        "source_type": "ArmChair"
+      },
+      "family": "pick_two_obj_and_place-KeyChain-None-Dresser-318",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Dresser-318/trial_T20190907_181205_590674/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 2,
+      "target_object_count": 4,
+      "target_object_type": "KeyChain",
+      "target_receptacle_instances": [
+        "?r",
+        "Dresser_bar__minus_00_dot_66_bar__minus_00_dot_01_bar__plus_02_dot_97",
+        "Dresser_bar__minus_00_dot_77_bar__minus_00_dot_01_bar__minus_01_dot_31"
+      ],
+      "target_receptacle_type": "Dresser",
+      "trial": "trial_T20190907_181205_590674"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_5_bar_4_bar_1_bar_60",
+          "loc_bar_5_bar_4_bar_1_bar_60"
+        ],
+        "objects": [
+          "KeyChain_bar__plus_01_dot_89_bar__plus_00_dot_88_bar__plus_01_dot_20",
+          "KeyChain_bar__plus_01_dot_89_bar__plus_00_dot_88_bar__plus_01_dot_41"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_5_bar_4_bar_1_bar_60",
+        "source_receptacle": "SideTable_bar__plus_01_dot_83_bar__plus_00_dot_00_bar__plus_01_dot_09",
+        "source_type": "SideTable"
+      },
+      "family": "pick_two_obj_and_place-KeyChain-None-Ottoman-208",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Ottoman-208/trial_T20190907_232759_901444/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "KeyChain",
+      "target_receptacle_instances": [
+        "?r",
+        "Ottoman_bar__minus_00_dot_58_bar__plus_00_dot_01_bar__plus_01_dot_05"
+      ],
+      "target_receptacle_type": "Ottoman",
+      "trial": "trial_T20190907_232759_901444"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-KeyChain-None-Sofa-225",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-KeyChain-None-Sofa-225/trial_T20190907_143028_102387/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 3,
+      "target_object_type": "KeyChain",
+      "target_receptacle_instances": [
+        "?r",
+        "Sofa_bar__minus_02_dot_13_bar_00_dot_00_bar__plus_04_dot_56",
+        "Sofa_bar__minus_04_dot_57_bar_00_dot_00_bar__plus_01_dot_90"
+      ],
+      "target_receptacle_type": "Sofa",
+      "trial": "trial_T20190907_143028_102387"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-Newspaper-None-ArmChair-214",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Newspaper-None-ArmChair-214/trial_T20190909_010843_771227/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "Newspaper",
+      "target_receptacle_instances": [
+        "?r",
+        "ArmChair_bar__minus_04_dot_45_bar__plus_00_dot_00_bar__plus_06_dot_45"
+      ],
+      "target_receptacle_type": "ArmChair",
+      "trial": "trial_T20190909_010843_771227"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-Newspaper-None-Sofa-230",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Newspaper-None-Sofa-230/trial_T20190908_035335_001162/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "Newspaper",
+      "target_receptacle_instances": [
+        "?r",
+        "Sofa_bar__minus_01_dot_74_bar__minus_00_dot_08_bar__plus_06_dot_45"
+      ],
+      "target_receptacle_type": "Sofa",
+      "trial": "trial_T20190908_035335_001162"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_2_bar__minus_6_bar_2_bar_60",
+          "loc_bar_2_bar__minus_6_bar_2_bar_60"
+        ],
+        "objects": [
+          "Pencil_bar__plus_00_dot_31_bar__plus_00_dot_58_bar__minus_02_dot_37",
+          "Pencil_bar__plus_00_dot_47_bar__plus_00_dot_58_bar__minus_02_dot_43"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_2_bar__minus_6_bar_2_bar_60",
+        "source_receptacle": "Desk_bar__plus_00_dot_45_bar_00_dot_00_bar__minus_02_dot_53",
+        "source_type": "Desk"
+      },
+      "family": "pick_two_obj_and_place-Pencil-None-Drawer-327",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pencil-None-Drawer-327/trial_T20190908_103604_088470/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 2,
+      "target_object_count": 4,
+      "target_object_type": "Pencil",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__minus_01_dot_35_bar__plus_00_dot_19_bar__minus_02_dot_05",
+        "Drawer_bar__minus_01_dot_35_bar__plus_00_dot_48_bar__minus_02_dot_05",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_14_bar__minus_01_dot_64",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_14_bar__minus_01_dot_96",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_27_bar__minus_01_dot_64",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_27_bar__minus_01_dot_96",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_40_bar__minus_01_dot_64",
+        "Drawer_bar__plus_00_dot_98_bar__plus_00_dot_40_bar__minus_01_dot_96"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190908_103604_088470"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_2_bar__minus_2_bar_0_bar_45",
+          "loc_bar__minus_2_bar__minus_2_bar_0_bar_45",
+          "loc_bar__minus_2_bar__minus_2_bar_0_bar_45",
+          "loc_bar__minus_2_bar__minus_2_bar_0_bar_45"
+        ],
+        "objects": [
+          "Pencil_bar__minus_00_dot_12_bar__plus_00_dot_63_bar__plus_00_dot_60",
+          "Pencil_bar__minus_00_dot_43_bar__plus_00_dot_63_bar__plus_00_dot_60",
+          "Pencil_bar__minus_00_dot_59_bar__plus_00_dot_63_bar__plus_00_dot_60",
+          "Pencil_bar__plus_00_dot_19_bar__plus_00_dot_62_bar__plus_00_dot_91"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_2_bar__minus_2_bar_0_bar_45",
+        "source_receptacle": "DiningTable_bar__minus_00_dot_28_bar__minus_00_dot_01_bar__plus_00_dot_83",
+        "source_type": "DiningTable"
+      },
+      "family": "pick_two_obj_and_place-Pencil-None-SideTable-329",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pencil-None-SideTable-329/trial_T20190909_040132_412120/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "Pencil",
+      "target_receptacle_instances": [
+        "?r",
+        "SideTable_bar__minus_01_dot_20_bar__plus_00_dot_01_bar__minus_02_dot_47",
+        "SideTable_bar__plus_01_dot_00_bar__plus_00_dot_01_bar__minus_02_dot_47"
+      ],
+      "target_receptacle_type": "SideTable",
+      "trial": "trial_T20190909_040132_412120"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-Pillow-None-Ottoman-208",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Pillow-None-Ottoman-208/trial_T20190907_030106_770418/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "Pillow",
+      "target_receptacle_instances": [
+        "?r",
+        "Ottoman_bar__minus_00_dot_58_bar__plus_00_dot_01_bar__plus_01_dot_05"
+      ],
+      "target_receptacle_type": "Ottoman",
+      "trial": "trial_T20190907_030106_770418"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_2_bar__minus_3_bar_1_bar_45",
+          "loc_bar__minus_2_bar__minus_3_bar_1_bar_45"
+        ],
+        "objects": [
+          "RemoteControl_bar__plus_00_dot_36_bar__plus_00_dot_47_bar__minus_00_dot_87",
+          "RemoteControl_bar__plus_01_dot_02_bar__plus_00_dot_47_bar__plus_00_dot_14"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_2_bar__minus_3_bar_1_bar_45",
+        "source_receptacle": "Sofa_bar__plus_00_dot_78_bar__plus_00_dot_00_bar__minus_00_dot_51",
+        "source_type": "Sofa"
+      },
+      "family": "pick_two_obj_and_place-RemoteControl-None-ArmChair-208",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-ArmChair-208/trial_T20190908_000903_032547/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "RemoteControl",
+      "target_receptacle_instances": [
+        "?r",
+        "ArmChair_bar__minus_00_dot_56_bar__plus_00_dot_00_bar__plus_01_dot_95"
+      ],
+      "target_receptacle_type": "ArmChair",
+      "trial": "trial_T20190908_000903_032547"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-RemoteControl-None-Ottoman-210",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-Ottoman-210/trial_T20190906_202114_729948/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "RemoteControl",
+      "target_receptacle_instances": [
+        "?r",
+        "Ottoman_bar__minus_01_dot_77_bar__plus_00_dot_01_bar__plus_01_dot_81"
+      ],
+      "target_receptacle_type": "Ottoman",
+      "trial": "trial_T20190906_202114_729948"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_3_bar_1_bar_1_bar_60",
+          "loc_bar_3_bar_1_bar_1_bar_60"
+        ],
+        "objects": [
+          "RemoteControl_bar__plus_01_dot_60_bar__plus_00_dot_76_bar__plus_00_dot_54",
+          "RemoteControl_bar__plus_01_dot_68_bar__plus_00_dot_76_bar__minus_00_dot_06"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_3_bar_1_bar_1_bar_60",
+        "source_receptacle": "TVStand_bar__plus_01_dot_67_bar__plus_00_dot_00_bar__plus_00_dot_24",
+        "source_type": "TVStand"
+      },
+      "family": "pick_two_obj_and_place-RemoteControl-None-Sofa-207",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-RemoteControl-None-Sofa-207/trial_T20190908_111223_597180/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "RemoteControl",
+      "target_receptacle_instances": [
+        "?r",
+        "Sofa_bar__minus_01_dot_45_bar__minus_00_dot_03_bar__plus_00_dot_42"
+      ],
+      "target_receptacle_type": "Sofa",
+      "trial": "trial_T20190908_111223_597180"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-SoapBar-None-Cabinet-428",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBar-None-Cabinet-428/trial_T20190910_231209_039518/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 3,
+      "target_object_type": "SoapBar",
+      "target_receptacle_instances": [
+        "?r",
+        "Cabinet_bar__minus_01_dot_48_bar__plus_00_dot_35_bar__plus_02_dot_36",
+        "Cabinet_bar__minus_01_dot_48_bar__plus_00_dot_35_bar__plus_03_dot_17",
+        "Cabinet_bar__minus_01_dot_48_bar__plus_00_dot_37_bar__plus_03_dot_15",
+        "Cabinet_bar__minus_01_dot_48_bar__plus_00_dot_37_bar__plus_03_dot_96"
+      ],
+      "target_receptacle_type": "Cabinet",
+      "trial": "trial_T20190910_231209_039518"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-SoapBar-None-Drawer-420",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBar-None-Drawer-420/trial_T20190908_124733_053705/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 3,
+      "target_object_type": "SoapBar",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__minus_00_dot_21_bar__plus_00_dot_77_bar__minus_01_dot_46"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190908_124733_053705"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-SoapBottle-None-Cabinet-417",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Cabinet-417/trial_T20190909_211711_664720/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "SoapBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "Cabinet_bar__minus_02_dot_50_bar__plus_00_dot_40_bar__minus_01_dot_24",
+        "Cabinet_bar__minus_02_dot_50_bar__plus_00_dot_40_bar__minus_02_dot_21",
+        "Cabinet_bar__minus_02_dot_51_bar__plus_00_dot_43_bar__minus_00_dot_29",
+        "Cabinet_bar__minus_02_dot_51_bar__plus_00_dot_43_bar__minus_01_dot_26"
+      ],
+      "target_receptacle_type": "Cabinet",
+      "trial": "trial_T20190909_211711_664720"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-SoapBottle-None-Cart-401",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Cart-401/trial_T20190908_215242_345375/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 2,
+      "target_object_type": "SoapBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "Cart_bar__minus_03_dot_21_bar__plus_00_dot_00_bar__plus_00_dot_15"
+      ],
+      "target_receptacle_type": "Cart",
+      "trial": "trial_T20190908_215242_345375"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_3_bar_4_bar_3_bar_60",
+          "loc_bar__minus_3_bar_4_bar_3_bar_60",
+          "loc_bar__minus_3_bar_4_bar_3_bar_60"
+        ],
+        "objects": [
+          "SoapBottle_bar__minus_00_dot_28_bar__plus_00_dot_81_bar__plus_00_dot_22",
+          "SoapBottle_bar__minus_00_dot_81_bar__plus_00_dot_81_bar__plus_00_dot_29",
+          "SoapBottle_bar__minus_01_dot_85_bar__plus_00_dot_81_bar__plus_00_dot_42"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_3_bar_4_bar_3_bar_60",
+        "source_receptacle": "CounterTop_bar__minus_01_dot_85_bar__plus_00_dot_00_bar__plus_00_dot_34",
+        "source_type": "CounterTop"
+      },
+      "family": "pick_two_obj_and_place-SoapBottle-None-Toilet-426",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SoapBottle-None-Toilet-426/trial_T20190907_184729_585161/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 3,
+      "target_object_type": "SoapBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "Toilet_bar__minus_01_dot_84_bar__plus_00_dot_00_bar__plus_02_dot_50"
+      ],
+      "target_receptacle_type": "Toilet",
+      "trial": "trial_T20190907_184729_585161"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_3_bar_9_bar_1_bar_60",
+          "loc_bar__minus_3_bar_9_bar_1_bar_60"
+        ],
+        "objects": [
+          "SprayBottle_bar__plus_00_dot_50_bar__plus_01_dot_05_bar__plus_01_dot_27",
+          "SprayBottle_bar__plus_00_dot_66_bar__plus_01_dot_05_bar__plus_01_dot_34"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_3_bar_9_bar_1_bar_60",
+        "source_receptacle": "Toilet_bar__plus_00_dot_27_bar__plus_00_dot_00_bar__plus_01_dot_46",
+        "source_type": "Toilet"
+      },
+      "family": "pick_two_obj_and_place-SprayBottle-None-CounterTop-409",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-CounterTop-409/trial_T20190908_131755_202053/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "SprayBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "CounterTop_bar__plus_00_dot_46_bar__plus_00_dot_79_bar__plus_02_dot_76"
+      ],
+      "target_receptacle_type": "CounterTop",
+      "trial": "trial_T20190908_131755_202053"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_1_bar_13_bar_0_bar_60",
+          "loc_bar_1_bar_13_bar_0_bar_60"
+        ],
+        "objects": [
+          "SprayBottle_bar__plus_00_dot_30_bar__plus_01_dot_16_bar__plus_03_dot_89",
+          "SprayBottle_bar__plus_00_dot_40_bar__plus_01_dot_16_bar__plus_03_dot_93"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_1_bar_13_bar_0_bar_60",
+        "source_receptacle": "Dresser_bar__plus_00_dot_21_bar__plus_00_dot_81_bar__plus_03_dot_77",
+        "source_type": "Dresser"
+      },
+      "family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-413",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-GarbageCan-413/trial_T20190912_044451_035192/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "SprayBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "GarbageCan_bar__minus_01_dot_76_bar__minus_00_dot_02_bar__plus_02_dot_22"
+      ],
+      "target_receptacle_type": "GarbageCan",
+      "trial": "trial_T20190912_044451_035192"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_3_bar__minus_6_bar_1_bar_60",
+          "loc_bar__minus_3_bar__minus_6_bar_1_bar_60",
+          "loc_bar__minus_3_bar__minus_6_bar_1_bar_60"
+        ],
+        "objects": [
+          "SprayBottle_bar__minus_00_dot_16_bar__plus_00_dot_88_bar__minus_01_dot_30",
+          "SprayBottle_bar__minus_00_dot_24_bar__plus_00_dot_88_bar__minus_01_dot_22",
+          "SprayBottle_bar__minus_00_dot_24_bar__plus_00_dot_88_bar__minus_01_dot_30"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_3_bar__minus_6_bar_1_bar_60",
+        "source_receptacle": "SideTable_bar__minus_00_dot_16_bar__plus_00_dot_00_bar__minus_01_dot_46",
+        "source_type": "SideTable"
+      },
+      "family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-420",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-GarbageCan-420/trial_T20190907_174658_354066/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 3,
+      "target_object_type": "SprayBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "GarbageCan_bar__minus_02_dot_27_bar__plus_00_dot_00_bar__minus_01_dot_01"
+      ],
+      "target_receptacle_type": "GarbageCan",
+      "trial": "trial_T20190907_174658_354066"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_9_bar__minus_4_bar_3_bar_60",
+          "loc_bar__minus_9_bar__minus_4_bar_3_bar_60",
+          "loc_bar__minus_9_bar__minus_4_bar_3_bar_60"
+        ],
+        "objects": [
+          "SprayBottle_bar__minus_02_dot_62_bar__plus_01_dot_00_bar__minus_01_dot_36",
+          "SprayBottle_bar__minus_02_dot_81_bar__plus_01_dot_00_bar__minus_02_dot_20",
+          "SprayBottle_bar__minus_02_dot_93_bar__plus_01_dot_00_bar__minus_02_dot_17"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_9_bar__minus_4_bar_3_bar_60",
+        "source_receptacle": "CounterTop_bar__minus_02_dot_75_bar__plus_00_dot_99_bar__minus_01_dot_24",
+        "source_type": "CounterTop"
+      },
+      "family": "pick_two_obj_and_place-SprayBottle-None-Toilet-417",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-SprayBottle-None-Toilet-417/trial_T20190908_071820_505015/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "SprayBottle",
+      "target_receptacle_instances": [
+        "?r",
+        "Toilet_bar__minus_00_dot_55_bar__plus_00_dot_00_bar__minus_03_dot_53"
+      ],
+      "target_receptacle_type": "Toilet",
+      "trial": "trial_T20190908_071820_505015"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar_43_bar_8_bar_2_bar_60",
+          "loc_bar_43_bar_8_bar_2_bar_60"
+        ],
+        "objects": [
+          "Statue_bar__plus_10_dot_65_bar__plus_00_dot_60_bar__plus_01_dot_24",
+          "Statue_bar__plus_11_dot_23_bar__plus_00_dot_60_bar__plus_00_dot_77"
+        ],
+        "openable": false,
+        "source_location": "loc_bar_43_bar_8_bar_2_bar_60",
+        "source_receptacle": "CoffeeTable_bar__plus_10_dot_82_bar__plus_00_dot_01_bar__plus_00_dot_95",
+        "source_type": "CoffeeTable"
+      },
+      "family": "pick_two_obj_and_place-Statue-None-Dresser-213",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Statue-None-Dresser-213/trial_T20190909_065309_623947/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "Statue",
+      "target_receptacle_instances": [
+        "?r",
+        "Dresser_bar__plus_14_dot_33_bar__plus_00_dot_02_bar__plus_01_dot_32"
+      ],
+      "target_receptacle_type": "Dresser",
+      "trial": "trial_T20190909_065309_623947"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_2_bar_10_bar_0_bar_60",
+          "loc_bar__minus_2_bar_10_bar_0_bar_60"
+        ],
+        "objects": [
+          "TissueBox_bar__minus_00_dot_19_bar__plus_01_dot_31_bar__plus_03_dot_78",
+          "TissueBox_bar__minus_00_dot_30_bar__plus_01_dot_31_bar__plus_03_dot_44"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_2_bar_10_bar_0_bar_60",
+        "source_receptacle": "Dresser_bar__minus_00_dot_27_bar__plus_00_dot_00_bar__plus_03_dot_61",
+        "source_type": "Dresser"
+      },
+      "family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-220",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-CoffeeTable-220/trial_T20190909_145750_484036/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 2,
+      "target_object_count": 4,
+      "target_object_type": "TissueBox",
+      "target_receptacle_instances": [
+        "?r",
+        "CoffeeTable_bar__minus_02_dot_65_bar_00_dot_00_bar__plus_01_dot_15"
+      ],
+      "target_receptacle_type": "CoffeeTable",
+      "trial": "trial_T20190909_145750_484036"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_6_bar_9_bar_3_bar_45",
+          "loc_bar__minus_6_bar_9_bar_3_bar_45",
+          "loc_bar__minus_6_bar_9_bar_3_bar_45"
+        ],
+        "objects": [
+          "TissueBox_bar__minus_03_dot_43_bar__plus_00_dot_78_bar__plus_02_dot_22",
+          "TissueBox_bar__minus_03_dot_71_bar__plus_00_dot_78_bar__plus_02_dot_22",
+          "TissueBox_bar__minus_03_dot_71_bar__plus_00_dot_78_bar__plus_02_dot_53"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_6_bar_9_bar_3_bar_45",
+        "source_receptacle": "DiningTable_bar__minus_02_dot_90_bar__plus_00_dot_01_bar__plus_02_dot_23",
+        "source_type": "DiningTable"
+      },
+      "family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-230",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-CoffeeTable-230/trial_T20190909_145658_750781/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 4,
+      "target_object_type": "TissueBox",
+      "target_receptacle_instances": [
+        "?r",
+        "CoffeeTable_bar__minus_03_dot_13_bar__plus_00_dot_02_bar__plus_08_dot_53",
+        "CoffeeTable_bar__minus_03_dot_24_bar__plus_00_dot_01_bar__plus_06_dot_60"
+      ],
+      "target_receptacle_type": "CoffeeTable",
+      "trial": "trial_T20190909_145658_750781"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_18_bar_32_bar_1_bar_45",
+          "loc_bar__minus_18_bar_32_bar_1_bar_45"
+        ],
+        "objects": [
+          "TissueBox_bar__minus_03_dot_01_bar__plus_00_dot_54_bar__plus_08_dot_53",
+          "TissueBox_bar__minus_03_dot_19_bar__plus_00_dot_54_bar__plus_08_dot_53"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_18_bar_32_bar_1_bar_45",
+        "source_receptacle": "CoffeeTable_bar__minus_03_dot_13_bar__plus_00_dot_02_bar__plus_08_dot_53",
+        "source_type": "CoffeeTable"
+      },
+      "family": "pick_two_obj_and_place-TissueBox-None-DiningTable-230",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-TissueBox-None-DiningTable-230/trial_T20190909_145553_211575/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "TissueBox",
+      "target_receptacle_instances": [
+        "?r",
+        "DiningTable_bar__minus_02_dot_90_bar__plus_00_dot_01_bar__plus_02_dot_23"
+      ],
+      "target_receptacle_type": "DiningTable",
+      "trial": "trial_T20190909_145553_211575"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-ToiletPaper-None-Cabinet-412",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Cabinet-412/trial_T20190908_141555_713466/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 3,
+      "target_object_type": "ToiletPaper",
+      "target_receptacle_instances": [
+        "?r",
+        "Cabinet_bar__minus_03_dot_17_bar__plus_00_dot_37_bar__minus_00_dot_59",
+        "Cabinet_bar__minus_03_dot_17_bar__plus_00_dot_37_bar__minus_01_dot_38",
+        "Cabinet_bar__minus_03_dot_17_bar__plus_00_dot_37_bar__minus_01_dot_40",
+        "Cabinet_bar__minus_03_dot_17_bar__plus_00_dot_37_bar__minus_02_dot_19"
+      ],
+      "target_receptacle_type": "Cabinet",
+      "trial": "trial_T20190908_141555_713466"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_3_bar_9_bar_1_bar_60",
+          "loc_bar__minus_3_bar_9_bar_1_bar_60"
+        ],
+        "objects": [
+          "ToiletPaper_bar__plus_00_dot_53_bar__plus_01_dot_04_bar__plus_01_dot_27",
+          "ToiletPaper_bar__plus_00_dot_56_bar__plus_01_dot_04_bar__plus_01_dot_40"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_3_bar_9_bar_1_bar_60",
+        "source_receptacle": "Toilet_bar__plus_00_dot_27_bar__plus_00_dot_00_bar__plus_01_dot_46",
+        "source_type": "Toilet"
+      },
+      "family": "pick_two_obj_and_place-ToiletPaper-None-Drawer-409",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Drawer-409/trial_T20190906_193417_937668/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "ToiletPaper",
+      "target_receptacle_instances": [
+        "?r",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_32_bar__plus_02_dot_19",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_32_bar__plus_02_dot_57",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_32_bar__plus_02_dot_94",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_32_bar__plus_03_dot_31",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_62_bar__plus_02_dot_19",
+        "Drawer_bar__plus_00_dot_44_bar__plus_00_dot_62_bar__plus_03_dot_31"
+      ],
+      "target_receptacle_type": "Drawer",
+      "trial": "trial_T20190906_193417_937668"
+    },
+    {
+      "best_same_source_group": null,
+      "family": "pick_two_obj_and_place-ToiletPaper-None-Toilet-405",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-ToiletPaper-None-Toilet-405/trial_T20190909_065947_451268/game.tw-pddl",
+      "same_source_eligible": false,
+      "same_source_group_count": 0,
+      "target_object_count": 3,
+      "target_object_type": "ToiletPaper",
+      "target_receptacle_instances": [
+        "?r",
+        "Toilet_bar__minus_02_dot_93_bar__plus_00_dot_00_bar__plus_01_dot_27"
+      ],
+      "target_receptacle_type": "Toilet",
+      "trial": "trial_T20190909_065947_451268"
+    },
+    {
+      "best_same_source_group": {
+        "object_locations": [
+          "loc_bar__minus_13_bar__minus_17_bar_2_bar_60",
+          "loc_bar__minus_13_bar__minus_17_bar_2_bar_60"
+        ],
+        "objects": [
+          "Watch_bar__minus_02_dot_65_bar__plus_00_dot_71_bar__minus_05_dot_24",
+          "Watch_bar__minus_03_dot_22_bar__plus_00_dot_71_bar__minus_05_dot_09"
+        ],
+        "openable": false,
+        "source_location": "loc_bar__minus_13_bar__minus_17_bar_2_bar_60",
+        "source_receptacle": "Dresser_bar__minus_03_dot_51_bar__plus_00_dot_00_bar__minus_05_dot_10",
+        "source_type": "Dresser"
+      },
+      "family": "pick_two_obj_and_place-Watch-None-CoffeeTable-209",
+      "game_path": "json_2.1.1/valid_train/pick_two_obj_and_place-Watch-None-CoffeeTable-209/trial_T20190909_020350_646515/game.tw-pddl",
+      "same_source_eligible": true,
+      "same_source_group_count": 1,
+      "target_object_count": 2,
+      "target_object_type": "Watch",
+      "target_receptacle_instances": [
+        "?r",
+        "CoffeeTable_bar__minus_02_dot_47_bar__plus_00_dot_00_bar__minus_02_dot_49"
+      ],
+      "target_receptacle_type": "CoffeeTable",
+      "trial": "trial_T20190909_020350_646515"
+    }
+  ],
+  "salt": "plancarry-latent-v2-pair-audit-2026-08-19",
+  "same_source_eligible_families": 31,
+  "scientific_result": "NOT_ASSESSED",
+  "source_split": "valid_train",
+  "target_object_count_ge2": 45,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

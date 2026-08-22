@@ -1,0 +1,119 @@
+{
+  "checks": {
+    "all_exposure_source_hashes_exact": true,
+    "cyclic_donor_map_n20": true,
+    "eligible_remaining_160_exact": true,
+    "environment_execution_zero": true,
+    "existing_n12_not_modified": true,
+    "exposure_union_246_exact": true,
+    "first64_authoritative_exact_match": true,
+    "model_calls_zero": true,
+    "new_disjoint_from_first64": true,
+    "new_n20_unique": true,
+    "new_rank_positions_64_83_exact": true,
+    "no_outcome_or_qualification_access": true,
+    "source_fresh_sha_exact": true,
+    "valid_splits_untouched": true
+  },
+  "created_utc": "2026-08-21T01:57:37Z",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_ADDITIONAL_T1R_N20_RESERVE_AUDIT_V1",
+  "new_population_family_sha256": "55ca4934f9afda52f999043c976717ce2008f2169a784adc8ba2c9b14b527f5e",
+  "passed": true,
+  "passed_count": 14,
+  "reconstruction_mismatches": [],
+  "reserve_sha256": "d39beba4a768a3c633b54b01a5be032d35db26098cd42d7f5d488d7e34f9233a",
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_AUDIT_ONLY",
+  "selection_source_audit": [
+    {
+      "family_refs": 30,
+      "path": "results/alfworld_cohort_engineering_verification.json",
+      "sha256": "79c87e090e28ac4ac4752dd76e35bfc559722ef93a56caa0aa9d4ee48b4668d6"
+    },
+    {
+      "family_refs": 1,
+      "path": "results/alfworld_engineering_smoke.json",
+      "sha256": "6406a36651bb4b9c0f4bf4f3afae94fa45c0141b4441e115dd3fc79a7a589661"
+    },
+    {
+      "family_refs": 1,
+      "path": "results/alfworld_qualifications_v1/pick_and_place_simple-Book-None-SideTable-329__trial_T20190908_050633_745514.json",
+      "sha256": "7fe81652a3e6d29e777bc80d4f64bc9309121d41447b76eba72800e66c576c3a"
+    },
+    {
+      "family_refs": 45,
+      "path": "results/design/cpst_v1_two_object_candidate_manifest.json",
+      "sha256": "3b916fcd91c374318f4b8b228f6613d7adee6d51230c6a5e12f0404594c1ebe1"
+    },
+    {
+      "family_refs": 45,
+      "path": "results/design/cpst_v2_environment_pair_audit.json",
+      "sha256": "52a4d66986769334539b389442d88da9619a8b8c582b076bb8db9d852ec86b34"
+    },
+    {
+      "family_refs": 44,
+      "path": "results/design/gdaa_train_candidate_manifest_disjoint_v1.json",
+      "sha256": "3ea671cdda68ab38249df094ed1ccd80f0f7fd62f037160183689b65d9e27eba"
+    },
+    {
+      "family_refs": 46,
+      "path": "results/design/gdaa_train_candidate_manifest_fresh_v2.json",
+      "sha256": "8dfdb3637189a6346e756fd35bac8a3372b8a42cec7827f65d5843d0245e84e8"
+    },
+    {
+      "family_refs": 35,
+      "path": "results/design/gdaa_train_candidate_manifest_v1.json",
+      "sha256": "cd869fa96f19bd03221a47f6dca84596ef37eb4341a04244bbf0277876d08170"
+    },
+    {
+      "family_refs": 38,
+      "path": "results/design/latent_ab_pilot_manifest_v1.json",
+      "sha256": "b9d67ebda16f94c6ce2a182d32ee66954ebd02b77b96f53164b1fec9716daf0d"
+    },
+    {
+      "family_refs": 36,
+      "path": "results/design/latent_ab_pilot_manifest_v2.json",
+      "sha256": "05ddb9429c5a6b4f69b56454ded6668498cc90d34c09fc1e69ae6b2102196d71"
+    },
+    {
+      "family_refs": 29,
+      "path": "results/design/latent_ab_route_pairs_v1.json",
+      "sha256": "c92c5c13866e84c219aae4f59088370d08f515cc16c92905715e8e342158e65c"
+    },
+    {
+      "family_refs": 20,
+      "path": "results/design/plancarry_latent_t1_replication_train_manifest_v1.json",
+      "sha256": "80516daef3bb461b9aaa814c109bfe30fa858f55381bf0650f71ab955470717c"
+    },
+    {
+      "family_refs": 20,
+      "path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json",
+      "sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784"
+    },
+    {
+      "family_refs": 45,
+      "path": "results/design/plancarry_latent_v2_matched_pair_manifest.json",
+      "sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb"
+    },
+    {
+      "family_refs": 20,
+      "path": "results/design/plancarry_qwen3_17b_expressivity_recovery_manifest_v1.json",
+      "sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5"
+    },
+    {
+      "family_refs": 30,
+      "path": "results/science/alfworld_cohort_v3.json",
+      "sha256": "c89245b4b9bd99d1d3c4bf91cdeaf6de7227cf16c8f82c3f8ab30cb009f64ddb"
+    },
+    {
+      "family_refs": 11,
+      "path": "results/science/alfworld_gdaa_v3.json",
+      "sha256": "48e6aa7d74e1798af022dd068992e727886cf5c7f3f4f5a641311ea3bab07edf"
+    },
+    {
+      "family_refs": 10,
+      "path": "results/science/alfworld_gdaa_v4.json",
+      "sha256": "03f19000952adb0dac75bef063b178d0a2fc2bf3529e17d5aec51cd060f0cea9"
+    }
+  ],
+  "total": 14
+}

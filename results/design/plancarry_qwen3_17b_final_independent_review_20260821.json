@@ -1,0 +1,51 @@
+{
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "checks": {
+    "environment_replay_20_of_20": true,
+    "environment_replay_model_calls_zero": true,
+    "leading_space_changes_token_ids_40_of_40": true,
+    "leading_space_suffix_exact": true,
+    "no_capture_or_patch_calls": true,
+    "no_confirmation_layer_grid_valid_t1r_t2_execution_path": true,
+    "no_qwen3_alfworld_competence_outcome_inspected": true,
+    "overwrite_refusal": true,
+    "repaired_hashes_exact": true,
+    "source_lengths_equal_20_of_20": true,
+    "stale_runner_rejected": true,
+    "static_validator_8_of_8": true,
+    "synthetic_bridge_exact_runtime_pass": true,
+    "tokenizer_audit_20_of_20": true
+  },
+  "design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+  "engineering_audit_sha256": "35053849c0c8563f2e4568f771b1c165c6c6fa6b0b73774085ff911663af6897",
+  "engineering_result_id": "d2d9355c-8388-49cd-9ae4-0e6f30984447",
+  "engineering_task_id": "d7bacbba-445c-4a4b-b078-614fbea94242",
+  "environment_replay_sha256": "7cec5c005fb289f5dd10b8cbb169d15a39b7b93da057141d011390233bede846",
+  "frozen_gate": {
+    "n": 20,
+    "no_filtering_or_replacement": true,
+    "pass_min": 12,
+    "source_a_min": 0.1,
+    "source_b_max": -0.1
+  },
+  "kind": "PLANCARRY_QWEN3_17B_FINAL_INDEPENDENT_REVIEW",
+  "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "review_work_item_id": "3e4ba49a-b86e-440f-add6-ede92063dfe3",
+  "runner_sha256": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+  "runtime": {
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "Independent readiness review only. Passing authorizes the frozen competence-only 20-family screen; it is not evidence for source competence or T1.",
+  "tokenizer_audit_sha256": "e7c0dc5a385ef1d6c3477bd682acef75a911a46b3be286003e8c49ae996afc6c",
+  "validator_sha256": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28",
+  "verdict": "PASS_FOR_REPAIRED_QWEN3_COMPETENCE_EXECUTION"
+}

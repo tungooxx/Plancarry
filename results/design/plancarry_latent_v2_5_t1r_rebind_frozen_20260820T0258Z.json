@@ -1,0 +1,128 @@
+{
+  "artifact_checks": {
+    "primary_design": {
+      "actual": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+      "expected": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_5_frozen_design_20260820T0244Z.json"
+    },
+    "primary_review": {
+      "actual": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+      "expected": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_5_independent_prereg_review_20260820T0250Z.json"
+    },
+    "reserve_audit": {
+      "expected": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+      "pass": true,
+      "paths": [
+        "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json"
+      ]
+    },
+    "reserve_donor": {
+      "actual": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "expected": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "pass": true,
+      "path": "results/design/plancarry_latent_t1_replication_donor_map_v1.json"
+    },
+    "reserve_manifest": {
+      "actual": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "expected": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "pass": true,
+      "path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json"
+    }
+  },
+  "confirmation_accessed": false,
+  "created_before_primary_t1_outcome": true,
+  "fail_condition": "A technically valid expressive reserve failing active core or specificity gates is T1_NOT_ROBUST_ON_DISJOINT_TRAIN_REPLICATION and blocks robust high-tier T1 promotion. Technical/artifact failures are INVALID; insufficient expressivity is INCONCLUSIVE. No rescue by retuning/replacing families/switching benchmark.",
+  "held_scientific_rules": {
+    "claim_scope": "Replication may strengthen robustness of T1 causal active-plan signal across disjoint families only; no checkpoint, compactness, multi-step persistence, cross-model/environment, or end-to-end superiority claim.",
+    "controls": [
+      "NO_PATCH",
+      "ZERO_ADD",
+      "SELF_PATCH",
+      "ARCHIVED_ORDER",
+      "RANDOM_SAME_NORM",
+      "UNRELATED_PLAN_FROM_PRIMARY_DISCOVERY"
+    ],
+    "expressivity": {
+      "delayed_denominator": 12,
+      "delayed_min_competent": 8,
+      "overall_min_competent": 16,
+      "pair_competence": "source A margin >= +0.10 and source B margin <= -0.10 nats/token",
+      "population_rule": "If cohort gate passes, all 20 reserve families enter primary inference; no filtering/replacement."
+    },
+    "inference": {
+      "effect_guards": {
+        "bidirectional_fraction_min": 0.6,
+        "mean_active_minus_each_control_min": 0.05,
+        "mean_cpse_active_min": 0.1,
+        "positive_family_fraction_min": 0.7
+      },
+      "method": "Exact one-sided independent-family Binomial sign tail, fixed n=20, zeros non-positive/failure",
+      "multiplicity": "Holm step-down across exactly four tests, FWER 0.05, lexicographic test-name tie order",
+      "tests": [
+        "active_gt_zero",
+        "active_gt_archived",
+        "active_gt_random",
+        "active_gt_unrelated"
+      ]
+    },
+    "intervention_math": "Same FP32 active/archived/unrelated epsilon=1e-8 zero-direction rule, same package-independent SHA256 Rademacher random control, same sign*alpha*||h_reset|| scaling; imported primary alpha.",
+    "pair_variable_and_orientation": "Preserve the already frozen reserve pair definitions/orientation and exact newline/token-boundary guards; no family regeneration."
+  },
+  "interpretation_if_fail": "Weakens robustness and blocks promotion beyond the primary T1 cohort. Do not retune this reserve.",
+  "interpretation_if_pass": "Prospectively frozen within-model family-disjoint replication of T1 using unchanged primary selected hyperparameters and the same v2.5 scorer. Still not persistence/compactness/generalization evidence.",
+  "kind": "PLANCARRY_V25_T1R_PREFIXSTABLE_REBIND_FROZEN_DESIGN",
+  "model": {
+    "compiler_runtime": "CC=/usr/bin/gcc; CXX=/usr/bin/g++ infrastructure only",
+    "device_policy": "CUDA device name contains GTX 1650",
+    "id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "precision": "float16",
+    "quantization": "NONE",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "tokenizers": "0.20.3",
+    "transformers": "4.46.3"
+  },
+  "pass_condition": "REPLICATED_T1_V25 only if the primary 7d53 Experiment was already validly SUPPORTED_T1 and exact reserve/scorer/selection/model/tokenizer/plumbing guards pass, cohort expressivity passes, and all four Holm sign tests plus all frozen effect/bidirectionality guards pass on all 20 reserve families.",
+  "primary": {
+    "authoritative_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+    "execution_if_primary_null_invalid_or_inconclusive": "FORBIDDEN",
+    "experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+    "independent_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+    "prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+    "required_primary_status": "SUPPORTED_T1 after valid all-20 confirmation assessment"
+  },
+  "reserve": {
+    "delayed_divergence_pairs": 12,
+    "donor_map_path": "results/design/plancarry_latent_t1_replication_donor_map_v1.json",
+    "donor_map_sha256": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+    "independence": "Zero family-name/game-path overlap with primary 40; 20 unique reserve families; environment-only A/B replay validity was frozen before model access; no replacement.",
+    "manifest_path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json",
+    "manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+    "model_calls_during_this_rebind_design": 0,
+    "pair_count": 20,
+    "reserve_audit_path": "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json",
+    "reserve_audit_sha256": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+    "split": "train",
+    "superseded_old_reserve_experiment_id": "d6bc910b-0809-466a-a406-2694a3b2fe81",
+    "task_type": "pick_two_obj_and_place"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scorer_rebind": {
+    "direct_vs_old_fullsequence_diagnostic_sha256": "99901c8a0e4869c8e1a0dc4fc288a0c0c5d3eab2ca057b9c0300aded26349dc5",
+    "measurement_implementation": "Use exact canonical v2.5 prefix-stable cached-prefix scorer for every reserve source/base/control score. Patch hook active only during prefix forward at frozen RESET boundary token; remove before sequential exact-suffix teacher forcing; no reinjection/recomputation.",
+    "numerical_identity_to_v24_claimed": false,
+    "plumbing_audit_sha256": "55e08892920a6d036e4c4f58b6377e786382f11a75da588d87bcc12474f29c54",
+    "prefix_stable_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "prefix_stable_engineering_result_id": "cb545b98-119b-49fa-a1eb-5b594ce0addc",
+    "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "selection_import": {
+    "primary_discovery_selection_currently_exists": false,
+    "rule": "After primary T1 support, import the exact content-hashed primary v2.5 discovery-selection artifact. Reuse selected_layer, selected_alpha, and all 20 frozen primary discovery active donor directions. No reserve layer/alpha selection, threshold tuning, donor recapture from confirmation, or control substitution.",
+    "selection_sha_must_be_recorded_before_any_reserve_model_request": true
+  },
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

@@ -1,0 +1,74 @@
+{
+  "captures": [
+    {
+      "hidden_size": 2048,
+      "l2": 57.99616605885581,
+      "layer": 7,
+      "sequence_length": 104,
+      "token_index_resolved": 103
+    },
+    {
+      "hidden_size": 2048,
+      "l2": 155.24133422046518,
+      "layer": 14,
+      "sequence_length": 104,
+      "token_index_resolved": 103
+    },
+    {
+      "hidden_size": 2048,
+      "l2": 921.8738278809225,
+      "layer": 21,
+      "sequence_length": 104,
+      "token_index_resolved": 103
+    },
+    {
+      "hidden_size": 2048,
+      "l2": 2635.151008184825,
+      "layer": 27,
+      "sequence_length": 104,
+      "token_index_resolved": 103
+    }
+  ],
+  "causal_route_http_status": 404,
+  "environment_execution": 0,
+  "finite_vectors": true,
+  "health": {
+    "api_version": "plancarry-whitebox-v1",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "mode": "real",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "ok": true,
+    "scientific_result": "NOT_ASSESSED",
+    "uptime_seconds": 24791.072
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_REAL_CAPTURE_ONLY_ENGINEERING_MICROCHECK_A4",
+  "layers": [
+    7,
+    14,
+    21,
+    27
+  ],
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.bfloat16",
+    "hidden_size": 2048,
+    "mode": "real",
+    "model_commit_resolved": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_revision_requested": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "num_layers": 28,
+    "parameter_count": 1720574976,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.21.1",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.51.3"
+  },
+  "passed": true,
+  "scientific_family_access": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "synthetic_non_alfworld_text_only": true
+}

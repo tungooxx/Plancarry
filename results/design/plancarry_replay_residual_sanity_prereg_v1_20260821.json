@@ -1,0 +1,118 @@
+{
+  "agenda_item_id": "e7076e46-ce98-445e-b188-042e22373c7c",
+  "cohort": {
+    "candidate_indices": [
+      0,
+      31
+    ],
+    "future_reserve_policy": "indices32..63 are path/hash sealed only; zero model/environment execution until a later independently preregistered confirmation is authorized",
+    "manifest_path": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json",
+    "manifest_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "minimum_qualified": 16,
+    "qualification_rule": "On every one of the 32 fixed candidates, the exact model first emits an explicit plan and then acts uninterrupted with that plan retained. Qualified iff plan block content <=96 model tokens, no reasoning/<think> trace is present, trajectory succeeds within <=12 environment actions, and a preregistered interruption has >=2 completed and >=2 remaining nontrivial environment actions. No replacement; if <16 qualified -> INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES. All qualified candidates enter sanity denominators regardless of residual outcome.",
+    "sealed_reserve_indices": [
+      32,
+      63
+    ]
+  },
+  "frozen_sanity_gate": {
+    "all_required": true,
+    "fail_label": "FAIL_REPLAY_RESIDUAL_SANITY",
+    "failure_interpretation": "matched non-plan/position controls explain the replay residual or content identity is not stable enough; kill ReplayResidual before causal injection search",
+    "inconclusive_label": "INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES",
+    "pass_interpretation": "representation sanity only; permits a separately preregistered bounded causal discovery but is NOT evidence of causal plan restoration/persistence",
+    "pass_label": "PASS_REPLAY_RESIDUAL_SANITY",
+    "requirements": [
+      "qualified_count>=16",
+      "median family_aggregate_margin >= 0.05",
+      "at least 70% of qualified families have family_aggregate_margin > 0",
+      "median same-plan temporal cosine exceeds median ALT_NEUTRAL_POSITION cosine by >=0.10",
+      "median across-layer same-family retrieval top1 accuracy >=0.25"
+    ]
+  },
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_SANITY_PREREG_V1",
+  "leakage_and_phase_guards": [
+    "no expert plan fields",
+    "no v2.6/v2.7/Qwen3 consumed family reuse",
+    "no valid_seen/valid_unseen",
+    "no reserve32..63 model calls",
+    "no causal patch/injection",
+    "no layer/site/scale selection",
+    "no family filtering/replacement after outcomes",
+    "no partial outcome inspection to change protocol",
+    "no T1/T1R/T2/persistence/compactness/generality claim from sanity"
+  ],
+  "model_runtime": {
+    "device": "cuda",
+    "device_name_required": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "generation": {
+      "enable_thinking": false,
+      "temperature": 0.0
+    },
+    "id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "natural_plan_protocol": {
+    "executor": "same model, plan retained in visible history; deterministic action generation constrained to current admissible commands",
+    "fixed_plan_block_tokens": 128,
+    "max_plan_content_tokens": 96,
+    "padding": "deterministic tokenizer-audited neutral filler to exactly 128 tokens in every replay condition; fail closed if exact length cannot be constructed",
+    "planner_input": "task instruction + initial observation only",
+    "planner_output": "explicit ordered <PLAN>...</PLAN> block, no hidden/expert plan fields and no chain-of-thought",
+    "reasoning_trace_guard": "enable_thinking=False; reject qualification if <think> or equivalent reasoning trace appears; stripped replay must contain no prior reasoning trace",
+    "trajectory_source": "model own uninterrupted successful trajectory; never expert/oracle actions"
+  },
+  "next_if_fail": "refute this descendant; do not rescue using threshold relaxation, family selection, nearby filler/control variants, or synthetic reciprocal source prompts",
+  "next_if_pass": "freeze selected causal-discovery protocol in a new WorkItem with independent review; bounded layer/site/scale grid may be prospectively specified there but may not use sealed reserve outcomes",
+  "novelty_boundary": {
+    "NPM": "activation-space procedural steering is prior art and repeatedly injected; future ReplayResidual claim requires episode-specific within-trajectory residual + single reset-time injection + multi-step persistence",
+    "Plans_Dont_Persist": "replay pairing itself is prior art diagnostic; novelty is not claimed here",
+    "sanity_scope": "pre-causal feasibility screen only"
+  },
+  "primary_metrics": {
+    "control_cosines": [
+      "cos(r_PLAN(t1),r_SHUFFLED(t2))",
+      "cos(r_PLAN(t1),r_UNRELATED(t2))",
+      "cos(r_PLAN(t1),r_GENERIC_HISTORY(t2))",
+      "cos(r_PLAN(t1),r_ALT_NEUTRAL_POSITION(t2))"
+    ],
+    "family_aggregate_margin": "median across the four frozen layers; no layer selection",
+    "family_layer_selectivity_margin": "same_plan_temporal_cosine - max(control_cosines)",
+    "retrieval_secondary": "for each frozen layer, query r_PLAN_i(t1) against all r_PLAN_j(t2); same-family top1 accuracy, leave-all-families-in, no training",
+    "same_plan_temporal_cosine": "cos(r_PLAN(t1), r_PLAN(t2)) per layer/family"
+  },
+  "replay_conditions": {
+    "ALT_NEUTRAL_POSITION": "independent neutral filler vocabulary/seed, exact128 tokens, same slot and positions",
+    "GENERIC_HISTORY": "deterministic transcript-derived non-plan facts from already-visible pre-anchor observations/actions + neutral padding, exact128 tokens",
+    "NEUTRAL_FILLER": "all-neutral tokenizer-audited filler, exact128 tokens",
+    "PLAN_PRESENT": "original model-generated plan content + neutral padding to exact128 tokens",
+    "SHUFFLED_PLAN": "same plan step clauses under deterministic SHA256 permutation + neutral padding, exact128 tokens",
+    "UNRELATED_PLAN": "deterministic different-family plan from within the fixed qualified set, selected by predeclared cyclic SHA256 order; content max96 then neutral padding to exact128; no outcome matching"
+  },
+  "replay_pairing": {
+    "anchors": {
+      "t1": "after first completed post-plan action-observation cycle",
+      "t2": "after second completed post-plan action-observation cycle; must precede the frozen interruption/reset point"
+    },
+    "candidate_layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "capture_token": "last token immediately before the next ACTION: field at each anchor",
+    "invariant": "teacher-force the exact same realized action-observation trajectory in every replay arm; only the fixed 128-token plan block differs",
+    "normalization": "retain raw FP32 residual for norm statistics; use L2-unit residual only for cosine/selectivity metrics; norm<=1e-8 maps to zero vector and is a failure for positive-selectivity family, never excluded",
+    "residual": "r_condition(layer,t)=h_condition(layer,t)-h_neutral_filler(layer,t)",
+    "site": "residual stream output of frozen transformer block"
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_DESIGN_ONLY",
+  "scientific_role": "REPRESENTATION_SANITY_ONLY_NOT_CAUSAL_T1"
+}

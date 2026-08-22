@@ -1,0 +1,95 @@
+{
+  "fresh_readiness_required": {
+    "before_any_source_competence_or_scientific_effect": true,
+    "discovery_forbidden_until_pass": true,
+    "frozen_noop_sentinels": "discovery pairs 0/1 x layers 6/13/20/27 = 8 cases",
+    "independent_review_required": true,
+    "per_request_timeout_seconds": 120.0,
+    "repeat_stability_min_cases": 24,
+    "repeat_stability_min_cycles": 3,
+    "require_no_monotonic_latency_or_resource_blowup": true,
+    "self_patch_max_abs": 0.0001,
+    "zero_add_max_abs": 1e-06
+  },
+  "kind": "PLANCARRY_LATENT_V2_6_RUNTIME_ONLY_REBIND",
+  "outcome_access": {
+    "active_or_control_scientific_effects_accessed": false,
+    "confirmation_accessed": false,
+    "source_competence_accessed": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "research_role": "PROSPECTIVE_RUNTIME_PROVENANCE_SUPERSESSION_BEFORE_T1_SCIENCE",
+  "runtime_override": {
+    "authorized_override_paths": [
+      "model.execution_host_policy",
+      "validity_guards.device_provenance_guard",
+      "runner.validate_bridge_info.device_name",
+      "bridge.expected_device_substring"
+    ],
+    "client_timeout_seconds": 120.0,
+    "device_name_exact": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "device_name_required_substring": "RTX 3050",
+    "device_type": "cuda",
+    "memory_total_mib": 4096,
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "nvidia_driver_version": "596.08",
+    "precision": "float16",
+    "prefix_stable_bridge_source_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "quantization": "NONE",
+    "scientific_override_paths": [],
+    "tokenizers_required": "0.20.3",
+    "torch_rule": "Record exact CUDA-enabled torch version from /model_info in the fresh RTX3050 readiness artifact and freeze it for the scientific run; no package/model/scorer substitution mid-run.",
+    "transformers_required": "4.46.3",
+    "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "scientific_inheritance": {
+    "held_fixed": [
+      "research_question",
+      "prediction",
+      "data manifest and 20/20 split",
+      "Qwen model/revision/FP16/no quantization",
+      "source/target token sites",
+      "prefix-stable scorer semantics",
+      "layers [6,13,20,27]",
+      "alphas [0.05,0.1,0.2]",
+      "NO_PATCH/ZERO_ADD/SELF_PATCH/ACTIVE/ARCHIVED/RANDOM/UNRELATED controls",
+      "FP32 direction math epsilon 1e-8",
+      "discovery competence and selection/tie-break",
+      "confirmation cohort expressivity gate",
+      "all-20 confirmation population",
+      "four exact one-sided n=20 sign tests with Holm FWER .05",
+      "effect-size and bidirectionality guards",
+      "T1-only claim scope",
+      "sealed confirmation/valid_seen/valid_unseen"
+    ],
+    "rule": "The complete source v2.5 frozen design is imported by exact SHA256. No scientific field is overridden. Any future scientific-core edit requires a different version and new preregistration.",
+    "scientific_override_count": 0,
+    "source_design_full_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "source_v25": {
+    "canonical_experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+    "canonical_prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+    "design_path": "results/design/plancarry_latent_v2_5_frozen_design_20260820T0244Z.json",
+    "design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+    "independent_prereg_review_path": "results/design/plancarry_latent_v2_5_independent_prereg_review_20260820T0250Z.json",
+    "independent_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+    "registration_wrapper_audit_path": "results/design/plancarry_latent_v2_5_registration_wrapper_audit_20260820T0251Z.json",
+    "registration_wrapper_audit_sha256": "90453ef592502e51c5b4efb84d5b35bd9f51c856fb3136030246bc32d91a733d",
+    "registration_wrapper_path": "results/design/plancarry_latent_v2_5_registration_wrapper_20260820T0251Z.json",
+    "registration_wrapper_sha256": "4baeb09009e66574ffa881e12ea8d27c2386dbe54ce3cb07c2c150f080213f9b"
+  },
+  "supersession_reason": {
+    "classification": "TECHNICAL_RUNTIME_STABILITY_ONLY_NO_SCIENTIFIC_INFORMATION",
+    "cpu_diagnostic_role": "ENGINEERING_DIAGNOSTIC_ONLY_NOT_EXECUTION_AUTHORITY",
+    "cpu_diagnostic_sha256": "c1072fe52d589f18b82ab775118764bf1866cdde9c5e7a94c6748ba6501648e8",
+    "new_device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "old_device": "NVIDIA GeForce GTX 1650",
+    "prior_readiness_verdict": "MATERIAL_REPAIR_REQUIRED",
+    "prior_readiness_work_item_id": "9f1b2996-b19a-4b57-a914-2cd16c8f3a3d",
+    "technical_anomaly_id": "e6489ab8-016f-4a14-a29c-b68f33dc6ed4"
+  },
+  "title": "PlanCarry-Latent v2.6: RTX3050 runtime-provenance rebind of frozen v2.5 science"
+}

@@ -1,0 +1,23 @@
+{
+  "explicit_certification": {
+    "all20": true,
+    "effect_bidirectional_60": true,
+    "effect_mean_active_010": true,
+    "effect_positive_70": true,
+    "effect_specificity_005": true,
+    "expressivity_delayed_8of12": true,
+    "expressivity_overall_16": true,
+    "four_tests": true,
+    "holm": true,
+    "no_retuning_layer_alpha": true
+  },
+  "kind": "PLANCARRY_V25_T1R_SCHEMA_REPAIR_V2_AUDIT",
+  "new_sha256": "9d6cf310c3f672ac17709a572d46ba6cc97e639a1d242be185a437765ae37428",
+  "old_fields_retained_exactly_except_kind": true,
+  "old_sha256": "6f824adeeae12976fd6733ac30a990d628fae543493bc9f907f16779c8d69ae7",
+  "primary_science_accessed": false,
+  "reserve_model_calls": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "thresholds_changed": false
+}

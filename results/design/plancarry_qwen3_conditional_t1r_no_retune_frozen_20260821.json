@@ -1,0 +1,247 @@
+{
+  "artifact_checks": {
+    "primary_design": {
+      "actual": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+      "expected": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_6_rtx3050_full_design_candidate_v2_20260820T0904Z.json"
+    },
+    "primary_review": {
+      "actual": "a24ee1d81fca6296d70b75c66c8c6f5180392008a54a78e19d883f1caf30b874",
+      "expected": "a24ee1d81fca6296d70b75c66c8c6f5180392008a54a78e19d883f1caf30b874",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_6_full_design_independent_review_20260820T1022Z.json"
+    },
+    "reserve_audit": {
+      "expected": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+      "pass": true,
+      "paths": [
+        "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json"
+      ]
+    },
+    "reserve_donor": {
+      "actual": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "expected": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+      "pass": true,
+      "path": "results/design/plancarry_latent_t1_replication_donor_map_v1.json"
+    },
+    "reserve_manifest": {
+      "actual": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "expected": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+      "pass": true,
+      "path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json"
+    }
+  },
+  "conditional_activation": {
+    "if_competence_fails": "PERMANENTLY_DORMANT",
+    "if_primary_not_supported": "PERMANENTLY_DORMANT",
+    "primary_t1_outcome_accessed_at_freeze": false,
+    "qwen3_competence_outcome_accessed_at_freeze": false,
+    "requires_competence_pass": "PASS_MODEL_EXPRESSIVITY_QWEN3_17B and competent_count>=12/20",
+    "requires_future_primary_status": "SUPPORTED_T1 after untouched all20 confirmation",
+    "requires_qwen3_competence_experiment_id": "6612eb07-c515-46f4-a373-88ac5a51e54a",
+    "requires_qwen3_competence_prediction_id": "92a30364-c2bf-42bc-9b6f-f166fce9745f",
+    "requires_rebound_primary_design_sha256": "37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab"
+  },
+  "confirmation_accessed": false,
+  "created_before_primary_t1_outcome": true,
+  "effect_guards": {
+    "bidirectional_family_fraction_min": 0.6,
+    "controls_for_specificity": [
+      "ARCHIVED_ORDER",
+      "RANDOM_SAME_NORM",
+      "UNRELATED_PLAN_FROM_PRIMARY_QWEN3_DEVELOPMENT"
+    ],
+    "mean_active_minus_each_control_min": 0.05,
+    "mean_cpse_active_min": 0.1,
+    "positive_family_fraction_min": 0.7
+  },
+  "expressivity_gate": {
+    "all_20_primary_inference_after_gate": true,
+    "delayed_min_competent": 8,
+    "delayed_population_n": 12,
+    "failure_class": "INCONCLUSIVE_MODEL_EXPRESSIVITY",
+    "gate_is_cohort_level_only": true,
+    "no_pair_filtering_or_replacement": true,
+    "overall_min_competent": 16,
+    "overall_population_n": 20,
+    "pair_competence": "source A margin >= +0.10 nats/token AND source B margin <= -0.10 nats/token"
+  },
+  "fail_condition": "Technical/artifact failures are INVALID; reserve expressivity failure is INCONCLUSIVE_MODEL_EXPRESSIVITY; technically valid expressive reserve failing T1 core/specificity is T1_NOT_ROBUST_ON_DISJOINT_REPLICATION. No rescue by retuning/replacement/benchmark switching.",
+  "held_scientific_rules": {
+    "claim_scope": "Replication may strengthen robustness of T1 causal active-plan signal across disjoint families only; no checkpoint, compactness, multi-step persistence, cross-model/environment, or end-to-end superiority claim.",
+    "controls": [
+      "NO_PATCH",
+      "ZERO_ADD",
+      "SELF_PATCH",
+      "ARCHIVED_ORDER",
+      "RANDOM_SAME_NORM",
+      "UNRELATED_PLAN_FROM_PRIMARY_QWEN3_DEVELOPMENT"
+    ],
+    "expressivity": {
+      "delayed_denominator": 12,
+      "delayed_min_competent": 8,
+      "overall_min_competent": 16,
+      "pair_competence": "source A margin >= +0.10 and source B margin <= -0.10 nats/token",
+      "population_rule": "If cohort gate passes, all 20 reserve families enter primary inference; no filtering/replacement."
+    },
+    "inference": {
+      "effect_guards": {
+        "bidirectional_fraction_min": 0.6,
+        "mean_active_minus_each_control_min": 0.05,
+        "mean_cpse_active_min": 0.1,
+        "positive_family_fraction_min": 0.7
+      },
+      "method": "Exact one-sided independent-family Binomial sign tail, fixed n=20, zeros non-positive/failure",
+      "multiplicity": "Holm step-down across exactly four tests, FWER 0.05, lexicographic test-name tie order",
+      "tests": [
+        "active_gt_zero",
+        "active_gt_archived",
+        "active_gt_random",
+        "active_gt_unrelated"
+      ]
+    },
+    "intervention_math": "Same FP32 active/archived/unrelated epsilon=1e-8 zero-direction rule, same package-independent SHA256 Rademacher random control, same sign*alpha*||h_reset|| scaling; imported primary alpha.",
+    "pair_variable_and_orientation": "Preserve the already frozen reserve pair definitions/orientation and exact newline/token-boundary guards; no family regeneration."
+  },
+  "interpretation_if_fail": "A technically valid expressive reserve failure weakens T1 robustness and blocks promotion to T2. Do not retune or replace reserve families.",
+  "interpretation_if_pass": "Prospectively frozen within-model family-disjoint replication of Qwen3 T1 with no reserve retuning. Strengthens robustness of T1 only; still not persistence/compactness/cross-environment evidence.",
+  "kind": "PLANCARRY_QWEN3_CONDITIONAL_T1R_NO_RETUNE_FROZEN_DESIGN_V1",
+  "model": {
+    "compute_capability": "8.6",
+    "device_policy": "exact NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, driver 596.08, compute capability 8.6",
+    "driver": "596.08",
+    "id": "Qwen/Qwen3-1.7B",
+    "memory_total_mib": 4096,
+    "no_timeout_engineering_result_id": "b4e7269f-ffa2-4aec-9fe6-2404f2a41454",
+    "no_timeout_independent_review_sha256": "2bd8865a7da9c21f03b842edaa0863c7d6c811e9249284a0182a52141f722f65",
+    "offload": "NONE",
+    "precision": "bfloat16",
+    "prefix_stable_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "quantization": "NONE",
+    "request_timeout": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "torch_cuda_runtime": "13.0",
+    "transformers": "4.51.3",
+    "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "pass_condition": "REPLICATED_T1_QWEN3 only if the future primary bound to rebound design SHA 37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab is already validly SUPPORTED_T1, exact reserve/runtime/selection/donor/scorer/plumbing guards pass, reserve expressivity >=16/20 overall and >=8/12 delayed, and all four Holm sign tests plus all frozen effect/bidirectionality guards pass on all 20 reserve families.",
+  "primary": {
+    "authoritative_design_sha256": "37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab",
+    "current_primary_experiment_id": null,
+    "current_primary_prediction_id": null,
+    "execution_if_primary_null_invalid_or_inconclusive": "FORBIDDEN",
+    "required_independent_review": "PASS_FOR_REBOUND_CONDITIONAL_QWEN3_T1_ENGINEERING before engineering/registration; later exact primary Experiment/Prediction IDs must be lineage-rebound before T1R execution",
+    "required_primary_status": "SUPPORTED_T1 after valid untouched all-20 Qwen3 confirmation assessment"
+  },
+  "primary_inference": {
+    "all_20_families_required_if_expressivity_passes": true,
+    "effect_guards": {
+      "bidirectional_family_fraction_min": 0.6,
+      "mean_active_minus_each_control_min": 0.05,
+      "mean_cpse_active_min": 0.1,
+      "positive_family_fraction_min": 0.7
+    },
+    "independent_unit": "one frozen reserve ALFWorld task family/game",
+    "method": "Exact one-sided independent-family Binomial sign tail",
+    "multiplicity": {
+      "fwer_alpha": 0.05,
+      "method": "Holm step-down",
+      "tests_count": 4,
+      "tie_break": "lexicographic test-name order"
+    },
+    "n_per_test": 20,
+    "null_success_probability": 0.5,
+    "pair_filtering_forbidden": true,
+    "pair_replacement_forbidden": true,
+    "population_n": 20,
+    "success_rule": "x_i > 0",
+    "test_count": 4,
+    "tests": [
+      "active_gt_zero",
+      "active_gt_archived",
+      "active_gt_random",
+      "active_gt_unrelated"
+    ],
+    "zero_rule": "x_i <= 0, including exact zero, is failure"
+  },
+  "qwen3_t1r_provenance": {
+    "confirmation_accessed": false,
+    "model_calls": 0,
+    "new_reserve_donor_map_sha256": "2ec9081a51a634cb2865d2b70bc90af9ad418cd2e01fe73181b77550db77156d",
+    "primary_t1_outcome_accessed": false,
+    "qwen3_competence_outcome_accessed": false,
+    "qwen3_development_manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "rebound_qwen3_primary_design_sha256": "37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab",
+    "reserve_manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+    "scientific_variables_changed": [
+      "MODEL_RUNTIME: Qwen2.5 FP16 -> exact Qwen3 BF16",
+      "PRIMARY_DEVELOPMENT_DONOR_COHORT: old corrected-v2.6 discovery20 -> Qwen3 development20",
+      "RESERVE_DONOR_MAP: deterministic index-only rebind to new development donor cohort"
+    ],
+    "scientific_variables_held_fixed": [
+      "reserve20 population and 12 delayed",
+      "source/action semantics",
+      "prefix-stable patch/scorer math",
+      "source competence thresholds",
+      "reserve expressivity 16/20 and 8/12",
+      "all20 primary inference",
+      "four exact sign tests + Holm FWER .05",
+      "effect guards",
+      "no retuning/filtering/replacement",
+      "T1 robustness-only claim"
+    ],
+    "source_v26_t1r_design_sha256": "1c762baf2302928c9695ac08e411ded275b021b899618c4493e0c85bd923e96c",
+    "source_v26_t1r_independent_review_sha256": "9f36266db78b4003dd108c02b3061d916c469e86ddea1cf3d41d283e9ebc91c2",
+    "t1r_outcome_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "reserve": {
+    "delayed_divergence_pairs": 12,
+    "donor_map_path": "results/design/plancarry_qwen3_conditional_t1r_donor_map_20260821.json",
+    "donor_map_sha256": "2ec9081a51a634cb2865d2b70bc90af9ad418cd2e01fe73181b77550db77156d",
+    "independence": "Frozen 20-family reserve has zero family overlap with prospectively frozen Qwen3 development20; no pair replacement/filtering; mapping to primary development donors is deterministic index-only and frozen before model outcomes.",
+    "manifest_path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json",
+    "manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+    "model_calls_during_this_rebind_design": 0,
+    "pair_count": 20,
+    "reserve_audit_path": "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json",
+    "reserve_audit_sha256": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+    "split": "train",
+    "task_type": "pick_two_obj_and_place"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scorer_rebind": {
+    "direct_vs_old_fullsequence_diagnostic_sha256": "99901c8a0e4869c8e1a0dc4fc288a0c0c5d3eab2ca057b9c0300aded26349dc5",
+    "measurement_implementation": "Use exact Qwen3 full-T1 prefix-stable scorer/runtime eventually verified for rebound primary design. Patch hook only during prefix forward at frozen RESET boundary; remove before sequential exact-suffix teacher forcing; no reinjection/recomputation. Request timeout is operationally NONE, not a scientific variable.",
+    "numerical_identity_to_v24_claimed": false,
+    "plumbing_audit_sha256": "55e08892920a6d036e4c4f58b6377e786382f11a75da588d87bcc12474f29c54",
+    "prefix_stable_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "prefix_stable_engineering_result_id": "cb545b98-119b-49fa-a1eb-5b594ce0addc",
+    "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "selection_import": {
+    "future_primary_qwen3_selection_currently_exists": false,
+    "rule": "Only after the future rebound-design Qwen3 primary T1 is validly SUPPORTED_T1, import its exact content-hashed development-selection artifact. Reuse selected_layer, selected_alpha, and all 20 frozen Qwen3 development active donor directions. Apply reserve->development donor-map SHA 2ec9081a51a634cb2865d2b70bc90af9ad418cd2e01fe73181b77550db77156d. No reserve layer/alpha selection, threshold tuning, donor re-matching, confirmation donor capture, or control substitution.",
+    "selection_sha_must_be_recorded_before_any_reserve_model_request": true
+  },
+  "selection_import_contract": {
+    "all_20_primary_qwen3_development_active_donor_directions_import_required": true,
+    "primary_selection_sha_required_before_any_reserve_model_request": true,
+    "reserve_alpha_reselection_forbidden": true,
+    "reserve_confirmation_donor_recapture_forbidden": true,
+    "reserve_control_substitution_forbidden": true,
+    "reserve_donor_rematching_forbidden": true,
+    "reserve_layer_reselection_forbidden": true,
+    "reserve_threshold_tuning_forbidden": true,
+    "reserve_to_development_donor_map_sha256": "2ec9081a51a634cb2865d2b70bc90af9ad418cd2e01fe73181b77550db77156d",
+    "selected_alpha_import_required": true,
+    "selected_layer_import_required": true,
+    "source": "future exact content-hashed primary Qwen3 T1 development selection bound to design SHA 37302273bf3d9da5aa79a10b2c4de2e6ef5aff303c8e357494852c3f4a0d12ab"
+  },
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

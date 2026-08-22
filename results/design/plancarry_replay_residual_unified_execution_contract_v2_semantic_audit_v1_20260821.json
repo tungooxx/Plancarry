@@ -1,0 +1,101 @@
+{
+  "approved_changed_paths": [
+    {
+      "path": "planner.system",
+      "resolution": "qualifier_v1 exact literal"
+    },
+    {
+      "path": "planner.user_template",
+      "resolution": "qualifier_v1 exact literal"
+    },
+    {
+      "path": "planner.generation.max_new_tokens",
+      "resolution": 128
+    },
+    {
+      "path": "observable_input_contract.task_instruction_source",
+      "resolution": "live initial observation exact final-regex extraction"
+    },
+    {
+      "path": "executor.system",
+      "resolution": "qualifier_v1 exact literal"
+    },
+    {
+      "path": "executor.user_template",
+      "resolution": "qualifier_v1 exact literal ACTION:-terminated serialization"
+    },
+    {
+      "path": "trajectory.nontrivial_command_definition",
+      "resolution": "exclude exact help/inventory/look"
+    },
+    {
+      "path": "population.sealed_reserve_indices",
+      "resolution": [
+        32,
+        63
+      ]
+    },
+    {
+      "path": "planner.acceptance.complete_decoded_plan_block_max_tokens_including_tags",
+      "resolution": 96
+    },
+    {
+      "path": "executor.chat_template/candidate_suffix/score",
+      "resolution": "exact Qwen3 template + separate suffix tokenization + suffix-only FP32 mean logprob"
+    },
+    {
+      "path": "qualification.stage2",
+      "resolution": "freeze E after all32; deterministic next-different-family SHA256 cyclic donor; all seven exact128 controls"
+    },
+    {
+      "path": "output_semantics",
+      "resolution": "all32 private staging + fsync + exact-set validation + atomic directory publish"
+    },
+    {
+      "path": "packet_schema/canonical_hashing",
+      "resolution": "machine-explicit provenance names and canonical JSON/SHA256"
+    }
+  ],
+  "contract_canonical_object_sha256_without_self_field": "33e27d0c0dcb4b8c42f3b59cd78042c483b277d592567f8fd7670b1ca61f9cb3",
+  "contract_file_sha256": "7a7709356cff14ebede95920d1e26399b2b1665c00780c6fc2c5749c5d97ac03",
+  "contract_path": "results/design/plancarry_replay_residual_unified_execution_contract_v2_20260821.json",
+  "created_utc": "2026-08-21T08:05:57Z",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_UNIFIED_EXECUTION_CONTRACT_V2_SEMANTIC_AUDIT_V1",
+  "model_calls": 0,
+  "old_experiment_5ac34da1_execution_allowed": false,
+  "preserved_invariants": {
+    "action_budget_12": true,
+    "all_seven_controls": true,
+    "candidate_layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "development_indices_0_31": true,
+    "interruption_after_2": true,
+    "minimum_qualified_16": true,
+    "model_runtime": true,
+    "no_causal_path": true,
+    "no_replacement": true,
+    "reserve32_63_sealed": true,
+    "sanity_metrics_and_gates": true,
+    "valid_seen_unseen_prohibited": true
+  },
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_MACHINE_SEMANTIC_AUDIT_ONLY",
+  "source_hashes_verified": {
+    "conflict_audit": "43a08cba3b69b42570c059ce30e0a4fbac96405b3fd87a5185333175ca40b247",
+    "fresh_cohort": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "packet_v1": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752",
+    "qualifier_v1": "d4864a864c27166ac1e677e5dba3583351ce8511753d273916632e825b671ea0",
+    "sanity_v1_1": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "t1_v1_1": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "untouched_population": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+  },
+  "stale_v1_execution_allowed": false,
+  "unexpected_changed_paths": [],
+  "verdict": "PASS_FOR_FRESH_INDEPENDENT_V2_REVIEW_ONLY",
+  "work_item_id": "88ab2f5b-3473-4c25-8644-5110bf2953bd"
+}

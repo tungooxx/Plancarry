@@ -1,0 +1,14 @@
+{
+  "model_inference": false,
+  "new_active_len_equal": true,
+  "new_command_left_prefix": true,
+  "new_command_right_prefix": true,
+  "new_reset_last_token_stable": true,
+  "new_reset_prefix": true,
+  "new_reset_tokens": 35,
+  "old_active_len_equal": true,
+  "old_reset_prefix": false,
+  "old_reset_tokens": 35,
+  "scientific_result": "NOT_ASSESSED",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}

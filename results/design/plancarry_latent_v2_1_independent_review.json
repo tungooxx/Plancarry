@@ -1,0 +1,42 @@
+{
+  "frozen_refs": {
+    "experiment_id": "ded9498e-e326-4cb7-8466-f640a65578cc",
+    "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+    "prediction_id": "2bacf7e1-55e0-4449-b1f3-8f0b3a845ef8",
+    "prereg_sha256": "366af00bfb54c566c039705bd7119c1d0be10eb816672422dfcfebffd31b8744",
+    "prior_v2_review_sha256": "5a32831357414614e9824d05216f36a5cc9a3f48dfdfdc86b9b1b9bf9eb370b3"
+  },
+  "kind": "PLANCARRY_LATENT_V2_1_INDEPENDENT_PREREG_REVIEW_FINAL",
+  "material_findings": [
+    {
+      "dependency": "x_i = CPSE_active(i)-CPSE_unrelated(i) uses model-derived data from confirmation families i and i+1; x_{i+1} reuses family i+1 as its own recipient/active source. Therefore adjacent signs share a confirmation-family random unit and are not independent under the stated Binomial(20,0.5) calibration.",
+      "finding": "UNRELATED_PLAN for confirmation family i is the active A-minus-B contrast of the next confirmation family in cyclic split order, while active_gt_unrelated is analyzed as an exact independent-family sign test.",
+      "id": "UNRELATED_CONTROL_CROSS_FAMILY_DEPENDENCE",
+      "prospective_repair": "Supersede v2.1 before any scientific execution. Keep manifest/model/layers/alphas/semantic manipulation/effect thresholds/T1 scope fixed. For confirmation family i, use a deterministic one-to-one donor from the DISJOINT 20-family discovery split for UNRELATED_PLAN. Freeze the discovery-donor bijection before any confirmation request and capture/freeze those donor directions during discovery. Then each confirmation statistic depends on its own confirmation family plus a fixed discovery donor, restoring the stated independent confirmation-family unit. Alternative: preregister a dependency-aware exact test, but the discovery-donor repair is simpler and more reviewer-defensible.",
+      "severity": "MATERIAL",
+      "why_material": "The defect affects one of four Holm-corrected primary specificity tests, so a PASS could depend on a p-value whose claimed exact calibration is not justified."
+    }
+  ],
+  "model_inference_executed": false,
+  "other_material_findings": [],
+  "passed_checks": [
+    "v2 matched-pair manifest identity/SHA unchanged",
+    "model ID/revision FP16/no-quantization unchanged",
+    "candidate layers and alpha grid unchanged",
+    "semantic ACTIVE ORDER causal variable and T1-only claim scope preserved",
+    "all 20 confirmation families remain in every primary test/effect summary after cohort-level expressivity gate; no pair competence filtering/replacement",
+    "ACTION label is in scoring prompt and only exact admissible-command suffix tokens are scored",
+    "source capture and target patch are pinned to explicit final <STATE_END> token; later ACTION label does not move patch site",
+    "FP32 source contrast norm <=1e-8 maps deterministically to all-zero direction with no exclusion/replacement",
+    "random control is exact package-independent SHA256 Rademacher unit direction",
+    "sign tests use fixed n=20, x_i>0 success, x_i<=0 including zero failure, exact Binomial tail, and Holm step-down with lexicographic tie-break",
+    "no post-outcome filtering/substitution allowed",
+    "RTX3050-only host policy preserved; GTX1650 forbidden",
+    "valid_seen/valid_unseen and expert-plan fields remain unused"
+  ],
+  "reviewer_conclusion": "v2.1 should not execute. The previous v2 defects are prospectively repaired correctly; one newly exposed statistical dependence in the unrelated-plan control must be repaired first. This finding is design-only and does not weaken or support the PlanCarry-Latent scientific hypothesis.",
+  "scientific_outcomes_seen": false,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

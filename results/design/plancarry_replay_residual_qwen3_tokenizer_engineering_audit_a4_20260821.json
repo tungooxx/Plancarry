@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "anchor": 1,
+      "common_neutral_text_boundaries": true,
+      "conditions": 7,
+      "equal_final_capture_position": true,
+      "full_replay_token_length": 194
+    },
+    {
+      "anchor": 2,
+      "common_neutral_text_boundaries": true,
+      "conditions": 7,
+      "equal_final_capture_position": true,
+      "full_replay_token_length": 215
+    }
+  ],
+  "common_neutral_text_boundary_guards": true,
+  "environment_execution": 0,
+  "exact_slot_tokens": 128,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_QWEN3_TOKENIZER_ENGINEERING_AUDIT_A4",
+  "model_calls": 0,
+  "model_id": "Qwen/Qwen3-1.7B",
+  "model_loaded": false,
+  "next_action_preserved": true,
+  "passed": true,
+  "reasoning_guard_configured": true,
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "scientific_result": "NOT_ASSESSED",
+  "tokenizer_file_sha256": {
+    "config.json": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+  },
+  "tokenizers": "0.21.1",
+  "transformers": "4.51.3"
+}

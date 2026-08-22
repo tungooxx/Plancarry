@@ -1,0 +1,18 @@
+{
+  "all_pass": true,
+  "checks": {
+    "all20": true,
+    "external_no_rescue": true,
+    "five_specificity_controls": true,
+    "holm_two": true,
+    "kv_conditional": true,
+    "late_null_present": true,
+    "no_nonkv_claim": true,
+    "no_science": true,
+    "no_scientific_drift": true,
+    "sufficiency_not_necessity": true,
+    "t1_sha_bound": true
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_CAUSAL_ESTIMANDS_IDENTIFICATION_V1_STATIC_AUDIT",
+  "scientific_outcomes_accessed": false
+}

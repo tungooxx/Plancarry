@@ -1,0 +1,36 @@
+{
+  "all_required_pass": true,
+  "checks": {
+    "frozen_model_exact": true,
+    "frozen_revision_exact": true,
+    "health_probe_present": true,
+    "mutation_command_only_explanatory_string": true,
+    "no_firewall_mutation_invocation": true,
+    "no_model_api_science": true,
+    "no_model_loader": true,
+    "only_new_helper_expected": true,
+    "token_value_never_written": true,
+    "versions_exact": true
+  },
+  "held_hashes": {
+    "requirements-whitebox-bridge.txt": "f3a38cfc48e681755ace74efe61ec1e994a1dfedc2b3007f8da7f7d60494b1f2",
+    "results/design/plancarry_latent_v2_2_prereg_final.json": "a2682c209a0e7d7b52d93b8519ad54596209d7a01454380c06da2ec73f94eb47",
+    "start_whitebox_bridge_rtx3050.ps1": "ecd180330c70ad04ed94ade6d17edff196e9372af5ee256595f7d282bb4b1821",
+    "whitebox_bridge.py": "a6ad110d5f31960bd0fac40d4db3534960979b573590afa4fdbc0e0a10fef76d",
+    "whitebox_client.py": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae"
+  },
+  "held_ok": {
+    "requirements-whitebox-bridge.txt": true,
+    "results/design/plancarry_latent_v2_2_prereg_final.json": true,
+    "start_whitebox_bridge_rtx3050.ps1": true,
+    "whitebox_bridge.py": true,
+    "whitebox_client.py": true
+  },
+  "helper_sha256": "9e65a0a257ae253daa29ac15b4f11cb396c91d7ce5819d27c734cd4beab829e1",
+  "kind": "RTX3050_WHITEBOX_PREFLIGHT_ENGINEERING_AUDIT",
+  "pwsh_parse": {
+    "available": false,
+    "passed": null
+  },
+  "scientific_result": "NOT_ASSESSED"
+}

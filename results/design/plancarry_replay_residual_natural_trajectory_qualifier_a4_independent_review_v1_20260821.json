@@ -1,0 +1,99 @@
+{
+  "authoritative_inputs": {
+    "addendum_sha256": "d4864a864c27166ac1e677e5dba3583351ce8511753d273916632e825b671ea0",
+    "experiment_id": "5ac34da1-426c-410d-a468-83758ae6b4f5",
+    "fresh_cohort_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "prediction_id": "cd301729-eb48-4e3d-877e-107e1c112e2a",
+    "sanity_v1_1_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "static_audit_sha256": "b8c11a26335fafa3ee52a5c367ca43ca5009c1a1d139e8f22a12b6faa735617b"
+  },
+  "authorization_scope": "PASS would authorize qualifier implementation engineering only, not ALFWorld qualification science or residual capture. MATERIAL_REPAIR_REQUIRED blocks implementation until a prospective no-outcome repair and fresh independent review.",
+  "checks": {
+    "action_budget12": true,
+    "addendum_sha_exact": true,
+    "all32_atomic_publication_no_partial_packet_visibility": false,
+    "capture_patch_forbidden": true,
+    "completed_and_remaining_nontrivial": true,
+    "executor_chat_template_and_boundary_fully_specified": false,
+    "executor_exact_admissible_only": true,
+    "executor_lexical_tiebreak": true,
+    "executor_mean_fp32_suffix_score": true,
+    "executor_serialization_defined": true,
+    "fixed_interruption_after2": true,
+    "fresh_only_no_resume": true,
+    "fresh_sha_exact": true,
+    "fullmatch_one_plan_block": true,
+    "greedy_no_sample": true,
+    "mandatory_all_seven_control_constructibility_in_qualified_iff": false,
+    "minimum16": true,
+    "model_runtime_exact": true,
+    "no_expert_oracle_inputs": true,
+    "no_per_family_stdout": true,
+    "no_replacement": true,
+    "packet_core_fields_present": true,
+    "packet_explicit_state_admissible_prompt_runtime_hash_fields": true,
+    "planner_chat_template_enable_thinking_false": true,
+    "planner_decode_to_text_canonicalization_fully_specified": false,
+    "planner_eos_defined": true,
+    "planner_max_new_tokens128": true,
+    "planner_no_retry": true,
+    "planner_system_exactly_frozen_string_present": true,
+    "planner_user_template_present": true,
+    "population_exact_0_31": true,
+    "qualifier_inside_registered_run": true,
+    "reasoning_rejected": true,
+    "runtime_versions_exact": true,
+    "sanity_sha_exact": true,
+    "sealed_32_63": true,
+    "static_22of22": true,
+    "static_audit_sha_exact": true,
+    "success_within12": true,
+    "thinking_off_temp0": true,
+    "token96_semantics_match_sanity": false,
+    "valid_splits_forbidden": true
+  },
+  "created_utc": "2026-08-21T02:59:08Z",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_A4_NATURAL_TRAJECTORY_QUALIFIER_INDEPENDENT_REVIEW_V1",
+  "material_defects": [
+    {
+      "finding": "Frozen sanity qualifies plan *content* <=96 model tokens, but addendum requires the complete tagged <PLAN>...</PLAN> string / entire plan_text <=96 tokens. Tags therefore consume the scientific qualification budget and can change the qualified family set.",
+      "id": "PLAN_CONTENT_96_SEMANTICS_DRIFT",
+      "required_repair": "Bind the <=96 gate to the content inside the single <PLAN>...</PLAN> block exactly as registered. Define the exact tokenizer call on interior content; keep generation max_new_tokens=128 separately. Do not change population/min16 or inspect outcomes.",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "The executor freezes system/user text and suffix scoring, but does not freeze the exact tokenizer.apply_chat_template invocation, add_generation_prompt setting, or enable_thinking argument at executor scoring time. These choices change prefix tokens and candidate likelihoods.",
+      "id": "EXECUTOR_CHAT_TEMPLATE_BOUNDARY_UNDER_SPECIFIED",
+      "required_repair": "Freeze the exact executor chat-template call and token boundary, including roles, tokenize flag, add_generation_prompt, enable_thinking=False, and exact location of ACTION: relative to any assistant-generation marker. Preserve the current mean-FP32 suffix score and lexical tie-break.",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "Generation/EOS/fullmatch are frozen, but converting generated token IDs to text is not: skip_special_tokens and cleanup behavior are unspecified. This can change whether an otherwise identical generation passes exact fullmatch/reasoning guards.",
+      "id": "PLANNER_DECODE_CANONICALIZATION_UNDER_SPECIFIED",
+      "required_repair": "Freeze tokenizer.decode arguments for newly generated IDs, including skip_special_tokens and clean_up_tokenization_spaces (and any other non-default behavior relied upon), before fullmatch. No semantic retries.",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "Registered sanity qualification requires all seven replay controls, including NEXT_ACTION_PRESERVED_LATE_NULL, to construct exactly; failure is qualification failure. Addendum qualified_iff omits this criterion yet writes a final qualified boolean. This changes qualification semantics.",
+      "id": "MANDATORY_CONTROL_CONSTRUCTIBILITY_DROPPED_FROM_QUALIFICATION",
+      "required_repair": "Restore exact all-seven control constructibility to the final qualified gate (or make trajectory packet status explicitly provisional and prohibit final qualified=true until deterministic control construction validation passes). Freeze unrelated-plan donor and late-null constructibility rules before outcomes.",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "The addendum atomically writes one packet per index as it proceeds. Although stdout is coarse, per-family scientific outcomes become inspectable on disk before all32 complete, conflicting with the no-partial-outcome review requirement.",
+      "id": "PARTIAL_PACKET_OUTCOMES_VISIBLE_DURING_RUN",
+      "required_repair": "Write packets into a fresh private staging directory and publish the all32 packet set plus summary only after all32 attempts complete and validation passes (e.g. fsync then atomic directory/final-manifest publication). No resume or partial peeking.",
+      "severity": "MATERIAL"
+    }
+  ],
+  "model_calls": 0,
+  "non_material_recommendations": [],
+  "passed_count": 37,
+  "replayresidual_scientific_outcomes_accessed": false,
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "total": 42,
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "e6b181dd-27b2-4cf3-a969-9e7a45a0af31"
+}

@@ -1,0 +1,51 @@
+{
+  "compiler_runtime": {
+    "cc": "/usr/bin/cc",
+    "gcc": "14.2.0"
+  },
+  "confirmation_accessed": false,
+  "discovery_selection_artifact_absent": true,
+  "failed_run_id": "c043e8f3-81c3-438d-9f1d-3c18a40b4563",
+  "failed_run_pre_science_only": true,
+  "frozen_hashes_unchanged": true,
+  "hashes": {
+    "plancarry_latent_v2_4_runner.py": "19ce73cacdcbec50319959529c1c8a6fef9604bc080094d66578ebf0621e2d4e",
+    "plancarry_latent_v2_4_validator.py": "e57783fdf83365561c122f5ba8f0dc9ba827b6e36a1af43ef85c36a1beb3c5d9",
+    "results/design/plancarry_latent_v2_2_unrelated_donor_map.json": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+    "results/design/plancarry_latent_v2_4_prereg_immutable_20260819T1624Z.json": "e6fb83177173044cf0c77a2868a4bd16ad8f166318cbd522ccc856c0ca87cbe0",
+    "results/design/plancarry_latent_v2_matched_pair_manifest.json": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+    "results/design/plancarry_whitebox_http_envelope_real_gtx1650_check.json": "6df9ca792efb3a2b43553991e093285c00a2afc5d015d8e49290829558a4d186",
+    "test_plancarry_latent_v2_4_engineering.py": "315b5ed7dc7819f92d8c4b7a1b40c46d9cf77331b5eecbc4b8a18c62e467a85d",
+    "test_whitebox_bridge_mock.py": "d34b27fa99716f47536da4d71b43c862fec5b95e1de4503b56bad4290655560f",
+    "test_whitebox_client_envelope.py": "546c4f05370031dc7d014de31bd06be83cb89d51802d0c56e33cdcd5f1f01cd4",
+    "whitebox_bridge.py": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+    "whitebox_client.py": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "kind": "PLANCARRY_WHITEBOX_HTTP_ENVELOPE_REPAIR_AUDIT",
+  "real_http_checks": {
+    "capture_ok": true,
+    "nonzero_add_changes_score": true,
+    "nonzero_add_finite": true,
+    "provenance_exact": true,
+    "score_ok": true,
+    "self_patch_le_1e_4": true,
+    "zero_add_le_1e_6": true
+  },
+  "real_http_gtx1650_check_sha256": "6df9ca792efb3a2b43553991e093285c00a2afc5d015d8e49290829558a4d186",
+  "real_http_metrics": {
+    "nonzero_add_max_abs": 0.004115104675292969,
+    "self_patch_max_abs": 0.0,
+    "zero_add_max_abs": 0.0
+  },
+  "repair_scope": "WhiteboxClient success-envelope unwrapping plus test-contract updates only",
+  "scientific_result": "NOT_ASSESSED",
+  "tests": {
+    "client_envelope": "3/3 PASS",
+    "mock_bridge": "PASS",
+    "startup_security": "PASS",
+    "v2_4_engineering": "10/10 PASS"
+  },
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "verdict": "PASS_FOR_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,272 @@
+{
+  "experiment_id": "9701014b-3418-46a2-acb4-d59f235388dc",
+  "findings": [
+    "The n=20 gate is a deliberately strong-effect kill test, not a sensitive moderate-effect estimation study.",
+    "For a Holm-rank test needing >=16/20 positives, 80% marginal power requires q\u22480.8416 and 90% requires q\u22480.8731 true family-level superiority.",
+    "For a rank needing >=15/20, 80% marginal power requires q\u22480.7988 and 90% requires q\u22480.8342.",
+    "Full four-test power cannot be identified without the joint dependence of the four sign statistics. Two anchors are reported: perfect positive correlation reduces the minimal gate to K>=16; independent test-count approximation requires all four >=15 and at least two >=16. Neither is asserted as truth.",
+    "A valid v2.2 null should therefore weaken a large, broadly consistent single-site T1 mechanism, but it should not be phrased as high-powered evidence against moderate or heterogeneous plan-state effects.",
+    "Because no outcomes have been seen, a larger confirmation cohort could still be preregistered prospectively if the scientific goal changes from strong-effect kill test to moderate-effect estimation. However changing n now would supersede v2.2 and incur additional compute; the current design is coherent if interpreted narrowly."
+  ],
+  "kind": "PLANCARRY_LATENT_V2_2_PROSPECTIVE_POWER_AUDIT",
+  "marginal_q_thresholds": {
+    "k_ge_15_80pct": 0.7988,
+    "k_ge_15_90pct": 0.8342,
+    "k_ge_16_80pct": 0.8416,
+    "k_ge_16_90pct": 0.8731
+  },
+  "model_inference": false,
+  "n": 20,
+  "n_sensitivity": [
+    {
+      "alpha_0125_q0.75_critical_k": 16,
+      "alpha_0125_q0.75_power": 0.41484150253018015,
+      "alpha_0125_q0.7_critical_k": 16,
+      "alpha_0125_q0.7_power": 0.23750777887760152,
+      "alpha_0125_q0.85_critical_k": 16,
+      "alpha_0125_q0.85_power": 0.8298468462686537,
+      "alpha_0125_q0.8_critical_k": 16,
+      "alpha_0125_q0.8_power": 0.6296482639026693,
+      "alpha_05_q0.75_critical_k": 15,
+      "alpha_05_q0.75_power": 0.6171726543871046,
+      "alpha_05_q0.7_critical_k": 15,
+      "alpha_05_q0.7_power": 0.4163708294474812,
+      "alpha_05_q0.85_critical_k": 15,
+      "alpha_05_q0.85_power": 0.932692025814226,
+      "alpha_05_q0.8_critical_k": 15,
+      "alpha_05_q0.8_power": 0.8042077854595496,
+      "n": 20
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 18,
+      "alpha_0125_q0.75_power": 0.607412338166295,
+      "alpha_0125_q0.7_critical_k": 18,
+      "alpha_0125_q0.7_power": 0.38858912339313806,
+      "alpha_0125_q0.85_critical_k": 18,
+      "alpha_0125_q0.85_power": 0.9428084963523615,
+      "alpha_0125_q0.8_critical_k": 18,
+      "alpha_0125_q0.8_power": 0.8110710551188802,
+      "alpha_05_q0.75_critical_k": 17,
+      "alpha_05_q0.75_power": 0.7662041693168753,
+      "alpha_05_q0.7_critical_k": 17,
+      "alpha_05_q0.7_power": 0.5646740099334309,
+      "alpha_05_q0.85_critical_k": 17,
+      "alpha_05_q0.85_power": 0.9801306906182636,
+      "alpha_05_q0.8_critical_k": 17,
+      "alpha_05_q0.8_power": 0.9108287412264922,
+      "n": 24
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 22,
+      "alpha_0125_q0.75_power": 0.6735991507240409,
+      "alpha_0125_q0.7_critical_k": 22,
+      "alpha_0125_q0.7_power": 0.43151790628294284,
+      "alpha_0125_q0.85_critical_k": 22,
+      "alpha_0125_q0.85_power": 0.9722217928297605,
+      "alpha_0125_q0.8_critical_k": 22,
+      "alpha_0125_q0.8_power": 0.8713492460859562,
+      "alpha_05_q0.75_critical_k": 20,
+      "alpha_05_q0.75_power": 0.8942718773073399,
+      "alpha_05_q0.7_critical_k": 20,
+      "alpha_05_q0.7_power": 0.7303703863027229,
+      "alpha_05_q0.85_critical_k": 20,
+      "alpha_05_q0.85_power": 0.9970576355895812,
+      "alpha_05_q0.8_critical_k": 20,
+      "alpha_05_q0.8_power": 0.9743837446646735,
+      "n": 30
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 23,
+      "alpha_0125_q0.75_power": 0.7366590374983459,
+      "alpha_0125_q0.7_critical_k": 23,
+      "alpha_0125_q0.7_power": 0.4950776801436089,
+      "alpha_0125_q0.85_critical_k": 23,
+      "alpha_0125_q0.85_power": 0.9843687535178365,
+      "alpha_0125_q0.8_critical_k": 23,
+      "alpha_0125_q0.8_power": 0.9101676085907249,
+      "alpha_05_q0.75_critical_k": 22,
+      "alpha_05_q0.75_power": 0.8464053667616979,
+      "alpha_05_q0.7_critical_k": 22,
+      "alpha_05_q0.7_power": 0.6440177486549022,
+      "alpha_05_q0.85_critical_k": 22,
+      "alpha_05_q0.85_power": 0.9947864350762555,
+      "alpha_05_q0.8_critical_k": 22,
+      "alpha_05_q0.8_power": 0.9589116789764596,
+      "n": 32
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 28,
+      "alpha_0125_q0.75_power": 0.8208657576539587,
+      "alpha_0125_q0.7_critical_k": 28,
+      "alpha_0125_q0.7_power": 0.5771809245034374,
+      "alpha_0125_q0.85_critical_k": 28,
+      "alpha_0125_q0.85_power": 0.9956866126421724,
+      "alpha_0125_q0.8_critical_k": 28,
+      "alpha_0125_q0.8_power": 0.9567583776236764,
+      "alpha_05_q0.75_critical_k": 26,
+      "alpha_05_q0.75_power": 0.9455627519813652,
+      "alpha_05_q0.7_critical_k": 26,
+      "alpha_05_q0.7_power": 0.8074482452648238,
+      "alpha_05_q0.85_critical_k": 26,
+      "alpha_05_q0.85_power": 0.9995868680600976,
+      "alpha_05_q0.8_critical_k": 26,
+      "alpha_05_q0.8_power": 0.9920841461264805,
+      "n": 40
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 34,
+      "alpha_0125_q0.75_power": 0.901692675214735,
+      "alpha_0125_q0.7_critical_k": 34,
+      "alpha_0125_q0.7_power": 0.6838786190641327,
+      "alpha_0125_q0.85_critical_k": 34,
+      "alpha_0125_q0.85_power": 0.9993386486027694,
+      "alpha_0125_q0.8_critical_k": 34,
+      "alpha_0125_q0.8_power": 0.9855583426827424,
+      "alpha_05_q0.75_critical_k": 32,
+      "alpha_05_q0.75_power": 0.9712668401644692,
+      "alpha_05_q0.7_critical_k": 32,
+      "alpha_05_q0.7_power": 0.8594401236111056,
+      "alpha_05_q0.85_critical_k": 32,
+      "alpha_05_q0.85_power": 0.9999404181684011,
+      "alpha_05_q0.8_critical_k": 32,
+      "alpha_05_q0.8_power": 0.9974887966674851,
+      "n": 50
+    },
+    {
+      "alpha_0125_q0.75_critical_k": 40,
+      "alpha_0125_q0.75_power": 0.9458560618117808,
+      "alpha_0125_q0.7_critical_k": 40,
+      "alpha_0125_q0.7_power": 0.7622167264105788,
+      "alpha_0125_q0.85_critical_k": 40,
+      "alpha_0125_q0.85_power": 0.9998988463267711,
+      "alpha_0125_q0.8_critical_k": 40,
+      "alpha_0125_q0.8_power": 0.9951742809436952,
+      "alpha_05_q0.75_critical_k": 37,
+      "alpha_05_q0.75_power": 0.992505591005678,
+      "alpha_05_q0.7_critical_k": 37,
+      "alpha_05_q0.7_power": 0.9367618700348015,
+      "alpha_05_q0.85_critical_k": 37,
+      "alpha_05_q0.85_power": 0.9999976745948821,
+      "alpha_05_q0.8_critical_k": 37,
+      "alpha_05_q0.8_power": 0.9996987603294623,
+      "n": 60
+    }
+  ],
+  "outcomes_seen": false,
+  "rows": [
+    {
+      "full_holm_independent_test_counts_anchor": 3.9455195409459265e-06,
+      "full_holm_perfect_correlation_anchor": 0.018863271731147702,
+      "power_k_ge_15": 0.0553341877183905,
+      "power_k_ge_16": 0.018863271731147702,
+      "q": 0.55
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 2.484911840505383e-05,
+      "full_holm_perfect_correlation_anchor": 0.03162163125734716,
+      "power_k_ge_15": 0.08500501277798089,
+      "power_k_ge_16": 0.03162163125734716,
+      "q": 0.575
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.00013303154405457297,
+      "full_holm_perfect_correlation_anchor": 0.0509519531941665,
+      "power_k_ge_15": 0.12559897272303744,
+      "power_k_ge_16": 0.0509519531941665,
+      "q": 0.6
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.000608800298965038,
+      "full_holm_perfect_correlation_anchor": 0.07904140886862707,
+      "power_k_ge_15": 0.17876556236419125,
+      "power_k_ge_16": 0.07904140886862707,
+      "q": 0.625
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.0023915449261007735,
+      "full_holm_perfect_correlation_anchor": 0.11819655943870706,
+      "power_k_ge_15": 0.24539574514843923,
+      "power_k_ge_16": 0.11819655943870706,
+      "q": 0.65
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.00808800208497146,
+      "full_holm_perfect_correlation_anchor": 0.1705285616737944,
+      "power_k_ge_15": 0.3252025047505754,
+      "power_k_ge_16": 0.1705285616737944,
+      "q": 0.675
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.02359556662441222,
+      "full_holm_perfect_correlation_anchor": 0.23750777887760152,
+      "power_k_ge_15": 0.4163708294474812,
+      "power_k_ge_16": 0.23750777887760152,
+      "q": 0.7
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.05946702869674203,
+      "full_holm_perfect_correlation_anchor": 0.31942436711958344,
+      "power_k_ge_15": 0.5153888326780487,
+      "power_k_ge_16": 0.31942436711958344,
+      "q": 0.725
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.1296659396901588,
+      "full_holm_perfect_correlation_anchor": 0.41484150253018015,
+      "power_k_ge_15": 0.6171726543871046,
+      "power_k_ge_16": 0.41484150253018015,
+      "q": 0.75
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.24520117477596712,
+      "full_holm_perfect_correlation_anchor": 0.5201837112933823,
+      "power_k_ge_15": 0.715564513245417,
+      "power_k_ge_16": 0.5201837112933823,
+      "q": 0.775
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.40396087268263964,
+      "full_holm_perfect_correlation_anchor": 0.6296482639026693,
+      "power_k_ge_15": 0.8042077854595496,
+      "power_k_ge_16": 0.6296482639026693,
+      "q": 0.8
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.5845757775325431,
+      "full_holm_perfect_correlation_anchor": 0.7356371365249872,
+      "power_k_ge_15": 0.8776877885086434,
+      "power_k_ge_16": 0.7356371365249872,
+      "q": 0.825
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.7530283611476724,
+      "full_holm_perfect_correlation_anchor": 0.8298468462686537,
+      "power_k_ge_15": 0.932692025814226,
+      "power_k_ge_16": 0.8298468462686537,
+      "q": 0.85
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.8800780014239293,
+      "full_holm_perfect_correlation_anchor": 0.9049888340134588,
+      "power_k_ge_15": 0.9688320300645693,
+      "power_k_ge_16": 0.9049888340134588,
+      "q": 0.875
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.9556160484601819,
+      "full_holm_perfect_correlation_anchor": 0.9568255047155366,
+      "power_k_ge_15": 0.988746865835491,
+      "power_k_ge_16": 0.9568255047155366,
+      "q": 0.9
+    },
+    {
+      "full_holm_independent_test_counts_anchor": 0.989051704825788,
+      "full_holm_perfect_correlation_anchor": 0.9858275809526754,
+      "power_k_ge_15": 0.9972531033962533,
+      "power_k_ge_16": 0.9858275809526754,
+      "q": 0.925
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "VALID_STRONG_EFFECT_KILL_TEST_LIMITED_MODERATE_EFFECT_POWER"
+}

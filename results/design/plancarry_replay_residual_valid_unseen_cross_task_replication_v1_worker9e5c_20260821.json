@@ -1,0 +1,61 @@
+{
+  "activation_dependencies": [
+    "PASS_REPLAY_RESIDUAL_SANITY",
+    "prospectively SUPPORTED primary repaired T1 v1.1 on untouched confirmation",
+    "primary selected layer/site/scale/residual operating point frozen"
+  ],
+  "canonical_sanity_experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "execution_contract_v2_1_sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+  "frozen_transfer": {
+    "competence_guards": "exact primary T1 competence guards",
+    "endpoint": "exact primary T1 first-action-excluded later-plan endpoint",
+    "intervention": "exact primary T1 one-reset-time intervention; no reinjection",
+    "model": "exact same primary model/revision/runtime; no model switch",
+    "operating_point": "import exact primary T1 selected layer/site/scale/residual operating point with ZERO retuning",
+    "statistics": "exact primary family-level tests, multiplicity correction, and effect guards",
+    "trajectory_and_controls": "exact canonical V2.1 natural-plan trajectory, qualification, and seven-control construction"
+  },
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "interpretation": {
+    "fail": "narrows generalization scope without retroactively invalidating a correctly supported within-scope primary T1",
+    "pass": "same-model cross-task/split external validity only; not independent model-family replication"
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_VALID_UNSEEN_CROSS_TASK_REPLICATION_V1",
+  "manifest_path": "results/design/plancarry_replay_residual_valid_unseen_cross_task_manifest_v1_worker9e5c_20260821.json",
+  "manifest_rule": {
+    "data_access": "filenames/relative paths only before eligible execution",
+    "family_eligibility": ">=4 candidate game paths",
+    "group": "official ALFWorld task-type family",
+    "replacement": false,
+    "rule_authority": "rule, not expected family/count",
+    "selection": "within each eligible family rank by SHA256('ReplayResidual|VALID_UNSEEN_CROSS_TASK_V1|'+relative_game_path), lexical path tie-break, take first4"
+  },
+  "manifest_sha256": "75c282a07b012c709cc395e1f8e7b93659a81e818ab6efa28a60e2c69aca84e7",
+  "observed_filename_only_population": {
+    "candidate_count": 134,
+    "population_filename_table_sha256": "ae58d33c7799835bf023f8a9350d1b317476104db46977d59e5d0d214e281896",
+    "selected_count": 24,
+    "task_family_count": 6
+  },
+  "pre_outcome": true,
+  "prohibitions": [
+    "no execution before all activation dependencies",
+    "no rescue of sanity/T1 null, inconclusive, invalid, or technical failure",
+    "no valid_unseen development tuning",
+    "no layer/site/scale retuning",
+    "no threshold/statistical change",
+    "no model switch",
+    "no outcome-driven family deletion or replacement",
+    "no benchmark switching after primary outcome"
+  ],
+  "purpose": "Conditional same-model cross-task and split external-validity replication; cannot rescue primary null/inconclusive/invalid evidence.",
+  "registration_execution_status": "FROZEN_DESIGN_ONLY_REQUIRES_FRESH_INDEPENDENT_REVIEW_BEFORE_REGISTRATION_OR_EXECUTION",
+  "science_access": {
+    "environment_execution": 0,
+    "model_calls": 0,
+    "scientific_outcomes_accessed": false
+  },
+  "source_checkpoint_sha256": "7c56932e283e199f38ca981f0954c7a07a2af489ab08c6fb0502fd76724f2cde",
+  "t1_prereg_v1_1_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "work_item_id": "ddcfe790-5008-4010-99d6-ad27c58429ff"
+}

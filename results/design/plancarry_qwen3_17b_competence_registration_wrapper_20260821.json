@@ -1,0 +1,21 @@
+{
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "causal_patch_access": false,
+  "confirmation_access": false,
+  "design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+  "engineering_result_id": "d2d9355c-8388-49cd-9ae4-0e6f30984447",
+  "experiment_id": "919c2113-3de9-4973-bfd0-6ac6e3383d18",
+  "frozen": true,
+  "hypothesis_id": "2b27883a-5545-496b-b49f-f60da8957dee",
+  "independent_review_sha256": "a84b3c928236c2d3643b5b1ffe2c2fe12afbc354e15c05cc6c5ad5e063673a9c",
+  "kind": "PLANCARRY_QWEN3_17B_COMPETENCE_REGISTRATION_WRAPPER",
+  "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "n": 20,
+  "pass_min": 12,
+  "prediction_id": "adf04b4d-1bdd-46ea-9bca-d347ef3deb4c",
+  "runner_sha256": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+  "scientific_role": "EXPRESSIVITY_FEASIBILITY_ONLY_NOT_T1_TEST",
+  "source_a_min": 0.1,
+  "source_b_max": -0.1,
+  "validator_sha256": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28"
+}

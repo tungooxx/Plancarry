@@ -1,0 +1,5 @@
+# Torch is intentionally NOT pinned/installed here; the RTX3050 host must provide a CUDA-enabled torch build.
+transformers==4.46.3
+tokenizers==0.20.3
+sentencepiece==0.2.2
+safetensors>=0.4.3,<1

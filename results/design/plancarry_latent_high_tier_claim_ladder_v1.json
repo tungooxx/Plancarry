@@ -1,0 +1,228 @@
+{
+  "claim_ladder": [
+    {
+      "allowed_claim": "In the tested model/task scope, plan-conditioned internal state contains a causal component that can selectively influence resumed branch preference after context reset.",
+      "evidence_required": [
+        "Prospectively frozen ALFWorld causal plan-swap experiment passes all controls and guards on holdout data.",
+        "Active plan intervention beats lexical/order, random same-norm, unrelated-state and no-patch controls.",
+        "Full-plan positive control establishes model/task expressivity."
+      ],
+      "forbidden_extensions": [
+        "deployable checkpoint",
+        "compact state",
+        "multi-step persistence",
+        "cross-model generality",
+        "agent utility"
+      ],
+      "tier": "T1_SCOPED_CAUSAL_PILOT"
+    },
+    {
+      "allowed_claim": "The scoped causal plan-state effect is prospectively replicable within the model/environment family.",
+      "evidence_required": [
+        "Independent untouched ALFWorld confirmation cohort.",
+        "Layer/site/norm/statistic/tie handling frozen before confirmation.",
+        "No intervention retuning on confirmation."
+      ],
+      "forbidden_extensions": [
+        "single-source checkpoint",
+        "compactness",
+        "general LLM mechanism"
+      ],
+      "tier": "T2_UNTOUCHED_REPLICATION"
+    },
+    {
+      "allowed_claim": "An active plan can be checkpointed from one source context and causally restored after reset.",
+      "evidence_required": [
+        "Learn/localize any global basis using development data only.",
+        "At test time extract checkpoint from the actually active plan alone; counterfactual B is unavailable to the extractor.",
+        "Single-source checkpoint restores/switches plan branch above generic latent-memory and text-matched controls.",
+        "SELF_PATCH/no-op numerical identity passes."
+      ],
+      "forbidden_extensions": [
+        "compact",
+        "long-horizon persistent",
+        "general"
+      ],
+      "tier": "T3_SINGLE_SOURCE_CHECKPOINT"
+    },
+    {
+      "allowed_claim": "The intervention carries plan-level continuation state rather than only a one-step action feature.",
+      "evidence_required": [
+        "Multi-step branch consistency after one-time restore.",
+        "First-action clamp/mediation control: force the same first action under A/B and retain a later plan-dependent divergence.",
+        "Ablating the identified state selectively damages plan continuation more than unrelated local competence."
+      ],
+      "forbidden_extensions": [
+        "compactness",
+        "cross-architecture generality"
+      ],
+      "tier": "T4_PLAN_NOT_ACTION_FEATURE"
+    },
+    {
+      "allowed_claim": "A compact causal plan checkpoint can preserve useful execution state across context interruption in the tested setting.",
+      "evidence_required": [
+        "Rank/dimension ablation establishes a small sufficient subspace and necessity trend.",
+        "Report checkpoint bytes/bits, global basis/projection bytes, amortized and non-amortized cost.",
+        "Compare against full KV cache, full residual state, full plan text, matched-token summary and generic hidden-state memory.",
+        "One-time checkpoint restore improves multi-step continuation and/or TaskSuccess without repeated steering."
+      ],
+      "forbidden_extensions": [
+        "broad general LLM claim without model/environment replication"
+      ],
+      "tier": "T5_COMPACT_PERSISTENT_AGENT_STATE"
+    },
+    {
+      "allowed_claim": "Causal plan-state checkpointing is a reproducible mechanism across multiple model/environment families, with demonstrated long-horizon utility.",
+      "conference_bar": "This is the target evidence tier for a strong ICLR/NeurIPS-style main-track claim.",
+      "evidence_required": [
+        "Second model family with a predeclared precision/quantization interpretation gate.",
+        "Untouched confirmation data in each model family.",
+        "Second interactive environment with different semantics, executed only after primary ALFWorld support.",
+        "No benchmark switching to rescue a null primary mechanism.",
+        "End-task utility and causal persistence both reported."
+      ],
+      "tier": "T6_HIGH_TIER_GENERALIZATION"
+    }
+  ],
+  "compute_constraint": "All future real model inference/activation work must use the user-authorized RTX 3050 host path; GPU-lab GTX 1650 must not be used for model workloads.",
+  "high_tier_minimum_story": [
+    "Reproduce/extend Plans Don\u2019t Persist with a causal question rather than another memory wrapper.",
+    "Show plan-specific A<->B causal transplantation under matched observable state and strong lexical/generic controls.",
+    "Convert paired causal localization into a single-source checkpoint usable at test time.",
+    "Demonstrate multi-step plan-level persistence beyond first-action steering.",
+    "Establish compactness with honest storage accounting and necessity/sufficiency ablations.",
+    "Replicate on a second model family and a second interactive environment without post-hoc benchmark rescue.",
+    "Separate mechanistic claims, compactness claims, and end-task utility claims throughout the paper."
+  ],
+  "kill_or_narrow_outcomes": [
+    {
+      "consequence": "Kill the tested single-site plan-specific causal-contrast mechanism; do not build a memory module.",
+      "outcome": "Active intervention does not beat lexical/random/unrelated controls in a valid holdout"
+    },
+    {
+      "consequence": "Narrow to action-feature steering; forbid plan-state/persistence claim.",
+      "outcome": "Effect beats controls but disappears under first-action clamp or after one step"
+    },
+    {
+      "consequence": "Keep mechanistic localization result only; PlanCarry checkpoint method is not established.",
+      "outcome": "Paired contrast works but single-source extraction fails"
+    },
+    {
+      "consequence": "Kill compactness claim; mechanistic result may remain.",
+      "outcome": "Checkpoint requires near-full hidden/KV state or basis overhead exceeds text replay"
+    },
+    {
+      "consequence": "Architecture-specific result; no general LLM claim.",
+      "outcome": "ALFWorld replicates but second model family fails"
+    },
+    {
+      "consequence": "Environment/task-specific scope; no general agent-persistence claim.",
+      "outcome": "Cross-model passes but second environment fails"
+    },
+    {
+      "consequence": "Mechanistic paper possible if effect is strong/novel; agent-method utility claim is forbidden.",
+      "outcome": "Causal effect exists but end-task utility is null/negative"
+    },
+    {
+      "consequence": "Experiment is inconclusive/model-task incapable, not evidence against the broader hypothesis.",
+      "outcome": "Full-plan positive control fails or pair construction cannot provide enough capable pairs"
+    }
+  ],
+  "kind": "PLANCARRY_LATENT_HIGH_TIER_CLAIM_LADDER_V1",
+  "novelty_forbidden_claims": [
+    "Activation-state transfer itself is novel.",
+    "Locating or activation-patching planning representations itself is novel.",
+    "Using hidden states as memory itself is novel.",
+    "Execution-state management itself is novel.",
+    "A one-model ALFWorld effect establishes a general LLM plan-state mechanism.",
+    "A paired A-vs-B contrast is already a deployable checkpoint from one active plan.",
+    "The representation is compact unless per-episode payload plus global basis/projection overhead are accounted in bits/bytes.",
+    "A first-action logit shift alone demonstrates persistent plan state."
+  ],
+  "purpose": "Pre-outcome conference-positioning and reviewer kill-gates. This artifact does not change experiment design or scientific belief.",
+  "reviewer_objection_gates": [
+    {
+      "gate": [
+        "Exact lexical-content counterbalancing/order swap.",
+        "Archived non-active lexical-order control with same action strings.",
+        "Active effect must exceed lexical control prospectively.",
+        "Prefer delayed divergence after a shared prefix."
+      ],
+      "objection": "Lexical or object/action identity steering, not plan state"
+    },
+    {
+      "gate": [
+        "Random same-norm control.",
+        "Unrelated-plan contrast control.",
+        "Norm-matched patch mathematics frozen.",
+        "Active effect must exceed both controls."
+      ],
+      "objection": "Generic activation perturbation/transfer"
+    },
+    {
+      "gate": [
+        "Multi-step branch endpoint.",
+        "First-action clamp/mediation control.",
+        "Later branch behavior must remain checkpoint-dependent."
+      ],
+      "objection": "Only a one-step action feature"
+    },
+    {
+      "gate": [
+        "Second model family required before general claim.",
+        "Freeze per-family adaptation protocol before confirmation.",
+        "Quantized model results require baseline-expressivity and SELF_PATCH numerical gates and cannot be silently equated with full-precision results."
+      ],
+      "objection": "Architecture-specific artifact"
+    },
+    {
+      "gate": [
+        "1.5B may be discovery only.",
+        "At least one >=3B/4B different family or stronger open model must replicate for high-tier general claim.",
+        "Report model capability/full-plan expressivity explicitly."
+      ],
+      "objection": "Tiny-model artifact"
+    },
+    {
+      "gate": [
+        "Plan text absent after reset.",
+        "Single injection/checkpoint restore only.",
+        "Measure decay/branch consistency across several subsequent action-observation steps and terminal success."
+      ],
+      "objection": "Not actually persistent"
+    },
+    {
+      "gate": [
+        "Count per-episode checkpoint payload and global basis/projection overhead.",
+        "Report bits/bytes and compression ratio vs text/KV/full residual.",
+        "Minimality/rank ablations required."
+      ],
+      "objection": "Not compact"
+    },
+    {
+      "gate": [
+        "ALFWorld primary mechanism must support first.",
+        "ScienceWorld/second environment remains dependency-gated confirmation only.",
+        "Null ALFWorld cannot be rescued by changing environment."
+      ],
+      "objection": "Benchmark switching after a null"
+    },
+    {
+      "gate": [
+        "T1/T2 results must be described as causal localization only.",
+        "Deployment claim forbidden until T3 single-source extractor works without counterfactual B at test time."
+      ],
+      "objection": "Paired contrast is not a deployable memory method"
+    },
+    {
+      "gate": [
+        "Report TaskSuccess and repeated/reversed action rates after one-time restore.",
+        "Compare matched storage/token baselines.",
+        "Mechanistic causal result and utility result must be stated separately."
+      ],
+      "objection": "End-task utility is missing"
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "valid_unseen_consumed": false
+}

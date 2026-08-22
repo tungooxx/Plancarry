@@ -1,0 +1,85 @@
+{
+  "active_or_control_science_accessed": false,
+  "all_requests_under_120s": true,
+  "case_count": 8,
+  "confirmation_accessed": false,
+  "details": [
+    {
+      "layer": 6,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 6,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    }
+  ],
+  "kind": "PLANCARRY_LATENT_V2_6_FINAL_BINDING_RTX3050_PLUMBING_AUDIT",
+  "max_request_seconds": 30.359527272999912,
+  "max_self_patch_abs": 0.0,
+  "max_zero_add_abs": 0.0,
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.46.3"
+  },
+  "pass": true,
+  "request_count": 33,
+  "scientific_result": "NOT_ASSESSED",
+  "source_competence_accessed": false,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

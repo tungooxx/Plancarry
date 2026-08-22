@@ -1,0 +1,73 @@
+{
+  "kind": "PLANCARRY_LATENT_AB_PILOT_MANIFEST_V2",
+  "salt": "plancarry-latent-ab-pilot-v2-2026-08-19",
+  "split": "train",
+  "task_prefix": "pick_and_place_simple",
+  "selection": "sha256(salt+absolute_path) ascending after exact exclusion union",
+  "train_population": 790,
+  "candidate_count": 40,
+  "excluded_binding_count": 180,
+  "excluded_gdaa_union_count": 199,
+  "excluded_union_count": 332,
+  "gdaa_sources": [
+    {
+      "file": "gdaa_train_candidate_manifest_disjoint_v1.json",
+      "count": 90,
+      "sha256": "5beaeb849cc6abbee4397c1f8d5021700e272b799e356a2d77d47f920af4d418"
+    },
+    {
+      "file": "gdaa_train_candidate_manifest_fresh_v2.json",
+      "count": 90,
+      "sha256": "62d700e5d407e71ae1db030cb454e1b78a1c4bd505f24997024de4ecb71f008d"
+    },
+    {
+      "file": "gdaa_train_candidate_manifest_v1.json",
+      "count": 90,
+      "sha256": "7dbaff3bb3513c52458683cff7c7df17e9e387108492f7930e4c07601f62e874"
+    }
+  ],
+  "supersedes_invalid_draft": "latent_ab_pilot_manifest_v1.json (draft failed to load candidates-key GDAA manifests; never preregistered/executed)",
+  "candidates": [
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-ArmChair-206/trial_T20190909_023729_905485/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pen-None-Drawer-305/trial_T20190907_224041_853486/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_064648_618132/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pan-None-CounterTop-8/trial_T20190908_105438_904625/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Tomato-None-Microwave-6/trial_T20190907_235735_175320/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-GarbageCan-415/trial_T20190907_070408_668418/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Shelf-310/trial_T20190908_023553_529151/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_040329_875526/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Cabinet-403/trial_T20190908_221042_476220/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-PepperShaker-None-CounterTop-27/trial_T20190909_010836_535047/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pen-None-Shelf-319/trial_T20190907_203129_732698/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Cloth-None-CounterTop-414/trial_T20190909_064959_475757/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Sofa-228/trial_T20190908_122625_912366/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Newspaper-None-Sofa-211/trial_T20190906_175004_203092/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Desk-309/trial_T20190918_231048_923335/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Desk-304/trial_T20190907_192658_005358/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Watch-None-DiningTable-326/trial_T20190908_132712_949739/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Newspaper-None-Ottoman-203/trial_T20190908_173745_461691/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SoapBottle-None-Toilet-408/trial_T20190907_084114_235446/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Watch-None-DiningTable-326/trial_T20190912_074626_851427/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Dresser-217/trial_T20190910_203316_646156/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-PepperShaker-None-Drawer-5/trial_T20190908_195236_701456/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Desk-310/trial_T20190909_142909_426067/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Sofa-225/trial_T20190908_131203_170721/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-HandTowel-None-GarbageCan-416/trial_T20190908_234752_613977/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Toilet-420/trial_T20190909_113828_525912/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CellPhone-None-SideTable-326/trial_T20190909_150051_438324/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-ArmChair-207/trial_T20190908_140615_941385/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-SideTable-322/trial_T20190909_091659_910683/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-Dresser-217/trial_T20190909_053720_916417/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-ArmChair-207/trial_T20190908_140544_546482/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-Desk-310/trial_T20190908_033219_058539/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Kettle-None-Shelf-1/trial_T20190907_011711_519188/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CD-None-Shelf-326/trial_T20190908_050350_303115/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-401/trial_T20190908_215223_949164/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SoapBottle-None-GarbageCan-411/trial_T20190908_051545_764778/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pen-None-Shelf-310/trial_T20190909_113609_142533/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Kettle-None-Cabinet-18/trial_T20190918_172306_304155/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-Desk-310/trial_T20190908_033230_602789/game.tw-pddl",
+    "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Glassbottle-None-DiningTable-23/trial_T20190908_071117_449095/game.tw-pddl"
+  ],
+  "manifest_sha256": "a5d7259238c957f96486ea92fe9b9ce9fa2423283ef83a0b104efe0d17b2d3cf"
+}

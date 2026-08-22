@@ -1,0 +1,774 @@
+{
+  "confirmation_scientific_outcomes_accessed": false,
+  "design_sha256": "b87069baa1e5ebb181dcaccfb2694ae0cc8dc158edb2bd960d5437d06ddcc054",
+  "failures": [],
+  "kind": "PLANCARRY_LATENT_V2_7_SLOT_BOUND_SOURCE_STATIC_40FAMILY_AUDIT",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_inference_calls": 0,
+  "pairs_checked": 40,
+  "passed": true,
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "rows": [
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 0,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 248,
+        "active_b": 248,
+        "reference_a": 248,
+        "reference_b": 248
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 1,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 297,
+        "active_b": 297,
+        "reference_a": 297,
+        "reference_b": 297
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 2,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 262,
+        "active_b": 262,
+        "reference_a": 262,
+        "reference_b": 262
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 3,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 281,
+        "active_b": 281,
+        "reference_a": 281,
+        "reference_b": 281
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 4,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 306,
+        "active_b": 306,
+        "reference_a": 306,
+        "reference_b": 306
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 5,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 292,
+        "active_b": 292,
+        "reference_a": 292,
+        "reference_b": 292
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 6,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 237,
+        "active_b": 237,
+        "reference_a": 237,
+        "reference_b": 237
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 7,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 261,
+        "active_b": 261,
+        "reference_a": 261,
+        "reference_b": 261
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 8,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 283,
+        "active_b": 283,
+        "reference_a": 283,
+        "reference_b": 283
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 9,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 294,
+        "active_b": 294,
+        "reference_a": 294,
+        "reference_b": 294
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 10,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 385,
+        "active_b": 385,
+        "reference_a": 385,
+        "reference_b": 385
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 11,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 368,
+        "active_b": 368,
+        "reference_a": 368,
+        "reference_b": 368
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 12,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 304,
+        "active_b": 304,
+        "reference_a": 304,
+        "reference_b": 304
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 13,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 270,
+        "active_b": 270,
+        "reference_a": 270,
+        "reference_b": 270
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 14,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 319,
+        "active_b": 319,
+        "reference_a": 319,
+        "reference_b": 319
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 15,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 263,
+        "active_b": 263,
+        "reference_a": 263,
+        "reference_b": 263
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 16,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 300,
+        "active_b": 300,
+        "reference_a": 300,
+        "reference_b": 300
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 17,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 286,
+        "active_b": 286,
+        "reference_a": 286,
+        "reference_b": 286
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 18,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 365,
+        "active_b": 365,
+        "reference_a": 365,
+        "reference_b": 365
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 19,
+      "passed": true,
+      "split": "discovery",
+      "token_lengths": {
+        "active_a": 301,
+        "active_b": 301,
+        "reference_a": 301,
+        "reference_b": 301
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 20,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 248,
+        "active_b": 248,
+        "reference_a": 248,
+        "reference_b": 248
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 21,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 331,
+        "active_b": 331,
+        "reference_a": 331,
+        "reference_b": 331
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 22,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 273,
+        "active_b": 273,
+        "reference_a": 273,
+        "reference_b": 273
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 23,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 306,
+        "active_b": 306,
+        "reference_a": 306,
+        "reference_b": 306
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 24,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 281,
+        "active_b": 281,
+        "reference_a": 281,
+        "reference_b": 281
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 25,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 306,
+        "active_b": 306,
+        "reference_a": 306,
+        "reference_b": 306
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 26,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 256,
+        "active_b": 256,
+        "reference_a": 256,
+        "reference_b": 256
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 27,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 348,
+        "active_b": 348,
+        "reference_a": 348,
+        "reference_b": 348
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 28,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 271,
+        "active_b": 271,
+        "reference_a": 271,
+        "reference_b": 271
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 29,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 366,
+        "active_b": 366,
+        "reference_a": 366,
+        "reference_b": 366
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 30,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 331,
+        "active_b": 331,
+        "reference_a": 331,
+        "reference_b": 331
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 31,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 276,
+        "active_b": 276,
+        "reference_a": 276,
+        "reference_b": 276
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 32,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 271,
+        "active_b": 271,
+        "reference_a": 271,
+        "reference_b": 271
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 33,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 312,
+        "active_b": 312,
+        "reference_a": 312,
+        "reference_b": 312
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 34,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 285,
+        "active_b": 285,
+        "reference_a": 285,
+        "reference_b": 285
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 35,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 359,
+        "active_b": 359,
+        "reference_a": 359,
+        "reference_b": 359
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 36,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 384,
+        "active_b": 384,
+        "reference_a": 384,
+        "reference_b": 384
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 37,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 352,
+        "active_b": 352,
+        "reference_a": 352,
+        "reference_b": 352
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 38,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 266,
+        "active_b": 266,
+        "reference_a": 266,
+        "reference_b": 266
+      }
+    },
+    {
+      "checks": {
+        "active_ab_len_equal": true,
+        "active_bag_equal": true,
+        "active_reference_total_len_equal": true,
+        "all_terminal_contract": true,
+        "reference_ab_len_equal": true,
+        "reference_bag_equal": true
+      },
+      "pair_index": 39,
+      "passed": true,
+      "split": "confirmation",
+      "token_lengths": {
+        "active_a": 302,
+        "active_b": 302,
+        "reference_a": 302,
+        "reference_b": 302
+      }
+    }
+  ],
+  "tokenizers_version": "0.20.3"
+}

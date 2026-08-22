@@ -1,0 +1,59 @@
+{
+  "guards": {
+    "confirmation_accessed": false,
+    "environment_science_actions_during_engineering": 0,
+    "model_science_calls_during_engineering": 0,
+    "packet_target_absent": true,
+    "summary_target_absent": true,
+    "t1r_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "interpretation": "Engineering-only technical retry hardening. The cancelled run is NOT_ASSESSED; no scientific candidate is skipped or failed because of CUDA OOM.",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_DEV_OOM_RETRY_ENGINEERING_AUDIT_V1",
+  "pre_science": true,
+  "repair": {
+    "memory_change": "select suffix prediction rows in BF16 before FP32 conversion/log_softmax",
+    "oom_semantics": "discard partial OOM packet; retry same frozen index; max 3 retries after initial attempt; exhaustion aborts technical with no publish",
+    "score_definition_changed": false,
+    "test_path": "results/design/test_replay_residual_t1_dev_oom_retry_v1.py",
+    "test_sha256": "cec684ba314e123ddd9ff48f0a80acc7fe394344fbebb25e538421d1d030a5ed",
+    "wrapper_path": "replay_residual_t1_direct_override_dev_v1_2_oom_retry.py",
+    "wrapper_sha256": "7554699b299a05b930e12830a9a8c5ba1b7ca2c4e885a7d506dbfeb134e80d00"
+  },
+  "runtime": {
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "driver_observed_by_gpu_lab": "581.95",
+    "python": "3.13.15",
+    "requirements_full_sha256": "e54812f57c10513d77b132f7d454a9c604403150de3f148dde3cc1f38ac53566",
+    "requirements_torch_sha256": "ca8985f47f1aec0618a8f6e2b1d69151cfc9a7f513f779d799836452ce9f369c",
+    "requirements_userland_sha256": "106d5d6e5e6368e0349a0001faa60cf9e1f2ee09c036a0502c35917de5693f11",
+    "textworld": "1.7.0",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "torch_cuda": "13.0",
+    "transformers": "4.51.3"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source": {
+    "cancelled_after_attempted_n": 2,
+    "cancelled_run_id": "3441767f-ad57-419c-900c-15cd984fbc85",
+    "producer_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "source_experiment_id": "95cd6882-3c76-48db-9ec6-fd0e08be264f",
+    "source_runner_sha256": "d3d3aff0ba804603fe4509fe9c5c389d890ca77e334b8812c4b6d998fd7684f0"
+  },
+  "tests": {
+    "all_32_bound_dev_paths_present": true,
+    "mock_scorer_exact_equivalence": "PASS",
+    "nonstudy_reset_canary": "PASS",
+    "nonstudy_reset_canary_commands_n": 30,
+    "nonstudy_reset_canary_game": "train/look_at_obj_in_light-AlarmClock-None-DeskLamp-301/trial_T20190907_174127_043461/game.tw-pddl",
+    "nonstudy_reset_canary_obs_sha256": "99b3cbb2b2207951262bc146efb59a64f6af167dbe69e3494c2e7784279e5855",
+    "nonstudy_reset_canary_step_count": 0,
+    "py_compile": "PASS",
+    "retry_exhaustion_no_return": "PASS",
+    "same_index_retry": "PASS",
+    "verify_frozen_bindings": "PASS"
+  }
+}

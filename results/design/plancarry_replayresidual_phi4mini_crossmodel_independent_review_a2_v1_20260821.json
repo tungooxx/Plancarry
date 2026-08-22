@@ -1,0 +1,58 @@
+{
+  "author_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "check_count": 18,
+  "checks": {
+    "activation_gate_strict": true,
+    "alpha_grid_exact": true,
+    "axis_b_reference_only": true,
+    "contract_file_sha": true,
+    "contract_self_hash": true,
+    "dev_confirmation_family_disjoint": true,
+    "exact_path_disjoint": true,
+    "first_action_excluded": true,
+    "historically_family_unexposed": false,
+    "layer_mapping_exact": true,
+    "manifest_file_sha": true,
+    "manifest_self_hash": true,
+    "n20_dev_n20_confirmation": true,
+    "no_exact_path_prior_exposure": true,
+    "no_science": true,
+    "phi_bf16_no_quant_offload": true,
+    "phi_revision_and_public_metadata_hashes_exact": true,
+    "two_sign_tests_holm_exact": true
+  },
+  "created_utc": "2026-08-21T09:14:00Z",
+  "environment_execution": 0,
+  "independently_verified_public_phi_metadata": {
+    "chat_template_sha256": "febf589225c9728ab791f52e8897d7607a823d45368f0a4c92fa68997b40cce9",
+    "config_sha256": "ac65d86061d3d0d704ee2511fd0eb8713ef19eb6eedba17c3080a4165d5b933b",
+    "generation_config_sha256": "3e3f48753753f92d2b958679151861d4fd7bf26e4dfc41fd47056116c4914dcd",
+    "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+    "tokenizer_config_sha256": "9c9b6bc0c94d95f69f826c41069a3e8b387ac3ced89601d201886e99240ac9db"
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PHI4MINI_CROSSMODEL_INDEPENDENT_REVIEW_A2_V1",
+  "material_defect": {
+    "confirmation_families_with_prior_metadata_hits": 15,
+    "development_families_with_prior_metadata_hits": 12,
+    "high_tier_risk": "Weakens family-disjoint cross-model external validity and creates overlap with earlier PlanCarry development/confirmation identities.",
+    "name": "HISTORICAL_FAMILY_EXPOSURE_NOT_EXCLUDED",
+    "selected_exact_paths_with_prior_hits": 0,
+    "statement": "Exact game paths are fresh, but the selection rule does not exclude previously persisted exact family identities. 27/40 selected families have prior design/science metadata hits under other trials, so historically-unexposed is defensible only at episode/path level, not family level.",
+    "total_selected_families_with_prior_metadata_hits": 27
+  },
+  "model_calls": 0,
+  "other_semantics": "PASS. Interface adaptation is model-native only; substantive V2.1 planner/action/control semantics remain fixed. Normalized-depth layer mapping, alpha, t2/reset site, LPA, controls, sign/Holm/effect guards, true reset/one intervention/no reinjection and strict primary activation gates are prospectively frozen.",
+  "passed_check_count": 17,
+  "repair_feasibility": {
+    "current_n20_valid_train_development_retainable_with_family_exclusion": false,
+    "family_unexposed_train_candidates": 76,
+    "family_unexposed_valid_train_candidates": 15,
+    "preferred_prospective_repair": "Before any Phi model/environment outcome, use a fresh salt and rebuild from exact-family-unexposed metadata. Preferred strongest repair: 20 train families for development plus a different 20 train families for confirmation, with exact family/path disjointness and no replacement. Preserve model, causal mechanism, layer map, alpha grid, controls, tests, effect guards and activation gates. Alternatively explicitly weaken the claim and justify a smaller development cohort, but do not silently relabel path-unexposed as family-unexposed.",
+    "prior_exposed_exact_family_count": 246
+  },
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "03454972-fb2b-47b3-a338-bfee2d86d225"
+}

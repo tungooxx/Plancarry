@@ -1,0 +1,44 @@
+{
+  "authorization": "PASS authorizes only a fresh ResearchDecision + ExperimentRun for capture/evaluation recovery using the immutable validated packet bytes; it does not assess ReplayResidual science.",
+  "engineering_audit_sha256": "a4c4a9997ebbe1c512f58c7c5cb3f1eef0b085041702832c4aed242424a12d49",
+  "experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "frozen_source_hashes": {
+    "bridge": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404",
+    "protocol": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "runner": "5d64a1a97c3ca10050920c7fa8802d1bf5226f253172c9b9e17059d5be7deecb",
+    "sidecar": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "validator": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2"
+  },
+  "independent_checks": {
+    "bash_n_pass": true,
+    "bfloat16_rtx3050_binding": true,
+    "bridge_disable_patch": true,
+    "canonical_output_only": true,
+    "canonical_result_absent": true,
+    "capture_only_sidecar": true,
+    "exact_qwen_revision": true,
+    "overwrite_refusal": true,
+    "packet_directory": "results/science/plancarry_replay_residual_sanity_packets_v2",
+    "packet_file_count": 34,
+    "packet_regeneration_present": false,
+    "packet_validator_pass": true,
+    "reserve_or_valid_split_access": false,
+    "scientific_variable_drift": false,
+    "t1_or_t1r_path": false
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_V2_1_CAPTURE_RECOVERY_A3_INDEPENDENT_REVIEW",
+  "launcher": {
+    "path": "results/design/plancarry_replay_residual_v2_1_capture_recovery_launcher_20260821.sh",
+    "sha256": "d2f76d1e16736cdfb64c1267b51883f9c8bb467d8089a67bde25dbbd05e17a89"
+  },
+  "orphan_run_id": "55daaf8b-30c0-48ec-93c0-e7f46f6a7dac",
+  "reviewer_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "science": {
+    "packet_scientific_values_inspected": false,
+    "sanity_outcomes_inspected": false,
+    "scientific_result": "NOT_ASSESSED"
+  },
+  "source_author_worker_id": "08a6ef5d-fd87-49d7-ae94-d75cd29950b3",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_V2_1_CAPTURE_RECOVERY",
+  "work_item_id": "205a28c9-3671-4552-a7ff-09d5eff0f322"
+}

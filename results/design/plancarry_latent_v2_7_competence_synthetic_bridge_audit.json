@@ -1,0 +1,43 @@
+{
+  "alfworld_science": false,
+  "kind": "PLANCARRY_LATENT_V2_7_SYNTHETIC_BRIDGE_AUDIT",
+  "model_calls": "synthetic_only",
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.46.3"
+  },
+  "prompt": "ENGINEERING SYNTHETIC CHECK\n<STATE_END>\nACTION:",
+  "scores": [
+    {
+      "logprob_sum": -13.17442798614502,
+      "patch_token_index_resolved": null,
+      "suffix": " alpha",
+      "token_count": 1
+    },
+    {
+      "logprob_sum": -14.69005298614502,
+      "patch_token_index_resolved": null,
+      "suffix": " beta",
+      "token_count": 1
+    }
+  ],
+  "suffixes": [
+    " alpha",
+    " beta"
+  ]
+}

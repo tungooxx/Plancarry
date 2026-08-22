@@ -1,0 +1,30 @@
+{
+  "changed_path_count": 14,
+  "changed_paths": [
+    "artifact_integrity.scientific_variables_changed_from_v2_5",
+    "artifact_integrity.source_v2_5_design_sha256",
+    "artifact_integrity.v2_5_readiness_outcome",
+    "artifact_integrity.v2_5_readiness_work_item_id",
+    "artifact_integrity.v2_6_runtime_rebind_audit_sha256",
+    "artifact_integrity.v2_6_runtime_rebind_sha256",
+    "kind",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "repair_scope",
+    "supersedes_experiment_id",
+    "supersedes_prediction_id",
+    "title",
+    "validity_guards[3]"
+  ],
+  "confirmation_accessed": false,
+  "draft_sha256": "34e246e20d253ce6623ce25423cc21a5af512860be44c9ddc644332b8665fd5b",
+  "kind": "PLANCARRY_LATENT_V2_6_FULL_DESIGN_MECHANICAL_DIFF_AUDIT",
+  "runtime_rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "scientific_outcomes_seen": false,
+  "scientific_variables_changed": [],
+  "source_v25_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "status": "DRAFT_NOT_REGISTERED_AWAITING_INDEPENDENT_REVIEW",
+  "unexpected_changed_paths": [],
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

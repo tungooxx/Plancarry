@@ -1,0 +1,29 @@
+{
+  "D": 4,
+  "benchmark_execution": 0,
+  "contract_path": "results/design/plancarry_transmem_mab_public_per_source_reproduction_contract_v1_20260821.json",
+  "contract_sha256": "144aa39aec296fd1b62d4e07c6cbb585f994b0621cd749d08a364af8c09f884e",
+  "created_utc": "2026-08-21T08:15:47Z",
+  "global_step": 1250,
+  "inference_N": 4,
+  "judge_model": "gpt-4o",
+  "judge_required_source_count": 2,
+  "kind": "PLANCARRY_TRANSMEM_MAB_PUBLIC_PER_SOURCE_REPRODUCTION_CONTRACT_V1_AUDIT",
+  "macro_label_if_used": "PROJECT-COMPUTED",
+  "main13_count": 13,
+  "model_execution": 0,
+  "official_cross_source_overall": false,
+  "pins": {
+    "adapter_best_pt_sha256": "f338bb669c2be6982077a46196573daefa86f78415e43e2de4c0bcd8e6bedae2",
+    "adapter_revision": "85ba1010eb226e312e208940180bb60424a2cb79",
+    "dataset_revision": "7ea066982b140a19337e17e60d45d4076e042faf",
+    "mab_commit": "fe1735de8cf8b9908e1e3d3b5612afc815698062",
+    "qwen_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "transmem_commit": "6d7a6127967ad44482c958b555d8c83bfb75e9b9"
+  },
+  "plan_carry_scientific_outcomes_accessed": false,
+  "required_checkpoint_metadata_resolved": true,
+  "total_questions": 2000,
+  "trained_N": 4,
+  "verdict": "PASS_FOR_PUBLIC_PER_SOURCE_REPRODUCTION_PREPARE"
+}

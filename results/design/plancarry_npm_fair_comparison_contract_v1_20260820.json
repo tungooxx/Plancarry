@@ -1,0 +1,101 @@
+{
+  "claim_boundaries": [
+    "Do not claim PlanCarry is the first activation procedural memory or first agent activation steering.",
+    "Do not call published NPM ALFWorld success directly worse/better than PlanCarry T1 metrics.",
+    "Do not retrofit NPM-style repeated injection into PlanCarry T2; repeated injection invalidates the persistence claim.",
+    "Do not alter primary T1/T1R thresholds, model, cohort or controls after seeing NPM.",
+    "Do not run NPM/system comparison to rescue a null or technically invalid primary T1."
+  ],
+  "comparability_rules": {
+    "allowed_use": "Published NPM results may establish prior-art strength/context and motivate a system-level matched baseline; do not subtract/ratio published NPM success against PlanCarry T1 CPSE or sign-test metrics.",
+    "published_NPM_numbers_are_direct_T1_baseline": false,
+    "reason": "Different backbone/model size, task sampling/evaluation protocol, objective and endpoint. NPM published ALFWorld task success is system-level; PlanCarry T1 is a matched causal mechanism test on a frozen family cohort."
+  },
+  "future_mechanism_matched_baseline_if_primary_survives": {
+    "PlanCarry_specific_causal_metrics": [
+      "T1/T2 CPSE and reciprocal donor consistency remain separately reported and are not replaced by success rate"
+    ],
+    "arms": [
+      "NO_MEMORY",
+      "TEXT_WORKFLOW_or_matched_explicit_memory",
+      "NPM_STYLE_REPEATED_STEERING",
+      "PLANCARRY_SINGLE_INJECTION_CHECKPOINT"
+    ],
+    "failure_interpretation": "If NPM repeated steering wins end-task success, that does not negate PlanCarry causal persistence; it establishes a system-performance tradeoff. If PlanCarry single injection matches/reaches NPM while using one intervention and smaller episode-local storage, that is stronger evidence for a checkpoint contribution. No conclusion until matched experiment is run.",
+    "intervention_frequency_accounting": {
+      "NPM_STYLE_REPEATED_STEERING": "count residual additions per generated token \u00d7 target layers; report intervention calls/episode and tokens steered",
+      "PLANCARRY_SINGLE_INJECTION_CHECKPOINT": "one checkpoint injection event at interruption boundary; report patched layers/tokens once; no later reinjection allowed for T2 persistence claim"
+    },
+    "preferred_design": "Choose a prospectively frozen compatible open backbone/environment where both mechanisms can be implemented on the exact same held-out episodes. Prefer an NPM-supported Qwen3 model only if compute permits; otherwise document model mismatch and run a conceptual/ablative comparator rather than pretending exact reproduction.",
+    "primary_system_metric": "end-task success/reward on identical episodes",
+    "same_across_arms": [
+      "model/revision/precision",
+      "environment/version/task cohort",
+      "prompt/action format",
+      "episode seeds",
+      "maximum interaction budget",
+      "end-task evaluator",
+      "context/text budget where applicable"
+    ],
+    "storage_accounting": {
+      "NPM": "report historical-repository bytes/task or trajectory, retrieval metadata, number of stored vectors/layers, dtype; paper example 45 KB/trajectory for Qwen3-4B 3 layers FP16",
+      "PlanCarry": "report checkpoint bytes/episode, number of vectors/tokens/layers and dtype; T3 must establish endogenous extraction/minimality before calling it a deployment memory object"
+    },
+    "trigger": "Only after valid corrected-v2.6 primary confirmation is SUPPORTED_T1; do not run to rescue a null/inconclusive/invalid T1."
+  },
+  "kind": "PLANCARRY_NPM_FAIR_COMPARISON_CONTRACT_V1",
+  "npm": {
+    "arxiv": "2606.29824v1",
+    "date": "2026-06-29",
+    "method": {
+      "intervention": "inject synthesized task-specific steering vector into residual stream at each autoregressive generation time step",
+      "memory_source": "historical task trajectories; inter-trajectory success-vs-failure and intra-trajectory effective-vs-degenerate contrasts",
+      "qwen_layers": "17-19 for Qwen3-4B and Qwen3-8B",
+      "storage": "three hidden-state representations per historical trajectory per target layer (one inter last-token state; two intra pooled states)",
+      "strength": "dynamic discrete scale selection constrained by next-token KL divergence threshold",
+      "synthesis": "retrieve top-K similar historical tasks (paper K=8), form contrast pool, mean-center paired activations, derive dominant PCA direction",
+      "training_free": true
+    },
+    "paper": "Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steering",
+    "paper_id": "98685519-b7be-496b-a474-41a49ec6f498",
+    "paper_training_data": "training-split tasks; 16 sampled trajectories/task, temperature 0.7, top-p 0.8, top-k 20; ALFWorld max 50 turns; retrieval K=8",
+    "published_storage_example": "Qwen3-4B, hidden d=2560, FP16, 3 target layers: paper reports 45 KB per historical trajectory.",
+    "reported_alfworld_success_percent": {
+      "MiniCPM3-4B_NPM": 31.34,
+      "MiniCPM3-4B_no_memory": 23.88,
+      "Qwen3-4B_NPM": 40.3,
+      "Qwen3-4B_NPM_plus_workflows": 61.19,
+      "Qwen3-4B_no_memory": 30.6,
+      "Qwen3-4B_workflows": 52.99,
+      "Qwen3-8B_NPM": 56.72,
+      "Qwen3-8B_NPM_plus_workflows": 66.42,
+      "Qwen3-8B_no_memory": 39.55,
+      "Qwen3-8B_workflows": 62.69
+    }
+  },
+  "outcome_access": {
+    "confirmation": false,
+    "t1_active_control_effects": false,
+    "t1_source_competence": false,
+    "valid_seen": false,
+    "valid_unseen": false
+  },
+  "planCarry_corrected_primary": {
+    "T2_future_endpoint": "same causal plan state injected once, then common action/observation prefix in same persistent session with no reinjection/recomputed patch; later donor-consistent divergent branch effect",
+    "current_T1_endpoint": "matched-reset episode-specific active-plan identity; reciprocal first-divergent branch causal effect and specificity controls",
+    "experiment_id": "d347c226-139a-4b14-8f25-4329ee08ea37",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "prediction_id": "d09895b5-8a13-43db-a5a4-6084630242f4"
+  },
+  "scientific_result": "NOT_ASSESSED_BASELINE_CONTRACT_ONLY",
+  "status": "FROZEN_PRE_T1_OUTCOME",
+  "web_evidence_as_of": "2026-08-20",
+  "web_evidence_notes": [
+    "arXiv 2606.29824v1 \u00a73.3 states steering vector is injected at each autoregressive time step",
+    "Table 1 reports ALFWorld success rates by model/method",
+    "Appendix A reports trajectory sampling/retrieval and steering-layer configuration",
+    "Appendix D reports storage formula/example"
+  ],
+  "work_item_id": "1de12014-97ea-40b2-a05b-a422dbf3e32a"
+}

@@ -1,0 +1,17 @@
+{
+  "allowed_changed_json_paths": [
+    "/model/bridge_required_real_verification",
+    "/model/execution_host_policy",
+    "/validity_guards/3",
+    "/runtime_rebind_provenance"
+  ],
+  "base_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "engineering_result_id": "4e82846f-4b29-486f-85d9-d82b475cb5fe",
+  "kind": "PLANCARRY_V25_RTX3050_RUNTIME_REBIND_MACHINE_AUDIT",
+  "masked_scientific_core_exact_equal": true,
+  "masked_scientific_core_sha256": "c3c946e2d3718056ee2835feaf990761f3460d36b4021613ed1b3f7358b0ca21",
+  "qualification_sha256": "82ce82653d7f4808b31dc2854a37addc31ddcfd2f2d3180f5b70ae4ef44dad9f",
+  "rebind_design_sha256": "4287f59c4af2bb187343c8010bbea9a84322f6852c697683d8e89987b1af97cd",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": []
+}

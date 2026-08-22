@@ -1,0 +1,14 @@
+{
+  "independent_review_sha256": "2c4f0c1857a4e1ec49952af1d73ae614ccdb6718eab6bf0f8194de9b307c6e4e",
+  "kind": "PLANCARRY_LATENT_V2_6_REGISTRATION_WRAPPER_AUDIT",
+  "no_scientific_outcomes_accessed": true,
+  "prediction_equal": true,
+  "rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "research_question_equal": true,
+  "runtime_only": true,
+  "scientific_override_count": 0,
+  "scientific_override_paths": [],
+  "source_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "verdict": "PASS_SCHEMA_ALIAS_RUNTIME_ONLY",
+  "wrapper_sha256": "63b831a9a6b09c700f3643dfa82a949a195165ec04270d6b8cdad4c6c30aa993"
+}
