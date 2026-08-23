@@ -19,8 +19,9 @@ def install_evalsymbol_explicit_locals(textgen: ModuleType) -> None:
 
     def derive(self: Any, context: dict[str, Any] | None = None) -> list[Any]:
         active_context = context or self.context
-        variables = dict(active_context["variables"])
-        value = eval(self.expression, textgen.__dict__, variables)
+        explicit_locals = {"self": self, "context": active_context}
+        explicit_locals.update(dict(active_context["variables"]))
+        value = eval(self.expression, textgen.__dict__, explicit_locals)
         return [textgen.TerminalSymbol(value)]
 
     eval_symbol.derive = derive
