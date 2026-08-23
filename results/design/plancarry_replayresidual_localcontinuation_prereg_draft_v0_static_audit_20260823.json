@@ -1,0 +1,27 @@
+{
+  "all_pass": true,
+  "checks": {
+    "confirmation_all20": true,
+    "draft_not_executable": true,
+    "first_action_excluded_two_positions": true,
+    "fixed_five_nontrivial": true,
+    "fresh_counts": true,
+    "holm_two": true,
+    "joint_selection": true,
+    "no_old_causal_selection": true,
+    "old_data_prohibited": true,
+    "reserve_no_retune": true,
+    "same_grid": true,
+    "single_injection_same_kv": true,
+    "success_not_eligibility": true,
+    "task_success_secondary_only": true,
+    "var_guard": true
+  },
+  "draft_sha256": "4f273c75426efcad3fac8f9952dda161bc0a50e0d21ba0b207f5508697f92ec3",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_STATIC_AUDIT",
+  "model_calls": 0,
+  "note": "Draft cannot authorize registration/execution. Final v1 must bind independently reviewed fresh population manifest/exposure-audit hashes and receive fresh independent prereg review.",
+  "population_outcomes_accessed": false,
+  "scientific_outcomes_accessed": false
+}
