@@ -1,0 +1,185 @@
+{
+  "changed_leaf_count": 27,
+  "changed_leaves": [
+    {
+      "after": "PRE_OUTCOME_NONEXECUTABLE_MARGIN_DETERMINISM_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW_AND_POPULATION_BINDING",
+      "before": "DRAFT_PRE_POPULATION_BINDING_DO_NOT_REGISTER_OR_EXECUTE",
+      "path": "artifact_status"
+    },
+    {
+      "after": "46c8a154-e985-4500-a9e0-2d2e1ec32d97",
+      "before": "4f78b1e7-d9b0-472f-b7b0-6fd2a30ff29f",
+      "path": "author_work_item_id"
+    },
+    {
+      "after": "Select ONE global layer/alpha maximizing median joint_margin_ms across stage2-qualified development families. Tie-break in this exact order: (1) higher median ACTIVE MSA2 over the exact same stage2-qualified development denominator; (2) higher median ACTIVE reference_action_margin_family over that exact same denominator; (3) lower alpha; (4) earlier layer. No per-family point selection. All score equality and top1 command ties inherit exact V2.1 semantics: exact FP32 score equality and lexical-min command among maxima.",
+      "before": "Select ONE global layer/alpha maximizing median joint_margin_ms across stage2-qualified development families. Tie-break: higher median ACTIVE MSA2, then higher ACTIVE matched-state reference mean-logprob margin averaged over action4/action5, then lower alpha, then earlier layer. No per-family point selection.",
+      "path": "development.selection"
+    },
+    {
+      "after": "reference_action_margin_family = arithmetic mean(margin_4, margin_5). Both margins must be finite.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.family_aggregation"
+    },
+    {
+      "after": "For each grid cell, compute the median of ACTIVE reference_action_margin_family across the exact same stage2-qualified development families used by the primary selector. Higher median wins only after a tie on primary median joint_margin_ms and median ACTIVE MSA2.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.grid_tiebreak_aggregation"
+    },
+    {
+      "after": "ACTIVE_reference_action_margin_family",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.name"
+    },
+    {
+      "after": "For j in {4,5}: margin_j = score_FP32_meanlogprob(reference_action_j) - max(score_FP32_meanlogprob(c) for c in current_admissible_commands_j if c != reference_action_j).",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.position_formula"
+    },
+    {
+      "after": "Late deterministic development tie-break only. It is not a primary endpoint, confirmation statistic, effect guard, or scientific support criterion.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.role"
+    },
+    {
+      "after": "Exact FP32 score equality; lexical-min command among equal maxima, inherited unchanged from V2.1.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.score_equality_and_top1_ties"
+    },
+    {
+      "after": [
+        "reference action4",
+        "reference action5"
+      ],
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.scored_positions"
+    },
+    {
+      "after": "Exact inherited V2.1 admissible-command suffix arithmetic-mean FP32 logprob scorer at the matched uninterrupted-reference pre-action state; no sampled/generated action is appended during scoring.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.scorer"
+    },
+    {
+      "after": "If the current admissible set at either scored position contains no non-reference command, the family/grid-cell is TECHNICAL_INVALID_MARGIN_UNDEFINED. Do not substitute +inf/-inf/0, do not drop/filter the family, and do not use that grid cell for selection.",
+      "before": "<MISSING>",
+      "path": "development.selection_tiebreak_margin.single_admissible_fail_closed"
+    },
+    {
+      "after": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_2_MARGIN_REPAIR",
+      "before": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_1",
+      "path": "kind"
+    },
+    {
+      "after": "rank each supplied canonical never-exposed relative path by SHA256('ReplayResidualLocalContinuation|V1|'+relative_path), lexical path tie-break; first32 development, next20 untouched confirmation, next12 reserve; no replacement",
+      "before": "<MISSING>",
+      "path": "population_binding.selector_algorithm"
+    },
+    {
+      "after": "3a15c424f9648e8afeee306efeb35fbbb5f190604e39b136b5b1bfbec876f1a9",
+      "before": "<MISSING>",
+      "path": "population_binding.selector_independent_review_sha256"
+    },
+    {
+      "after": "NOT_YET_FROZEN",
+      "before": "<MISSING>",
+      "path": "population_binding.selector_real_population_status"
+    },
+    {
+      "after": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b",
+      "before": "<MISSING>",
+      "path": "population_binding.selector_utility_sha256"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "repair_provenance.broader_unreviewed_hardened_v1_imported"
+    },
+    {
+      "after": 0,
+      "before": "<MISSING>",
+      "path": "repair_provenance.environment_execution"
+    },
+    {
+      "after": 0,
+      "before": "<MISSING>",
+      "path": "repair_provenance.model_calls"
+    },
+    {
+      "after": "Only deterministic definition of late development tie-break margin plus non-scientific binding to independently reviewed population-selector algorithm/provenance.",
+      "before": "<MISSING>",
+      "path": "repair_provenance.repair_scope"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "repair_provenance.scientific_outcomes_accessed"
+    },
+    {
+      "after": "LC_PREREG_V01_MARGIN_UNDEFINED",
+      "before": "<MISSING>",
+      "path": "repair_provenance.trigger_finding_id"
+    },
+    {
+      "after": "37133a3a89c48516a561cbca1c9c1cebe5ce9da48ef98005557a768f46633156",
+      "before": "<MISSING>",
+      "path": "repair_provenance.trigger_review_artifact_sha256"
+    },
+    {
+      "after": "91ded9e9-db66-4f91-802d-c3de9b36b673",
+      "before": "<MISSING>",
+      "path": "repair_provenance.trigger_review_work_item_id"
+    },
+    {
+      "after": "MATERIAL_REPAIR_REQUIRED",
+      "before": "<MISSING>",
+      "path": "repair_provenance.trigger_verdict"
+    },
+    {
+      "after": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667",
+      "before": "4f273c75426efcad3fac8f9952dda161bc0a50e0d21ba0b207f5508697f92ec3",
+      "path": "supersedes_draft_sha256"
+    }
+  ],
+  "checks": {
+    "arms_byte_equal": true,
+    "confirmation_byte_equal": true,
+    "environment_execution_zero": true,
+    "exact_v21_tie_semantics_bound": true,
+    "family_aggregation_arithmetic_mean": true,
+    "grid_tiebreak_uses_median": true,
+    "high_tier_claim_boundary_byte_equal": true,
+    "model_calls_zero": true,
+    "model_runtime_byte_equal": true,
+    "population_still_unfrozen": true,
+    "position_formula_exact": true,
+    "primary_endpoint_byte_equal": true,
+    "reserve_byte_equal": true,
+    "reset_session_byte_equal": true,
+    "scientific_difference_byte_equal": true,
+    "scientific_outcomes_accessed_false": true,
+    "secondary_endpoints_byte_equal": true,
+    "selector_review_bound": true,
+    "selector_salt_exact": true,
+    "single_admissible_fail_closed": true,
+    "source_residual_byte_equal": true,
+    "source_v01_sha_exact": true,
+    "stage1_byte_equal": true,
+    "stage2_byte_equal": true,
+    "trigger_review_sha_bound": true,
+    "unexpected_changed_paths_empty": true
+  },
+  "environment_execution": 0,
+  "execution_forbidden": true,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_V02_MARGIN_REPAIR_STATIC_AUDIT",
+  "model_calls": 0,
+  "real_population_frozen": false,
+  "scientific_outcomes_accessed": false,
+  "source_v01_path": "results/design/plancarry_replayresidual_localcontinuation_prereg_draft_v0_1_20260823.json",
+  "source_v01_sha256": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667",
+  "status": "PASS_READY_FOR_FRESH_INDEPENDENT_V02_REVIEW",
+  "target_v02_path": "results/design/plancarry_replayresidual_localcontinuation_prereg_draft_v0_2_20260823.json",
+  "target_v02_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+  "trigger_review_sha256": "37133a3a89c48516a561cbca1c9c1cebe5ce9da48ef98005557a768f46633156",
+  "trigger_review_work_item_id": "91ded9e9-db66-4f91-802d-c3de9b36b673",
+  "unexpected_changed_paths": []
+}
