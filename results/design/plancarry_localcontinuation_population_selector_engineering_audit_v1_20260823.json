@@ -1,0 +1,47 @@
+{
+  "base_commit": "c73f0c932fc9bf91483f5d5101d921c560d37b1d",
+  "engineering_task_id": "e4c1f420-49cc-4524-a341-7d19867edcb9",
+  "environment_execution": 0,
+  "existing_manifest_builder_hashes": {
+    "replay_residual_manifest_builder_v1.py": "4b6f836d181bf82973478f320770d025a54b18ab2d09a96eefde2e00b1d602da",
+    "replay_residual_manifest_builder_v2.py": "2e160ace877b46729b4f3f474d90f1a575201da419587a8f7c1ffa22db377b17",
+    "replay_residual_manifest_builder_v3.py": "e63f4815bdc2696e4cea1712c845030c8f72bb125bec943e991b5a3563a5738d"
+  },
+  "hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "kind": "PLANCARRY_LOCALCONTINUATION_POPULATION_SELECTOR_ENGINEERING_AUDIT_V1",
+  "limitations": [
+    "No real ALFWorld path inventory was available locally, so this engineering task does not freeze or select any real scientific population.",
+    "A real manifest requires caller-supplied canonical inventory plus exposed-path list and fresh independent review."
+  ],
+  "model_calls": 0,
+  "remote_compute_used": false,
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "selection_contract": {
+    "confirmation_n": 20,
+    "development_n": 32,
+    "input_only": true,
+    "real_population_frozen": false,
+    "reserve_n": 12,
+    "salt": "ReplayResidualLocalContinuation|V1|"
+  },
+  "static_checks": {
+    "filesystem_discovery_calls_absent": true,
+    "forbidden_imports_absent": true,
+    "hardcoded_alfworld_data_root_absent": true,
+    "salt_exact": true,
+    "split_sizes_exact": true
+  },
+  "tests": {
+    "failed": 0,
+    "passed": 11,
+    "py_compile_pass": true,
+    "unit_tests": 11
+  },
+  "tests_path": "tests/test_localcontinuation_population_selector_v1.py",
+  "tests_sha256": "dbcda16252db581a300a422b4efc720407365e24ba4ae0d404366a320b33db1f",
+  "utility_path": "localcontinuation_population_selector_v1.py",
+  "utility_sha256": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b",
+  "work_item_id": "a5e8927c-28c0-40cc-8e56-5e0f2c83ddeb"
+}
