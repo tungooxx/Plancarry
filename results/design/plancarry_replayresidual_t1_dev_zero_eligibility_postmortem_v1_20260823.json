@@ -1,0 +1,60 @@
+{
+  "action_length_counts": {
+    "12": 32
+  },
+  "action_verb_counts": {
+    "examine": 24,
+    "go": 50,
+    "move": 139,
+    "open": 3,
+    "take": 168
+  },
+  "adjacent_repeat_counts": {
+    "0": 30,
+    "3": 1,
+    "5": 1
+  },
+  "command_error_count": 0,
+  "compute_policy_note": "Postmortem is read-only/local; no model or environment execution.",
+  "decision_id": "59a57bce-5e1a-4554-af2f-235eaa18862a",
+  "diagnosis": {
+    "causal_replay_residual_refuted": false,
+    "causal_t1_test_reached": false,
+    "current_lineage_rescue_allowed": false,
+    "failed_assumption": "The exact Qwen3-1.7B natural-plan executor would win enough fixed ALFWorld pick_and_place_simple development episodes within the frozen 12-action budget to form trajectory-eligible set E.",
+    "not_supported_as_primary_failure": [
+      "plan acceptance",
+      "invalid commands/execution errors",
+      "first-two nontriviality",
+      "post-cut nontriviality",
+      "stage2 control construction"
+    ],
+    "primary_failure": "EXECUTOR_TASK_SUCCESS_WITHIN_12_ACTIONS"
+  },
+  "episode_success_count": 0,
+  "episodes_first_two_with_excluded_action": 0,
+  "experiment_id": "d4ff66fc-2be8-4cbd-a1db-1a951df8db42",
+  "future_research_constraint": "Any successor must be prospectively new and tested on fresh data; it must not merely increase the current consumed cohort action budget, replace families, relax thresholds, switch model to rescue this result, or open confirmation/T1R. Prefer a causal estimand that does not require full end-task success merely to enter the intervention cohort, while retaining competence/valid-action guards.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_T1_DEV_ZERO_ELIGIBILITY_POSTMORTEM_V1",
+  "packet_count": 32,
+  "packet_dir": "results/science/plancarry_replay_residual_t1_user_override_dev_packets_v1",
+  "postcut_nontrivial_max": 10,
+  "postcut_nontrivial_min": 10,
+  "source_result": "results/science/plancarry_replay_residual_t1_user_override_dev_gate_v1.json",
+  "source_result_sha256": "be8404a5ffd7a31f310f37810a84198d395d1261a5de24fdcde62524783a99b2",
+  "stage1_reason_counts": {
+    "NOT_WON_WITHIN_ACTION_BUDGET": 32
+  },
+  "stage2_reason_counts": {
+    "FROZEN_E_SIZE_LT_2": 32
+  },
+  "terminal_status": "INCONCLUSIVE_T1_DEVELOPMENT_EXPRESSIVITY",
+  "unique_actions_per_episode_counts": {
+    "3": 18,
+    "5": 8,
+    "6": 3,
+    "7": 1,
+    "8": 1,
+    "10": 1
+  }
+}
