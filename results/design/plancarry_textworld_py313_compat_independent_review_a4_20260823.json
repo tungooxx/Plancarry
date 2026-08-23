@@ -1,0 +1,35 @@
+{
+  "bound": {
+    "a2_audit_sha256": "aaed4e5ec23b9717bde9ecdf2dcc7a66fa66de61eb9383fea38c1c2a50de27a9",
+    "alfworld_runtime_sha256": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "compat_sha256": "9506534d044fafff43e19db99cfaf93e808d670eb05572c8b338dd137b095da4",
+    "postmortem_sha256": "887d2f8a434b2fb7f4cd8a8092f88b06475b5f249554e28f7894c86f1c353278",
+    "producer_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "sanity_protocol_sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef"
+  },
+  "independent_checks": {
+    "actions_executed": 0,
+    "builtin_resolution": "PASS",
+    "context_mutation": "none observed",
+    "current_shim_context_resolution": "FAIL NameError: context is not defined",
+    "current_shim_self_resolution": "FAIL NameError: self is not defined",
+    "current_shim_variable_resolution": "PASS; expression r resolves",
+    "explicit_nonempty_context_precedence": "PASS",
+    "idempotent_install": "PASS",
+    "model_calls": 0,
+    "original_textworld_1_7_source": "EvalSymbol.derive has locals self/context, then locals().update(context[variables]), then implicit eval(self.expression).",
+    "py_compile_pass": true,
+    "python313_original_context_resolution": "PASS; expression context[variables][r] resolves",
+    "python313_original_self_resolution": "PASS; expression self.expression resolves",
+    "python313_original_variable_injection": "NameError for expression r, reproducing root cause",
+    "scientific_variables_changed": [],
+    "study_family_model_or_environment_execution": false
+  },
+  "kind": "PLANCARRY_TEXTWORLD_PY313_COMPAT_INDEPENDENT_REVIEW_A4",
+  "material_issue": "The current shim passes only a copied context[variables] mapping as eval locals. Legacy EvalSymbol eval scope also contains the function locals self and context before variable injection. Therefore the current shim is not semantically equivalent: expressions using self or context work in original TextWorld but fail under the shim.",
+  "minimal_repair": "Build explicit locals as {self: self, context: active_context}, then update with a copied active_context[variables] so grammar variables preserve legacy shadowing; call eval(self.expression, textgen.__dict__, explicit_locals). Preserve context=context or self.context, TerminalSymbol(value), idempotence, module globals/builtins, and no mutation. Re-run regression and non-study reset-only canary, then fresh independent review.",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scope": "ENGINEERING_ONLY; no scientific result assessed. This review does not authorize ReplayResidual science or T1.",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "01c9ea4f-41e0-46cb-a25c-ad261d701158"
+}
