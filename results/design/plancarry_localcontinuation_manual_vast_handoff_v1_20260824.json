@@ -1,0 +1,39 @@
+{
+  "confirmation_policy": "The launcher stops after development. Confirmation remains sealed and requires a separate later ResearchDecision after development selection/futility is frozen and assessed.",
+  "expected_device_name": "NVIDIA GeForce RTX 4070 SUPER",
+  "experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "frozen_science_hashes": {
+    "final_prereg": "a6972b33caaf7f2b7b28af248acd528a540e077bfdb59283f5f288de5e297ec8",
+    "final_prereg_review": "c9c89ebe87980e2169d8534b43d6955b477cd94d5ea14c70604c8af5b6a1c1b6",
+    "persistent_session_runtime": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "population_manifest": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+    "sanity_protocol": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "v2_1_packet_producer": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55"
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_MANUAL_VAST_HANDOFF_V1",
+  "launcher": "bash localcontinuation_vast_primary_v1.sh",
+  "launcher_sha256": "a640e43a1bb253ac0ac0e78bcdc61c42c5e1894ba26be834877f301b9744e72f",
+  "prediction_id": "c19837d5-1cac-4ce6-8555-614b9664768b",
+  "python_env": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+  "required_env": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "LOCALCONT_EXPECTED_DEVICE_NAME": "NVIDIA GeForce RTX 4070 SUPER",
+    "PLANCARRY_EXPECTED_GIT_COMMIT": "<EXACT_REVIEWED_COMMIT_FROM_ENGINEERING_RESULT>",
+    "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python"
+  },
+  "required_independent_verdict": "PASS_FOR_LOCALCONTINUATION_HEAVY_EXECUTION_HANDOFF",
+  "research_os_rule": "After the user manually starts Vast and host/runtime attestation passes, create a fresh ResearchDecision for this exact development-only launcher/cwd/env, then execute through research_experiment_execute. Never raw-run science.",
+  "reserve_policy": "Reserve remains sealed until terminal primary SUPPORTED and a separate gated replication run.",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "DEVELOPMENT_ONLY",
+  "source_hashes": {
+    "packet_builder": "116c213d27af987e782e463bc0317d8d443e95bf1ba571dbba0386d63d109128",
+    "phase_runner": "81a55589f68e1b8d53110ad64eceacb7cfc52a0838166b5241b34fb7fb11783d",
+    "science_driver": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "tests": "53d894d6d9ac406f8ff51263ab01ffbfe22ed65894cdb8a4901bf318b019f3d1",
+    "validator": "93390667e19302087f6b3d1a583f00ee4b97232443a4955aa2f1ca2a773fcbda"
+  },
+  "status": "FROZEN_ENGINEERING_HANDOFF_PENDING_INDEPENDENT_REVIEW",
+  "vast_started_or_created": false,
+  "working_directory": "/workspace/local-vlm/LLM/plancarry"
+}
