@@ -1,0 +1,172 @@
+{
+  "causal_runtime_and_controls": {
+    "injections_per_rollout": 1,
+    "intervention_controls": [
+      "NO_PATCH",
+      "ZERO_ADD",
+      "SELF_REPLACE",
+      "RANDOM_EQ_NORM",
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "UNRELATED_PLAN",
+      "PLAN_TOKEN_PERMUTED",
+      "PAST_ACTIONS_ONLY",
+      "VISIBLE_TEXT_PLAN"
+    ],
+    "random_control": "deterministic equal-norm SHA256-Rademacher as v1",
+    "reinjection": false,
+    "same_persistent_kv_session": true,
+    "source_residual": "PLAN_PRESENT - NEUTRAL_FILLER at t2",
+    "true_context_reset": true,
+    "zero_self_sentinels": "<=1e-6 as v1"
+  },
+  "control_contract_file": "results/design/plancarry_localcontinuation_v2_constructible_control_contract_v1_20260824.json",
+  "control_contract_sha256": "3320b466c023f88955e93e92999a7dcfb91addbf86e3bf0ff9dbd8b0b12fcee5",
+  "date_utc": "2026-08-24",
+  "development_and_confirmation": {
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "confirmation_gate": ">=15/20 Stage2-qualified on untouched fresh v2 confirmation",
+    "confirmation_primary": "autonomous first-action-excluded LCA2 on action4/action5 requiring action identity AND pre-action world-state hash equality; all20 denominator",
+    "development_endpoint": "matched-state MSA2 on reference actions4/5; one global operating point; same frozen tie/futility logic as reviewed v1 unless independently amended pre-data",
+    "development_gate": ">=16/32 Stage2-qualified on fresh v2 dev",
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "reserve": "n12 locked until primary support; no retuning",
+    "statistics": "same two exact one-sided n20 sign tests vs NO_PATCH and max plan-specific control + Holm FWER .05 + frozen effect/valid-action/plumbing guards",
+    "task_success": "secondary only"
+  },
+  "environment_execution_in_this_design": 0,
+  "execution_forbidden_until": [
+    "PASS_FOR_LOCALCONTINUATION_V2_PREREG_AND_POPULATION",
+    "PASS_FOR_LOCALCONTINUATION_V2_EXECUTABLE_STACK",
+    "fresh Experiment+Prediction registered from exact reviewed hashes",
+    "user manually starts the exact reviewed Vast GPU and host/runtime attestation passes",
+    "fresh ResearchDecision bound to development-only execution"
+  ],
+  "fresh_population_capacity_audit_sha256": "93ce5d70742769e464d9bb935b25bc019561da39e411792b7860809ac659efd9",
+  "frozen_model_runtime": {
+    "dtype": "BF16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "note": "model size is not changed as rescue; v1 96-token failure was a control-slot ceiling, not context exhaustion",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_V2_FINAL_PREREG_V1",
+  "model_calls_in_this_design": 0,
+  "population": {
+    "confirmation_indices": [
+      32,
+      51
+    ],
+    "development_indices": [
+      0,
+      31
+    ],
+    "eligible_pool_n": 460,
+    "historically_exposed_n": 266,
+    "historically_exposed_overlap": 0,
+    "inventory_n": 790,
+    "manifest_file": "results/design/plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+    "manifest_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "no_replacement": true,
+    "reserve_indices": [
+      52,
+      63
+    ],
+    "selected_n": 64,
+    "source": "FRESH_FILENAME_ONLY_V2",
+    "v1_all_selected_excluded_n": 64,
+    "v1_selected_overlap": 0,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "prohibited_rescues": [
+    "No v1 development rerun",
+    "No v1 confirmation/reserve reuse or opening",
+    "No valid_seen/unseen access",
+    "No model-size rescue",
+    "No threshold/statistic/grid/end-point rescue",
+    "No per-family tuning/replacement",
+    "No model/environment science before fresh independent prereg+population+implementation reviews",
+    "No autonomous Vast start/create/resume"
+  ],
+  "required_pre_science_tests": [
+    "integer-ID property tests lengths2..96 for block derangement length/multiset/no parser",
+    "repeated-token analogue must remain constructible without disqualification",
+    "bounded-history arbitrary action lengths up to512 must still content<=96",
+    "action3 exact identity lengths1..96; explicit prospective >96 guard",
+    "every semantic slot exactly128",
+    "prefix/slot/suffix direct concatenation yields invariant downstream anchor indices",
+    "v1 source bytes unchanged and v1 tests still pass",
+    "fresh manifest deterministic reconstruction and zero overlap with exposed266/v1selected64",
+    "fresh independent scientific review of prereg/control/population before Experiment registration",
+    "fresh implementation review before any model/environment science"
+  ],
+  "scientific_difference_from_v1": {
+    "causal_estimand_changed": false,
+    "changed": [
+      "semantic control representation: SHUFFLED_PLAN -> PLAN_BLOCK_DERANGED",
+      "semantic control representation: GENERIC_HISTORY -> PAST_ACTIONS_ONLY",
+      "NEXT_ACTION_PRESERVED_LATE_NULL representation becomes exact action3 IDs only + neutral padding",
+      "control slot/replay seam assembly becomes exact token-ID splicing to remove decode/re-tokenize dependence",
+      "completely fresh 64-path population excluding all v1 selected64 plus historical exposed paths"
+    ],
+    "held_fixed": [
+      "Qwen/Qwen3-1.7B revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e BF16/no quant/offload",
+      "five-action local reference qualification apart from prospective ACTION3<=96 exact-null guard",
+      "cut after action2",
+      "one reset-prefix intervention",
+      "same persistent KV/session and no reinjection",
+      "layers [7,14,21,27] x alpha [0.25,0.5,1.0]",
+      "development MSA2 selection/futility rules",
+      "untouched confirmation autonomous first-action-excluded LCA2",
+      "n20 exact sign tests/Holm/effect/competence/plumbing guards",
+      "TaskSuccess secondary only"
+    ],
+    "reason": "v1 causal grid was never reached; successor addresses only the preregistered constructibility assumption that failed before intervention."
+  },
+  "scientific_outcomes_accessed_in_this_design": "Only the already-terminal v1 constructibility failure taxonomy used to define the predeclared successor difference; no v2 outcomes exist.",
+  "semantic_conditions_v2": {
+    "ALT_NEUTRAL_POSITION": "Retain only as optional representation/plumbing diagnostic if implementation requires the historical sentinel; it is not a co-primary specificity comparator.",
+    "NEUTRAL_FILLER": "content_ids=[]; entire128 slot is deterministic neutral filler.",
+    "NEXT_ACTION_PRESERVED_LATE_NULL": "content_ids = exact tokenizer IDs of reference action3 only; no plan marker, no action4/action5, no future observation, then neutral filler. Prospectively add Stage1 eligibility guard action3_token_count<=96 before E freeze. This guard is required solely to preserve exact action identity in a fixed128 slot and cannot be relaxed after outcomes.",
+    "PAST_ACTIONS_ONLY": "No initial observation and no future observation/action. content_ids = first40 tokenizer IDs of reference action1 + fixed separator IDs + first40 IDs of reference action2. Static separator must be tokenizer-frozen before implementation; total <=96 (target <=81). No generated summary and no outcome-dependent truncation rule.",
+    "PLAN_BLOCK_DERANGED": "Take exact PLAN_PRESENT content_ids of length L>=2. Split into k=4 balanced nonempty contiguous blocks if L>=8 else k=2; rotate block order left by one. Preserve exact token multiset and L; no punctuation/clause parser. If repeated token values make the rendered ID sequence value-identical, record derangement_degenerate=true but DO NOT disqualify or replace the family; the positional transform remains frozen and other natural specificity controls remain in the max-control comparison.",
+    "PLAN_PRESENT": "content_ids = exact tokenizer IDs of the accepted tagged model-own plan_text; inherited planner contract requires <=96 tokens.",
+    "UNRELATED_PLAN": "Exact token IDs of the frozen next-different-family eligible donor plan; donor chosen only after complete Stage1 eligible set E is frozen; <=96 by same planner contract."
+  },
+  "slot_geometry_v2": {
+    "full_replay_builder": "Encode dynamic replay_prefix(packet) once to prefix_ids and replay_suffix(packet,anchor_cycle) once to suffix_ids, then concatenate prefix_ids + exact slot_ids + suffix_ids. Do not call v1 build_replay or decode slot IDs. Store prefix/slot/suffix hashes and lengths. Across conditions only slot_ids may differ; prefix_ids/suffix_ids and downstream anchor indices must be byte-identical.",
+    "max_semantic_content_tokens": 96,
+    "neutral_filler": "Use the already tokenizer-audited deterministic neutral token stream (primary text SHA 7dee91abb637511cc64f5b6d9e190a736411358f9c5126916fa784d8be62c86a; IDs SHA 664e74fa68bbc976ce8fcf8603f9cf5cac6a83f6f16bf5d8010622ee455b7470, exactly128 Qwen3 tokens). Prefix-slice/repeat IDs only; never decode filler during scientific execution.",
+    "scientific_delta_note": "Direct ID splicing prospectively fixes slot boundary geometry. It changes only how the semantic control slot is serialized at its two seams; all episode, reset, intervention, endpoint and statistical variables remain frozen.",
+    "slot_builder": "slot_ids = semantic_content_ids + neutral_filler_ids[:128-len(semantic_content_ids)]; exact length128. Content is never decoded/re-encoded after construction.",
+    "slot_tokens": 128
+  },
+  "source_draft_sha256": "25f31f73691b86db0ba3ffa2a9e56a5d7586278ad05046e8931f512643e1098b",
+  "source_evidence_unit_id": "3210a578-7b39-482b-8f06-c921b2626cac",
+  "source_experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "source_git_commit": "b0bfc77e6eb91c2c7b1454a6c5c1ed0fb7d11bdf",
+  "source_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "source_negative_result_id": "4dcad46c-7f6e-4a9e-bfbc-cdd0aad07e00",
+  "source_postexecution_audit_sha256": "2cda2496f9187668fa24d5d7cfd70dfcdc6cd64ebfbf9e78f4352d5800b1f8c7",
+  "source_run_id": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
+  "stage1_local_reference": {
+    "cut_after_action": 2,
+    "eligibility": "accepted model-own plan + five consecutive current-admissible nontrivial error-free model-own actions; deterministic reset/replay integrity; no outcome-dependent replacement",
+    "new_prospective_guard": "reference action3 exact tokenizer length <=96; evaluated before Stage1 E freeze; failure is expressivity/eligibility, never replaced",
+    "required_reference_actions": 5,
+    "same_as_v1": true,
+    "task_success_required": false
+  },
+  "status": "FROZEN_PRE_SCIENCE_PENDING_INDEPENDENT_REVIEW",
+  "vast_policy": "vast_48459343 RTX4070 SUPER remains stopped during design/local tests; no autonomous start or substitute rental"
+}

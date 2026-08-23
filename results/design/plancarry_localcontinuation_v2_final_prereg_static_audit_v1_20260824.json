@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "causal_estimand_unchanged": true,
+    "dev_confirm_reserve_32_20_12": true,
+    "fresh64_from460": true,
+    "full_replay_direct_id_splice": true,
+    "history_observation_removed": true,
+    "model_unchanged": true,
+    "next_action_exact_only": true,
+    "no_science": true,
+    "old_cohort_prohibited": true,
+    "plan_clause_parser_removed": true,
+    "slot_exact128": true,
+    "zero_historical_overlap": true,
+    "zero_v1_overlap": true
+  },
+  "control_contract_sha256": "3320b466c023f88955e93e92999a7dcfb91addbf86e3bf0ff9dbd8b0b12fcee5",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_FINAL_PREREG_STATIC_AUDIT_V1",
+  "model_calls": 0,
+  "population_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+  "prereg_sha256": "e7f6c2fabe648f66bf1df5e178b2bee7f5512e446892ae96c803cb25cef50316",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "PASS",
+  "test_sha256": "502623baccbc600f21db190417e4a81c0110283d849ffba37db3e24d701e8b76"
+}

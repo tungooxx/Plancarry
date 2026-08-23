@@ -1,0 +1,88 @@
+{
+  "causal_arms": [
+    "ACTIVE_PLAN_RESIDUAL",
+    "NO_PATCH",
+    "ZERO_ADD",
+    "SELF_REPLACE",
+    "RANDOM_EQ_NORM",
+    "NEXT_ACTION_PRESERVED_LATE_NULL",
+    "UNRELATED_PLAN",
+    "PLAN_BLOCK_DERANGED",
+    "PAST_ACTIONS_ONLY",
+    "VISIBLE_TEXT_PLAN"
+  ],
+  "constructibility_fail_closed": [
+    "accepted plan content >96 => Stage1 ineligible under inherited planner contract (not replacement)",
+    "action3_token_count>96 => Stage1 ineligible prospectively before E freeze",
+    "any exact128 padding/source hash/replay anchor mismatch => TECHNICAL_INVALID; no family replacement",
+    "no Stage2 failure is permitted merely because punctuation/clause parsing is unavailable or observations are long; those dependencies were removed"
+  ],
+  "fresh_population": {
+    "manifest_file": "results/design/plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+    "manifest_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "old_v1_selected64_reused": false,
+    "selected_n": 64,
+    "selection_population_size": 460
+  },
+  "held_fixed": [
+    "Qwen/Qwen3-1.7B revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e BF16/no quant/offload",
+    "five-action local reference qualification apart from prospective ACTION3<=96 exact-null guard",
+    "cut after action2",
+    "one reset-prefix intervention",
+    "same persistent KV/session and no reinjection",
+    "layers [7,14,21,27] x alpha [0.25,0.5,1.0]",
+    "development MSA2 selection/futility rules",
+    "untouched confirmation autonomous first-action-excluded LCA2",
+    "n20 exact sign tests/Holm/effect/competence/plumbing guards",
+    "TaskSuccess secondary only"
+  ],
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_CONSTRUCTIBLE_CONTROL_CONTRACT_V1",
+  "prohibitions": [
+    "No v1 development rerun",
+    "No v1 confirmation/reserve reuse or opening",
+    "No valid_seen/unseen access",
+    "No model-size rescue",
+    "No threshold/statistic/grid/end-point rescue",
+    "No per-family tuning/replacement",
+    "No model/environment science before fresh independent prereg+population+implementation reviews",
+    "No autonomous Vast start/create/resume"
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "scope_of_change": "SEMANTIC_CONTROL_REPRESENTATION_AND_ITS_EXACT_TOKEN_SLOT_ASSEMBLY_ONLY",
+  "semantic_conditions": {
+    "ALT_NEUTRAL_POSITION": "Retain only as optional representation/plumbing diagnostic if implementation requires the historical sentinel; it is not a co-primary specificity comparator.",
+    "NEUTRAL_FILLER": "content_ids=[]; entire128 slot is deterministic neutral filler.",
+    "NEXT_ACTION_PRESERVED_LATE_NULL": "content_ids = exact tokenizer IDs of reference action3 only; no plan marker, no action4/action5, no future observation, then neutral filler. Prospectively add Stage1 eligibility guard action3_token_count<=96 before E freeze. This guard is required solely to preserve exact action identity in a fixed128 slot and cannot be relaxed after outcomes.",
+    "PAST_ACTIONS_ONLY": "No initial observation and no future observation/action. content_ids = first40 tokenizer IDs of reference action1 + fixed separator IDs + first40 IDs of reference action2. Static separator must be tokenizer-frozen before implementation; total <=96 (target <=81). No generated summary and no outcome-dependent truncation rule.",
+    "PLAN_BLOCK_DERANGED": "Take exact PLAN_PRESENT content_ids of length L>=2. Split into k=4 balanced nonempty contiguous blocks if L>=8 else k=2; rotate block order left by one. Preserve exact token multiset and L; no punctuation/clause parser. If repeated token values make the rendered ID sequence value-identical, record derangement_degenerate=true but DO NOT disqualify or replace the family; the positional transform remains frozen and other natural specificity controls remain in the max-control comparison.",
+    "PLAN_PRESENT": "content_ids = exact tokenizer IDs of the accepted tagged model-own plan_text; inherited planner contract requires <=96 tokens.",
+    "UNRELATED_PLAN": "Exact token IDs of the frozen next-different-family eligible donor plan; donor chosen only after complete Stage1 eligible set E is frozen; <=96 by same planner contract."
+  },
+  "slot_geometry": {
+    "full_replay_builder": "Encode dynamic replay_prefix(packet) once to prefix_ids and replay_suffix(packet,anchor_cycle) once to suffix_ids, then concatenate prefix_ids + exact slot_ids + suffix_ids. Do not call v1 build_replay or decode slot IDs. Store prefix/slot/suffix hashes and lengths. Across conditions only slot_ids may differ; prefix_ids/suffix_ids and downstream anchor indices must be byte-identical.",
+    "max_semantic_content_tokens": 96,
+    "neutral_filler": "Use the already tokenizer-audited deterministic neutral token stream (primary text SHA 7dee91abb637511cc64f5b6d9e190a736411358f9c5126916fa784d8be62c86a; IDs SHA 664e74fa68bbc976ce8fcf8603f9cf5cac6a83f6f16bf5d8010622ee455b7470, exactly128 Qwen3 tokens). Prefix-slice/repeat IDs only; never decode filler during scientific execution.",
+    "scientific_delta_note": "Direct ID splicing prospectively fixes slot boundary geometry. It changes only how the semantic control slot is serialized at its two seams; all episode, reset, intervention, endpoint and statistical variables remain frozen.",
+    "slot_builder": "slot_ids = semantic_content_ids + neutral_filler_ids[:128-len(semantic_content_ids)]; exact length128. Content is never decoded/re-encoded after construction.",
+    "slot_tokens": 128
+  },
+  "source_failure": "Stage1 32/32 eligible; Stage2 0/32 solely from fixed-slot control constructibility (21 content>96,11 clause-shuffle<2). Causal grid not reached.",
+  "source_run_id": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
+  "specificity_max_controls": [
+    "RANDOM_EQ_NORM",
+    "NEXT_ACTION_PRESERVED_LATE_NULL",
+    "UNRELATED_PLAN",
+    "PLAN_BLOCK_DERANGED",
+    "PAST_ACTIONS_ONLY"
+  ],
+  "status": "FROZEN_PRE_SCIENCE",
+  "tests_required": [
+    "integer-ID property tests lengths2..96 for block derangement length/multiset/no parser",
+    "repeated-token analogue must remain constructible without disqualification",
+    "bounded-history arbitrary action lengths up to512 must still content<=96",
+    "action3 exact identity lengths1..96; explicit prospective >96 guard",
+    "every semantic slot exactly128",
+    "prefix/slot/suffix direct concatenation yields invariant downstream anchor indices",
+    "v1 source bytes unchanged and v1 tests still pass"
+  ]
+}
