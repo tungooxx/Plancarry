@@ -1,0 +1,82 @@
+{
+  "created_at_utc": "2026-08-23T19:26:59.771171+00:00",
+  "experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "fail_closed_repairs": [
+    "development seal validated before confirmation/reserve model load",
+    "execution provenance binds driver/builder/phase/validator/session/source hashes and vector/control/session schemas",
+    "active-zero residual families retained and forced nonpositive for primary inference",
+    "per-arm hook/vector/reset/session provenance validated",
+    "ZERO_ADD and SELF_REPLACE execute as actual one-shot arms after sentinel proof",
+    "VISIBLE_TEXT_PLAN binds common external reset plus distinct visible-context reset",
+    "packet-builder current API and reserve phase mapping aligned",
+    "matched-state MSA2 and TaskSuccess remain secondary only"
+  ],
+  "final_prereg_review_sha256": "c9c89ebe87980e2169d8534b43d6955b477cd94d5ea14c70604c8af5b6a1c1b6",
+  "final_prereg_sha256": "a6972b33caaf7f2b7b28af248acd528a540e077bfdb59283f5f288de5e297ec8",
+  "held_fixed": [
+    "fresh population 0..31/32..51/52..63",
+    "Qwen/Qwen3-1.7B revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "BF16 no quantization/offload",
+    "layers 7/14/21/27",
+    "alphas 0.25/0.5/1.0",
+    "t2 source residual",
+    "one reset-prefix intervention",
+    "same persistent KV/no reinjection",
+    "development MSA2 selector/futility",
+    "untouched n20 autonomous LCA2 confirmation",
+    "all20 denominator and exact sign/Holm/effect guards",
+    "reserve locked until primary support"
+  ],
+  "kind": "PLANCARRY_LOCALCONTINUATION_EXECUTION_STACK_ENGINEERING_AUDIT_V1",
+  "manual_heavy_handoff": {
+    "cwd": "/workspace/local-vlm/LLM/plancarry",
+    "execution_forbidden_until_independent_review_pass": true,
+    "expected_device": "NVIDIA GeForce RTX 4070 SUPER",
+    "python": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+    "required_env": [
+      "PLANCARRY_EXPECTED_GIT_COMMIT=<frozen reviewed commit>",
+      "LOCALCONT_EXPECTED_DEVICE_NAME=NVIDIA GeForce RTX 4070 SUPER",
+      "CUBLAS_WORKSPACE_CONFIG=:4096:8"
+    ],
+    "script": "localcontinuation_vast_primary_v1.sh"
+  },
+  "population_manifest_sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+  "population_review_sha256": "bd730ea81e7bfea75fa7eb79e357505c794e6300c5ad53500bffe092947c82b0",
+  "prediction_id": "c19837d5-1cac-4ce6-8555-614b9664768b",
+  "prohibitions": [
+    "no ALFWorld study execution during engineering",
+    "no study scientific outcome access",
+    "no confirmation before development seal",
+    "no reserve before supported primary result",
+    "no valid_seen",
+    "no valid_unseen",
+    "no Vast start/create/resume in engineering"
+  ],
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "scientific_variables_changed": [],
+  "source_hashes": {
+    "localcontinuation_packet_builder_v1.py": "116c213d27af987e782e463bc0317d8d443e95bf1ba571dbba0386d63d109128",
+    "localcontinuation_phase_runner_v1.py": "81a55589f68e1b8d53110ad64eceacb7cfc52a0838166b5241b34fb7fb11783d",
+    "localcontinuation_science_driver_v1.py": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "localcontinuation_validator_v1.py": "93390667e19302087f6b3d1a583f00ee4b97232443a4955aa2f1ca2a773fcbda",
+    "localcontinuation_vast_primary_v1.sh": "a640e43a1bb253ac0ac0e78bcdc61c42c5e1894ba26be834877f301b9744e72f",
+    "tests/test_localcontinuation_execution_stack_v1.py": "53d894d6d9ac406f8ff51263ab01ffbfe22ed65894cdb8a4901bf318b019f3d1"
+  },
+  "study_environment_execution": 0,
+  "study_model_calls": 0,
+  "vast_started": false,
+  "verification": {
+    "candidate_scoring_live_cache_nonmutating": true,
+    "preflight": "READY_NO_SCIENCE",
+    "py_compile": "PASS",
+    "real_torch_nonstudy_session_smoke": "PASS",
+    "real_torch_smoke_job_id": "local_747b2475e3954346",
+    "replace_hook_count": 1,
+    "seal_checked_before_model_load": true,
+    "synthetic_unittest": "15/15 PASS",
+    "zero_hook_count": 1,
+    "zero_vs_replace_final_maxabs": 0.0
+  },
+  "work_item_id": "483695c1-fa81-4d43-8f2c-b52dd53a859c"
+}
