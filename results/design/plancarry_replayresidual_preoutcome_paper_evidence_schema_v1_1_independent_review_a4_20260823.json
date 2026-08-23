@@ -1,0 +1,46 @@
+{
+  "approved_field_paths": [
+    "tables.T0_representation_sanity.technical_invalid_reporting",
+    "tables.T1_primary_causal_confirmation.required_arms"
+  ],
+  "checks": {
+    "all_other_schema_content_equal": true,
+    "environment_execution_zero": true,
+    "independent_scalar_expansion_only_under_two_approved_fields": true,
+    "model_calls_zero": true,
+    "no_neutral_or_shorthand": true,
+    "repair_audit_field_paths_exactly_two": true,
+    "required_arms_exact_t1_v11": true,
+    "scientific_outcomes_accessed_false": true,
+    "scientific_variables_changed_empty": true,
+    "source_successor_audit_prereg_hashes_exact": true,
+    "technical_guard_and_terminal_label_exact": true,
+    "technical_invalid_na_not_assessed_exact": true,
+    "technical_invalid_no_zero_coercion": true,
+    "technical_invalid_not_aggregated": true,
+    "unexpected_changed_paths_empty": true
+  },
+  "diff_convention_note": "Frozen repair audit treats the added technical_invalid_reporting object as one approved field path. Independent scalar-leaf expansion has five scalar leaves under that single object plus required_arms, and no changes elsewhere.",
+  "environment_execution": 0,
+  "hashes": {
+    "recursive_audit": "0fc78c06c5ca10d240a9bf29f090bab67cbaee8cc3c34a249475bfbb49ad04bf",
+    "source": "4f0a1b35bda1cd941ff0c296a44937e05ba053c335656fe77fc01b9a8c577d70",
+    "successor": "b01f78d4c8d0bcd903b5e057e2261c8af385e96f30d72a629429016fdbae363c",
+    "t1_prereg": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2"
+  },
+  "heavy_compute_used": false,
+  "independent_scalar_changed_paths": [
+    "tables.T0_representation_sanity.technical_invalid_reporting.coerce_unreached_metrics_to_zero",
+    "tables.T0_representation_sanity.technical_invalid_reporting.include_unreached_metrics_in_scientific_aggregation",
+    "tables.T0_representation_sanity.technical_invalid_reporting.report_exact_violated_technical_guard",
+    "tables.T0_representation_sanity.technical_invalid_reporting.terminal_label",
+    "tables.T0_representation_sanity.technical_invalid_reporting.unreached_metric_cells",
+    "tables.T1_primary_causal_confirmation.required_arms"
+  ],
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PAPER_EVIDENCE_SCHEMA_V11_INDEPENDENT_REVIEW_A4",
+  "model_calls": 0,
+  "scientific_outcomes_accessed": false,
+  "scope": "Reporting/provenance freeze only; no scientific evidence or execution authorization. Active causal path is LocalContinuation, not the closed old direct-T1 lineage.",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_PAPER_EVIDENCE_SCHEMA_V1_1",
+  "work_item_id": "d40822e1-d511-4074-a5ab-a664abeaeaa2"
+}
