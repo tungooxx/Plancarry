@@ -1,0 +1,22 @@
+{
+  "device_from": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "device_to": "NVIDIA GeForce RTX 4070 SUPER",
+  "dtype": "bfloat16",
+  "hashes": {
+    "base_dev": "d3d3aff0ba804603fe4509fe9c5c389d890ca77e334b8812c4b6d998fd7684f0",
+    "host_wrapper": "14283b740473dd84580a548282bba9c1950b13ff68a9c539501938569296cac2",
+    "oom_runner": "7554699b299a05b930e12830a9a8c5ba1b7ca2c4e885a7d506dbfeb134e80d00",
+    "producer": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "t1_prereg": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2"
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_T1_VAST4070S_HOST_ONLY_ADAPTER_AUDIT_V1",
+  "model_id": "Qwen/Qwen3-1.7B",
+  "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "scientific_variables_changed": [],
+  "technical_changes": [
+    "device-name guard only; delegate unchanged to OOM-safe v1_2 runner"
+  ],
+  "tokenizers_expected": "0.21.1",
+  "torch_expected": "2.13.0+cu130",
+  "transformers_expected": "4.51.3"
+}
