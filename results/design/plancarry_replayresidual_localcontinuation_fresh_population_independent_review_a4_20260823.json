@@ -1,0 +1,63 @@
+{
+  "checks": {
+    "artifact_hashes_exact": true,
+    "canonical_inventory_exact_790": true,
+    "environment_execution_zero": true,
+    "inventory_filename_only_no_game_open_reset": true,
+    "manifest_internal_path_digests_exact": true,
+    "mentioned_tokens_268": true,
+    "model_calls_zero": true,
+    "phase_sizes_32_20_12_exact": true,
+    "provenance_domain_exact_575_preoutput_files": true,
+    "rank_salt_and_lexical_rule_exact": true,
+    "real_exposed_exact_266": true,
+    "remaining_unexposed_exact_524": true,
+    "scientific_outcomes_interpreted_false": true,
+    "selected_exposed_overlap_zero": true,
+    "selected_unique_64": true,
+    "selector_input_permutation_deterministic": true,
+    "selector_output_exact_manifest": true,
+    "source_count_map_exact": true,
+    "synthetic_noninventory_exact_2": true
+  },
+  "counts": {
+    "binary_files_skipped_in_independent_scan": 3,
+    "confirmation": 20,
+    "development": 32,
+    "inventory": 790,
+    "mentioned_path_tokens": 268,
+    "provenance_files_scanned": 575,
+    "real_exposed": 266,
+    "remaining_unexposed": 524,
+    "reserve": 12,
+    "selected": 64,
+    "synthetic_noninventory": 2
+  },
+  "environment_execution": 0,
+  "hashes": {
+    "audit": "8c7b0b6f627c71aa050751b06bd3b6bed5e9aa597bb77457f1636821498a1f38",
+    "exposed": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+    "inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+    "manifest": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+    "selector": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b",
+    "selector_review": "3a15c424f9648e8afeee306efeb35fbbb5f190604e39b136b5b1bfbec876f1a9"
+  },
+  "heavy_compute_used": false,
+  "independent_preoutput_domain_content_digest_sha256": "7f6314d8b437e3cc5fa343e62311d2904921ab309a34fb498109ab7e9f13b401",
+  "kind": "PLANCARRY_LOCALCONTINUATION_FRESH_POPULATION_INDEPENDENT_REVIEW_A4_V1",
+  "model_calls": 0,
+  "noninventory_synthetic_or_fixture_mentions": [
+    "json_2.1.1/train/pick_and_place_simple-a/trial_T/game.tw-pddl",
+    "json_2.1.1/train/pick_and_place_simple-apple-None-countertop-{i}/trial_T{i:04d}/game.tw-pddl"
+  ],
+  "population_work_item_id": "25181496-854b-4398-be0a-3931b38a3e0a",
+  "reviewer_fixture_notes": [
+    "An initial reviewer regex omitted colon in synthetic placeholder {i:04d}; real exposed set already matched exactly. Final regex includes colon and reproduces both frozen synthetic fixture mentions.",
+    "An initial reviewer internal-digest assertion used canonical JSON rather than the selector's newline-joined path-list digest; exact selector implementation was inspected and final checks use sha256_paths semantics."
+  ],
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_POPULATION_FREEZE_ONLY",
+  "scope": "Population/provenance-only PASS. Authorizes binding the exact frozen manifest/exposure SHAs into the independently reviewed final prereg. Does not authorize model/environment science, Experiment registration, heavy Vast execution, or any population replacement.",
+  "verdict": "PASS_FOR_LOCALCONTINUATION_FRESH_POPULATION_FREEZE",
+  "work_item_id": "9f2eea7f-656f-4d97-af6b-428a98c8450c"
+}
