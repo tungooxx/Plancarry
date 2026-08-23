@@ -1,0 +1,45 @@
+{
+  "independent_checks": {
+    "context_fallback_matches_upstream_context_or_self_context": true,
+    "context_variables_copied_no_context_mutation": true,
+    "explicit_context_precedence_preserved": true,
+    "idempotent_install": true,
+    "module_globals_and_builtins_preserved": true,
+    "nonstudy_reset_canary": {
+      "actions_taken": 0,
+      "admissible_commands_n": 30,
+      "game": "train/look_at_obj_in_light-AlarmClock-None-DeskLamp-301/trial_T20190907_174127_043461/game.tw-pddl",
+      "model_calls": 0,
+      "observation_len": 492,
+      "observation_nonempty": true,
+      "pick_and_place_simple_accessed": false,
+      "status": "PASS_RESET_ONLY",
+      "step_count": 0,
+      "valid_seen_accessed": false,
+      "valid_unseen_accessed": false
+    },
+    "py_compile_pass": true,
+    "scientific_outcomes_accessed": false,
+    "scientific_variables_changed": [],
+    "scope_regression_tests": "PASS_4_OF_4",
+    "study_model_execution": false,
+    "terminal_symbol_return_preserved": true,
+    "upstream_python313_grammar_variable_nameerror_reproduced": true,
+    "upstream_self_context_visibility_preserved": true,
+    "variables_overlay_and_shadowing_self_context_preserved": true
+  },
+  "kind": "PLANCARRY_TEXTWORLD_PY313_COMPAT_SEMANTIC_SCOPE_INDEPENDENT_REVIEW_A3_V1",
+  "provenance_limitation": "Current Git history does not reconstruct the historical immediate-parent pre-repair alfworld_runtime.py bytes. This PASS is limited to the current compatibility-module semantic repair and byte-identity of the frozen runtime/producer/protocol hashes; it does not claim a full historical whole-file diff.",
+  "scope": "ENGINEERING_ONLY. PASS authorizes only a prospectively registered technical retry where otherwise permitted. It is not scientific evidence, does not support ReplayResidual/T1, and does not reopen consumed/null scientific lineages.",
+  "target_git_commit": "c73f0c932fc9bf91483f5d5101d921c560d37b1d",
+  "verdict": "PASS_FOR_V2_1_TEXTWORLD_PY313_TECHNICAL_RETRY",
+  "verified_hashes": {
+    "alfworld_runtime.py": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "author_audit": "d7dbae669f2b5898e1d5980faf8e4fce8772d95dc84139c0d149f18bde30bf43",
+    "replay_residual_natural_packet_producer_v2_1.py": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "replay_residual_sanity_protocol_v1.py": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "test_textworld_py313_compat_scope.py": "ff9cdf001063d4e6caea966a432f23260a7dd041b45d8afd24e985bba3064329",
+    "textworld_py313_compat.py": "cee3c3818b5856507179dd9f5c5c819260d1cd51c746faa012c612f79bf2fc83"
+  },
+  "work_item_id": "76095df5-3fd7-4355-9bea-b712ef7fc09f"
+}
