@@ -1,0 +1,169 @@
+{
+  "causal_runtime": {
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "injections_per_rollout": 1,
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "reinjection": false,
+    "remove_hook_immediately": true,
+    "same_persistent_kv_session": true,
+    "shared_action3": "teacher-force exact shared action3 through the same live KV after the one-shot intervention, then append exact observation3/admissible state; shared action cannot contribute to endpoint",
+    "target_site": "same-layer reset-prefix final token immediately before ACTION",
+    "true_context_reset": true
+  },
+  "confirmation_policy": {
+    "eligibility": "scan only fixed confirmation_pool indices64..127 in frozen order with exact unchanged pair generation/validation; first20 eligible; if fewer20 => INCONCLUSIVE_CONFIRMATION_CONSTRUCTIBILITY",
+    "interpretation": "only untouched confirmation can support or fail the scoped future-plan carrier; development alone never supports/refutes",
+    "locked_until": "fresh independent design+implementation review AND DEVELOPMENT_SELECTION_PASS atomic seal",
+    "operating_point": "import exact selected layer/alpha and all code/provenance without retuning",
+    "primary_test": "one-sided exact sign/binomial test over 20 family joint_future_margin values, zeros count non-positive; require >=15/20 positive (p<0.05) AND median joint_future_margin>=0.05 AND median bidirectional>=0.05"
+  },
+  "controls": {
+    "ACTION_HISTORY_MATCHED_NULL": "residual from source with common task/history/shared action3 present versus an exact-geometry source in which only the shared-action slot is replaced by frozen neutral IDs and both future slots are neutral; norm-match to active. This intentionally tests generic immediate-action/history steering rather than future-plan identity.",
+    "BIDIRECTIONAL_ACTIVE": [
+      "+alpha*r_AB",
+      "-alpha*r_AB"
+    ],
+    "FUTURE_TOKEN_DERANGED": "within each A/B future branch, deterministic strict token-value derangement of mutable A4/A5 or B4/B5 future IDs only, preserving segment lengths/multisets and common shared action3; fail closed if not constructible; residual norm-matched to active",
+    "NO_PATCH": "no hook",
+    "RANDOM_EQ_NORM": "deterministic SHA256-Rademacher vector, norm matched to raw r_AB before the same alpha, evaluate both signs",
+    "UNRELATED_PAIR_RESIDUAL": "deterministic next-different-family donor chosen only after the complete eligible development set is frozen; donor r_AB norm-matched to target; evaluate orientation-independent absolute shift as nuisance control",
+    "ZERO_ADD_SELF_REPLACE": "plumbing sentinels; maxabs <=1e-6"
+  },
+  "cut_state": {
+    "cut_after_action": 2,
+    "history_frozen": "task + exact action1/obs1 + action2/obs2 + cut observation/admissible commands",
+    "pre_cut_executor": "exact reviewed LocalContinuation-v2 action-scoring/session primitives, but NO explicit plan text; greedily execute exactly two current-admissible nontrivial model-own actions from reset, fail closed on command/runtime error",
+    "state_snapshot": "deterministic environment snapshot immediately after action2"
+  },
+  "date_utc": "2026-08-25",
+  "development_selection": {
+    "denominator": "first20 eligible from fixed development_pool scan64",
+    "futility": "otherwise DEVELOPMENT_FUTILITY_STOP; freeze all dev aggregates and do not open confirmation",
+    "grid": "exact same 4x3 grid for comparability, not inherited v2 operating point",
+    "pass_gate": "DEVELOPMENT_SELECTION_PASS iff n=20 eligible, selected median joint_future_margin >=0.05 nats/token, median bidirectional >=0.05 nats/token, and at least15/20 families have bidirectional>0",
+    "scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+    "selection": "maximize median joint_future_margin; tie-break higher median bidirectional, then higher median abs active swap span, then lower alpha, then earlier layer"
+  },
+  "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+  "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_PREREG_V1",
+  "model_runtime": {
+    "cublas_workspace_config": ":4096:8",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "thinking_disabled": true,
+    "tokenizers": "0.21.1",
+    "transformers": "4.51.3"
+  },
+  "pair_validation": {
+    "development_fail": "fewer than20 eligible among fixed64 => INCONCLUSIVE_ACTION_MATCHED_PAIR_CONSTRUCTIBILITY; no causal grid and no confirmation access",
+    "eligibility_usage": "validation determines constructibility only before causal outcomes; scan fixed development filenames in frozen order until exactly20 eligible or all64 exhausted; no replacement outside the pool",
+    "procedure": "From the identical frozen cut snapshot, execute SHARED_ACTION once. Clone the resulting post-action3 state. From one clone execute A4 then A5; from the other clone execute B4 then B5. No planner/model retry.",
+    "required": [
+      "shared action3 executes error-free and nontrivial",
+      "A4 and B4 are both current-admissible after shared action3, nontrivial, distinct, and error-free",
+      "A5 is current-admissible after A4 and error-free/nontrivial",
+      "B5 is current-admissible after B4 and error-free/nontrivial",
+      "deterministic replay hashes match independently reconstructed branches"
+    ]
+  },
+  "parent_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "plan_pair_generation": {
+    "calls_per_family": 1,
+    "divergence_guard": "PLAN_A_ACTION4 and PLAN_B_ACTION4 must be exact-string different",
+    "do_sample": false,
+    "future_information_forbidden": [
+      "future observations",
+      "expert plan",
+      "game solution",
+      "post-action3 admissible commands",
+      "branch execution results"
+    ],
+    "information_allowed": [
+      "visible task",
+      "current cut observation",
+      "past actions1-2",
+      "current cut admissible commands"
+    ],
+    "max_new_tokens": 192,
+    "parse": "exact one fullmatch of the five tagged fields; strip outer whitespace only; no retry/repair",
+    "prompt": "You are at an ALFWorld interruption state. Using ONLY the visible task, current observation, past actions, and current admissible commands below, predict two concrete three-action continuations. The two plans MUST have the exact same first action, but their second actions MUST be different. Do not assume access to future observations. Return exactly one block with no prose:\n<PLAN_PAIR>\n<SHARED_ACTION>{one current admissible command}</SHARED_ACTION>\n<PLAN_A_ACTION4>{predicted concrete command}</PLAN_A_ACTION4>\n<PLAN_A_ACTION5>{predicted concrete command}</PLAN_A_ACTION5>\n<PLAN_B_ACTION4>{different predicted concrete command}</PLAN_B_ACTION4>\n<PLAN_B_ACTION5>{predicted concrete command}</PLAN_B_ACTION5>\n</PLAN_PAIR>",
+    "shared_action_guard": "SHARED_ACTION must exactly equal one current cut admissible nontrivial command",
+    "temperature": 0.0
+  },
+  "population": {
+    "confirmation_max_scan_n": 64,
+    "confirmation_pool_indices_locked": [
+      64,
+      127
+    ],
+    "confirmation_target_eligible_n": 20,
+    "development_max_scan_n": 64,
+    "development_pool_indices": [
+      0,
+      63
+    ],
+    "development_target_eligible_n": 20,
+    "manifest_file": "results/design/plancarry_action_matched_future_plan_population_v1_20260825.json",
+    "manifest_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "no_replacement": true,
+    "reserve_pool_indices_locked": [
+      128,
+      159
+    ],
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "primary_endpoint": {
+    "candidate_scoring": "At the common post-shared-action3 state, score exact leading-space A4 and B4 candidate command IDs by FP32 arithmetic mean token log-probability without mutating the live cache. m(arm)=score(A4)-score(B4).",
+    "family_components": {
+      "action_history_shift": "abs(m(+ACTION_HISTORY_MATCHED_NULL)-m(NO_PATCH))",
+      "bidirectional": "min(forward,reverse)",
+      "deranged_shift": "abs(m(+FUTURE_TOKEN_DERANGED)-m(NO_PATCH))",
+      "forward": "m(+ACTIVE)-m(NO_PATCH)",
+      "joint_future_margin": "bidirectional-max(random_halfspan,unrelated_shift,action_history_shift,deranged_shift)",
+      "random_halfspan": "abs(m(+RANDOM)-m(-RANDOM))/2",
+      "reverse": "m(NO_PATCH)-m(-ACTIVE)",
+      "unrelated_shift": "abs(m(+UNRELATED)-m(NO_PATCH))"
+    },
+    "immediate_action_excluded": true,
+    "name": "BIDIRECTIONAL_FUTURE_BRANCH_MARGIN",
+    "secondary": [
+      "A5/B5 branch-continuation score after separately teacher-forcing the matching A4/B4 branch from the post-action3 snapshot",
+      "discrete A4-vs-B4 choice",
+      "valid-action competence",
+      "reference branch execution integrity"
+    ]
+  },
+  "prohibitions": [
+    "Never access old LocalContinuation-v2 confirmation32..51, reserve52..63, valid_seen or valid_unseen.",
+    "Never reuse any path in reviewed historical exposure, LocalContinuation-v1 selected64, or LocalContinuation-v2 selected64.",
+    "No outcome-dependent replacement, family deletion, pair regeneration/retry, endpoint change, threshold change, model/task-family change, layer/alpha expansion, post-hoc residual orthogonalization, or confirmation retuning.",
+    "No claim that v2 was causally refuted; v2 is development futility only.",
+    "No model/environment execution in this design WorkItem."
+  ],
+  "scientific_difference": "Prospective new causal contrast/readout after v2 development futility: hold reset state, action history, and immediate action3 fixed; vary only model-generated later branch A versus B; intervene with bidirectional r_AB and read a continuous later branch margin after the shared action. This is not a retuned v2 endpoint/grid on consumed families.",
+  "scientific_result_policy": "PRE_SCIENCE_DESIGN_ONLY_NOT_EVIDENCE",
+  "source_negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+  "source_representation": {
+    "active_residual": "FP32 r_AB(layer)=h_PLAN_A(layer,SOURCE_END)-h_PLAN_B(layer,SOURCE_END)",
+    "common_information": "identical task/cut observation/action1-2 history + exact shared action3 IDs",
+    "differential_information": "only branch-specific future A4/A5 versus B4/B5 exact token IDs",
+    "geometry": "per family, direct-ID future segments are padded with a frozen neutral ID cycle to pairwise max segment lengths L4=max(len(A4),len(B4)), L5=max(len(A5),len(B5)); A/B common prefix, shared action3, separators, segment positions, total source length, and final SOURCE_END capture anchor are identical",
+    "orientation": "A is the lexicographically smaller canonical tuple (A4,A5) after parser output only for residual sign canonicalization; if parser labels conflict, swap A/B labels before any source forward so orientation is deterministic and outcome-independent",
+    "tokenization": "tokenize each exact action string once pre-source with add_special_tokens=false and persist IDs/hashes; no downstream semantic decode/re-tokenize"
+  },
+  "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+  "status": "FROZEN_PRE_SCIENCE_PENDING_INDEPENDENT_REVIEW"
+}

@@ -1,0 +1,63 @@
+{
+  "checks": {
+    "bidirectional_plus_minus_active": true,
+    "direct_id_no_retokenize_frozen": true,
+    "environment_execution": 0,
+    "excluded_union_exact_394": true,
+    "future_info_forbidden": true,
+    "game_files_opened": 0,
+    "inventory_exact_790": true,
+    "model_calls": 0,
+    "new_selected_exact_160": true,
+    "new_selected_overlap_blocked_zero": true,
+    "new_selected_unique_160": true,
+    "old_v2_confirmation_reserve_valid_prohibited": true,
+    "pair_later_divergence_required": true,
+    "pair_same_immediate_action_required": true,
+    "phase_sizes_64_64_32": true,
+    "primary_after_shared_action_only": true,
+    "remaining_fresh_exact_396": true,
+    "reviewed_exposure_exact_266": true,
+    "true_reset_one_shot_same_kv_no_reinjection": true,
+    "v1_selected_exact_64": true,
+    "v2_selected_exact_64": true
+  },
+  "date_utc": "2026-08-25",
+  "environment_execution": 0,
+  "hashes": {
+    "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+    "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+    "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg": "0e08c6e0c2f460386380e5a24c8875cadc7aae58f8830554fe16f127676d3f63",
+    "synthetic_test": "8f628e28debbf50b6e59fc2c4bc023e46428dcbd9374a4acd13fc6dab14ec99b",
+    "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+    "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+  },
+  "held_fixed": [
+    "Qwen3-1.7B exact revision/BF16/no quant/offload",
+    "true context reset",
+    "one reset-prefix intervention",
+    "same persistent KV/no reinjection",
+    "layers7/14/21/27 x alpha0.25/0.5/1.0",
+    "development-only global selection before untouched confirmation",
+    "equal-norm random/unrelated semantic controls and zero/self sentinels"
+  ],
+  "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+  "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_STATIC_AUDIT_V1",
+  "model_calls": 0,
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_DESIGN",
+  "scientific_variables_changed_relative_to_v2": [
+    "causal_contrast becomes action-matched plan A versus plan B rather than plan-present versus neutral",
+    "primary readout becomes bidirectional continuous A4-vs-B4 branch margin after shared action3",
+    "fresh population and prospective pair-constructibility contract"
+  ],
+  "source_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
+  "status": "PASS_PRE_SCIENCE_PENDING_INDEPENDENT_REVIEW",
+  "test_execution": {
+    "expected_count": 4,
+    "runner": "direct invocation of every test_* callable under /opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python because pytest package is absent",
+    "status": "PASS_4_OF_4"
+  },
+  "work_item_id": "2c1826e5-a89a-4190-8696-7050d65073a8"
+}
