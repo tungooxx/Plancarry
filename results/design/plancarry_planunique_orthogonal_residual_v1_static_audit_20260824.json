@@ -1,11 +1,14 @@
 {
   "artifact_sha256": {
-    "plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json": "3d1d57be3e8473f76b48e8ed66a7998100f3b13acb02ebdb929cce22d8679e90",
+    "plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json": "edb3febd64240c14279dde1da615aed7356e33c68b0e3fb3296fc9728aafdbb9",
     "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
-    "plancarry_planunique_orthogonal_residual_v1_prereg_20260824.json": "72e9b0af72d7cfe83e5fc602fdcc5c24bf1ef6d0eac7fa857308cf9f943fb19e",
+    "plancarry_planunique_orthogonal_residual_v1_prereg_20260824.json": "9ee98accf53d17d9ebce1dfa79982b713251fe2ad836eef4f9e1a6d45aa9aea7",
     "plancarry_planunique_orthogonal_residual_v1_projection_property_test_20260824.json": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79"
   },
   "checks": {
+    "confirmation_all20_rule_explicit": true,
+    "confirmation_unqualified_nonpositive": true,
+    "confirmation_zero_unique_nonpositive": true,
     "continuous_dev_behavioral_confirmation_split": true,
     "design_zero_model_env": true,
     "equal_norm_zero_source_ambiguity_repaired": true,
@@ -44,6 +47,7 @@
     "max_unique_basis_abs_dot": 9.924786686932308e-16,
     "stress_cases": 200
   },
+  "prospective_all20_repair_note": "Before independent review/science, made inherited all20 denominator semantics explicit from localcontinuation_phase_runner_v1.py: after >=15/20 gate, unqualified families contribute ACTIVE_LCA2=0 and zero contrasts/non-positive signs; zero-unique families cannot contribute positive evidence; all20 effect denominator is fixed; valid-action/TaskSuccess remain qualified-only secondary context.",
   "prospective_repair_note": "Before independent review/science, repaired equal-norm ambiguity: if unique>eps but required matched source-control norm<=eps, family is Stage2-ineligible/no replacement; zero-unique retains family with all matched intervention vectors exact zero.",
   "scientific_result": "NOT_ASSESSED",
   "source_sha256": {

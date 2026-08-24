@@ -1,17 +1,21 @@
 {
   "confirmation": {
+    "all20_primary_denominator_rule": "After the >=15/20 qualification gate passes, every one of indices32..51 remains in the primary effect and sign-test denominator. Stage2-unqualified family: ACTIVE_LCA2=0, d_no_patch=0, d_specificity=0, sign is non-positive. Zero-unique family (||r_unique||<=1e-8): ACTIVE_LCA2=0, d_no_patch<=0, d_specificity<=0, sign is non-positive even if descriptive zero-injection rollout succeeds. No family deletion or replacement.",
     "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
+    "effect_denominator": "20 exactly after qualification gate; unqualified and zero-unique contributions follow all20_primary_denominator_rule.",
     "effect_guards": [
-      "mean LCA2 gain vs NO_PATCH >=0.10",
-      "mean LCA2 gain vs max specificity control >=0.10",
-      "valid-action rate not worse than NO_PATCH by >0.05"
+      "all20 mean LCA2 gain vs NO_PATCH >=0.10",
+      "all20 mean LCA2 gain vs max specificity control >=0.10",
+      "qualified-family valid-action rate not worse than NO_PATCH by >0.05"
     ],
     "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
     "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
     "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
     "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
-    "task_success": "secondary only",
-    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05."
+    "sign_test_zero_rule": "Zero paired differences are non-positive; positive count only strict >0 over n=20 for each primary contrast.",
+    "task_success": "secondary qualified-only descriptive endpoint; cannot rescue primary null.",
+    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05.",
+    "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards."
   },
   "development_arms": {
     "controls": [

@@ -1,20 +1,24 @@
 {
   "confirmation": {
+    "all20_primary_denominator_rule": "After the >=15/20 qualification gate passes, every one of indices32..51 remains in the primary effect and sign-test denominator. Stage2-unqualified family: ACTIVE_LCA2=0, d_no_patch=0, d_specificity=0, sign is non-positive. Zero-unique family (||r_unique||<=1e-8): ACTIVE_LCA2=0, d_no_patch<=0, d_specificity<=0, sign is non-positive even if descriptive zero-injection rollout succeeds. No family deletion or replacement.",
     "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
+    "effect_denominator": "20 exactly after qualification gate; unqualified and zero-unique contributions follow all20_primary_denominator_rule.",
     "effect_guards": [
-      "mean LCA2 gain vs NO_PATCH >=0.10",
-      "mean LCA2 gain vs max specificity control >=0.10",
-      "valid-action rate not worse than NO_PATCH by >0.05"
+      "all20 mean LCA2 gain vs NO_PATCH >=0.10",
+      "all20 mean LCA2 gain vs max specificity control >=0.10",
+      "qualified-family valid-action rate not worse than NO_PATCH by >0.05"
     ],
     "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
     "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
     "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
     "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
-    "task_success": "secondary only",
-    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05."
+    "sign_test_zero_rule": "Zero paired differences are non-positive; positive count only strict >0 over n=20 for each primary contrast.",
+    "task_success": "secondary qualified-only descriptive endpoint; cannot rescue primary null.",
+    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05.",
+    "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards."
   },
   "control_contract_file": "plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json",
-  "control_contract_sha256": "3d1d57be3e8473f76b48e8ed66a7998100f3b13acb02ebdb929cce22d8679e90",
+  "control_contract_sha256": "edb3febd64240c14279dde1da615aed7356e33c68b0e3fb3296fc9728aafdbb9",
   "date_utc": "2026-08-24",
   "development": {
     "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
@@ -80,7 +84,8 @@
     "Static no-future-action leakage audit",
     "Implementation diff review showing only successor-specific vector/readout additions and preserved v2 runtime/reset/token geometry",
     "Fresh independent prereg review",
-    "Fresh independent executable-readiness review before Experiment registration/execution"
+    "Fresh independent executable-readiness review before Experiment registration/execution",
+    "Independent reviewer must verify inherited all20 conservative denominator semantics: Stage2-unqualified contributes zero effect/non-positive sign; zero-unique cannot contribute positive evidence; primary effect denominator remains n=20 after gate."
   ],
   "prohibited_rescues": [
     "No reuse/opening of LocalContinuation-v2 confirmation32..51 or reserve52..63",
