@@ -1,0 +1,104 @@
+{
+  "authorization_boundary": "PASS authorizes fresh implementation engineering only. It does not authorize model/environment science, Experiment execution, confirmation access, valid_seen/unseen access, or Vast start.",
+  "exhaustive_property_sweep": {
+    "all_equal_fail_closed": 27,
+    "alphabet_size": 3,
+    "balanced_block_primary": 59046,
+    "constructible": 88542,
+    "deterministic_rotation_fallback": 29496,
+    "interior_lengths": [
+      2,
+      10
+    ],
+    "status": "PASS"
+  },
+  "git_diff": {
+    "changed_files_exactly": [
+      "results/design/plancarry_localcontinuation_v2_constructible_control_contract_v1_20260824.json",
+      "results/design/plancarry_localcontinuation_v2_final_prereg_static_audit_v1_20260824.json",
+      "results/design/plancarry_localcontinuation_v2_final_prereg_v1_20260824.json",
+      "results/design/plancarry_localcontinuation_v2_plan_derangement_repair_a2_20260824.json",
+      "results/design/test_plancarry_localcontinuation_v2_constructible_controls_v1.py"
+    ],
+    "source_is_ancestor_of_repair": true,
+    "unexpected_changed_files": []
+  },
+  "held_fixed_checks": {
+    "alphas_0.25_0.5_1.0": true,
+    "confirmation_first_action_excluded_LCA2_and_gate": true,
+    "cut_after_action2": true,
+    "development_MSA2_endpoint_and_gate": true,
+    "fresh_population_bytes": true,
+    "layers_7_14_21_27": true,
+    "model_id_revision_dtype_quantization_offload": true,
+    "no_reinjection": true,
+    "one_injection": true,
+    "same_persistent_KV_session": true,
+    "source_residual_PLAN_PRESENT_minus_NEUTRAL_at_t2": true,
+    "split_32_20_12": true,
+    "statistics_thresholds_and_guards": true,
+    "true_context_reset": true,
+    "valid_seen_unseen_remain_unaccessed": true
+  },
+  "independence": {
+    "repair_author_self_review": false,
+    "reviewer_modified_repair_bytes": false
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_STRICT_DERANGEMENT_INDEPENDENT_REVIEW_A1",
+  "operational_notes": [
+    "Initial lab_work_start returned upstream 502 twice after successful claim; a later retry succeeded. This was operational only and did not affect review bytes or science.",
+    "Default /app/.venv lacked pytest; regression suites were then run directly via unittest-compatible test files with PYTHONPATH=. No package installation or scientific execution occurred."
+  ],
+  "regression_tests": {
+    "legacy_execution_stack": "15/15 PASS",
+    "population_selector": "11/11 PASS",
+    "v2_constructible_controls": "11 checks PASS"
+  },
+  "repair_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "repair_commit": "743a4ff9471b5150c33c26a3f8b766e7914269ba",
+  "review_execution": {
+    "alfworld_resets_or_game_opens": 0,
+    "experiment_registration_or_execution": 0,
+    "local_static_job_ids": [
+      "local_f279334eac934da5",
+      "local_5581eb5d6ee94def",
+      "local_900fa094853a4f3c",
+      "local_473610a062a343e1",
+      "local_f5bf55ca3f0b4cbe"
+    ],
+    "model_calls": 0,
+    "scientific_outcomes_accessed": false,
+    "tokenizer_downloads": 0,
+    "vast_usage": 0
+  },
+  "review_work_item_id": "8a97f942-ed08-40a1-9027-c59aa1ff13ad",
+  "reviewer_session_id": "809a62de-03e6-47c2-97e3-64beb610d5e6",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "scientific_result": "NOT_ASSESSED",
+  "semantic_checks": {
+    "all_equal_interior_fail_closed_pre_E": true,
+    "closing_plan_tag_ids_and_positions_fixed": true,
+    "fallback_is_smallest_valid_left_rotation": true,
+    "interior_ids_only_permuted": true,
+    "intervention_controls_equal_causal_arms_minus_active": true,
+    "no_decode_or_retokenize_in_control_constructor": true,
+    "opening_plan_tag_ids_and_positions_fixed": true,
+    "primary_balanced_block_requires_rightmost_interior_change": true,
+    "primary_balanced_block_requires_value_nonidentity": true,
+    "short_interior_fail_closed_pre_E": true,
+    "tag_mismatch_fail_closed_pre_E": true,
+    "token_multiset_preserved": true,
+    "total_token_count_preserved": true,
+    "unconstructible_no_replacement_or_posthoc_rescue": true
+  },
+  "source_commit": "77e77bbef5acb7987cb4d36a4f0fa2b15f11d0b2",
+  "status": "PASS_FOR_LOCALCONTINUATION_V2_STRICT_DERANGEMENT_FREEZE",
+  "verified_hashes": {
+    "control_contract": "6f29522ba1db9c1feaa90110adbba6152bc3eb71bd409fadadbb040d26645709",
+    "fresh_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "prereg": "a11d2b52b76d1090c9be65123778917d1ce348eba200cba7b2a7d0756a7d0d4e",
+    "repair_audit": "052d74bf1a627cffd20a1c39aaa31a0abbc7c269f39241886e1fb059591c96a0",
+    "static_audit": "44b8fab13ac997cab206e7e55fc94abe3a9c820cc3c8b08678500a86077fcf21",
+    "synthetic_test": "d7514bf53a1d31b30b0c84e8ddbb8674ac311e8449f35afdd66825b290a2f322"
+  }
+}

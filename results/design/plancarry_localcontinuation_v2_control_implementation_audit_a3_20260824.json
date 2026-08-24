@@ -1,0 +1,79 @@
+{
+  "date_utc": "2026-08-24",
+  "engineering_task_id": "8a251013-5ce7-4165-85e9-c51288751391",
+  "frozen_design_hashes": {
+    "control_contract": "6f29522ba1db9c1feaa90110adbba6152bc3eb71bd409fadadbb040d26645709",
+    "population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "prereg": "a11d2b52b76d1090c9be65123778917d1ce348eba200cba7b2a7d0756a7d0d4e"
+  },
+  "implementation_author_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "implementation_hashes": {
+    "localcontinuation_controls_v2.py": "c3cbaa5cf3415d4d3faa0cf4cc196f6f264219c6d77d0634f2611e923526393e",
+    "localcontinuation_packet_builder_v2.py": "0546701a52af625b8aea4b55352fb8b08833a5a7ad41ce75742ea5f9d5c89728",
+    "localcontinuation_validator_v2.py": "e2283c110e8180b754c221bbe00af86c482af4bb56fbebbbff0cbf2e0760e0c1",
+    "tests/test_localcontinuation_v2_controls.py": "53e3d5bdd9fc7e62180d8df360d0028c3ab618dbb2082bf39dc0c4a6c764b49a"
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_CONTROL_IMPLEMENTATION_AUDIT_A3_V1",
+  "pinned_v1_hashes": {
+    "localcontinuation_packet_builder_v1.py": "116c213d27af987e782e463bc0317d8d443e95bf1ba571dbba0386d63d109128",
+    "localcontinuation_phase_runner_v1.py": "81a55589f68e1b8d53110ad64eceacb7cfc52a0838166b5241b34fb7fb11783d",
+    "localcontinuation_validator_v1.py": "93390667e19302087f6b3d1a583f00ee4b97232443a4955aa2f1ca2a773fcbda",
+    "replay_residual_natural_packet_producer_v2_1.py": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "replay_residual_sanity_protocol_v1.py": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "replay_residual_t1_session_runtime_v1.py": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6"
+  },
+  "pre_science_checks": {
+    "alfworld_study_execution": 0,
+    "full_synthetic_dev32_stage1_to_stage2": "PASS",
+    "git_diff_check": "PASS",
+    "legacy_execution_stack": "PASS 15/15",
+    "model_calls": 0,
+    "new_v2_tests": "PASS 13/13",
+    "population_selector": "PASS 11/11",
+    "public_filler_hash_bypass_absent": true,
+    "strict_derangement_all_equal_fail_closed": 27,
+    "strict_derangement_constructible": 88542,
+    "strict_derangement_fallback": 29496,
+    "strict_derangement_primary": 59046,
+    "vast_usage": 0
+  },
+  "preimplementation_head": "bf2d77b5d4515840cb39c8de8cbba79b28d9e1c2",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_ENGINEERING",
+  "scientific_variables_changed": [
+    "SEMANTIC_CONTROL_REPRESENTATION_AND_EXACT_TOKEN_SLOT_ASSEMBLY_ONLY_AS_FROZEN_IN_V2"
+  ],
+  "scientific_variables_held_fixed": [
+    "Qwen/Qwen3-1.7B exact revision/BF16",
+    "true reset and cut2",
+    "PLAN_PRESENT-minus-NEUTRAL t2 residual",
+    "exactly one reset-prefix injection",
+    "same persistent KV/no reinjection",
+    "layers7/14/21/27 x alpha0.25/0.5/1.0",
+    "MSA2/LCA2/statistics/thresholds",
+    "fresh population split32/20/12",
+    "no valid_seen/unseen"
+  ],
+  "semantic_implementation": {
+    "neutral_filler": "public construction requires frozen neutral 128-ID SHA 664e74fa68bbc976ce8fcf8603f9cf5cac6a83f6f16bf5d8010622ee455b7470",
+    "next_action_preserved_late_null": "exact action3 IDs only; >96 fails prospectively before E; no truncation",
+    "past_actions_only": "first40 action1 IDs + frozen separator token ID 198 + first40 action2 IDs; max81 <=96; no observation/future data",
+    "plan_block_deranged": "opening/closing PLAN tag IDs fixed; interior IDs only; value-nonidentity and changed rightmost interior; balanced-block primary else smallest valid left rotation; unconstructible fails closed before E",
+    "replay_geometry": "encode prefix and suffix once then concatenate exact prefix_ids + slot128 + suffix_ids; semantic slot never decoded/re-tokenized",
+    "unrelated_plan": "donor chosen only after complete frozen trajectory-eligible E"
+  },
+  "semantic_review": {
+    "sha256": "852b0b1b5c38f7bb1effaa412b48b8810c9793da1352507bd224094295cd995a",
+    "verdict": "PASS_FOR_LOCALCONTINUATION_V2_STRICT_DERANGEMENT_FREEZE",
+    "work_item_id": "8a97f942-ed08-40a1-9027-c59aa1ff13ad"
+  },
+  "source_design_commit": "743a4ff9471b5150c33c26a3f8b766e7914269ba",
+  "status": "ENGINEERING_FREEZE_READY_FOR_INDEPENDENT_EXECUTABLE_REVIEW",
+  "technical_events": [
+    {
+      "effect": "none",
+      "recovered_by": "identical read-only attestation retry",
+      "type": "GPU_LAB_CONNECTOR_TRANSIENT_502"
+    }
+  ],
+  "work_item_id": "88dfcc75-2504-4f92-bf91-06d0eaad13de"
+}
