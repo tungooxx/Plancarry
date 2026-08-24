@@ -1,0 +1,67 @@
+{
+  "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_INDEPENDENT_REVIEW_A2_V1",
+  "date_utc": "2026-08-25",
+  "reviewer": {
+    "worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+    "session_id": "bd9776d0-baf9-45fb-970f-2e7582ea38ea",
+    "role": "ADVERSARIAL_REVIEWER"
+  },
+  "work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
+  "design_work_item_id": "2c1826e5-a89a-4190-8696-7050d65073a8",
+  "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+  "target_commit": "f678ab3047ac3026c0d80345b63610565d14ccfe",
+  "bindings": {
+    "population_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg_sha256": "f9d89adc4127df112ca35d3aa36cc7c8adf10a7e67d37e6b10be57496e6512a3",
+    "static_audit_sha256": "f35e22673f692b39e422d9c042a645dd7ff0791bda32aa55d5a5b75ef37aac4a",
+    "synthetic_test_sha256": "0ed2d00b1a1c4dd084d3d14e3868e39d5242d2a14c25af57ccc5241d03b70d54"
+  },
+  "independent_checks": {
+    "immutable_hash_binding": true,
+    "static_tests_passed": "4/4",
+    "population_inventory_n": 790,
+    "historical_exposure_n": 266,
+    "v1_selected_n": 64,
+    "v2_selected_n": 64,
+    "blocked_union_n": 394,
+    "fresh_available_n": 396,
+    "selected_n": 160,
+    "phase_sizes": [64, 64, 32],
+    "deterministic_rank_reconstruction_exact": true,
+    "rank_sha256_reconstruction_exact": true,
+    "prior_path_overlap_n": 0,
+    "within_selected_duplicates_n": 0,
+    "future_information_forbidden_by_pair_prompt": true,
+    "single_pair_planner_call_no_retry": true,
+    "shared_action3_identical_and_endpoint_excluded": true,
+    "branch_state_cloning_and_error_free_A4_A5_B4_B5_required": true,
+    "all_grid_controls_constructible_before_eligibility_freeze": true,
+    "direct_id_pair_geometry_and_no_downstream_semantic_retokenization_frozen": true,
+    "true_reset_one_injection_same_kv_no_reinjection": true,
+    "development_and_confirmation_denominators_frozen": true,
+    "old_v2_confirmation_reserve_valid_splits_prohibited": true,
+    "model_calls": 0,
+    "environment_execution": 0,
+    "game_files_opened": 0,
+    "scientific_outcomes_accessed": false
+  },
+  "material_issue": {
+    "name": "NEXT_DIVERGENT_ACTION_IDENTITY_CONFOUND",
+    "finding": "ACTIVE r_AB differs in exact A4/A5 versus B4/B5 token IDs, while the primary endpoint directly scores A4 versus B4 immediately after the shared action3. Therefore a positive primary effect can be fully explained by transport of the exact next-divergent-action identity or lexical features of A4/B4, without establishing a multi-step future-plan carrier.",
+    "why_existing_controls_are_insufficient": [
+      "ACTION_HISTORY_MATCHED_NULL removes future content and therefore does not match the A4/B4 identity difference.",
+      "UNRELATED_PAIR_RESIDUAL tests pair specificity but does not isolate A4/B4-only transport from A4/A5 plan transport.",
+      "RANDOM_EQ_NORM tests generic perturbation rather than exact next-action identity.",
+      "FUTURE_TOKEN_DERANGED destroys future token order but does not provide an exact A4-only matched source contrast that neutralizes A5/B5 while retaining A4/B4 identity."
+    ],
+    "scope_problem": "A5/B5 continuation is only a secondary endpoint and is not part of the development or confirmation pass gate. It therefore cannot support the stated multi-step future-plan interpretation if the primary A4/B4 gate succeeds.",
+    "minimum_prospective_repair": [
+      "Add an exact-geometry NEXT_DIVERGENT_ACTION_ONLY matched residual/control: preserve the exact A4-versus-B4 differential while neutralizing or identically matching the A5/B5 segment; norm-match it to ACTIVE and include its shift in the joint nuisance maximum.",
+      "For any multi-step future-plan claim, make a preregistered A5/B5 continuation effect a required development/confirmation mechanistic guard or co-primary after teacher-forcing the matching A4/B4 branch. Alternatively, narrow the hypothesis and claim explicitly to next-divergent-action identity rather than multi-step future-plan state.",
+      "Preserve the frozen fresh160 population, model/runtime, true reset, one-shot intervention, same persistent KV/no reinjection, 4x3 grid, no-replacement policy, split locks, and no prior-path reuse."
+    ]
+  },
+  "provenance_note": "The target commit f678ab3 changes three files relative to its immediate parent because the population file was introduced in the parent design commit; all four frozen target files and exact hashes were independently verified. This is a bookkeeping lineage nuance, not the material scientific defect.",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
