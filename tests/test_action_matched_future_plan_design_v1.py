@@ -15,6 +15,8 @@ def test_pair_semantics():
     q=P['plan_pair_generation']; assert q['calls_per_family']==1 and q['parse'].startswith('exact one fullmatch')
     assert 'exact same first action' in q['prompt'] and 'second actions MUST be different' in q['prompt']
     assert P['pair_validation']['development_fail'].startswith('fewer than20 eligible')
+    assert 'complete source-control constructibility' in P['pair_validation']['eligibility_usage']
+    assert 'before eligibility freeze' in ' '.join(P['pair_validation']['required'])
     assert P['source_representation']['active_residual'].startswith('FP32 r_AB')
     assert P['causal_runtime']['injections_per_rollout']==1 and not P['causal_runtime']['reinjection']
     assert P['primary_endpoint']['immediate_action_excluded'] is True

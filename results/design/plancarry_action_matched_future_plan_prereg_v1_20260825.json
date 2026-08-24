@@ -68,14 +68,15 @@
   },
   "pair_validation": {
     "development_fail": "fewer than20 eligible among fixed64 => INCONCLUSIVE_ACTION_MATCHED_PAIR_CONSTRUCTIBILITY; no causal grid and no confirmation access",
-    "eligibility_usage": "validation determines constructibility only before causal outcomes; scan fixed development filenames in frozen order until exactly20 eligible or all64 exhausted; no replacement outside the pool",
+    "eligibility_usage": "pair validation AND complete source-control constructibility determine eligibility before any causal grid/outcome; scan fixed development filenames in frozen order until exactly20 eligible or all64 exhausted; freeze complete eligible set E before donor selection; no replacement outside the pool and no denominator changes after E",
     "procedure": "From the identical frozen cut snapshot, execute SHARED_ACTION once. Clone the resulting post-action3 state. From one clone execute A4 then A5; from the other clone execute B4 then B5. No planner/model retry.",
     "required": [
       "shared action3 executes error-free and nontrivial",
       "A4 and B4 are both current-admissible after shared action3, nontrivial, distinct, and error-free",
       "A5 is current-admissible after A4 and error-free/nontrivial",
       "B5 is current-admissible after B4 and error-free/nontrivial",
-      "deterministic replay hashes match independently reconstructed branches"
+      "deterministic replay hashes match independently reconstructed branches",
+      "all source controls required for the causal grid are constructible from stored exact IDs before eligibility freeze, including strict FUTURE_TOKEN_DERANGED for both A and B; any unconstructible control makes the family ineligible pre-grid with no replacement"
     ]
   },
   "parent_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",

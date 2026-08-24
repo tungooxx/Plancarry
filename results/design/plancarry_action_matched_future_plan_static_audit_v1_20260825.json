@@ -1,5 +1,6 @@
 {
   "checks": {
+    "all_grid_controls_constructible_before_eligibility_freeze": true,
     "bidirectional_plus_minus_active": true,
     "direct_id_no_retokenize_frozen": true,
     "environment_execution": 0,
@@ -28,8 +29,8 @@
     "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
     "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
     "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
-    "prereg": "0e08c6e0c2f460386380e5a24c8875cadc7aae58f8830554fe16f127676d3f63",
-    "synthetic_test": "8f628e28debbf50b6e59fc2c4bc023e46428dcbd9374a4acd13fc6dab14ec99b",
+    "prereg": "f9d89adc4127df112ca35d3aa36cc7c8adf10a7e67d37e6b10be57496e6512a3",
+    "synthetic_test": "0ed2d00b1a1c4dd084d3d14e3868e39d5242d2a14c25af57ccc5241d03b70d54",
     "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
     "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
   },
@@ -57,7 +58,7 @@
   "test_execution": {
     "expected_count": 4,
     "runner": "direct invocation of every test_* callable under /opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python because pytest package is absent",
-    "status": "PASS_4_OF_4"
+    "status": "PASS_4_OF_4_AFTER_ELIGIBILITY_HARDENING"
   },
   "work_item_id": "2c1826e5-a89a-4190-8696-7050d65073a8"
 }
