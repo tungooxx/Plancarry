@@ -37,6 +37,18 @@ def replay_ids(prefix,slot,suffix):
 
 def check():
     filler=list(range(1000,1128)); sep=[9001]
+    # Frozen cross-artifact arm naming must agree: the executable prereg cannot
+    # silently retain an obsolete control name after semantic redesign.
+    root=pathlib.Path(__file__).resolve().parent
+    prereg=json.loads((root/'plancarry_localcontinuation_v2_final_prereg_v1_20260824.json').read_text())
+    contract=json.loads((root/'plancarry_localcontinuation_v2_constructible_control_contract_v1_20260824.json').read_text())
+    arm='PLAN_BLOCK_DERANGED'; stale='PLAN_TOKEN_PERMUTED'
+    controls=prereg['causal_runtime_and_controls']['intervention_controls']
+    semantics=prereg['semantic_conditions_v2']
+    assert arm in controls and stale not in controls
+    assert arm in semantics and stale not in semantics
+    assert arm in contract['causal_arms'] and arm in contract['specificity_max_controls']
+    assert stale not in contract['causal_arms'] and stale not in contract['specificity_max_controls']
     # Plan-order control is total for every structurally admissible token length >=2.
     for n in range(2,97):
         x=list(range(n)); y,order,sizes=balanced_block_rotate(x)
