@@ -20,7 +20,7 @@
     "zero_self_sentinels": "<=1e-6 as v1"
   },
   "control_contract_file": "results/design/plancarry_localcontinuation_v2_constructible_control_contract_v1_20260824.json",
-  "control_contract_sha256": "3320b466c023f88955e93e92999a7dcfb91addbf86e3bf0ff9dbd8b0b12fcee5",
+  "control_contract_sha256": "6f29522ba1db9c1feaa90110adbba6152bc3eb71bd409fadadbb040d26645709",
   "date_utc": "2026-08-24",
   "development_and_confirmation": {
     "alphas": [
@@ -99,21 +99,22 @@
     "No autonomous Vast start/create/resume"
   ],
   "required_pre_science_tests": [
-    "integer-ID property tests lengths2..96 for block derangement length/multiset/no parser",
-    "repeated-token analogue must remain constructible without disqualification",
+    "exact PLAN tag-span preservation + interior-only PLAN_BLOCK_DERANGED property tests: total length/multiset preserved, output value-nonidentical, rightmost interior token changed",
+    "exhaustive ternary small-alphabet property sweep; nontrivial repeated-token interiors construct; all-equal interiors fail closed before E/donor freeze",
+    "deterministic balanced-block-to-smallest-left-rotation fallback is exercised on an unchanged-endpoint case",
     "bounded-history arbitrary action lengths up to512 must still content<=96",
     "action3 exact identity lengths1..96; explicit prospective >96 guard",
     "every semantic slot exactly128",
     "prefix/slot/suffix direct concatenation yields invariant downstream anchor indices",
     "v1 source bytes unchanged and v1 tests still pass",
     "fresh manifest deterministic reconstruction and zero overlap with exposed266/v1selected64",
-    "fresh independent scientific review of prereg/control/population before Experiment registration",
-    "fresh implementation review before any model/environment science"
+    "fresh implementation review before any model/environment science",
+    "fresh independent scientific review of repaired prereg/control/population before Experiment registration"
   ],
   "scientific_difference_from_v1": {
     "causal_estimand_changed": false,
     "changed": [
-      "semantic control representation: SHUFFLED_PLAN -> PLAN_BLOCK_DERANGED",
+      "semantic control representation: SHUFFLED_PLAN -> strict tag-preserving PLAN_BLOCK_DERANGED with deterministic output-aware fallback and prospective fail-closed constructibility guard",
       "semantic control representation: GENERIC_HISTORY -> PAST_ACTIONS_ONLY",
       "NEXT_ACTION_PRESERVED_LATE_NULL representation becomes exact action3 IDs only + neutral padding",
       "control slot/replay seam assembly becomes exact token-ID splicing to remove decode/re-tokenize dependence",
@@ -121,7 +122,7 @@
     ],
     "held_fixed": [
       "Qwen/Qwen3-1.7B revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e BF16/no quant/offload",
-      "five-action local reference qualification apart from prospective ACTION3<=96 exact-null guard",
+      "five-action local reference qualification apart from prospective ACTION3<=96 and PLAN_BLOCK_DERANGED constructibility guards",
       "cut after action2",
       "one reset-prefix intervention",
       "same persistent KV/session and no reinjection",
@@ -139,7 +140,7 @@
     "NEUTRAL_FILLER": "content_ids=[]; entire128 slot is deterministic neutral filler.",
     "NEXT_ACTION_PRESERVED_LATE_NULL": "content_ids = exact tokenizer IDs of reference action3 only; no plan marker, no action4/action5, no future observation, then neutral filler. Prospectively add Stage1 eligibility guard action3_token_count<=96 before E freeze. This guard is required solely to preserve exact action identity in a fixed128 slot and cannot be relaxed after outcomes.",
     "PAST_ACTIONS_ONLY": "No initial observation and no future observation/action. content_ids = first40 tokenizer IDs of reference action1 + fixed separator IDs + first40 IDs of reference action2. Static separator must be tokenizer-frozen before implementation; total <=96 (target <=81). No generated summary and no outcome-dependent truncation rule.",
-    "PLAN_BLOCK_DERANGED": "Take exact PLAN_PRESENT content_ids of length L>=2. Split into k=4 balanced nonempty contiguous blocks if L>=8 else k=2; rotate block order left by one. Preserve exact token multiset and L; no punctuation/clause parser. If repeated token values make the rendered ID sequence value-identical, record derangement_degenerate=true but DO NOT disqualify or replace the family; the positional transform remains frozen and other natural specificity controls remain in the max-control comparison.",
+    "PLAN_BLOCK_DERANGED": "Let exact PLAN_PRESENT content_ids be OPEN_TAG_IDS + interior_ids + CLOSE_TAG_IDS, with OPEN_TAG_IDS and CLOSE_TAG_IDS frozen from exact tokenizer IDs before Stage1 and verified at their original prefix/suffix positions. Permute interior_ids only; never decode/re-tokenize. Require interior length>=2 and >=2 distinct token IDs. First compute the existing balanced-block left-rotation candidate (k=4 balanced nonempty blocks when interior length>=8, else k=2). Accept it only if the rendered interior ID sequence is value-nonidentical to the original AND its rightmost interior token value differs from the original. Otherwise deterministically scan ordinary left rotations by offsets 1..len(interior)-1 and choose the smallest offset satisfying both conditions. Reassemble OPEN_TAG_IDS + deranged_interior_ids + CLOSE_TAG_IDS. Preserve exact total token count and multiset, exact opening/closing tag token spans and positions, and exact128 downstream geometry. The rightmost semantic interior token immediately before CLOSE_TAG_IDS must change; the closing tag syntax itself intentionally remains fixed. If tag spans cannot be mapped exactly, interior length<2, interior has <2 distinct IDs, or no valid candidate exists, mark the family control-unconstructible prospectively before Stage1 E/donor freeze, with no replacement or posthoc rescue.",
     "PLAN_PRESENT": "content_ids = exact tokenizer IDs of the accepted tagged model-own plan_text; inherited planner contract requires <=96 tokens.",
     "UNRELATED_PLAN": "Exact token IDs of the frozen next-different-family eligible donor plan; donor chosen only after complete Stage1 eligible set E is frozen; <=96 by same planner contract."
   },
@@ -161,8 +162,8 @@
   "source_run_id": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
   "stage1_local_reference": {
     "cut_after_action": 2,
-    "eligibility": "accepted model-own plan + five consecutive current-admissible nontrivial error-free model-own actions; deterministic reset/replay integrity; no outcome-dependent replacement",
-    "new_prospective_guard": "reference action3 exact tokenizer length <=96; evaluated before Stage1 E freeze; failure is expressivity/eligibility, never replaced",
+    "eligibility": "accepted model-own plan + five consecutive current-admissible nontrivial error-free model-own actions; deterministic reset/replay integrity; prospective action3<=96 and PLAN_BLOCK_DERANGED constructibility guards; no outcome-dependent replacement",
+    "new_prospective_guard": "Before Stage1 E/donor freeze: reference action3 exact tokenizer length<=96 AND PLAN_BLOCK_DERANGED exact tag spans map at original prefix/suffix positions with interior length>=2, >=2 distinct token IDs, and deterministic construction yielding value-nonidentical interior plus changed rightmost interior token. Any failure is prospective expressivity/eligibility, never replaced.",
     "required_reference_actions": 5,
     "same_as_v1": true,
     "task_success_required": false

@@ -14,6 +14,8 @@
   "constructibility_fail_closed": [
     "accepted plan content >96 => Stage1 ineligible under inherited planner contract (not replacement)",
     "action3_token_count>96 => Stage1 ineligible prospectively before E freeze",
+    "PLAN_BLOCK_DERANGED exact OPEN/CLOSE tag spans unmappable, interior length<2, or interior has <2 distinct token IDs => Stage1 ineligible before E/donor freeze; no replacement",
+    "PLAN_BLOCK_DERANGED must be value-nonidentical and change the rightmost interior token; if deterministic balanced-block candidate and fixed left-rotation fallback cannot satisfy both => Stage1 ineligible before E/donor freeze; no replacement",
     "any exact128 padding/source hash/replay anchor mismatch => TECHNICAL_INVALID; no family replacement",
     "no Stage2 failure is permitted merely because punctuation/clause parsing is unavailable or observations are long; those dependencies were removed"
   ],
@@ -54,7 +56,7 @@
     "NEUTRAL_FILLER": "content_ids=[]; entire128 slot is deterministic neutral filler.",
     "NEXT_ACTION_PRESERVED_LATE_NULL": "content_ids = exact tokenizer IDs of reference action3 only; no plan marker, no action4/action5, no future observation, then neutral filler. Prospectively add Stage1 eligibility guard action3_token_count<=96 before E freeze. This guard is required solely to preserve exact action identity in a fixed128 slot and cannot be relaxed after outcomes.",
     "PAST_ACTIONS_ONLY": "No initial observation and no future observation/action. content_ids = first40 tokenizer IDs of reference action1 + fixed separator IDs + first40 IDs of reference action2. Static separator must be tokenizer-frozen before implementation; total <=96 (target <=81). No generated summary and no outcome-dependent truncation rule.",
-    "PLAN_BLOCK_DERANGED": "Take exact PLAN_PRESENT content_ids of length L>=2. Split into k=4 balanced nonempty contiguous blocks if L>=8 else k=2; rotate block order left by one. Preserve exact token multiset and L; no punctuation/clause parser. If repeated token values make the rendered ID sequence value-identical, record derangement_degenerate=true but DO NOT disqualify or replace the family; the positional transform remains frozen and other natural specificity controls remain in the max-control comparison.",
+    "PLAN_BLOCK_DERANGED": "Let exact PLAN_PRESENT content_ids be OPEN_TAG_IDS + interior_ids + CLOSE_TAG_IDS, with OPEN_TAG_IDS and CLOSE_TAG_IDS frozen from exact tokenizer IDs before Stage1 and verified at their original prefix/suffix positions. Permute interior_ids only; never decode/re-tokenize. Require interior length>=2 and >=2 distinct token IDs. First compute the existing balanced-block left-rotation candidate (k=4 balanced nonempty blocks when interior length>=8, else k=2). Accept it only if the rendered interior ID sequence is value-nonidentical to the original AND its rightmost interior token value differs from the original. Otherwise deterministically scan ordinary left rotations by offsets 1..len(interior)-1 and choose the smallest offset satisfying both conditions. Reassemble OPEN_TAG_IDS + deranged_interior_ids + CLOSE_TAG_IDS. Preserve exact total token count and multiset, exact opening/closing tag token spans and positions, and exact128 downstream geometry. The rightmost semantic interior token immediately before CLOSE_TAG_IDS must change; the closing tag syntax itself intentionally remains fixed. If tag spans cannot be mapped exactly, interior length<2, interior has <2 distinct IDs, or no valid candidate exists, mark the family control-unconstructible prospectively before Stage1 E/donor freeze, with no replacement or posthoc rescue.",
     "PLAN_PRESENT": "content_ids = exact tokenizer IDs of the accepted tagged model-own plan_text; inherited planner contract requires <=96 tokens.",
     "UNRELATED_PLAN": "Exact token IDs of the frozen next-different-family eligible donor plan; donor chosen only after complete Stage1 eligible set E is frozen; <=96 by same planner contract."
   },
@@ -77,12 +79,14 @@
   ],
   "status": "FROZEN_PRE_SCIENCE",
   "tests_required": [
-    "integer-ID property tests lengths2..96 for block derangement length/multiset/no parser",
-    "repeated-token analogue must remain constructible without disqualification",
+    "integer-ID property tests for exact PLAN tag-span preservation, interior-only derangement, length/multiset preservation, value nonidentity and changed rightmost interior token",
+    "exhaustive ternary small-alphabet sweep over constructible interiors plus repeated-token nontrivial inputs must pass; all-equal interiors must fail closed prospectively",
+    "deterministic fallback test where balanced-block candidate leaves the rightmost interior value unchanged must select the first valid ordinary left rotation",
     "bounded-history arbitrary action lengths up to512 must still content<=96",
     "action3 exact identity lengths1..96; explicit prospective >96 guard",
     "every semantic slot exactly128",
     "prefix/slot/suffix direct concatenation yields invariant downstream anchor indices",
+    "prereg intervention_controls must equal causal_arms minus ACTIVE_PLAN_RESIDUAL",
     "v1 source bytes unchanged and v1 tests still pass"
   ]
 }
