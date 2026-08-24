@@ -1,0 +1,119 @@
+{
+  "alphas": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "authorization_scope": "PASS authorizes only a later exact ResearchDecision-bound DEVELOPMENT run after user-manual heavy-host start/attestation; no provider start or science is authorized by this review.",
+  "base_implementation_commit": "72d2b8883caafb724b0c6fb4f04e2881c0342fa1",
+  "changed_files": [
+    "localcontinuation_phase_runner_v2.py",
+    "localcontinuation_science_driver_v2.py",
+    "localcontinuation_vast_primary_v2.sh",
+    "results/design/plancarry_localcontinuation_v2_execution_handoff_audit_a4_20260824.json",
+    "results/design/plancarry_localcontinuation_v2_final_executable_independent_review_a1_20260824.json",
+    "tests/test_localcontinuation_v2_execution_handoff.py"
+  ],
+  "checks": {
+    "all_bound_hashes_exact": true,
+    "complete_E_before_donor": true,
+    "confirmation_reserve_valid_unreachable": true,
+    "control_norm_matching_and_random_equal_norm_guard": true,
+    "development_only_cli": true,
+    "diff_only_expected_new_handoff_files": true,
+    "direct_exact128_replay": true,
+    "driver_preflight": "READY_NO_SCIENCE",
+    "environment_execution": 0,
+    "fresh_dev_indices_0_31_only": true,
+    "handoff_tests_9_of_9": true,
+    "head_equals_origin_main": true,
+    "independently_bound_device_required": true,
+    "legacy_v1_tests_15_of_15": true,
+    "model_calls": 0,
+    "msa2_selector_futility_tiebreak_unchanged": true,
+    "neutral_filler_ids": [
+      20628,
+      2266,
+      8458,
+      34857,
+      13
+    ],
+    "neutral_filler_stream_sha256": "557e30342fe6309165f388724a14895474db6d7ef82e4a3679c4459f4f7ae287",
+    "output_and_inprogress_refusal_before_model_load": true,
+    "packet_publish_private_validated_atomic": true,
+    "research_decision_authorization_required": true,
+    "scientific_outcomes_accessed": false,
+    "selector_tests_11_of_11": true,
+    "separator_ids": [
+      198
+    ],
+    "shell_no_provider_lifecycle": true,
+    "shell_preflight": "READY_NO_SCIENCE",
+    "source_residual_plan_minus_neutral_t2": true,
+    "specificity_controls_exact_set": true,
+    "specificity_order_semantically_inert_under_max": true,
+    "stage2_stored_ids_exploding_tokenizer_guard": true,
+    "strict_derangement_counts": "88542/59046/29496/27",
+    "token_materialization_pass": true,
+    "tokenizer_versions": "transformers4.51.3/tokenizers0.21.1",
+    "v1_reuse_only_six_low_level_runtime_helpers": true,
+    "v2_tests_14_of_14": true,
+    "vast_usage": 0,
+    "wrong_auth_refused_exit95": true
+  },
+  "design_commit": "d538f98f9860319a57a0f3db4952fdcd7b7f2ebd",
+  "file_hashes": {
+    "localcontinuation_phase_runner_v2.py": "06b5f0fd92edcb09a0858531a7c795a1017ece09b454d58affb749389ef7b163",
+    "localcontinuation_science_driver_v2.py": "a2f2c1ccd0a485f9fd5e4302becb2a3ac5e7d378173d608a3676ff73e3cedd31",
+    "localcontinuation_vast_primary_v2.sh": "7f237a87ba34b5aae21d748b5edd204dd70a054322259ccaab53f8d40b31ccd0",
+    "results/design/plancarry_localcontinuation_v2_execution_handoff_audit_a4_20260824.json": "2df02c635b84a161825a99826523e3d345f1bb68748f6719bfc4ce2c695c8b40",
+    "results/design/plancarry_localcontinuation_v2_final_executable_independent_review_a1_20260824.json": "99a93039d8aa352f73acaf5435627a70ce90cf280386b1860c3dbb6c2a3911c3",
+    "tests/test_localcontinuation_v2_execution_handoff.py": "c7e4006fa8f943a46f343710b32db052f63e3865a59e4fbe49f42311d3bd29a1"
+  },
+  "final_prereg_sha256": "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716",
+  "handoff_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
+  "independence": "PASS_REVIEWER_DID_NOT_AUTHOR_HANDOFF_BYTES",
+  "independent_jobs": {
+    "exact_driver_shell_preflight": "local_82b084e7f6084e35",
+    "hash_diff_and_handoff_tests": "local_8dfc49cbe9fa4774",
+    "pinned_token_and_regression_tests": "local_b6db4c967a1e43e1",
+    "semantic_source_audit": "local_1eca5fe336974b8c",
+    "v1_reuse_and_source_audit": "local_4711de699c6b4cf3"
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_HEAVY_EXECUTION_HANDOFF_INDEPENDENT_REVIEW",
+  "layers": [
+    7,
+    14,
+    21,
+    27
+  ],
+  "population_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+  "reviewer_session_id": "809a62de-03e6-47c2-97e3-64beb610d5e6",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "runtime_v1_actual_reuse": [
+    "base_reset",
+    "load_runtime",
+    "msa2_arm",
+    "rademacher",
+    "rescale_to",
+    "runtime_factory"
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "specificity_controls_frozen_order": [
+    "RANDOM_EQ_NORM",
+    "NEXT_ACTION_PRESERVED_LATE_NULL",
+    "UNRELATED_PLAN",
+    "PLAN_BLOCK_DERANGED",
+    "PAST_ACTIONS_ONLY"
+  ],
+  "specificity_controls_set": [
+    "NEXT_ACTION_PRESERVED_LATE_NULL",
+    "PAST_ACTIONS_ONLY",
+    "PLAN_BLOCK_DERANGED",
+    "RANDOM_EQ_NORM",
+    "UNRELATED_PLAN"
+  ],
+  "verdict": "PASS_FOR_LOCALCONTINUATION_V2_HEAVY_EXECUTION_HANDOFF",
+  "work_item_id": "66218547-3f3d-4a37-9d5a-da061452206d"
+}
