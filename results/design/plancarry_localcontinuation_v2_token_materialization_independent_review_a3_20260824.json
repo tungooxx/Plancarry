@@ -1,0 +1,69 @@
+{
+  "date_utc": "2026-08-24",
+  "independent_checks": {
+    "alfworld_study_execution": 0,
+    "all_equal_fail_closed": 27,
+    "causal_arms_unchanged": true,
+    "causal_runtime_and_controls_unchanged": true,
+    "constructible": 88542,
+    "development_confirmation_unchanged": true,
+    "fallback": 29496,
+    "held_fixed_unchanged": true,
+    "legacy_execution_stack": "PASS 15/15",
+    "model_calls": 0,
+    "model_runtime_unchanged": true,
+    "neutral_literal128_sha256": "557e30342fe6309165f388724a14895474db6d7ef82e4a3679c4459f4f7ae287",
+    "neutral_primitive_ids": [
+      20628,
+      2266,
+      8458,
+      34857,
+      13
+    ],
+    "newline_separator_ids": [
+      198
+    ],
+    "pinned_v1_hashes_exact": true,
+    "population_selector": "PASS 11/11",
+    "population_unchanged": true,
+    "primary": 59046,
+    "prohibitions_unchanged": true,
+    "python": "3.13.15",
+    "specificity_controls_unchanged": true,
+    "strict_semantic_property_test": "PASS",
+    "tokenizer_files_exact": true,
+    "tokenizers": "0.21.1",
+    "transformers": "4.51.3",
+    "vast_usage": 0
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_TOKEN_MATERIALIZATION_INDEPENDENT_REVIEW_A3_V1",
+  "material_finding": {
+    "conflict": "The authoritative repaired semantic rule explicitly permits tokens that cross a literal PLAN-tag/interior boundary by freezing them in place; only nonempty-offset tokens wholly inside the inner character span are mutable. Therefore an executable following the stale guard literally could reject common accepted <PLAN>\\n... plans that the repaired token rule says are valid.",
+    "field": "stage1_local_reference.new_prospective_guard",
+    "file": "results/design/plancarry_localcontinuation_v2_final_prereg_v1_20260824.json",
+    "observed": "Before Stage1 E/donor freeze: ... PLAN_BLOCK_DERANGED exact tag spans map at original prefix/suffix positions with interior length>=2, >=2 distinct token IDs ... changed rightmost interior token.",
+    "required_repair": "Replace this single stale guard with boundary-safe mutable-position language: tokenize accepted plan once with offsets; freeze tag/boundary-overlap tokens; require >=2 mutable wholly-interior positions and >=2 distinct mutable values; require deterministic mutable-value nonidentity and changed rightmost mutable value. Recompute prereg SHA and dependent static/audit bindings. No other scientific variable may change.",
+    "type": "FROZEN_PREREG_STAGE1_GUARD_CONTRADICTS_BOUNDARY_SAFE_TOKEN_RULE"
+  },
+  "repair_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "review_work_item_id": "80ae68a9-ebd6-435c-9fb9-b29a2769d000",
+  "reviewed_commit": "ce4258d81a9db3c0991152862bd814dc06c59a30",
+  "reviewed_hashes": {
+    "control_contract": "8511bf400e5032920440485ca8d1d32b64299082f386663b2d0d23cb8f6dbf8c",
+    "fresh_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "materialization_audit": "64c1c5cdf701b51a322f0a60b4df1bb0e68b133884224faaa6653d69fa3046da",
+    "prereg": "0e7d26ede2099386339509a92e37cd4c13249608329e75de927ba9eb95308e7e",
+    "static_audit": "1fe8cd3d7edd86aaba0813508716656070a263a849b16cefd814688a836c271b",
+    "token_materialization_test": "38fc49adc4a50cadd26c3f97b664e6c6664e2df6327cf651b6d7587bb07cdcdd"
+  },
+  "reviewer_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "supported_repaired_rule": {
+    "boundary_overlap_tokens_frozen_not_ineligible": true,
+    "mutable_positions_wholly_inside_inner_span_only": true,
+    "no_downstream_semantic_decode_retokenize": true,
+    "single_plan_tokenization_with_offsets": true,
+    "strict_mutable_derangement_nonidentity_and_rightmost_change": true
+  },
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
