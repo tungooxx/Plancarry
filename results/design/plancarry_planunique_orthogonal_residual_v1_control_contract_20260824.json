@@ -1,0 +1,130 @@
+{
+  "confirmation": {
+    "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
+    "effect_guards": [
+      "mean LCA2 gain vs NO_PATCH >=0.10",
+      "mean LCA2 gain vs max specificity control >=0.10",
+      "valid-action rate not worse than NO_PATCH by >0.05"
+    ],
+    "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
+    "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
+    "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
+    "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
+    "task_success": "secondary only",
+    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05."
+  },
+  "development_arms": {
+    "controls": [
+      "NO_PATCH",
+      "RANDOM_EQ_UNIQUE_NORM",
+      "NUISANCE_COMPONENT_EQ_UNIQUE_NORM",
+      "NEXT_ACTION_EQ_UNIQUE_NORM",
+      "PAST_ACTIONS_EQ_UNIQUE_NORM",
+      "DERANGED_EQ_UNIQUE_NORM",
+      "UNRELATED_PLAN_UNIQUE_EQ_NORM"
+    ],
+    "diagnostic_only": [
+      "RAW_PLAN_RESIDUAL"
+    ],
+    "injections_per_rollout": 1,
+    "norm_rule": "All non-NO_PATCH specificity controls are deterministically rescaled to ||r_unique||. If ||r_unique||<=1e-8, inject exact zero for PLAN_UNIQUE and every matched control and retain the family in the denominator. If ||r_unique||>1e-8 but any REQUIRED matched source-control vector has norm<=1e-8, mark the family Stage2-ineligible before grid evaluation; no replacement. RANDOM_EQ_UNIQUE_NORM is SHA256-Rademacher at exact unique norm.",
+    "nuisance_component_rule": "Use projection of target r_plan onto target nuisance span, rescaled to target ||r_unique||.",
+    "primary": "PLAN_UNIQUE_ORTHOGONAL",
+    "reinjection": false,
+    "required_nonzero_source_controls_when_unique_nonzero": [
+      "nuisance_component",
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "PAST_ACTIONS_ONLY",
+      "PLAN_BLOCK_DERANGED",
+      "UNRELATED_PLAN_projected_through_target_basis"
+    ],
+    "same_persistent_kv_session": true,
+    "sentinel_maxabs": 1e-06,
+    "sentinels": [
+      "ZERO_ADD",
+      "SELF_REPLACE"
+    ],
+    "true_context_reset": true,
+    "unrelated_unique_rule": "Project the unrelated donor plan residual through the TARGET episode nuisance basis, then rescale to target ||r_unique||; donor selection is frozen before outcomes."
+  },
+  "development_endpoint": {
+    "definition": "Same matched-state two-position source as v2 reference_action_margin_family: after exact teacher-forced reference action3/obs3 and action4/obs4 through the same persistent session, at reference actions4 and5 compute mean_logprob(reference)-max mean_logprob(other admissible action); family value is mean of the two margins.",
+    "futility": "If qualification or any pass-gate clause fails, stop DEVELOPMENT_FUTILITY; do not open confirmation.",
+    "name": "RAM2_CONTINUOUS",
+    "pass_gate": {
+      "competence": "mean matched-state MSA2(PLAN_UNIQUE) >= mean MSA2(NO_PATCH)-0.05",
+      "median_joint_margin_nats": ">=0.05",
+      "plumbing": "all zero/self sentinels pass",
+      "positive_joint_fraction": ">=0.625 of qualified families"
+    },
+    "per_family_deltas": {
+      "d_no_patch": "RAM2(PLAN_UNIQUE)-RAM2(NO_PATCH)",
+      "d_specificity": "RAM2(PLAN_UNIQUE)-max RAM2(all specificity controls)",
+      "joint_margin": "min(d_no_patch,d_specificity)"
+    },
+    "qualification_gate": ">=24/32 Stage1+Stage2-qualified fresh development families. Stage2 requires exact projection construction and equal-norm control constructibility. Zero-unique families remain qualified/denominator with all matched intervention vectors exact zero; nonzero-unique families with any required zero-norm source control are Stage2-ineligible, no replacement.",
+    "selection": "Choose one global layer/alpha maximizing median joint_margin; ties: higher fraction joint_margin>0, higher median d_no_patch, lower alpha, earlier layer."
+  },
+  "development_grid": {
+    "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "layer_rationale": "Post-terminal v2 development diagnostics: layer27 was exactly intervention-inert; layer7 was predominantly non-specific/negative; layers14/21 were the only sites with repeated small positive active-vs-no-patch continuous deltas. This is transparent development-informed narrowing; all successor outcome data are fresh.",
+    "layers": [
+      14,
+      21
+    ]
+  },
+  "hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_CONTROL_CONTRACT",
+  "orthogonal_projection": {
+    "absolute_zero_eps": 1e-08,
+    "algorithm": "Fixed-order modified Gram-Schmidt. For nuisance vector v in fixed_order: w=v-sum_q <q,v>q. If ||w|| <= max(1e-10,1e-6*||v||), mark REDUNDANT_NUISANCE and omit it; otherwise q=w/||w||. Then nuisance_component=sum_q <q,r_plan>q and r_unique=r_plan-nuisance_component.",
+    "no_raw_norm_amplification": true,
+    "numeric_location": "CPU float64 after source vectors are captured; final injected vectors converted to model intervention dtype/device only by the reviewed session runtime.",
+    "plan_unique_vector": "raw r_unique; do not rescale to ||r_plan||.",
+    "projection_invariants": [
+      "<q_i,q_j> absolute error <=1e-8 in CPU float64",
+      "r_unique dot each accepted q absolute <= max(1e-8,1e-6*||r_unique||)",
+      "r_plan = nuisance_component + r_unique reconstruction relative error <=1e-8 unless r_plan is zero",
+      "No action4/action5/future token IDs enter nuisance basis or projection math."
+    ],
+    "rank_deficiency_rule": "Redundant nuisance vectors are dropped by the frozen numerical rule; families are NOT removed. Basis rank and dropped names are persisted.",
+    "redundancy_relative_tol": 1e-06,
+    "zero_unique_rule": "If ||r_unique||<=1e-8, inject exact zero for PLAN_UNIQUE at every alpha and count the family in all denominators; it cannot contribute a positive specificity win. Do not renormalize numerical noise."
+  },
+  "parent_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "prohibited_rescues": [
+    "No reuse/opening of LocalContinuation-v2 confirmation32..51 or reserve52..63",
+    "No valid_seen/unseen access",
+    "No outcome-dependent nuisance-basis edits",
+    "No family replacement/filtering after source capture",
+    "No threshold/grid/model/task-family rescue",
+    "No reinterpretation of completed v2 continuous margins as confirmation evidence",
+    "No confirmation if fresh development pass gate fails"
+  ],
+  "source_failure": {
+    "diagnostic": "v2 MSA2 saturated across ACTIVE/NO_PATCH/semantic controls; continuous margins were small/non-specific.",
+    "negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+    "run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+    "v2_terminal": "INCONCLUSIVE_LOCALCONTINUATION_V2_DEVELOPMENT_FUTILITY"
+  },
+  "source_representation": {
+    "nuisance_residuals": {
+      "definition": "Each nuisance vector is h(condition)-h(NEUTRAL_FILLER) from the same target episode and same replay geometry.",
+      "fixed_order": [
+        "NEXT_ACTION_PRESERVED_LATE_NULL",
+        "PAST_ACTIONS_ONLY",
+        "PLAN_BLOCK_DERANGED"
+      ]
+    },
+    "raw_plan_residual": "r_plan = h(PLAN_PRESENT)-h(NEUTRAL_FILLER) at frozen source t2 for each candidate layer.",
+    "reuse": "Exact LocalContinuation-v2 token geometry and source capture semantics; PLAN_PRESENT, NEUTRAL_FILLER, NEXT_ACTION_PRESERVED_LATE_NULL, PAST_ACTIONS_ONLY, PLAN_BLOCK_DERANGED, UNRELATED_PLAN are built with the already-reviewed direct-token v2 contract.",
+    "unrelated_plan": "Different-family donor chosen prospectively by the unchanged deterministic donor rule; never enters nuisance basis and remains a specificity control."
+  },
+  "status": "FROZEN_PRE_SCIENCE"
+}

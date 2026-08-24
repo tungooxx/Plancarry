@@ -1,0 +1,105 @@
+{
+  "confirmation": {
+    "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
+    "effect_guards": [
+      "mean LCA2 gain vs NO_PATCH >=0.10",
+      "mean LCA2 gain vs max specificity control >=0.10",
+      "valid-action rate not worse than NO_PATCH by >0.05"
+    ],
+    "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
+    "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
+    "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
+    "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
+    "task_success": "secondary only",
+    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05."
+  },
+  "control_contract_file": "plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json",
+  "control_contract_sha256": "3d1d57be3e8473f76b48e8ed66a7998100f3b13acb02ebdb929cce22d8679e90",
+  "date_utc": "2026-08-24",
+  "development": {
+    "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "definition": "Same matched-state two-position source as v2 reference_action_margin_family: after exact teacher-forced reference action3/obs3 and action4/obs4 through the same persistent session, at reference actions4 and5 compute mean_logprob(reference)-max mean_logprob(other admissible action); family value is mean of the two margins.",
+    "futility": "If qualification or any pass-gate clause fails, stop DEVELOPMENT_FUTILITY; do not open confirmation.",
+    "layer_rationale": "Post-terminal v2 development diagnostics: layer27 was exactly intervention-inert; layer7 was predominantly non-specific/negative; layers14/21 were the only sites with repeated small positive active-vs-no-patch continuous deltas. This is transparent development-informed narrowing; all successor outcome data are fresh.",
+    "layers": [
+      14,
+      21
+    ],
+    "name": "RAM2_CONTINUOUS",
+    "pass_gate": {
+      "competence": "mean matched-state MSA2(PLAN_UNIQUE) >= mean MSA2(NO_PATCH)-0.05",
+      "median_joint_margin_nats": ">=0.05",
+      "plumbing": "all zero/self sentinels pass",
+      "positive_joint_fraction": ">=0.625 of qualified families"
+    },
+    "per_family_deltas": {
+      "d_no_patch": "RAM2(PLAN_UNIQUE)-RAM2(NO_PATCH)",
+      "d_specificity": "RAM2(PLAN_UNIQUE)-max RAM2(all specificity controls)",
+      "joint_margin": "min(d_no_patch,d_specificity)"
+    },
+    "qualification_gate": ">=24/32 Stage1+Stage2-qualified fresh development families; zero-unique families remain qualified/denominator and score through exact zero injection.",
+    "selection": "Choose one global layer/alpha maximizing median joint_margin; ties: higher fraction joint_margin>0, higher median d_no_patch, lower alpha, earlier layer."
+  },
+  "environment_execution_in_this_design": 0,
+  "fresh_population_file": "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+  "fresh_population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+  "frozen_model_runtime": {
+    "alfworld": "0.4.2",
+    "dtype": "BF16",
+    "model": "Qwen/Qwen3-1.7B",
+    "offload": false,
+    "quantization": false,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "textworld": "1.7.0",
+    "thinking": false,
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "isolation": {
+    "confirmation_indices": "32..51 untouched until dev pass",
+    "development_indices": "0..31",
+    "reserve_indices": "52..63 locked until primary support",
+    "v2_all64_excluded": true,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_FINAL_PREREG",
+  "model_calls_in_this_design": 0,
+  "parent_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "pre_science_requirements": [
+    "Deterministic synthetic projection property test PASS bound by 7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79; includes collinear/rank-deficient/zero vectors and zero-norm equal-control constructibility semantics.",
+    "Exact fresh-population reconstruction and overlap audit",
+    "Static no-future-action leakage audit",
+    "Implementation diff review showing only successor-specific vector/readout additions and preserved v2 runtime/reset/token geometry",
+    "Fresh independent prereg review",
+    "Fresh independent executable-readiness review before Experiment registration/execution"
+  ],
+  "prohibited_rescues": [
+    "No reuse/opening of LocalContinuation-v2 confirmation32..51 or reserve52..63",
+    "No valid_seen/unseen access",
+    "No outcome-dependent nuisance-basis edits",
+    "No family replacement/filtering after source capture",
+    "No threshold/grid/model/task-family rescue",
+    "No reinterpretation of completed v2 continuous margins as confirmation evidence",
+    "No confirmation if fresh development pass gate fails"
+  ],
+  "projection_contract": "Bound verbatim by control_contract_sha256; fixed nuisance order NEXT_ACTION_PRESERVED_LATE_NULL, PAST_ACTIONS_ONLY, PLAN_BLOCK_DERANGED; CPU-float64 fixed-order Gram-Schmidt; raw orthogonal component; zero-unique retained in denominator; if unique is nonzero but any required matched source control is zero-norm, Stage2-ineligible with no replacement.",
+  "projection_property_test_file": "plancarry_planunique_orthogonal_residual_v1_projection_property_test_20260824.json",
+  "projection_property_test_sha256": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79",
+  "scientific_outcomes_accessed_in_this_design": [
+    "Completed LocalContinuation-v2 DEVELOPMENT only; used prospectively to motivate successor. No old confirmation/reserve/valid outcome accessed."
+  ],
+  "scientific_role": "DEVELOPMENT_SELECTION_THEN_UNTOUCHED_BEHAVIORAL_CONFIRMATION",
+  "source_negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+  "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+  "stage1_and_token_geometry": "Reuse exact independently reviewed LocalContinuation-v2 five-action local-reference eligibility, true reset/cut after action2, stored pre-E semantic token IDs, exact128 direct-ID replay geometry, donor-after-E rule, and no-replacement semantics. The new scientific change begins only after v2-compatible source residuals are captured.",
+  "status": "FROZEN_PRE_SCIENCE"
+}

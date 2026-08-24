@@ -1,0 +1,59 @@
+{
+  "artifact_sha256": {
+    "plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json": "3d1d57be3e8473f76b48e8ed66a7998100f3b13acb02ebdb929cce22d8679e90",
+    "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "plancarry_planunique_orthogonal_residual_v1_prereg_20260824.json": "72e9b0af72d7cfe83e5fc602fdcc5c24bf1ef6d0eac7fa857308cf9f943fb19e",
+    "plancarry_planunique_orthogonal_residual_v1_projection_property_test_20260824.json": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79"
+  },
+  "checks": {
+    "continuous_dev_behavioral_confirmation_split": true,
+    "design_zero_model_env": true,
+    "equal_norm_zero_source_ambiguity_repaired": true,
+    "grid_eight_points": true,
+    "no_valid_splits": true,
+    "nuisance_basis_fixed": true,
+    "old_locked_populations_excluded": true,
+    "population_capacity": true,
+    "population_counts": true,
+    "population_no_old_overlap": true,
+    "projection_property_test_pass": true,
+    "single_injection_no_reinjection": true,
+    "zero_unique_no_filter": true
+  },
+  "development_grid_points": 8,
+  "environment_execution": 0,
+  "game_files_opened": 0,
+  "git_head_before_design": "ff2bd8bfa86d78392b36ac919c190bfa34cef0a2",
+  "hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_STATIC_AUDIT",
+  "model_calls": 0,
+  "population_summary": {
+    "available": 396,
+    "excluded_union": 394,
+    "historically_exposed": 266,
+    "inventory": 790,
+    "new_selected": 64,
+    "spare": 332,
+    "v1_selected": 64,
+    "v2_selected": 64
+  },
+  "projection_property_test_summary": {
+    "fixed_cases": 5,
+    "max_basis_orthonormal_error": 4.440892098500626e-16,
+    "max_reconstruction_relative_error": 8.233696628795813e-17,
+    "max_unique_basis_abs_dot": 9.924786686932308e-16,
+    "stress_cases": 200
+  },
+  "prospective_repair_note": "Before independent review/science, repaired equal-norm ambiguity: if unique>eps but required matched source-control norm<=eps, family is Stage2-ineligible/no replacement; zero-unique retains family with all matched intervention vectors exact zero.",
+  "scientific_result": "NOT_ASSESSED",
+  "source_sha256": {
+    "plancarry_localcontinuation_canonical_inventory_v1_20260823.json": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+    "plancarry_localcontinuation_exposed_paths_v1_20260823.json": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+    "plancarry_localcontinuation_v2_fresh_population_v1_20260824.json": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543"
+  },
+  "status": "PASS_PRE_SCIENCE_STATIC_ONLY",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "work_item_id": "ab8342fa-7675-404f-be68-8f370f6c93f7"
+}
