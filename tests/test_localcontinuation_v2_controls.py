@@ -16,6 +16,34 @@ class FakeTokenizer:
         assert add_special_tokens is False
         return list(str(text).encode("utf-8"))
 
+    def __call__(self, text, add_special_tokens=False, return_offsets_mapping=False):
+        assert add_special_tokens is False
+        assert return_offsets_mapping is True
+        value = str(text)
+        ids = list(value.encode("utf-8"))
+        # Synthetic tests below use ASCII strings, so byte and char offsets agree.
+        return {"input_ids": ids, "offset_mapping": [(i, i + 1) for i in range(len(ids))]}
+
+
+class ExplodingTokenizer:
+    def encode(self, *args, **kwargs):
+        raise AssertionError("STAGE2_SEMANTIC_RETOKENIZATION_FORBIDDEN")
+
+    def __call__(self, *args, **kwargs):
+        raise AssertionError("STAGE2_SEMANTIC_RETOKENIZATION_FORBIDDEN")
+
+
+class BoundaryOverlapTokenizer:
+    def __call__(self, text, add_special_tokens=False, return_offsets_mapping=False):
+        assert add_special_tokens is False and return_offsets_mapping is True
+        assert text == "<PLAN>\nab</PLAN>"
+        # Token index1 spans the final opening-tag character and newline: [5,7).
+        # It must be frozen, not rejected or treated as mutable.
+        return {
+            "input_ids": [101, 102, 201, 202, 103],
+            "offset_mapping": [(0, 5), (5, 7), (7, 8), (8, 9), (9, 16)],
+        }
+
 
 class TestLocalContinuationV2Controls(unittest.TestCase):
     def test_exhaustive_strict_derangement_counts(self):
@@ -79,7 +107,11 @@ class TestLocalContinuationV2Controls(unittest.TestCase):
         with self.assertRaisesRegex(c.V2ControlError, "CONTENT_GT96"):
             c._make_slot_ids_unchecked(range(97), filler)
 
-    def test_frozen_filler_rejects_wrong_ids(self):
+    def test_frozen_filler_literal_stream_and_rejects_wrong_ids(self):
+        filler = list(c.NEUTRAL_FILLER_IDS)
+        self.assertEqual(len(filler), 128)
+        self.assertEqual(c.sha_json(filler), c.NEUTRAL_FILLER_IDS_SHA256)
+        self.assertEqual(c.verify_neutral_filler_ids(filler), filler)
         with self.assertRaisesRegex(c.V2ControlError, "NEUTRAL_FILLER_SHA256"):
             c.verify_neutral_filler_ids(range(128))
 
@@ -105,12 +137,23 @@ class TestLocalContinuationV2Controls(unittest.TestCase):
 
     def test_stage1_constructibility_fake_tokenizer(self):
         tok = FakeTokenizer()
-        op, cl = c.frozen_tag_ids(tok)
         plan = "<PLAN>abcde</PLAN>"
-        guard = c.stage1_constructibility_guard(tok, plan, "move", op, cl)
-        self.assertLessEqual(guard["plan_content_token_count"], 96)
-        self.assertLessEqual(guard["action3_token_count"], 96)
-        self.assertIn(guard["derangement_method"], ("BALANCED_BLOCK_LEFT_ROTATE", "SMALLEST_VALID_LEFT_ROTATION"))
+        actions = [{"command": "a1"}, {"command": "a2"}, {"command": "move"}]
+        guard = c.stage1_constructibility_guard(tok, plan, actions)
+        self.assertLessEqual(len(guard["plan"]["plan_token_ids"]), 96)
+        self.assertLessEqual(guard["actions"]["action3_token_count"], 96)
+        self.assertIn(guard["plan"]["derangement"]["method"], ("BALANCED_BLOCK_LEFT_ROTATE", "SMALLEST_VALID_LEFT_ROTATION"))
+        self.assertEqual(guard["actions"]["action1_ids"], tok.encode("a1"))
+        self.assertEqual(guard["actions"]["action2_ids"], tok.encode("a2"))
+        self.assertEqual(guard["actions"]["action3_ids"], tok.encode("move"))
+        c.validate_stage1_materialization_provenance(guard, plan, actions)
+
+    def test_boundary_overlap_token_is_frozen_not_ineligible(self):
+        mat = c.materialize_plan_tokens(BoundaryOverlapTokenizer(), "<PLAN>\nab</PLAN>")
+        self.assertEqual(mat["plan_mutable_positions"], [2, 3])
+        self.assertIn(1, mat["plan_frozen_positions"])
+        self.assertEqual(mat["plan_token_ids"][1], mat["plan_deranged_ids"][1])
+        self.assertNotEqual(mat["plan_deranged_ids"][3], mat["plan_token_ids"][3])
 
     def test_arm_set_matches_frozen_prereg_and_contract(self):
         root = Path(__file__).resolve().parents[1]
@@ -172,26 +215,25 @@ class TestLocalContinuationV2Controls(unittest.TestCase):
             import replay_residual_sanity_protocol_v1 as sp
             packet["trajectory_sha256"] = sp.trajectory_digest(packet)
             packets.append(packet)
-        filler = list(range(50000, 50128))
-        old = c.NEUTRAL_FILLER_IDS_SHA256
-        c.NEUTRAL_FILLER_IDS_SHA256 = c.sha_json(filler)
-        try:
-            out = pb.apply_stage2_phase(tok, packets, "development", filler, op, cl, root)
-            self.assertEqual(len(out), 32)
-            self.assertGreaterEqual(sum(bool(x["qualified"]) for x in out), 16)
-            for packet in out:
-                if packet["trajectory_eligible"]:
-                    self.assertTrue(packet["qualified"], packet["qualification_stage2_reasons"])
-                    prov = packet["control_provenance"]
-                    self.assertEqual(set(prov["condition_names"]), set(c.SCIENCE_CONDITIONS))
-                    self.assertNotEqual(prov["unrelated_donor_frozen_index"], packet["frozen_index"])
-                    self.assertEqual(sorted(prov["frozen_E_indices"]), list(range(32)))
-            e_orders = {tuple(x["control_provenance"]["frozen_E_indices"]) for x in out if x.get("qualified")}
-            self.assertEqual(len(e_orders), 1)
-            rebuilt = validator.validate_stage2_reconstruction(out, "development", tok, filler, op, cl, root)
-            self.assertEqual(rebuilt["reconstruction"], "PASS")
-        finally:
-            c.NEUTRAL_FILLER_IDS_SHA256 = old
+        filler = list(c.NEUTRAL_FILLER_IDS)
+        # Stage2 must consume only the IDs persisted by Stage1; a tokenizer that
+        # raises on every call proves no semantic plan/action/donor re-tokenization.
+        out = pb.apply_stage2_phase(ExplodingTokenizer(), packets, "development", filler, op, cl, root)
+        self.assertEqual(len(out), 32)
+        self.assertGreaterEqual(sum(bool(x["qualified"]) for x in out), 16)
+        for packet in out:
+            if packet["trajectory_eligible"]:
+                self.assertTrue(packet["qualified"], packet["qualification_stage2_reasons"])
+                prov = packet["control_provenance"]
+                self.assertEqual(set(prov["condition_names"]), set(c.SCIENCE_CONDITIONS))
+                self.assertNotEqual(prov["unrelated_donor_frozen_index"], packet["frozen_index"])
+                self.assertEqual(sorted(prov["frozen_E_indices"]), list(range(32)))
+                self.assertEqual(prov["stage2_semantic_tokenizer_calls"], 0)
+                self.assertEqual(prov["semantic_materialization"], "STORED_STAGE1_IDS_ONLY_NO_SEMANTIC_DECODE_RETOKENIZE")
+        e_orders = {tuple(x["control_provenance"]["frozen_E_indices"]) for x in out if x.get("qualified")}
+        self.assertEqual(len(e_orders), 1)
+        rebuilt = validator.validate_stage2_reconstruction(out, "development", ExplodingTokenizer(), filler, op, cl, root)
+        self.assertEqual(rebuilt["reconstruction"], "PASS")
 
     def test_stage1_action3_gt96_fails_before_E(self):
         tok = FakeTokenizer()

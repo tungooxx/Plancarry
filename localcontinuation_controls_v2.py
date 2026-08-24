@@ -4,6 +4,7 @@ from __future__ import annotations
 import collections
 import hashlib
 import json
+import re
 from dataclasses import dataclass
 from typing import Any, Mapping, Sequence
 
@@ -16,8 +17,12 @@ PAST_ACTION_PREFIX_TOKENS = 40
 # Frozen prospectively at implementation from the already tokenizer-audited
 # Qwen3 newline ID present in the v0.2 token-native constants.
 PAST_ACTION_SEPARATOR_IDS = (198,)
-NEUTRAL_FILLER_IDS_SHA256 = "664e74fa68bbc976ce8fcf8603f9cf5cac6a83f6f16bf5d8010622ee455b7470"
-NEUTRAL_FILLER_TEXT_SHA256 = "7dee91abb637511cc64f5b6d9e190a736411358f9c5126916fa784d8be62c86a"
+NEUTRAL_FILLER_PRIMITIVE_TEXT = " neutral context remains unchanged."
+NEUTRAL_FILLER_PRIMITIVE_IDS = (20628, 2266, 8458, 34857, 13)
+NEUTRAL_FILLER_IDS = (20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458, 34857, 13, 20628, 2266, 8458)
+NEUTRAL_FILLER_IDS_SHA256 = "557e30342fe6309165f388724a14895474db6d7ef82e4a3679c4459f4f7ae287"
+NEUTRAL_FILLER_PRIMITIVE_TEXT_UTF8_SHA256 = "4916bbd15671511ba355d30e8320b245e9315dc622eeb795e9792215e4d4b002"
+PAST_ACTION_SEPARATOR_IDS_SHA256 = "840d60afcf8aeb607ff32e9b4fba7e3132722c2148136c5f4e4816fec59f4ff3"
 
 SCIENCE_CONDITIONS = (
     "PLAN_PRESENT",
@@ -189,6 +194,169 @@ def _encode(tokenizer: Any, text: str) -> list[int]:
     return [int(x) for x in tokenizer.encode(str(text), add_special_tokens=False)]
 
 
+def _tokenize_plan_once_with_offsets(tokenizer: Any, plan_text: str) -> tuple[list[int], list[tuple[int, int]]]:
+    try:
+        encoded = tokenizer(
+            str(plan_text),
+            add_special_tokens=False,
+            return_offsets_mapping=True,
+        )
+    except Exception as exc:
+        raise V2ControlError(f"PLAN_OFFSET_TOKENIZATION_FAILED:{type(exc).__name__}:{exc}") from exc
+    try:
+        ids = [int(x) for x in encoded["input_ids"]]
+        offsets = [(int(a), int(b)) for a, b in encoded["offset_mapping"]]
+    except Exception as exc:
+        raise V2ControlError(f"PLAN_OFFSET_TOKENIZATION_MALFORMED:{type(exc).__name__}:{exc}") from exc
+    if len(ids) != len(offsets):
+        raise V2ControlError("PLAN_IDS_OFFSETS_LENGTH_MISMATCH")
+    return ids, offsets
+
+
+def _plan_literal_spans(plan_text: str) -> tuple[int, int]:
+    match = re.fullmatch(r"(<PLAN>)(.*?)(</PLAN>)", str(plan_text), re.IGNORECASE | re.DOTALL)
+    if match is None:
+        raise V2ControlError("PLAN_FULLMATCH_FAILED")
+    return int(match.end(1)), int(match.start(3))
+
+
+def derange_mutable_positions(
+    source_ids: Sequence[int], mutable_positions: Sequence[int]
+) -> tuple[list[int], dict[str, Any]]:
+    ids = _ids(source_ids)
+    mutable = [int(x) for x in mutable_positions]
+    if mutable != sorted(set(mutable)):
+        raise V2ControlError("MUTABLE_POSITIONS_NOT_SORTED_UNIQUE")
+    if any(i < 0 or i >= len(ids) for i in mutable):
+        raise V2ControlError("MUTABLE_POSITION_OUT_OF_RANGE")
+    if len(mutable) < 2:
+        raise V2ControlError("MUTABLE_INTERIOR_TOO_SHORT")
+    values = [ids[i] for i in mutable]
+    transformed, meta = strong_interior_derangement(values)
+    out = list(ids)
+    for i, value in zip(mutable, transformed):
+        out[i] = int(value)
+    frozen = [i for i in range(len(ids)) if i not in set(mutable)]
+    if len(out) != len(ids) or collections.Counter(out) != collections.Counter(ids):
+        raise V2ControlError("TOKEN_MULTISET_OR_COUNT_CHANGED")
+    if any(out[i] != ids[i] for i in frozen):
+        raise V2ControlError("FROZEN_BOUNDARY_TOKEN_MOVED")
+    if transformed == values:
+        raise V2ControlError("DERANGEMENT_VALUE_IDENTICAL")
+    if transformed[-1] == values[-1]:
+        raise V2ControlError("RIGHTMOST_MUTABLE_UNCHANGED")
+    result_meta = dict(meta)
+    result_meta.update(
+        {
+            "mutable_positions": mutable,
+            "mutable_count": len(mutable),
+            "frozen_positions": frozen,
+            "source_ids_sha256": sha_json(ids),
+            "deranged_ids_sha256": sha_json(out),
+            "mutable_source_ids_sha256": sha_json(values),
+            "mutable_deranged_ids_sha256": sha_json(transformed),
+        }
+    )
+    return out, result_meta
+
+
+def materialize_plan_tokens(tokenizer: Any, plan_text: str) -> dict[str, Any]:
+    open_end, close_start = _plan_literal_spans(plan_text)
+    ids, offsets = _tokenize_plan_once_with_offsets(tokenizer, plan_text)
+    if len(ids) > MAX_SEMANTIC_CONTENT_TOKENS:
+        raise V2ControlError(f"PLAN_PRESENT_GT96:{len(ids)}")
+    mutable = [
+        i
+        for i, (start, end) in enumerate(offsets)
+        if end > start and start >= open_end and end <= close_start
+    ]
+    if len(mutable) < 2:
+        raise V2ControlError(f"PLAN_MUTABLE_POSITIONS_LT2:{len(mutable)}")
+    mutable_values = [ids[i] for i in mutable]
+    if len(set(mutable_values)) < 2:
+        raise V2ControlError("PLAN_MUTABLE_VALUES_ALL_EQUAL")
+    deranged, meta = derange_mutable_positions(ids, mutable)
+    frozen = [i for i in range(len(ids)) if i not in set(mutable)]
+    return {
+        "plan_token_ids": ids,
+        "plan_offsets": [[a, b] for a, b in offsets],
+        "plan_mutable_positions": mutable,
+        "plan_frozen_positions": frozen,
+        "plan_token_ids_sha256": sha_json(ids),
+        "plan_offsets_sha256": sha_json([[a, b] for a, b in offsets]),
+        "plan_mutable_positions_sha256": sha_json(mutable),
+        "plan_deranged_ids": deranged,
+        "plan_deranged_ids_sha256": sha_json(deranged),
+        "plan_open_end_char": open_end,
+        "plan_close_start_char": close_start,
+        "derangement": meta,
+        "materialization": "ONE_ACCEPTED_PLAN_TOKENIZATION_WITH_OFFSETS_PRE_E",
+    }
+
+
+def validate_plan_materialization_stored(plan_text: str, materialization: Mapping[str, Any]) -> None:
+    open_end, close_start = _plan_literal_spans(plan_text)
+    ids = _ids(materialization.get("plan_token_ids", []))
+    offsets = [tuple(int(v) for v in pair) for pair in materialization.get("plan_offsets", [])]
+    mutable = [int(x) for x in materialization.get("plan_mutable_positions", [])]
+    frozen = [int(x) for x in materialization.get("plan_frozen_positions", [])]
+    deranged = _ids(materialization.get("plan_deranged_ids", []))
+    if len(ids) > MAX_SEMANTIC_CONTENT_TOKENS or len(ids) != len(offsets):
+        raise V2ControlError("STORED_PLAN_IDS_OFFSETS_INVALID")
+    expected_mutable = [
+        i for i, (start, end) in enumerate(offsets)
+        if end > start and start >= open_end and end <= close_start
+    ]
+    if mutable != expected_mutable:
+        raise V2ControlError("STORED_PLAN_MUTABLE_POSITIONS_MISMATCH")
+    expected_frozen = [i for i in range(len(ids)) if i not in set(mutable)]
+    if frozen != expected_frozen:
+        raise V2ControlError("STORED_PLAN_FROZEN_POSITIONS_MISMATCH")
+    if len(mutable) < 2 or len({ids[i] for i in mutable}) < 2:
+        raise V2ControlError("STORED_PLAN_MUTABLE_UNCONSTRUCTIBLE")
+    rebuilt, meta = derange_mutable_positions(ids, mutable)
+    if deranged != rebuilt:
+        raise V2ControlError("STORED_PLAN_DERANGEMENT_MISMATCH")
+    checks = {
+        "plan_token_ids_sha256": sha_json(ids),
+        "plan_offsets_sha256": sha_json([[a, b] for a, b in offsets]),
+        "plan_mutable_positions_sha256": sha_json(mutable),
+        "plan_deranged_ids_sha256": sha_json(deranged),
+    }
+    for key, expected in checks.items():
+        if materialization.get(key) != expected:
+            raise V2ControlError(f"STORED_PLAN_HASH_MISMATCH:{key}")
+    if int(materialization.get("plan_open_end_char", -1)) != open_end or int(materialization.get("plan_close_start_char", -1)) != close_start:
+        raise V2ControlError("STORED_PLAN_CHAR_BOUNDARY_MISMATCH")
+    if materialization.get("derangement", {}).get("deranged_ids_sha256") != meta["deranged_ids_sha256"]:
+        raise V2ControlError("STORED_PLAN_DERANGEMENT_META_MISMATCH")
+
+
+def validate_stage1_materialization_provenance(
+    provenance: Mapping[str, Any], plan_text: str, actions: Sequence[Mapping[str, Any]]
+) -> None:
+    if len(actions) < 3:
+        raise V2ControlError("REFERENCE_ACTION_COUNT_LT3_FOR_CONTROLS")
+    plan = provenance.get("plan")
+    action_data = provenance.get("actions")
+    if not isinstance(plan, Mapping) or not isinstance(action_data, Mapping):
+        raise V2ControlError("STORED_STAGE1_MATERIALIZATION_MISSING")
+    validate_plan_materialization_stored(plan_text, plan)
+    for step in (1, 2, 3):
+        ids = _ids(action_data.get(f"action{step}_ids", []))
+        if action_data.get(f"action{step}_command") != str(actions[step - 1].get("command", "")):
+            raise V2ControlError(f"STORED_ACTION{step}_COMMAND_MISMATCH")
+        if action_data.get(f"action{step}_ids_sha256") != sha_json(ids):
+            raise V2ControlError(f"STORED_ACTION{step}_HASH_MISMATCH")
+        if int(action_data.get(f"action{step}_token_count", -1)) != len(ids):
+            raise V2ControlError(f"STORED_ACTION{step}_COUNT_MISMATCH")
+    next_action_preserved_content(_ids(action_data.get("action3_ids", [])))
+    past_actions_only_content(
+        _ids(action_data.get("action1_ids", [])),
+        _ids(action_data.get("action2_ids", [])),
+    )
+
+
 def frozen_tag_ids(tokenizer: Any) -> tuple[list[int], list[int]]:
     op = _encode(tokenizer, "<PLAN>")
     cl = _encode(tokenizer, "</PLAN>")
@@ -200,58 +368,71 @@ def frozen_tag_ids(tokenizer: Any) -> tuple[list[int], list[int]]:
 def stage1_constructibility_guard(
     tokenizer: Any,
     plan_text: str,
-    action3_command: str,
-    open_tag_ids: Sequence[int],
-    close_tag_ids: Sequence[int],
+    actions: Sequence[Mapping[str, Any]],
+    open_tag_ids: Sequence[int] | None = None,
+    close_tag_ids: Sequence[int] | None = None,
 ) -> dict[str, Any]:
-    plan_ids = _encode(tokenizer, plan_text)
-    action3_ids = _encode(tokenizer, action3_command)
-    if len(plan_ids) > MAX_SEMANTIC_CONTENT_TOKENS:
-        raise V2ControlError(f"PLAN_PRESENT_GT96:{len(plan_ids)}")
-    next_action_preserved_content(action3_ids)
-    _, meta = plan_block_deranged(plan_ids, open_tag_ids, close_tag_ids)
-    return {
-        "plan_content_token_count": len(plan_ids),
-        "action3_token_count": len(action3_ids),
-        "plan_ids_sha256": sha_json(plan_ids),
-        "action3_ids_sha256": sha_json(action3_ids),
-        "open_tag_ids_sha256": sha_json(_ids(open_tag_ids)),
-        "close_tag_ids_sha256": sha_json(_ids(close_tag_ids)),
-        "derangement_method": meta["method"],
-        "derangement_offset": meta["offset"],
-    }
-
-
-def build_semantic_slots(
-    tokenizer: Any,
-    packet: Mapping[str, Any],
-    unrelated_plan_text: str,
-    neutral_filler_ids: Sequence[int],
-    open_tag_ids: Sequence[int],
-    close_tag_ids: Sequence[int],
-) -> tuple[dict[str, list[int]], dict[str, Any]]:
-    filler = verify_neutral_filler_ids(neutral_filler_ids)
-    actions = list(packet.get("actions", []))
     if len(actions) < 3:
         raise V2ControlError("REFERENCE_ACTION_COUNT_LT3_FOR_CONTROLS")
-    plan_ids = _encode(tokenizer, str(packet.get("plan_text", "")))
-    unrelated_ids = _encode(tokenizer, str(unrelated_plan_text))
-    action1_ids = _encode(tokenizer, str(actions[0].get("command", "")))
-    action2_ids = _encode(tokenizer, str(actions[1].get("command", "")))
-    action3_ids = _encode(tokenizer, str(actions[2].get("command", "")))
-    if len(plan_ids) > MAX_SEMANTIC_CONTENT_TOKENS:
-        raise V2ControlError(f"PLAN_PRESENT_GT96:{len(plan_ids)}")
-    if len(unrelated_ids) > MAX_SEMANTIC_CONTENT_TOKENS:
-        raise V2ControlError(f"UNRELATED_PLAN_GT96:{len(unrelated_ids)}")
-    deranged_ids, derangement_meta = plan_block_deranged(plan_ids, open_tag_ids, close_tag_ids)
-    contents = {
-        "PLAN_PRESENT": plan_ids,
-        "NEUTRAL_FILLER": [],
-        "PLAN_BLOCK_DERANGED": deranged_ids,
-        "UNRELATED_PLAN": unrelated_ids,
-        "PAST_ACTIONS_ONLY": past_actions_only_content(action1_ids, action2_ids),
-        "NEXT_ACTION_PRESERVED_LATE_NULL": next_action_preserved_content(action3_ids),
+    plan = materialize_plan_tokens(tokenizer, plan_text)
+    action_rows: dict[str, Any] = {}
+    for step in (1, 2, 3):
+        command = str(actions[step - 1].get("command", ""))
+        ids = _encode(tokenizer, command)
+        action_rows[f"action{step}_command"] = command
+        action_rows[f"action{step}_ids"] = ids
+        action_rows[f"action{step}_token_count"] = len(ids)
+        action_rows[f"action{step}_ids_sha256"] = sha_json(ids)
+    next_action_preserved_content(action_rows["action3_ids"])
+    past_actions_only_content(action_rows["action1_ids"], action_rows["action2_ids"])
+    result = {
+        "plan": plan,
+        "actions": action_rows,
+        "past_action_separator_ids": list(PAST_ACTION_SEPARATOR_IDS),
+        "past_action_separator_ids_sha256": sha_json(list(PAST_ACTION_SEPARATOR_IDS)),
+        "neutral_filler_ids_sha256": NEUTRAL_FILLER_IDS_SHA256,
+        "semantic_ids_frozen_pre_E": True,
     }
+    validate_stage1_materialization_provenance(result, plan_text, actions)
+    return result
+
+def build_semantic_slots(
+    packet: Mapping[str, Any],
+    unrelated_packet: Mapping[str, Any],
+    neutral_filler_ids: Sequence[int] = NEUTRAL_FILLER_IDS,
+) -> tuple[dict[str, list[int]], dict[str, Any]]:
+    filler = verify_neutral_filler_ids(neutral_filler_ids)
+    source_prov = packet.get("v2_control_constructibility_provenance")
+    donor_prov = unrelated_packet.get("v2_control_constructibility_provenance")
+    if not isinstance(source_prov, Mapping) or not isinstance(donor_prov, Mapping):
+        raise V2ControlError("STAGE2_REQUIRES_STORED_STAGE1_MATERIALIZATION")
+    validate_stage1_materialization_provenance(
+        source_prov,
+        str(packet.get("plan_text", "")),
+        list(packet.get("actions", [])),
+    )
+    validate_stage1_materialization_provenance(
+        donor_prov,
+        str(unrelated_packet.get("plan_text", "")),
+        list(unrelated_packet.get("actions", [])),
+    )
+    source_plan = source_prov["plan"]
+    source_actions = source_prov["actions"]
+    donor_plan = donor_prov["plan"]
+    contents = {
+        "PLAN_PRESENT": _ids(source_plan["plan_token_ids"]),
+        "NEUTRAL_FILLER": [],
+        "PLAN_BLOCK_DERANGED": _ids(source_plan["plan_deranged_ids"]),
+        "UNRELATED_PLAN": _ids(donor_plan["plan_token_ids"]),
+        "PAST_ACTIONS_ONLY": past_actions_only_content(
+            _ids(source_actions["action1_ids"]), _ids(source_actions["action2_ids"])
+        ),
+        "NEXT_ACTION_PRESERVED_LATE_NULL": next_action_preserved_content(
+            _ids(source_actions["action3_ids"])
+        ),
+    }
+    if any(len(v) > MAX_SEMANTIC_CONTENT_TOKENS for v in contents.values()):
+        raise V2ControlError("STORED_SEMANTIC_CONTENT_GT96")
     slots = {name: _make_slot_ids_unchecked(contents[name], filler) for name in SCIENCE_CONDITIONS}
     if set(slots) != set(SCIENCE_CONDITIONS) or any(len(v) != SLOT_TOKENS for v in slots.values()):
         raise V2ControlError("SEMANTIC_SLOT_SET_OR_LENGTH")
@@ -263,10 +444,15 @@ def build_semantic_slots(
         "neutral_filler_ids_sha256": sha_json(filler),
         "past_action_separator_ids": list(PAST_ACTION_SEPARATOR_IDS),
         "past_action_separator_ids_sha256": sha_json(list(PAST_ACTION_SEPARATOR_IDS)),
-        "plan_block_derangement": derangement_meta,
+        "plan_block_derangement": dict(source_plan["derangement"]),
+        "source_plan_token_ids_sha256": source_plan["plan_token_ids_sha256"],
+        "source_action_ids_sha256": {
+            f"action{i}": source_actions[f"action{i}_ids_sha256"] for i in (1, 2, 3)
+        },
+        "unrelated_plan_token_ids_sha256": donor_plan["plan_token_ids_sha256"],
+        "semantic_materialization": "STORED_STAGE1_IDS_ONLY_NO_SEMANTIC_DECODE_RETOKENIZE",
     }
     return slots, meta
-
 
 def build_replay_ids(
     tokenizer: Any,

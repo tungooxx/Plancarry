@@ -12,14 +12,20 @@ import replay_residual_natural_packet_producer_v2_1 as v21
 import replay_residual_sanity_protocol_v1 as sp
 
 FINAL_PREREG_REL = Path("results/design/plancarry_localcontinuation_v2_final_prereg_v1_20260824.json")
-FINAL_PREREG_SHA256 = "a11d2b52b76d1090c9be65123778917d1ce348eba200cba7b2a7d0756a7d0d4e"
+FINAL_PREREG_SHA256 = "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716"
 CONTROL_CONTRACT_REL = Path("results/design/plancarry_localcontinuation_v2_constructible_control_contract_v1_20260824.json")
-CONTROL_CONTRACT_SHA256 = "6f29522ba1db9c1feaa90110adbba6152bc3eb71bd409fadadbb040d26645709"
-FINAL_REVIEW_REL = Path("results/design/plancarry_localcontinuation_v2_strict_derangement_independent_review_a1_20260824.json")
-FINAL_REVIEW_SHA256 = "852b0b1b5c38f7bb1effaa412b48b8810c9793da1352507bd224094295cd995a"
+CONTROL_CONTRACT_SHA256 = "8511bf400e5032920440485ca8d1d32b64299082f386663b2d0d23cb8f6dbf8c"
+FINAL_REVIEW_REL = Path("results/design/plancarry_localcontinuation_v2_token_freeze_post_guard_repair_independent_review_a4_20260824.json")
+FINAL_REVIEW_SHA256 = "05c16eeb150f40ccc93edee81ce1b98be483c303382c33fcbce96e07aa9e1de6"
+STATIC_AUDIT_REL = Path("results/design/plancarry_localcontinuation_v2_final_prereg_static_audit_v1_20260824.json")
+STATIC_AUDIT_SHA256 = "e246cd9f33443c6a5a1fb2917b0066c6ee2a9c1a6bdc79be5b140c2f0c048f51"
+MATERIALIZATION_AUDIT_REL = Path("results/design/plancarry_localcontinuation_v2_token_materialization_repair_a2_20260824.json")
+MATERIALIZATION_AUDIT_SHA256 = "64c1c5cdf701b51a322f0a60b4df1bb0e68b133884224faaa6653d69fa3046da"
+TOKEN_TEST_REL = Path("results/design/test_plancarry_localcontinuation_v2_token_materialization_v1.py")
+TOKEN_TEST_SHA256 = "38fc49adc4a50cadd26c3f97b664e6c6664e2df6327cf651b6d7587bb07cdcdd"
 POPULATION_REL = Path("results/design/plancarry_localcontinuation_v2_fresh_population_v1_20260824.json")
 POPULATION_SHA256 = "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
-CONTROLS_SHA256 = "c3cbaa5cf3415d4d3faa0cf4cc196f6f264219c6d77d0634f2611e923526393e"
+CONTROLS_SHA256 = "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367"
 V1_PACKET_BUILDER_SHA256 = "116c213d27af987e782e463bc0317d8d443e95bf1ba571dbba0386d63d109128"
 V1_VALIDATOR_SHA256 = "93390667e19302087f6b3d1a583f00ee4b97232443a4955aa2f1ca2a773fcbda"
 V1_PHASE_RUNNER_SHA256 = "81a55589f68e1b8d53110ad64eceacb7cfc52a0838166b5241b34fb7fb11783d"
@@ -62,6 +68,9 @@ def verify_bindings(root: str | Path = ".") -> None:
         root / FINAL_PREREG_REL: FINAL_PREREG_SHA256,
         root / CONTROL_CONTRACT_REL: CONTROL_CONTRACT_SHA256,
         root / FINAL_REVIEW_REL: FINAL_REVIEW_SHA256,
+        root / STATIC_AUDIT_REL: STATIC_AUDIT_SHA256,
+        root / MATERIALIZATION_AUDIT_REL: MATERIALIZATION_AUDIT_SHA256,
+        root / TOKEN_TEST_REL: TOKEN_TEST_SHA256,
         root / POPULATION_REL: POPULATION_SHA256,
         root / "localcontinuation_controls_v2.py": CONTROLS_SHA256,
         root / "localcontinuation_packet_builder_v1.py": V1_PACKET_BUILDER_SHA256,
@@ -113,27 +122,42 @@ def local_stage1_eligibility_v2(
     plan_text: str,
     actions: Sequence[Mapping[str, Any]],
     runtime_errors: Sequence[Any],
-    open_tag_ids: Sequence[int],
-    close_tag_ids: Sequence[int],
+    open_tag_ids: Sequence[int] | None = None,
+    close_tag_ids: Sequence[int] | None = None,
 ) -> tuple[bool, list[str], dict[str, Any] | None]:
     base_ok, reasons = v1pb.local_stage1_eligibility(bool(plan_text), actions, runtime_errors)
     reasons = list(reasons)
     guard: dict[str, Any] | None = None
-    if plan_text and len(actions) >= 3:
+    if base_ok:
         try:
             guard = controls.stage1_constructibility_guard(
                 tokenizer,
                 str(plan_text),
-                str(actions[2].get("command", "")),
+                actions,
                 open_tag_ids,
                 close_tag_ids,
             )
         except Exception as exc:
             reasons.append(f"V2_CONTROL_CONSTRUCTIBILITY_FAILED:{type(exc).__name__}:{exc}")
-    elif base_ok:
-        reasons.append("V2_CONTROL_CONSTRUCTIBILITY_INPUT_MISSING")
     return (not reasons), reasons, guard
 
+
+def stored_stage1_eligibility_v2(packet: Mapping[str, Any]) -> tuple[bool, list[str]]:
+    plan_text = str(packet.get("plan_text", ""))
+    actions = list(packet.get("actions", []))
+    runtime_errors = list(packet.get("stage1_runtime_errors", []))
+    base_ok, reasons = v1pb.local_stage1_eligibility(bool(plan_text), actions, runtime_errors)
+    reasons = list(reasons)
+    if base_ok:
+        try:
+            controls.validate_stage1_materialization_provenance(
+                packet.get("v2_control_constructibility_provenance", {}),
+                plan_text,
+                actions,
+            )
+        except Exception as exc:
+            reasons.append(f"V2_STORED_MATERIALIZATION_INVALID:{type(exc).__name__}:{exc}")
+    return (not reasons), reasons
 
 def _base(row: Mapping[str, Any], provenance: Mapping[str, Any], phase: str) -> dict[str, Any]:
     packet = v21._packet_base(row, provenance)
@@ -144,6 +168,9 @@ def _base(row: Mapping[str, Any], provenance: Mapping[str, Any], phase: str) -> 
             "final_prereg_sha256": FINAL_PREREG_SHA256,
             "control_contract_sha256": CONTROL_CONTRACT_SHA256,
             "final_review_sha256": FINAL_REVIEW_SHA256,
+            "static_audit_sha256": STATIC_AUDIT_SHA256,
+            "materialization_audit_sha256": MATERIALIZATION_AUDIT_SHA256,
+            "token_materialization_test_sha256": TOKEN_TEST_SHA256,
             "population_manifest_sha256": POPULATION_SHA256,
             "v2_controls_source_sha256": CONTROLS_SHA256,
             "v1_packet_builder_source_sha256": V1_PACKET_BUILDER_SHA256,
@@ -249,6 +276,9 @@ def _packet_binding_requirements() -> dict[str, str]:
         "final_prereg_sha256": FINAL_PREREG_SHA256,
         "control_contract_sha256": CONTROL_CONTRACT_SHA256,
         "final_review_sha256": FINAL_REVIEW_SHA256,
+        "static_audit_sha256": STATIC_AUDIT_SHA256,
+        "materialization_audit_sha256": MATERIALIZATION_AUDIT_SHA256,
+        "token_materialization_test_sha256": TOKEN_TEST_SHA256,
         "population_manifest_sha256": POPULATION_SHA256,
         "v2_controls_source_sha256": CONTROLS_SHA256,
         "v1_packet_builder_source_sha256": V1_PACKET_BUILDER_SHA256,
@@ -262,9 +292,9 @@ def _packet_binding_requirements() -> dict[str, str]:
 def validate_reference_packet(
     packet: Mapping[str, Any],
     phase: str,
-    tokenizer: Any,
-    open_tag_ids: Sequence[int],
-    close_tag_ids: Sequence[int],
+    tokenizer: Any | None = None,
+    open_tag_ids: Sequence[int] | None = None,
+    close_tag_ids: Sequence[int] | None = None,
     root: str | Path = ".",
 ) -> None:
     rows = {int(x["frozen_index"]): x for x in load_population_phase(phase, root)}
@@ -279,41 +309,31 @@ def validate_reference_packet(
     for key, value in _packet_binding_requirements().items():
         if packet.get(key) != value:
             raise V2PacketError(f"PACKET_BINDING_MISMATCH:{key}")
-    eligible, reasons, guard = local_stage1_eligibility_v2(
-        tokenizer,
-        str(packet.get("plan_text", "")),
-        packet.get("actions", []),
-        packet.get("stage1_runtime_errors", []),
-        open_tag_ids,
-        close_tag_ids,
-    )
+    eligible, reasons = stored_stage1_eligibility_v2(packet)
     if bool(packet.get("trajectory_eligible")) != eligible or list(packet.get("qualification_stage1_reasons", [])) != reasons:
-        raise V2PacketError("PACKET_STAGE1_RECLASSIFICATION_MISMATCH")
-    if eligible and packet.get("v2_control_constructibility_provenance") != guard:
-        raise V2PacketError("V2_CONSTRUCTIBILITY_PROVENANCE_MISMATCH")
+        raise V2PacketError("PACKET_STAGE1_STORED_RECLASSIFICATION_MISMATCH")
     if packet.get("task_success_required") is not False:
         raise V2PacketError("TASK_SUCCESS_MUST_NOT_GATE")
     if packet.get("trajectory_sha256") != sp.trajectory_digest(dict(packet)):
         raise V2PacketError("TRAJECTORY_HASH_MISMATCH")
-
 
 def apply_stage2_phase(
     tokenizer: Any,
     packets: Sequence[dict[str, Any]],
     phase: str,
     neutral_filler_ids: Sequence[int],
-    open_tag_ids: Sequence[int],
-    close_tag_ids: Sequence[int],
+    open_tag_ids: Sequence[int] | None = None,
+    close_tag_ids: Sequence[int] | None = None,
     root: str | Path = ".",
 ) -> list[dict[str, Any]]:
     controls.verify_neutral_filler_ids(neutral_filler_ids)
-    if not list(open_tag_ids) or not list(close_tag_ids):
-        raise V2PacketError("FROZEN_TAG_IDS_REQUIRED")
     expected_indices = list(PHASE_RANGES[phase])
     if [int(p.get("frozen_index", -1)) for p in packets] != expected_indices:
         raise V2PacketError(f"STAGE2_REQUIRES_COMPLETE_PHASE_E:{phase}")
+    # No semantic tokenizer call is permitted from this point onward. The
+    # tokenizer/open/close arguments are retained only for API compatibility.
     for packet in packets:
-        validate_reference_packet(packet, phase, tokenizer, open_tag_ids, close_tag_ids, root)
+        validate_reference_packet(packet, phase, None, None, None, root)
     eligible = v21.frozen_eligible_order(packets)
     e_indices = [int(x["frozen_index"]) for x in eligible]
     e_sha = sha_json(e_indices)
@@ -335,12 +355,9 @@ def apply_stage2_phase(
             continue
         try:
             slots, meta = controls.build_semantic_slots(
-                tokenizer,
                 packet,
-                str(donor["plan_text"]),
+                donor,
                 neutral_filler_ids,
-                open_tag_ids,
-                close_tag_ids,
             )
             packet["control_provenance"] = {
                 **meta,
@@ -351,6 +368,7 @@ def apply_stage2_phase(
                 "frozen_E_indices_sha256": e_sha,
                 "control_contract_sha256": CONTROL_CONTRACT_SHA256,
                 "controls_source_sha256": CONTROLS_SHA256,
+                "stage2_semantic_tokenizer_calls": 0,
             }
             packet["qualified"] = True
             packet["qualification_stage2_reasons"] = []
@@ -363,7 +381,6 @@ def apply_stage2_phase(
             packet["qualified"] = False
             packet["qualification_stage2_reasons"] = ["NOT_IN_FROZEN_TRAJECTORY_ELIGIBLE_E"]
     return result
-
 
 def validate_phase_packets(
     packets: Sequence[Mapping[str, Any]],
