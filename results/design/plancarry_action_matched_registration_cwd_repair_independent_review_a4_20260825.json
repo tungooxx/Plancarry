@@ -1,0 +1,56 @@
+{
+  "corrected_experiment_id": "3d3d9506-47cc-4f2e-8581-adcbb7da17d1",
+  "corrected_prediction_id": "239915f4-0a72-41b0-95df-48ae4fae0c23",
+  "host_authority": {
+    "host_rebind_artifact_sha256": "f41be60263f25caeb4216f0c713973ef8cbec67b3abeebf37703d9f51269487e",
+    "host_rebind_commit": "39cba41b7c17e2670a8d15f5837bcdd7e25f7284",
+    "host_review_artifact_sha256": "ba9bf3ec048bbd3dc71ef12d01abc07749519388faf8098784632cd39e94887a",
+    "host_review_commit": "6bc09c8fdafd46325c4287d6fd85bb85a79d2fcb",
+    "host_review_verdict": "PASS_FOR_ACTION_MATCHED_LOCAL_RTX3050_HOST_REBIND"
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_REGISTRATION_CWD_REPAIR_INDEPENDENT_REVIEW",
+  "old_experiment_id": "ee8ea43b-6d6c-4544-a630-707beb6da022",
+  "old_prediction_id": "0a9c1a15-fb85-4b1a-8106-cc83b34ab027",
+  "registered_plan_delta": {
+    "added_provenance_leaves": {
+      "provenance.registration_repair_anomaly_id": "a07fe7ef-6c68-43ab-aebc-abf3fa0a6a3c",
+      "provenance.supersedes_experiment_id": "ee8ea43b-6d6c-4544-a630-707beb6da022"
+    },
+    "changed_existing_leaf": {
+      "new": "/workspace/local-vlm/LLM/plancarry-actionmatched-science-d93b",
+      "old": "/workspace/local-vlm/LLM/plancarry",
+      "path": "provenance.working_directory"
+    },
+    "scientific_fields_identical": true
+  },
+  "registration_repair_anomaly_id": "a07fe7ef-6c68-43ab-aebc-abf3fa0a6a3c",
+  "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "research_decision_created": false,
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "runtime_recheck": {
+    "confirmation_accessed": false,
+    "driver_sha256": "1cf91cd4f36df554ca9fe541e0e271379c705ba2fd41f475e37812292cb9b096",
+    "environment_execution": 0,
+    "git_commit": "d93b5d9d0b405fa21584f7f56b19d10d768bfbba",
+    "git_tree": "fd1b27dd6d036d9e6ea0273250b186ba69ab84a7",
+    "job_id": "local_c7b7c0c00c0d4813",
+    "launcher_sha256": "fc9709b1fb3f6572dec182cd7c9c6fc1b31c6ac0f9e6d613c1cee7b057213308",
+    "model_calls": 0,
+    "model_loads": 0,
+    "phase_sha256": "b6af9ddc82c16944eb636c91a5b0849612671f661344e6c81d5066f9aa178869",
+    "preflight_status": "READY_NO_SCIENCE",
+    "reserve_accessed": false,
+    "runtime_sha256": "22038d7c38b28a1aebb3f05e9122141876682c45aa305f6c23fc96bf7a0f4089",
+    "science_checkout": "/workspace/local-vlm/LLM/plancarry-actionmatched-science-d93b",
+    "test_sha256": "dff3aa82447fa633b1d104ecf4c120282637f5e5bb995d45c95a5b54db8ee7e8",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false,
+    "validator_sha256": "ab75322d2304e6259195ab86ad056b84c4c10f3085e55aefe2c4f0278676df5d"
+  },
+  "science_assessed": false,
+  "scientific_execution_performed": false,
+  "scientific_variables_changed": [],
+  "scope": "Registration/execution provenance only. PASS authorizes creation of a separate development execution WorkItem and fresh exact ResearchDecision; confirmation remains unauthorized.",
+  "verdict": "PASS_FOR_ACTION_MATCHED_REGISTRATION_CWD_REPAIR",
+  "work_item_id": "46832623-aa95-4fca-a1a2-a53b975a1052"
+}
