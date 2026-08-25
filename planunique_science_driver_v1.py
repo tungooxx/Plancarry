@@ -120,7 +120,7 @@ def confirmation(tok:Any,model:Any,prov:Mapping[str,Any])->dict[str,Any]:
   fam.append({'index':i,'stage2_qualified':True,'zero_unique':bool(vp['zero_unique']),'active_lca2':float(outs[ACTIVE]['lca2']),'no_patch_lca2':float(outs[NO_PATCH]['lca2']),'max_specificity_lca2':max(float(outs[a]['lca2']) for a in SPEC),'active_valid_action_rate':float(outs[ACTIVE]['valid_action_rate']),'no_patch_valid_action_rate':float(outs[NO_PATCH]['valid_action_rate'])})
  payload={'phase':'PLANUNIQUE_CONFIRMATION_V1_2','families':fam,'selected_layer':layer,'selected_alpha':alpha,'development_seal_sha256':sha_file(ROOT/DEV_SEAL)};_atomic(CONF_PAYLOAD,payload);term=phase.evaluate_confirmation(payload);_atomic(CONF_TERMINAL,term);return term
 
-def load_runtime(expected_device:str):return inherited_v2.load_runtime(expected_device)
+def load_runtime(expected_device:str):return runtime_v1.load_runtime(expected_device)
 def main(argv:Sequence[str]|None=None)->int:
  ap=argparse.ArgumentParser();ap.add_argument('phase',choices=['preflight','development','confirmation']);ap.add_argument('--expected-device',default=os.environ.get('PLANUNIQUE_EXPECTED_DEVICE_NAME',''));args=ap.parse_args(argv)
  if args.phase=='preflight':print(json.dumps({'PLANUNIQUE_PREFLIGHT':preflight()},sort_keys=True));return 0

@@ -1,0 +1,69 @@
+{
+  "authority_held_fixed": {
+    "final_authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "localcontinuation_controls_v2_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+    "localcontinuation_runtime_v1_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "packet_builder_sha256": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+    "phase_sha256": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "projection_sha256": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6"
+  },
+  "defect": {
+    "observed": "localcontinuation_science_driver_v2 has no load_runtime definition; its own main calls runtime_v1.load_runtime(args.expected_device)",
+    "old_call": "return inherited_v2.load_runtime(expected_device)"
+  },
+  "engineering_task_id": "ceb1a234-9ab9-4860-a855-0fa5b09c255b",
+  "failed_source": {
+    "classification": "TECHNICAL_INVALID_PRE_SCIENCE",
+    "decision_id": "778fa292-3bd0-4f20-b01f-4c1c14735475",
+    "development_entered": false,
+    "experiment_id": "c128bf69-1fce-426f-bf84-46d709eaac91",
+    "future_split_accessed": false,
+    "model_loaded": false,
+    "run_id": "cd9ef1ea-0f77-4422-8cfa-5d9dcb1d72e6",
+    "scientific_result": "NOT_ASSESSED"
+  },
+  "guards": {
+    "confirmation_reserve_valid_sealed": true,
+    "do_not_retry_source_experiment": true,
+    "fresh_successor_registration_after_independent_pass_required": true,
+    "repair_author_must_not_self_review": true
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_RUNTIME_LOADER_ZEROEXPOSURE_REPAIR",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "repair": {
+    "new_call": "return runtime_v1.load_runtime(expected_device)",
+    "runtime_semantics": "Exact reviewed Qwen/Qwen3-1.7B revision70d244cc86ccca08cf5af4e1e306ecf908b1ad5e BF16/no quantization/no offload/device/package checks already used by LocalContinuation-v2.",
+    "runtime_v1_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "scientific_variables_changed": []
+  },
+  "repair_file_sha256": {
+    "planunique_science_driver_v1.py": "7d2ba88441ab68839b46416cded4b88c1ecab6616b8be323a0521f82d17ed057",
+    "tests/test_planunique_runtime_loader_adapter_v1.py": "6133f930ec62315f5dbacc52924b952dda65ac423b541227f406328fc8ef4a37"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "source_implementation": {
+    "commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a"
+  },
+  "status": "FROZEN_PRE_SCIENCE_REPAIR",
+  "verification": {
+    "all_planunique_outputs_absent": true,
+    "baseline_job": "local_d5dbad7092604be2",
+    "canonical_regression_job": "local_b90e3a2200694130",
+    "environment_execution": 0,
+    "generation_calls": 0,
+    "legacy_execution_stack": "15/15 PASS",
+    "loader_definition_audit_job": "local_bece1ebced044707",
+    "loader_delegation_regression": "1/1 PASS",
+    "localcontinuation_v2_controls": "14/14 PASS",
+    "localcontinuation_v2_execution_handoff": "9/9 PASS",
+    "model_forwards": 0,
+    "model_loads": 0,
+    "planunique_existing_tests": "10/10 PASS",
+    "population_selector": "11/11 PASS",
+    "ready_no_science_preflight": true,
+    "targeted_patch_job": "local_65834af521894454"
+  },
+  "work_item_id": "0dace3b8-d035-41ca-8cb4-5c7f17843fc5"
+}
