@@ -1,0 +1,50 @@
+{
+  "composition_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "confirmed_passes": {
+    "E_common_preserved": true,
+    "PLAN_BLOCK_DERANGED_lexical_nuisance_scope_preserved": true,
+    "active_raw_r_unique_no_amplification_preserved": true,
+    "confirmation_stage2_unqualified_minus1_lower_bound_preserved": true,
+    "confirmation_zero_unique_nonpositive_preserved": true,
+    "environment_execution": 0,
+    "future_split_access": false,
+    "git_diff_check_pass": true,
+    "gpu_lifecycle_actions": 0,
+    "identical_denominator_all8_preserved": true,
+    "matched_controls_target_unique_norm_preserved": true,
+    "model_calls": 0,
+    "model_runtime_reset_grid_statistics_splits_preserved": true,
+    "population_byte_identical": true,
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "qualification_gate_24_of_32_preserved": true,
+    "zero_unique_exact_zero_no_noise_renormalization_preserved": true
+  },
+  "date_utc": "2026-08-25",
+  "kind": "PLANCARRY_PLANUNIQUE_COMPOSED_AUTHORITY_INDEPENDENT_REVIEW_A1_V1",
+  "material_findings": [
+    {
+      "file": "results/design/plancarry_planunique_orthogonal_residual_v1_1_prereg_20260825.json",
+      "finding": "pre_science_requirements still states the deterministic projection property test is bound by stale SHA 7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79, while the same composed prereg binds projection_property_test_sha256=48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a.",
+      "id": "STALE_PROJECTION_AUTHORITY_HASH",
+      "required_repair": "Replace the stale textual bound-by hash with the exact composed projection-property SHA 48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a, then recompute dependent prereg/static/composition hashes and re-review.",
+      "severity": "MATERIAL_AUTHORITY_BINDING",
+      "why_material": "The review contract explicitly rejects stale 21b927-era authority hashes. Two different projection-test authorities inside one frozen prereg make executable binding ambiguous even though the numeric semantics appear preserved."
+    },
+    {
+      "file": "results/design/plancarry_planunique_orthogonal_residual_v1_1_static_audit_20260825.json",
+      "finding": "normalization_authority_note still says CorrectionCase b78168b2... remains pending independent verification/adjudication, while the same static audit adds checks.normalization_correction_resolved_revise=true and authority_composition binds CorrectionRecord f4be133a... plus replacement Hypothesis 8a7c....",
+      "id": "STALE_NORMALIZATION_PENDING_STATUS",
+      "required_repair": "Update normalization_authority_note to the resolved REVISE/replacement-hypothesis state without changing any scientific variable; recompute dependent hashes and obtain fresh independent review.",
+      "severity": "MATERIAL_AUTHORITY_CONTRADICTION",
+      "why_material": "The composed static authority simultaneously says normalization is pending and resolved. That is internally contradictory provenance and cannot receive a clean authority-freeze PASS."
+    }
+  ],
+  "repair_boundary": "Metadata/authority-only repair. No scientific-variable changes, population edits, model/environment execution, future-split access, threshold/grid/estimand changes, or implementation before fresh PASS.",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_AUTHORITY_REVIEW",
+  "scope": "Authority/provenance consistency only. No objection to E_common, conservative all20 lower-bound estimand, raw-r_unique normalization semantics, PLAN_BLOCK_DERANGED scope, model/runtime/grid/statistics, population, or sealed-split rules.",
+  "source_composition_commit": "b547688efe337b32c02282b0e1efa124f0c40247",
+  "source_repaired_commit": "6682b6f29e13f46e96d5b98fb57337b3a55027dc",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "760f68df-8236-46ff-9eda-5b9382790656"
+}
