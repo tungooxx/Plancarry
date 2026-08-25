@@ -1,0 +1,66 @@
+{
+  "authorization": "PASS authorizes engineering preparation only after the independent normalization correction is verified/adjudicated and authority is reconciled. It does not authorize Experiment registration/execution or any science.",
+  "date_utc": "2026-08-25",
+  "evidence_jobs": [
+    "local_b37be0db3e6a4eea",
+    "local_f5b89da1d4714b1a",
+    "local_9714df157ddb4f71"
+  ],
+  "failed_review_sha256": "7cbd89b343ba597835ce12b42b67e199a292c8f4ae5a40254f109246ee6c3762",
+  "failed_review_work_item_id": "f22941ef-5656-4b42-813b-038e01d6f5ff",
+  "independent_checks": {
+    "adversarial_repaired_lower_bound_mean": -0.1375,
+    "adversarial_zero_imputed_mean": 0.1125,
+    "alfworld_game_or_reset": 0,
+    "all20_sign_denominator_retained": true,
+    "all_eight_grid_points_same_denominator": true,
+    "common_denominator_frozen_before_grid": true,
+    "confirmation_access": false,
+    "confirmation_minus1_exact_lca2_contrast_lower_bound": true,
+    "deranged_plan_lexical_nuisance_scope_truthful": true,
+    "donor_selection_frozen_from_E_stage1_before_E_common": true,
+    "future_observation_and_separate_reference_action_ids_excluded": true,
+    "gpu_science": 0,
+    "historical_v1_v2_overlap": 0,
+    "independent_projection_stress_max_unique_basis_abs_dot": 7.752045533271357e-16,
+    "layer_specific_family_dropping_forbidden": true,
+    "model_calls": 0,
+    "model_runtime_source_grid_core_unchanged": true,
+    "population_indices_exact": {
+      "confirmation": "32..51",
+      "development": "0..31",
+      "reserve": "52..63"
+    },
+    "population_sha_exact": true,
+    "population_split_exact": [
+      32,
+      20,
+      12
+    ],
+    "post_freeze_missing_family_is_technical_invalid": true,
+    "prior_review_artifact_immutable": true,
+    "projection_cpu_float64_fixed_order_edge_cases_reproduced": true,
+    "reserve_access": false,
+    "valid_seen_access": false,
+    "valid_unseen_access": false,
+    "zero_unique_nonpositive_clipping": true
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_REPAIRED_INDEPENDENT_REVIEW_A2",
+  "normalization_correction_case_pending": "b78168b2-0d59-40a1-ac07-783ad467bcf4",
+  "repair_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "resolved_artifacts": {
+    "control_contract_sha256": "09bb65966a3296bd55a3eeb1fcc5c0dea7f524c487a911fe5fbebe64b294e9c4",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg_sha256": "b22705c82ad8a710ecea2ff16444fb264865b178b40a72efe68fdeba2ac07b8a",
+    "projection_property_test_sha256": "657a6b633cc7670f804787011976221a7b527c4064e264cd1adc7c5f2efd2f43",
+    "static_audit_sha256": "d06518067fec54e04aed7007159a04a6cbfa4a0bbfe30a26c75b845401c2faaa"
+  },
+  "review_work_item_id": "9c8829a2-0b57-44f1-869a-d7c5482794cb",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "scope_guard": "This PASS covers only the repaired development-denominator, confirmation-estimand, and deranged-nuisance-scope defects. It does NOT resolve the separate normalization authority contradiction between canonical Hypothesis 1461e8d4 and the raw-r_unique prereg.",
+  "source_commit": "21b927478722c900f16b1bfc4d51a255760d6e2c",
+  "target_commit": "6682b6f29e13f46e96d5b98fb57337b3a55027dc",
+  "target_tree": "dc3f96168a2cdd934fa8d5eecbf138b9d5b62e0f",
+  "verdict": "PASS_FOR_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_REPAIRED_FREEZE"
+}
