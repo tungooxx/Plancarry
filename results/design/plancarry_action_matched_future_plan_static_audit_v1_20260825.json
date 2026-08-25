@@ -46,7 +46,12 @@
     "chat_template_canary_frozen": true,
     "tokenizer_asset_hashes_frozen": true,
     "arbitrary_common_prefix_implementation_discretion_removed": true,
-    "population_bytes_unchanged_by_serialization_repair": true
+    "population_bytes_unchanged_by_serialization_repair": true,
+    "exact_future_token_derangement_algorithm_frozen": true,
+    "derangement_each_a4_a5_b4_b5_segment_independent": true,
+    "derangement_balanced_block_then_smallest_valid_rotation": true,
+    "derangement_nonidentity_and_rightmost_change": true,
+    "derangement_unconstructible_pre_e_fail_closed": true
   },
   "date_utc": "2026-08-25",
   "environment_execution": 0,
@@ -54,11 +59,11 @@
     "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
     "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
     "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
-    "prereg": "4ab46d9adf1a25cffb14443be7d1ced0546794b75a1d2e64fd56078759eb6c43",
-    "synthetic_test": "fe61a3187d0ecbd2ccc3a761ffbf67171a49f2ba4772ee1d0b1b64cf0542cddb",
+    "prereg": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
+    "synthetic_test": "2d97fd0db9aec2b2b887c85b1b308ba6193bf6a799aca36d5f09ec0d281fee1f",
     "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
     "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
-    "token_serialization_audit": "823678176e3ec0db315ac67737d37c7212a8d6965a91930c1614116abfba50a7"
+    "token_serialization_audit": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
   },
   "held_fixed": [
     "Qwen3-1.7B exact revision/BF16/no quant/offload",
@@ -80,7 +85,7 @@
     "fresh population and prospective pair-constructibility contract"
   ],
   "source_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
-  "status": "PASS_PRE_SCIENCE_EXACT_SERIALIZATION_REPAIR_PENDING_FRESH_REVIEW",
+  "status": "PASS_PRE_SCIENCE_EXACT_DERANGEMENT_REPAIR_PENDING_FRESH_REVIEW",
   "test_execution": {
     "expected_count": 10,
     "runner": "direct invocation of every test_* callable; pure Python/static only",
@@ -109,6 +114,16 @@
       "material_gap": "hidden-state-defining prompt/source serialization was underspecified",
       "population_changed": false,
       "model_environment_execution": 0
+    },
+    "exact_future_token_derangement_repair": {
+      "work_item_id": "a43d44b7-2c06-4c6a-a3b2-dd2c350f8f7b",
+      "source_commit": "6b58db51e60b77929d626931ba25d683ef3b2566",
+      "material_gap": "deterministic strict derangement algorithm underbound",
+      "repair": "bind reviewed strong_interior_derangement separately per A4/A5/B4/B5 segment before padding",
+      "token_serialization_audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2",
+      "prereg_sha256": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
+      "synthetic_test_sha256": "2d97fd0db9aec2b2b887c85b1b308ba6193bf6a799aca36d5f09ec0d281fee1f",
+      "source_helper_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367"
     }
   },
   "scientific_variables_changed_relative_to_failed_freeze": [
@@ -126,6 +141,7 @@
     "layers7/14/21/27 x alpha0.25/0.5/1.0",
     "no replacement and old-v2/valid split prohibitions",
     "A4-only global operating-point selection before A5 gate; no A5-driven reselection",
-    "fresh population/model/runtime/grid/thresholds/pair generation/A5 co-primary/confirmation multiplicity unchanged; only nuisance orientation evaluation is repaired"
+    "fresh population/model/runtime/grid/thresholds/pair generation/A5 co-primary/confirmation multiplicity unchanged; only nuisance orientation evaluation is repaired",
+    "exact derangement repair changes only deterministic FUTURE_TOKEN_DERANGED construction; population/model/runtime/pair semantics/source geometry/arm set/orientation/grid/endpoints/stats/splits unchanged"
   ]
 }

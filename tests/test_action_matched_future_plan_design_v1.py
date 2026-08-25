@@ -147,3 +147,37 @@ def test_exact_source_direct_id_assembly_geometry():
     assert A[-len(end):]==B[-len(end):]==A4[-len(end):]==B4[-len(end):]==end
     assert A4[-len(end)-len(nl)-L5:-len(end)-len(nl)]==B4[-len(end)-len(nl)-L5:-len(end)-len(nl)]==N5
     assert all(v not in a5+b5 for v in N5)
+
+
+def test_exact_future_token_derangement_algorithm_frozen():
+    x=P['exact_token_serialization_v1']['source_capture']['future_token_derangement_v1']
+    assert x['kind']=='ACTION_MATCHED_FUTURE_TOKEN_DERANGEMENT_V1'
+    assert x['segment_scope']==['A4','A5','B4','B5']
+    assert x['inherited_reviewed_primitive']=='localcontinuation_controls_v2.strong_interior_derangement'
+    assert x['primary']['method']=='BALANCED_BLOCK_LEFT_ROTATE'
+    assert x['fallback']['method']=='SMALLEST_VALID_LEFT_ROTATION'
+    assert 'All four segment transformations must be constructible before E' in x['eligibility_timing']
+    assert 'Derange stored semantic segment IDs first' in x['padding_timing'] and 'only then' in x['padding_timing']
+
+def test_exact_future_token_derangement_reviewed_primitive_properties():
+    import collections, itertools
+    from localcontinuation_controls_v2 import strong_interior_derangement, V2ControlError
+    constructive=0; failed=0
+    for n in range(2,9):
+        for seq in itertools.product(range(3), repeat=n):
+            if len(set(seq))<2:
+                try:
+                    strong_interior_derangement(seq)
+                except V2ControlError:
+                    failed += 1
+                else:
+                    raise AssertionError('all-equal segment must fail closed')
+                continue
+            y,meta=strong_interior_derangement(seq)
+            assert len(y)==len(seq)
+            assert collections.Counter(y)==collections.Counter(seq)
+            assert list(y)!=list(seq)
+            assert y[-1]!=seq[-1]
+            assert meta['method'] in {'BALANCED_BLOCK_LEFT_ROTATE','SMALLEST_VALID_LEFT_ROTATION'}
+            constructive += 1
+    assert constructive>0 and failed==7*3

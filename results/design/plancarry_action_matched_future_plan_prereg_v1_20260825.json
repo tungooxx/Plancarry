@@ -32,7 +32,7 @@
       "+alpha*r_AB",
       "-alpha*r_AB"
     ],
-    "FUTURE_TOKEN_DERANGED": "within each A/B future branch, deterministic strict token-value derangement of mutable A4/A5 or B4/B5 future IDs only, preserving segment lengths/multisets and common shared action3; fail closed if not constructible; residual norm-matched to active; evaluate BOTH + and - orientations and use the maximum absolute shift as nuisance.",
+    "FUTURE_TOKEN_DERANGED": "within each A/B future branch, independently apply exact_token_serialization_v1.source_capture.future_token_derangement_v1 to exact stored A4,A5,B4,B5 token-ID segments before padding; preserves each segment length/multiset and shared action3/common geometry; fail closed if any segment unconstructible; residual norm-matched to active; evaluate BOTH + and - orientations and use maximum absolute shift as nuisance.",
     "NO_PATCH": "no hook",
     "RANDOM_EQ_NORM": "deterministic SHA256-Rademacher vector, norm matched to raw r_AB before the same alpha, evaluate both signs",
     "UNRELATED_PAIR_RESIDUAL": "deterministic next-different-family donor chosen only after the complete eligible development set is frozen; donor r_AB norm-matched to target; evaluate BOTH + and - orientations and use the maximum absolute shift as semantic nuisance.",
@@ -79,7 +79,7 @@
       "B5 is current-admissible after B4 and error-free/nontrivial",
       "deterministic replay hashes match independently reconstructed branches",
       "A5/B5 continuation margin constructibility: after exact A4/observation4 and B4/observation4 replay, each branch state must contain the exact A5/B5 reference command plus at least one other current-admissible command so the frozen reference-action margin is defined; otherwise family is ineligible before E/no replacement",
-      "all source controls required for the causal grid are constructible from stored exact IDs before eligibility freeze, including strict FUTURE_TOKEN_DERANGED for both A and B and exact-geometry NEXT_DIVERGENT_ACTION_ONLY with identical neutralized A5/B5 slot; any unconstructible control makes the family ineligible pre-grid with no replacement"
+      "all source controls required for the causal grid are constructible from stored exact IDs before eligibility freeze, including exact FUTURE_TOKEN_DERANGED on each of A4,A5,B4,B5 under future_token_derangement_v1 and exact-geometry NEXT_DIVERGENT_ACTION_ONLY with identical neutralized A5/B5 slot; any unconstructible control makes the family ineligible pre-grid with no replacement"
     ]
   },
   "parent_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
@@ -173,7 +173,7 @@
     "exact_serialization_binding": "Bound verbatim by exact_token_serialization_v1.source_capture: exact common-prefix template, newline [198], SOURCE_END IDs [18858,13077,10898,29], direct-ID assembly and capture position."
   },
   "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
-  "status": "FROZEN_PRE_SCIENCE_REPAIRED_BIDIRECTIONAL_NUISANCE_PENDING_FRESH_REVIEW",
+  "status": "FROZEN_PRE_SCIENCE_EXACT_DERANGEMENT_REPAIR_PENDING_FRESH_REVIEW",
   "repair_provenance": {
     "source_independent_review_work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
     "source_independent_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
@@ -200,6 +200,14 @@
       "pair_semantics_changed": false,
       "grid_or_threshold_changed": false,
       "scientific_execution": 0
+    },
+    "exact_future_token_derangement_repair": {
+      "work_item_id": "a43d44b7-2c06-4c6a-a3b2-dd2c350f8f7b",
+      "source_commit": "6b58db51e60b77929d626931ba25d683ef3b2566",
+      "source_prereg_sha256": "4ab46d9adf1a25cffb14443be7d1ced0546794b75a1d2e64fd56078759eb6c43",
+      "material_gap": "FUTURE_TOKEN_DERANGED deterministic permutation algorithm was not exact-bound and could change nuisance residuals",
+      "repair": "bind reviewed LocalContinuation-v2 strong_interior_derangement verbatim per A4/A5/B4/B5 segment before padding",
+      "token_serialization_audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
     }
   },
   "continuation5_coprimary": {
@@ -304,10 +312,50 @@
         "ACTIVE": "A/B differ only in padded branch4 and padded branch5 exact stored future IDs",
         "NEXT_DIVERGENT_ACTION_ONLY": "same common prefix/shared action3/newlines/SOURCE_END; branch4 is padded exact A4 vs B4; branch5 is identical neutral cycle length L5; zero A5/B5-derived IDs",
         "ACTION_HISTORY_MATCHED_NULL": "positive source uses exact shared_action3_ids and neutral L4/L5 slots; comparator replaces the shared-action slot by neutral_cycle of exactly len(shared_action3_ids) and also uses neutral L4/L5; all later positions identical",
-        "FUTURE_TOKEN_DERANGED": "same common prefix/shared action3/newlines/SOURCE_END; only stored future branch token values within branch4/branch5 are deterministically strictly deranged before the same slot padding"
+        "FUTURE_TOKEN_DERANGED": "same common prefix/shared action3/newlines/SOURCE_END; independently apply future_token_derangement_v1 to exact stored A4,A5,B4,B5 segment IDs before the same slot padding; all four must be constructible pre-E"
       },
       "unrelated_pair": "build donor r_AB using donor family own rendered common prefix and same direct-ID rule, then norm-match donor vector to target; donor geometry need not equal target length because it is a separate source forward",
-      "no_decode_retokenize_after_freeze": true
+      "no_decode_retokenize_after_freeze": true,
+      "future_token_derangement_v1": {
+        "kind": "ACTION_MATCHED_FUTURE_TOKEN_DERANGEMENT_V1",
+        "inherited_reviewed_primitive": "localcontinuation_controls_v2.strong_interior_derangement",
+        "source_file": "localcontinuation_controls_v2.py",
+        "source_file_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+        "segment_scope": [
+          "A4",
+          "A5",
+          "B4",
+          "B5"
+        ],
+        "application": "Apply independently to each exact stored token-ID segment before any L4/L5 neutral-cycle padding. Never mix token values across segments.",
+        "primary": {
+          "method": "BALANCED_BLOCK_LEFT_ROTATE",
+          "block_count_rule": "k=4 if segment length >=8 else k=2",
+          "block_sizes": "q,r=divmod(n,k); first r blocks size q+1, remaining size q",
+          "order": "[1,2,...,k-1,0]",
+          "accept_if": "output != input AND output[-1] != input[-1]"
+        },
+        "fallback": {
+          "method": "SMALLEST_VALID_LEFT_ROTATION",
+          "search": "offsets 1..n-1 in ascending order",
+          "accept_if": "candidate != input AND candidate[-1] != input[-1]"
+        },
+        "fail_closed": [
+          "segment length <2",
+          "fewer than2 distinct token values",
+          "no valid candidate satisfying value nonidentity and rightmost-token change"
+        ],
+        "postconditions": [
+          "exact segment length unchanged",
+          "exact per-segment token multiset unchanged",
+          "output token sequence differs from input",
+          "rightmost segment token value changes",
+          "shared action3/common prefix/newlines/SOURCE_END unchanged",
+          "no decode/re-tokenize"
+        ],
+        "eligibility_timing": "All four segment transformations must be constructible before E; any failure makes the family ineligible with no replacement.",
+        "padding_timing": "Derange stored semantic segment IDs first; only then apply the already-frozen neutral-cycle slot padding."
+      }
     },
     "tokenizer_provenance": {
       "model_id": "Qwen/Qwen3-1.7B",
@@ -365,6 +413,6 @@
       "any control source containing forbidden A5/B5-derived IDs where contract says neutral"
     ],
     "audit_file": "plancarry_action_matched_future_plan_token_serialization_repair_a4_20260825.json",
-    "audit_sha256": "823678176e3ec0db315ac67737d37c7212a8d6965a91930c1614116abfba50a7"
+    "audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
   }
 }

@@ -1,7 +1,7 @@
 {
   "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_TOKEN_SERIALIZATION_REPAIR_A4",
   "date_utc": "2026-08-25",
-  "status": "PASS_PRE_SCIENCE_TOKENIZER_ONLY_PENDING_FRESH_REVIEW",
+  "status": "PASS_PRE_SCIENCE_EXACT_DERANGEMENT_FREEZE_PENDING_FRESH_REVIEW",
   "work_item_id": "95a0027a-d4cf-43ac-a066-71f3e0c7c2a5",
   "source_design_commit": "9f3339ed667e690137268518e58a0158b6d70c88",
   "source_prereg_sha256": "fa2c56830ac380563959c2dc73744f1d6b114649e2ef2646529794c3111430f7",
@@ -88,10 +88,50 @@
         "ACTIVE": "A/B differ only in padded branch4 and padded branch5 exact stored future IDs",
         "NEXT_DIVERGENT_ACTION_ONLY": "same common prefix/shared action3/newlines/SOURCE_END; branch4 is padded exact A4 vs B4; branch5 is identical neutral cycle length L5; zero A5/B5-derived IDs",
         "ACTION_HISTORY_MATCHED_NULL": "positive source uses exact shared_action3_ids and neutral L4/L5 slots; comparator replaces the shared-action slot by neutral_cycle of exactly len(shared_action3_ids) and also uses neutral L4/L5; all later positions identical",
-        "FUTURE_TOKEN_DERANGED": "same common prefix/shared action3/newlines/SOURCE_END; only stored future branch token values within branch4/branch5 are deterministically strictly deranged before the same slot padding"
+        "FUTURE_TOKEN_DERANGED": "same common prefix/shared action3/newlines/SOURCE_END; independently apply exact future_token_derangement_v1 to stored A4,A5,B4,B5 segment IDs before the same slot padding; all four must be constructible pre-E"
       },
       "unrelated_pair": "build donor r_AB using donor family own rendered common prefix and same direct-ID rule, then norm-match donor vector to target; donor geometry need not equal target length because it is a separate source forward",
-      "no_decode_retokenize_after_freeze": true
+      "no_decode_retokenize_after_freeze": true,
+      "future_token_derangement_v1": {
+        "kind": "ACTION_MATCHED_FUTURE_TOKEN_DERANGEMENT_V1",
+        "inherited_reviewed_primitive": "localcontinuation_controls_v2.strong_interior_derangement",
+        "source_file": "localcontinuation_controls_v2.py",
+        "source_file_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+        "segment_scope": [
+          "A4",
+          "A5",
+          "B4",
+          "B5"
+        ],
+        "application": "Apply independently to each exact stored token-ID segment before any L4/L5 neutral-cycle padding. Never mix token values across segments.",
+        "primary": {
+          "method": "BALANCED_BLOCK_LEFT_ROTATE",
+          "block_count_rule": "k=4 if segment length >=8 else k=2",
+          "block_sizes": "q,r=divmod(n,k); first r blocks size q+1, remaining size q",
+          "order": "[1,2,...,k-1,0]",
+          "accept_if": "output != input AND output[-1] != input[-1]"
+        },
+        "fallback": {
+          "method": "SMALLEST_VALID_LEFT_ROTATION",
+          "search": "offsets 1..n-1 in ascending order",
+          "accept_if": "candidate != input AND candidate[-1] != input[-1]"
+        },
+        "fail_closed": [
+          "segment length <2",
+          "fewer than2 distinct token values",
+          "no valid candidate satisfying value nonidentity and rightmost-token change"
+        ],
+        "postconditions": [
+          "exact segment length unchanged",
+          "exact per-segment token multiset unchanged",
+          "output token sequence differs from input",
+          "rightmost segment token value changes",
+          "shared action3/common prefix/newlines/SOURCE_END unchanged",
+          "no decode/re-tokenize"
+        ],
+        "eligibility_timing": "All four segment transformations must be constructible before E; any failure makes the family ineligible with no replacement.",
+        "padding_timing": "Derange stored semantic segment IDs first; only then apply the already-frozen neutral-cycle slot padding."
+      }
     },
     "tokenizer_provenance": {
       "model_id": "Qwen/Qwen3-1.7B",
@@ -203,5 +243,55 @@
     "A5/B5 same-point co-primary",
     "thresholds/Holm/no replacement/split prohibitions"
   ],
-  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_DESIGN_REPAIR"
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_DESIGN_REPAIR",
+  "exact_derangement_repair": {
+    "work_item_id": "a43d44b7-2c06-4c6a-a3b2-dd2c350f8f7b",
+    "trigger": "implementation self-audit found deterministic strict FUTURE_TOKEN_DERANGED permutation algorithm underbound before any science",
+    "contract": {
+      "kind": "ACTION_MATCHED_FUTURE_TOKEN_DERANGEMENT_V1",
+      "inherited_reviewed_primitive": "localcontinuation_controls_v2.strong_interior_derangement",
+      "source_file": "localcontinuation_controls_v2.py",
+      "source_file_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+      "segment_scope": [
+        "A4",
+        "A5",
+        "B4",
+        "B5"
+      ],
+      "application": "Apply independently to each exact stored token-ID segment before any L4/L5 neutral-cycle padding. Never mix token values across segments.",
+      "primary": {
+        "method": "BALANCED_BLOCK_LEFT_ROTATE",
+        "block_count_rule": "k=4 if segment length >=8 else k=2",
+        "block_sizes": "q,r=divmod(n,k); first r blocks size q+1, remaining size q",
+        "order": "[1,2,...,k-1,0]",
+        "accept_if": "output != input AND output[-1] != input[-1]"
+      },
+      "fallback": {
+        "method": "SMALLEST_VALID_LEFT_ROTATION",
+        "search": "offsets 1..n-1 in ascending order",
+        "accept_if": "candidate != input AND candidate[-1] != input[-1]"
+      },
+      "fail_closed": [
+        "segment length <2",
+        "fewer than2 distinct token values",
+        "no valid candidate satisfying value nonidentity and rightmost-token change"
+      ],
+      "postconditions": [
+        "exact segment length unchanged",
+        "exact per-segment token multiset unchanged",
+        "output token sequence differs from input",
+        "rightmost segment token value changes",
+        "shared action3/common prefix/newlines/SOURCE_END unchanged",
+        "no decode/re-tokenize"
+      ],
+      "eligibility_timing": "All four segment transformations must be constructible before E; any failure makes the family ineligible with no replacement.",
+      "padding_timing": "Derange stored semantic segment IDs first; only then apply the already-frozen neutral-cycle slot padding."
+    },
+    "scientific_variables_changed": [
+      "exact deterministic FUTURE_TOKEN_DERANGED token permutation rule is now bound prospectively; intended control semantics unchanged"
+    ],
+    "scientific_variables_held_fixed": [
+      "population/model/runtime/cut/pair semantics/source geometry/control arm set/both-sign nuisance/grid/A4-only selection/A5 co-primary/thresholds/Holm/splits"
+    ]
+  }
 }
