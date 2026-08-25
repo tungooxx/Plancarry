@@ -43,7 +43,8 @@
     "cut_after_action": 2,
     "history_frozen": "task + exact action1/obs1 + action2/obs2 + cut observation/admissible commands",
     "pre_cut_executor": "exact reviewed LocalContinuation-v2 action-scoring/session primitives, but NO explicit plan text; greedily execute exactly two current-admissible nontrivial model-own actions from reset, fail closed on command/runtime error",
-    "state_snapshot": "deterministic environment snapshot immediately after action2"
+    "state_snapshot": "deterministic environment snapshot immediately after action2",
+    "exact_serialization_binding": "Bound verbatim by exact_token_serialization_v1.pre_cut_executor; this replaces implementation discretion about the no-plan pre-cut prompt/session while preserving the already-frozen two-action semantics."
   },
   "date_utc": "2026-08-25",
   "development_selection": {
@@ -103,7 +104,8 @@
     "parse": "exact one fullmatch of the five tagged fields; strip outer whitespace only; no retry/repair",
     "prompt": "You are at an ALFWorld interruption state. Using ONLY the visible task, current observation, past actions, and current admissible commands below, predict two concrete three-action continuations. The two plans MUST have the exact same first action, but their second actions MUST be different. Do not assume access to future observations. Return exactly one block with no prose:\n<PLAN_PAIR>\n<SHARED_ACTION>{one current admissible command}</SHARED_ACTION>\n<PLAN_A_ACTION4>{predicted concrete command}</PLAN_A_ACTION4>\n<PLAN_A_ACTION5>{predicted concrete command}</PLAN_A_ACTION5>\n<PLAN_B_ACTION4>{different predicted concrete command}</PLAN_B_ACTION4>\n<PLAN_B_ACTION5>{predicted concrete command}</PLAN_B_ACTION5>\n</PLAN_PAIR>",
     "shared_action_guard": "SHARED_ACTION must exactly equal one current cut admissible nontrivial command",
-    "temperature": 0.0
+    "temperature": 0.0,
+    "exact_serialization_binding": "Bound verbatim by exact_token_serialization_v1.pair_planner: one user-role chat-template message, deterministic dynamic state rendering, no system message, exact generation/decode/fullmatch rules and persisted token hashes."
   },
   "population": {
     "confirmation_max_scan_n": 64,
@@ -167,7 +169,8 @@
     "geometry": "per family, direct-ID future segments are padded with a frozen neutral ID cycle to pairwise max segment lengths L4=max(len(A4),len(B4)), L5=max(len(A5),len(B5)); A/B common prefix, shared action3, separators, segment positions, total source length, and final SOURCE_END capture anchor are identical",
     "orientation": "A is the lexicographically smaller canonical tuple (A4,A5) after parser output only for residual sign canonicalization; if parser labels conflict, swap A/B labels before any source forward so orientation is deterministic and outcome-independent",
     "tokenization": "tokenize each exact action string once pre-source with add_special_tokens=false and persist IDs/hashes; no downstream semantic decode/re-tokenize",
-    "next_divergent_action_only_geometry": "Let L4=max(len(A4_ids),len(B4_ids)) and L5=max(len(A5_ids),len(B5_ids)) from the already stored pre-source action IDs. A4_ONLY_A uses exact A4_ids then deterministic neutral-cycle padding to L4, followed by N5=neutral_cycle[0:L5]. A4_ONLY_B uses exact B4_ids then deterministic neutral-cycle padding to L4, followed by the SAME N5. All common prefix/shared-action3/separators and SOURCE_END are byte/token-position identical to ACTIVE source geometry. Thus the paired source differs only in exact A4 versus B4 token identity and contains zero A5/B5-derived IDs."
+    "next_divergent_action_only_geometry": "Let L4=max(len(A4_ids),len(B4_ids)) and L5=max(len(A5_ids),len(B5_ids)) from the already stored pre-source action IDs. A4_ONLY_A uses exact A4_ids then deterministic neutral-cycle padding to L4, followed by N5=neutral_cycle[0:L5]. A4_ONLY_B uses exact B4_ids then deterministic neutral-cycle padding to L4, followed by the SAME N5. All common prefix/shared-action3/separators and SOURCE_END are byte/token-position identical to ACTIVE source geometry. Thus the paired source differs only in exact A4 versus B4 token identity and contains zero A5/B5-derived IDs.",
+    "exact_serialization_binding": "Bound verbatim by exact_token_serialization_v1.source_capture: exact common-prefix template, newline [198], SOURCE_END IDs [18858,13077,10898,29], direct-ID assembly and capture position."
   },
   "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
   "status": "FROZEN_PRE_SCIENCE_REPAIRED_BIDIRECTIONAL_NUISANCE_PENDING_FRESH_REVIEW",
@@ -188,6 +191,15 @@
       "thresholds_changed": false,
       "a5_coprimary_changed": false,
       "semantic_change": "required semantic nuisance arms now evaluated at both vector signs; nuisance statistic is orientation-robust maximum absolute shift"
+    },
+    "exact_token_serialization_repair": {
+      "work_item_id": "95a0027a-d4cf-43ac-a066-71f3e0c7c2a5",
+      "trigger": "post-PASS implementation inspection found semantic geometry frozen but executable token wrappers/chat-template binding underspecified",
+      "population_changed": false,
+      "model_changed": false,
+      "pair_semantics_changed": false,
+      "grid_or_threshold_changed": false,
+      "scientific_execution": 0
     }
   },
   "continuation5_coprimary": {
@@ -216,5 +228,143 @@
     "a5_rule": "For each semantic C, nuisance5_C=max absolute branch-matched shift across qA(+C),qA(-C),qB(+C),qB(-C) versus qA(NO_PATCH)/qB(NO_PATCH). RANDOM_EQ_NORM retains branchwise +/- halfspan maximum.",
     "runtime_requirement": "Both signs are separate one-shot rollouts from the same frozen reset snapshot with identical alpha magnitude, intervention site, token/state replay, persistent-KV semantics and no reinjection. Minus means additive -alpha*C, not swapping source construction or changing branch data.",
     "fail_closed": "Missing either sign for any required semantic nuisance makes that family/point invalid; it may not be treated as zero nuisance or omitted from the frozen denominator."
+  },
+  "exact_token_serialization_v1": {
+    "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_EXACT_TOKEN_SERIALIZATION_V1",
+    "status": "FROZEN_PRE_SCIENCE_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW",
+    "scope": "Serialization binding only; all population/model/pair semantics/controls/grid/endpoints/thresholds/statistics remain unchanged.",
+    "pre_cut_executor": {
+      "reset_template": "TASK\n{task_instruction}\nCURRENT OBSERVATION\n{observation}\nADMISSIBLE COMMANDS\n{commands}\n<STATE_END>\nACTION:",
+      "serialization": "raw tokenizer.encode(full_text, add_special_tokens=false); require one token split whose decoded prefix ends exactly <STATE_END>\\n and decoded tail is exactly ACTION:",
+      "persistent_session": "instantiate reviewed PersistentTokenSession with vector=None on reset prefix IDs, append ACTION: tail once, score current commands as exact tokenizer.encode(\" \"+command, add_special_tokens=false), commit chosen suffix through same KV, execute environment action, append continuation_template IDs through same KV; repeat for exactly two accepted nontrivial actions; no plan text and no reset-prefix rebuild.",
+      "continuation_template": "\nOBSERVATION: {observation}\nADMISSIBLE COMMANDS\n{commands}\nACTION:",
+      "admissible_order": "sorted exact command strings, one per line",
+      "tie_break": "inherit reviewed PersistentTokenSession candidate scorer: highest FP32 arithmetic-mean suffix logprob, lexical command tie-break",
+      "plan_text_present": false
+    },
+    "pair_planner": {
+      "messages": "exactly one message: role=user, content=pair_planner_dynamic_template.format(...) with instruction equal byte-for-byte plan_pair_generation.prompt; no system message",
+      "pair_planner_dynamic_template": "{instruction}\n\nTASK\n{task_instruction}\nCURRENT OBSERVATION\n{cut_observation}\nPAST ACTIONS\nSTEP 1\nACTION: {action1}\nOBSERVATION: {obs1}\nSTEP 2\nACTION: {action2}\nOBSERVATION: {obs2}\nCURRENT ADMISSIBLE COMMANDS\n{commands}",
+      "past_actions": "exact accepted action1/obs1 and action2/obs2 strings in STEP 1 then STEP 2 order",
+      "commands": "sorted current cut admissible command strings joined by newline",
+      "chat_template": {
+        "tokenize": true,
+        "add_generation_prompt": true,
+        "enable_thinking": false
+      },
+      "generation": {
+        "do_sample": false,
+        "max_new_tokens": 192,
+        "use_cache": true,
+        "eos_token_id": "tokenizer.eos_token_id",
+        "pad_token_id": "tokenizer.eos_token_id",
+        "sampling_temperature_argument": "OMITTED; do_sample=false is the frozen deterministic implementation of temperature=0.0"
+      },
+      "decode": {
+        "generated_suffix_only": true,
+        "skip_special_tokens": true,
+        "clean_up_tokenization_spaces": false,
+        "canonicalization": "strip outer whitespace only"
+      },
+      "fullmatch_regex": "\\A<PLAN_PAIR>\\n<SHARED_ACTION>([^\\n<>]+)</SHARED_ACTION>\\n<PLAN_A_ACTION4>([^\\n<>]+)</PLAN_A_ACTION4>\\n<PLAN_A_ACTION5>([^\\n<>]+)</PLAN_A_ACTION5>\\n<PLAN_B_ACTION4>([^\\n<>]+)</PLAN_B_ACTION4>\\n<PLAN_B_ACTION5>([^\\n<>]+)</PLAN_B_ACTION5>\\n</PLAN_PAIR>\\Z",
+      "calls_per_family": 1,
+      "retry_or_repair": false,
+      "persist": [
+        "rendered user UTF8 SHA256",
+        "chat-template prefix token IDs + SHA256",
+        "generated suffix token IDs + SHA256",
+        "decoded stripped block UTF8 SHA256",
+        "stored exact action3/A4/A5/B4/B5 token IDs + SHA256"
+      ]
+    },
+    "source_capture": {
+      "common_prefix_template": "TASK\n{task_instruction}\nCUT OBSERVATION\n{cut_observation}\nPAST ACTIONS\nSTEP 1\nACTION: {action1}\nOBSERVATION: {obs1}\nSTEP 2\nACTION: {action2}\nOBSERVATION: {obs2}\nCUT ADMISSIBLE COMMANDS\n{commands}\n<PAIR_SOURCE>\nSHARED ACTION:\n",
+      "common_prefix_encoding": "encode exact rendered common_prefix_template once with add_special_tokens=false before E; persist text/token IDs/hashes",
+      "direct_id_assembly": "common_prefix_ids + shared_action3_ids + NEWLINE_IDS + padded_branch4_ids + NEWLINE_IDS + padded_branch5_ids + NEWLINE_IDS + SOURCE_END_IDS",
+      "newline_ids": [
+        198
+      ],
+      "source_end_text": "<SOURCE_END>",
+      "source_end_ids": [
+        18858,
+        13077,
+        10898,
+        29
+      ],
+      "capture_position": "last token of SOURCE_END_IDS (final source token), identical absolute position within every target-family source/control source",
+      "neutral_cycle_ids": [
+        20628,
+        2266,
+        8458,
+        34857,
+        13
+      ],
+      "padding": "prefix-slice repeated neutral_cycle_ids to the required slot remainder; L4=max(len(A4),len(B4)); L5=max(len(A5),len(B5))",
+      "target_geometry_controls": {
+        "ACTIVE": "A/B differ only in padded branch4 and padded branch5 exact stored future IDs",
+        "NEXT_DIVERGENT_ACTION_ONLY": "same common prefix/shared action3/newlines/SOURCE_END; branch4 is padded exact A4 vs B4; branch5 is identical neutral cycle length L5; zero A5/B5-derived IDs",
+        "ACTION_HISTORY_MATCHED_NULL": "positive source uses exact shared_action3_ids and neutral L4/L5 slots; comparator replaces the shared-action slot by neutral_cycle of exactly len(shared_action3_ids) and also uses neutral L4/L5; all later positions identical",
+        "FUTURE_TOKEN_DERANGED": "same common prefix/shared action3/newlines/SOURCE_END; only stored future branch token values within branch4/branch5 are deterministically strictly deranged before the same slot padding"
+      },
+      "unrelated_pair": "build donor r_AB using donor family own rendered common prefix and same direct-ID rule, then norm-match donor vector to target; donor geometry need not equal target length because it is a separate source forward",
+      "no_decode_retokenize_after_freeze": true
+    },
+    "tokenizer_provenance": {
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "transformers": "4.51.3",
+      "tokenizers": "0.21.1",
+      "tokenizer_class": "Qwen2TokenizerFast",
+      "files_sha256": {
+        "config.json": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "newline_ids_sha256": "840d60afcf8aeb607ff32e9b4fba7e3132722c2148136c5f4e4816fec59f4ff3",
+      "source_end_ids_sha256": "399328f26006092ae37ca53f4d411b9b8b9cc7f04b53e66fc30b2b7578e5d0bd",
+      "neutral_cycle_ids_sha256": "7a6472f94b3ee9bd7a8935ac54027eae9eab3df36fde24c6d0b3ce42405a8a19",
+      "chat_template_canary": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "SERIALIZATION CANARY"
+          }
+        ],
+        "ids": [
+          151644,
+          872,
+          198,
+          31981,
+          32601,
+          3495,
+          19508,
+          8642,
+          151645,
+          198,
+          151644,
+          77091,
+          198,
+          151667,
+          271,
+          151668,
+          271
+        ],
+        "ids_sha256": "27b3dd904b257baddf6723ea28c7728629b377dd1ec646f079bfb81666df633a",
+        "note": "Pinned Qwen chat template with add_generation_prompt=true and enable_thinking=false includes the model-defined empty think block; execution must reproduce these exact canary IDs before any family request."
+      }
+    },
+    "fail_closed": [
+      "any tokenizer asset/hash/version mismatch",
+      "chat-template canary mismatch",
+      "reset ACTION split non-unique",
+      "rendered common-prefix/token hash mismatch",
+      "source A/B/control length or final SOURCE_END position mismatch within target family",
+      "any downstream semantic decode/re-tokenize",
+      "any control source containing forbidden A5/B5-derived IDs where contract says neutral"
+    ],
+    "audit_file": "plancarry_action_matched_future_plan_token_serialization_repair_a4_20260825.json",
+    "audit_sha256": "823678176e3ec0db315ac67737d37c7212a8d6965a91930c1614116abfba50a7"
   }
 }

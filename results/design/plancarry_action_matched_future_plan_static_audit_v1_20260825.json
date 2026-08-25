@@ -35,7 +35,18 @@
     "random_halfspan_bidirectional_unchanged": true,
     "missing_semantic_control_sign_fail_closed": true,
     "a2_sign_asymmetry_counterexample_repaired": true,
-    "population_bytes_unchanged_by_symmetry_repair": true
+    "population_bytes_unchanged_by_symmetry_repair": true,
+    "pre_cut_exact_serialization_frozen": true,
+    "pair_planner_exact_dynamic_chat_serialization_frozen": true,
+    "pair_planner_user_only_no_unfrozen_system_prompt": true,
+    "source_common_prefix_template_frozen": true,
+    "source_newline_ids_frozen_198": true,
+    "source_end_ids_frozen": true,
+    "source_capture_final_anchor_frozen": true,
+    "chat_template_canary_frozen": true,
+    "tokenizer_asset_hashes_frozen": true,
+    "arbitrary_common_prefix_implementation_discretion_removed": true,
+    "population_bytes_unchanged_by_serialization_repair": true
   },
   "date_utc": "2026-08-25",
   "environment_execution": 0,
@@ -43,10 +54,11 @@
     "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
     "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
     "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
-    "prereg": "fa2c56830ac380563959c2dc73744f1d6b114649e2ef2646529794c3111430f7",
-    "synthetic_test": "c4fe4f09a57065131cc2fcfdcffd3e53e7417617c327d1cebc4da1cba17b2241",
+    "prereg": "4ab46d9adf1a25cffb14443be7d1ced0546794b75a1d2e64fd56078759eb6c43",
+    "synthetic_test": "fe61a3187d0ecbd2ccc3a761ffbf67171a49f2ba4772ee1d0b1b64cf0542cddb",
     "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
-    "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+    "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "token_serialization_audit": "823678176e3ec0db315ac67737d37c7212a8d6965a91930c1614116abfba50a7"
   },
   "held_fixed": [
     "Qwen3-1.7B exact revision/BF16/no quant/offload",
@@ -68,16 +80,16 @@
     "fresh population and prospective pair-constructibility contract"
   ],
   "source_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
-  "status": "PASS_PRE_SCIENCE_BIDIRECTIONAL_NUISANCE_REPAIR_PENDING_FRESH_REVIEW",
+  "status": "PASS_PRE_SCIENCE_EXACT_SERIALIZATION_REPAIR_PENDING_FRESH_REVIEW",
   "test_execution": {
-    "expected_count": 7,
+    "expected_count": 10,
     "runner": "direct invocation of every test_* callable; pure Python/static only",
-    "status": "PASS_7_OF_7_BIDIRECTIONAL_NUISANCE_REPAIR_FINAL",
+    "status": "PASS_10_OF_10_EXACT_SERIALIZATION_REPAIR_FINAL",
     "exact_binomial_p_15_of_20": 0.020694732666015625,
     "holm_two_coprimary_first_threshold": 0.025,
     "holm_15_of_20_each_is_compatible": true
   },
-  "work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
+  "work_item_id": "95a0027a-d4cf-43ac-a066-71f3e0c7c2a5",
   "repair_provenance": {
     "failed_review_work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
     "failed_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
@@ -90,6 +102,13 @@
       "work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
       "material_issue": "BIDIRECTIONAL_NUISANCE_SIGN_ASYMMETRY",
       "repair": "evaluate semantic nuisances in both signs; A4 uses max abs +/- shift; A5 uses max abs shift across A/B branches and +/- orientations"
+    },
+    "exact_token_serialization_repair": {
+      "work_item_id": "95a0027a-d4cf-43ac-a066-71f3e0c7c2a5",
+      "source_review_sha256": "db5696487e78a6e1ff0fa692c25f3b03e8b4a593d05c3cb0a1bab3818427d86f",
+      "material_gap": "hidden-state-defining prompt/source serialization was underspecified",
+      "population_changed": false,
+      "model_environment_execution": 0
     }
   },
   "scientific_variables_changed_relative_to_failed_freeze": [

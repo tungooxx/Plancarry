@@ -105,3 +105,45 @@ def test_bidirectional_semantic_nuisance_sign_asymmetry_guard():
     orient=P['nuisance_orientation_contract']
     assert 'BOTH +alpha*C and -alpha*C' in orient['scope']
     assert 'Missing either sign' in orient['fail_closed']
+
+def test_exact_token_serialization_contract_frozen():
+    x=P['exact_token_serialization_v1']
+    assert x['kind']=='PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_EXACT_TOKEN_SERIALIZATION_V1'
+    assert x['pre_cut_executor']['plan_text_present'] is False
+    assert x['pre_cut_executor']['reset_template'].endswith('<STATE_END>\nACTION:')
+    assert x['pair_planner']['messages'].startswith('exactly one message: role=user')
+    assert x['pair_planner']['chat_template']=={'tokenize':True,'add_generation_prompt':True,'enable_thinking':False}
+    assert x['pair_planner']['generation']['max_new_tokens']==192 and x['pair_planner']['generation']['do_sample'] is False
+    assert x['source_capture']['newline_ids']==[198]
+    assert x['source_capture']['source_end_ids']==[18858,13077,10898,29]
+    assert x['source_capture']['capture_position'].startswith('last token of SOURCE_END_IDS')
+    assert x['tokenizer_provenance']['chat_template_canary']['ids_sha256']=='27b3dd904b257baddf6723ea28c7728629b377dd1ec646f079bfb81666df633a'
+
+def test_exact_pair_planner_dynamic_rendering():
+    x=P['exact_token_serialization_v1']['pair_planner']
+    rendered=x['pair_planner_dynamic_template'].format(
+        instruction='PAIR INSTRUCTION', task_instruction='put mug', cut_observation='at sink',
+        action1='go north', obs1='kitchen', action2='open cabinet', obs2='cabinet open',
+        commands='close cabinet\ntake mug')
+    assert rendered == ('PAIR INSTRUCTION\n\nTASK\nput mug\nCURRENT OBSERVATION\nat sink\nPAST ACTIONS\n'
+                        'STEP 1\nACTION: go north\nOBSERVATION: kitchen\nSTEP 2\nACTION: open cabinet\n'
+                        'OBSERVATION: cabinet open\nCURRENT ADMISSIBLE COMMANDS\nclose cabinet\ntake mug')
+    assert x['calls_per_family']==1 and x['retry_or_repair'] is False
+    assert 'fullmatch' not in x['decode'] or x['fullmatch_regex'].startswith('\\A<PLAN_PAIR>')
+
+def test_exact_source_direct_id_assembly_geometry():
+    x=P['exact_token_serialization_v1']['source_capture']
+    assert x['common_prefix_template'].endswith('<PAIR_SOURCE>\nSHARED ACTION:\n')
+    prefix=[1,2,3]; shared=[7,8]; nl=x['newline_ids']; end=x['source_end_ids']; neutral=x['neutral_cycle_ids']
+    a4=[11,12,13]; b4=[21,22]; a5=[31]; b5=[41,42,43]
+    L4=max(len(a4),len(b4)); L5=max(len(a5),len(b5))
+    def pad(ids,L): return ids+[neutral[i%len(neutral)] for i in range(L-len(ids))]
+    A=prefix+shared+nl+pad(a4,L4)+nl+pad(a5,L5)+nl+end
+    B=prefix+shared+nl+pad(b4,L4)+nl+pad(b5,L5)+nl+end
+    N5=[neutral[i%len(neutral)] for i in range(L5)]
+    A4=prefix+shared+nl+pad(a4,L4)+nl+N5+nl+end
+    B4=prefix+shared+nl+pad(b4,L4)+nl+N5+nl+end
+    assert len(A)==len(B)==len(A4)==len(B4)
+    assert A[-len(end):]==B[-len(end):]==A4[-len(end):]==B4[-len(end):]==end
+    assert A4[-len(end)-len(nl)-L5:-len(end)-len(nl)]==B4[-len(end)-len(nl)-L5:-len(end)-len(nl)]==N5
+    assert all(v not in a5+b5 for v in N5)
