@@ -1,0 +1,74 @@
+{
+  "base_commit": "ebfd702d3bf2fa30df01790d017875519ba2c7e4",
+  "candidate_commit": "217d9ad9ae12dbcef9caa4cf3d4619b58d1b24a4",
+  "candidate_hashes": {
+    "planunique_science_driver_v1.py": "af4493b952f423a13b4f91d260c4508ce9f12e58996cc941d4127329a9946d48",
+    "repair_audit": "e694519f6774168a6813e187b746614a20f90b10955ce301d9a44cadf3e2686e",
+    "tests/test_planunique_vram_scoring_adapter_v1.py": "af965d680dac89229d32b75c345affc8f71426f1f89a927075d57ca8dedffe79"
+  },
+  "candidate_tree": "3f8e38e4b14ac502c9fe72df06476cbe0c620a17",
+  "caveat": "Synthetic patched-scorer fit does not prove full development peak VRAM fit; any subsequent OOM remains technical NOT_ASSESSED.",
+  "diff_review": {
+    "exact_only": true,
+    "files_changed": 3,
+    "scientific_variable_drift": false
+  },
+  "exact_qwen_canary": {
+    "alfworld_execution": 0,
+    "cleanup_allocated_bytes": 33554432,
+    "cleanup_reserved_bytes": 33554432,
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "job_id": "local_055674ea39cd4511",
+    "long_new_score_finite": true,
+    "long_peak_allocated_bytes": 3575672832,
+    "long_peak_reserved_bytes": 3611295744,
+    "long_prefix_tokens": 583,
+    "long_suffix_tokens": 3,
+    "model": "Qwen/Qwen3-1.7B",
+    "model_loaded_allocated_bytes": 3441689088,
+    "model_loaded_reserved_bytes": 3451912192,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "short_abs_diff": 0.0,
+    "short_new_score": -11.395297050476074,
+    "short_old_score": -11.395297050476074,
+    "study_family_execution": 0,
+    "total_memory_bytes": 4294443008
+  },
+  "failed_run_technical_evidence": {
+    "free_bytes": 0,
+    "oom_requested_bytes": 354418688,
+    "run_id": "7c65988e-faeb-4746-b7f9-f54a5f7cf569",
+    "scientific_result": "NOT_ASSESSED",
+    "status": "TECHNICAL_ORPHANED",
+    "total_bytes": 4294443008,
+    "valid_terminal_science_artifact": false
+  },
+  "held_fixed": [
+    "Qwen/Qwen3-1.7B revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e BF16 no quantization/offload",
+    "population ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f dev0..31",
+    "raw r_unique, projection/control semantics, E_common, layers14/21, alphas0.5/1/2/4, RAM2/MSA2",
+    "true reset, one reset-prefix intervention, same KV, no reinjection, no replacement",
+    "confirmation32..51 reserve52..63 valid_seen valid_unseen sealed"
+  ],
+  "independent_regression": {
+    "inherited_counts": {
+      "execution_stack": "15/15",
+      "population_selector": "11/11",
+      "v2_controls": "14/14",
+      "v2_execution_handoff": "9/9"
+    },
+    "job_id": "local_800289f661944996",
+    "loader": "PASS",
+    "planunique": "PASS",
+    "preflight": "READY_NO_SCIENCE",
+    "vram_adapter": "PASS"
+  },
+  "kind": "PLANUNIQUE_V1_2_VRAM_OOM_REPAIR_INDEPENDENT_REVIEW",
+  "review_work_item_id": "c2618794-b4af-4cae-a04f-04bd97b9f138",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "science_execution": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PASS authorizes only fresh executable-successor Experiment/Prediction registration and fresh registration review. It does not authorize direct science, reuse of Experiment 27afc861, Decision 3eb34945, Run 7c65988e, or future-split access.",
+  "verdict": "PASS_FOR_PLANUNIQUE_VRAM_OOM_REPAIR"
+}
