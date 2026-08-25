@@ -82,7 +82,7 @@
   "model_calls": 0,
   "near_collinear_redundancy_tested": true,
   "scientific_result": "NOT_ASSESSED",
-  "status": "PASS_PRE_SCIENCE_CPU_ONLY",
+  "status": "PASS_PRE_SCIENCE_CPU_ONLY_AFTER_DENOMINATOR_REPAIR",
   "stress_cases": 200,
   "stress_dimensions": [
     8,
@@ -94,5 +94,75 @@
   "stress_max_reconstruction_relative_error": 8.233696628795813e-17,
   "stress_max_unique_basis_abs_dot": 9.924786686932308e-16,
   "zero_nuisance_tested": true,
-  "zero_unique_semantics_tested": true
+  "zero_unique_semantics_tested": true,
+  "common_denominator_property_test": {
+    "layer14_constructible_indices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7
+    ],
+    "layer21_constructible_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "expected_E_common": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "rule": "sorted set intersection frozen once; every candidate grid point must use exactly E_common",
+    "all_eight_grid_denominators_equal": true,
+    "layer_specific_subset_selection_forbidden": true,
+    "passed": true,
+    "ordering": "freeze E_stage1 -> freeze unrelated donors from E_stage1 -> construct layer14/layer21 -> intersect to E_common -> freeze E_common -> evaluate all8 grid points",
+    "donor_selection_depends_on_E_common": false
+  },
+  "confirmation_lower_bound_property_test": {
+    "lca2_support": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "paired_contrast_support": [
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "unqualified_frozen_contribution_each_contrast": -1.0,
+    "counterexample_15_qualified_each_plus_0_15": {
+      "zero_imputed_mean_not_used": 0.1125,
+      "conservative_lower_bound_mean": -0.1375,
+      "expected_zero_imputed_mean": 0.1125,
+      "expected_lower_bound_mean": -0.1375
+    },
+    "maximal_15_qualified_each_plus_1_lower_bound_mean": 0.5,
+    "exact_sign_p_ge_15_of_20": 0.020694732666015625,
+    "zero_unique_contribution_rule": "min(observed_contrast,0) and non-positive sign",
+    "passed": true,
+    "exhaustive_lca2_paired_differences": [
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "minus1_is_exact_global_lower_bound": true
+  },
+  "deranged_nuisance_scope_property_test": {
+    "plan_lexical_multiset_allowed_in_nuisance": true,
+    "future_observations_allowed": false,
+    "separately_inserted_exact_reference_action4_action5_ids_allowed": false,
+    "scope_statement": "PLAN_BLOCK_DERANGED is intentionally allowed to carry the same prospectively generated PLAN_PRESENT lexical token multiset in order-destroyed form and therefore contributes plan lexical/content information as an order/lexical nuisance. No future environment observations and no separately inserted exact post-cut reference action4/action5 IDs may enter the nuisance-basis construction beyond whatever semantic content already exists in the prospectively generated plan text; NEXT_ACTION_PRESERVED_LATE_NULL and PAST_ACTIONS_ONLY remain limited to their frozen pre-outcome definitions.",
+    "passed": true
+  }
 }

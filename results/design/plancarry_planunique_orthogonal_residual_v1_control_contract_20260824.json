@@ -1,21 +1,22 @@
 {
   "confirmation": {
-    "all20_primary_denominator_rule": "After the >=15/20 qualification gate passes, every one of indices32..51 remains in the primary effect and sign-test denominator. Stage2-unqualified family: ACTIVE_LCA2=0, d_no_patch=0, d_specificity=0, sign is non-positive. Zero-unique family (||r_unique||<=1e-8): ACTIVE_LCA2=0, d_no_patch<=0, d_specificity<=0, sign is non-positive even if descriptive zero-injection rollout succeeds. No family deletion or replacement.",
+    "all20_primary_denominator_rule": "After the >=15/20 Stage1+Stage2 qualification gate passes, all 20 frozen confirmation indices remain in both primary sign-test denominators and the full-population mean-effect lower-bound denominators. For each Stage2-qualified nonzero-unique family, use the observed paired LCA2 contrasts d_no_patch=ACTIVE_LCA2-NO_PATCH_LCA2 and d_specificity=ACTIVE_LCA2-max_specificity_LCA2. For a Stage2-unqualified family, no causal rollout is imputed as observed; instead assign the mathematically conservative lower bound -1.0 to EACH LCA2 contrast for the all20 mean-effect calculation, because LCA2 is in {0,0.5,1} and any paired difference is bounded below by -1. The sign contribution is non-positive. For a zero-unique qualified family, the injected vector is exact zero and it cannot provide positive causal evidence: use min(observed d_no_patch,0) and min(observed d_specificity,0) in the all20 lower-bound means and count both signs non-positive. Thus lower_bound_mean_d_no_patch=sum(20 conservative family contributions)/20 and lower_bound_mean_d_specificity likewise. No deletion/replacement. This rule is deliberately stricter than zero imputation and supports only a lower-bound full-population effect claim.",
     "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
-    "effect_denominator": "20 exactly after qualification gate; unqualified and zero-unique contributions follow all20_primary_denominator_rule.",
+    "effect_denominator": "20 exactly after >=15/20 qualification gate; observed qualified contrasts plus frozen -1.0 lower-bound contrasts for Stage2-unqualified and non-positive-clipped contrasts for zero-unique families.",
     "effect_guards": [
-      "all20 mean LCA2 gain vs NO_PATCH >=0.10",
-      "all20 mean LCA2 gain vs max specificity control >=0.10",
+      "all20 conservative lower-bound mean LCA2 gain vs NO_PATCH >=0.10",
+      "all20 conservative lower-bound mean LCA2 gain vs max specificity control >=0.10",
       "qualified-family valid-action rate not worse than NO_PATCH by >0.05"
     ],
     "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
     "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
     "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
     "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
-    "sign_test_zero_rule": "Zero paired differences are non-positive; positive count only strict >0 over n=20 for each primary contrast.",
+    "sign_test_zero_rule": "Positive count is strict observed paired contrast >0 among all20; Stage2-unqualified and zero-unique families are forced non-positive. Two exact one-sided sign/binomial tests retain all20 denominator.",
     "task_success": "secondary qualified-only descriptive endpoint; cannot rescue primary null.",
     "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05.",
-    "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards."
+    "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards.",
+    "effect_estimand": "Full-20 conservative LOWER BOUND on mean paired LCA2 causal contrasts; it is not a zero-imputed mean. Stage2-unqualified contribution is -1.0 per contrast, the exact support lower bound."
   },
   "development_arms": {
     "controls": [
@@ -59,15 +60,17 @@
       "competence": "mean matched-state MSA2(PLAN_UNIQUE) >= mean MSA2(NO_PATCH)-0.05",
       "median_joint_margin_nats": ">=0.05",
       "plumbing": "all zero/self sentinels pass",
-      "positive_joint_fraction": ">=0.625 of qualified families"
+      "positive_joint_fraction": ">=0.625 of qualified families",
+      "denominator": "exact frozen E_common at every layer/alpha; all candidate points use identical indices"
     },
     "per_family_deltas": {
       "d_no_patch": "RAM2(PLAN_UNIQUE)-RAM2(NO_PATCH)",
       "d_specificity": "RAM2(PLAN_UNIQUE)-max RAM2(all specificity controls)",
       "joint_margin": "min(d_no_patch,d_specificity)"
     },
-    "qualification_gate": ">=24/32 Stage1+Stage2-qualified fresh development families. Stage2 requires exact projection construction and equal-norm control constructibility. Zero-unique families remain qualified/denominator with all matched intervention vectors exact zero; nonzero-unique families with any required zero-norm source control are Stage2-ineligible, no replacement.",
-    "selection": "Choose one global layer/alpha maximizing median joint_margin; ties: higher fraction joint_margin>0, higher median d_no_patch, lower alpha, earlier layer."
+    "qualification_gate": ">=24/32 in frozen E_common defined by common_denominator_rule; no layer-specific qualification denominator is permitted.",
+    "selection": "Choose one global layer/alpha maximizing median joint_margin; ties: higher fraction joint_margin>0, higher median d_no_patch, lower alpha, earlier layer.",
+    "common_denominator_rule": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer×alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common."
   },
   "development_grid": {
     "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
@@ -95,7 +98,7 @@
       "<q_i,q_j> absolute error <=1e-8 in CPU float64",
       "r_unique dot each accepted q absolute <= max(1e-8,1e-6*||r_unique||)",
       "r_plan = nuisance_component + r_unique reconstruction relative error <=1e-8 unless r_plan is zero",
-      "No action4/action5/future token IDs enter nuisance basis or projection math."
+      "PLAN_BLOCK_DERANGED is intentionally allowed to carry the same prospectively generated PLAN_PRESENT lexical token multiset in order-destroyed form and therefore contributes plan lexical/content information as an order/lexical nuisance. No future environment observations and no separately inserted exact post-cut reference action4/action5 IDs may enter the nuisance-basis construction beyond whatever semantic content already exists in the prospectively generated plan text; NEXT_ACTION_PRESERVED_LATE_NULL and PAST_ACTIONS_ONLY remain limited to their frozen pre-outcome definitions."
     ],
     "rank_deficiency_rule": "Redundant nuisance vectors are dropped by the frozen numerical rule; families are NOT removed. Basis rank and dropped names are persisted.",
     "redundancy_relative_tol": 1e-06,
@@ -124,11 +127,13 @@
         "NEXT_ACTION_PRESERVED_LATE_NULL",
         "PAST_ACTIONS_ONLY",
         "PLAN_BLOCK_DERANGED"
-      ]
+      ],
+      "PLAN_BLOCK_DERANGED_scope": "PLAN_BLOCK_DERANGED is intentionally allowed to carry the same prospectively generated PLAN_PRESENT lexical token multiset in order-destroyed form and therefore contributes plan lexical/content information as an order/lexical nuisance. No future environment observations and no separately inserted exact post-cut reference action4/action5 IDs may enter the nuisance-basis construction beyond whatever semantic content already exists in the prospectively generated plan text; NEXT_ACTION_PRESERVED_LATE_NULL and PAST_ACTIONS_ONLY remain limited to their frozen pre-outcome definitions."
     },
     "raw_plan_residual": "r_plan = h(PLAN_PRESENT)-h(NEUTRAL_FILLER) at frozen source t2 for each candidate layer.",
     "reuse": "Exact LocalContinuation-v2 token geometry and source capture semantics; PLAN_PRESENT, NEUTRAL_FILLER, NEXT_ACTION_PRESERVED_LATE_NULL, PAST_ACTIONS_ONLY, PLAN_BLOCK_DERANGED, UNRELATED_PLAN are built with the already-reviewed direct-token v2 contract.",
-    "unrelated_plan": "Different-family donor chosen prospectively by the unchanged deterministic donor rule; never enters nuisance basis and remains a specificity control."
+    "unrelated_plan": "Different-family donor is chosen prospectively from frozen E_stage1 by the unchanged deterministic next-different-family rule BEFORE Stage2 common-denominator construction; donor choice never depends on E_common or outcomes. The donor need only supply frozen Stage1 plan/source material. It never enters nuisance basis and remains a specificity control."
   },
-  "status": "FROZEN_PRE_SCIENCE"
+  "status": "FROZEN_PRE_SCIENCE_REPAIRED_PENDING_CORRECTION_AND_FRESH_REVIEW",
+  "authority_note": "Canonical Hypothesis 1461e8d4 normalization wording is under independent CorrectionCase b78168b2-0d59-40a1-ac07-783ad467bcf4. This contract retains its existing raw-r_unique/no-amplification intervention semantics and authorizes no science until that authority conflict is independently verified/adjudicated and the repaired design receives fresh review."
 }
