@@ -1,0 +1,71 @@
+{
+  "authority": {
+    "composition_audit_sha256": "0f890bce338eb58cbd923f490b9b27b986fbe6fd2d5cc3966ad0922f6337a28d",
+    "control_sha256": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "final_manifest_sha256": "c52a75e347595dd494cbe31d69f1598999bd373ce2d4b806bf84015e2eac2a4e",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg_sha256": "2b2f955156b2b9ec0643774d6bb7e4674476f7707dfa0a0a11e48bc14433c2c5",
+    "projection_property_sha256": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "static_audit_sha256": "5502379f6ca141460a877bce96a1534ba83b17279eeed742bd5c931d7bbdd160"
+  },
+  "authority_review_commit": "a413d535b2c5a9c8da9fb7e751f80f3eaeceecee",
+  "authority_review_sha256": "dd2ee03768e7d99f08cfd4c87002d059066361eecdcae9b4f1cdc7096c17ea40",
+  "base_authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+  "date_utc": "2026-08-25",
+  "engineering_task_id": "23d5e270-c54e-453b-afd6-8e5470517f7c",
+  "frozen_semantics": [
+    "raw non-amplified r_unique",
+    "CPU-float64 ordered MGS/rank tolerance",
+    "exact inherited RANDOM_EQ_NORM namespace/primitive for RANDOM_EQ_UNIQUE_NORM",
+    "zero-unique exact-zero retained",
+    "E_common identical all8 denominator >=24/32",
+    "layers14/21 x alpha0.5/1/2/4 RAM2_CONTINUOUS selection and tie-break",
+    "confirmation >=15/20 then all20 -1.0 lower-bound estimator",
+    "two exact one-sided sign tests + Holm FWER .05",
+    "true reset/cut2 one-shot same-KV no reinjection",
+    "fresh 32/20/12 population; reserve/valid inaccessible from driver"
+  ],
+  "gate_evidence": {
+    "environment_execution": 0,
+    "final_gate_job": "local_18f2a1a7a6a9457c",
+    "git_diff_check": "PASS",
+    "localcontinuation_execution_stack_regression": "15/15 PASS",
+    "localcontinuation_v2_regression": "14/14 PASS",
+    "model_calls": 0,
+    "model_loads": 0,
+    "planunique_core_tests": "10/10 PASS",
+    "preflight": "READY_NO_SCIENCE",
+    "unauthorized_confirmation": "FAIL_CLOSED_BEFORE_MODEL_LOAD",
+    "unauthorized_development": "FAIL_CLOSED_BEFORE_MODEL_LOAD"
+  },
+  "hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+  "implementation_sha256": {
+    "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+    "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+    "planunique_science_driver_v1.py": "84e36a556edb6fefbd6abbdac1a1f2f7ac768d5378f74abe1d9f0acfc529f96c",
+    "planunique_validator_v1.py": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+    "planunique_vast_primary_v1.sh": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+    "tests/test_planunique_v1_2_implementation.py": "f075c3560f0e742b69b01dd99530b0b3565ac90bd91b5e2e57dcb5840ae0fc79"
+  },
+  "implementation_verification": "VERIFIED_TARGETED",
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_IMPLEMENTATION_AUDIT",
+  "numeric_repair": {
+    "issue": "prevent FP32 downcast of frozen nuisance basis before unrelated-plan target-basis projection",
+    "new_regression": "test_projection_basis_stays_float64_for_unrelated_projection",
+    "resolution": "ordered MGS basis and target-basis projection remain CPU float64; final matched injected controls convert to float32 only after norm matching"
+  },
+  "prohibitions_observed": {
+    "alfworld_study_execution": 0,
+    "experiment_execution": 0,
+    "experiment_registration": 0,
+    "future_split_outcome_access": 0,
+    "gpu_lifecycle": 0,
+    "model_forward": 0,
+    "model_load": 0
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "status": "VERIFIED_TARGETED_PRE_SCIENCE",
+  "work_item_id": "99983e7a-f411-4ec0-bbe5-7d1e5c040cb7"
+}
