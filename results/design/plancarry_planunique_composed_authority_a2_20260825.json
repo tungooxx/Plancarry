@@ -1,11 +1,23 @@
 {
   "anomaly_id": "abed9593-1d8b-4919-9034-cc04529cbe80",
+  "authority_binding_repair": {
+    "failed_review_sha256": "b561eb25c1769dec190bf24ad532ffddb4cb6199b12204abbb854a83013dad95",
+    "failed_review_work_item_id": "760f68df-8236-46ff-9eda-5b9382790656",
+    "normalization_correction_record_id": "f4be133a-a996-4d1a-873a-93268bfbdec0",
+    "normalization_independent_review_sha256": "690e01ef28509924bc04df408962d4ba283d05e1f244368ed4939baff07218b2",
+    "normalization_independent_review_work_item_id": "4ca391fc-8262-4cc2-8b75-85f644188068",
+    "normalization_repair_commit": "4af7854d33e3cce2c16194032f8946da0671f802",
+    "projection_property_sha256": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+    "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+    "scientific_variables_changed": [],
+    "work_item_id": "9be3cdb4-9712-498b-9073-dc4293e03401"
+  },
   "composed_hashes": {
     "control": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
     "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
-    "prereg": "7429d800359d58d634a91ee3bd2c66dcef73715b92cbb8af2184a2ef44917c18",
+    "prereg": "0f2967ead971cb8966e3c0c2686bd30477215bb7bc1bd0b5ec7126b968a464e9",
     "projection_property": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
-    "static_audit": "12fdb6b11f2844d8844a973578b8bdbbf83e2db5759646bea41994c0aeb4c060"
+    "static_audit": "c6a14c5066c4995c13c5b7ad62cee7fda6789528adcaf2c45a6622fddb1a9e45"
   },
   "composition_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
   "confirmation_accessed": false,
@@ -69,6 +81,6 @@
     "local_3dffda72318d4bc5",
     "local_37e64d69512249ec"
   ],
-  "validation_summary": "PASS: exact source hashes; repaired science-bearing fields equal 6682b6f; population unchanged; composed embedded hashes reproduce; JSON parse and git diff --check PASS; no model/environment/GPU/future-split access.",
+  "validation_summary": "PASS: exact source hashes; repaired science-bearing fields equal 6682b6f; population unchanged; composed embedded hashes reproduce; stale projection-authority and pending-normalization bindings repaired metadata-only; JSON parse and git diff --check PASS; no model/environment/GPU/future-split access.",
   "work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb"
 }
