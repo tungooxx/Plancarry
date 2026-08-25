@@ -19,9 +19,9 @@
     "metadata": {
       "commit": "ab267817ebe040e9c5ef2a73d06e377c3028d26b",
       "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
-      "review_commit": "dc1cf49ba93b76e46706adb658effd19fd0f6da5",
-      "review_sha256": "547f8b2a9f9d458fe43b35a79672d18947d13cf6e53f04bfb7c49a02e418847b",
-      "review_work_item_id": "6c60903c-96bc-4fbb-8304-9d51fc5f6b8b"
+      "review_commit": "7d32d6c7c0054b0d314daff540353eae457e36d6",
+      "review_sha256": "0ea8a512fd4cc8e89947f583a9fe43f364ab9d4651a3ead2dfb17c07b840c00c",
+      "review_work_item_id": "4ffa577a-121e-4066-b384-8b419088b446"
     },
     "random": {
       "commit": "562f89e9c56e45db710aab76085f2882040af9cc",
@@ -32,6 +32,14 @@
     }
   },
   "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+  "provenance_rebind": {
+    "authoritative_review_work_item_id": "4ffa577a-121e-4066-b384-8b419088b446",
+    "reason": "replace authorship-ambiguous metadata-review provenance with authoritative corrected independent review of identical A1 repair bytes",
+    "scientific_variables_changed": [],
+    "source_final_commit": "f8145eae4a0d2ed2c94e6b38171ee4569ac16fef",
+    "superseded_review_work_item_id": "6c60903c-96bc-4fbb-8304-9d51fc5f6b8b",
+    "work_item_id": "4116f805-c3b8-4f3c-95c5-9fa8443fcac2"
+  },
   "random_control_canary_signs_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
   "random_control_canary_unit_vector_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753",
   "random_control_implementation_source_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
