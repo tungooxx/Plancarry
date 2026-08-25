@@ -1,0 +1,55 @@
+{
+  "date": "2026-08-25",
+  "evidence_jobs": [
+    "local_bff2fadfa8ba4ae1",
+    "local_093dc1ab25d34b16"
+  ],
+  "exact_hashes": {
+    "composed_authority_after": "4f1d22af74edfd81e7933292300c5c688fb52c71fe9d3a031b777815bf1bb499",
+    "control": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "0f2967ead971cb8966e3c0c2686bd30477215bb7bc1bd0b5ec7126b968a464e9",
+    "projection_property": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+    "repair_audit": "53f9b3c5df8cffef8b006aec56a9d29c04c3b964adfa2145a03e753522e3d623",
+    "static_audit_after": "e3d069dd20410b4c9094130b1966d0fbe0089137aca88361d16951c5c6e85997"
+  },
+  "independent_checks": {
+    "active_raw_r_unique_no_amplification_preserved": true,
+    "alfworld_game_or_reset_calls": 0,
+    "all20_stage2_unqualified_lower_bound_minus1_preserved": true,
+    "changed_files_exactly_three": true,
+    "common_E_ge_24_of_32_preserved": true,
+    "control_byte_identical": true,
+    "controls_target_unique_norm_preserved": true,
+    "existing_json_changed_leaves_exactly_two": [
+      "static_audit.checks.normalization_authority_correction_still_pending: true -> false",
+      "composed_authority.composed_hashes.static_audit: c6a14c... -> e3d069..."
+    ],
+    "experiment_operations": 0,
+    "future_split_access": false,
+    "gpu_lifecycle_actions": 0,
+    "historical_review_artifacts_rewritten": false,
+    "identical_all8_denominator_preserved": true,
+    "model_calls": 0,
+    "model_runtime_reset_grid_statistics_split_no_replacement_sealing_preserved": true,
+    "plan_block_deranged_lexical_nuisance_scope_preserved": true,
+    "population_byte_identical": true,
+    "prereg_byte_identical": true,
+    "projection_property_byte_identical": true,
+    "resolved_revise_normalization_provenance_preserved": true,
+    "scientific_variables_changed": [],
+    "separate_random_control_repair_assessed_here": false,
+    "target_tree_exact": true,
+    "unique_norm_le_1e_8_exact_zero_preserved": true,
+    "zero_unique_nonpositive_clipping_preserved": true
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_STALE_PENDING_FLAG_INDEPENDENT_REVIEW_A2_V1",
+  "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "reviewed_repair_commit": "ab267817ebe040e9c5ef2a73d06e377c3028d26b",
+  "reviewed_tree": "6f2675f046dfb989af153f305f6655357d3924ba",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scope": "PRE_SCIENCE_METADATA_ONLY_INDEPENDENT_REVIEW; supporting input to final combined authority merge only; does not authorize implementation or science.",
+  "source_commit": "c2a2eda4f1ff76a93566d23d4e4e40f8a026f860",
+  "verdict": "PASS_FOR_PLANUNIQUE_STALE_PENDING_FLAG_CLEAR",
+  "work_item_id": "4ffa577a-121e-4066-b384-8b419088b446"
+}
