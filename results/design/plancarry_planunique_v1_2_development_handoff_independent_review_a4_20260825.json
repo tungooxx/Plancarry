@@ -1,0 +1,43 @@
+{
+  "checks": {
+    "cwd_unresolved_until_host_rebind": false,
+    "development_scope_indices_0_31_only": true,
+    "e_common_min_24_and_layers_14_21": true,
+    "future_confirmation_requires_exact_development_seal_sha": true,
+    "future_split_flags_false": true,
+    "handoff_diff_provenance_only": true,
+    "host_device_cache_unresolved": true,
+    "implementation_commit_exact": true,
+    "implementation_file_hashes_exact": true,
+    "preflight_environment_execution_zero": true,
+    "preflight_model_calls_zero": true,
+    "preflight_model_loads_zero": true,
+    "preflight_ready_no_science": true,
+    "ram2_grid_alphas_exact": true,
+    "unauthorized_confirmation_rejected_preload_rc43": true,
+    "unauthorized_development_rejected_preload_rc41": true
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_DEVELOPMENT_HANDOFF_INDEPENDENT_REVIEW",
+  "material_defect": {
+    "conflicting_binding": "required_pre_execution_attestation requires fresh ResearchDecision command/cwd/env exactly equal development_decision_binding",
+    "field": "development_decision_binding.working_directory",
+    "minimal_repair": "Change only the handoff cwd binding to an explicit unresolved placeholder/null resolved by the separate host rebind; update the pre-execution attestation wording so the future ResearchDecision must equal the host-rebind-resolved cwd. Preserve command, Python, CUBLAS, authorization guard, implementation/science hashes, development scope, and all future-split prohibitions unchanged.",
+    "observed": "/workspace/local-vlm/LLM/plancarry",
+    "review_requirement": "cwd must remain explicitly unresolved pending separate host rebind",
+    "why_material": "The frozen handoff would make one host-specific cwd authoritative before the required host rebind, preventing the later host attestation from being the sole authority for execution location and potentially binding the Decision to the wrong checkout."
+  },
+  "model_or_environment_science_executed": false,
+  "reviewed_handoff_artifact_sha256": "4db6a7ddde96cdcc52d29d35e7694b3d6d847f3854ed9ede2433a2ca2af3cbc9",
+  "reviewed_handoff_commit": "469f5e195e651dbb631b46e1edb8f09aa73b4761",
+  "reviewed_handoff_tree": "0bd589b659b59648440423bbbe39cfd261f93fe7",
+  "reviewed_handoff_work_item_id": "3193af4e-7fdb-4f14-9f83-1fcc072cccac",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "science_assessed": false,
+  "scientific_variables_changed": [],
+  "supporting_jobs": [
+    "local_875eb33e36444a28",
+    "local_ffdf1c8b0df642c0"
+  ],
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "165e843d-2121-47ec-9388-78aed863ad5b"
+}
