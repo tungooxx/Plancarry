@@ -1,0 +1,96 @@
+{
+  "date_utc": "2026-08-25",
+  "final_hashes": {
+    "composed_authority": "cc8b88153f43a6def42d1197e77381f840ed7ab83cbafb9611dff201028e9a2a",
+    "composition_audit": "9e0add48e09c1e98caa5d24aa7399d5e95959b218904a6cbc9003765a26a0add",
+    "control": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "final_authority_manifest": "955eaa40ca89494443830f5515c014a4b2f30498c150655e408575efc32fa79f",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "2b2f955156b2b9ec0643774d6bb7e4674476f7707dfa0a0a11e48bc14433c2c5",
+    "projection_property": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "random_implementation_source": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "static_audit": "5502379f6ca141460a877bce96a1534ba83b17279eeed742bd5c931d7bbdd160"
+  },
+  "final_merge_commit": "f8145eae4a0d2ed2c94e6b38171ee4569ac16fef",
+  "final_merge_tree": "3ee90bd4d4bd5bed351de65fac981dbdde888105",
+  "interpretation": "Final PlanUnique v1.2 authority is a union-only pre-science composition of independently reviewed metadata/normalization and random-control repairs. PASS authorizes only a fresh implementation rebind to these exact hashes; it is not scientific evidence and does not authorize Experiment execution.",
+  "kind": "PLANCARRY_PLANUNIQUE_FINAL_V1_2_INDEPENDENT_REVIEW_A1_V1",
+  "merge_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "merge_work_item_id": "a22fa222-fb84-4298-b66b-49226068a582",
+  "parent_lineages": {
+    "metadata": {
+      "commit": "ab267817ebe040e9c5ef2a73d06e377c3028d26b",
+      "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+      "required_review_commit": "dc1cf49ba93b76e46706adb658effd19fd0f6da5",
+      "required_review_sha256": "547f8b2a9f9d458fe43b35a79672d18947d13cf6e53f04bfb7c49a02e418847b",
+      "required_review_verdict": "PASS_FOR_PLANUNIQUE_STALE_PENDING_FLAG_CLEAR",
+      "required_review_work_item_id": "6c60903c-96bc-4fbb-8304-9d51fc5f6b8b",
+      "supplementary_author_aware_rereview_work_item_id": "4ffa577a-121e-4066-b384-8b419088b446",
+      "supplementary_rereview_commit": "3f35c4af0d2ea478e4e16fbf8a82f21eae468dcc",
+      "supplementary_rereview_sha256": "6e1a6f97720bf8ce9d298fe17e85c8191c412252a42c24176adc6d052c830021",
+      "supplementary_reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab"
+    },
+    "random": {
+      "commit": "562f89e9c56e45db710aab76085f2882040af9cc",
+      "review_commit": "80b974f58db992d5d8168a12d39008fb9b2a4588",
+      "review_sha256": "7f08501effe2f8662c1dbce551643b2f191067d023f37b8ae8e2558712768b19",
+      "review_verdict": "PASS_FOR_PLANUNIQUE_RANDOM_CONTROL_DETERMINISM_FREEZE",
+      "review_work_item_id": "43eaaa78-cadf-45a1-a8e7-eb0377fe8d5e"
+    }
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "safety": {
+    "alfworld_game_or_reset_calls": 0,
+    "experiment_or_gpu_actions": 0,
+    "future_split_access": false,
+    "model_forward_calls": 0
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "verdict": "PASS_FOR_PLANUNIQUE_FINAL_V1_2_AUTHORITY_FREEZE",
+  "verification": {
+    "common_E_across_all_8_grid_points_min_24_of_32": true,
+    "confirmation_all20_lower_bound_minus1_for_stage2_unqualified": true,
+    "confirmation_zero_unique_nonpositive": true,
+    "exact_two_sign_binomial_holm_fwer_0_05": true,
+    "final_extra_semantic_paths_beyond_parent_union": [],
+    "final_missing_parent_semantic_paths": [],
+    "grid_alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "grid_layers": [
+      14,
+      21
+    ],
+    "historical_review_artifacts_rewritten": false,
+    "independent_binomial_p_ge_15_of_20": 0.020694732666015625,
+    "independent_lower_bound_counterexample_mean": -0.1375,
+    "independent_mgs_max_reconstruction_relative_error": 0.0,
+    "independent_mgs_max_unique_basis_abs_dot": 9.783840404509192e-16,
+    "independent_mgs_stress_cases": 200,
+    "independent_random_canary_reproduced": true,
+    "merge_base": "b547688efe337b32c02282b0e1efa124f0c40247",
+    "model_runtime_exact_qwen3_17b_revision_bf16_no_quant_offload": true,
+    "normalization_authority_correction_still_pending": false,
+    "obsolete_projection_control_prereg_static_hashes_in_current_authority": false,
+    "old_v2_confirmation_reserve_accessed": false,
+    "overlap_conflicts_only_dependent_hash_provenance": true,
+    "plan_block_deranged_truthful_lexical_nuisance_scope": true,
+    "population_byte_identical": true,
+    "random_canary_signs_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+    "random_canary_unit_vector_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753",
+    "random_key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+    "raw_r_unique_no_amplification": true,
+    "resolved_normalization_revise_provenance_present": true,
+    "scientific_variables_changed": [],
+    "semantic_path_union_exact": true,
+    "target_basis_unrelated_projection_preserved": true,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false,
+    "zero_unique_exact_zero_retained": true
+  },
+  "work_item_id": "418b2da0-beef-496e-964d-8e953abee801"
+}
