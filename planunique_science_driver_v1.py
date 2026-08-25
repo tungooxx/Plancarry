@@ -47,7 +47,7 @@ def _write_packet_set(packets:Sequence[Mapping[str,Any]],target:Path,phase_name:
  except Exception:shutil.rmtree(tmp,ignore_errors=True);raise
 
 def produce_packets(phase_name:str,tok:Any,model:Any,prov:Mapping[str,Any])->list[dict[str,Any]]:
- rows=pb.load_population_phase(phase_name,ROOT);opening,closing=controls.frozen_tag_ids(tok);planner=lambda task,obs:v21.torch_generate_plan(tok,model,task,obs);scorer=lambda prefix,suffix:v21.torch_suffix_mean_logprob(model,prefix,suffix);stage1=[]
+ rows=pb.load_population_phase(phase_name,ROOT);opening,closing=controls.frozen_tag_ids(tok);planner=lambda task,obs:v21.torch_generate_plan(tok,model,task,obs);scorer=lambda prefix,suffix:_suffix_mean_logprob_vram_bounded(model,prefix,suffix);stage1=[]
  for pos,row in enumerate(rows,1):
   stage1.append(pb.produce_stage1_attempt(row,phase_name,tok,prov,runtime_v1.runtime_factory,planner,scorer,opening,closing));print(json.dumps({'stage':'planunique_stage1','phase':phase_name,'done':pos,'total':len(rows)}),flush=True)
  packets=pb.apply_stage2_phase(stage1,phase_name,controls.NEUTRAL_FILLER_IDS,ROOT);pb.validate_phase_packets(packets,phase_name,ROOT);_write_packet_set(packets,PACKET_DIR[phase_name],phase_name);return packets
@@ -56,6 +56,31 @@ def _donor(packet:Mapping[str,Any],by:Mapping[int,Mapping[str,Any]])->Mapping[st
  cp=packet.get('control_provenance',{});i=int(cp.get('unrelated_donor_frozen_index',-1))
  if i not in by or i==int(packet['frozen_index']) or str(by[i]['family'])==str(packet['family']):raise ExecutionContractError('DONOR_INVALID')
  return by[i]
+
+def _suffix_mean_logprob_vram_bounded(model:Any,prefix_ids:Sequence[int],suffix_ids:Sequence[int])->float:
+    """Exact frozen FP32 suffix log-probability while materializing only required LM-head rows.
+
+    Qwen3 ``logits_to_keep`` changes only which final hidden-state rows are sent through
+    the unchanged LM head.  The transformer sees the exact same full token sequence.
+    Required prediction positions are prefix_len-1 .. prefix_len+suffix_len-2, exactly
+    matching replay_residual_natural_packet_producer_v2_1.torch_suffix_mean_logprob.
+    """
+    import math,torch
+    p=[int(x) for x in prefix_ids];s=[int(x) for x in suffix_ids]
+    if not p or not s:raise RuntimeError('EMPTY_PREFIX_OR_SUFFIX')
+    device=next(model.parameters()).device
+    full=torch.tensor([p+s],dtype=torch.long,device=device)
+    keep=torch.arange(len(p)-1,len(p)+len(s)-1,dtype=torch.long,device=device)
+    with torch.inference_mode():
+        logits=model(input_ids=full,logits_to_keep=keep).logits.float()
+        if tuple(logits.shape[:2])!=(1,len(s)):raise RuntimeError(f'VRAM_SCORE_LOGIT_GEOMETRY:{tuple(logits.shape)}:{len(s)}')
+        logp=torch.log_softmax(logits,dim=-1)
+        row=torch.arange(len(s),device=logp.device)
+        target=torch.tensor(s,dtype=torch.long,device=logp.device)
+        score=logp[0,row,target].mean()
+    value=float(score.detach().cpu().item())
+    if not math.isfinite(value):raise RuntimeError('NONFINITE_CANDIDATE_SCORE')
+    return value
 
 def capture_sources(tok:Any,model:Any,packet:Mapping[str,Any],donor:Mapping[str,Any],layers:Sequence[int]):return inherited_v2.capture_sources_v2(tok,model,packet,donor,layers)
 def _vector_sha(v:Any)->str:

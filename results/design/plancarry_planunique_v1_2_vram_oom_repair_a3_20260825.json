@@ -1,0 +1,99 @@
+{
+  "base_commit": "ebfd702d3bf2fa30df01790d017875519ba2c7e4",
+  "base_tree": "1bffc94388ea23ad601611629a711d61f004459b",
+  "cuda_oom_requested_bytes": 354418688,
+  "diagnosis": {
+    "mechanistic_match": "The failed 354,418,688-byte allocation is within 0.5% of one full ~583-position FP32 Qwen3 vocabulary-logit tensor; original log_softmax additionally requires a comparable full FP32 output buffer.",
+    "original_path": "replay_residual_natural_packet_producer_v2_1.torch_suffix_mean_logprob materializes model(input_ids=full).logits.float() for every sequence position, then torch.log_softmax over the full sequence-by-vocabulary FP32 tensor.",
+    "projected_original_full_fp32_logits_bytes": 356137984,
+    "qwen3_vocab_size": 151936,
+    "synthetic_long_prefix_len": 583,
+    "synthetic_long_suffix_len": 3
+  },
+  "failed_decision_id": "3eb34945-c279-4e87-9a17-21236ca7e9f7",
+  "failed_run_id": "7c65988e-faeb-4746-b7f9-f54a5f7cf569",
+  "failed_stage_progress": "planunique_stage1 2/32",
+  "failure_class": "TECHNICAL_ORPHANED_NOT_ASSESSED",
+  "independent_review_required": true,
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_VRAM_OOM_REPAIR_A3",
+  "prohibitions_attested": {
+    "alfworld_study_execution": false,
+    "confirmation_32_51_accessed": false,
+    "failed_partial_scientific_values_used": false,
+    "reserve_52_63_accessed": false,
+    "study_family_model_execution": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "real_model_synthetic_canary": {
+    "alfworld_execution": 0,
+    "all_exact_equal": true,
+    "dtype": "bfloat16",
+    "final_allocated_bytes": 3475243520,
+    "final_reserved_bytes": 3611295744,
+    "job_id": "local_9911155615b74524",
+    "long_peak_allocated_bytes": 3575672832,
+    "long_repeat_count": 12,
+    "long_repeat_scores_identical": true,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "score_exact_equal_cases": [
+      {
+        "prefix_len": 24,
+        "suffix_len": 1
+      },
+      {
+        "prefix_len": 64,
+        "suffix_len": 2
+      },
+      {
+        "prefix_len": 96,
+        "suffix_len": 3
+      }
+    ],
+    "selected_fp32_logits_bytes_for_suffix3": 1823232,
+    "status": "PASS_SYNTHETIC_NO_SCIENCE",
+    "study_family_execution": 0
+  },
+  "repair": {
+    "binding": "PlanUnique produce_packets scorer only",
+    "dtype_unchanged": true,
+    "file": "planunique_science_driver_v1.py",
+    "generator_unchanged": true,
+    "max_new_tokens_unchanged": true,
+    "model_unchanged": true,
+    "offload_unchanged": true,
+    "planner_unchanged": true,
+    "population_grid_controls_thresholds_unchanged": true,
+    "prompts_tokens_decoding_unchanged": true,
+    "quantization_unchanged": true,
+    "semantics": "Full unchanged token sequence is run through Qwen3; native logits_to_keep selects exactly prediction rows prefix_len-1..prefix_len+suffix_len-2 before the unchanged LM head output is converted to FP32 and rowwise log_softmax/mean is computed.",
+    "symbol": "_suffix_mean_logprob_vram_bounded"
+  },
+  "required_review_verdict": "PASS_FOR_PLANUNIQUE_VRAM_OOM_REPAIR",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_hashes": {
+    "base_planunique_driver_sha256": "7d2ba88441ab68839b46416cded4b88c1ecab6616b8be323a0521f82d17ed057",
+    "candidate_planunique_driver_sha256": "af4493b952f423a13b4f91d260c4508ce9f12e58996cc941d4127329a9946d48",
+    "candidate_vram_test_sha256": "af965d680dac89229d32b75c345affc8f71426f1f89a927075d57ca8dedffe79",
+    "unchanged_natural_packet_producer_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "unchanged_runtime_v1_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592"
+  },
+  "status": "FROZEN_ENGINEERING_CANDIDATE_PRE_INDEPENDENT_REVIEW",
+  "tests": {
+    "jobs": [
+      "local_c4fc46a786ef4a3b",
+      "local_597cf2e7665544eb",
+      "local_9911155615b74524",
+      "local_1794153f5b5d4f4a"
+    ],
+    "localcontinuation_legacy_execution_stack": "15/15 PASS",
+    "localcontinuation_population_selector": "11/11 PASS",
+    "localcontinuation_v2_controls": "14/14 PASS",
+    "localcontinuation_v2_execution_handoff": "9/9 PASS",
+    "new_vram_adapter_assertions": "3/3 PASS",
+    "planunique_original_assertions": "1/1 + 10/10 PASS",
+    "preflight": "READY_NO_SCIENCE model_calls=0 model_loads=0 environment_execution=0 future flags false"
+  }
+}
