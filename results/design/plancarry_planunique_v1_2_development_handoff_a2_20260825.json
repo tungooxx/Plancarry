@@ -21,7 +21,7 @@
       "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND",
       "PLANUNIQUE_EXPECTED_DEVICE_NAME": "<RESOLVE_BY_SEPARATE_HOST_REBIND>"
     },
-    "working_directory": "/workspace/local-vlm/LLM/plancarry"
+    "working_directory": "<RESOLVE_BY_SEPARATE_HOST_REBIND>"
   },
   "development_scope": {
     "alphas": [
@@ -114,7 +114,7 @@
     "preflight reproduces READY_NO_SCIENCE with zero model/environment activity",
     "development packet/grid/seal/terminal targets are absent",
     "host/device/Python/HF cache bindings independently reviewed",
-    "fresh ResearchDecision command/cwd/env exactly equal development_decision_binding"
+    "fresh ResearchDecision command/env exactly equal development_decision_binding and cwd exactly equals the separately reviewed host-rebind-resolved working_directory"
   ],
   "scientific_result": "NOT_ASSESSED",
   "scientific_variables_changed": [],
