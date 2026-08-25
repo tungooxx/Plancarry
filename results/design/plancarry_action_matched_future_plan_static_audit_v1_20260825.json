@@ -21,7 +21,15 @@
     "reviewed_exposure_exact_266": true,
     "true_reset_one_shot_same_kv_no_reinjection": true,
     "v1_selected_exact_64": true,
-    "v2_selected_exact_64": true
+    "v2_selected_exact_64": true,
+    "next_divergent_action_only_exact_geometry_frozen": true,
+    "next_divergent_action_only_contains_no_a5_b5_ids": true,
+    "next_divergent_action_only_in_a4_nuisance_max": true,
+    "a5_b5_continuation_coprimary_required": true,
+    "a5_b5_same_operating_point_no_reselection": true,
+    "confirmation_h4_h5_holm_fwer_005": true,
+    "population_bytes_unchanged_by_repair": true,
+    "a5_b5_margin_constructibility_pregrid": true
   },
   "date_utc": "2026-08-25",
   "environment_execution": 0,
@@ -29,8 +37,8 @@
     "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
     "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
     "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
-    "prereg": "f9d89adc4127df112ca35d3aa36cc7c8adf10a7e67d37e6b10be57496e6512a3",
-    "synthetic_test": "0ed2d00b1a1c4dd084d3d14e3868e39d5242d2a14c25af57ccc5241d03b70d54",
+    "prereg": "5826af9e03b6b6e23a542dbe2fc3dd74413d5e8fc0f712a1ef64deb278663ca2",
+    "synthetic_test": "53c0f46fd7d0319411983b2e93cc7c2078c9181e9a922800531afdc5939c5cc9",
     "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
     "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
   },
@@ -54,11 +62,37 @@
     "fresh population and prospective pair-constructibility contract"
   ],
   "source_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
-  "status": "PASS_PRE_SCIENCE_PENDING_INDEPENDENT_REVIEW",
+  "status": "PASS_PRE_SCIENCE_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW",
   "test_execution": {
-    "expected_count": 4,
-    "runner": "direct invocation of every test_* callable under /opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python because pytest package is absent",
-    "status": "PASS_4_OF_4_AFTER_ELIGIBILITY_HARDENING"
+    "expected_count": 6,
+    "runner": "direct invocation of every test_* callable; pure Python/static only",
+    "status": "PASS_6_OF_6_ACTION4_IDENTITY_REPAIR_FINAL",
+    "exact_binomial_p_15_of_20": 0.020694732666015625,
+    "holm_two_coprimary_first_threshold": 0.025,
+    "holm_15_of_20_each_is_compatible": true
   },
-  "work_item_id": "2c1826e5-a89a-4190-8696-7050d65073a8"
+  "work_item_id": "06ede485-62aa-444a-ba49-599ff39392c8",
+  "repair_provenance": {
+    "failed_review_work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
+    "failed_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
+    "material_issue": "NEXT_DIVERGENT_ACTION_IDENTITY_CONFOUND",
+    "repair_work_item_id": "06ede485-62aa-444a-ba49-599ff39392c8",
+    "population_sha256_must_remain": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7"
+  },
+  "scientific_variables_changed_relative_to_failed_freeze": [
+    "add exact-geometry NEXT_DIVERGENT_ACTION_ONLY A4/B4 identity-matched nuisance control",
+    "include NEXT_DIVERGENT_ACTION_ONLY shift in A4 joint nuisance maximum",
+    "promote branch-matched A5/B5 continuation to a required same-operating-point development and untouched-confirmation co-primary",
+    "apply Holm FWER0.05 across the two required confirmation sign tests",
+    "require A5/B5 reference-margin constructibility before eligibility freeze"
+  ],
+  "scientific_variables_held_fixed_by_repair": [
+    "fresh160 population bytes and 64/64/32 split",
+    "Qwen3-1.7B exact revision/BF16/no quantization/offload",
+    "cut after action2 and one planner call",
+    "true reset/one reset-prefix intervention/same persistent KV/no reinjection",
+    "layers7/14/21/27 x alpha0.25/0.5/1.0",
+    "no replacement and old-v2/valid split prohibitions",
+    "A4-only global operating-point selection before A5 gate; no A5-driven reselection"
+  ]
 }
