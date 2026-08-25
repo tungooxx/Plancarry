@@ -1,0 +1,102 @@
+{
+  "author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "date_utc": "2026-08-25",
+  "evidence_jobs": [
+    "local_dc96815dbb464747",
+    "local_a2e9890e815a4290",
+    "local_f9a1b0d65e7e4dd8",
+    "local_a9203bb19f2e4925"
+  ],
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_INDEPENDENT_REVIEW_A2",
+  "material_findings": [
+    {
+      "finding": "Stage2 constructibility is layer-dependent because r_unique and required matched-control norms are computed at each candidate layer, yet development medians and positive fractions are defined over qualified families without freezing one common family denominator across layers 14 and 21. Thus operating-point selection may compare different subsets of the same 32-family development population.",
+      "id": "DEVELOPMENT_COMMON_DENOMINATOR_UNFROZEN",
+      "required_repair": "Before any outcomes, freeze a common development denominator for all layer/alpha candidates. Acceptable examples: require source/control constructibility across every candidate layer before a family enters the common set, or retain all 32 and assign a frozen non-positive/zero contribution to an unconstructible layer-family. Selection statistics and competence comparisons must use the same indexed denominator at every candidate operating point; freeze the exact rule and tests.",
+      "severity": "MATERIAL",
+      "why_material": "Even deterministic pre-outcome missingness can change the estimand across candidate layers and favor a layer whose hard families are ineligible. The >=24/32 gate does not by itself make layer-wise medians comparable."
+    },
+    {
+      "counterexample": "With exactly 15 qualified families each at +0.15 and five unqualified families, frozen zero imputation gives mean 0.1125 and 15/20 exact sign p=0.020694732666015625; both equal p-values would pass the first Holm threshold 0.025. Because LCA2 is exactly in {0,0.5,1}, an admissible unqualified full-population contrast active=0 versus NO_PATCH=1 is -1 for each missing family, yielding mean -0.1375. Thus the same underlying population can pass the frozen effect guard under zero imputation while failing a valid lower-bound full-population effect.",
+      "finding": "The all20 rule assigns d_no_patch=d_specificity=0 to Stage2-unqualified confirmation families. This is conservative for strict-positive sign counts but is not a conservative lower bound for the required all20 mean-effect guards.",
+      "id": "CONFIRMATION_ZERO_IMPUTATION_NOT_CONSERVATIVE_FOR_MEAN_EFFECT",
+      "required_repair": "Choose and freeze one estimand. For a full-20 population claim, use an actually conservative lower-bound imputation for unqualified treatment contrasts (or require all20 Stage2-qualified). Alternatively define mean-effect guards only on the constructible qualified subpopulation and explicitly scope the effect claim to that subpopulation while retaining all20 sign-test failure accounting and a separate qualification-rate guard. Do not call zero contrast conservative for mean effect without a justified bound.",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "The projection invariant says no action4/action5/future token IDs enter the nuisance basis, but PLAN_BLOCK_DERANGED deliberately preserves the PLAN_PRESENT token multiset while permuting interior positions. Therefore lexical future-plan token content does influence that nuisance vector, even though exact reference action4/action5 commands are not separately injected.",
+      "id": "DERANGED_BASIS_FUTURE_TOKEN_WORDING_FALSE",
+      "required_repair": "Make the invariant truthful and scoped: the deranged-plan lexical multiset is intentionally allowed as an order/lexical nuisance; no future observations or separately inserted post-cut reference action IDs may enter beyond the prospectively generated plan content. Ensure the hypothesis/review wording matches that definition.",
+      "severity": "MATERIAL_WORDING_SCOPE"
+    }
+  ],
+  "no_science": {
+    "alfworld_game_or_reset": 0,
+    "confirmation_access": false,
+    "gpu_science": 0,
+    "model_calls": 0,
+    "reserve_access": false,
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "non_material_bookkeeping": [
+    {
+      "finding": "The WorkItem description used stale 20260825-style filenames, but every listed SHA resolved exactly to the immutable 20260824-named artifact in target tree; no byte mismatch."
+    }
+  ],
+  "passed_checks": {
+    "artifact_hashes_exact": true,
+    "development_informed_layer_narrowing_disclosed": true,
+    "five_successor_files_only_relative_to_merge_base": true,
+    "near_collinear_redundancy_drop_reproduced": true,
+    "old_v2_confirmation_reserve_valid_prohibited": true,
+    "population_reconstruction_exact": {
+      "excluded_union": 394,
+      "fresh_available": 396,
+      "historical_exposed": 266,
+      "inventory": 790,
+      "overlap": 0,
+      "selected": 64,
+      "split": [
+        32,
+        20,
+        12
+      ],
+      "v1_selected": 64,
+      "v2_selected": 64
+    },
+    "projection_cpu_float64_fixed_order_mgs_reproduced": true,
+    "projection_fixed_cases": 5,
+    "single_injection_same_kv_no_reinjection_explicit": true,
+    "zero_unique_retention_explicit": true
+  },
+  "resolved_artifacts": {
+    "control_contract": {
+      "path": "results/design/plancarry_planunique_orthogonal_residual_v1_control_contract_20260824.json",
+      "sha256": "edb3febd64240c14279dde1da615aed7356e33c68b0e3fb3296fc9728aafdbb9"
+    },
+    "population": {
+      "path": "results/design/plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+      "sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+    },
+    "prereg": {
+      "path": "results/design/plancarry_planunique_orthogonal_residual_v1_prereg_20260824.json",
+      "sha256": "9ee98accf53d17d9ebce1dfa79982b713251fe2ad836eef4f9e1a6d45aa9aea7"
+    },
+    "projection_property_test": {
+      "path": "results/design/plancarry_planunique_orthogonal_residual_v1_projection_property_test_20260824.json",
+      "sha256": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79"
+    },
+    "static_audit": {
+      "path": "results/design/plancarry_planunique_orthogonal_residual_v1_static_audit_20260824.json",
+      "sha256": "600175a2dd716b3394157b920c5dd7994f0620b5decbd42a67bae7be93cb6e89"
+    }
+  },
+  "review_scope": "PRE_SCIENCE_ONLY; no Experiment registration/execution authorization.",
+  "review_work_item_id": "f22941ef-5656-4b42-813b-038e01d6f5ff",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "target_commit": "21b927478722c900f16b1bfc4d51a255760d6e2c",
+  "target_tree": "9ade7c906004a2eb308a6475724fc825520856c4",
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
