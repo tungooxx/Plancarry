@@ -1,0 +1,74 @@
+{
+  "adversarial_counterexamples": {
+    "a4": {
+      "active_bidirectional": 0.2,
+      "minus_control_shift": 0.25,
+      "old_joint": 0.19,
+      "plus_control_shift": 0.01,
+      "repaired_joint": -0.05,
+      "status": "REPAIR_PREVENTS_FALSE_PASS",
+      "threshold": 0.05
+    },
+    "a5": {
+      "active_bidirectional5": 0.2,
+      "old_joint5": 0.18,
+      "omitted_sign_shift": 0.25,
+      "repaired_joint5": -0.05,
+      "small_observed_control_shift": 0.02,
+      "status": "REPAIR_PREVENTS_FALSE_PASS",
+      "threshold": 0.05
+    }
+  },
+  "authorization_scope": "ENGINEERING_IMPLEMENTATION_ONLY; NO MODEL_OR_ENVIRONMENT_SCIENCE; NO CONFIRMATION_ACCESS",
+  "checks": {
+    "a4_action_history_both_signs_maxabs": true,
+    "a4_future_deranged_both_signs_maxabs": true,
+    "a4_next_divergent_action_only_both_signs_maxabs": true,
+    "a4_only_source_exact_geometry_and_no_a5_b5_ids_preserved": true,
+    "a4_unrelated_both_signs_maxabs": true,
+    "a5_b5_required_coprimary_same_a4_selected_operating_point_preserved": true,
+    "a5_each_semantic_nuisance_maxabs_over_qA_plus_minus_and_qB_plus_minus": true,
+    "environment_execution": 0,
+    "first20_preE_development_and_confirmation_denominators_preserved": true,
+    "fresh160_reconstruction_and_historical_overlap_zero_preserved": true,
+    "git_diff_check_pass": true,
+    "gpu_lifecycle_actions": 0,
+    "holm_two_confirmation_sign_tests_preserved": true,
+    "missing_semantic_control_sign_fail_closed": true,
+    "model_calls": 0,
+    "model_runtime_grid_thresholds_unchanged": true,
+    "no_reselection_no_rescue_preserved": true,
+    "old_v2_confirmation_reserve_valid_prohibited": true,
+    "population_byte_identical": true,
+    "random_halfspan_bidirectional_definition_unchanged": true,
+    "repair_changes_exactly_three_science_design_test_files": true,
+    "repair_parent_is_prior_a2_failed_review_commit": true,
+    "scientific_outcomes_accessed": false,
+    "static_tests_pass_7_of_7": true
+  },
+  "date_utc": "2026-08-25",
+  "diff_scope": [
+    "results/design/plancarry_action_matched_future_plan_prereg_v1_20260825.json",
+    "results/design/plancarry_action_matched_future_plan_static_audit_v1_20260825.json",
+    "tests/test_action_matched_future_plan_design_v1.py"
+  ],
+  "hashes": {
+    "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg": "fa2c56830ac380563959c2dc73744f1d6b114649e2ef2646529794c3111430f7",
+    "static_audit": "f26147718a55cd7d15824a728165a98fca8581e09249c5d127c103e11c7ce132",
+    "synthetic_test": "c4fe4f09a57065131cc2fcfdcffd3e53e7417617c327d1cebc4da1cba17b2241"
+  },
+  "independence": "PASS_REVIEWER_DID_NOT_AUTHOR_REPAIR_BYTES",
+  "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_BIDIRECTIONAL_NUISANCE_INDEPENDENT_REVIEW_A2_V1",
+  "repair_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "repair_work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
+  "review_work_item_id": "bc043406-d8a2-4a6b-aedf-3593d92d3dd7",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_DESIGN_REVIEW",
+  "source_failed_review_commit": "06844fc3209db12f473de96c6c273665fe929410",
+  "source_failed_review_sha256": "b09b2e37642f1e6d08d389959d1882efe5d374efc6403283148be58ee4848480",
+  "target_commit": "9f3339ed667e690137268518e58a0158b6d70c88",
+  "target_parent": "06844fc3209db12f473de96c6c273665fe929410",
+  "target_tree": "f9d19b9c87e49c32d05b9385da42045b69376c50",
+  "verdict": "PASS_FOR_ACTION_MATCHED_FUTURE_PLAN_BIDIRECTIONAL_NUISANCE_FREEZE"
+}
