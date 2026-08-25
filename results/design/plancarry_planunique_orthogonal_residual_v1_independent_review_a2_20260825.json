@@ -1,0 +1,99 @@
+{
+  "alfworld_game_execution": 0,
+  "confirmation_accessed": false,
+  "date_utc": "2026-08-25",
+  "gpu_science": 0,
+  "independent_checks": {
+    "artifact_hashes": "PASS all five exact hashes",
+    "commit_tree_remote_binding": "PASS exact commit/tree/remote branch",
+    "confirmation_statistics": "PASS fresh32..51, >=15/20 gate, exact selected op point, behavioral first-action-excluded LCA2 primary, n=20 effect/sign denominator after gate, zeros non-positive, two sign/binomial tests Holm0.05, effect guards >=0.10 vs NO_PATCH/max-specificity, continuous diagnostic cannot rescue behavioral null",
+    "continuous_endpoint": "PASS inherited implementation scores matched-state reference actions4 and5; first post-reset action is not the measured target",
+    "development_gates": "PASS >=24/32, median joint>=0.05 nats, positive joint fraction>=0.625, MSA2 competence within0.05 of NO_PATCH, sentinels",
+    "development_grid": "PASS_WITH_DEVELOPMENT_INFORMED_SCOPE: layers14/21 x alpha0.5/1/2/4 are transparently narrowed from terminal old-v2 development and evaluated only on a completely fresh successor cohort; they cannot count as independent replication",
+    "fresh_population_reconstruction": {
+      "available": 396,
+      "excluded_union": 394,
+      "historically_exposed": 266,
+      "inventory_unique": 790,
+      "overlap_historical": 0,
+      "overlap_v1": 0,
+      "overlap_v2": 0,
+      "phase_counts": {
+        "confirmation": 20,
+        "development": 32,
+        "reserve": 12
+      },
+      "rank_sha256_exact": true,
+      "selected_unique": 64,
+      "selection_rule_exact": true,
+      "status": "PASS",
+      "v1_selected": 64,
+      "v2_selected": 64
+    },
+    "nuisance_sources": {
+      "deranged_contract": "same stored plan-token multiset/order-destroyed; no reference action4/action5 or future observation tokens; can semantically contain future plan content",
+      "fixed_order": [
+        "NEXT_ACTION_PRESERVED_LATE_NULL",
+        "PAST_ACTIONS_ONLY",
+        "PLAN_BLOCK_DERANGED"
+      ],
+      "next_action_contract": "stored action3 IDs only; no action4/action5/future observation",
+      "past_actions_contract": "stored action1/action2 IDs only",
+      "status": "PASS_WITH_SCOPE_NOTE",
+      "unrelated_plan": "specificity control only; projected through TARGET nuisance basis"
+    },
+    "projection_math": {
+      "algorithm": "CPU-float64 fixed-order modified Gram-Schmidt",
+      "author_max_basis_orthonormal_error": 4.440892098500626e-16,
+      "author_max_reconstruction_relative_error": 8.233696628795813e-17,
+      "author_max_unique_basis_abs_dot": 9.924786686932308e-16,
+      "author_stress_cases": 200,
+      "independent_cases": [
+        "orthogonal basis",
+        "exact collinear drop",
+        "plan entirely nuisance-span -> zero unique",
+        "all-zero nuisance",
+        "zero plan",
+        "near-collinear drop"
+      ],
+      "no_raw_norm_amplification": "PASS in frozen prereg/control contract",
+      "status": "PASS",
+      "zero_unique_guard": "PASS exact zero; retained; cannot contribute positive evidence"
+    },
+    "runtime_semantics": "PASS true reset; exactly one injection; same persistent KV/session; no reinjection; zero/self sentinels",
+    "valid_and_old_split_isolation": "PASS old v2 all64 excluded; valid_seen/unseen false; reserve locked"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_INDEPENDENT_REVIEW_A2",
+  "material_finding": {
+    "canonical_hypothesis": "Mechanism states that after orthogonalization the surviving plan-unique component is norm-matched to a frozen reference norm before one-shot injection.",
+    "frozen_prereg_contract": "Active intervention is raw r_unique and explicitly must NOT be rescaled/amplified to ||r_plan||; instead every non-NO_PATCH specificity control is rescaled to the TARGET ||r_unique||. Alpha grid provides bounded scale sensitivity.",
+    "minimal_repair": "Prospectively reconcile canonical hypothesis authority to the already-frozen raw-r_unique contract (preferred because it preserves the independently audited prereg bytes), or deliberately revise prereg/contract to an explicit reference-norm intervention and regenerate/review all dependent hashes. Do not execute science until one normalization rule is authoritative everywhere.",
+    "scope_repair": "Define 'plan-unique' operationally as 'orthogonal to the frozen selected nuisance span' rather than a globally identified plan-only latent factor. Clarify that PLAN_BLOCK_DERANGED contains the source plan token multiset and may semantically mention future plan content, while it contains no ground-truth reference action4/action5 or future-observation outcomes.",
+    "type": "CANONICAL_HYPOTHESIS_PREREG_INTERVENTION_NORMALIZATION_MISMATCH",
+    "why_material": "These are different interventions. A positive result would be mechanistically ambiguous about which canonical hypothesis was actually tested, and implementation could legitimately follow either authority unless reconciled before engineering/Experiment registration."
+  },
+  "model_calls": 0,
+  "nonblocking_notes": [
+    "Zero-unique retention is a conservative fail-closed denominator rule and is compatible with a cohort-level kill condition for too many negligible/unconstructible families.",
+    "Layer/alpha narrowing is a development-informed prospective design choice, not independent evidence; use only fresh successor outcomes and preserve the untouched confirmation barrier.",
+    "The disabled model-backed MechanismCritic was not used as evidence; the verdict rests on deterministic artifact/source checks."
+  ],
+  "reserve_accessed": false,
+  "review_work_item_id": "f22941ef-5656-4b42-813b-038e01d6f5ff",
+  "reviewed_branch": "origin/planunique-a4-587bf319",
+  "reviewed_commit": "21b927478722c900f16b1bfc4d51a255760d6e2c",
+  "reviewed_hashes": {
+    "control_contract": "edb3febd64240c14279dde1da615aed7356e33c68b0e3fb3296fc9728aafdbb9",
+    "fresh_population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "9ee98accf53d17d9ebce1dfa79982b713251fe2ad836eef4f9e1a6d45aa9aea7",
+    "projection_property_test": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79",
+    "static_audit": "600175a2dd716b3394157b920c5dd7994f0620b5decbd42a67bae7be93cb6e89"
+  },
+  "reviewed_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "reviewed_tree": "9ade7c906004a2eb308a6475724fc825520856c4",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
