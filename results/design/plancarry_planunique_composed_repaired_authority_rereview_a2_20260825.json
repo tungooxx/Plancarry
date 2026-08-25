@@ -1,0 +1,53 @@
+{
+  "artifact_type": "PLANCARRY_PLANUNIQUE_COMPOSED_REPAIRED_AUTHORITY_REREVIEW_A2_V1",
+  "checks": {
+    "all8_grid_same_e_common_preserved": true,
+    "confirmation_gate_15_of_20_then_all20_denominator_preserved": true,
+    "controls_target_unique_norm_preserved": true,
+    "e_common_layers14_21_preoutcome_common_denominator_preserved": true,
+    "e_common_min_24_of_32_preserved": true,
+    "future_split_outcomes_accessed": false,
+    "model_or_environment_science_performed": false,
+    "model_runtime_grid_statistics_split_rules_preserved": true,
+    "plan_block_deranged_lexical_nuisance_scope_preserved": true,
+    "population_byte_identical": true,
+    "prereg_projection_requirement_matches_current_projection_sha": true,
+    "raw_r_unique_no_amplification_preserved": true,
+    "resolved_normalization_provenance_present": true,
+    "stage2_unqualified_minus1_lower_bound_preserved": true,
+    "stale_projection_requirement_removed": true,
+    "static_audit_pending_flag_removed_or_false": false,
+    "zero_unique_exact_zero_retained_preserved": true,
+    "zero_unique_nonpositive_clipping_preserved": true
+  },
+  "date_utc": "2026-08-25",
+  "failed_review_sha256": "b561eb25c1769dec190bf24ad532ffddb4cb6199b12204abbb854a83013dad95",
+  "failed_review_work_item_id": "760f68df-8236-46ff-9eda-5b9382790656",
+  "hashes": {
+    "composition": "0f6e7c4af905feab3d76ce9822dbf4cb0c601237fc533e13ed42abfd926e770b",
+    "control": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "0f2967ead971cb8966e3c0c2686bd30477215bb7bc1bd0b5ec7126b968a464e9",
+    "projection_property": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+    "static_audit": "c6a14c5066c4995c13c5b7ad62cee7fda6789528adcaf2c45a6622fddb1a9e45"
+  },
+  "material_finding": {
+    "impact": "Direct internal authority contradiction remains after a repair specifically intended to close this failed-review finding. Independent PASS would falsely certify a static audit that simultaneously says the normalization correction is resolved and still pending.",
+    "observed": true,
+    "path": "results/design/plancarry_planunique_orthogonal_residual_v1_1_static_audit_20260825.json::checks.normalization_authority_correction_still_pending",
+    "repair_scope": "Metadata-only: remove the stale pending flag or set it false while preserving resolved REVISE provenance and every science-bearing field; recompute dependent hashes and independently rereview.",
+    "required": "absent or false; the same artifact already records normalization_correction_resolved_revise=true and a resolved REVISE normalization note."
+  },
+  "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "repair_commit": "c2a2eda4f1ff76a93566d23d4e4e40f8a026f860",
+  "repair_work_item_id": "9be3cdb4-9712-498b-9073-dc4293e03401",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_AUTHORITY_REVIEW",
+  "separate_nonverdict_observation": {
+    "anomaly_id": "126f7df7-cea6-48c0-b959-04618089fbe3",
+    "note": "Exact SHA256-Rademacher key/domain is also absent from c2a2 authority. That issue is adjudicated by separate narrow WorkItem e19347ab and is not needed to reach the present MATERIAL verdict."
+  },
+  "source_composition_commit": "b547688efe337b32c02282b0e1efa124f0c40247",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "dbcf112e-cb71-4931-ad41-3bc3550b3ef1"
+}
