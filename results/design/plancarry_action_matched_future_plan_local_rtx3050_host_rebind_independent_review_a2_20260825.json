@@ -1,0 +1,69 @@
+{
+  "alfworld_study_resets_in_review": 0,
+  "authorization_effect": "PASS authorizes separately gated Experiment registration/ResearchDecision preparation on this exact local host only. It does not authorize development/confirmation execution, provider lifecycle, or any future-split access.",
+  "date_utc": "2026-08-25",
+  "experiment_registration_in_review": 0,
+  "future_split_outcome_access_in_review": false,
+  "gpu_provider_lifecycle_in_review": 0,
+  "host_rebind": {
+    "artifact": "results/design/plancarry_action_matched_future_plan_local_rtx3050_host_rebind_a1_20260825.json",
+    "artifact_sha256": "f41be60263f25caeb4216f0c713973ef8cbec67b3abeebf37703d9f51269487e",
+    "commit": "39cba41b7c17e2670a8d15f5837bcdd7e25f7284",
+    "engineering_result_id": "17625677-a33e-4d33-91ea-a8d0a9e86780",
+    "engineering_task_id": "2dd5febe-2c9d-440a-adf0-0e4c1a81d057",
+    "tree": "191921fd96265997783f7d8cbabb764d8a1f203a",
+    "work_item_id": "2b14b0e5-8bc2-41ae-bf91-2eb88bee1ece"
+  },
+  "independent_checks": {
+    "alfworld_data_root": "PASS_/opt/gpu-lab/data/plancarry-alfworld_EXISTS_NO_STUDY_GAME_OPENED",
+    "cublas": "PASS_:4096:8_BOUND",
+    "device": "PASS_NVIDIA_GEFORCE_RTX_3050_LAPTOP_GPU_4096_MIB_DRIVER_581_95",
+    "fresh_immutable_science_worktree": "PASS_d93b5d9d_TREE_fd1b27dd_CLEAN",
+    "gpu_memory_release": "PASS_nvidia_smi_after_smoke_0_MiB_USED",
+    "host_vs_science_git_diff": "PASS_EXACTLY_ONE_ADDED_HOST_PROVENANCE_JSON_NO_SCIENCE_FILE_DRIFT",
+    "launcher_preflight": "PASS_READY_NO_SCIENCE_MODEL_CALLS_0_MODEL_LOADS_0_ENVIRONMENT_EXECUTION_0_ALL_FUTURE_SPLITS_FALSE",
+    "load_only_durable_evidence": "PASS_ENGINEERINGRESULT_AND_IMMUTABLE_HOST_ARTIFACT_REPORT_LOCAL_HOST_RUNTIME_LOAD_READY_PEAK_ALLOCATED_3441689088_PEAK_RESERVED_3451912192_FORWARD_0_GENERATION_0_ENVIRONMENT_0_STUDY_DATA_FALSE",
+    "load_only_method": "PASS_load_runtime_is_tokenizer/model_from_pretrained_to_cuda_eval_only_WITHOUT_FORWARD_GENERATE_ENVIRONMENT",
+    "packages": "PASS_TORCH_2_13_0_CU130_TRANSFORMERS_4_51_3_TOKENIZERS_0_21_1_TEXTWORLD_1_7_0",
+    "python": "PASS_/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+    "qwen_cache": "PASS_FULLY_CACHED_REVISION_70d244cc86ccca08cf5af4e1e306ecf908b1ad5e_OFFLINE_NO_DOWNLOAD_REQUIRED",
+    "science_output_absence": "PASS_CONF_PACKET_DIR_CONF_RESULT_DEV_PACKET_DIR_DEV_SEAL_DEV_TERMINAL_ALL_ABSENT",
+    "scientific_variables_changed": "PASS_EMPTY_LIST"
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_LOCAL_RTX3050_HOST_REBIND_INDEPENDENT_REVIEW_A2",
+  "model_forward_calls_in_review": 0,
+  "model_generation_calls_in_review": 0,
+  "research_decision_creation_in_review": 0,
+  "review_jobs": {
+    "fresh_d93_worktree": "local_fb4a70c2ad8a4fd6",
+    "immutable_diff_runtime_cache_artifact": "local_0161187a29bf4176",
+    "launcher_contract_read": "local_57712d99c2e64348",
+    "load_method_and_gpu_release": "local_a96175e3113f4788",
+    "preflight_output_absence": "local_814be01122ed4dd5"
+  },
+  "review_notes": [
+    "The preflight/output-absence job was cancelled only after all asserted preflight and output-absence checks had printed PASS, because a later unrelated archive-wide historical log grep was slow. The cancelled grep is not used as evidence.",
+    "The original load-only raw local-job log was not re-executed or reloaded during this independent review. Exact load metrics and zero-call counters are bound by the immutable host artifact and durable VERIFIED_TARGETED EngineeringResult; the load method was independently source-inspected and post-smoke GPU memory release independently observed.",
+    "Load-only fit is a host feasibility result only. It does not establish that the full causal persistent-KV/activation development run fits the 4 GiB device; any full-run OOM is technical invalidity, not a scientific null."
+  ],
+  "science_lineage": {
+    "handoff_review_sha256": "ba1668ceb50c8f2e20825a82dfd7c9a6cc500774c27bc661ed288135c5ea5bc8",
+    "handoff_review_verdict": "PASS_FOR_ACTION_MATCHED_DEVELOPMENT_HANDOFF_FREEZE",
+    "handoff_review_work_item_id": "0fe0fe46-6eda-41ca-ac78-cf4991d7c6e7",
+    "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+    "science_commit": "d93b5d9d0b405fa21584f7f56b19d10d768bfbba",
+    "science_tree": "fd1b27dd6d036d9e6ea0273250b186ba69ab84a7"
+  },
+  "scientific_executable_sha256": {
+    "action_matched_future_plan_phase_runner_v1.py": "b6af9ddc82c16944eb636c91a5b0849612671f661344e6c81d5066f9aa178869",
+    "action_matched_future_plan_runtime_v1.py": "22038d7c38b28a1aebb3f05e9122141876682c45aa305f6c23fc96bf7a0f4089",
+    "action_matched_future_plan_science_driver_v1.py": "1cf91cd4f36df554ca9fe541e0e271379c705ba2fd41f475e37812292cb9b096",
+    "action_matched_future_plan_validator_v1.py": "ab75322d2304e6259195ab86ad056b84c4c10f3085e55aefe2c4f0278676df5d",
+    "action_matched_future_plan_vast_primary_v1.sh": "fc9709b1fb3f6572dec182cd7c9c6fc1b31c6ac0f9e6d613c1cee7b057213308",
+    "tests/test_action_matched_future_plan_implementation_v1.py": "dff3aa82447fa633b1d104ecf4c120282637f5e5bb995d45c95a5b54db8ee7e8"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_SCIENCE_HOST_RUNTIME_BINDING_ONLY",
+  "verdict": "PASS_FOR_ACTION_MATCHED_LOCAL_RTX3050_HOST_REBIND",
+  "work_item_id": "14ae57f6-17bc-4648-89c5-94472b8bda31"
+}
