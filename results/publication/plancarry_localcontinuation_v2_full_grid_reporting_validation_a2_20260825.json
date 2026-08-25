@@ -1,0 +1,36 @@
+{
+  "canonical_sources": {
+    "experiment_id": "a8206dc6-4e35-4c3c-a250-40739f5762d8",
+    "experiment_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+    "final_prereg_sha256": "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716",
+    "negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+    "population_manifest_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+  },
+  "checks": {
+    "all_12_grid_rows_exact_match": true,
+    "all_12_mean_active_msa2_0_78125": true,
+    "all_12_median_active_msa2_1": true,
+    "all_12_median_joint_margin_ms_zero": true,
+    "causal_refutation_claimed_false": true,
+    "causal_support_claimed_false": true,
+    "confirmation_accessed_false": true,
+    "futility_threshold_joint_margin_0_05_failed": true,
+    "mean_active_msa2_threshold_0_50_passed": true,
+    "no_new_science_executed": true,
+    "qualified_32_of_32_all_points": true,
+    "reserve_accessed_false": true,
+    "selected_layer14_alpha1_by_third_tiebreak": true,
+    "selection_rule_exact_from_experiment": true,
+    "valid_seen_accessed_false": true,
+    "valid_unseen_accessed_false": true,
+    "zero_raw_residual_count_zero_all_points": true
+  },
+  "csv_sha256": "14897869e702f45f90f8b8a2a1e205ad2e4a82752f3f523ab11de83b78531033",
+  "date_utc": "2026-08-25",
+  "interpretation": "POST_TERMINAL_REPORTING_ONLY_NOT_NEW_EVIDENCE",
+  "json_sha256": "f60739f6289d86dee282dd65a07026470e11d7a21899ebca578c3afb54616726",
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_FULL_GRID_REPORTING_VALIDATION_A2_V1",
+  "scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+  "work_item_id": "4ae6f572-169a-49c0-84e6-22d4026f35ce",
+  "worker_id": "1203cf7a-7c65-421e-948c-0660261035ab"
+}

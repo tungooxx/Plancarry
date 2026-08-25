@@ -1,0 +1,207 @@
+{
+  "access_boundaries": {
+    "confirmation_accessed": false,
+    "reserve_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "canonical_authority": {
+    "experiment_id": "a8206dc6-4e35-4c3c-a250-40739f5762d8",
+    "experiment_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+    "final_prereg_sha256": "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716",
+    "negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+    "population_manifest_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+    "science_checkout_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
+    "scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+    "terminal_status": "INCONCLUSIVE_LOCALCONTINUATION_V2_DEVELOPMENT_FUTILITY"
+  },
+  "development_gate": {
+    "failure_reason": "specificity/futility criterion failed: median_joint_margin_ms=0.0 < 0.05",
+    "mean_active_msa2_observed": 0.78125,
+    "mean_active_msa2_requirement": ">=0.50",
+    "median_joint_margin_observed": 0.0,
+    "median_joint_margin_requirement": ">=0.05",
+    "passed": false,
+    "qualified_observed": 32,
+    "qualified_requirement": ">=16/32"
+  },
+  "frozen_grid": {
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "n_points": 12,
+    "rows": [
+      {
+        "alpha": 0.25,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5309398849966156,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5306011730104312,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5288429273451052,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5515624101543022,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5635092787112836,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5700751878107788,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5578944640530235,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5562567128493903,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.563082173430725,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      }
+    ]
+  },
+  "frozen_selection_rule": [
+    "maximize median_joint_margin_ms over the exact same Stage2-qualified development families",
+    "tie-break by higher median ACTIVE MSA2",
+    "then higher median ACTIVE reference_action_margin_family",
+    "then lower alpha",
+    "then earlier layer"
+  ],
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_FULL_GRID_PUBLICATION_REPORTING_V1",
+  "mechanical_selection_trace": {
+    "criterion_1_joint_margin": "all 12 points tied at 0.0",
+    "criterion_2_median_active_msa2": "all 12 points tied at 1.0",
+    "criterion_3_reference_action_margin": "unique maximum 1.5700751878107788 at layer14 alpha1.0",
+    "criterion_4_lower_alpha": "not reached",
+    "criterion_5_earlier_layer": "not reached",
+    "selected_candidate": {
+      "alpha": 1.0,
+      "layer": 14,
+      "mean_active_msa2": 0.78125,
+      "median_active_msa2": 1.0,
+      "median_active_reference_action_margin_family": 1.5700751878107788,
+      "median_joint_margin_ms": 0.0,
+      "qualified_count": 32,
+      "zero_raw_residual_count": 0
+    }
+  },
+  "paper_reporting_guardrails": {
+    "allowed": [
+      "Report the full 12-point preregistered development grid.",
+      "State that layer14/alpha1.0 was selected mechanically by the preregistered tie-break rule.",
+      "State that constructibility was 32/32 and zero raw residual count was 0.",
+      "State that median joint specificity margin was 0.0 at every grid point.",
+      "Describe the run as a successful diagnostic/constructibility execution ending in a preregistered development futility stop."
+    ],
+    "prohibited": [
+      "Do not say layer14/alpha1.0 had the strongest causal effect or passed the causal specificity gate.",
+      "Do not interpret development-only output as causal support or causal refutation.",
+      "Do not imply confirmation, reserve, valid_seen, or valid_unseen were accessed.",
+      "Do not retune layers, alphas, endpoint, threshold, cohort, or controls using this consumed development outcome."
+    ]
+  },
+  "recommended_paper_sentence": "Across the prospectively frozen 4x3 layer-by-scale development grid, all 12 configurations tied at zero median plan-specific joint margin and identical median ACTIVE MSA2=1.0 (mean=0.78125). The preregistered lexicographic tie-break therefore reached the continuous reference-action margin, whose unique maximum selected layer 14 at alpha=1.0 (1.570075); this operating point nevertheless failed the preregistered specificity criterion because its median joint margin remained zero.",
+  "scientific_role": "POST_TERMINAL_REPORTING_ONLY_NOT_NEW_EVIDENCE"
+}
