@@ -1,0 +1,85 @@
+{
+  "authority": {
+    "executable_review_sha256": "623c73884f07d230bbd18befc0705e6ecd06d0655b721b5e4c39a6fc5a05652e",
+    "executable_review_work_item_id": "7d8e9ce4-2eb3-4aaa-8f57-05fbef76cbed",
+    "final_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "handoff_repair_commit": "251e2b162d2cb9731c4de8da5090120ccde8ac3f",
+    "handoff_review_commit": "bacbefd0c8008a69a82742e1ede066c19ec20c72",
+    "handoff_review_sha256": "58cec509c8ee1c1dc645eda891b47210dce3b3fadee4d94a709447f282d6b185",
+    "handoff_review_work_item_id": "a0662a1b-0117-444e-8002-dcc19fa54cbb",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+  },
+  "checks": {
+    "alfworld_data_root_readable_without_game_open": true,
+    "all_planunique_development_confirmation_output_targets_absent": true,
+    "all_six_executable_source_hashes_match_host_artifact": true,
+    "confirmation_noauth_fail_closed_rc43": true,
+    "development_noauth_fail_closed_rc41": true,
+    "exact_qwen_revision_cache_readable": true,
+    "exact_runtime_versions_reproduced_with_pinned_interpreter": true,
+    "future_execution_requires_gpu_free_fresh_preflight_and_output_reattestation": true,
+    "future_split_flags_false": true,
+    "host_commit_parent_is_exact_implementation": true,
+    "host_diff_exactly_one_provenance_json": true,
+    "no_competing_load_canary_run": true,
+    "preflight_environment_execution_0": true,
+    "preflight_model_loads_0": true,
+    "preflight_ready_no_science_model_calls_0": true,
+    "prior_load_only_result_used_as_engineering_feasibility_only": true,
+    "science_worktree_clean_detached_exact_implementation": true
+  },
+  "evidence_jobs": [
+    "local_322afa5711d04b04",
+    "local_16cd2e93e02648e1",
+    "local_fc240ef094fd48e5",
+    "local_f25adcde31e84b0e",
+    "local_f671f62a447e46db"
+  ],
+  "future_binding": {
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "required_env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "HF_HOME": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21",
+      "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+      "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND",
+      "PLANUNIQUE_EXPECTED_DEVICE_NAME": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    },
+    "working_directory": "/workspace/local-vlm/LLM/plancarry-planunique-science-aaec"
+  },
+  "guards": {
+    "alfworld_study_game_or_reset": false,
+    "confirmation_authorized": false,
+    "experiment_registered_or_executed": false,
+    "future_split_outcomes_accessed": false,
+    "model_forward_or_generation": false,
+    "provider_lifecycle_action": false,
+    "research_decision_created": false
+  },
+  "implementation": {
+    "commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a"
+  },
+  "interpretation": "PASS is engineering/pre-science host binding only. It authorizes registration preparation and a fresh ResearchDecision only after GPU availability plus fresh preflight/output re-attestation. It is not scientific evidence and does not authorize confirmation.",
+  "kind": "PLANUNIQUE_LOCAL_RTX3050_HOST_REBIND_INDEPENDENT_REVIEW",
+  "prior_load_feasibility_engineering_result_id": "17625677-a33e-4d33-91ea-a8d0a9e86780",
+  "resolved_host": {
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "driver": "581.95",
+    "dtype": "bfloat16",
+    "memory_total_mib": 4096,
+    "model": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "python": "3.13.15",
+    "science_working_directory": "/workspace/local-vlm/LLM/plancarry-planunique-science-aaec",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "reviewed_host_artifact_sha256": "6c0d0868198c148802e8daad5219d5aea1ce368674d8e47fc3b107aac2488999",
+  "reviewed_host_commit": "864e46eedcfccf971dff24528164dd7100fdf944",
+  "reviewer_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_SCIENCE_HOST_RUNTIME_ONLY",
+  "status": "PASS_FOR_PLANUNIQUE_LOCAL_RTX3050_HOST_REBIND",
+  "work_item_id": "aa987baf-d136-484d-b509-8a13bb22c2cc"
+}
