@@ -1,0 +1,101 @@
+{
+  "base": {
+    "commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+    "design_review_artifact_sha256": "f2daf493e87dc1be647a057273354b6ceacaeaf9ca2b8cd152b95b0c3281f37c",
+    "design_review_verdict": "PASS_FOR_ACTION_MATCHED_GROUNDED_V2_DESIGN_FREEZE",
+    "design_review_work_item_id": "dbc60dad-37e9-4d7a-bde9-97afffc5863c",
+    "tree": "77a0a9f0cf41db85b4537d5aca567a0fa320ae34"
+  },
+  "bookkeeping_correction": {
+    "correct": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+    "incorrect": "094810125326086cd8473626032ff541adb464f651bae8603f9a62462e76181a",
+    "scientific_variables_changed": [],
+    "type": "A4_ENGINEERING_ACCEPTANCE_SPEC_STALE_SHA"
+  },
+  "engineering_task_id": "a582f95e-a11f-41d8-a6ea-b650be63f9db",
+  "implementation": {
+    "alfworld_imports": false,
+    "constructibility_provenance_guards": [
+      "exactly_two_nonempty_pre_cut_actions",
+      "pre_cut_actions_model_own_nontrivial_attestation_true",
+      "shared_action3_is_greedy_rank1_and_executed_shared_action3_matches",
+      "unordered_A4_B4_top2_frozen_before_path_hash_orientation",
+      "executed_branch_A4_B4_match_oriented_A4_B4",
+      "branch_local_A5_B5_are_greedy_rank1_and_A5_ne_B5",
+      "admissible_score_maps_exact_no_stale_entries",
+      "no_score_gap_filter",
+      "no_pair_retry_or_replacement",
+      "activation_outcomes_forbidden_during_construction",
+      "state_observation_rank_orientation_provenance_frozen_before_plan_materialization"
+    ],
+    "exact_control_names": [
+      "NEXT_DIVERGENT_ACTION_ONLY",
+      "FUTURE_ACTION_SEQUENCE_ONLY"
+    ],
+    "immediate_action_identity_alias": "NEXT_DIVERGENT_ACTION_ONLY",
+    "model_imports": false,
+    "science_execution_forbidden": true,
+    "source": "action_matched_grounded_v2_constructibility.py",
+    "source_sha256": "72459bd19f68a35bbc25e57671658689012748ff89d332ed2058d6bd7a212e42",
+    "standard_library_only": true,
+    "test": "test_action_matched_grounded_v2_constructibility.py",
+    "test_sha256": "490d6f52233d0088a68aa1e3c713a1a406a3f4ac2ae1d2a57892d72c275e13cf"
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_CONSTRUCTIBILITY_ENGINEERING_A4",
+  "next_gate": "Fresh independent constructibility-engineering review by a worker other than A4. Any PASS remains engineering-only and cannot authorize Experiment registration or science until the unresolved science authority is prospectively frozen and independently reviewed.",
+  "population_reconstruction": {
+    "fresh_count": 197,
+    "historical_actionmatched_v1_population_commit": "8d9ae9a2ee108becae26b3b9e1445ecd77209475",
+    "historical_actionmatched_v1_population_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "historical_actionmatched_v1_population_tree": "805533abc0a057184cfc255259cfea3e3f99906f",
+    "inventory_count": 790,
+    "normalized_exclusion_union_count": 593,
+    "normalized_exclusion_union_sha256": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+    "orientation_bit_0_count": 79,
+    "orientation_bit_1_count": 81,
+    "selected_count": 160,
+    "selected_exclusion_overlap": 0,
+    "spare_count": 37
+  },
+  "prohibitions": {
+    "confirmation_reserve_valid_accessed": false,
+    "environment_game_or_reset": false,
+    "experiment_or_prediction_registration": false,
+    "model_load_or_forward": false,
+    "research_decision_created": false,
+    "science_ready_execution_authorized": false,
+    "scientific_outcome_accessed": false
+  },
+  "reviewed_design_artifacts": {
+    "design_tests_sha256": "d7898a41f05508974f8600dd6bf60bf12bc28caa396e15464e8f34941f925fd3",
+    "population_exposure_repair_sha256": "dafcbc916144007151fec671dfea7038b322e9225b5b708dfd67a77b31e39aee",
+    "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "prereg_sha256": "6a64de815ac9088a552bb437dca9bcc0605d6327b7d03233ac170429a12b3e75",
+    "static_audit_sha256": "8c9ce78bb2fa84499109f2641448c2c9d7fb4d059536c1f6ae19c5da229589b5"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "status": "FROZEN_PRE_SCIENCE_ENGINEERING",
+  "tests": {
+    "baseline_job_id": "local_04f0005203e84036",
+    "bookkeeping_corrected_rerun_job_id": "local_fe353b617e054298",
+    "final_strengthened_test_job_id": "local_8b81cffe98334cd3",
+    "final_strengthened_tests_failed": 0,
+    "final_strengthened_tests_passed": 19,
+    "initial_failure_reason": "A4 EngineeringTask acceptance text contained stale exclusion-union SHA 09481012... while immutable design and independent reconstruction were 16840e99...; no science/design bytes changed.",
+    "initial_prototype_job_id": "local_6226a59564354921",
+    "initial_prototype_status": "FAILED_ENGINEERING_EXPECTATION_ONLY",
+    "py_compile_passed": true
+  },
+  "unresolved_science_authority": [
+    "H4_H5_exact_endpoint_tests",
+    "Holm_FWER_and_exact_effect_competence_thresholds",
+    "orientation_robust_semantic_nuisance_scoring",
+    "exact_token_and_control_serialization",
+    "development_selection_tie_break",
+    "exact_plan_realization_prompt_chat_template_parser_failure_behavior",
+    "exact_control_formulas_norm_sign_and_endpoints"
+  ],
+  "work_item_id": "81e2d7a0-5c12-4443-99a8-84ad6c18fdd9",
+  "worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9"
+}
