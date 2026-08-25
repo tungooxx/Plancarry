@@ -1,0 +1,93 @@
+{
+  "authority_sha256": {
+    "composition_audit": "0f890bce338eb58cbd923f490b9b27b986fbe6fd2d5cc3966ad0922f6337a28d",
+    "control": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "final_authority_review": "dd2ee03768e7d99f08cfd4c87002d059066361eecdcae9b4f1cdc7096c17ea40",
+    "final_manifest": "c52a75e347595dd494cbe31d69f1598999bd373ce2d4b806bf84015e2eac2a4e",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "2b2f955156b2b9ec0643774d6bb7e4674476f7707dfa0a0a11e48bc14433c2c5",
+    "projection_property": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "static_audit": "5502379f6ca141460a877bce96a1534ba83b17279eeed742bd5c931d7bbdd160"
+  },
+  "authorization_boundary": "PASS authorizes only a separately reviewed execution-handoff/registration preparation. It does not authorize development or confirmation science. Confirmation remains forbidden until a passing development seal is terminally frozen, independently inspected, and its exact file SHA is bound in a fresh confirmation ResearchDecision/wrapper.",
+  "date_utc": "2026-08-25",
+  "immutable_target": {
+    "authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "engineering_result_id": "86c3f8de-6a64-428b-a30b-dc9bea340fd6",
+    "engineering_task_id": "23d5e270-c54e-453b-afd6-8e5470517f7c",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a"
+  },
+  "implementation_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "implementation_sha256": {
+    "implementation_audit": "27af91a0257e26569ef5307bd9fd03198c258bca625d983f79f06c921d409a8a",
+    "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+    "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+    "planunique_science_driver_v1.py": "84e36a556edb6fefbd6abbdac1a1f2f7ac768d5378f74abe1d9f0acfc529f96c",
+    "planunique_validator_v1.py": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+    "planunique_vast_primary_v1.sh": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+    "tests/test_planunique_v1_2_implementation.py": "f075c3560f0e742b69b01dd99530b0b3565ac90bd91b5e2e57dcb5840ae0fc79"
+  },
+  "independent_checks": {
+    "all20_confirmation_required": true,
+    "all_implementation_hashes_recomputed": true,
+    "all_specificity_controls_target_unique_norm": true,
+    "development_confirmation_split_only_executable": true,
+    "e_common_gate_ge_24_of_32": true,
+    "e_common_intersection_before_grid_and_identical_all8": true,
+    "exact_implementation_only_diff_eight_files": true,
+    "exact_target_commit_tree": true,
+    "frozen_authority_population_bytes_unchanged": true,
+    "grid_alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "grid_layers": [
+      14,
+      21
+    ],
+    "holm_two_sign_tests": true,
+    "inherited_random_canary_exact": true,
+    "localcontinuation_execution_stack_tests": "15/15 PASS",
+    "localcontinuation_v2_controls_tests": "14/14 PASS",
+    "ordered_mgs_cpu_float64": true,
+    "planunique_core_suite": "PASS",
+    "preflight_environment_execution": 0,
+    "preflight_model_calls": 0,
+    "preflight_model_loads": 0,
+    "preflight_ready_no_science": true,
+    "py_compile_and_git_diff_check": "PASS",
+    "raw_r_unique_no_amplification": true,
+    "reserve_valid_not_exposed_by_launcher": true,
+    "stage2_unqualified_minus1_lower_bound": true,
+    "stale_authority_bindings_absent_from_executable": true,
+    "target_basis_unrelated_projection_float64_until_output_conversion": true,
+    "unauthorized_confirmation_exit_code": 43,
+    "unauthorized_development_exit_code": 41,
+    "zero_unique_exact_zero_retained": true,
+    "zero_unique_nonpositive_sign": true
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_EXECUTABLE_INDEPENDENT_REVIEW_A1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "review_jobs": [
+    "local_9dd1493ab0764c5c",
+    "local_5624f634a1c24343",
+    "local_584b2db1b7b94317",
+    "local_bd6ed73091c54732",
+    "local_8bbaedf72a1a442f"
+  ],
+  "review_notes": [
+    "One custom semantic probe initially supplied an incomplete nuisance mapping and correctly failed closed with NUISANCE_MISSING; rerun with the exact three frozen nuisance inputs passed. This was a reviewer-harness error, not an implementation defect.",
+    "The executable atomically freezes and validates the development selection file, but the later confirmation execution handoff must bind the exact development seal-file SHA into the confirmation ResearchDecision/wrapper before any confirmation science. This is a mandatory future handoff provenance requirement, not authorization granted by this PASS.",
+    "No model forward/load, ALFWorld study execution, Experiment registration/execution, GPU lifecycle, confirmation/reserve/valid outcome access occurred in this review."
+  ],
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_SCIENCE_EXECUTABLE_READINESS_ONLY",
+  "verdict": "PASS_FOR_PLANUNIQUE_FINAL_V1_2_EXECUTABLE_PREP",
+  "work_item_id": "7d8e9ce4-2eb3-4aaa-8f57-05fbef76cbed"
+}
