@@ -1,11 +1,11 @@
 {
   "anomaly_id": "abed9593-1d8b-4919-9034-cc04529cbe80",
   "composed_hashes": {
-    "control": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+    "control": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
     "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
-    "prereg": "7429d800359d58d634a91ee3bd2c66dcef73715b92cbb8af2184a2ef44917c18",
-    "projection_property": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
-    "static_audit": "12fdb6b11f2844d8844a973578b8bdbbf83e2db5759646bea41994c0aeb4c060"
+    "prereg": "64bb632428e74e238922460cd70438185354959fc0c68daef58dff73a3374eab",
+    "projection_property": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "static_audit": "95b17aa8342e006203f32888ad431a60b98f8ccb99b260922dbfe6f12f600aad"
   },
   "composition_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
   "confirmation_accessed": false,
@@ -39,6 +39,16 @@
     "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
     "scientific_variables_changed": []
   },
+  "random_control_key_materialization": {
+    "anomaly_id": "126f7df7-cea6-48c0-b959-04618089fbe3",
+    "canary_signs_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+    "direction_changed_from_v2": false,
+    "key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+    "source_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "status": "PASS_EXACT_INHERITED_V2_DIRECTION",
+    "target_norm": "||r_unique||",
+    "verification_job": "local_eb62e8d9e59b4a81"
+  },
   "reserve_accessed": false,
   "resolved_normalization": {
     "active_rule": "raw r_unique; no raw-plan/reference-norm amplification",
@@ -67,8 +77,12 @@
   "valid_unseen_accessed": false,
   "validation_jobs": [
     "local_3dffda72318d4bc5",
-    "local_37e64d69512249ec"
+    "local_37e64d69512249ec",
+    "local_0e0cf63f913e4fce",
+    "local_9e8fa0e4aac24664",
+    "local_59781864cfc24eb5",
+    "local_eb62e8d9e59b4a81"
   ],
-  "validation_summary": "PASS: exact source hashes; repaired science-bearing fields equal 6682b6f; population unchanged; composed embedded hashes reproduce; JSON parse and git diff --check PASS; no model/environment/GPU/future-split access.",
+  "validation_summary": "PASS: exact source hashes; repaired common-denominator/all20/deranged-scope science from 6682b6f preserved; raw-r_unique normalization correction composed; exact inherited SHA256-Rademacher key/algorithm materialized; population unchanged; embedded hashes reproduce; normalization status resolved; JSON parse/git diff checks; no model/environment/GPU/future-split access.",
   "work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb"
 }

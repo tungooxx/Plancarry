@@ -1,8 +1,8 @@
 {
   "artifact_sha256": {
-    "plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
-    "plancarry_planunique_orthogonal_residual_v1_1_prereg_20260825.json": "7429d800359d58d634a91ee3bd2c66dcef73715b92cbb8af2184a2ef44917c18",
-    "plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+    "plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "plancarry_planunique_orthogonal_residual_v1_1_prereg_20260825.json": "64bb632428e74e238922460cd70438185354959fc0c68daef58dff73a3374eab",
+    "plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
     "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
   },
   "authority_composition": {
@@ -13,6 +13,7 @@
     "normalization_independent_review_sha256": "690e01ef28509924bc04df408962d4ba283d05e1f244368ed4939baff07218b2",
     "normalization_independent_review_work_item_id": "4ca391fc-8262-4cc2-8b75-85f644188068",
     "normalization_repair_commit": "4af7854d33e3cce2c16194032f8946da0671f802",
+    "random_control_key_anomaly_id": "126f7df7-cea6-48c0-b959-04618089fbe3",
     "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
     "scientific_result": "NOT_ASSESSED",
     "scientific_variables_changed": [],
@@ -39,7 +40,7 @@
     "grid_eight_points": true,
     "no_raw_reference_norm_amplification": true,
     "no_valid_splits": true,
-    "normalization_authority_correction_still_pending": true,
+    "normalization_authority_resolved_revise": true,
     "normalization_correction_resolved_revise": true,
     "nuisance_basis_fixed": true,
     "old_locked_populations_excluded": true,
@@ -49,6 +50,8 @@
     "population_counts": true,
     "population_no_old_overlap": true,
     "projection_property_test_pass": true,
+    "random_control_inherits_v2_direction": true,
+    "random_control_key_exactly_materialized": true,
     "replacement_hypothesis_raw_r_unique_bound": true,
     "scientific_variables_changed_empty": true,
     "single_injection_no_reinjection": true,
@@ -59,11 +62,11 @@
   "development_grid_points": 8,
   "environment_execution": 0,
   "game_files_opened": 0,
-  "git_head_before_design": "ff2bd8bfa86d78392b36ac919c190bfa34cef0a2",
+  "git_head_before_design": "6682b6f29e13f46e96d5b98fb57337b3a55027dc",
   "hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
   "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_1_STATIC_AUDIT",
   "model_calls": 0,
-  "normalization_authority_note": "Separate CorrectionCase b78168b2-0d59-40a1-ac07-783ad467bcf4 remains pending independent verification/adjudication; this repair deliberately does not change raw-r_unique/no-amplification bytes.",
+  "normalization_authority_note": "CorrectionCase b78168b2-0d59-40a1-ac07-783ad467bcf4 is resolved REVISE by CorrectionRecord f4be133a-a996-4d1a-873a-93268bfbdec0; replacement Hypothesis 8a7c084c-7690-44e5-98ba-1e3d79f20f9d and independent review 4ca391fc freeze raw r_unique/no-amplification authority.",
   "population_summary": {
     "available": 396,
     "excluded_union": 394,
@@ -82,11 +85,13 @@
     "max_basis_orthonormal_error": 4.440892098500626e-16,
     "max_reconstruction_relative_error": 8.233696628795813e-17,
     "max_unique_basis_abs_dot": 9.924786686932308e-16,
+    "random_control_canary_pass": true,
     "stress_cases": 200
   },
   "prospective_all20_repair_note": "Replaced prior zero-imputed mean-effect semantics. After >=15/20 gate, Stage2-unqualified families contribute the exact LCA2 paired-difference lower bound -1.0 to each all20 mean-effect contrast and non-positive signs; zero-unique families contribute min(observed,0). Sign and lower-bound mean denominators remain n=20.",
-  "prospective_common_denominator_repair_note": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer×alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common.",
+  "prospective_common_denominator_repair_note": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer\u00d7alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common.",
   "prospective_deranged_scope_repair_note": "PLAN_BLOCK_DERANGED is intentionally allowed to carry the same prospectively generated PLAN_PRESENT lexical token multiset in order-destroyed form and therefore contributes plan lexical/content information as an order/lexical nuisance. No future environment observations and no separately inserted exact post-cut reference action4/action5 IDs may enter the nuisance-basis construction beyond whatever semantic content already exists in the prospectively generated plan text; NEXT_ACTION_PRESERVED_LATE_NULL and PAST_ACTIONS_ONLY remain limited to their frozen pre-outcome definitions.",
+  "prospective_random_control_materialization_note": "Closed pre-engineering Anomaly 126f7df7-cea6-48c0-b959-04618089fbe3: RANDOM_EQ_UNIQUE_NORM inherits exact LocalContinuation-v2 rademacher algorithm/source SHA 7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592 and key template `ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}`; only target norm changes to ||r_unique||. Arm rename does not change key namespace.",
   "prospective_repair_note": "Before independent review/science, repaired equal-norm ambiguity: if unique>eps but required matched source-control norm<=eps, family is Stage2-ineligible/no replacement; zero-unique retains family with all matched intervention vectors exact zero.",
   "scientific_result": "NOT_ASSESSED",
   "source_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
@@ -99,5 +104,5 @@
   "status": "PASS_PRE_SCIENCE_STATIC_COMPOSED_AUTHORITY_PENDING_FRESH_REVIEW",
   "valid_seen_accessed": false,
   "valid_unseen_accessed": false,
-  "work_item_id": "d2772998-1910-41da-81fa-aecfeccd03fc"
+  "work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb"
 }
