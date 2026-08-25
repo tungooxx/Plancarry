@@ -1,0 +1,97 @@
+{
+  "authority": {
+    "executable_review_sha256": "623c73884f07d230bbd18befc0705e6ecd06d0655b721b5e4c39a6fc5a05652e",
+    "executable_review_work_item_id": "7d8e9ce4-2eb3-4aaa-8f57-05fbef76cbed",
+    "final_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "handoff_repair_commit": "251e2b162d2cb9731c4de8da5090120ccde8ac3f",
+    "handoff_review_commit": "bacbefd0c8008a69a82742e1ede066c19ec20c72",
+    "handoff_review_sha256": "58cec509",
+    "handoff_review_verdict": "PASS_FOR_PLANUNIQUE_V1_2_DEVELOPMENT_HANDOFF_FREEZE",
+    "handoff_review_work_item_id": "a0662a1b-0117-444e-8002-dcc19fa54cbb",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+  },
+  "engineering_task_id": "dc412192-ddd5-4fbd-86f6-5d6dce6ba53e",
+  "execution_binding_template": {
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "HF_HOME": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21",
+      "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+      "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND",
+      "PLANUNIQUE_EXPECTED_DEVICE_NAME": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    },
+    "python_env": null,
+    "working_directory": "/workspace/local-vlm/LLM/plancarry-planunique-science-aaec"
+  },
+  "guards": {
+    "alfworld_study_game_opened": false,
+    "experiment_executed": false,
+    "experiment_registered": false,
+    "future_execution_requires_gpu_free_and_fresh_preflight": true,
+    "future_split_outcomes_accessed": false,
+    "host_rebind_author_must_not_self_review": true,
+    "model_forward_or_generation_in_this_rebind": false,
+    "provider_lifecycle_action": false,
+    "research_decision_created": false
+  },
+  "implementation": {
+    "commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "engineering_result_id": "86c3f8de-6a64-428b-a30b-dc9bea340fd6",
+    "source_sha256": {
+      "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+      "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+      "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+      "planunique_science_driver_v1.py": "84e36a556edb6fefbd6abbdac1a1f2f7ac768d5378f74abe1d9f0acfc529f96c",
+      "planunique_validator_v1.py": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+      "planunique_vast_primary_v1.sh": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe"
+    },
+    "tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_LOCAL_RTX3050_HOST_REBIND",
+  "load_feasibility": {
+    "compatibility_basis": "Same local RTX3050, driver 581.95, exact Qwen/Qwen3-1.7B revision, Python 3.13.15, torch2.13.0+cu130, transformers4.51.3, tokenizers0.21.1, and same local HF cache lineage.",
+    "compatible_prior_reviewed_engineering_result_id": "17625677-a33e-4d33-91ea-a8d0a9e86780",
+    "note": "This is engineering feasibility evidence only and is not scientific evidence. Future execution must re-attest host availability/output absence before Decision/execute.",
+    "performed_in_this_rebind": false,
+    "prior_environment_execution": 0,
+    "prior_generation_calls": 0,
+    "prior_load_only_peak_allocated_bytes": 3441689088,
+    "prior_load_only_peak_reserved_bytes": 3451912192,
+    "prior_model_forward_calls": 0,
+    "reason": "Local RTX3050 is occupied by a separate canonical action-matched scientific run; no competing GPU allocation was attempted."
+  },
+  "preflight": {
+    "all_development_and_confirmation_output_targets_absent": true,
+    "confirmation_accessed": false,
+    "confirmation_without_research_decision_fails_closed_rc": 43,
+    "development_without_research_decision_fails_closed_rc": 41,
+    "environment_execution": 0,
+    "model_calls": 0,
+    "model_loads": 0,
+    "reserve_accessed": false,
+    "status": "READY_NO_SCIENCE",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "resolved_execution_host": {
+    "alfworld_data": "/opt/gpu-lab/data/plancarry-alfworld",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "driver_version": "581.95",
+    "dtype": "bfloat16",
+    "hf_home": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21",
+    "instance_id": "local",
+    "memory_total_mib": 4096,
+    "model": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "python": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+    "python_version": "3.13.15",
+    "science_working_directory": "/workspace/local-vlm/LLM/plancarry-planunique-science-aaec",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "status": "READY_NO_SCIENCE_HOST_REBIND",
+  "work_item_id": "1b1112ec-aeeb-48b6-91bc-10e09296a440"
+}
