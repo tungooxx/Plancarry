@@ -1,0 +1,42 @@
+{
+  "artifact_type": "PLANCARRY_PLANUNIQUE_NORMALIZATION_AUTHORITY_REPAIR_AUDIT_V1",
+  "authority_repair": {
+    "corrected_active_rule": "ACTIVE is raw r_unique after the frozen nuisance-span projection; do not rescale/amplify to raw-plan norm or any frozen/reference norm",
+    "matched_control_rule": "all required non-NO_PATCH specificity controls are deterministically matched to target episode ||r_unique||",
+    "old_contradictory_clause": "norm-match the surviving plan-unique component to a frozen reference norm before injection",
+    "scope_rule": "'plan-unique' means orthogonal only to the frozen selected nuisance span; PLAN_BLOCK_DERANGED may retain semantic future-plan content even though no ground-truth action4/action5/future-observation outcome token IDs enter projection math",
+    "zero_unique_rule": "if ||r_unique||<=1e-8, inject exact zero and retain the family under frozen denominator/sign rules"
+  },
+  "confirmation_reserve_valid_accessed": false,
+  "correction_case_id": "b78168b2-0d59-40a1-ac07-783ad467bcf4",
+  "correction_record_id": "f4be133a-a996-4d1a-873a-93268bfbdec0",
+  "correction_verification_id": "d37de7f6-013e-4e33-b6c7-35a92fc5b3eb",
+  "date_utc": "2026-08-25",
+  "fresh_independent_review_required": true,
+  "interpretation": "Prospective authority correction only; not scientific evidence and not an empirical result.",
+  "model_forward_or_environment_reset_performed": false,
+  "new_scientific_outcomes_accessed": false,
+  "preserved_invariants": [
+    "population SHA and 32 development / 20 confirmation / 12 reserve split",
+    "Qwen/Qwen3-1.7B exact revision and BF16/no-quantization/offload runtime",
+    "fixed nuisance basis and deterministic float64 projection/rank rule",
+    "true reset, one-shot intervention, same persistent KV/session, no reinjection",
+    "development layers [14,21] and alphas [0.5,1,2,4]",
+    "RAM2_CONTINUOUS development endpoint and frozen selection/gates",
+    "untouched behavioral confirmation endpoint, exact sign/Holm/effect/competence rules",
+    "no replacement and all old-v2/reserve/valid split prohibitions"
+  ],
+  "repair_author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "repair_work_item_id": "267067a7-08ac-4c69-8107-5927ebdbe866",
+  "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+  "source_artifact_sha256": {
+    "control_contract": "edb3febd64240c14279dde1da615aed7356e33c68b0e3fb3296fc9728aafdbb9",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "9ee98accf53d17d9ebce1dfa79982b713251fe2ad836eef4f9e1a6d45aa9aea7",
+    "projection_test": "7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79",
+    "static_audit": "600175a2dd716b3394157b920c5dd7994f0620b5decbd42a67bae7be93cb6e89"
+  },
+  "source_design_artifact_bytes_modified": [],
+  "source_design_commit": "21b927478722c900f16b1bfc4d51a255760d6e2c",
+  "source_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3"
+}
