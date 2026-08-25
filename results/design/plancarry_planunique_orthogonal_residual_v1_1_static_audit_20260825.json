@@ -39,7 +39,7 @@
     "grid_eight_points": true,
     "no_raw_reference_norm_amplification": true,
     "no_valid_splits": true,
-    "normalization_authority_correction_still_pending": true,
+    "normalization_authority_correction_still_pending": false,
     "normalization_correction_resolved_revise": true,
     "nuisance_basis_fixed": true,
     "old_locked_populations_excluded": true,
