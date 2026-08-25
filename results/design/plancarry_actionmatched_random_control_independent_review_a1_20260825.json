@@ -1,0 +1,90 @@
+{
+  "canary": {
+    "dim": 16,
+    "key": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|0|CANARY_GAME|L14",
+    "signs": [
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      -1,
+      1,
+      1
+    ],
+    "signs_compact_json_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+    "target": 1.0,
+    "unit_vector_compact_json_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753"
+  },
+  "date_utc": "2026-08-25",
+  "exact_hashes": {
+    "design_test": "8dcc1403924c5e9be8b91bb1cddc4e6a1deef6fed2388e1dafd1f8d04b07952b",
+    "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg": "c8b89e5132cf2c66c2a357dc4d49f4d94de2a486a0ecc8939816188ab3b93207",
+    "random_source": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "repair_audit": "1247f7a3696408fa5a0d5f5ccab3f42621cf709ebf7204e64bb293cf62662772",
+    "static_audit": "a44912893db2e30a118f95c5a7a700b601ecee370dd5c8bc553e0ea216c6cf33",
+    "token_derangement_audit": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
+  },
+  "interpretation": "The repair closes only the previously underspecified deterministic RANDOM_EQ_NORM domain/key. It does not constitute scientific evidence and authorizes only a fresh implementation rebind to this exact authority.",
+  "kind": "PLANCARRY_ACTION_MATCHED_RANDOM_CONTROL_INDEPENDENT_REVIEW_A1_V1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "random_control_contract": {
+    "bit_order": "digest bytes in order; bits 0..7 LSB-first within each byte",
+    "block_input": "UTF-8 f'{key}|{counter}' with counter decimal starting at 0 and no padding",
+    "digest": "SHA256",
+    "dtype": "torch.float32",
+    "key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+    "orientation": "evaluate both signs under the frozen same alpha",
+    "sign_rule": "bit1=>+1.0; bit0=>-1.0",
+    "target": "raw target-family ||r_AB|| before alpha",
+    "zero_rule": "target<=1e-8 => exact zero; otherwise L2-normalize sign vector and rescale to target"
+  },
+  "repair_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "repair_commit": "d564dca2e2e335e30862262b7e50f12498d30ce8",
+  "repair_work_item_id": "d5bf4775-6f44-4339-96ed-75bcac92aa2c",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "safety": {
+    "alfworld_game_or_reset_calls": 0,
+    "experiment_or_gpu_actions": 0,
+    "future_split_access": false,
+    "model_forward_calls": 0
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "source_authority_commit": "1f7ceaeea85bafaf1cdd4a68e3e7125d750cf9d4",
+  "verdict": "PASS_FOR_ACTION_MATCHED_RANDOM_CONTROL_DETERMINISM_FREEZE",
+  "verification": {
+    "branch_specific_or_index_random_namespace_found": false,
+    "candidate_changed_files_exactly_four": true,
+    "design_tests_passed": 13,
+    "future_token_derangement_changed": false,
+    "git_diff_check_pass": true,
+    "independent_canary_reproduced": true,
+    "model_runtime_pair_source_donor_control_roles_grid_a4_a5_holm_threshold_split_changed": false,
+    "population_byte_hash_exact": true,
+    "population_diff_bytes": 0,
+    "prereg_everything_else_byte_semantically_equal": true,
+    "prereg_semantic_diff_paths": [
+      "controls.RANDOM_EQ_NORM",
+      "random_control_v1",
+      "repair_provenance.random_control_determinism_repair"
+    ],
+    "static_everything_else_byte_semantically_equal": true,
+    "static_semantic_diff_paths": [
+      "checks.population_bytes_unchanged_by_random_control_repair",
+      "checks.random_control_canary_frozen_and_tested",
+      "checks.random_control_inherits_reviewed_localcontinuation_v2_source",
+      "checks.random_control_key_domain_exactly_frozen",
+      "repair_provenance.random_control_determinism_repair"
+    ]
+  },
+  "work_item_id": "4b492cf6-676b-4852-89a7-8c7fa607600b"
+}
