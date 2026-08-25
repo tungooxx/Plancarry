@@ -1,0 +1,87 @@
+{
+  "bindings": {
+    "population_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg_sha256": "5826af9e03b6b6e23a542dbe2fc3dd74413d5e8fc0f712a1ef64deb278663ca2",
+    "static_audit_sha256": "cbf500fae2736730db9bea23662f38ca350efd7f8d2fcc7d682eb792dab09035",
+    "synthetic_test_sha256": "53c0f46fd7d0319411983b2e93cc7c2078c9181e9a922800531afdc5939c5cc9"
+  },
+  "date_utc": "2026-08-25",
+  "holm_check": {
+    "compatible_if_both_p_equal": true,
+    "first_threshold_two_tests": 0.025,
+    "p_ge_15_of_20": 0.020694732666015625
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_FUTURE_PLAN_REPAIR_INDEPENDENT_REVIEW_A2",
+  "material_finding": {
+    "counterexample": {
+      "a4": {
+        "active_bidirectional": 0.2,
+        "frozen_joint_if_only_this_control": 0.19,
+        "minus_control_shift": -0.25,
+        "orientation_robust_joint": -0.05,
+        "plus_control_shift": 0.01
+      },
+      "a5": {
+        "active_bidirectional5": 0.2,
+        "frozen_joint5_if_only_this_control": 0.19,
+        "omitted_minus_control_nuisance": 0.25,
+        "orientation_robust_joint5": -0.05,
+        "plus_control_nuisance": 0.01
+      }
+    },
+    "finding": "The repaired claim is bidirectional but the new NEXT_DIVERGENT_ACTION_ONLY and other semantic nuisance controls are evaluated only at +control orientation. A4 specificity uses min(m(+ACTIVE)-m0, m0-m(-ACTIVE)), yet next_divergent_action_only_shift is only abs(m(+A4_ONLY)-m0). A5 specificity similarly uses qA(+ACTIVE) and qB(-ACTIVE), but unrelated/action-history/deranged/A4-only nuisance terms use +control for both qA and qB. Therefore a sign-asymmetric matched null can be strong in the omitted negative orientation while appearing weak under the frozen nuisance maximum.",
+    "id": "BIDIRECTIONAL_NUISANCE_SIGN_ASYMMETRY",
+    "required_repair": "Prospectively evaluate every orientation-bearing semantic nuisance used to certify bidirectional specificity in both signs, or freeze an explicitly justified sign-matched equivalent. At minimum NEXT_DIVERGENT_ACTION_ONLY must evaluate + and - for the A4 primary and sign-match + on A-branch / - on B-branch for A5; safest frozen nuisance is the maximum absolute shift over both signs (and both branch states for A5). Apply the same orientation-robust rule to UNRELATED_PAIR_RESIDUAL, ACTION_HISTORY_MATCHED_NULL and FUTURE_TOKEN_DERANGED unless a deterministic scientific reason for a single sign is preregistered. Update nuisance formulas/tests only; do not change population, model/runtime, pair generation, grid, thresholds, split locks, A5 co-primary requirement or confirmation access.",
+    "severity": "MATERIAL",
+    "why_material": "The original defect was specifically that exact A4/B4 identity could explain ACTIVE. A one-sided A4-only control does not rule out that explanation for the -ACTIVE/B branch, and the same asymmetry can understate new A5 co-primary nuisances. This can change a pass/fail outcome at the frozen 0.05 threshold."
+  },
+  "no_science": {
+    "alfworld_game_or_reset": 0,
+    "confirmation_access": false,
+    "gpu_science": 0,
+    "model_forward": 0,
+    "reserve_access": false,
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "passed_checks": {
+    "a5_b5_coprimary_required_same_selected_point": true,
+    "a5_b5_pre_e_margin_constructibility_required": true,
+    "confirmation_two_coprimary_holm_specified": true,
+    "fresh_population_reconstruction": {
+      "available": 396,
+      "blocked_union": 394,
+      "inventory": 790,
+      "overlap": 0,
+      "selected": 160,
+      "split": [
+        64,
+        64,
+        32
+      ]
+    },
+    "next_divergent_action_only_a5_b5_slot_identical_neutral": true,
+    "next_divergent_action_only_exact_geometry_specified": true,
+    "next_divergent_action_only_in_a4_nuisance_max": true,
+    "no_a5_driven_reselection": true,
+    "old_v2_and_valid_splits_prohibited": true,
+    "population_byte_identical_to_failed_freeze": true,
+    "pure_static_synthetic_tests": "PASS_6_OF_6",
+    "repair_diff_only_prereg_static_test": true
+  },
+  "repair_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "review_evidence_jobs": [
+    "local_33765b24851e4e05",
+    "local_28127367c9704454",
+    "local_9706290744344f92"
+  ],
+  "review_work_item_id": "f2c0fd6b-ce3d-4e39-bd6a-8a3b2c8c476f",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REVIEW",
+  "scope": "PRE_SCIENCE_ONLY; this review authorizes no engineering execution or Experiment registration until repaired and independently re-reviewed.",
+  "source_failed_review_commit": "7f83fa81d6bf716d89f19979f051528c38be9d43",
+  "source_failed_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
+  "target_commit": "30283e6e5c7e66c137e6274b30908fc8ba4dd6e5",
+  "target_tree": "dc584e3c399d1fa04da483867ce16fc2c5028c17",
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
