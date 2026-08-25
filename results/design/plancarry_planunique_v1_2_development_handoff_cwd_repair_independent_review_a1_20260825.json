@@ -1,0 +1,99 @@
+{
+  "authorization_effect": "PASS authorizes separate host rebind and registration preparation only. It does not authorize PlanUnique scientific execution, ResearchDecision creation, provider lifecycle, or any future-split access.",
+  "date_utc": "2026-08-25",
+  "failed_review": {
+    "artifact_path": "results/design/plancarry_planunique_v1_2_development_handoff_independent_review_a4_20260825.json",
+    "artifact_sha256": "fc87dbeefeeff102f69cb5257aec2ad05b5a27d82822d0da1aad32b88f9c285e",
+    "commit": "8e021f31353bf93c88e6294df2a23263e3e99f9a",
+    "expected_sha256": "fc87dbeefeeff102f69cb5257aec2ad05b5a27d82822d0da1aad32b88f9c285e",
+    "verdict": "MATERIAL_REPAIR_REQUIRED",
+    "work_item_id": "165e843d-2121-47ec-9388-78aed863ad5b"
+  },
+  "immutable_bindings": {
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "authorization": "RESEARCH_DECISION_BOUND",
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "confirmation_indices": "32..51 only after passing development seal",
+    "cublas_workspace_config": ":4096:8",
+    "development_indices": "0..31 only",
+    "e_common_min": 24,
+    "endpoint": "RAM2_CONTINUOUS",
+    "future_confirmation_requires_exact_development_seal_sha": true,
+    "implementation_commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "implementation_tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a",
+    "layers": [
+      14,
+      21
+    ],
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "python": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+    "terminal_scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY"
+  },
+  "implementation_files_sha256": {
+    "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+    "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+    "planunique_science_driver_v1.py": "84e36a556edb6fefbd6abbdac1a1f2f7ac768d5378f74abe1d9f0acfc529f96c",
+    "planunique_validator_v1.py": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+    "planunique_vast_primary_v1.sh": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+    "tests/test_planunique_v1_2_implementation.py": "f075c3560f0e742b69b01dd99530b0b3565ac90bd91b5e2e57dcb5840ae0fc79"
+  },
+  "independent_checks": {
+    "future_split_flags": "PASS all false",
+    "git_name_status": "PASS exactly one handoff JSON modified",
+    "host_binding": "PASS unresolved and requires separate read-only host rebind + independent review",
+    "implementation_hashes": "PASS all seven reproduced at aaec50f",
+    "output_absence": "PASS in detached aaec50f review worktree",
+    "preflight": "PASS READY_NO_SCIENCE",
+    "preflight_environment_execution": 0,
+    "preflight_model_calls": 0,
+    "preflight_model_loads": 0,
+    "repair_artifact_hash": "PASS",
+    "scientific_variables_changed": "PASS empty",
+    "semantic_delta": "PASS exactly two intended semantic leaves",
+    "source_artifact_hash": "PASS"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_DEVELOPMENT_HANDOFF_CWD_REPAIR_INDEPENDENT_REVIEW_A1",
+  "repair_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "repaired_handoff": {
+    "artifact_sha256": "a6d346e23ed0876caad0e4dcc861ba261d5b6ccc522fe89cb33e715ad07c70a6",
+    "commit": "251e2b162d2cb9731c4de8da5090120ccde8ac3f",
+    "tree": "c2912d0895299e081815625691c997aad3b418b3"
+  },
+  "review_jobs": {
+    "delta_audit": "local_4e9aab22460b4c8d",
+    "final_assertions": "local_daa4069a67274cf0",
+    "initial_preflight_attempt": "local_c7e18b5f28584ea4",
+    "preflight_success": "local_db8d45d4eab944b3"
+  },
+  "review_note": "The initial preflight review job stopped before launcher preflight because the reviewer used two stale file names in sha256sum. No project byte or science was changed or executed; the corrected artifact-bound file names were rerun successfully. A separate local_experiment_submit call transiently returned INTERNAL_ERROR before the successful retry; this did not execute science.",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_SCIENCE_HANDOFF_DELTA_ONLY",
+  "semantic_diff": {
+    "changes": [
+      {
+        "new": "<RESOLVE_BY_SEPARATE_HOST_REBIND>",
+        "old": "/workspace/local-vlm/LLM/plancarry",
+        "path": "development_decision_binding.working_directory"
+      },
+      {
+        "assessment": "only cwd clause repaired so a future ResearchDecision cwd must equal the separately reviewed host-rebind-resolved working_directory; command/env equality remains required",
+        "path": "required_pre_execution_attestation"
+      }
+    ],
+    "count": 2
+  },
+  "source_handoff": {
+    "artifact_sha256": "4db6a7ddde96cdcc52d29d35e7694b3d6d847f3854ed9ede2433a2ca2af3cbc9",
+    "commit": "469f5e195e651dbb631b46e1edb8f09aa73b4761"
+  },
+  "verdict": "PASS_FOR_PLANUNIQUE_V1_2_DEVELOPMENT_HANDOFF_FREEZE",
+  "work_item_id": "a0662a1b-0117-444e-8002-dcc19fa54cbb"
+}
