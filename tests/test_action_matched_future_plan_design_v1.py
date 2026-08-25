@@ -181,3 +181,24 @@ def test_exact_future_token_derangement_reviewed_primitive_properties():
             assert meta['method'] in {'BALANCED_BLOCK_LEFT_ROTATE','SMALLEST_VALID_LEFT_ROTATION'}
             constructive += 1
     assert constructive>0 and failed==7*3
+
+
+def test_random_control_v1_exact_inherited_contract_and_canary():
+    import hashlib, json, math
+    r = P['random_control_v1']
+    assert r['inherited_source_file_sha256'] == '7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592'
+    assert r['key_template'] == 'ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}'
+    c = r['canary']; key = c['key']; dim = int(c['dim']); bits=[]; counter=0
+    while len(bits) < dim:
+        digest = hashlib.sha256(f'{key}|{counter}'.encode('utf-8')).digest(); counter += 1
+        for byte in digest:
+            for j in range(8):
+                bits.append(1 if ((byte >> j) & 1) else -1)
+                if len(bits) >= dim: break
+            if len(bits) >= dim: break
+    assert bits == c['signs']
+    compact=lambda x: json.dumps(x,separators=(',',':'),sort_keys=True).encode()
+    assert hashlib.sha256(compact(bits)).hexdigest() == c['signs_compact_json_sha256']
+    vec=[float(x)/math.sqrt(dim) for x in bits]
+    assert hashlib.sha256(compact(vec)).hexdigest() == c['unit_vector_compact_json_sha256']
+    assert 'random_control_v1' in P['controls']['RANDOM_EQ_NORM']

@@ -34,7 +34,7 @@
     ],
     "FUTURE_TOKEN_DERANGED": "within each A/B future branch, independently apply exact_token_serialization_v1.source_capture.future_token_derangement_v1 to exact stored A4,A5,B4,B5 token-ID segments before padding; preserves each segment length/multiset and shared action3/common geometry; fail closed if any segment unconstructible; residual norm-matched to active; evaluate BOTH + and - orientations and use maximum absolute shift as nuisance.",
     "NO_PATCH": "no hook",
-    "RANDOM_EQ_NORM": "deterministic SHA256-Rademacher vector, norm matched to raw r_AB before the same alpha, evaluate both signs",
+    "RANDOM_EQ_NORM": "exact deterministic SHA256-Rademacher vector defined by random_control_v1; key uses frozen family/game_path/layer namespace inherited byte-for-byte from reviewed LocalContinuation-v2; norm matched to raw r_AB before same alpha; evaluate both signs",
     "UNRELATED_PAIR_RESIDUAL": "deterministic next-different-family donor chosen only after the complete eligible development set is frozen; donor r_AB norm-matched to target; evaluate BOTH + and - orientations and use the maximum absolute shift as semantic nuisance.",
     "ZERO_ADD_SELF_REPLACE": "plumbing sentinels; maxabs <=1e-6",
     "NEXT_DIVERGENT_ACTION_ONLY": "exact-geometry matched A-versus-B source residual that preserves ONLY the exact stored A4-versus-B4 token identity differential: use the same common prefix/history/shared-action3 IDs, same separators, same L4/L5 segment positions and same final SOURCE_END anchor as ACTIVE; slot4 is exact stored A4 or B4 IDs followed by the frozen neutral cycle to L4; slot5 is IDENTICAL on both sides and equals the frozen neutral cycle of exact length L5, so no A5/B5 token is present. No decode/re-tokenize; capture r_A4_ONLY=h_A4_ONLY-h_B4_ONLY at SOURCE_END, then norm-match to raw ACTIVE ||r_AB|| before the same alpha; evaluate BOTH + and - orientations for A4 and both signs on both A5 branch states. If exact geometry/anchor/token-ID provenance cannot be constructed, the family is ineligible before E with no replacement."
@@ -208,6 +208,16 @@
       "material_gap": "FUTURE_TOKEN_DERANGED deterministic permutation algorithm was not exact-bound and could change nuisance residuals",
       "repair": "bind reviewed LocalContinuation-v2 strong_interior_derangement verbatim per A4/A5/B4/B5 segment before padding",
       "token_serialization_audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
+    },
+    "random_control_determinism_repair": {
+      "anomaly_id": "7fff9542-8929-440c-a389-89a2017d1eaa",
+      "repair_work_item_id": "d5bf4775-6f44-4339-96ed-75bcac92aa2c",
+      "source_authority_commit": "1f7ceaeea85bafaf1cdd4a68e3e7125d750cf9d4",
+      "source_prereg_sha256": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
+      "repair": "bind exact inherited LocalContinuation-v2 SHA256-Rademacher source/key/bit-order/zero rule and frozen canary; no control role, norm, orientation, model, population, grid, endpoint, statistic, or split change",
+      "scientific_variables_changed": [
+        "RANDOM_EQ_NORM deterministic key/domain was previously underspecified and is now prospectively fixed before outcomes"
+      ]
     }
   },
   "continuation5_coprimary": {
@@ -414,5 +424,45 @@
     ],
     "audit_file": "plancarry_action_matched_future_plan_token_serialization_repair_a4_20260825.json",
     "audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
+  },
+  "random_control_v1": {
+    "kind": "ACTION_MATCHED_RANDOM_EQ_NORM_V1",
+    "inherited_source_file": "localcontinuation_science_driver_v1.py",
+    "inherited_source_file_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "inherited_function": "rademacher",
+    "key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+    "block_input": "UTF-8 f'{key}|{counter}' with counter decimal starting at 0 and no padding",
+    "digest": "SHA256",
+    "bit_order": "digest bytes in order; bits 0..7 LSB-first within each byte",
+    "sign_rule": "bit1=>+1.0; bit0=>-1.0 until hidden dimension",
+    "dtype": "torch.float32",
+    "target": "raw target-family ||r_AB|| before alpha",
+    "zero_rule": "if target<=1e-8 return exact zeros_like; otherwise L2-normalize sign vector and multiply target",
+    "orientation": "evaluate both + and - signs under same alpha",
+    "canary": {
+      "key": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|0|CANARY_GAME|L14",
+      "dim": 16,
+      "target": 1.0,
+      "signs": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "signs_compact_json_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+      "unit_vector_compact_json_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753"
+    }
   }
 }

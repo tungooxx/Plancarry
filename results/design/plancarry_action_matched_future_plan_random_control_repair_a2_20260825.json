@@ -1,0 +1,63 @@
+{
+  "alfworld_game_or_reset_calls": 0,
+  "anomaly_id": "7fff9542-8929-440c-a389-89a2017d1eaa",
+  "canary": {
+    "dim": 16,
+    "key": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|0|CANARY_GAME|L14",
+    "signs": [
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      -1,
+      1,
+      1
+    ],
+    "signs_compact_json_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+    "target": 1.0,
+    "unit_vector_compact_json_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753"
+  },
+  "date_utc": "2026-08-25",
+  "experiment_or_gpu_actions": 0,
+  "future_split_access": false,
+  "hashes": {
+    "design_test": "8dcc1403924c5e9be8b91bb1cddc4e6a1deef6fed2388e1dafd1f8d04b07952b",
+    "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg": "c8b89e5132cf2c66c2a357dc4d49f4d94de2a486a0ecc8939816188ab3b93207",
+    "random_source": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "static_audit": "a44912893db2e30a118f95c5a7a700b601ecee370dd5c8bc553e0ea216c6cf33",
+    "token_derangement_audit": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2"
+  },
+  "held_fixed": [
+    "future-token derangement",
+    "population",
+    "model/runtime",
+    "pair generation",
+    "source geometry",
+    "donor rule",
+    "control roles/norm/orientation",
+    "grid",
+    "A4 selection",
+    "A5 co-primary",
+    "Holm/thresholds",
+    "splits/no replacement"
+  ],
+  "kind": "PLANCARRY_ACTION_MATCHED_RANDOM_CONTROL_DETERMINISM_REPAIR_A2_V1",
+  "model_forward_calls": 0,
+  "scientific_delta": [
+    "RANDOM_EQ_NORM deterministic key/domain was underbound; exact inherited source/key/bit order/zero rule/canary now frozen prospectively"
+  ],
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REPAIR",
+  "source_authority_commit": "1f7ceaeea85bafaf1cdd4a68e3e7125d750cf9d4",
+  "source_prereg_sha256": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
+  "work_item_id": "d5bf4775-6f44-4339-96ed-75bcac92aa2c"
+}

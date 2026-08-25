@@ -51,7 +51,11 @@
     "derangement_each_a4_a5_b4_b5_segment_independent": true,
     "derangement_balanced_block_then_smallest_valid_rotation": true,
     "derangement_nonidentity_and_rightmost_change": true,
-    "derangement_unconstructible_pre_e_fail_closed": true
+    "derangement_unconstructible_pre_e_fail_closed": true,
+    "random_control_key_domain_exactly_frozen": true,
+    "random_control_inherits_reviewed_localcontinuation_v2_source": true,
+    "random_control_canary_frozen_and_tested": true,
+    "population_bytes_unchanged_by_random_control_repair": true
   },
   "date_utc": "2026-08-25",
   "environment_execution": 0,
@@ -124,6 +128,19 @@
       "prereg_sha256": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
       "synthetic_test_sha256": "2d97fd0db9aec2b2b887c85b1b308ba6193bf6a799aca36d5f09ec0d281fee1f",
       "source_helper_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367"
+    },
+    "random_control_determinism_repair": {
+      "anomaly_id": "7fff9542-8929-440c-a389-89a2017d1eaa",
+      "repair_work_item_id": "d5bf4775-6f44-4339-96ed-75bcac92aa2c",
+      "source_authority_commit": "1f7ceaeea85bafaf1cdd4a68e3e7125d750cf9d4",
+      "source_prereg_sha256": "4c377e25ed6b19b880c16366eadf49e651f57775d60037a1e430a027a28392a7",
+      "final_prereg_sha256": "c8b89e5132cf2c66c2a357dc4d49f4d94de2a486a0ecc8939816188ab3b93207",
+      "final_design_test_sha256": "8dcc1403924c5e9be8b91bb1cddc4e6a1deef6fed2388e1dafd1f8d04b07952b",
+      "random_source_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+      "canary_signs_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+      "canary_unit_vector_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753",
+      "population_sha256_must_remain": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+      "scope": "random-control deterministic seed/domain only; every other science-bearing field inherited unchanged from 1f7ceaee"
     }
   },
   "scientific_variables_changed_relative_to_failed_freeze": [
