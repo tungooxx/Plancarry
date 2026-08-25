@@ -1,0 +1,123 @@
+{
+  "authority": {
+    "control_sha256": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "final_authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "final_authority_tree": "ca6a04a2d95e41d32e940157a173400044bda6b5",
+    "final_manifest_sha256": "c52a75e347595dd494cbe31d69f1598999bd373ce2d4b806bf84015e2eac2a4e",
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg_sha256": "2b2f955156b2b9ec0643774d6bb7e4674476f7707dfa0a0a11e48bc14433c2c5",
+    "projection_property_sha256": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "static_audit_sha256": "5502379f6ca141460a877bce96a1534ba83b17279eeed742bd5c931d7bbdd160"
+  },
+  "development_decision_binding": {
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "implementation_commit_must_be_attested_before_decision": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "implementation_file_hashes_must_match": true,
+    "must_create_fresh_research_decision": true,
+    "python_env": null,
+    "required_env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+      "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND",
+      "PLANUNIQUE_EXPECTED_DEVICE_NAME": "<RESOLVE_BY_SEPARATE_HOST_REBIND>"
+    },
+    "working_directory": "/workspace/local-vlm/LLM/plancarry"
+  },
+  "development_scope": {
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "confirmation_accessed": false,
+    "e_common_min": 24,
+    "endpoint": "RAM2_CONTINUOUS",
+    "indices": "0..31 only",
+    "layers": [
+      14,
+      21
+    ],
+    "reserve_accessed": false,
+    "scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "engineering_task_id": "d55fa06e-2caa-476d-9e98-1027f46408dc",
+  "future_confirmation_handoff": {
+    "indices": "32..51 only after passing development seal",
+    "must_bind_exact_development_seal_file_sha256_in_fresh_decision_or_reviewed_wrapper": true,
+    "no_reselection_or_retuning": true,
+    "not_authorized_here": true
+  },
+  "host_binding": {
+    "device_name": null,
+    "hf_cache": null,
+    "may_start_or_resume_provider": false,
+    "provider_instance": null,
+    "status": "UNRESOLVED_REQUIRES_SEPARATE_READ_ONLY_REBIND_AND_INDEPENDENT_REVIEW",
+    "workspace": null
+  },
+  "hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+  "implementation": {
+    "commit": "aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "engineering_result_id": "86c3f8de-6a64-428b-a30b-dc9bea340fd6",
+    "engineering_task_id": "23d5e270-c54e-453b-afd6-8e5470517f7c",
+    "files_sha256": {
+      "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+      "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+      "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+      "planunique_science_driver_v1.py": "84e36a556edb6fefbd6abbdac1a1f2f7ac768d5378f74abe1d9f0acfc529f96c",
+      "planunique_validator_v1.py": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+      "planunique_vast_primary_v1.sh": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+      "tests/test_planunique_v1_2_implementation.py": "f075c3560f0e742b69b01dd99530b0b3565ac90bd91b5e2e57dcb5840ae0fc79"
+    },
+    "implementation_audit_sha256": "27af91a0257e26569ef5307bd9fd03198c258bca625d983f79f06c921d409a8a",
+    "tree": "2c7412a89c523e68add6e9757a6509fd4a3b016a"
+  },
+  "independent_executable_review": {
+    "artifact_path": "results/design/plancarry_planunique_v1_2_executable_independent_review_a1_20260825.json",
+    "artifact_sha256": "623c73884f07d230bbd18befc0705e6ecd06d0655b721b5e4c39a6fc5a05652e",
+    "review_commit": "257d2ade2b4a14a9183b1a7ef35210c7a7dbb40e",
+    "verdict": "PASS_FOR_PLANUNIQUE_FINAL_V1_2_EXECUTABLE_PREP",
+    "work_item_id": "7d8e9ce4-2eb3-4aaa-8f57-05fbef76cbed"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_DEVELOPMENT_EXECUTION_HANDOFF",
+  "preflight": {
+    "authority_commit": "578a21c40c1cec2500a50edcd8daa643cceac6bd",
+    "authority_review_sha256": "dd2ee03768e7d99f08cfd4c87002d059066361eecdcae9b4f1cdc7096c17ea40",
+    "confirmation_accessed": false,
+    "environment_execution": 0,
+    "kind": "PLANUNIQUE_V1_2_PREFLIGHT",
+    "model": "Qwen/Qwen3-1.7B",
+    "model_calls": 0,
+    "model_loads": 0,
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "reserve_accessed": false,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "status": "READY_NO_SCIENCE",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "prohibitions": [
+    "no model load/forward during this handoff",
+    "no ALFWorld study game/reset",
+    "no Experiment registration/execution",
+    "no ResearchDecision creation",
+    "no GPU/provider lifecycle",
+    "no confirmation32..51/reserve52..63/valid_seen/valid_unseen outcome access",
+    "no modification of implementation/scientific authority bytes"
+  ],
+  "required_pre_execution_attestation": [
+    "exact science checkout HEAD == aaec50f50c4bb90f2c4cd9eab711d816d5bfd949",
+    "all implementation files match implementation.files_sha256",
+    "preflight reproduces READY_NO_SCIENCE with zero model/environment activity",
+    "development packet/grid/seal/terminal targets are absent",
+    "host/device/Python/HF cache bindings independently reviewed",
+    "fresh ResearchDecision command/cwd/env exactly equal development_decision_binding"
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "status": "FROZEN_PRE_SCIENCE_HANDOFF",
+  "work_item_id": "3193af4e-7fdb-4f14-9f83-1fcc072cccac"
+}
