@@ -19,7 +19,7 @@
     "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards."
   },
   "control_contract_file": "plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json",
-  "control_contract_sha256": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+  "control_contract_sha256": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
   "date_utc": "2026-08-24",
   "development": {
     "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
@@ -29,7 +29,7 @@
       2.0,
       4.0
     ],
-    "common_denominator_rule": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer×alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common.",
+    "common_denominator_rule": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer\u00d7alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common.",
     "definition": "Same matched-state two-position source as v2 reference_action_margin_family: after exact teacher-forced reference action3/obs3 and action4/obs4 through the same persistent session, at reference actions4 and5 compute mean_logprob(reference)-max mean_logprob(other admissible action); family value is mean of the two margins.",
     "futility": "If qualification or any pass-gate clause fails, stop DEVELOPMENT_FUTILITY; do not open confirmation.",
     "layer_rationale": "Post-terminal v2 development diagnostics: layer27 was exactly intervention-inert; layer7 was predominantly non-specific/negative; layers14/21 were the only sites with repeated small positive active-vs-no-patch continuous deltas. This is transparent development-informed narrowing; all successor outcome data are fresh.",
@@ -82,7 +82,7 @@
   "model_calls_in_this_design": 0,
   "parent_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
   "pre_science_requirements": [
-    "Deterministic synthetic projection property test PASS bound by 7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79; includes collinear/rank-deficient/zero vectors and zero-norm equal-control constructibility semantics.",
+    "Deterministic synthetic projection/property test PASS bound by ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631; includes collinear/rank-deficient/zero vectors, zero-norm equal-control constructibility semantics, and exact inherited SHA256-Rademacher canary.",
     "Exact fresh-population reconstruction and overlap audit",
     "Static no-future-action leakage audit",
     "Implementation diff review showing only successor-specific vector/readout additions and preserved v2 runtime/reset/token geometry",
@@ -106,7 +106,72 @@
   ],
   "projection_contract": "Bound verbatim by control_contract_sha256; fixed nuisance order NEXT_ACTION_PRESERVED_LATE_NULL, PAST_ACTIONS_ONLY, PLAN_BLOCK_DERANGED; CPU-float64 fixed-order Gram-Schmidt; raw orthogonal component; zero-unique retained. Development uses one frozen E_common constructible at both candidate layers before any grid outcomes; every layer/alpha uses identical indices. PLAN_BLOCK_DERANGED intentionally carries the plan lexical multiset as an order/lexical nuisance; no future observations or separately inserted exact reference action4/action5 IDs enter beyond prospectively generated plan content.",
   "projection_property_test_file": "plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json",
-  "projection_property_test_sha256": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+  "projection_property_test_sha256": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+  "random_control_binding": {
+    "anomaly_id": "126f7df7-cea6-48c0-b959-04618089fbe3",
+    "arm_rename_changes_key_namespace": false,
+    "authority": "Exact inheritance of reviewed LocalContinuation-v2 RANDOM_EQ_NORM direction; PlanUnique changes only target norm from ||r_plan||/active norm to ||r_unique||.",
+    "bit_order": "For each digest byte in order, consume bits 0..7 LSB-first; bit1=>+1.0, bit0=>-1.0 until dim signs.",
+    "block_input_serialization": "UTF-8 bytes of f'{key}|{counter}' with counter decimal starting at 0 and no padding",
+    "canary": {
+      "dim": 16,
+      "key": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|0|CANARY_GAME|L14",
+      "signs": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "signs_canonical_json_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+      "target": 1.0,
+      "unit_vector": [
+        -0.25,
+        -0.25,
+        0.25,
+        -0.25,
+        0.25,
+        -0.25,
+        -0.25,
+        0.25,
+        -0.25,
+        -0.25,
+        0.25,
+        0.25,
+        0.25,
+        -0.25,
+        0.25,
+        0.25
+      ],
+      "unit_vector_canonical_json_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753"
+    },
+    "digest": "SHA256",
+    "function": "rademacher(dim,target,key)",
+    "implementation_source_file": "localcontinuation_science_driver_v1.py",
+    "implementation_source_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "key_fields": {
+      "family": "exact packet[family] string",
+      "game_path": "exact packet[game_path] string",
+      "layer": "decimal int(layer) with literal L prefix"
+    },
+    "key_namespace_literal": "RANDOM_EQ_NORM",
+    "key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+    "numeric_rule": "Construct signs as torch.float32; if target<=1e-8 return exact zeros_like; otherwise return signs/torch.linalg.vector_norm(signs)*float(target).",
+    "planunique_arm_name": "RANDOM_EQ_UNIQUE_NORM",
+    "scientific_variables_changed": [],
+    "target": "target episode ||r_unique|| before alpha; the same selected alpha is applied downstream by the reviewed intervention runtime."
+  },
   "repair_provenance": {
     "composition_anomaly_id": "abed9593-1d8b-4919-9034-cc04529cbe80",
     "composition_work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb",
@@ -118,10 +183,12 @@
     "normalization_independent_review_work_item_id": "4ca391fc-8262-4cc2-8b75-85f644188068",
     "normalization_repair_commit": "4af7854d33e3cce2c16194032f8946da0671f802",
     "population_changed": false,
+    "random_control_key_anomaly_id": "126f7df7-cea6-48c0-b959-04618089fbe3",
     "repairs": [
       "COMMON_DEVELOPMENT_DENOMINATOR",
       "CONFIRMATION_FULL20_LOWER_BOUND_ESTIMAND",
-      "DERANGED_NUISANCE_SCOPE_WORDING"
+      "DERANGED_NUISANCE_SCOPE_WORDING",
+      "EXACT_RANDOM_CONTROL_KEY_MATERIALIZATION"
     ],
     "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
     "scientific_variables_changed": [],
