@@ -1,0 +1,133 @@
+{
+  "authority": {
+    "derangement_audit_sha256": "f2f0762b9cab14256e3bf766d6603423c6b0e0d8e9b65fb6ea63057782a9ddc2",
+    "derangement_helper_sha256": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+    "design_test_sha256": "8dcc1403924c5e9be8b91bb1cddc4e6a1deef6fed2388e1dafd1f8d04b07952b",
+    "population_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "prereg_sha256": "c8b89e5132cf2c66c2a357dc4d49f4d94de2a486a0ecc8939816188ab3b93207",
+    "random_control_independent_review_commit": "d3105205c88f114b854ccb414897e39565f6d055",
+    "random_control_independent_review_sha256": "64f7d4b62917489c4d96f970ea23301a4b01a2a4ccecd440a97a2c781fadc47f",
+    "random_control_repair_sha256": "1247f7a3696408fa5a0d5f5ccab3f42621cf709ebf7204e64bb293cf62662772",
+    "random_source_sha256": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "static_audit_sha256": "a44912893db2e30a118f95c5a7a700b601ecee370dd5c8bc553e0ea216c6cf33"
+  },
+  "date_utc": "2026-08-25",
+  "execution_prohibitions_observed": {
+    "alfworld_study_game_or_reset_calls": 0,
+    "experiment_registration_or_execution": 0,
+    "future_split_outcome_access": false,
+    "gpu_lifecycle_actions": 0,
+    "model_forward_calls": 0,
+    "model_loads": 0
+  },
+  "implementation_files_sha256": {
+    "action_matched_future_plan_phase_runner_v1.py": "b6af9ddc82c16944eb636c91a5b0849612671f661344e6c81d5066f9aa178869",
+    "action_matched_future_plan_runtime_v1.py": "22038d7c38b28a1aebb3f05e9122141876682c45aa305f6c23fc96bf7a0f4089",
+    "action_matched_future_plan_science_driver_v1.py": "1cf91cd4f36df554ca9fe541e0e271379c705ba2fd41f475e37812292cb9b096",
+    "action_matched_future_plan_validator_v1.py": "ab75322d2304e6259195ab86ad056b84c4c10f3085e55aefe2c4f0278676df5d",
+    "action_matched_future_plan_vast_primary_v1.sh": "fc9709b1fb3f6572dec182cd7c9c6fc1b31c6ac0f9e6d613c1cee7b057213308",
+    "results/design/plancarry_action_matched_future_plan_random_bound_implementation_a2_20260825.json": "b35042279aca9768d29a96f3b1291609f9c0037da2d830872bfadd42abc7fa8f",
+    "tests/test_action_matched_future_plan_implementation_v1.py": "dff3aa82447fa633b1d104ecf4c120282637f5e5bb995d45c95a5b54db8ee7e8"
+  },
+  "independence": {
+    "final_implementation_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+    "review_scope": "Independent executable-readiness verification of immutable final implementation bytes. Base scientific authority is treated as separately reviewed immutable input; this review does not re-author or re-adjudicate the base science.",
+    "review_started_after_implementation_freeze": true,
+    "reviewer_is_not_final_implementation_author": true
+  },
+  "independent_verification": {
+    "changed_files_exactly_expected_seven": true,
+    "derangement_counts": {
+      "all_equal_fail_closed": 27,
+      "constructible": 88542,
+      "fallback": 29496,
+      "primary": 59046
+    },
+    "design_tests": {
+      "passed": 13,
+      "total": 13
+    },
+    "git_diff_check_pass": true,
+    "implementation_tests": {
+      "passed": 20,
+      "total": 20
+    },
+    "legacy_execution_stack": {
+      "passed": 15,
+      "total": 15
+    },
+    "localcontinuation_v2_controls": {
+      "passed": 14,
+      "total": 14
+    },
+    "population_byte_identical": true,
+    "prohibited_split_source_audit": "Occurrences of valid_seen/valid_unseen are explicit access=false provenance and fail-closed guards only; no reserve52/confirmation32/reserve_pool/valid path loader was found.",
+    "py_compile_pass": true,
+    "random_control": {
+      "both_signs": true,
+      "canary_signs": [
+        -1,
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "canary_signs_compact_json_sha256": "8781682ebaae7f23c19a53f332ad8eba320b3d24ee596b81321d70acea5ea458",
+      "canary_unit_vector_compact_json_sha256": "ab76e40900cc8e43d7458a6b8474ff008b38ef2732ef18875ed9c2f2088ec753",
+      "key_template": "ReplayResidualLocalContinuation|RANDOM_EQ_NORM|{family}|{game_path}|L{layer}",
+      "stale_actionmatched_random_namespace_absent": true,
+      "zero_guard_exact": true
+    },
+    "scientific_authority_files_byte_identical": true,
+    "semantic_guards": {
+      "a4_only_global_selection": true,
+      "a5_b5_same_selected_point_no_reselection": true,
+      "all_semantic_nuisances_both_signs_a4_a5": true,
+      "confirmation_h4_h5_holm_fwer_005": true,
+      "development_seal_fail_closed": true,
+      "exact_token_source_geometry": true,
+      "first20_no_replacement": true,
+      "future_token_deranged_four_segments_before_padding": true,
+      "next_divergent_action_only_zero_a5_b5_ids": true,
+      "old_v2_reserve_valid_unreachable": true,
+      "one_pair_call_no_retry": true,
+      "sign_asymmetry_false_pass_guard_a4_a5": true,
+      "true_reset_one_intervention_same_persistent_kv_no_reinjection": true
+    }
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_RANDOM_BOUND_EXECUTABLE_INDEPENDENT_REVIEW_A4_V1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "review_jobs": {
+    "authority_review_provenance_job": "local_35cb839589d04488",
+    "explicit_test_and_source_audit_job": "local_9656a53df88541b1",
+    "independent_test_canary_job": "local_287f136b5507488c",
+    "static_hash_diff_job": "local_1720f5f81cb24c07",
+    "static_hash_diff_job_note": "Technical nonfailure: job exited only because the separately committed A1 review artifact was not present inside the A2 implementation tree; provenance was then verified directly at its immutable review commit."
+  },
+  "review_work_item_id": "2c2797df-38c1-436e-9488-23c33b8be2eb",
+  "reviewer_role": "ADVERSARIAL_REVIEWER",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_SCIENCE_EXECUTABLE_READINESS_ONLY. PASS authorizes only a separately reviewed execution-handoff/registration preparation. It is not scientific evidence and does not authorize science.",
+  "target": {
+    "authority_commit": "d564dca2e2e335e30862262b7e50f12498d30ce8",
+    "authority_is_ancestor": true,
+    "engineering_result_id": "d63a2d04-2122-47f3-ad96-c924bd9d9710",
+    "engineering_task_id": "c44f7739-72f6-4953-8a18-92f1876cf4a1",
+    "implementation_commit": "d93b5d9d0b405fa21584f7f56b19d10d768bfbba",
+    "implementation_tree": "fd1b27dd6d036d9e6ea0273250b186ba69ab84a7",
+    "implementation_work_item_id": "82103679-4ec9-4d2e-a40d-8f9c657132fd"
+  },
+  "verdict": "PASS_FOR_ACTION_MATCHED_RANDOM_BOUND_EXECUTABLE_PREP"
+}
