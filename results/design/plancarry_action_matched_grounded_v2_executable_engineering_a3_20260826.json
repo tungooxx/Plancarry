@@ -1,0 +1,89 @@
+{
+  "author_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "authority": {
+    "authority_tests_sha256": "9edc00c99438d683ab62d61e41b211c0931b8be8d2a9da1b916d7673119e04dc",
+    "constructibility_sha256": "72459bd19f68a35bbc25e57671658689012748ff89d332ed2058d6bd7a212e42",
+    "independent_science_authority_review_sha256": "d9de986b318f855d8c04ae8f6d56588b02ca4ef6c7224c7e6c08ddcc28e84b4f",
+    "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+    "semantic_diff_sha256": "933d6e5a0a1de3b1f001304736c9399601193d4a3184dfe160f027629ccef58a",
+    "static_audit_sha256": "4e203bef9bad1ded8e16994c45c4fb578402d8bb8242dc280319af4a5446589c"
+  },
+  "base_commit": "b30028eb25f12be60ac96af8c6f6ee2926db82e4",
+  "base_tree": "ff83ceb0833ea454af1f209a06047c3fded2c059",
+  "engineering_task_id": "0656034f-4f20-4c33-b05e-17f6e678cf2b",
+  "guards": {
+    "confirmation_accessed": false,
+    "environment_execution": 0,
+    "experiment_registered": false,
+    "model_calls": 0,
+    "model_loads": 0,
+    "provider_lifecycle": false,
+    "research_decision_created": false,
+    "reserve_accessed": false,
+    "science_execution_forbidden_until_independent_executable_review_pass": true,
+    "scientific_variables_changed": [],
+    "study_family_access": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "implementation_summary": [
+    "New grounded-v2 executable stack only; consumed ActionMatched-v1 files and populations are not modified or imported as authority.",
+    "Grounded pair construction uses actual current admissibles and frozen FP32 suffix-logprob lexical-tie ranking. Because AlfRuntime has no clone/checkpoint API, A/B clones are reconstructed by deterministic replay and must match the exact post-A3 hidden-facts state hash before branch execution; clone mismatch is technical fatal, never eligibility.",
+    "Exactly two one-shot plan materialization calls occur only after A3/A4/B4/A5/B5 and construction provenance are frozen. Future observations, hidden state, expert solutions, alternative branch search, retry and repair are absent.",
+    "Source serialization is direct token-ID assembly with exact frozen wrappers/slot lengths and same SOURCE_END position. ACTIVE, FUTURE_ACTION_SEQUENCE_ONLY, NEXT_DIVERGENT_ACTION_ONLY, rationale-only FUTURE_TOKEN_DERANGED, ACTION_HISTORY_MATCHED_NULL, unrelated donor and deterministic equal-norm random controls are implemented.",
+    "All semantic controls are evaluated at both signs. Active/control zero-norm cases retain the frozen denominator and force strong joint specificity endpoints non-positive rather than deleting/replacing a family.",
+    "A4-only operating-point selection and same-point A5 no-reselection are preserved. Confirmation uses all20 H4/H5 exact sign tests, Holm FWER .05 and frozen effect guards.",
+    "Secondary future-action-sequence scope is descriptive only: it can be emitted only when the future-state effect guards pass but strong semantic endpoints fail after adding FUTURE_ACTION_SEQUENCE_ONLY; it cannot rescue or relabel semantic-plan support."
+  ],
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_EXECUTABLE_ENGINEERING_A3_V1",
+  "new_files": {
+    "driver": {
+      "path": "action_matched_grounded_v2_science_driver_v1.py",
+      "sha256": "b0286859cb9e6c74d0668ab4b81b8646afc5d96c44228b69ec3e03cec98a8f76"
+    },
+    "launcher": {
+      "path": "action_matched_grounded_v2_primary_v1.sh",
+      "sha256": "701818356546d09a54f23decf644675a97378ea70889cd2e8c92c550c1d6ee22"
+    },
+    "phase": {
+      "path": "action_matched_grounded_v2_phase_runner_v1.py",
+      "sha256": "6c9ec235a919395d5d36f252480677007d98885d870f35896aed883407ac265f"
+    },
+    "runtime": {
+      "path": "action_matched_grounded_v2_runtime_v1.py",
+      "sha256": "6600d4cf8310f9e43c35e8842df990ad9a0100f820e564ae1ea152f816cc7427"
+    },
+    "tests": {
+      "path": "tests/test_action_matched_grounded_v2_executable_v1.py",
+      "sha256": "b986e3af15e8fdec1b8f9b1e0e22319dbe5b135da20c56965a7901fdeabd7cc3"
+    },
+    "validator": {
+      "path": "action_matched_grounded_v2_validator_v1.py",
+      "sha256": "43008333e3b4d19966ef405dfb4e604267306abc61f4b131c2db46a0d9c3da92"
+    }
+  },
+  "pre_freeze_corrections": [
+    {
+      "issue": "Initial implementation omitted the preregistered descriptive narrowed future-action-sequence scope in terminal reporting.",
+      "outcome_informed": false,
+      "resolution": "Added secondary future-state effect-guard reporting from the already-frozen joint_future_state endpoints, explicitly descriptive-only and unable to rescue H4/H5. No threshold, population, model, control, or scientific variable changed."
+    }
+  ],
+  "required_next_gate": "Fresh independent executable-readiness review by a worker untouched by these implementation bytes before any Experiment/Prediction registration or model/environment science.",
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "tests": {
+    "grounded_constructibility": "19/19 PASS",
+    "grounded_science_authority": "11/11 PASS",
+    "inherited_control_primitives": "14/14 PASS",
+    "inherited_localcontinuation_execution_stack": "15/15 PASS",
+    "inherited_session_runtime": "5/5 PASS",
+    "new_executable": "17/17 PASS",
+    "py_compile_and_bash_n": "PASS",
+    "python_and_shell_preflight": "READY_NO_SCIENCE; model_calls=0; model_loads=0; environment_execution=0; confirmation/reserve/valid false",
+    "total_assertion_tests_reported": 81,
+    "unauthorized_confirmation_launcher": "PASS exit62 before model load",
+    "unauthorized_development_launcher": "PASS exit61 before model load"
+  },
+  "work_item_id": "13e20ee7-ac5b-4b5c-8e80-de3e83b79eb0"
+}
