@@ -1,0 +1,561 @@
+{
+  "authority_lineage": {
+    "constructibility_engineering_result_id": "2e92eb0f-c412-42e5-9df1-5ca56f1a5ee5",
+    "constructibility_implementation_commit": "94c1560220ee1c50dad7987df41dbc5eb9d0ca71",
+    "constructibility_independent_review_commit": "5675aaf227a6f9b6b2ba2da054786bf52b86973d",
+    "constructibility_independent_review_sha256": "8e89fe22bb7830c1c6dd47009422d913fe75ff43d9b6fe7b274f7fff5a0367e3",
+    "grounded_design_commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+    "grounded_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "source_repaired_actionmatched_commit": "6b58db51e60b77929d626931ba25d683ef3b2566",
+    "source_repaired_prereg_sha256": "4ab46d9adf1a25cffb14443be7d1ced0546794b75a1d2e64fd56078759eb6c43",
+    "source_strict_derangement_contract_sha256": "8511bf400e5032920440485ca8d1d32b64299082f386663b2d0d23cb8f6dbf8c",
+    "source_token_serialization_audit_sha256": "823678176e3ec0db315ac67737d37c7212a8d6965a91930c1614116abfba50a7",
+    "source_token_serialization_review_sha256": "038228ddb674acd63ce5e2bdeeaf8033208364a804b572f8386e19dabbfbe07d"
+  },
+  "causal_runtime": {
+    "A5_branch_scoring_restarts_from_same_frozen_reset_snapshot_per arm/sign": true,
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "one_reset_prefix_intervention": true,
+    "reinjection": false,
+    "remove_hook_immediately": true,
+    "same_persistent_kv_session": true,
+    "shared_A3_teacher_forced_after_intervention": true,
+    "target_site": "same-layer reset-prefix final token immediately before ACTION",
+    "true_context_reset": true
+  },
+  "confirmation": {
+    "H4": "one-sided exact sign/binomial test over all20 joint_semantic_plan_margin>0; zeros/nonfinite/required-control-invalid count non-positive",
+    "H5": "one-sided exact sign/binomial test over all20 joint_semantic_plan_continuation5>0; zeros/nonfinite/required-control-invalid count non-positive",
+    "competence_and_integrity": "structural fail-closed rather than a new post-hoc numeric task threshold: every denominator family must have exact replay hashes, reference A3/A4/B4/A5/B5 current-admissibility required by pre-E qualification, and valid reference/alternative scoring geometry. Runtime invalidity never deletes a family from an already frozen denominator and cannot be repaired by replacement; technical corruption => TECHNICAL_INVALID.",
+    "effect_guards_each": [
+      ">=15/20 positive",
+      "median corresponding joint semantic margin >=0.05 nats/token",
+      "median corresponding bidirectional margin >=0.05 nats/token"
+    ],
+    "eligibility": "scan exact confirm64..127 in frozen order under unchanged grounded construction/materialization/control rules; first20 eligible; <20 => INCONCLUSIVE_CONFIRMATION_CONSTRUCTIBILITY",
+    "locked_until": [
+      "independent semantic review PASS of this authority",
+      "fresh independent implementation/executable review",
+      "atomic DEVELOPMENT_SELECTION_PASS seal"
+    ],
+    "multiplicity": "Holm step-down FWER 0.05 across H4/H5: ordered smaller p <=0.025 and larger p <=0.05",
+    "operating_point": "import exact development selected layer/alpha and exact code/provenance; no retuning/reselection",
+    "required": "both H4 and H5 multiplicity-adjusted sign tests AND all effect guards pass; neither rescues the other"
+  },
+  "controls_and_signs": {
+    "active": [
+      "+alpha*r_active",
+      "-alpha*r_active"
+    ],
+    "plumbing_sentinels": "ZERO_ADD and SELF_REPLACE max absolute score difference versus NO_PATCH <=1e-6; breach => TECHNICAL_INVALID for the affected execution, never scientific null",
+    "random_rule": "RANDOM_EQ_NORM evaluated +/-; nuisance is halfspan",
+    "semantic_nuisance_controls": [
+      "UNRELATED_PAIR_RESIDUAL",
+      "ACTION_HISTORY_MATCHED_NULL",
+      "FUTURE_TOKEN_DERANGED",
+      "NEXT_DIVERGENT_ACTION_ONLY",
+      "FUTURE_ACTION_SEQUENCE_ONLY"
+    ],
+    "semantic_sign_rule": "every required semantic nuisance is evaluated at BOTH +alpha*C and -alpha*C from identical frozen reset/session geometry; missing either sign => family/point cannot count as positive and cannot be omitted"
+  },
+  "development": {
+    "A4_pass_gate": "at selected point require median joint_semantic_plan_margin>=0.05 nats/token, median bidirectional>=0.05, >=15/20 bidirectional>0",
+    "eligibility": "scan fixed dev0..63 in frozen order; exact grounded construction+two plan materializations+all matched source controls must be constructible before grid; take first20; <20 => INCONCLUSIVE_GROUNDED_PAIR_CONSTRUCTIBILITY; no causal grid",
+    "grid": "layers [7,14,21,27] x alpha [0.25,0.5,1.0]",
+    "same_point_A5_gate": "A5/B5 cannot select/reselect. At exact A4-selected point require median joint_semantic_plan_continuation5>=0.05, median bidirectional5>=0.05, >=15/20 joint_semantic_plan_continuation5>0",
+    "selection": "A4 only: maximize median joint_semantic_plan_margin; tie-break higher median bidirectional, then higher median abs ACTIVE swap span, then lower alpha, then earlier layer",
+    "terminal": "DEVELOPMENT_SELECTION_PASS only if A4 and A5 gates both pass; else DEVELOPMENT_FUTILITY_STOP. In all cases scientific_result remains NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY and confirmation stays sealed."
+  },
+  "endpoints": {
+    "A4": {
+      "bidirectional": "min(forward,reverse)",
+      "forward": "m(+ACTIVE)-m(NO_PATCH)",
+      "joint_future_state_margin": "bidirectional-max(random,unrelated,history,deranged,next_only)",
+      "joint_semantic_plan_margin": "bidirectional-max(random,unrelated,history,deranged,next_only,future_action_sequence_only)",
+      "m": "at common post-A3 state, FP32 arithmetic-mean suffix logprob score(A4)-score(B4), candidates exact leading-space command IDs, no cache mutation",
+      "nuisance": "for each semantic C, max(abs(m(+C)-m0),abs(m(-C)-m0)); random=abs(m(+R)-m(-R))/2",
+      "reverse": "m(NO_PATCH)-m(-ACTIVE)",
+      "selection_endpoint": "joint_semantic_plan_margin"
+    },
+    "A5_B5": {
+      "bidirectional5": "min(forward5,reverse5)",
+      "forward5": "qA(+ACTIVE)-qA(NO_PATCH)",
+      "joint_future_state_continuation5": "bidirectional5-max(random5,unrelated5,history5,deranged5,next_only5)",
+      "joint_semantic_plan_continuation5": "bidirectional5-max(random5,unrelated5,history5,deranged5,next_only5,future_action_sequence_only5)",
+      "nuisance5": "for each semantic C max branch-matched abs shift over qA(+/-C) and qB(+/-C) versus branch NO_PATCH; random5=max branchwise +/- halfspan",
+      "qA": "after same reset/arm/sign, teacher-force A3+verified observation3 then A4+verified branch observation4; score current-admissible A5 reference margin = mean_logp(A5)-max mean_logp(other current-admissible command)",
+      "qB": "independent restart from same frozen reset/arm/sign; teacher-force A3+obs3 then B4+verified branch obs4; score B5 analog; exact reference and >=1 alternative required pre-E",
+      "reverse5": "qB(-ACTIVE)-qB(NO_PATCH)"
+    },
+    "scope_boundary": {
+      "future_action_sequence_state_only": "if secondary future-state margins pass their frozen descriptive guards but strong semantic H4/H5 fail specifically because FUTURE_ACTION_SEQUENCE_ONLY explains the effect, report only a narrowed future action-sequence carrier. This secondary scope cannot rescue, re-label, or count as support for the strong semantic-plan hypothesis.",
+      "strong_semantic_plan_language": "requires untouched confirmation H4/H5 on joint_semantic_plan_margin / joint_semantic_plan_continuation5; both must pass"
+    }
+  },
+  "grounded_pair_construction": {
+    "A4_B4": "at actual post-A3 state score all current admissible nontrivial commands; freeze unordered deterministic rank1/rank2 BEFORE orientation; require >=2",
+    "A5_B5": "execute oriented A4 and B4 in separate exact clones; in each actual branch-local state greedily choose rank1 current admissible nontrivial command; require A5!=B5",
+    "forbidden": [
+      "activation outcome during construction",
+      "score-gap eligibility filter",
+      "pair retry",
+      "pair regeneration",
+      "replacement",
+      "future observation use"
+    ],
+    "freeze_before_plan_materialization": [
+      "action strings",
+      "one-time action token IDs/hashes",
+      "executor score maps/ranks",
+      "common and branch observations",
+      "admissible sets",
+      "state hashes",
+      "orientation bit",
+      "construction provenance"
+    ],
+    "orientation": "SHA256(\"PlanCarry|ACTION_MATCHED_GROUNDED_V2|ORIENT|{game_path}\").digest()[0] & 1 maps frozen unordered rank1/rank2 to labels A/B",
+    "pre_cut_model_own_nontrivial_actions": 2,
+    "shared_A3": "at cut2 score all current admissible nontrivial commands with frozen executor suffix scorer; choose FP32 mean-logprob argmax with lexical tie-break; execute once in construction clone"
+  },
+  "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_SCIENCE_READY_PREREG_V1",
+  "model_runtime": {
+    "cublas_workspace_config": ":4096:8",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "thinking_disabled": true,
+    "tokenizers": "0.21.1",
+    "transformers": "4.51.3"
+  },
+  "next_gate": "fresh independent semantic review must return exactly PASS_FOR_ACTION_MATCHED_GROUNDED_V2_SCIENCE_AUTHORITY or MATERIAL_REPAIR_REQUIRED; only PASS permits engineering/executable preparation, not science itself.",
+  "no_outcome_informed_tuning": {
+    "activation_outcomes_accessed": false,
+    "alfworld_resets_in_this_authority_work": 0,
+    "basis": "all thresholds/statistics/grid/runtime are inherited prospectively; grounded-specific adaptations are structural consequences of already-reviewed grounded construction and the predeclared FUTURE_ACTION_SEQUENCE_ONLY claim boundary.",
+    "confirmation_or_reserve_accessed": false,
+    "model_calls_in_this_authority_work": 0,
+    "model_loads_in_this_authority_work": 0,
+    "scientific_run_outputs_accessed": false
+  },
+  "plan_materialization": {
+    "acceptance": [
+      "ACTION_3 capture exact-string equals frozen A3",
+      "ACTION_4 capture exact-string equals frozen branch A4/B4",
+      "ACTION_5 capture exact-string equals frozen branch A5/B5",
+      "RATIONALE nonempty, single-line, has no angle bracket, and equals its own strip()",
+      "tokenize accepted full plan block exactly once with add_special_tokens=false and return_offsets_mapping=true",
+      "accepted full plan block token length <=96",
+      "no future-observation text is supplied to generator",
+      "no retry/repair on failure"
+    ],
+    "branches": [
+      "A",
+      "B"
+    ],
+    "calls_per_branch": 1,
+    "calls_per_eligible_candidate_family": 2,
+    "chat_template": {
+      "add_generation_prompt": true,
+      "enable_thinking": false,
+      "messages": "exactly one role=user message; no system message",
+      "tokenize": true
+    },
+    "decode": {
+      "canonicalization": "strip outer whitespace only",
+      "clean_up_tokenization_spaces": false,
+      "generated_suffix_only": true,
+      "skip_special_tokens": true
+    },
+    "dynamic_user_template": "{instruction}\n\nTASK\n{task_instruction}\nCUT OBSERVATION\n{cut_observation}\nPAST ACTIONS\nSTEP 1\nACTION: {action1}\nOBSERVATION: {obs1}\nSTEP 2\nACTION: {action2}\nOBSERVATION: {obs2}\nCUT ADMISSIBLE COMMANDS\n{commands}\nFROZEN FUTURE ACTION SEQUENCE\nACTION_3: {action3}\nACTION_4: {action4}\nACTION_5: {action5}",
+    "failure": "family constructibility-ineligible before E with no replacement outside fixed scan; never alter sequence or prompt",
+    "fullmatch_regex": "\\A<PLAN>\\n<ACTION_3>([^\\n<>]+)</ACTION_3>\\n<ACTION_4>([^\\n<>]+)</ACTION_4>\\n<ACTION_5>([^\\n<>]+)</ACTION_5>\\n<RATIONALE>([^\\n<>]+)</RATIONALE>\\n</PLAN>\\Z",
+    "generation": {
+      "do_sample": false,
+      "eos_token_id": "tokenizer.eos_token_id",
+      "max_new_tokens": 128,
+      "pad_token_id": "tokenizer.eos_token_id",
+      "temperature_argument": "OMITTED",
+      "top_k_argument": "OMITTED",
+      "top_p_argument": "OMITTED",
+      "use_cache": true
+    },
+    "information_allowed": [
+      "visible task instruction",
+      "cut observation",
+      "exact action1/obs1 and action2/obs2 history",
+      "sorted cut admissible commands",
+      "exact already-frozen branch future action sequence A3/A4/A5 or A3/B4/B5"
+    ],
+    "information_forbidden": [
+      "future observations after cut",
+      "expert plan",
+      "game solution",
+      "hidden environment state",
+      "alternative branch search",
+      "activation/causal outcomes"
+    ],
+    "instruction": "You are materializing a plan representation for an already frozen grounded action sequence in an ALFWorld interruption state. Use ONLY the visible task, cut observation, past two observed action/observation pairs, cut admissible commands, and the supplied frozen future action sequence. Do not infer or mention future observations, hidden state, expert solutions, or alternative actions. Return exactly one block with no prose:\n<PLAN>\n<ACTION_3>{action3}</ACTION_3>\n<ACTION_4>{action4}</ACTION_4>\n<ACTION_5>{action5}</ACTION_5>\n<RATIONALE>{one concise single-line reason these three actions form a coherent plan for the visible task}</RATIONALE>\n</PLAN>",
+    "persist": [
+      "rendered user UTF8 SHA256",
+      "chat-template prefix IDs+SHA256",
+      "generated suffix IDs+SHA256",
+      "decoded stripped plan UTF8 SHA256",
+      "full plan input_ids/offset_mapping+SHA256",
+      "exact action token IDs+SHA256",
+      "rationale char span and wholly-interior mutable token positions"
+    ],
+    "purpose": "materialize model-own semantic plan text for an already frozen grounded future action sequence; never search for or select the sequence",
+    "retry_or_repair": false
+  },
+  "population": {
+    "confirmation_scan_indices_locked": [
+      64,
+      127
+    ],
+    "confirmation_target_eligible_n": 20,
+    "development_scan_indices": [
+      0,
+      63
+    ],
+    "development_target_eligible_n": 20,
+    "historical_overlap_allowed": false,
+    "manifest_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "no_replacement": true,
+    "reserve_indices_locked": [
+      128,
+      159
+    ],
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "prohibitions": [
+    "no model/environment execution in this authority WorkItem",
+    "no Experiment/Prediction/ResearchDecision registration before independent PASS",
+    "no confirmation64..127 or reserve128..159 access during development",
+    "no valid_seen/valid_unseen",
+    "no score-gap filtering",
+    "no pair/plan retry or replacement",
+    "no outcome-driven family deletion",
+    "no threshold/grid/model/task-family/control change after development starts",
+    "no A5-driven operating-point reselection",
+    "no semantic-plan-language claim unless FUTURE_ACTION_SEQUENCE_ONLY is beaten in both co-primary endpoints",
+    "no provider lifecycle"
+  ],
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_DESIGN_ONLY",
+  "source_residuals": {
+    "ACTION_HISTORY_MATCHED_NULL": {
+      "comparator_slots": [
+        "NEUTRAL_A3",
+        "NEUTRAL_A4",
+        "NEUTRAL_A5",
+        "NEUTRAL_PLAN"
+      ],
+      "meaning": "generic immediate-action/history steering",
+      "positive_slots": [
+        "A3",
+        "NEUTRAL_A4",
+        "NEUTRAL_A5",
+        "NEUTRAL_PLAN"
+      ],
+      "vector": "r_history=h(shared-A3-only)-h(all-neutral)"
+    },
+    "ACTIVE": {
+      "A_slots": [
+        "A3",
+        "A4",
+        "A5",
+        "PLAN_A"
+      ],
+      "B_slots": [
+        "A3",
+        "B4",
+        "B5",
+        "PLAN_B"
+      ],
+      "vector": "r_active=h(A)-h(B) at SOURCE_END"
+    },
+    "FUTURE_ACTION_SEQUENCE_ONLY": {
+      "A_slots": [
+        "A3",
+        "A4",
+        "A5",
+        "NEUTRAL_PLAN"
+      ],
+      "B_slots": [
+        "A3",
+        "B4",
+        "B5",
+        "NEUTRAL_PLAN"
+      ],
+      "meaning": "exact same future-action identity differential as ACTIVE with semantic plan-text slot neutralized",
+      "vector": "r_sequence=h(Aseq)-h(Bseq)"
+    },
+    "FUTURE_TOKEN_DERANGED": {
+      "A_slots": [
+        "A3",
+        "A4",
+        "A5",
+        "DERANGED_PLAN_A"
+      ],
+      "B_slots": [
+        "A3",
+        "B4",
+        "B5",
+        "DERANGED_PLAN_B"
+      ],
+      "derangement": "from the one stored plan tokenization+offsets, freeze every token overlapping any structural/action tag or action-text span or crossing a boundary. Mutable positions are only nonempty-offset tokens wholly inside RATIONALE inner char span. Require >=2 mutable positions and >=2 distinct mutable token values. Apply frozen strict balanced-block left rotation; accept only if output mutable sequence differs and rightmost mutable token value changes, else smallest valid ordinary left rotation. Preserve full token count/multiset and every frozen position. No decode/re-tokenize. Unconstructible => family pre-E ineligible/no replacement.",
+      "vector": "r_deranged=h(Aderanged)-h(Bderanged)"
+    },
+    "NEXT_DIVERGENT_ACTION_ONLY": {
+      "A_slots": [
+        "A3",
+        "A4",
+        "NEUTRAL_A5",
+        "NEUTRAL_PLAN"
+      ],
+      "B_slots": [
+        "A3",
+        "B4",
+        "NEUTRAL_A5",
+        "NEUTRAL_PLAN"
+      ],
+      "vector": "r_next=h(Anext)-h(Bnext)",
+      "zero_A5_B5_derived_ids": true
+    },
+    "NO_PATCH": {
+      "vector": null
+    },
+    "RANDOM_EQ_NORM": {
+      "vector": "deterministic SHA256-Rademacher vector in target layer dimensionality, norm matched to raw active residual"
+    },
+    "SELF_REPLACE": {
+      "vector": "replace target hidden state by itself sentinel"
+    },
+    "UNRELATED_PAIR_RESIDUAL": {
+      "donor": "after complete E freeze, deterministic next-different-family donor; donor uses its own ACTIVE grounded source geometry and vector; norm-match donor to target active norm"
+    },
+    "ZERO_ADD": {
+      "vector": "exact zero additive hook sentinel"
+    },
+    "norm_matching": "for each target family/layer, semantic control residual vectors are scaled to exactly ||r_active|| before alpha. If ||r_active||<=1e-8, retain the family in the frozen denominator and mark every causal joint endpoint at that family/layer non-positive/invalid-for-pass; do not exclude or replace. If r_active is nondegenerate but a required semantic control residual has norm<=1e-8 and cannot be norm-matched, retain family and force specificity pass false at that family/point rather than delete/replace."
+  },
+  "status": "PRE_SCIENCE_AUTHORITY_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW",
+  "token_serialization": {
+    "action_tokenization": "tokenize each exact A3/A4/A5/B4/B5 command exactly once pre-E with tokenizer.encode(command, add_special_tokens=false); persist IDs/hashes; all later source assembly uses stored IDs only",
+    "capture_position": "last token of source_end.ids; identical absolute position for ACTIVE and every target-family matched control source",
+    "common_prefix_template": "TASK\n{task_instruction}\nCUT OBSERVATION\n{cut_observation}\nPAST ACTIONS\nSTEP 1\nACTION: {action1}\nOBSERVATION: {obs1}\nSTEP 2\nACTION: {action2}\nOBSERVATION: {obs2}\nCUT ADMISSIBLE COMMANDS\n{commands}\n",
+    "direct_id_source_assembly": "encode(common_prefix_template rendered once) + shared_prefix.ids + SLOT3 + sep_a4.ids + SLOT4 + sep_a5.ids + SLOT5 + sep_plan.ids + SLOT_PLAN + source_end.ids. No decode/re-tokenize after stored semantic IDs freeze.",
+    "fail_closed": [
+      "tokenizer asset/version/revision mismatch",
+      "chat-template canary mismatch",
+      "grounded wrapper IDs mismatch",
+      "plan wrapper IDs mismatch",
+      "stored action IDs/hash mismatch",
+      "source/control final length or SOURCE_END position mismatch",
+      "any semantic decode/re-tokenize after freeze",
+      "any control contains a forbidden future-action token in a neutralized slot",
+      "accepted plan >96 tokens"
+    ],
+    "family_slot_lengths": {
+      "L3": "len(shared A3 IDs)",
+      "L4": "max(len(A4 IDs),len(B4 IDs))",
+      "L5": "max(len(A5 IDs),len(B5 IDs))",
+      "LP": "max(len(accepted planA IDs),len(accepted planB IDs))"
+    },
+    "grounded_wrapper_tokens": {
+      "sep_a4": {
+        "ids": [
+          198,
+          13095,
+          41933,
+          21866,
+          19,
+          510
+        ],
+        "ids_sha256": "2d394ff701bed39fdbcdc427dc4c9c2ce9fa56ecabbfc951997b9d2b077b6521",
+        "text": "\nBRANCH_ACTION4:\n"
+      },
+      "sep_a5": {
+        "ids": [
+          198,
+          13095,
+          41933,
+          21866,
+          20,
+          510
+        ],
+        "ids_sha256": "efdc5bdfa60e50820a17db748240634d0e60c749dcc6a0dfbb038f036d3664e0",
+        "text": "\nBRANCH_ACTION5:\n"
+      },
+      "sep_plan": {
+        "ids": [
+          198,
+          94079,
+          10243,
+          510
+        ],
+        "ids_sha256": "841b32051c04bc4f6815612e0cefb88684b1453b1f4366c4e9b16e0f356e7dfc",
+        "text": "\nPLAN_TEXT:\n"
+      },
+      "shared_prefix": {
+        "ids": [
+          27,
+          31687,
+          25430,
+          397,
+          8590,
+          32673,
+          21866,
+          510
+        ],
+        "ids_sha256": "3ca0db4866edae41bf31008f68ec8eec359fd698c06564080b3da5bbed6fdfdd",
+        "text": "<GROUND_SOURCE>\nSHARED_ACTION:\n"
+      },
+      "source_end": {
+        "ids": [
+          198,
+          18858,
+          13077,
+          10898,
+          29
+        ],
+        "ids_sha256": "05adce2d477817d7f167cb44fe3dcc67b0a27157a8b29e7764930b3c9336f4d7",
+        "text": "\n<SOURCE_END>"
+      }
+    },
+    "neutral_cycle_ids": [
+      20628,
+      2266,
+      8458,
+      34857,
+      13
+    ],
+    "neutral_cycle_ids_sha256": "7a6472f94b3ee9bd7a8935ac54027eae9eab3df36fde24c6d0b3ce42405a8a19",
+    "padding": "each semantic slot is exact stored content IDs followed by the prefix of endlessly repeated neutral_cycle_ids sufficient to reach its frozen family slot length; no truncation; plan accepted length<=96",
+    "plan_wrapper_tokens": {
+      "between_34": {
+        "ids": [
+          522,
+          41895,
+          62,
+          18,
+          397,
+          30192,
+          3580,
+          62,
+          19,
+          29
+        ],
+        "ids_sha256": "7db9fbd561aa4c4a79190ac899f507ca0907f7c47b089bf088dcc3ac9a60215d",
+        "text": "</ACTION_3>\n<ACTION_4>"
+      },
+      "between_45": {
+        "ids": [
+          522,
+          41895,
+          62,
+          19,
+          397,
+          30192,
+          3580,
+          62,
+          20,
+          29
+        ],
+        "ids_sha256": "74f1705f24a6bba8f792fa45906f545548b9f0f2d4a71a13dde7a6567b015a0a",
+        "text": "</ACTION_4>\n<ACTION_5>"
+      },
+      "close": {
+        "ids": [
+          522,
+          54771,
+          24896,
+          397,
+          522,
+          94079,
+          29
+        ],
+        "ids_sha256": "a143e21b842a29e02106d689271ccd65c586ec5aba017686fd8ff91c4123c222",
+        "text": "</RATIONALE>\n</PLAN>"
+      },
+      "open": {
+        "ids": [
+          27,
+          94079,
+          397,
+          30192,
+          3580,
+          62,
+          18,
+          29
+        ],
+        "ids_sha256": "9c8c1511660f0ae98023f2991b03518f415f44c9ffb61b36671be2f697c38a3d",
+        "text": "<PLAN>\n<ACTION_3>"
+      },
+      "rationale_open": {
+        "ids": [
+          522,
+          41895,
+          62,
+          20,
+          397,
+          23370,
+          3495,
+          24896,
+          29
+        ],
+        "ids_sha256": "27b56b92dd1ddec21d2df658e28cac96b1a39842c54e9cdb04ad7f05c6aed9d2",
+        "text": "</ACTION_5>\n<RATIONALE>"
+      }
+    },
+    "tokenizer_provenance": {
+      "asset_sha256": {
+        "config.json": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+        "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "chat_template_canary_ids": [
+        151644,
+        872,
+        198,
+        31981,
+        32601,
+        3495,
+        19508,
+        8642,
+        151645,
+        198,
+        151644,
+        77091,
+        198,
+        151667,
+        271,
+        151668,
+        271
+      ],
+      "chat_template_canary_ids_sha256": "27b3dd904b257baddf6723ea28c7728629b377dd1ec646f079bfb81666df633a",
+      "class": "Qwen2TokenizerFast",
+      "model_id": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "tokenizers": "0.21.1",
+      "transformers": "4.51.3"
+    }
+  }
+}

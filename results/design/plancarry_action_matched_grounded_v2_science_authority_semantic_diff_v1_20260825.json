@@ -1,0 +1,71 @@
+{
+  "base_grounded_design_commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+  "base_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "evidence_exposure": {
+    "activation_outcomes_accessed": false,
+    "environment_execution": 0,
+    "future_split_outcomes_accessed": false,
+    "model_calls": 0,
+    "model_loads": 0
+  },
+  "explicitly_not_changed": [
+    "population identities/order/splits",
+    "model/revision/dtype/runtime",
+    "layer/alpha grid",
+    "0.05/15-of-20/Holm thresholds",
+    "intervention site/count/session semantics",
+    "orientation rule",
+    "no retry/replacement",
+    "future split locks"
+  ],
+  "grounded_specific_adaptations": [
+    {
+      "change": "two one-shot per-branch model-own plan-text materializations from exact frozen A3/A4/A5 sequences; no search/retry/future observations",
+      "field": "plan materialization",
+      "why": "grounded pair actions are constructed from actual current admissibles before plan text; old pair-planner cannot be inherited without violating grounded construction"
+    },
+    {
+      "change": "fixed same-position A3/A4/A5/PLAN_TEXT slots under pinned tokenizer and common SOURCE_END",
+      "field": "source serialization",
+      "why": "grounded active representation must separate exact action-sequence identity from semantic plan text"
+    },
+    {
+      "change": "same exact A3/A4/A5 action slots as ACTIVE with plan-text slot neutralized; both signs; included in strong joint nuisance",
+      "field": "FUTURE_ACTION_SEQUENCE_ONLY",
+      "why": "grounded candidate prereg explicitly requires this strongest specificity control for semantic-plan-language claim"
+    },
+    {
+      "change": "strict value derangement only on wholly-inside RATIONALE tokens; structural/action tokens frozen",
+      "field": "FUTURE_TOKEN_DERANGED",
+      "why": "with exact action-sequence control present, a plan-language nuisance should perturb semantic rationale without changing grounded action identity"
+    },
+    {
+      "change": "A4 selects by joint_semantic_plan_margin including sequence nuisance; old deterministic tie-break order unchanged",
+      "field": "selection endpoint name",
+      "why": "strong semantic claim requires beating the newly explicit sequence control prospectively"
+    },
+    {
+      "change": "H4/H5 strong tests use sequence-adjusted semantic joint margins; narrower future-state metrics are secondary only and cannot rescue strong claim",
+      "field": "claim scope",
+      "why": "distinguish semantic plan language from exact future-action-sequence state"
+    }
+  ],
+  "inherited_unchanged": [
+    "Qwen/Qwen3-1.7B exact revision BF16 no quantization/offload/thinking",
+    "cut after two model-own nontrivial actions",
+    "fresh160 population and dev64/confirm64/reserve32 split/no replacement",
+    "grounded shared-A3 -> unordered top2 A4/B4 -> path-hash orientation -> branch-local divergent A5/B5 construction",
+    "layers7/14/21/27 x alpha.25/.5/1",
+    "true reset; one reset-prefix intervention; same persistent KV; no reinjection",
+    "A4-only global operating-point selection and no A5 reselection",
+    "0.05 nats/token effect guards; 15/20 sign/effect counts; two exact sign tests with Holm FWER .05",
+    "both-sign semantic nuisances and random halfspan",
+    "ZERO_ADD/SELF_REPLACE 1e-6 sentinel",
+    "confirmation/reserve/valid sealing"
+  ],
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_SCIENCE_AUTHORITY_SEMANTIC_DIFF_V1",
+  "outcome_informed_tuning": false,
+  "science_ready_prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "PRE_SCIENCE"
+}

@@ -1,0 +1,46 @@
+{
+  "authorization_boundary": "Independent PASS may authorize engineering/executable preparation only. This audit does not authorize Experiment/Prediction registration, ResearchDecision, model/environment science, confirmation/reserve/valid access, or provider lifecycle.",
+  "checks": {
+    "a5_same_point_no_reselection": true,
+    "authority_unit_tests": "11/11 PASS",
+    "both_sign_semantic_nuisance": true,
+    "environment_execution": 0,
+    "future_split_outcomes_accessed": false,
+    "holm_two_coprimary": true,
+    "model_calls": 0,
+    "model_loads": 0,
+    "outcome_informed_tuning": false,
+    "py_compile": true,
+    "science_registration_allowed": false,
+    "sequence_control_in_strong_joint": true,
+    "tokenizer_only_wrapper_pin": true,
+    "zero_self_sentinel_1e6": true
+  },
+  "grounded_specific_structural_adaptations": [
+    "two one-shot branch plan materializations after grounded action freeze",
+    "fixed A3/A4/A5/PLAN_TEXT source slots",
+    "FUTURE_ACTION_SEQUENCE_ONLY strong control",
+    "rationale-only strict FUTURE_TOKEN_DERANGED",
+    "sequence-adjusted strong A4 selection endpoint",
+    "explicit strong-semantic vs narrow-action-sequence claim boundary"
+  ],
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_SCIENCE_AUTHORITY_STATIC_AUDIT_V1",
+  "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_inherited_unchanged": [
+    "population/splits",
+    "model/revision/BF16/no quant/offload",
+    "cut2 grounded construction",
+    "layers/alphas",
+    "one reset intervention/same KV/no reinjection",
+    "0.05 effect guards",
+    "15/20 sign/effect guard",
+    "Holm FWER0.05",
+    "no replacement/future locks"
+  ],
+  "semantic_diff_sha256": "933d6e5a0a1de3b1f001304736c9399601193d4a3184dfe160f027629ccef58a",
+  "status": "PRE_SCIENCE_AUTHORITY_CANDIDATE_REQUIRES_INDEPENDENT_REVIEW",
+  "test_sha256": "9edc00c99438d683ab62d61e41b211c0931b8be8d2a9da1b916d7673119e04dc"
+}
