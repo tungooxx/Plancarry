@@ -1,0 +1,42 @@
+{
+  "authorization": "REGISTRATION_ONLY_NO_RESEARCH_DECISION_NO_SCIENCE_UNTIL_FRESH_INDEPENDENT_REVIEW_PASS",
+  "driver_sha256": "af4493b952f423a13b4f91d260c4508ce9f12e58996cc941d4127329a9946d48",
+  "experiment_id": "abbf9d21-e349-435f-ae5a-6b15aeace015",
+  "future_execution_binding": {
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "HF_HOME": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21",
+      "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+      "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND",
+      "PLANUNIQUE_EXPECTED_DEVICE_NAME": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    },
+    "python_env": null,
+    "working_directory": "/workspace/local-vlm/LLM/plancarry-planunique-science-217d"
+  },
+  "future_splits_accessed": false,
+  "hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+  "implementation_commit": "217d9ad9ae12dbcef9caa4cf3d4619b58d1b24a4",
+  "implementation_tree": "3f8e38e4b14ac502c9fe72df06476cbe0c620a17",
+  "kind": "PLANUNIQUE_V1_2_VRAM_BOUNDED_SUCCESSOR_REGISTRATION",
+  "local_retry_policy": {
+    "on_next_cuda_oom": "STOP_LOCAL_AND_REQUIRE_HUMAN_VAST_ESCALATION",
+    "patched_local_attempt_budget": 1,
+    "vast_lifecycle_authorized": false
+  },
+  "prediction_id": "a2e5c544-99b6-4b64-8268-084b7ca12920",
+  "preflight_job_id": "local_02724725c8254de8",
+  "preflight_status": "READY_NO_SCIENCE",
+  "registration_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "science_checkout": "/workspace/local-vlm/LLM/plancarry-planunique-science-217d",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_technical_run_id": "7c65988e-faeb-4746-b7f9-f54a5f7cf569",
+  "supersedes_experiment_id": "27afc861-50d7-4cdb-8f8e-35ae0475f1c0",
+  "vram_repair_review": {
+    "artifact_sha256": "33341901e09ede854fc10d9685fa8a7d44c3170f53cddcef5253a0a54c3546aa",
+    "commit": "a2f9f1d08a0548866ba34c4d0830a4524f9057b6",
+    "verdict": "PASS_FOR_PLANUNIQUE_VRAM_OOM_REPAIR",
+    "work_item_id": "c2618794-b4af-4cae-a04f-04bd97b9f138"
+  }
+}
