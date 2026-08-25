@@ -1,0 +1,50 @@
+{
+  "artifact_hashes": {
+    "design_tests": "d7898a41f05508974f8600dd6bf60bf12bc28caa396e15464e8f34941f925fd3",
+    "population": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "population_repair_audit": "dafcbc916144007151fec671dfea7038b322e9225b5b708dfd67a77b31e39aee",
+    "prereg": "6a64de815ac9088a552bb437dca9bcc0605d6327b7d03233ac170429a12b3e75",
+    "static_audit": "8c9ce78bb2fa84499109f2641448c2c9d7fb4d059536c1f6ae19c5da229589b5"
+  },
+  "created_at_utc": "2026-08-25T13:41:00Z",
+  "design_commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+  "design_tree": "77a0a9f0cf41db85b4537d5aca567a0fa320ae34",
+  "independent_population_reconstruction": {
+    "additional_population_or_manifest_overlap_found_across_repo_refs": false,
+    "canonical_inventory_count": 790,
+    "fresh_count": 197,
+    "normalization": "strip json_2.1.1/train/ prefix and /game.tw-pddl suffix to canonical family/trial before set operations",
+    "normalized_exclusion_union_count": 593,
+    "normalized_exclusion_union_sha256": "094810125326086cd8473626032ff541adb464f651bae8603f9a62462e76181a",
+    "orientation_bit_counts": [
+      79,
+      81
+    ],
+    "rank_hashes_all_match": true,
+    "selected_count": 160,
+    "selected_exact_first160_under_frozen_rank": true,
+    "selected_overlap_with_exclusion_union": 0,
+    "spare_count": 37
+  },
+  "kind": "ACTION_MATCHED_GROUNDED_V2_INDEPENDENT_DESIGN_REVIEW",
+  "review_basis": "Independent immutable-byte/hash inspection, exact normalized population reconstruction, all-ref manifest overlap scan, old-v1 contract comparison, and bounded semantic audit. No model load/forward, ALFWorld reset/game, Experiment registration/execution, scientific outcome, or future-split access.",
+  "review_work_item_id": "dbc60dad-37e9-4d7a-bde9-97afffc5863c",
+  "reviewer": "LLM A4",
+  "scientific_result": "NOT_ASSESSED",
+  "scope_limitations": [
+    "This PASS authorizes engineering/constructibility implementation preparation only. It does not authorize Experiment registration, ResearchDecision creation, model/environment science, confirmation, reserve, valid splits, or causal claims.",
+    "Before any science-ready executable/registration, a later immutable prereg/executable review MUST exact-hash-bind or explicitly enumerate every inherited old ActionMatched endpoint/statistical/token/control/tie-break semantic that remains scientifically intended, including H4/H5, Holm FWER, effect/competence thresholds, orientation-robust nuisance scoring, exact token serialization/control construction, and development tie-break behavior. Vague phrases such as old/frozen ActionMatched are insufficient execution authority.",
+    "Before science, deterministic plan-realization generation must freeze the exact prompt/chat-template call, parser/acceptance/failure behavior, and exact action/control serialization/token capture so implementation has no post-review discretion.",
+    "The immediate-action and future-sequence controls must be instantiated with exact deterministic formulas, norm/sign/orientation and endpoint semantics in the executable freeze; semantic labels alone are not yet science-executable authority.",
+    "Natural score/rank may remain diagnostics/adjustment checks only; it must not become a post-hoc pair-selection filter unless prospectively repaired and independently reviewed."
+  ],
+  "semantic_review": {
+    "causal_runtime": "PASS_FOR_DESIGN_SCOPE: same-reset/same-KV/no-reinjection/single-intervention geometry and frozen layer/alpha grid are explicit.",
+    "controls": "PASS_FOR_DESIGN_SCOPE: immediate-action-identity-only and full-future-sequence controls are both specified, preventing the active contrast from being interpreted solely as A4 lexical identity or the complete A4/A5 sequence.",
+    "grounded_construction": "PASS: shared cut after two model-own nontrivial actions; actual post-A3 admissibles choose unordered top2 A4/B4 pair before orientation; branch-local A5/B5 chosen from actual admissibles; all action/state/admissible/observation provenance frozen before source-plan materialization/activation.",
+    "no_science_accessed": true,
+    "orientation": "PASS: SHA256 path-bit A/B orientation occurs after pair selection and is independent of natural-rank label; observed 79/81 is compatible with this frozen construction and no score-gap filter is used.",
+    "population_repair": "PASS: initial contaminated draft was superseded prospectively before v2 science; corrected 160 is disjoint from all authoritative historical/selected exposure sources."
+  },
+  "verdict": "PASS_FOR_ACTION_MATCHED_GROUNDED_V2_DESIGN_FREEZE"
+}
