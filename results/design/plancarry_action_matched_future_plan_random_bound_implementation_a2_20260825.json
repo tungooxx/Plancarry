@@ -15,7 +15,20 @@
     "static_audit_sha256": "a44912893db2e30a118f95c5a7a700b601ecee370dd5c8bc553e0ea216c6cf33"
   },
   "date_utc": "2026-08-25",
-  "engineering_task_id": "855a53f9-bab7-4f50-9b62-d638099598b1",
+  "engineering_hardening_provenance": {
+    "detached_a2_guard_patch_observed_and_reconciled": true,
+    "note": "Earlier detached A2 jobs added pre-model frozen-design guard, execution-binding launcher checks, extra synthetic hardening tests, and expanded execution provenance. Final audit was regenerated only after all were terminal and combined gates passed.",
+    "post_patch_combined_gate_job": "local_8f6c393df7b04d6a"
+  },
+  "engineering_task_id": "c44f7739-72f6-4953-8a18-92f1876cf4a1",
+  "execution_hardening": {
+    "confirmation_seal_validation_precedes_authority_guard_and_model_load": true,
+    "execution_provenance_binds_driver_runtime_phase_validator_launcher_implementation_test_session_and_low_level_runtime": true,
+    "frozen_design_guard_precedes_model_load": true,
+    "launcher_requires_expected_git_commit_and_driver_runtime_phase_validator_shell_hashes": true,
+    "launcher_requires_research_decision_bound": true,
+    "provider_lifecycle_actions_in_launcher": false
+  },
   "execution_prohibitions_observed": {
     "alfworld_study_game_or_reset_calls": 0,
     "experiment_registration_or_execution": 0,
@@ -32,18 +45,6 @@
     "tests/test_action_matched_future_plan_implementation_v1.py": "dff3aa82447fa633b1d104ecf4c120282637f5e5bb995d45c95a5b54db8ee7e8"
   },
   "kind": "PLANCARRY_ACTION_MATCHED_RANDOM_BOUND_IMPLEMENTATION_A2_V1",
-  "launch_binding_contract": {
-    "development_and_confirmation_require_research_decision_bound": true,
-    "missing_binding_fails_before_model_load": true,
-    "required_external_exact_bindings": [
-      "ACTION_MATCHED_EXPECTED_GIT_COMMIT",
-      "ACTION_MATCHED_DRIVER_SHA256",
-      "ACTION_MATCHED_RUNTIME_SHA256",
-      "ACTION_MATCHED_PHASE_SHA256",
-      "ACTION_MATCHED_VALIDATOR_SHA256",
-      "ACTION_MATCHED_SHELL_SHA256"
-    ]
-  },
   "random_control_runtime": {
     "alternate_actionmatched_index_namespace_present": false,
     "both_signs": true,
@@ -73,33 +74,34 @@
     "true_reset_one_intervention_same_kv_no_reinjection_unchanged": true
   },
   "scientific_result": "NOT_ASSESSED",
-  "scope": "PRE_SCIENCE_ENGINEERING_ONLY; immutable implementation bytes require fresh independent executable-readiness review before execution handoff/Experiment.",
-  "technical_only_notes": [
+  "scope": "PRE_SCIENCE_ENGINEERING_ONLY; immutable implementation bytes require fresh independent executable-readiness review before any execution handoff or Experiment.",
+  "technical_only_nonfailures": [
     {
-      "issue": "Initial baseline harness used guessed session module/function labels; corrected commands passed with repository clean.",
-      "scientific_effect": "NONE"
+      "issue": "scratch canary used raw byte serializer instead of frozen compact-JSON serializer; exact signs were correct and canonical compact-JSON canary later passed",
+      "job_id": "local_55e91d78abd84491"
     },
     {
-      "issue": "Pinned tokenizer-only local probe could not run because this isolated local environment lacks the Hugging Face Qwen3 tokenizer cache and outbound access is disabled. The already-reviewed frozen tokenizer constants/design authority were unchanged; no model was loaded.",
-      "job_id": "local_ce3ae70716604764",
-      "scientific_effect": "NONE"
+      "issue": "unittest discovery found zero pytest-style plain functions; explicit function runner later passed all tests",
+      "job_id": "local_9dd2f3702387418e"
+    },
+    {
+      "issue": "final hash guard correctly detected detached A2 hardening changed source after initial audit; no commit occurred; final audit regenerated after hardening completed",
+      "job_id": "local_9a5cdb55b7c24115"
     }
   ],
   "verification": {
     "a4_only_selection_a5_same_point_no_reselection_test_pass": true,
-    "authority_before_model_load_guard_pass": true,
     "authority_hash_baseline_pass": true,
     "bash_syntax_pass": true,
-    "confirmation_all20_denominator_tamper_guard_pass": true,
+    "confirmation_denominator_fail_closed_test_pass": true,
     "confirmation_holm_two_coprimary_test_pass": true,
     "design_tests_explicit": {
       "passed": 13,
       "total": 13
     },
-    "execution_provenance_full_stack_hash_fields_pass": true,
     "false_pass_sign_asymmetry_guard_pass": true,
-    "first20_no_replacement_synthetic_scan_pass": true,
-    "four_segment_derangement_before_padding_test_pass": true,
+    "first20_scan_synthetic_test_pass": true,
+    "future_derangement_four_segments_before_padding_test_pass": true,
     "future_token_derangement_counts": {
       "all_equal_fail_closed": 27,
       "constructible": 88542,
@@ -115,17 +117,9 @@
       "passed": 15,
       "total": 15
     },
-    "localcontinuation_population_selector": {
-      "passed": 11,
-      "total": 11
-    },
     "localcontinuation_v2_controls": {
       "passed": 14,
       "total": 14
-    },
-    "localcontinuation_v2_execution_handoff": {
-      "passed": 9,
-      "total": 9
     },
     "next_divergent_action_only_neutral_branch5_geometry_test_pass": true,
     "population_byte_identical": true,
@@ -134,17 +128,17 @@
     "preflight_model_loads": 0,
     "preflight_status": "READY_NO_SCIENCE",
     "py_compile_pass": true,
-    "random_canary_and_zero_pass": true,
-    "science_launcher_exact_commit_and_hash_binding_guard_pass": true,
-    "split_static_audit_pass": true,
+    "random_source_and_repair_hash_fail_closed": true,
+    "split_and_launcher_static_audit_pass": true,
     "tamper_fail_closed_test_pass": true
   },
   "verification_jobs": [
-    "local_0317766b753a4f1e",
-    "local_36193d7c568a4781",
-    "local_ce3ae70716604764",
-    "local_9a27990b8f0f4c9d",
-    "local_e885e44017c546b0"
+    "local_9ff9db29c06543e2",
+    "local_8e0520945d524e16",
+    "local_f1f6b6b2cd504821",
+    "local_4647ee6c22744af1",
+    "local_38f12ad487864b91",
+    "local_8f6c393df7b04d6a"
   ],
   "work_item_id": "82103679-4ec9-4d2e-a40d-8f9c657132fd"
 }
