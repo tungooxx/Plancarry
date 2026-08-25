@@ -1,0 +1,39 @@
+{
+  "base_commit": "b547688efe337b32c02282b0e1efa124f0c40247",
+  "component_sha256": {
+    "plancarry_planunique_composed_authority_a2_20260825.json": "cc8b88153f43a6def42d1197e77381f840ed7ab83cbafb9611dff201028e9a2a",
+    "plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json": "08a728e09817ffcdb5c33305dcaa383c12bf97feffbdab6af6bca76a4701d0b2",
+    "plancarry_planunique_orthogonal_residual_v1_1_prereg_20260825.json": "2b2f955156b2b9ec0643774d6bb7e4674476f7707dfa0a0a11e48bc14433c2c5",
+    "plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json": "ff2fb78444cadab2a52680713cdd7e0e2e13d35a94438df1ee5967795103d631",
+    "plancarry_planunique_orthogonal_residual_v1_1_static_audit_20260825.json": "5502379f6ca141460a877bce96a1534ba83b17279eeed742bd5c931d7bbdd160",
+    "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+  },
+  "environment_execution": 0,
+  "final_authority_manifest_sha256": "955eaa40ca89494443830f5515c014a4b2f30498c150655e408575efc32fa79f",
+  "final_independent_review_required": true,
+  "future_split_accessed": false,
+  "gpu_science": false,
+  "implementation_authorized": false,
+  "kind": "PLANCARRY_PLANUNIQUE_FINAL_AUTHORITY_V1_2_COMPOSITION_AUDIT",
+  "merge_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "merge_method": "recursive semantic union of the two independently reviewed parent deltas, resolving only dependent hash/provenance conflicts and recomputing final component hashes",
+  "metadata_pending_flag_false": true,
+  "metadata_repair_commit": "ab267817ebe040e9c5ef2a73d06e377c3028d26b",
+  "model_calls": 0,
+  "normalization_revise_provenance_retained": true,
+  "overlap_conflicts_resolved_as_dependent_metadata": [
+    "composed_hashes.prereg",
+    "composed_hashes.static_audit",
+    "composed.validation_summary",
+    "prereg.pre_science_requirements",
+    "static.artifact_sha256[prereg]"
+  ],
+  "population_byte_identical": true,
+  "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+  "random_control_canary_retained": true,
+  "random_control_exact_v2_direction_retained": true,
+  "random_repair_commit": "562f89e9c56e45db710aab76085f2882040af9cc",
+  "science_bearing_conflict_detected": false,
+  "scientific_variables_changed": [],
+  "work_item_id": "a22fa222-fb84-4298-b66b-49226068a582"
+}
