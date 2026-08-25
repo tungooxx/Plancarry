@@ -96,7 +96,19 @@
     "primary": "GROUNDED_MODEL_PLAN_TEXT"
   },
   "population_file": "plancarry_action_matched_grounded_v2_fresh_population_20260825.json",
-  "population_sha256": "d65660571bbbff9cbb31bae3e32535ea9e37f7baa5735a6af4e2274d4405080f",
+  "population_repair": {
+    "activation_outcomes_accessed": false,
+    "environment_execution": 0,
+    "excluded_union_count": 593,
+    "fresh_capacity": 197,
+    "model_calls": 0,
+    "new_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "old_population_sha256": "d65660571bbbff9cbb31bae3e32535ea9e37f7baa5735a6af4e2274d4405080f",
+    "selected": 160,
+    "spare": 37,
+    "status": "PRE_SCIENCE_EXPOSURE_REPAIR"
+  },
+  "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
   "prohibitions": [
     "No ActionMatched-v1 consumed paths or old future splits.",
     "No activation outcome in pair construction/eligibility.",

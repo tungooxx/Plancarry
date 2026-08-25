@@ -1,0 +1,60 @@
+{
+  "activation_outcomes_accessed": false,
+  "causal_grid_changed": false,
+  "controls_changed": false,
+  "design_tests_sha256": "d7898a41f05508974f8600dd6bf60bf12bc28caa396e15464e8f34941f925fd3",
+  "environment_execution": 0,
+  "excluded_union_count": 593,
+  "fresh_capacity": 197,
+  "future_split_outcomes_accessed": false,
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_POPULATION_EXPOSURE_REPAIR_AUDIT",
+  "model_calls": 0,
+  "model_runtime_changed": false,
+  "new_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "new_prereg_sha256": "6a64de815ac9088a552bb437dca9bcc0605d6327b7d03233ac170429a12b3e75",
+  "new_static_audit_sha256": "8c9ce78bb2fa84499109f2641448c2c9d7fb4d059536c1f6ae19c5da229589b5",
+  "old_population_sha256": "d65660571bbbff9cbb31bae3e32535ea9e37f7baa5735a6af4e2274d4405080f",
+  "old_prereg_sha256": "a5ae5f9f95ba79350bda4c13e4ee007e3c57e15fd8f70660cec8545e3b22620f",
+  "pair_construction_changed": false,
+  "scientific_variables_changed": [
+    "population paths only, prospectively repaired for exposure disjointness"
+  ],
+  "selected_n": 160,
+  "selected_overlap": 0,
+  "source_commit": "c067602ce4fe385e3d27e0188ed2920dbb011d22",
+  "sources": [
+    {
+      "exact_paths": 266,
+      "file": "plancarry_localcontinuation_exposed_paths_v1_20260823.json",
+      "name": "historical_exposed",
+      "sha256": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json",
+      "name": "localcontinuation_v1_selected",
+      "sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+      "name": "localcontinuation_v2_selected",
+      "sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+      "name": "planunique_v1_selected",
+      "sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+    },
+    {
+      "exact_paths": 160,
+      "file": "plancarry_action_matched_future_plan_population_v1_20260825.json",
+      "name": "actionmatched_v1_selected",
+      "sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7"
+    }
+  ],
+  "spare_n": 37,
+  "status": "PRE_SCIENCE_REPAIRED",
+  "thresholds_changed": false
+}

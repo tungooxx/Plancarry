@@ -1,7 +1,9 @@
 {
   "checks": {
     "a5_distinct_required": true,
+    "design_tests_pass": true,
     "development_64_confirmation64_reserve32": true,
+    "fresh_capacity_exactly_197": true,
     "fresh_capacity_ge160": true,
     "future_action_sequence_control_present": true,
     "next_action_control_present": true,
@@ -11,15 +13,29 @@
     "no_score_gap_filter": "No score-gap filter is allowed; avoids outcome-independent but selective naturality filtering and preserves fixed population.",
     "orientation_hash_randomized": true,
     "population_disjoint_exposure": true,
+    "population_disjoint_historical_and_all_selected_lineages": true,
     "population_selected_160": true,
-    "population_unique": true
+    "population_unique": true,
+    "selected160_from_fresh_tail": true,
+    "spare_after_selection_37": true
   },
+  "design_tests_sha256": "d7898a41f05508974f8600dd6bf60bf12bc28caa396e15464e8f34941f925fd3",
   "environment_execution": 0,
+  "exposure_repair": {
+    "detected_pre_science": true,
+    "excluded_union_count": 593,
+    "excluded_union_sha256": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+    "fresh_capacity": 197,
+    "old_population_sha256": "d65660571bbbff9cbb31bae3e32535ea9e37f7baa5735a6af4e2274d4405080f",
+    "old_prereg_sha256": "a5ae5f9f95ba79350bda4c13e4ee007e3c57e15fd8f70660cec8545e3b22620f",
+    "old_static_audit_sha256": "0ab6967bd2733482480f23924da5bcfb6a38794008706220b7f2c00126283eae",
+    "selected_overlap": 0
+  },
   "future_split_outcomes_accessed": false,
   "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_STATIC_AUDIT",
   "model_calls": 0,
-  "population_sha256": "d65660571bbbff9cbb31bae3e32535ea9e37f7baa5735a6af4e2274d4405080f",
-  "prereg_sha256": "a5ae5f9f95ba79350bda4c13e4ee007e3c57e15fd8f70660cec8545e3b22620f",
+  "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "prereg_sha256": "6a64de815ac9088a552bb437dca9bcc0605d6327b7d03233ac170429a12b3e75",
   "scientific_variables_changed_from_v1": [
     "pair_constructibility_object: open-loop predicted future actions -> environment-grounded admissible branches",
     "plan representation adds grounded realization and FUTURE_ACTION_SEQUENCE_ONLY control",

@@ -1,0 +1,45 @@
+{
+  "adversarial_cases": [
+    {
+      "case": "rank1_much_more_likely_than_rank2",
+      "guard": "A/B orientation is independent SHA256(path) bit and causal effects are arm-minus-NO_PATCH; persist rank gap and orientation-stratified effects, no score-gap selection."
+    },
+    {
+      "case": "A4_B4_distinct_but_A5_equals_B5",
+      "guard": "constructibility-ineligible before causal capture; no retry/replacement."
+    },
+    {
+      "case": "ACTIVE_only_encodes_exact_future_actions",
+      "guard": "FUTURE_ACTION_SEQUENCE_ONLY specificity control prevents semantic-plan-language claim."
+    },
+    {
+      "case": "ACTIVE_only_encodes_immediate_A4_identity",
+      "guard": "NEXT_DIVERGENT_ACTION_ONLY specificity control prevents future-plan claim beyond immediate divergent action."
+    },
+    {
+      "case": "plan_realization_fails_or_omits_frozen_action",
+      "guard": "family ineligible pre-causal with no retry; cannot search alternate plan text."
+    }
+  ],
+  "checks": {
+    "activation_outcomes_excluded_from_pair_construction": true,
+    "development_only_future_splits_locked": true,
+    "fresh_capacity197_ge160": true,
+    "future_action_sequence_control_present": true,
+    "immediate_action_control_present": true,
+    "no_pair_retry_or_replacement": true,
+    "no_score_gap_selection_filter": true,
+    "orientation_count_0": 79,
+    "orientation_count_1": 81,
+    "orientation_has_both_labels": true,
+    "orientation_is_path_hash_only": true,
+    "pair_candidates_unordered_before_orientation": true,
+    "selected160_disjoint_exact_excluded_union": true,
+    "selected160_unique": true,
+    "spare37": true
+  },
+  "environment_execution": 0,
+  "future_split_outcomes_accessed": false,
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_DESIGN_TESTS",
+  "model_calls": 0
+}
