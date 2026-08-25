@@ -1,0 +1,89 @@
+{
+  "artifact_type": "INDEPENDENT_IMPLEMENTATION_REVIEW",
+  "authorization_boundary": "PASS authorizes only a later prospective science-ready authority completion step. It does not authorize Experiment registration, ResearchDecision creation, model/environment science, confirmation/reserve/valid access, or provider lifecycle.",
+  "base_design_commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+  "engineering_result_id": "2e92eb0f-c412-42e5-9df1-5ca56f1a5ee5",
+  "engineering_task_id": "a582f95e-a11f-41d8-a6ea-b650be63f9db",
+  "implementation_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "implementation_commit": "94c1560220ee1c50dad7987df41dbc5eb9d0ca71",
+  "implementation_tree": "f096b0a9b822752c594350a5911f4d2db4a46d45",
+  "implementation_work_item_id": "81e2d7a0-5c12-4443-99a8-84ad6c18fdd9",
+  "project": "PlanCarry: LLM Plan-State Persistence",
+  "review_harness_notes": [
+    "Initial isolated archive invocation produced one non-implementation error because the population test intentionally invokes git show and the archive had no .git metadata; the exact suite was rerun against the same immutable module with GIT_DIR/GIT_WORK_TREE bound to the source repository and passed 19/19.",
+    "A second unittest absolute-path invocation failed at CLI test discovery before test execution; it was discarded as harness-only and did not affect the final exact 19/19 result."
+  ],
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "science_execution_authorized": false,
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "PASS_FOR_ACTION_MATCHED_GROUNDED_V2_CONSTRUCTIBILITY_IMPLEMENTATION",
+  "verification": {
+    "diff_exact_added_files": [
+      "action_matched_grounded_v2_constructibility.py",
+      "test_action_matched_grounded_v2_constructibility.py",
+      "results/design/plancarry_action_matched_grounded_v2_constructibility_engineering_a4_20260825.json"
+    ],
+    "frozen_design_hashes_byte_identical": {
+      "design_tests": "d7898a41f05508974f8600dd6bf60bf12bc28caa396e15464e8f34941f925fd3",
+      "exposure_repair": "dafcbc916144007151fec671dfea7038b322e9225b5b708dfd67a77b31e39aee",
+      "population": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+      "prereg": "6a64de815ac9088a552bb437dca9bcc0605d6327b7d03233ac170429a12b3e75",
+      "static": "8c9ce78bb2fa84499109f2641448c2c9d7fb4d059536c1f6ae19c5da229589b5"
+    },
+    "implementation_hashes": {
+      "engineering_audit": "cd5b12d78c44b8a03e759f35679d41aff0733a2bbc7deec6269366692a7b38be",
+      "source": "72459bd19f68a35bbc25e57671658689012748ff89d332ed2058d6bd7a212e42",
+      "tests": "490d6f52233d0088a68aa1e3c713a1a406a3f4ac2ae1d2a57892d72c275e13cf"
+    },
+    "population_reconstruction": {
+      "exclusion_union": 593,
+      "exclusion_union_canonical_json_sha256": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+      "fresh": 197,
+      "historical_actionmatched_v1_population_commit": "8d9ae9a2ee108becae26b3b9e1445ecd77209475",
+      "historical_actionmatched_v1_population_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+      "inventory": 790,
+      "orientation_one": 81,
+      "orientation_zero": 79,
+      "selected": 160,
+      "selected_exclusion_overlap": 0,
+      "spare": 37
+    },
+    "provenance_fail_closed": [
+      "exactly_two_nonempty_model_own_pre_cut_actions",
+      "executed_shared_A3_equals_frozen_greedy_rank1",
+      "post_A3_score_map_exactly_matches_current_admissibles",
+      "unordered_A4_B4_top2_frozen_before_path_hash_orientation",
+      "executed_branch_A4_B4_match_oriented_pair",
+      "branch_local_A5_B5_from_current_admissibles_and_scores",
+      "A5_not_equal_B5",
+      "stale_or_incomplete_score_maps_rejected",
+      "score_gap_filtering_rejected",
+      "pair_retry_or_replacement_rejected",
+      "activation_outcomes_rejected_during_construction",
+      "missing_or_tampered_provenance_rejected"
+    ],
+    "py_compile": "PASS",
+    "scope_guard": {
+      "SCIENCE_EXECUTION_FORBIDDEN": true,
+      "control_concepts": [
+        "NEXT_DIVERGENT_ACTION_ONLY",
+        "FUTURE_ACTION_SEQUENCE_ONLY"
+      ],
+      "scientific_variables_changed": [],
+      "unresolved_science_authority": [
+        "H4_H5_exact_endpoint_tests",
+        "Holm_FWER_and_exact_effect_competence_thresholds",
+        "orientation_robust_semantic_nuisance_scoring",
+        "exact_token_and_control_serialization",
+        "development_selection_tie_break",
+        "exact_plan_realization_prompt_chat_template_parser_failure_behavior",
+        "exact_control_formulas_norm_sign_and_endpoints"
+      ]
+    },
+    "unittest": {
+      "passed": 19,
+      "total": 19
+    }
+  },
+  "work_item_id": "723a6bc7-4fd0-414e-b31d-6afe2691c540"
+}
