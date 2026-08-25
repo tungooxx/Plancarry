@@ -1,0 +1,179 @@
+{
+  "payload": {
+    "all_grid_aggregates": [
+      {
+        "alpha": 0.25,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5309398849966156,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5306011730104312,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 7,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5288429273451052,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5515624101543022,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5635092787112836,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 14,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5700751878107788,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5578944640530235,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.5562567128493903,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 21,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.563082173430725,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.25,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 0.5,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      },
+      {
+        "alpha": 1.0,
+        "layer": 27,
+        "mean_active_msa2": 0.78125,
+        "median_active_msa2": 1.0,
+        "median_active_reference_action_margin_family": 1.555446206527205,
+        "median_joint_margin_ms": 0.0,
+        "qualified_count": 32,
+        "zero_raw_residual_count": 0
+      }
+    ],
+    "canonical_experiment_id": "a8206dc6-4e35-4c3c-a250-40739f5762d8",
+    "canonical_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+    "denominator": 32,
+    "design_commit": "d538f98f9860319a57a0f3db4952fdcd7b7f2ebd",
+    "final_prereg_sha256": "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716",
+    "interpretation_boundaries": {
+      "causal_refutation_claim_permitted": false,
+      "causal_support_claim_permitted": false,
+      "confirmation_accessed": false,
+      "confirmation_unlock_permitted": false,
+      "development_only": true,
+      "reason": "Frozen development futility criterion median_joint_margin_ms>=0.05 was missed at every point.",
+      "reserve_accessed": false,
+      "valid_seen_accessed": false,
+      "valid_unseen_accessed": false
+    },
+    "kind": "PLANCARRY_LOCALCONTINUATION_V2_FULL_GRID_REPORTING_PROVENANCE_V1",
+    "negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+    "paper_wording_guardrails": [
+      "Say: all 32 development families qualified, but the preregistered plan-specific development margin was zero at every layer/alpha point.",
+      "Say: layer14/alpha1.0 was mechanically selected by the frozen tie-break after all primary selection quantities tied.",
+      "Do not say: layer14/alpha1.0 was causally best.",
+      "Do not say: development supported or refuted persistent plan-state causality.",
+      "Do not imply confirmation, reserve, valid_seen, or valid_unseen were accessed."
+    ],
+    "population_manifest_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "qualified_count": 32,
+    "reporting_only": true,
+    "scientific_role": "DEVELOPMENT_ONLY_OPERATING_POINT_SELECTION_NOT_HYPOTHESIS_ASSESSMENT",
+    "selected_candidate": {
+      "alpha": 1.0,
+      "layer": 14,
+      "mean_active_msa2": 0.78125,
+      "median_active_msa2": 1.0,
+      "median_active_reference_action_margin_family": 1.5700751878107788,
+      "median_joint_margin_ms": 0.0,
+      "qualified_count": 32,
+      "zero_raw_residual_count": 0
+    },
+    "selection_rationale": [
+      "All 12 points tie on median_joint_margin_ms=0.0.",
+      "All 12 points tie on median_active_msa2=1.0.",
+      "Layer14/alpha1.0 wins only the next preregistered tie-break: highest median_active_reference_action_margin_family=1.5700751878107788.",
+      "Therefore the selected point must not be described as causally best or as having positive specificity."
+    ],
+    "selection_rule": "Maximize median joint_margin_ms over the exact same Stage2-qualified development families; tie-break higher median ACTIVE MSA2, then higher median ACTIVE reference_action_margin_family, then lower alpha, then earlier layer.",
+    "source_crosscheck": {
+      "experiment_selection_rule_match": true,
+      "run_terminal_payload_match": true,
+      "selected_candidate_reconstructed": true
+    },
+    "terminal_status": "INCONCLUSIVE_LOCALCONTINUATION_V2_DEVELOPMENT_FUTILITY"
+  },
+  "payload_sha256": "7bc5ccbfab1278c0ae8f29783591d1afef5ae9c87d962286039101c967b7e83e"
+}
