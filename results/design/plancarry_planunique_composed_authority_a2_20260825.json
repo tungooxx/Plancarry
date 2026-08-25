@@ -1,0 +1,74 @@
+{
+  "anomaly_id": "abed9593-1d8b-4919-9034-cc04529cbe80",
+  "composed_hashes": {
+    "control": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "7429d800359d58d634a91ee3bd2c66dcef73715b92cbb8af2184a2ef44917c18",
+    "projection_property": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+    "static_audit": "12fdb6b11f2844d8844a973578b8bdbbf83e2db5759646bea41994c0aeb4c060"
+  },
+  "composition_author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "confirmation_accessed": false,
+  "date_utc": "2026-08-25",
+  "environment_execution": 0,
+  "fresh_independent_combined_review_required": true,
+  "game_files_opened": 0,
+  "gpu_lifecycle_actions": 0,
+  "kind": "PLANCARRY_PLANUNIQUE_COMPOSED_REPAIRED_AUTHORITY_A2_V1",
+  "model_calls": 0,
+  "new_files": [
+    "results/design/plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json",
+    "results/design/plancarry_planunique_orthogonal_residual_v1_1_prereg_20260825.json",
+    "results/design/plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json",
+    "results/design/plancarry_planunique_orthogonal_residual_v1_1_static_audit_20260825.json"
+  ],
+  "preserved_repaired_science": {
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "confirmation_estimand": "all20 lower-bound paired LCA2 means; Stage2-unqualified=-1.0 each contrast; zero-unique=min(observed,0); signs non-positive",
+    "deranged_scope": "PLAN_BLOCK_DERANGED may carry prospectively generated plan lexical multiset; no future environment observations or separately inserted exact post-cut reference action4/action5 IDs beyond plan content",
+    "development_denominator": "E_common frozen as sorted intersection of layer14/layer21 Stage2-constructible families before grid outcomes; >=24/32; identical indices all 8 grid points",
+    "layers": [
+      14,
+      21
+    ],
+    "population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "scientific_variables_changed": []
+  },
+  "reserve_accessed": false,
+  "resolved_normalization": {
+    "active_rule": "raw r_unique; no raw-plan/reference-norm amplification",
+    "correction_record_id": "f4be133a-a996-4d1a-873a-93268bfbdec0",
+    "independent_review_sha256": "690e01ef28509924bc04df408962d4ba283d05e1f244368ed4939baff07218b2",
+    "independent_review_work_item_id": "4ca391fc-8262-4cc2-8b75-85f644188068",
+    "matched_controls_rule": "target episode ||r_unique||",
+    "repair_commit": "4af7854d33e3cce2c16194032f8946da0671f802",
+    "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+    "source_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+    "zero_unique_rule": "<=1e-8 exact zero; retain family; no noise renormalization"
+  },
+  "review_work_item_id": "760f68df-8236-46ff-9eda-5b9382790656",
+  "scientific_result": "NOT_ASSESSED",
+  "source_files_modified": [],
+  "source_repaired_commit": "6682b6f29e13f46e96d5b98fb57337b3a55027dc",
+  "source_repaired_hashes": {
+    "control": "09bb65966a3296bd55a3eeb1fcc5c0dea7f524c487a911fe5fbebe64b294e9c4",
+    "population": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+    "prereg": "b22705c82ad8a710ecea2ff16444fb264865b178b40a72efe68fdeba2ac07b8a",
+    "projection_property": "657a6b633cc7670f804787011976221a7b527c4064e264cd1adc7c5f2efd2f43",
+    "static_audit": "d06518067fec54e04aed7007159a04a6cbfa4a0bbfe30a26c75b845401c2faaa"
+  },
+  "status": "FROZEN_PRE_SCIENCE_PENDING_INDEPENDENT_COMBINED_REVIEW",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "validation_jobs": [
+    "local_3dffda72318d4bc5",
+    "local_37e64d69512249ec"
+  ],
+  "validation_summary": "PASS: exact source hashes; repaired science-bearing fields equal 6682b6f; population unchanged; composed embedded hashes reproduce; JSON parse and git diff --check PASS; no model/environment/GPU/future-split access.",
+  "work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb"
+}

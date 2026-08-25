@@ -1,0 +1,139 @@
+{
+  "confirmation": {
+    "all20_primary_denominator_rule": "After the >=15/20 Stage1+Stage2 qualification gate passes, all 20 frozen confirmation indices remain in both primary sign-test denominators and the full-population mean-effect lower-bound denominators. For each Stage2-qualified nonzero-unique family, use the observed paired LCA2 contrasts d_no_patch=ACTIVE_LCA2-NO_PATCH_LCA2 and d_specificity=ACTIVE_LCA2-max_specificity_LCA2. For a Stage2-unqualified family, no causal rollout is imputed as observed; instead assign the mathematically conservative lower bound -1.0 to EACH LCA2 contrast for the all20 mean-effect calculation, because LCA2 is in {0,0.5,1} and any paired difference is bounded below by -1. The sign contribution is non-positive. For a zero-unique qualified family, the injected vector is exact zero and it cannot provide positive causal evidence: use min(observed d_no_patch,0) and min(observed d_specificity,0) in the all20 lower-bound means and count both signs non-positive. Thus lower_bound_mean_d_no_patch=sum(20 conservative family contributions)/20 and lower_bound_mean_d_specificity likewise. No deletion/replacement. This rule is deliberately stricter than zero imputation and supports only a lower-bound full-population effect claim.",
+    "continuous_margin": "secondary confirmation diagnostic only; cannot rescue behavioral null.",
+    "effect_denominator": "20 exactly after >=15/20 qualification gate; observed qualified contrasts plus frozen -1.0 lower-bound contrasts for Stage2-unqualified and non-positive-clipped contrasts for zero-unique families.",
+    "effect_estimand": "Full-20 conservative LOWER BOUND on mean paired LCA2 causal contrasts; it is not a zero-imputed mean. Stage2-unqualified contribution is -1.0 per contrast, the exact support lower bound.",
+    "effect_guards": [
+      "all20 conservative lower-bound mean LCA2 gain vs NO_PATCH >=0.10",
+      "all20 conservative lower-bound mean LCA2 gain vs max specificity control >=0.10",
+      "qualified-family valid-action rate not worse than NO_PATCH by >0.05"
+    ],
+    "gate": ">=15/20 Stage1+Stage2-qualified; all20 primary denominator after gate",
+    "operating_point": "exact development-selected layer/alpha and frozen projection/control contract; no retuning",
+    "population": "fresh successor indices32..51 only; never LocalContinuation-v2 confirmation/reserve",
+    "primary": "autonomous first-action-excluded LCA2 on reference actions4/5 requiring action identity AND pre-action world-state equality, identical to prior LocalContinuation behavioral interpretation.",
+    "sign_test_zero_rule": "Positive count is strict observed paired contrast >0 among all20; Stage2-unqualified and zero-unique families are forced non-positive. Two exact one-sided sign/binomial tests retain all20 denominator.",
+    "task_success": "secondary qualified-only descriptive endpoint; cannot rescue primary null.",
+    "tests": "Two exact one-sided paired sign/binomial tests: PLAN_UNIQUE vs NO_PATCH and PLAN_UNIQUE vs per-family max specificity control, Holm FWER 0.05.",
+    "valid_action_rate_denominator": "Stage2-qualified families only; competence guard cannot rescue failed all20 causal tests/effect guards."
+  },
+  "control_contract_file": "plancarry_planunique_orthogonal_residual_v1_1_control_contract_20260825.json",
+  "control_contract_sha256": "3f724952b0fdf8dbd71eb438a684fce7e2d2fcdf805d49e1ca3fd94f2cb7cb13",
+  "date_utc": "2026-08-24",
+  "development": {
+    "alpha_rationale": "r_unique is intentionally not amplified back to raw-plan norm; scales through 4x allow a bounded sensitivity test while matched controls retain identical unique-norm scaling.",
+    "alphas": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "common_denominator_rule": "Freeze one common development denominator E_common BEFORE any layer/alpha outcome evaluation. First run the unchanged Stage1 gate on all fixed development indices0..31. For every Stage1-eligible family, construct the frozen source/projection/control material independently at BOTH candidate layers14 and21 using the same pre-outcome rules. A family enters E_common iff it is Stage2-constructible at every candidate layer: projection succeeds, zero-unique is allowed as exact-zero intervention, and whenever ||r_unique||>1e-8 every required matched source-control vector is nonzero and norm-matchable at both layers. E_common is the sorted intersection of the two layer-constructible index sets, frozen once before the causal grid. Require |E_common|>=24/32; otherwise stop INCONCLUSIVE_PLANUNIQUE_COMMON_DENOMINATOR_CONSTRUCTIBILITY with no grid and no confirmation. Every one of the 8 layer×alpha grid points MUST contain exactly E_common, and all medians, positive fractions, MSA2 competence means and selection tie-break statistics use exactly that same indexed denominator. After E_common freeze, any missing/failed family at any grid point is TECHNICAL_INVALID for the development execution; it may not be dropped, replaced, or converted into a layer-specific denominator. Operational ordering is fail-closed and non-circular: first freeze E_stage1 from all32 under unchanged Stage1 rules; then choose every unrelated-plan donor deterministically from E_stage1 using the inherited next-different-family rule, independent of later Stage2/common-denominator membership; then construct both candidate layers and freeze E_common. A donor need only have frozen Stage1 plan/source material, not membership in E_common.",
+    "definition": "Same matched-state two-position source as v2 reference_action_margin_family: after exact teacher-forced reference action3/obs3 and action4/obs4 through the same persistent session, at reference actions4 and5 compute mean_logprob(reference)-max mean_logprob(other admissible action); family value is mean of the two margins.",
+    "futility": "If qualification or any pass-gate clause fails, stop DEVELOPMENT_FUTILITY; do not open confirmation.",
+    "layer_rationale": "Post-terminal v2 development diagnostics: layer27 was exactly intervention-inert; layer7 was predominantly non-specific/negative; layers14/21 were the only sites with repeated small positive active-vs-no-patch continuous deltas. This is transparent development-informed narrowing; all successor outcome data are fresh.",
+    "layers": [
+      14,
+      21
+    ],
+    "name": "RAM2_CONTINUOUS",
+    "pass_gate": {
+      "competence": "mean matched-state MSA2(PLAN_UNIQUE) >= mean MSA2(NO_PATCH)-0.05",
+      "denominator": "exact frozen E_common at every layer/alpha; all candidate points use identical indices",
+      "median_joint_margin_nats": ">=0.05",
+      "plumbing": "all zero/self sentinels pass",
+      "positive_joint_fraction": ">=0.625 of qualified families"
+    },
+    "per_family_deltas": {
+      "d_no_patch": "RAM2(PLAN_UNIQUE)-RAM2(NO_PATCH)",
+      "d_specificity": "RAM2(PLAN_UNIQUE)-max RAM2(all specificity controls)",
+      "joint_margin": "min(d_no_patch,d_specificity)"
+    },
+    "qualification_gate": ">=24/32 in frozen E_common defined by common_denominator_rule; no layer-specific qualification denominator is permitted.",
+    "selection": "Choose one global layer/alpha maximizing median joint_margin; ties: higher fraction joint_margin>0, higher median d_no_patch, lower alpha, earlier layer."
+  },
+  "environment_execution_in_this_design": 0,
+  "fresh_population_file": "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+  "fresh_population_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+  "frozen_model_runtime": {
+    "alfworld": "0.4.2",
+    "dtype": "BF16",
+    "model": "Qwen/Qwen3-1.7B",
+    "offload": false,
+    "quantization": false,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "textworld": "1.7.0",
+    "thinking": false,
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+  "isolation": {
+    "confirmation_indices": "32..51 untouched until dev pass",
+    "development_indices": "0..31",
+    "reserve_indices": "52..63 locked until primary support",
+    "v2_all64_excluded": true,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_1_FINAL_PREREG",
+  "model_calls_in_this_design": 0,
+  "parent_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "pre_science_requirements": [
+    "Deterministic synthetic projection property test PASS bound by 7af8b7bd69f504967c621ffcbe61f50c6e0081e2f76cc7393badbf6adbed8a79; includes collinear/rank-deficient/zero vectors and zero-norm equal-control constructibility semantics.",
+    "Exact fresh-population reconstruction and overlap audit",
+    "Static no-future-action leakage audit",
+    "Implementation diff review showing only successor-specific vector/readout additions and preserved v2 runtime/reset/token geometry",
+    "Fresh independent prereg review",
+    "Fresh independent executable-readiness review before Experiment registration/execution",
+    "Freeze and content-hash E_common as the intersection of Stage2-constructible families across BOTH layers14/21 before any layer/alpha outcome evaluation; require >=24/32 and identical family indices at all 8 grid points.",
+    "Independent reviewer must verify all20 confirmation lower-bound semantics: Stage2-unqualified contributes -1.0 to each LCA2 mean-effect contrast and non-positive sign; zero-unique contributes min(observed,0); lower-bound means and sign tests retain n=20 after >=15/20 gate.",
+    "Normalization CorrectionCase b78168b2-0d59-40a1-ac07-783ad467bcf4 is resolved REVISE by CorrectionRecord f4be133a-a996-4d1a-873a-93268bfbdec0; replacement Hypothesis 8a7c084c-7690-44e5-98ba-1e3d79f20f9d freezes ACTIVE=raw r_unique with no raw/reference-norm amplification. Fresh combined-authority review remains required before engineering."
+  ],
+  "prohibited_rescues": [
+    "No reuse/opening of LocalContinuation-v2 confirmation32..51 or reserve52..63",
+    "No valid_seen/unseen access",
+    "No outcome-dependent nuisance-basis edits",
+    "No family replacement/filtering after source capture",
+    "No threshold/grid/model/task-family rescue",
+    "No reinterpretation of completed v2 continuous margins as confirmation evidence",
+    "No confirmation if fresh development pass gate fails",
+    "No layer-specific development denominators or post-grid family dropping; E_common is frozen before grid outcomes.",
+    "No zero imputation for Stage2-unqualified confirmation mean-effect guards; use the frozen -1.0 LCA2 contrast lower bound.",
+    "No representation of PLAN_BLOCK_DERANGED as future-token-free: its prospectively generated plan lexical multiset is intentionally part of the nuisance."
+  ],
+  "projection_contract": "Bound verbatim by control_contract_sha256; fixed nuisance order NEXT_ACTION_PRESERVED_LATE_NULL, PAST_ACTIONS_ONLY, PLAN_BLOCK_DERANGED; CPU-float64 fixed-order Gram-Schmidt; raw orthogonal component; zero-unique retained. Development uses one frozen E_common constructible at both candidate layers before any grid outcomes; every layer/alpha uses identical indices. PLAN_BLOCK_DERANGED intentionally carries the plan lexical multiset as an order/lexical nuisance; no future observations or separately inserted exact reference action4/action5 IDs enter beyond prospectively generated plan content.",
+  "projection_property_test_file": "plancarry_planunique_orthogonal_residual_v1_1_projection_property_test_20260825.json",
+  "projection_property_test_sha256": "48f7487aa6938c60de5697ff3245dd6c467635379393ff62385423a6e292f72a",
+  "repair_provenance": {
+    "composition_anomaly_id": "abed9593-1d8b-4919-9034-cc04529cbe80",
+    "composition_work_item_id": "afe47f99-cbf9-446c-b1ac-93ba1eabebbb",
+    "failed_review_sha256": "7cbd89b343ba597835ce12b42b67e199a292c8f4ae5a40254f109246ee6c3762",
+    "failed_review_work_item_id": "f22941ef-5656-4b42-813b-038e01d6f5ff",
+    "normalization_authority_changed": false,
+    "normalization_correction_record_id": "f4be133a-a996-4d1a-873a-93268bfbdec0",
+    "normalization_independent_review_sha256": "690e01ef28509924bc04df408962d4ba283d05e1f244368ed4939baff07218b2",
+    "normalization_independent_review_work_item_id": "4ca391fc-8262-4cc2-8b75-85f644188068",
+    "normalization_repair_commit": "4af7854d33e3cce2c16194032f8946da0671f802",
+    "population_changed": false,
+    "repairs": [
+      "COMMON_DEVELOPMENT_DENOMINATOR",
+      "CONFIRMATION_FULL20_LOWER_BOUND_ESTIMAND",
+      "DERANGED_NUISANCE_SCOPE_WORDING"
+    ],
+    "replacement_hypothesis_id": "8a7c084c-7690-44e5-98ba-1e3d79f20f9d",
+    "scientific_variables_changed": [],
+    "work_item_id": "d2772998-1910-41da-81fa-aecfeccd03fc"
+  },
+  "scientific_outcomes_accessed_in_this_design": [
+    "Completed LocalContinuation-v2 DEVELOPMENT only; used prospectively to motivate successor. No old confirmation/reserve/valid outcome accessed."
+  ],
+  "scientific_role": "DEVELOPMENT_SELECTION_THEN_UNTOUCHED_BEHAVIORAL_CONFIRMATION",
+  "source_hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "source_negative_result_id": "4a591fe9-d60d-42fc-9b37-ac7c808796c8",
+  "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
+  "stage1_and_token_geometry": "Reuse exact independently reviewed LocalContinuation-v2 five-action local-reference eligibility, true reset/cut after action2, stored pre-E semantic token IDs, exact128 direct-ID replay geometry, donor-after-E rule, and no-replacement semantics. The new scientific change begins only after v2-compatible source residuals are captured. For this successor, freeze E_stage1 first, select unrelated donors deterministically from E_stage1, then compute per-layer Stage2 constructibility and E_common; donor choice never depends on E_common.",
+  "status": "FROZEN_PRE_SCIENCE_COMPOSED_AUTHORITY_PENDING_FRESH_REVIEW"
+}
