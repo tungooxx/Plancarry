@@ -23,14 +23,15 @@ def test_pair_semantics():
     assert P['primary_endpoint']['immediate_action_excluded'] is True
 def test_bidirectional_metric_math():
     # Synthetic A-oriented effect: +r favors A, -r favors B, nuisances small.
-    m0=0.10; mp=0.30; mm=-0.15; rplus=0.13; rminus=0.07; unrel=0.11; action=0.09; der=0.12; a4only=0.115
+    m0=0.10; mp=0.30; mm=-0.15; rplus=0.13; rminus=0.07
+    unrel_p=0.11; unrel_m=0.09; action_p=0.09; action_m=0.105; der_p=0.12; der_m=0.08; a4only_p=0.115; a4only_m=0.095
     forward=mp-m0; reverse=m0-mm; bid=min(forward,reverse)
-    nuisance=max(abs(rplus-rminus)/2,abs(unrel-m0),abs(action-m0),abs(der-m0),abs(a4only-m0))
+    nuisance=max(abs(rplus-rminus)/2,max(abs(unrel_p-m0),abs(unrel_m-m0)),max(abs(action_p-m0),abs(action_m-m0)),max(abs(der_p-m0),abs(der_m-m0)),max(abs(a4only_p-m0),abs(a4only_m-m0)))
     joint=bid-nuisance
     assert round(forward,6)==0.2 and round(reverse,6)==0.25 and joint>0.15
     # Saturated/invariant v2-like behavior must fail exactly.
-    m0=mp=mm=rplus=rminus=unrel=action=der=a4only=0.2
-    bid=min(mp-m0,m0-mm); nuisance=max(abs(rplus-rminus)/2,abs(unrel-m0),abs(action-m0),abs(der-m0),abs(a4only-m0))
+    m0=mp=mm=rplus=rminus=unrel_p=unrel_m=action_p=action_m=der_p=der_m=a4only_p=a4only_m=0.2
+    bid=min(mp-m0,m0-mm); nuisance=max(abs(rplus-rminus)/2,max(abs(unrel_p-m0),abs(unrel_m-m0)),max(abs(action_p-m0),abs(action_m-m0)),max(abs(der_p-m0),abs(der_m-m0)),max(abs(a4only_p-m0),abs(a4only_m-m0)))
     assert bid-nuisance==0.0
 def test_old_splits_prohibited():
     text='\n'.join(P['prohibitions'])
@@ -77,4 +78,30 @@ def test_repaired_multistep_scope_and_coprimary_math():
     assert 'Holm' in P['confirmation_policy']['primary_test'] and 'H4' in P['confirmation_policy']['primary_test'] and 'H5' in P['confirmation_policy']['primary_test']
     assert 'A5/B5 cannot select or retune' in P['development_selection']['pass_gate']
     assert '+RANDOM_EQ_NORM' in c['family_components']['random5']
-    assert '+UNRELATED_PAIR_RESIDUAL' in c['family_components']['unrelated5']
+    assert '+UNRELATED_PAIR_RESIDUAL' in c['family_components']['unrelated5'] and '-UNRELATED_PAIR_RESIDUAL' in c['family_components']['unrelated5']
+    assert '+NEXT_DIVERGENT_ACTION_ONLY' in fc['next_divergent_action_only_shift'] and '-NEXT_DIVERGENT_ACTION_ONLY' in fc['next_divergent_action_only_shift']
+
+def test_bidirectional_semantic_nuisance_sign_asymmetry_guard():
+    fc=P['primary_endpoint']['family_components']
+    c5=P['continuation5_coprimary']['family_components']
+    for key,name in [('unrelated_shift','UNRELATED_PAIR_RESIDUAL'),('action_history_shift','ACTION_HISTORY_MATCHED_NULL'),('deranged_shift','FUTURE_TOKEN_DERANGED'),('next_divergent_action_only_shift','NEXT_DIVERGENT_ACTION_ONLY')]:
+        assert ('+'+name) in fc[key] and ('-'+name) in fc[key]
+    for key,name in [('unrelated5','UNRELATED_PAIR_RESIDUAL'),('action_history5','ACTION_HISTORY_MATCHED_NULL'),('deranged5','FUTURE_TOKEN_DERANGED'),('next_divergent_action_only5','NEXT_DIVERGENT_ACTION_ONLY')]:
+        expr=c5[key]
+        assert ('qA(+'+name) in expr and ('qA(-'+name) in expr and ('qB(+'+name) in expr and ('qB(-'+name) in expr
+    # Exact A2 counterexample: bidirectional ACTIVE=.20; +C nuisance=.01 but omitted -C=.25.
+    active_bid=0.20; plus_shift=0.01; minus_shift=0.25
+    old_joint=active_bid-plus_shift
+    robust_joint=active_bid-max(plus_shift,minus_shift)
+    assert round(old_joint,6)==0.19
+    assert round(robust_joint,6)==-0.05 and robust_joint < 0.05
+    # Same failure mode for A5 across branch/sign states.
+    a5_active_bid=0.20
+    shifts=[0.01,0.25,0.02,0.03] # qA(+C), qA(-C), qB(+C), qB(-C) absolute shifts
+    old_joint5=a5_active_bid-max(shifts[0],shifts[2])
+    robust_joint5=a5_active_bid-max(shifts)
+    assert round(old_joint5,6)==0.18
+    assert round(robust_joint5,6)==-0.05 and robust_joint5 < 0.05
+    orient=P['nuisance_orientation_contract']
+    assert 'BOTH +alpha*C and -alpha*C' in orient['scope']
+    assert 'Missing either sign' in orient['fail_closed']

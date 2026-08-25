@@ -27,17 +27,17 @@
     "primary_test": "two required co-primary one-sided exact sign/binomial tests over the same all20 untouched eligible families: (H4) joint_future_margin and (H5) joint_continuation5; zeros count non-positive. Apply Holm step-down FWER 0.05 across H4/H5 and require each has >=15/20 positive, median joint margin>=0.05 and corresponding median bidirectional>=0.05. Both H4 and H5 must pass; continuous A4 evidence cannot rescue A5/B5 failure and vice versa."
   },
   "controls": {
-    "ACTION_HISTORY_MATCHED_NULL": "residual from source with common task/history/shared action3 present versus an exact-geometry source in which only the shared-action slot is replaced by frozen neutral IDs and both future slots are neutral; norm-match to active. This intentionally tests generic immediate-action/history steering rather than future-plan identity.",
+    "ACTION_HISTORY_MATCHED_NULL": "residual from source with common task/history/shared action3 present versus an exact-geometry source in which only the shared-action slot is replaced by frozen neutral IDs and both future slots are neutral; norm-match to active. This intentionally tests generic immediate-action/history steering rather than future-plan identity; norm-match to active and evaluate BOTH + and - orientations for specificity.",
     "BIDIRECTIONAL_ACTIVE": [
       "+alpha*r_AB",
       "-alpha*r_AB"
     ],
-    "FUTURE_TOKEN_DERANGED": "within each A/B future branch, deterministic strict token-value derangement of mutable A4/A5 or B4/B5 future IDs only, preserving segment lengths/multisets and common shared action3; fail closed if not constructible; residual norm-matched to active",
+    "FUTURE_TOKEN_DERANGED": "within each A/B future branch, deterministic strict token-value derangement of mutable A4/A5 or B4/B5 future IDs only, preserving segment lengths/multisets and common shared action3; fail closed if not constructible; residual norm-matched to active; evaluate BOTH + and - orientations and use the maximum absolute shift as nuisance.",
     "NO_PATCH": "no hook",
     "RANDOM_EQ_NORM": "deterministic SHA256-Rademacher vector, norm matched to raw r_AB before the same alpha, evaluate both signs",
-    "UNRELATED_PAIR_RESIDUAL": "deterministic next-different-family donor chosen only after the complete eligible development set is frozen; donor r_AB norm-matched to target; evaluate orientation-independent absolute shift as nuisance control",
+    "UNRELATED_PAIR_RESIDUAL": "deterministic next-different-family donor chosen only after the complete eligible development set is frozen; donor r_AB norm-matched to target; evaluate BOTH + and - orientations and use the maximum absolute shift as semantic nuisance.",
     "ZERO_ADD_SELF_REPLACE": "plumbing sentinels; maxabs <=1e-6",
-    "NEXT_DIVERGENT_ACTION_ONLY": "exact-geometry matched A-versus-B source residual that preserves ONLY the exact stored A4-versus-B4 token identity differential: use the same common prefix/history/shared-action3 IDs, same separators, same L4/L5 segment positions and same final SOURCE_END anchor as ACTIVE; slot4 is exact stored A4 or B4 IDs followed by the frozen neutral cycle to L4; slot5 is IDENTICAL on both sides and equals the frozen neutral cycle of exact length L5, so no A5/B5 token is present. No decode/re-tokenize; capture r_A4_ONLY=h_A4_ONLY-h_B4_ONLY at SOURCE_END, then norm-match to raw ACTIVE ||r_AB|| before the same alpha. If exact geometry/anchor/token-ID provenance cannot be constructed, the family is ineligible before E with no replacement."
+    "NEXT_DIVERGENT_ACTION_ONLY": "exact-geometry matched A-versus-B source residual that preserves ONLY the exact stored A4-versus-B4 token identity differential: use the same common prefix/history/shared-action3 IDs, same separators, same L4/L5 segment positions and same final SOURCE_END anchor as ACTIVE; slot4 is exact stored A4 or B4 IDs followed by the frozen neutral cycle to L4; slot5 is IDENTICAL on both sides and equals the frozen neutral cycle of exact length L5, so no A5/B5 token is present. No decode/re-tokenize; capture r_A4_ONLY=h_A4_ONLY-h_B4_ONLY at SOURCE_END, then norm-match to raw ACTIVE ||r_AB|| before the same alpha; evaluate BOTH + and - orientations for A4 and both signs on both A5 branch states. If exact geometry/anchor/token-ID provenance cannot be constructed, the family is ineligible before E with no replacement."
   },
   "cut_state": {
     "cut_after_action": 2,
@@ -131,15 +131,15 @@
   "primary_endpoint": {
     "candidate_scoring": "At the common post-shared-action3 state, score exact leading-space A4 and B4 candidate command IDs by FP32 arithmetic mean token log-probability without mutating the live cache. m(arm)=score(A4)-score(B4).",
     "family_components": {
-      "action_history_shift": "abs(m(+ACTION_HISTORY_MATCHED_NULL)-m(NO_PATCH))",
+      "action_history_shift": "max(abs(m(+ACTION_HISTORY_MATCHED_NULL)-m(NO_PATCH)),abs(m(-ACTION_HISTORY_MATCHED_NULL)-m(NO_PATCH)))",
       "bidirectional": "min(forward,reverse)",
-      "deranged_shift": "abs(m(+FUTURE_TOKEN_DERANGED)-m(NO_PATCH))",
+      "deranged_shift": "max(abs(m(+FUTURE_TOKEN_DERANGED)-m(NO_PATCH)),abs(m(-FUTURE_TOKEN_DERANGED)-m(NO_PATCH)))",
       "forward": "m(+ACTIVE)-m(NO_PATCH)",
       "joint_future_margin": "bidirectional-max(random_halfspan,unrelated_shift,action_history_shift,deranged_shift,next_divergent_action_only_shift)",
       "random_halfspan": "abs(m(+RANDOM)-m(-RANDOM))/2",
       "reverse": "m(NO_PATCH)-m(-ACTIVE)",
-      "unrelated_shift": "abs(m(+UNRELATED)-m(NO_PATCH))",
-      "next_divergent_action_only_shift": "abs(m(+NEXT_DIVERGENT_ACTION_ONLY)-m(NO_PATCH))"
+      "unrelated_shift": "max(abs(m(+UNRELATED_PAIR_RESIDUAL)-m(NO_PATCH)),abs(m(-UNRELATED_PAIR_RESIDUAL)-m(NO_PATCH)))",
+      "next_divergent_action_only_shift": "max(abs(m(+NEXT_DIVERGENT_ACTION_ONLY)-m(NO_PATCH)),abs(m(-NEXT_DIVERGENT_ACTION_ONLY)-m(NO_PATCH)))"
     },
     "immediate_action_excluded": true,
     "name": "BIDIRECTIONAL_FUTURE_BRANCH_MARGIN",
@@ -170,14 +170,25 @@
     "next_divergent_action_only_geometry": "Let L4=max(len(A4_ids),len(B4_ids)) and L5=max(len(A5_ids),len(B5_ids)) from the already stored pre-source action IDs. A4_ONLY_A uses exact A4_ids then deterministic neutral-cycle padding to L4, followed by N5=neutral_cycle[0:L5]. A4_ONLY_B uses exact B4_ids then deterministic neutral-cycle padding to L4, followed by the SAME N5. All common prefix/shared-action3/separators and SOURCE_END are byte/token-position identical to ACTIVE source geometry. Thus the paired source differs only in exact A4 versus B4 token identity and contains zero A5/B5-derived IDs."
   },
   "source_run_id": "95dc8efb-7704-40b9-a6a4-4c726f69267c",
-  "status": "FROZEN_PRE_SCIENCE_PENDING_INDEPENDENT_REVIEW",
+  "status": "FROZEN_PRE_SCIENCE_REPAIRED_BIDIRECTIONAL_NUISANCE_PENDING_FRESH_REVIEW",
   "repair_provenance": {
     "source_independent_review_work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
     "source_independent_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
     "repair_work_item_id": "06ede485-62aa-444a-ba49-599ff39392c8",
     "material_issue_repaired": "NEXT_DIVERGENT_ACTION_IDENTITY_CONFOUND",
     "population_changed": false,
-    "model_environment_execution": 0
+    "model_environment_execution": 0,
+    "bidirectional_nuisance_repair": {
+      "work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
+      "failed_review_work_item_id": "f2c0fd6b-ce3d-4e39-bd6a-8a3b2c8c476f",
+      "failed_review_sha256": "b09b2e37642f1e6d08d389959d1882efe5d374efc6403283148be58ee4848480",
+      "material_issue": "BIDIRECTIONAL_NUISANCE_SIGN_ASYMMETRY",
+      "population_changed": false,
+      "grid_changed": false,
+      "thresholds_changed": false,
+      "a5_coprimary_changed": false,
+      "semantic_change": "required semantic nuisance arms now evaluated at both vector signs; nuisance statistic is orientation-robust maximum absolute shift"
+    }
   },
   "continuation5_coprimary": {
     "name": "BIDIRECTIONAL_SECOND_FUTURE_ACTION_CONTINUATION",
@@ -189,14 +200,21 @@
       "reverse5": "qB(-ACTIVE)-qB(NO_PATCH)",
       "bidirectional5": "min(forward5,reverse5)",
       "random5": "max(abs(qA(+RANDOM_EQ_NORM)-qA(-RANDOM_EQ_NORM))/2,abs(qB(+RANDOM_EQ_NORM)-qB(-RANDOM_EQ_NORM))/2)",
-      "unrelated5": "max(abs(qA(+UNRELATED_PAIR_RESIDUAL)-qA(NO_PATCH)),abs(qB(+UNRELATED_PAIR_RESIDUAL)-qB(NO_PATCH)))",
-      "action_history5": "max(abs(qA(+ACTION_HISTORY_MATCHED_NULL)-qA(NO_PATCH)),abs(qB(+ACTION_HISTORY_MATCHED_NULL)-qB(NO_PATCH)))",
-      "deranged5": "max(abs(qA(+FUTURE_TOKEN_DERANGED)-qA(NO_PATCH)),abs(qB(+FUTURE_TOKEN_DERANGED)-qB(NO_PATCH)))",
-      "next_divergent_action_only5": "max(abs(qA(+NEXT_DIVERGENT_ACTION_ONLY)-qA(NO_PATCH)),abs(qB(+NEXT_DIVERGENT_ACTION_ONLY)-qB(NO_PATCH)))",
+      "unrelated5": "max(abs(qA(+UNRELATED_PAIR_RESIDUAL)-qA(NO_PATCH)),abs(qA(-UNRELATED_PAIR_RESIDUAL)-qA(NO_PATCH)),abs(qB(+UNRELATED_PAIR_RESIDUAL)-qB(NO_PATCH)),abs(qB(-UNRELATED_PAIR_RESIDUAL)-qB(NO_PATCH)))",
+      "action_history5": "max(abs(qA(+ACTION_HISTORY_MATCHED_NULL)-qA(NO_PATCH)),abs(qA(-ACTION_HISTORY_MATCHED_NULL)-qA(NO_PATCH)),abs(qB(+ACTION_HISTORY_MATCHED_NULL)-qB(NO_PATCH)),abs(qB(-ACTION_HISTORY_MATCHED_NULL)-qB(NO_PATCH)))",
+      "deranged5": "max(abs(qA(+FUTURE_TOKEN_DERANGED)-qA(NO_PATCH)),abs(qA(-FUTURE_TOKEN_DERANGED)-qA(NO_PATCH)),abs(qB(+FUTURE_TOKEN_DERANGED)-qB(NO_PATCH)),abs(qB(-FUTURE_TOKEN_DERANGED)-qB(NO_PATCH)))",
+      "next_divergent_action_only5": "max(abs(qA(+NEXT_DIVERGENT_ACTION_ONLY)-qA(NO_PATCH)),abs(qA(-NEXT_DIVERGENT_ACTION_ONLY)-qA(NO_PATCH)),abs(qB(+NEXT_DIVERGENT_ACTION_ONLY)-qB(NO_PATCH)),abs(qB(-NEXT_DIVERGENT_ACTION_ONLY)-qB(NO_PATCH)))",
       "joint_continuation5": "bidirectional5-max(random5,unrelated5,action_history5,deranged5,next_divergent_action_only5)"
     },
     "development_required_gate": "At the single operating point selected ONLY by the frozen A4 joint_future_margin selection rule, require median joint_continuation5>=0.05 nats/token, median bidirectional5>=0.05 nats/token, and at least15/20 families with joint_continuation5>0. Failure => DEVELOPMENT_FUTILITY_STOP and confirmation remains sealed; no A5-driven reselection or retuning.",
     "confirmation_required_test": "On all20 untouched eligible confirmation families at the exact frozen development operating point, one-sided exact sign/binomial test on joint_continuation5 with zeros non-positive; require >=15/20 positive, median joint_continuation5>=0.05 and median bidirectional5>=0.05. This test is co-primary with the A4 joint_future_margin test; Holm step-down FWER 0.05 is applied across the two sign tests. Both must pass; neither can rescue the other.",
     "claim_boundary": "A multi-step future-plan carrier claim requires BOTH the A4/B4 co-primary and this A5/B5 continuation co-primary. An A4-only positive result with A5 failure is explicitly not evidence of multi-step future-plan transport."
+  },
+  "nuisance_orientation_contract": {
+    "scope": "Every orientation-bearing semantic specificity control is evaluated at BOTH +alpha*C and -alpha*C under the exact same reset/session/state/scoring contract as ACTIVE. No semantic control may certify bidirectional specificity from one sign only.",
+    "a4_rule": "For each C in {UNRELATED_PAIR_RESIDUAL,ACTION_HISTORY_MATCHED_NULL,FUTURE_TOKEN_DERANGED,NEXT_DIVERGENT_ACTION_ONLY}, nuisance_C=max(abs(m(+C)-m0),abs(m(-C)-m0)). RANDOM_EQ_NORM retains frozen bidirectional halfspan abs(m(+R)-m(-R))/2.",
+    "a5_rule": "For each semantic C, nuisance5_C=max absolute branch-matched shift across qA(+C),qA(-C),qB(+C),qB(-C) versus qA(NO_PATCH)/qB(NO_PATCH). RANDOM_EQ_NORM retains branchwise +/- halfspan maximum.",
+    "runtime_requirement": "Both signs are separate one-shot rollouts from the same frozen reset snapshot with identical alpha magnitude, intervention site, token/state replay, persistent-KV semantics and no reinjection. Minus means additive -alpha*C, not swapping source construction or changing branch data.",
+    "fail_closed": "Missing either sign for any required semantic nuisance makes that family/point invalid; it may not be treated as zero nuisance or omitted from the frozen denominator."
   }
 }

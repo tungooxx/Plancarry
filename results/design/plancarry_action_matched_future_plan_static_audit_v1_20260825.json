@@ -29,7 +29,13 @@
     "a5_b5_same_operating_point_no_reselection": true,
     "confirmation_h4_h5_holm_fwer_005": true,
     "population_bytes_unchanged_by_repair": true,
-    "a5_b5_margin_constructibility_pregrid": true
+    "a5_b5_margin_constructibility_pregrid": true,
+    "semantic_nuisance_both_signs_a4": true,
+    "semantic_nuisance_both_signs_all_a5_branch_states": true,
+    "random_halfspan_bidirectional_unchanged": true,
+    "missing_semantic_control_sign_fail_closed": true,
+    "a2_sign_asymmetry_counterexample_repaired": true,
+    "population_bytes_unchanged_by_symmetry_repair": true
   },
   "date_utc": "2026-08-25",
   "environment_execution": 0,
@@ -37,8 +43,8 @@
     "canonical_inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
     "historical_exposure": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
     "population": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
-    "prereg": "5826af9e03b6b6e23a542dbe2fc3dd74413d5e8fc0f712a1ef64deb278663ca2",
-    "synthetic_test": "53c0f46fd7d0319411983b2e93cc7c2078c9181e9a922800531afdc5939c5cc9",
+    "prereg": "fa2c56830ac380563959c2dc73744f1d6b114649e2ef2646529794c3111430f7",
+    "synthetic_test": "c4fe4f09a57065131cc2fcfdcffd3e53e7417617c327d1cebc4da1cba17b2241",
     "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
     "v2_population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
   },
@@ -62,22 +68,29 @@
     "fresh population and prospective pair-constructibility contract"
   ],
   "source_commit": "fd77d0fb8c0303b278f4fa3b748d250aa4d8676d",
-  "status": "PASS_PRE_SCIENCE_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW",
+  "status": "PASS_PRE_SCIENCE_BIDIRECTIONAL_NUISANCE_REPAIR_PENDING_FRESH_REVIEW",
   "test_execution": {
-    "expected_count": 6,
+    "expected_count": 7,
     "runner": "direct invocation of every test_* callable; pure Python/static only",
-    "status": "PASS_6_OF_6_ACTION4_IDENTITY_REPAIR_FINAL",
+    "status": "PASS_7_OF_7_BIDIRECTIONAL_NUISANCE_REPAIR_FINAL",
     "exact_binomial_p_15_of_20": 0.020694732666015625,
     "holm_two_coprimary_first_threshold": 0.025,
     "holm_15_of_20_each_is_compatible": true
   },
-  "work_item_id": "06ede485-62aa-444a-ba49-599ff39392c8",
+  "work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
   "repair_provenance": {
     "failed_review_work_item_id": "1d92b004-5394-4d35-927f-76085ca3dd52",
     "failed_review_sha256": "e50267511b5e290594e0a4c063d1e5ff935c8aa70de6db06d7a72108751d28bd",
     "material_issue": "NEXT_DIVERGENT_ACTION_IDENTITY_CONFOUND",
     "repair_work_item_id": "06ede485-62aa-444a-ba49-599ff39392c8",
-    "population_sha256_must_remain": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7"
+    "population_sha256_must_remain": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "bidirectional_nuisance_repair": {
+      "failed_review_work_item_id": "f2c0fd6b-ce3d-4e39-bd6a-8a3b2c8c476f",
+      "failed_review_sha256": "b09b2e37642f1e6d08d389959d1882efe5d374efc6403283148be58ee4848480",
+      "work_item_id": "efb0a098-f1f7-4aa5-899d-d22c233e72a2",
+      "material_issue": "BIDIRECTIONAL_NUISANCE_SIGN_ASYMMETRY",
+      "repair": "evaluate semantic nuisances in both signs; A4 uses max abs +/- shift; A5 uses max abs shift across A/B branches and +/- orientations"
+    }
   },
   "scientific_variables_changed_relative_to_failed_freeze": [
     "add exact-geometry NEXT_DIVERGENT_ACTION_ONLY A4/B4 identity-matched nuisance control",
@@ -93,6 +106,7 @@
     "true reset/one reset-prefix intervention/same persistent KV/no reinjection",
     "layers7/14/21/27 x alpha0.25/0.5/1.0",
     "no replacement and old-v2/valid split prohibitions",
-    "A4-only global operating-point selection before A5 gate; no A5-driven reselection"
+    "A4-only global operating-point selection before A5 gate; no A5-driven reselection",
+    "fresh population/model/runtime/grid/thresholds/pair generation/A5 co-primary/confirmation multiplicity unchanged; only nuisance orientation evaluation is repaired"
   ]
 }
