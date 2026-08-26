@@ -1,0 +1,64 @@
+{
+  "base_commit": "217d9ad9ae12dbcef9caa4cf3d4619b58d1b24a4",
+  "engineering_task_id": "e821bf0b-9b85-4996-9fa9-ce3a7c519a11",
+  "files": {
+    "planunique_batched_runtime_v1.py": "b01b88b406eb3704b638ad3c66f8d1f1fb18ea0df22b22bb4f69bf656cda2a87",
+    "planunique_science_driver_v1.py": "d4b92161846db5c6ed8c33b4e4ec89a210710ea0e3a00926952cee80ea7abb55",
+    "tests/test_planunique_batched_runtime_v1.py": "89adb99a72bccce3c96ddc931fc4659f0e46977b46c5f2bbfef013fe8570a821"
+  },
+  "guards": {
+    "future_split_accessed": false,
+    "live_local_backup_0f7_touched": false,
+    "live_vast_run_33af_touched": false,
+    "partial_scientific_metrics_accessed": false,
+    "provider_lifecycle_action": false,
+    "scientific_variables_changed": []
+  },
+  "immutability": {
+    "localcontinuation_science_driver_v1.py": "7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592",
+    "planunique_packet_builder_v1.py": "7a8594e8c8d504b21467358332c9e80ea5927847daf755ee223a15541104100d",
+    "planunique_phase_runner_v1.py": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "planunique_projection_v1.py": "527bbf7cb0bee2d3d763dc4d61c5af4498b6b6d7f9b845724b2a5a2dcbf51ae6",
+    "replay_residual_t1_session_runtime_v1.py": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6"
+  },
+  "implementation": {
+    "batch_scope": "cloned DynamicCache only; live persistent KV never repeated/selected/mutated",
+    "candidate_group_size": 4,
+    "fallback": "if cloned cache lacks DynamicCache batch APIs, use frozen serial semantics; no scientific change",
+    "first_token_policy": "score from identical frozen live next_logits without model forward",
+    "progress_and_no_patch_cache": "inherits already-verified non-scientific 29743d telemetry and alpha-independent NO_PATCH reuse",
+    "subsequent_token_policy": "fixed-size grouped forwards on repeated cloned cache using same FP32 log_softmax and exact suffix target IDs",
+    "tie_break": "unchanged (-mean_logprob, lexical command)",
+    "variable_length_policy": "within each group, completed candidates drop out via local batch_select_indices; active candidates retain sorted-command row identity"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_CANDIDATE_BATCHING_A3_V1",
+  "pending_gate": {
+    "independent_review_required_after_canary": true,
+    "required": "Exact Qwen/Qwen3-1.7B frozen revision/runtime old-vs-grouped candidate-score canary plus runtime/memory check only after current canonical Vast scientific run is terminal",
+    "scientific_use_authorized": false
+  },
+  "prior_verified_predecessor_commit": "29743d04d84792a593f7ef4be231b596b34908cb",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "STATIC_SYNTHETIC_PASS_EXACT_QWEN_RUNTIME_CANARY_DEFERRED_UNTIL_LIVE_SCIENCE_TERMINAL",
+  "synthetic_equivalence": {
+    "engineering_tolerance": 1e-06,
+    "forward_reduction_x": 4.0,
+    "grouped_best": "cmd-02",
+    "grouped_model_forwards": 9,
+    "legacy_best": "cmd-02",
+    "legacy_model_forwards": 36,
+    "max_abs_logprob_sum_delta": 4.76837158203125e-07,
+    "max_abs_mean_logprob_delta": 1.1920928955078125e-07,
+    "representative_candidates": 12,
+    "tokens_per_candidate": 4
+  },
+  "tests": {
+    "batching_suite": "8/8 PASS",
+    "git_diff_check": true,
+    "planunique_direct": "22/22 PASS (10 implementation + 3 VRAM scorer + 1 loader + 8 batching)",
+    "preflight": "READY_NO_SCIENCE model_calls=0 model_loads=0 environment_execution=0 confirmation/reserve/valid=false",
+    "py_compile": true,
+    "replayresidual_unittest": "25/25 PASS"
+  },
+  "work_item_id": "d64dcf28-f66f-49ee-a10a-f8d31f716d87"
+}

@@ -10,8 +10,10 @@ import replay_residual_natural_packet_producer_v2_1 as v21
 import planunique_packet_builder_v1 as pb
 import planunique_projection_v1 as projection
 import planunique_phase_runner_v1 as phase
+import planunique_batched_runtime_v1 as batched_runtime
 
 ROOT=Path(__file__).resolve().parent
+BATCHED_RUNTIME_SHA256='b01b88b406eb3704b638ad3c66f8d1f1fb18ea0df22b22bb4f69bf656cda2a87'
 MODEL_ID='Qwen/Qwen3-1.7B';MODEL_REVISION='70d244cc86ccca08cf5af4e1e306ecf908b1ad5e';MODEL_DTYPE='bfloat16'
 LAYERS=phase.LAYERS;ALPHAS=phase.ALPHAS;ACTIVE=phase.ACTIVE;NO_PATCH=phase.NO_PATCH;SPEC=phase.SPEC
 PACKET_DIR={'development':Path('results/science/plancarry_planunique_v1_2_development_packets'),'confirmation':Path('results/science/plancarry_planunique_v1_2_confirmation_packets')}
@@ -29,6 +31,7 @@ def verify_sources()->dict[str,Any]:
  pb.verify_bindings(ROOT)
  if sha_file(ROOT/'localcontinuation_science_driver_v1.py')!='7768a45cd41048ebcabd27a0be6602b41642fa95f425883e199a94c3c2291592':raise ExecutionContractError('RUNTIME_V1_DRIFT')
  if sha_file(ROOT/'localcontinuation_controls_v2.py')!=pb.CONTROLS_SHA256:raise ExecutionContractError('V2_CONTROLS_DRIFT')
+ if sha_file(ROOT/'planunique_batched_runtime_v1.py')!=BATCHED_RUNTIME_SHA256:raise ExecutionContractError('PLANUNIQUE_BATCHED_RUNTIME_DRIFT')
  return {'authority_commit':pb.AUTHORITY_COMMIT,'authority_review_sha256':projection.AUTHORITY_REVIEW_SHA256,'population_sha256':pb.POPULATION_SHA256,'model':MODEL_ID,'revision':MODEL_REVISION}
 
 def preflight()->dict[str,Any]:
@@ -93,9 +96,14 @@ def _construct(source:Mapping[str,Any],packet:Mapping[str,Any],layer:int):
   raise
 
 def _base(tok:Any,p:Mapping[str,Any]):return runtime_v1.base_reset(tok,p)
-def _run_msa(tok:Any,model:Any,p:Mapping[str,Any],base:Mapping[str,Any],layer:int,alpha:float,vpack:Mapping[str,Any])->dict[str,Any]:
- vectors=vpack['vectors'];asha=_vector_sha(vectors[ACTIVE]);arms={}
- for arm in (ACTIVE,NO_PATCH,*SPEC):arms[arm]=runtime_v1.msa2_arm(tok,model,p,base,layer,None if arm==NO_PATCH else vectors[arm],alpha,arm,asha)
+def _run_msa(tok:Any,model:Any,p:Mapping[str,Any],base:Mapping[str,Any],layer:int,alpha:float,vpack:Mapping[str,Any],no_patch_cache:dict[tuple[int,int],dict[str,Any]]|None=None)->dict[str,Any]:
+ vectors=vpack['vectors'];asha=_vector_sha(vectors[ACTIVE]);arms={};cache_key=(int(layer),int(p['frozen_index']))
+ for arm in (ACTIVE,NO_PATCH,*SPEC):
+  if arm==NO_PATCH and no_patch_cache is not None and cache_key in no_patch_cache:
+   row=dict(no_patch_cache[cache_key]);row['selected_alpha']=float(alpha);arms[arm]=row
+  else:
+   row=batched_runtime.msa2_arm(tok,model,p,base,layer,None if arm==NO_PATCH else vectors[arm],alpha,arm,asha);arms[arm]=row
+   if arm==NO_PATCH and no_patch_cache is not None:no_patch_cache[cache_key]=dict(row)
  return {'arms':arms,'zero_unique':bool(vpack['zero_unique']),'unique_l2':float(vpack['unique_l2']),'active_residual_sha256':asha,'reset_snapshot_sha256':base['reset_snapshot_sha256']}
 
 def development(tok:Any,model:Any,prov:Mapping[str,Any])->dict[str,Any]:
@@ -103,26 +111,35 @@ def development(tok:Any,model:Any,prov:Mapping[str,Any])->dict[str,Any]:
   if (ROOT/p).exists():raise ExecutionContractError(f'OUTPUT_EXISTS:{p}')
  packets=produce_packets('development',tok,model,prov);by={int(x['frozen_index']):x for x in packets};sem=[i for i in phase.DEV if bool(by[i].get('qualified'))]
  sources={};construct={l:{} for l in LAYERS};layer_ok={l:[] for l in LAYERS}
+ print(json.dumps({'stage':'planunique_post_stage1','event':'source_construct_start'}),flush=True)
  for i in sem:
   pkt=by[i];srcs=capture_sources(tok,model,pkt,_donor(pkt,by),LAYERS);sources[i]=srcs
   for l in LAYERS:
    vp,reason=_construct(srcs[l],pkt,l);construct[l][i]={'vectors':vp,'reason':reason}
    if vp is not None:layer_ok[l].append(i)
+ print(json.dumps({'stage':'planunique_post_stage1','event':'source_construct_complete'}),flush=True)
  e=phase.freeze_e_common(layer_ok)
  payload={'phase':'PLANUNIQUE_DEVELOPMENT_V1_2','families':[{'index':i,'stage1_eligible':bool(by[i].get('trajectory_eligible')),'semantic_stage2_qualified':bool(by[i].get('qualified'))} for i in phase.DEV],'layer_constructible_indices':layer_ok,'e_common_indices':e,'grid_results':{},'plumbing_sentinels_pass':False,'authority_commit':pb.AUTHORITY_COMMIT,'population_sha256':pb.POPULATION_SHA256,'model_provenance':dict(prov),'confirmation_accessed':False,'reserve_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False}
  if len(e)<24:
   _atomic(DEV_PAYLOAD,payload);term=phase.select_development(payload);_atomic(DEV_TERMINAL,term);return term
  sentinel_pass=True
+ bases={i:_base(tok,by[i]) for i in e};no_patch_cache={}
+ print(json.dumps({'stage':'planunique_post_stage1','event':'sentinels_start'}),flush=True)
  for l in LAYERS:
   for i in e:
-   try:runtime_v1.sentinels(model,_base(tok,by[i]),l)
+   try:runtime_v1.sentinels(model,bases[i],l)
    except Exception:sentinel_pass=False;raise
+ print(json.dumps({'stage':'planunique_post_stage1','event':'sentinels_complete'}),flush=True)
  payload['plumbing_sentinels_pass']=sentinel_pass
  for l in LAYERS:
   for a in ALPHAS:
    key=phase.grid_key(l,a);rows={}
-   for i in e:rows[str(i)]=_run_msa(tok,model,by[i],_base(tok,by[i]),l,a,construct[l][i]['vectors'])
+   print(json.dumps({'stage':'planunique_grid','event':'grid_point_start','layer':int(l),'alpha':float(a)}),flush=True)
+   for i in e:
+    rows[str(i)]=_run_msa(tok,model,by[i],bases[i],l,a,construct[l][i]['vectors'],no_patch_cache)
+    print(json.dumps({'stage':'planunique_grid','event':'heartbeat','layer':int(l),'alpha':float(a)}),flush=True)
    payload['grid_results'][key]=rows
+   print(json.dumps({'stage':'planunique_grid','event':'grid_point_complete','layer':int(l),'alpha':float(a)}),flush=True)
  _atomic(DEV_PAYLOAD,payload);term=phase.select_development(payload,ROOT/DEV_SEAL);_atomic(DEV_TERMINAL,term);return term
 
 def confirmation(tok:Any,model:Any,prov:Mapping[str,Any])->dict[str,Any]:
@@ -141,7 +158,7 @@ def confirmation(tok:Any,model:Any,prov:Mapping[str,Any])->dict[str,Any]:
  for i in phase.CONF:
   if i not in vps:fam.append({'index':i,'stage2_qualified':False,'zero_unique':False});continue
   vp=vps[i];base=_base(tok,by[i]);asha=_vector_sha(vp['vectors'][ACTIVE]);outs={}
-  for arm in (ACTIVE,NO_PATCH,*SPEC):outs[arm]=runtime_v1.autonomous_arm(tok,model,by[i],base,layer,None if arm==NO_PATCH else vp['vectors'][arm],alpha,arm,asha)
+  for arm in (ACTIVE,NO_PATCH,*SPEC):outs[arm]=batched_runtime.autonomous_arm(tok,model,by[i],base,layer,None if arm==NO_PATCH else vp['vectors'][arm],alpha,arm,asha)
   fam.append({'index':i,'stage2_qualified':True,'zero_unique':bool(vp['zero_unique']),'active_lca2':float(outs[ACTIVE]['lca2']),'no_patch_lca2':float(outs[NO_PATCH]['lca2']),'max_specificity_lca2':max(float(outs[a]['lca2']) for a in SPEC),'active_valid_action_rate':float(outs[ACTIVE]['valid_action_rate']),'no_patch_valid_action_rate':float(outs[NO_PATCH]['valid_action_rate'])})
  payload={'phase':'PLANUNIQUE_CONFIRMATION_V1_2','families':fam,'selected_layer':layer,'selected_alpha':alpha,'development_seal_sha256':sha_file(ROOT/DEV_SEAL)};_atomic(CONF_PAYLOAD,payload);term=phase.evaluate_confirmation(payload);_atomic(CONF_TERMINAL,term);return term
 
