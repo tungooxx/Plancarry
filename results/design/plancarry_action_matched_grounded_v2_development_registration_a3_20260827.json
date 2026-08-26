@@ -1,0 +1,80 @@
+{
+  "executable": {
+    "commit": "127d1a46fe289f036cba4cd51d91a267ceed06ca",
+    "engineering_result_id": "868b9577-3b91-4cdb-8bc2-264302205d11",
+    "review_commit": "f1364b00946038465eee8ec35adcb9b197d49975",
+    "review_sha256": "66c6be5688da156072f488a7b3fac3615db6766c94d86d3406c0bef77976dcba",
+    "review_verdict": "PASS_FOR_ACTION_MATCHED_GROUNDED_V2_EXECUTABLE_PREP",
+    "review_work_item_id": "7b9ebbd1-d62d-42ea-b6c4-ed69c1bd3f33",
+    "tree": "8e72ee560250fb0f61864eabe24e23136faaa6f2"
+  },
+  "experiment_id": "2673d433-7c78-47da-9c64-78460eaebbfe",
+  "frozen_science_summary": {
+    "a4_selection_endpoint": "joint_semantic_plan_margin",
+    "a5_same_point_endpoint": "joint_semantic_plan_continuation5",
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "confirmation_indices_locked": [
+      64,
+      127
+    ],
+    "development_indices": [
+      0,
+      63
+    ],
+    "development_scientific_result": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+    "future_action_sequence_only_required_in_both_strong_endpoints": true,
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "no_replacement": true,
+    "reserve_indices_locked": [
+      128,
+      159
+    ],
+    "target_eligible_n": 20
+  },
+  "future_execution_template": {
+    "command": "bash action_matched_grounded_v2_primary_v1.sh development",
+    "host": "UNRESOLVED_REQUIRES_SEPARATE_REVIEW",
+    "python": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+    "working_directory": "UNRESOLVED_UNTIL_SEPARATE_HOST_BINDING"
+  },
+  "guards": {
+    "confirmation_authorized": false,
+    "host_binding_authorized": false,
+    "provider_lifecycle_authorized": false,
+    "registration_author_must_not_self_review": true,
+    "research_decision_created": false,
+    "science_executed": false
+  },
+  "hypothesis_id": "dcdc19e1-3575-476a-ba10-1f2572f8e869",
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_DEVELOPMENT_REGISTRATION_A3_V1",
+  "prediction_id": "efa82adf-7228-41c7-a361-8e2f8ef081f7",
+  "preflight": {
+    "confirmation_accessed": false,
+    "environment_execution": 0,
+    "job_id": "local_96dad617d7144cab",
+    "model_calls": 0,
+    "model_loads": 0,
+    "reserve_accessed": false,
+    "status": "READY_NO_SCIENCE",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "registration_work_item_id": "b9b38197-4b56-46ee-b9db-28b90d8dfc91",
+  "science_authority": {
+    "commit": "b30028eb25f12be60ac96af8c6f6ee2926db82e4",
+    "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+    "tree": "ff83ceb0833ea454af1f209a06047c3fded2c059"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "status": "REGISTERED_PRE_SCIENCE_REQUIRES_INDEPENDENT_REVIEW_AND_HOST_BINDING"
+}
