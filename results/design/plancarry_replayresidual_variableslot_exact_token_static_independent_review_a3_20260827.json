@@ -1,0 +1,53 @@
+{
+  "author_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "base_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "independent_checks": {
+    "action_only_forbidden_inputs": [
+      "plan_ids",
+      "reference_action4_ids",
+      "reference_action5_ids",
+      "future_observations"
+    ],
+    "action_only_truncation": false,
+    "all_identical_fail_closed": "ORDER_NULL_VALUE_DERANGEMENT_UNCONSTRUCTIBLE",
+    "allowed_imports_only": [
+      "__future__",
+      "dataclasses",
+      "itertools",
+      "typing"
+    ],
+    "diff_exactly_three_additive_files": true,
+    "environment_execution": 0,
+    "future_split_access": false,
+    "inherited_localcontinuation_tests": "PASS_15_OF_15",
+    "length_sweep_8_512": {
+      "all_source_blocks_moved": 505,
+      "anchor_equal": 505,
+      "cases": 505,
+      "deterministic": 505,
+      "exact_length": 505,
+      "final_source_block_moved": 505,
+      "multiset": 505,
+      "value_nonidentity": 505
+    },
+    "model_calls": 0,
+    "overlong_action_only_fail_closed": true,
+    "periodic_equal_block_fail_closed": "ORDER_NULL_VALUE_DERANGEMENT_UNCONSTRUCTIBLE",
+    "production_token_contract_status": "UNBOUND_PRE_SCIENCE",
+    "repeated_multivalue_constructible": true,
+    "targeted_tests": "PASS_12_OF_12"
+  },
+  "reviewer_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "schema": "PLANCARRY_VARIABLESLOT_EXACT_TOKEN_STATIC_INDEPENDENT_REVIEW_A3_V1",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "Static exact-token control constructibility only. This does not establish a real Qwen tokenizer binding, ALFWorld population eligibility, causal efficacy, or scientific support. Separate prospective tokenizer binding, fresh-population design, and independent review are required before any execution.",
+  "target_commit": "89b343cd973435851194f530da056c584f03726d",
+  "target_hashes": {
+    "results/design/plancarry_replayresidual_variableslot_exact_token_diagnostic_v2_20260827.json": "99459e731851d4b4d71acc01a35e0ec3540c7be9b00a99d0009e53382406f73e",
+    "tests/test_variable_slot_controls_v2.py": "8d6164eac8775306a18f7544816f8be5f85a2d4235f3ee74c3183a5d6d07d836",
+    "variable_slot_controls_v2.py": "5f5c059d94c1796c5d7cc6a62eb3a723c9bffa65dbb45bfc7933f0b6138d9bfe"
+  },
+  "target_tree": "f11d02674c243040c84462c9e1625eeed8a5f7a3",
+  "verdict": "PASS_FOR_VARIABLESLOT_EXACT_TOKEN_STATIC_CONSTRUCTIBILITY_V2"
+}
