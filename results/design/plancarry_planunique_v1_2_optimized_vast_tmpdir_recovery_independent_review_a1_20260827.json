@@ -1,0 +1,47 @@
+{
+  "schema": "PLANCARRY_PLANUNIQUE_V1_2_OPTIMIZED_VAST_TMPDIR_RECOVERY_INDEPENDENT_REVIEW_A1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "review_work_item_id": "bfcaba71-0cc5-419e-90e4-3710dafc014f",
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "recovery_work_item_id": "463f470a-41a0-447d-9750-409030cd2da0",
+  "engineering_task_id": "aee1e611-0ed5-4eaa-8752-ed76f062e016",
+  "engineering_result_id": "3d13634b-85b9-47a3-a54c-4d5ee9598edc",
+  "base_optimized_commit": "29743d04d84792a593f7ef4be231b596b34908cb",
+  "base_optimized_tree": "265c5875a83b09906117529244f3c73dad44da90",
+  "recovery_commit": "89bf479343c686eaa9d892940adcbc656b54e1b1",
+  "recovery_artifact_sha256": "6c00f3fa8d988ea45c9c4c44e5160bf727036b25fc5b59827641d3ddaf3e2161",
+  "verdict": "PASS_FOR_PLANUNIQUE_VAST_TMPDIR_RUNTIME_RECOVERY",
+  "scientific_result": "NOT_ASSESSED",
+  "checks": {
+    "recursive_diff_exactly_one_additive_recovery_json": true,
+    "launcher_sha256_exact": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+    "driver_sha256_exact": "fa19457b0da36c28dc6f23718cbfe432922ca7deb044f0edc301c038d92a3b3b",
+    "phase_sha256_exact": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "validator_path": "planunique_validator_v1.py",
+    "validator_sha256_exact": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd",
+    "failed_run_technical_invalid_not_assessed": true,
+    "failed_run_scientific_grid_reached": false,
+    "failed_run_canonical_scientific_artifact_present": false,
+    "required_env_delta_only_tmpdir": "/workspace/plancarry-tmp",
+    "host_specific_cwd_hf_device_unresolved": true,
+    "separate_host_rebind_review_required": true,
+    "scientific_variables_changed": [],
+    "future_splits_accessed": false
+  },
+  "independent_canary": {
+    "tmp_root": "/workspace/local-vlm/LLM/.tmp_planunique_a1_review",
+    "free_bytes": 106877939712,
+    "minimum_free_bytes": 4294967296,
+    "tempfile_under_tmpdir": true,
+    "fast_downward_source_bytes": 33068880,
+    "fast_downward_source_sha256": "e8236b0b5807ca823d66acd647f0dc9fdb4d452de3b09718db15d8beaf60d90d",
+    "fast_downward_copy_sha256": "e8236b0b5807ca823d66acd647f0dc9fdb4d452de3b09718db15d8beaf60d90d",
+    "copy_equal": true
+  },
+  "scope": "PRE_SCIENCE_RUNTIME_ONLY",
+  "limitations": [
+    "This review does not certify vast_48908751 or any other execution host.",
+    "This review does not authorize a ResearchDecision or scientific execution.",
+    "PlanUnique valid development futility already remains the scientific terminal for its completed lineage; this runtime recovery is technical provenance only."
+  ]
+}
