@@ -1,0 +1,169 @@
+{
+  "constructibility": {
+    "eligibility_requires": [
+      "successful two-action model-own prefix under existing exact action-validity guards",
+      "a shared deterministic immediate action a3",
+      "two distinct top step2 phase labels, with the second-highest normalized six-label probability >=0.10 and all six scores finite",
+      "both carrier byte strings serialize exactly52 ASCII bytes",
+      "row sums exactly255",
+      "all leakage/provenance guards pass",
+      "future-only discounted carrier L1 distance D_future = gamma^2*L1(row3_A,row3_B) + gamma^3*L1(row4_A,row4_B) >=0.50; forced row2 branch identity contributes exactly zero to this gate"
+    ],
+    "fail_label": "INCONCLUSIVE_SUCCESSOR_FEATURE_CONSTRUCTIBILITY",
+    "interpretation": "Constructibility only. PASS requires nontrivial model-predicted successor divergence beyond the forced row2 branch label; it is not causal support and does not authorize indices16..31 until a separately frozen/reviewed causal-development protocol exists.",
+    "max_scan": 16,
+    "no_replacement": true,
+    "pass_gate": ">=12 of frozen 16 constructibility paths eligible",
+    "pass_label": "PASS_SUCCESSOR_FEATURE_CONSTRUCTIBILITY_ONLY",
+    "scan_indices": [
+      0,
+      15
+    ],
+    "target_pairs": 16
+  },
+  "cut": {
+    "nontrivial_model_own_actions_before_snapshot": 2,
+    "shared_immediate_action_a3": "deterministic greedy admissible-command scorer at the frozen snapshot; identical for both carrier branches",
+    "snapshot_contains": "exact task instruction + exact observable action/observation history through cut2 + current observation + lexically sorted current admissible commands"
+  },
+  "environment_execution_in_design": 0,
+  "feature_map": {
+    "definition": {
+      "ACQUIRE_OBJECT": "predicted action purpose is taking/picking up the task target object",
+      "CARRY_OR_SEEK_RECEPTACLE": "predicted action purpose is carrying/navigating toward the task target receptacle after acquisition",
+      "MANIPULATE_CONTAINER": "predicted action purpose is opening/closing or otherwise manipulating a visible container/receptacle as an enabling step",
+      "OTHER": "none of the preceding frozen procedural phases",
+      "PLACE_OBJECT": "predicted action purpose is placing/putting the task target object into/on the task target receptacle",
+      "SEEK_OBJECT": "predicted action purpose is navigation/search directed at the task target object before possession"
+    },
+    "labels": [
+      "SEEK_OBJECT",
+      "ACQUIRE_OBJECT",
+      "CARRY_OR_SEEK_RECEPTACLE",
+      "PLACE_OBJECT",
+      "MANIPULATE_CONTAINER",
+      "OTHER"
+    ],
+    "name": "OBSERVABLE_PROCEDURAL_PHASE_V1",
+    "task_entities_source": "task instruction visible at the cut only; no expert trajectory, goal-state oracle, future observation, simulator lookahead, or ground-truth future action"
+  },
+  "future_causal_claim_guard": "Any later causal pilot must hold exact reset snapshot and shared immediate a3 fixed across carrier arms, exclude first action from substantive endpoint, preserve competence, and compare donor-specific later procedural preference against all frozen controls including BRANCH_PHASE_ONLY. It must be separately preregistered and independently reviewed before indices16..31 are touched.",
+  "future_split_access": false,
+  "hypothesis_id": "5afd3537-c30a-4c2b-90fe-c5efa0c49d74",
+  "kill_conditions": [
+    "<12/16 constructibility eligibility",
+    "any required carrier needs future environment observation/simulator/expert leakage",
+    "exact tokenizer/prompt binding cannot make the six-label scorer deterministic without protocol drift",
+    "second-highest branch probability is <0.10 or any six-label score is non-finite",
+    "future-only rows3-4 discounted L1 is <0.50 even if row2 labels differ",
+    "any attempt to replace failed paths or use locked indices to repair constructibility"
+  ],
+  "kind": "PLANCARRY_SUCCESSOR_FEATURE_CONSTRUCTIBILITY_PREREG_V2",
+  "label_scoring_binding_required_before_execution_v2": {
+    "label_suffixes_utf8": [
+      " SEEK_OBJECT",
+      " ACQUIRE_OBJECT",
+      " CARRY_OR_SEEK_RECEPTACLE",
+      " PLACE_OBJECT",
+      " MANIPULATE_CONTAINER",
+      " OTHER"
+    ],
+    "prompt_template_utf8": "{SNAPSHOT_UTF8}\nSHARED_ACTION: {A3_UTF8}\nPredict the procedural phase of the next action after the shared action. Answer with exactly one label:",
+    "requirements": [
+      "Implementation must freeze exact rendered prompt bytes for a synthetic canary and exact tokenizer suffix IDs for all six labels before any constructibility model call.",
+      "Tokenizer/model revision must equal the already frozen Qwen/Qwen3-1.7B revision.",
+      "Suffix scoring remains arithmetic mean token logprob followed by float64 six-way softmax; no generation/retry/paraphrase is permitted.",
+      "Independent executable review must recompute the prompt/suffix binding before science."
+    ]
+  },
+  "leakage_guards": [
+    "No expert policy/action sequence.",
+    "No environment clone or simulator step after the cut.",
+    "No future observation/admissible-command query.",
+    "No actual A4/A5/B4/B5 action identity may enter the forecaster.",
+    "No confirmation/valid path or previously selected path.",
+    "Branch identity is a predicted procedural-phase condition, not an oracle future action."
+  ],
+  "model": {
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen3-1.7B",
+    "offload": false,
+    "quantization": false,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "thinking": false
+  },
+  "model_calls_in_design": 0,
+  "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+  "predictive_procedure": {
+    "branch_plausibility_guard": {
+      "all_scores_finite": true,
+      "no_retry_or_replacement": true,
+      "normalized_probability": "float64 softmax of the same six frozen label-suffix mean-logprob scores used for branch selection",
+      "reason": "prevents a vanishing-probability runner-up from becoming an automatically constructible branch",
+      "second_highest_probability_min": 0.1
+    },
+    "carrier_matrix": "4x6 temporal phase-probability matrix. Row1 is shared-immediate-action one-hot; row2 is oriented branch-label one-hot; rows3-4 are model-predicted phase distributions.",
+    "constructibility_distance": {
+      "counterexample_guard": "If rows3 and 4 are identical across branches, D_future is exactly0 regardless of row2 and the path fails constructibility.",
+      "formula": "D_future = gamma^2 * sum_j |row3_A[j]/255-row3_B[j]/255| + gamma^3 * sum_j |row4_A[j]/255-row4_B[j]/255|",
+      "gamma": 0.8,
+      "name": "FUTURE_ONLY_DISCOUNTED_L1_V2",
+      "row2_exclusion_reason": "row2 is forced to differ by branch construction and therefore cannot provide evidence of successor divergence",
+      "rows_excluded": [
+        1,
+        2
+      ],
+      "rows_included": [
+        3,
+        4
+      ],
+      "threshold": 0.5
+    },
+    "discount_gamma": 0.8,
+    "discount_use": "Constructibility uses ONLY genuinely predictive rows3..4: D_future = gamma^2*L1(row3_A,row3_B) + gamma^3*L1(row4_A,row4_B). Row2 is an explicit branch condition and is excluded from this gate. Serialization still retains all four rows so temporal order and branch identity are preserved.",
+    "horizon_H": 4,
+    "name": "MODEL_OWN_BRANCH_CONDITIONAL_PHASE_OCCUPANCY_V1",
+    "no_environment_lookahead": true,
+    "probability_rule": "Normalize exact frozen label-suffix mean-logprob scores with softmax in float64. Exact tokenizer suffix IDs and prompt bytes must be frozen and independently reviewed before any execution.",
+    "quantization": "Each row is deterministically quantized to six uint8 integers summing255 by largest-remainder allocation with ties by frozen label order.",
+    "serialization": "SF1: followed by the 24 uint8 values as exactly 48 lowercase hexadecimal characters; fixed total ASCII length 52 bytes before the later interface wrapper.",
+    "step1": "Map the already frozen shared immediate action a3 to one procedural phase row; this row is identical between branches.",
+    "step2": "Using only the frozen cut snapshot plus the text of shared a3, score the six phase labels as the model-own prediction for the action-purpose immediately after a3. Normalize all six finite scores by float64 softmax; select the top two distinct labels with deterministic phase-label-order tie-break. Eligibility additionally requires the second-highest normalized label probability >=0.10. Orient A/B by SHA256(game_path|SUCCESSOR_FEATURE_BRANCH_ORIENTATION_V1) low bit.",
+    "steps3_4": "For each branch separately, append only the branch phase-label history (never an imagined observation or hidden environment state), score the same six labels, and recursively append the greedy phase label. No actual future environment transition is queried."
+  },
+  "prospective_causal_controls_locked_for_future_design": {
+    "BRANCH_PHASE_ONLY": "same 52-byte carrier budget; preserve each arm's exact row1 shared-action phase and row2 branch phase, but replace rows3 and4 by fixed neutral uint8 row [43,43,43,42,42,42] (sum255). This isolates branch-label-only steering from multi-step successor occupancy.",
+    "CURRENT_STATE_ONLY": "same 52-byte carrier budget derived only from frozen observable current-state feature vector; no predicted future rows",
+    "IMMEDIATE_ACTION_ONLY": "same 52-byte budget preserving only shared a3 phase identity; future rows fixed neutral",
+    "NO_CARRY": "no SF carrier block",
+    "SERIALIZATION_MATCHED_NULL": "52-byte deterministic hash-derived uint8 rows with the same per-row sum255 and no source model-prediction content",
+    "TIME_SHUFFLED_OCCUPANCY": "keep row1 and row2 fixed in their original positions; swap only genuine future-prediction rows3 and4 as [row4,row3], preserving both future rows and their feature marginals while disrupting their temporal order without moving branch identity.",
+    "UNRELATED_SAME_BUDGET": "52-byte carrier from deterministic next eligible donor path, no self donor"
+  },
+  "repair_provenance": {
+    "failed_independent_review_sha256": "7be2004fb6c98a8af51c1142fb1799eb22c05c8e66600372db5ac4686f41324c",
+    "failed_independent_review_work_item_id": "2733dea6-73c8-4dc4-8d58-eae28304bc5f",
+    "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+    "repair_work_item_id": "978a404f-8db0-4119-9ad4-435e2c155805",
+    "scientific_result": "NOT_ASSESSED",
+    "source_design_commit": "450c1a97a852ed1754ee92481b6fa41017a879ba",
+    "source_prereg_sha256": "f582099cab2e0ac2fec463c3ae4f870eaaf335217c707abe379ccfdd50b5e36a"
+  },
+  "row1_action_phase_mapping_v2": {
+    "ambiguity_rule": "first matching rule in frozen precedence wins; no learned classifier and no future state may resolve ambiguity",
+    "inputs_only": "task instruction, exact observable cut history/current observation, and exact shared a3; no post-cut information",
+    "normalization": "Unicode-preserving lowercase + strip for matching only; original shared a3 bytes remain separately frozen",
+    "precedence": [
+      "If command verb is open or close => MANIPULATE_CONTAINER.",
+      "Else if command verb is take/pickup and command object matches visible task target object => ACQUIRE_OBJECT.",
+      "Else if command verb is put/place and command object/receptacle matches visible task entities => PLACE_OBJECT.",
+      "Else if command is navigation/search toward visible task target object before observable possession => SEEK_OBJECT.",
+      "Else if command is navigation/search toward visible task receptacle after observable possession => CARRY_OR_SEEK_RECEPTACLE.",
+      "Else => OTHER."
+    ]
+  },
+  "science_execution_forbidden_in_this_work_item": true,
+  "scientific_difference": "External structured predictive future-occupancy carrier; no hidden activation residual, literal plan text, transcript summary, present-state memory, or single-next-action carrier.",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "FROZEN_PRE_SCIENCE_REPAIRED_DESIGN_ONLY"
+}

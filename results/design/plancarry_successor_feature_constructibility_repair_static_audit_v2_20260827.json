@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "branch_phase_only_control_added": true,
+    "carrier_serialization_still_52_ascii_bytes": true,
+    "constructibility_gate_still_ge12_of16": true,
+    "environment_execution_zero": true,
+    "experiment_or_decision_created": false,
+    "forced_row2_excluded_from_constructibility_gate": true,
+    "future_indices_remain_locked": true,
+    "future_label_prompt_suffix_binding_requirement_frozen": true,
+    "game_files_opened_zero": true,
+    "gpu_provider_lifecycle": false,
+    "identical_rows3_4_now_score_zero": true,
+    "model_calls_zero": true,
+    "old_row2_tautology_counterexample_reproduced": true,
+    "population_byte_identical": true,
+    "row1_classifier_precedence_frozen": true,
+    "second_branch_probability_guard_frozen_at_0_10": true,
+    "time_shuffle_holds_rows1_2_fixed": true
+  },
+  "failed_review_sha256": "7be2004fb6c98a8af51c1142fb1799eb22c05c8e66600372db5ac4686f41324c",
+  "interpretation": "Static repair verification only. This audit is not scientific evidence and does not authorize constructibility execution until a fresh independent review passes.",
+  "kind": "PLANCARRY_SUCCESSOR_FEATURE_CONSTRUCTIBILITY_REPAIR_STATIC_AUDIT_V2",
+  "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+  "repair_work_item_id": "978a404f-8db0-4119-9ad4-435e2c155805",
+  "repaired_prereg_sha256": "e6ef3044d6636e03b4b6a5b7a68b1bda89bc92ba2b2da3c936e9e2a8a07e276f",
+  "scientific_result": "NOT_ASSESSED",
+  "semantic_drift_audit": {
+    "allowed_changes": [
+      "future-only rows3-4 constructibility metric",
+      "second-branch probability>=0.10 guard",
+      "BRANCH_PHASE_ONLY future control",
+      "TIME_SHUFFLED row3/row4-only permutation",
+      "deterministic row1 phase precedence",
+      "exact future label-scoring binding requirements",
+      "repair provenance"
+    ],
+    "population_byte_identical": true,
+    "unchanged_constructibility_fields": [
+      "max_scan",
+      "no_replacement",
+      "pass_gate",
+      "scan_indices",
+      "target_pairs"
+    ],
+    "unchanged_predictive_fields": [
+      "carrier_matrix",
+      "discount_gamma",
+      "horizon_H",
+      "name",
+      "no_environment_lookahead",
+      "probability_rule",
+      "quantization",
+      "serialization",
+      "step1",
+      "steps3_4"
+    ],
+    "unchanged_top_level": [
+      "population_sha256",
+      "model",
+      "cut",
+      "feature_map",
+      "science_execution_forbidden_in_this_work_item",
+      "future_split_access",
+      "environment_execution_in_design",
+      "model_calls_in_design",
+      "hypothesis_id"
+    ],
+    "verdict": "PASS_ALLOWED_REPAIR_ONLY"
+  },
+  "source_design_commit": "450c1a97a852ed1754ee92481b6fa41017a879ba",
+  "source_prereg_sha256": "f582099cab2e0ac2fec463c3ae4f870eaaf335217c707abe379ccfdd50b5e36a",
+  "static_test_sha256": "2322ace877b6695e941c8c2b989868e0518f6b9e8ad899ad7c7f5dec3044f78c",
+  "status": "PASS_STATIC_PRE_SCIENCE_REPAIR"
+}
