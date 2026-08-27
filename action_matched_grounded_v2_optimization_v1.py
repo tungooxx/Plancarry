@@ -31,14 +31,14 @@ class OptimizedPersistentTokenSession(legacy.PersistentTokenSession):
             local_past = legacy.clone_cache(self.past_key_values)
             local_logits = self.next_logits.detach().clone()
             local_len = int(self.context_len)
-            total = torch.zeros((), dtype=torch.float32, device=self.device)
+            terms = []
             for j, token_id in enumerate(seq):
                 lp = torch.log_softmax(local_logits.float(), dim=-1)
-                total = total + lp[0, token_id]
+                terms.append(lp[0, token_id])
                 if j + 1 < len(seq):
                     local_past, local_logits = self._step_model(token_id, local_past, local_len)
                     local_len += 1
-        return total
+        return terms
 
     def score_candidates(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
         """Overlap candidates without changing the legacy batch-size-1 numerical geometry."""
@@ -65,14 +65,18 @@ class OptimizedPersistentTokenSession(legacy.PersistentTokenSession):
             for command in chunk:
                 stream = torch.cuda.Stream(device=self.device)
                 stream.wait_stream(caller_stream)
-                total_tensor = self._score_suffix_async(seqs[command], stream)
-                launched.append((command, stream, total_tensor))
+                terms = self._score_suffix_async(seqs[command], stream)
+                launched.append((command, stream, terms))
             # All candidate chains above were submitted before any synchronization,
             # so the GPU may overlap them while every individual chain stays batch-1.
-            for command, stream, total_tensor in launched:
+            for command, stream, terms in launched:
                 stream.synchronize()
                 ids = seqs[command]
-                total = float(total_tensor.item())
+                # Match legacy arithmetic exactly: token scalar -> Python float,
+                # then left-to-right Python float addition in token order.
+                total = 0.0
+                for term in terms:
+                    total += float(term.item())
                 n = len(ids)
                 rows[command] = legacy.CandidateScore(command, legacy.token_ids_sha256(ids), n, total, total / n)
         after = legacy.cache_digest(self.past_key_values)
