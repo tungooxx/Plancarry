@@ -1,0 +1,13 @@
+{
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_GPU_OPTIMIZATION_A1_V1",
+  "base_commit": "127d1a46fe289f036cba4cd51d91a267ceed06ca",
+  "scientific_variables_changed": [],
+  "engineering_only": true,
+  "candidate_batch_max": 8,
+  "structural_call_reduction_fixture": {"candidate_scoring_19x3_tokens": {"legacy_forwards": 38, "optimized_forwards": 6}, "four_layer_capture": {"legacy_forwards": 4, "optimized_forwards": 1}},
+  "targeted_tests": "12/12 PASS",
+  "inherited_tests": "17/17 PASS",
+  "preflight": "READY_NO_SCIENCE",
+  "exact_qwen_rtx5060_canary": "PENDING_AFTER_LIVE_RUN_TERMINAL",
+  "future_science_requires_independent_review": true
+}

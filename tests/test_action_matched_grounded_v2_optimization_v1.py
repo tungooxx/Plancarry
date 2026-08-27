@@ -18,6 +18,7 @@ class ToyStepModel(nn.Module):
         super().__init__()
         self.anchor = nn.Parameter(torch.tensor(0.0))
         self.vocab = vocab
+        self.forward_calls = 0
         self.calls = 0
 
     def forward(self, input_ids, attention_mask=None, past_key_values=None, use_cache=True):
@@ -63,6 +64,7 @@ class Backbone(nn.Module):
 class ToyCaptureModel(nn.Module):
     def __init__(self):
         super().__init__()
+        self.forward_calls = 0
         self.embed = nn.Embedding(32, 5)
         with torch.no_grad():
             vals = torch.arange(32 * 5, dtype=torch.float32).reshape(32, 5) / 100.0
@@ -183,6 +185,36 @@ class GroundedOptimizationTests(unittest.TestCase):
         multi_calls = model.calls
         self.assertEqual(legacy_calls, 4)
         self.assertEqual(multi_calls, 1)
+
+
+    def test_candidate_batching_reduces_forward_calls_structurally(self):
+        s=make_scoring_session()
+        candidates={f"cmd_{i:02d}":[2+(i%5),3+(i%5),4+(i%5)] for i in range(19)}
+        s.model.calls=0
+        old_best,old=s.score_candidates_legacy(candidates)
+        legacy_calls=s.model.calls
+        s.model.calls=0
+        new_best,new=s.score_candidates(candidates)
+        optimized_calls=s.model.calls
+        self.assertEqual(old_best,new_best)
+        for name in old:
+            self.assertAlmostEqual(old[name].mean_logprob,new[name].mean_logprob,places=7)
+        self.assertEqual(legacy_calls, 19*2)
+        self.assertEqual(optimized_calls, 3*2)  # ceil(19/8) chunks * (L-1)
+        self.assertLess(optimized_calls, legacy_calls)
+
+    def test_multi_layer_capture_reduces_forward_calls_structurally(self):
+        model=ToyCaptureModel(); ids=[2,5,7,11]; layers=[0,1,2,3]
+        model.calls=0
+        old={layer:legacy.capture_activation_ids(model,ids,layer,-1) for layer in layers}
+        legacy_calls=model.calls
+        model.calls=0
+        new=opt.capture_activation_ids_multi(model,ids,layers,-1)
+        optimized_calls=model.calls
+        for layer in layers:
+            self.assertTrue(torch.equal(old[layer],new[layer]))
+        self.assertEqual(legacy_calls,4)
+        self.assertEqual(optimized_calls,1)
 
     def test_original_frozen_runtime_unchanged(self):
         expected={
