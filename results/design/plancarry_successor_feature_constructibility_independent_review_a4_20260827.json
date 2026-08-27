@@ -1,0 +1,90 @@
+{
+  "author_work_item_id": "1418e0fc-a1c3-45f3-9dcd-ac0780db475e",
+  "author_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "authority": {
+    "actionmatched_v1_population_commit": "8d9ae9a2ee108becae26b3b9e1445ecd77209475",
+    "design_commit": "450c1a97a852ed1754ee92481b6fa41017a879ba",
+    "design_tree": "7c7fa11ee81e48624fd14df13495d16e365b7775",
+    "grounded_population_commit": "1d27ffa6c7826b2cb9cef58342b20a2e7aa25362",
+    "grounded_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+    "prereg_sha256": "f582099cab2e0ac2fec463c3ae4f870eaaf335217c707abe379ccfdd50b5e36a",
+    "static_audit_sha256": "ca5b99c3fc37e6c9c442263316a77619d69f9a52f54d8d519edc19ea1a2a4d02"
+  },
+  "checks_that_pass": {
+    "carrier_shape": "4x6 rows with H=4 and gamma=0.8 is explicitly frozen.",
+    "execution_guard": "No model forward/generation, ALFWorld execution, Experiment, ResearchDecision, GPU/provider lifecycle, or future-split access occurred in this review.",
+    "future_split_guard": "Constructibility indices0..15 only; indices16..31 causal-development locked and 32..36 spare locked; no valid/confirmation split authorized.",
+    "no_oracle_design": "Same frozen cut snapshot/history and deterministic shared a3 feed both branches; no environment clone, future observation/admissibles, expert action, actual future A4/A5/B4/B5 identity, valid path, or future split is authorized.",
+    "quantization": "Each row is specified as uint8 largest-remainder with exact sum255 and frozen label-order tie break.",
+    "row_semantics": "row1 shared immediate-action phase; row2 oriented branch phase; rows3-4 recursively model-predicted phase distributions.",
+    "serialization": "Prefix SF1: is 4 ASCII bytes plus 24 uint8 encoded as 48 lowercase hex characters = fixed 52 ASCII bytes."
+  },
+  "independent_population_reconstruction": {
+    "evidence_job": "local_b4300f8793894260",
+    "five_source_raw_sha256_and_declared_counts_match": true,
+    "grounded_fresh197_salted_first160_reconstructed_exactly": true,
+    "grounded_remaining37_equals_successor_residual_set": true,
+    "grounded_selected_n": 160,
+    "pairwise_disjoint_between_union_grounded_successor": true,
+    "partition_total_n": 790,
+    "source_overlap_note": "PlanUnique-v1 and ActionMatched-v1 overlap by 25 paths; exact union remains 593 as frozen.",
+    "source_union_n": 593,
+    "successor_rank_hashes_all_match": true,
+    "successor_residual_n": 37,
+    "successor_salted_rank_order_reconstructed_exactly": true,
+    "successor_split_exact": "16 constructibility / 16 causal-development-locked / 5 spare-locked",
+    "tail_newline_sha256_match": "4d15b0150d474bc9dcd24e11f9318df8d905d03d2f9d14160cf1fd30939054d3"
+  },
+  "interpretation": "This verdict rejects only the current constructibility design freeze. It is not evidence against the SuccessorFeature hypothesis. Population provenance and no-oracle isolation are sound; the repair is required because the primary separation gate/control set cannot rule out a branch-label-only carrier.",
+  "kind": "PLANCARRY_SUCCESSOR_FEATURE_CONSTRUCTIBILITY_INDEPENDENT_REVIEW_A4_V1",
+  "material_findings": [
+    {
+      "deterministic_counterexample": {
+        "frozen_gate": 0.5,
+        "gate_passes": true,
+        "row2_discounted_l1": 1.6,
+        "rows3_4_branch_difference": 0.0
+      },
+      "evidence_job": "local_cb324e6f29d84845",
+      "finding": "The preregistered constructibility distance includes rows2..4. Row2 is forced to different one-hot branch labels. With gamma=0.8, two different one-hot rows contribute raw L1=2 and discounted L1=1.6 by themselves, which always exceeds the frozen >=0.50 gate even when rows3 and 4 are identical.",
+      "id": "ROW2_TAUTOLOGICAL_DISTANCE_GATE",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "The procedure chooses the top two distinct labels from six unique labels with a deterministic tie-break, so distinct row2 labels require no minimum probability, margin, entropy, or alternate-branch plausibility. Distinctness therefore does not establish a naturally constructible branching future.",
+      "id": "TOP2_BRANCH_DISTINCTNESS_IS_CONSTRUCTED_NOT_DISCOVERED",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "CURRENT_STATE_ONLY and IMMEDIATE_ACTION_ONLY do not isolate the oriented row2 branch label. A causal effect could therefore be driven solely by the branch label / immediate post-a3 intent rather than multi-step successor occupancy.",
+      "id": "MISSING_BRANCH_LABEL_ONLY_CONTROL",
+      "severity": "MATERIAL"
+    },
+    {
+      "finding": "TIME_SHUFFLED_OCCUPANCY cyclically maps later rows as [row3,row4,row2], moving the branch-defining row2. It therefore confounds temporal-order disruption with branch-label position instead of testing temporal successor structure while branch identity is held fixed.",
+      "id": "TIME_SHUFFLE_DOES_NOT_HOLD_BRANCH_LABEL_FIXED",
+      "severity": "MATERIAL"
+    }
+  ],
+  "prohibitions_observed": {
+    "environment_execution": 0,
+    "experiment_or_decision_created": false,
+    "future_split_access": false,
+    "game_files_opened": 0,
+    "gpu_provider_lifecycle": false,
+    "model_forward": 0
+  },
+  "required_repair_before_constructibility_execution": [
+    "Make the constructibility separation endpoint non-tautological: require prospectively frozen divergence beyond the forced row2 branch label (for example, compute the threshold on rows3-4 only or explicitly subtract/fix row2 contribution). Freeze the repaired threshold before any model call.",
+    "Add a prospectively frozen branch-plausibility guard for the second branch (not merely 'top two distinct'), using a deterministic probability/mass/margin criterion selected before model execution.",
+    "Add a same-budget BRANCH_PHASE_ONLY / ROW2_ONLY future causal control: preserve shared row1 and branch row2 while neutralizing rows3-4, so later causal effects can be distinguished from branch-label-only steering.",
+    "Repair TIME_SHUFFLED_OCCUPANCY so row1 and row2 remain fixed and only genuine future-prediction rows are temporally permuted (with H=4 this means a frozen row3/row4 swap or another predeclared permutation that does not move row2).",
+    "At implementation freeze, make the row1 action-to-phase classifier precedence and exact label-scoring prompt/token suffix binding deterministic and independently reviewable, as already anticipated by the preregistration."
+  ],
+  "review_scope": "PRE_SCIENCE_DESIGN_ONLY",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "2733dea6-73c8-4dc4-8d58-eae28304bc5f"
+}
