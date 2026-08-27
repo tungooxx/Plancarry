@@ -2,94 +2,79 @@
 """Engineering-only GPU batching helpers for Grounded ActionMatched-v2.
 
 This module leaves the frozen ReplayResidual persistent-session runtime byte-identical.
-It subclasses that runtime only to batch conditionally-independent candidate suffix
-scoring and provides observation-only multi-layer activation capture.
+It subclasses that runtime only to overlap conditionally-independent batch-size-1
+candidate suffix chains on CUDA streams and provides observation-only multi-layer activation capture.
 """
 from __future__ import annotations
 from typing import Any, Mapping, Sequence
 
 import replay_residual_t1_session_runtime_v1 as legacy
-from replay_residual_kv_mediation_v1 import cache_layers, rebuild_like
+from replay_residual_kv_mediation_v1 import cache_layers
 
 ENGINEERING_EQUIV_ATOL = 1e-6
-MAX_CANDIDATE_BATCH = 8
-
-
-def repeat_cache_batch(cache: Any, batch_size: int) -> Any:
-    if not isinstance(batch_size, int) or batch_size <= 0:
-        raise legacy.SessionContractError("batch_size must be a positive integer")
-    layers = []
-    for idx, (key, value) in enumerate(cache_layers(cache)):
-        if key.ndim < 3 or value.ndim < 3 or int(key.shape[0]) != 1 or int(value.shape[0]) != 1:
-            raise legacy.SessionContractError(f"candidate batching requires batch-1 cache at layer {idx}")
-        layers.append((key.detach().repeat_interleave(batch_size, dim=0).clone(),
-                       value.detach().repeat_interleave(batch_size, dim=0).clone()))
-    return rebuild_like(cache, tuple(layers))
+MAX_CANDIDATE_STREAMS = 4
 
 
 class OptimizedPersistentTokenSession(legacy.PersistentTokenSession):
-    """Drop-in persistent session with exact candidate-batch scoring."""
+    """Drop-in session: exact batch-1 math, concurrent independent CUDA streams."""
 
     def score_candidates_legacy(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
         return super().score_candidates(suffix_ids_by_command)
 
-    def _step_model_batch(self, token_ids: Sequence[int], past: Any, context_len: int):
+    def _score_suffix_async(self, ids: Sequence[int], stream: Any):
+        """Launch one exact legacy-shaped batch-1 candidate chain on one CUDA stream."""
         torch = legacy._torch()
-        ids = [int(x) for x in token_ids]
-        if not ids:
-            raise legacy.SessionContractError("batched token_ids must be nonempty")
-        step = torch.tensor(ids, dtype=torch.long, device=self.device).reshape(len(ids), 1)
-        mask = torch.ones((len(ids), int(context_len) + 1), dtype=torch.long, device=self.device)
-        with torch.inference_mode():
-            out = self.model(input_ids=step, attention_mask=mask, past_key_values=past, use_cache=True)
-        return out.past_key_values, out.logits[:, -1, :].float().detach()
-
-    def _score_candidate_batch(self, commands: Sequence[str], suffix_ids_by_command: Mapping[str, Sequence[int]]):
-        """Score one bounded candidate batch from the identical frozen live cache."""
-        torch = legacy._torch()
-        names = [str(x) for x in commands]
-        seqs = [[int(x) for x in suffix_ids_by_command[c]] for c in names]
-        if not names or any(not ids for ids in seqs):
+        seq = [int(x) for x in ids]
+        if not seq:
             raise legacy.SessionContractError("candidate suffix must be nonempty")
-        local_past = repeat_cache_batch(self.past_key_values, len(names))
-        if self.next_logits.ndim != 2 or int(self.next_logits.shape[0]) != 1:
-            raise legacy.SessionContractError("candidate batching requires batch-1 next_logits")
-        local_logits = self.next_logits.detach().clone().expand(len(names), -1).contiguous()
-        local_len = int(self.context_len)
-        totals = [0.0 for _ in names]
-        max_len = max(len(ids) for ids in seqs)
-        for j in range(max_len):
-            lp = torch.log_softmax(local_logits.float(), dim=-1)
-            for i, ids in enumerate(seqs):
-                if j < len(ids):
-                    totals[i] += float(lp[i, ids[j]].item())
-            if j + 1 < max_len:
-                # Rows whose exact candidate already ended are advanced with an
-                # arbitrary in-row token only to preserve rectangular batch
-                # geometry. Their later logits are never scored or observed and
-                # cannot influence any other batch row.
-                step_ids = [ids[j] if j < len(ids) else ids[-1] for ids in seqs]
-                local_past, local_logits = self._step_model_batch(step_ids, local_past, local_len)
-                local_len += 1
-        rows = {}
-        for command, ids, total in zip(names, seqs, totals):
-            n = len(ids)
-            rows[command] = legacy.CandidateScore(command, legacy.token_ids_sha256(ids), n, total, total / n)
-        return rows
+        with torch.cuda.stream(stream):
+            local_past = legacy.clone_cache(self.past_key_values)
+            local_logits = self.next_logits.detach().clone()
+            local_len = int(self.context_len)
+            total = torch.zeros((), dtype=torch.float32, device=self.device)
+            for j, token_id in enumerate(seq):
+                lp = torch.log_softmax(local_logits.float(), dim=-1)
+                total = total + lp[0, token_id]
+                if j + 1 < len(seq):
+                    local_past, local_logits = self._step_model(token_id, local_past, local_len)
+                    local_len += 1
+        return total
 
     def score_candidates(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
-        """Semantics-equivalent bounded-batch replacement for legacy scoring."""
+        """Overlap candidates without changing the legacy batch-size-1 numerical geometry."""
+        torch = legacy._torch()
         self._assert_open()
         if not suffix_ids_by_command:
             raise legacy.SessionContractError("candidate map must be nonempty")
         commands = sorted(str(x) for x in suffix_ids_by_command)
-        if any(not [int(v) for v in suffix_ids_by_command[c]] for c in commands):
+        seqs = {c:[int(x) for x in suffix_ids_by_command[c]] for c in commands}
+        if any(not ids for ids in seqs.values()):
             raise legacy.SessionContractError("candidate suffix must be nonempty")
+        for idx,(key,value) in enumerate(cache_layers(self.past_key_values)):
+            if key.ndim < 3 or value.ndim < 3 or int(key.shape[0]) != 1 or int(value.shape[0]) != 1:
+                raise legacy.SessionContractError(f"optimized candidate scoring requires batch-1 cache at layer {idx}")
+        # CPU and non-CUDA callers retain the byte-for-byte legacy execution path.
+        if getattr(self.device, 'type', str(self.device)) != 'cuda' or not torch.cuda.is_available():
+            return super().score_candidates(suffix_ids_by_command)
         before = legacy.cache_digest(self.past_key_values)
         rows = {}
-        for off in range(0, len(commands), MAX_CANDIDATE_BATCH):
-            chunk = commands[off:off + MAX_CANDIDATE_BATCH]
-            rows.update(self._score_candidate_batch(chunk, suffix_ids_by_command))
+        caller_stream = torch.cuda.current_stream(self.device)
+        for off in range(0, len(commands), MAX_CANDIDATE_STREAMS):
+            chunk = commands[off:off + MAX_CANDIDATE_STREAMS]
+            launched = []
+            for command in chunk:
+                stream = torch.cuda.Stream(device=self.device)
+                stream.wait_stream(caller_stream)
+                total_tensor = self._score_suffix_async(seqs[command], stream)
+                launched.append((command, stream, total_tensor))
+            # All candidate chains above were submitted before any synchronization,
+            # so the GPU may overlap them while every individual chain stays batch-1.
+            for command, stream, total_tensor in launched:
+                stream.synchronize()
+                ids = seqs[command]
+                total = float(total_tensor.item())
+                n = len(ids)
+                rows[command] = legacy.CandidateScore(command, legacy.token_ids_sha256(ids), n, total, total / n)
         after = legacy.cache_digest(self.past_key_values)
         if before != after or legacy.cache_seq_len(self.past_key_values) != self.context_len:
             raise legacy.SessionContractError("candidate scoring mutated live KV session")

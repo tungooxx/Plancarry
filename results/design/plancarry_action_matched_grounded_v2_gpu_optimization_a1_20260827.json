@@ -1,13 +1,24 @@
 {
-  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_GPU_OPTIMIZATION_A1_V1",
   "base_commit": "127d1a46fe289f036cba4cd51d91a267ceed06ca",
-  "scientific_variables_changed": [],
+  "candidate_strategy": "BATCH_SIZE_1_CUDA_STREAM_OVERLAP",
   "engineering_only": true,
-  "candidate_batch_max": 8,
-  "structural_call_reduction_fixture": {"candidate_scoring_19x3_tokens": {"legacy_forwards": 38, "optimized_forwards": 6}, "four_layer_capture": {"legacy_forwards": 4, "optimized_forwards": 1}},
-  "targeted_tests": "12/12 PASS",
-  "inherited_tests": "17/17 PASS",
-  "preflight": "READY_NO_SCIENCE",
   "exact_qwen_rtx5060_canary": "PENDING_AFTER_LIVE_RUN_TERMINAL",
-  "future_science_requires_independent_review": true
+  "exact_qwen_rtx5060_stream_canary": "PENDING",
+  "future_science_requires_independent_review": true,
+  "inherited_tests": "17/17 PASS",
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_GPU_OPTIMIZATION_A1_V1",
+  "max_candidate_streams": 4,
+  "preflight": "READY_NO_SCIENCE",
+  "scientific_variables_changed": [],
+  "stream_repair_unit_tests": "10/10 PASS",
+  "targeted_tests": "12/12 PASS",
+  "unsafe_batch_dimension_variant": {
+    "candidate_speedup": 6.051306730382402,
+    "layer_capture_maxabs": 0.0,
+    "layer_capture_speedup": 3.983742693510031,
+    "maxabs_logprob_sum": 0.17600059509277344,
+    "maxabs_mean_logprob": 0.02933343251546283,
+    "reason": "Exact Qwen RTX5060 BF16 batch-size change altered scientific score geometry",
+    "status": "REJECTED_ENGINEERING_CANARY"
+  }
 }

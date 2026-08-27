@@ -80,7 +80,7 @@ class ToyCaptureModel(nn.Module):
 
 
 class GroundedOptimizationTests(unittest.TestCase):
-    def test_batched_candidate_scores_match_legacy_variable_lengths(self):
+    def test_optimized_candidate_scores_match_legacy_variable_lengths(self):
         s = make_scoring_session()
         candidates = {'zeta':[2], 'alpha':[4,5,6], 'mid':[3,7], 'long':[8,1,9,4]}
         before = legacy.cache_digest(s.past_key_values)
@@ -98,7 +98,7 @@ class GroundedOptimizationTests(unittest.TestCase):
             self.assertAlmostEqual(old[name].mean_logprob, new[name].mean_logprob, places=7)
 
 
-    def test_batched_candidate_chunking_and_lexical_tie(self):
+    def test_optimized_candidate_lexical_tie(self):
         s = make_scoring_session()
         candidates = {f"cmd_{i:02d}":[(i % 10)+1, ((i+3) % 10)+1, ((i+5) % 10)+1] for i in range(19)}
         candidates['aaa_tie']=[2,3]
@@ -115,27 +115,12 @@ class GroundedOptimizationTests(unittest.TestCase):
         old_best,_=s.score_candidates_legacy(pair); new_best,_=s.score_candidates(pair)
         self.assertEqual(old_best, 'aaa'); self.assertEqual(new_best, 'aaa')
 
-    def test_dynamic_cache_batch_replication_preserves_geometry(self):
-        from transformers.cache_utils import DynamicCache
-        c=DynamicCache()
-        c.key_cache=[torch.arange(12,dtype=torch.float32).reshape(1,2,3,2)]
-        c.value_cache=[torch.arange(12,24,dtype=torch.float32).reshape(1,2,3,2)]
-        c._seen_tokens=3
-        r=opt.repeat_cache_batch(c,4)
-        self.assertIsInstance(r, DynamicCache)
-        self.assertEqual(tuple(r.key_cache[0].shape),(4,2,3,2))
-        self.assertEqual(tuple(r.value_cache[0].shape),(4,2,3,2))
-        self.assertEqual(r._seen_tokens,3)
-        for i in range(4):
-            self.assertTrue(torch.equal(r.key_cache[0][i], c.key_cache[0][0]))
-            self.assertTrue(torch.equal(r.value_cache[0][i], c.value_cache[0][0]))
-
     def test_empty_candidate_fails_closed(self):
         s=make_scoring_session()
         with self.assertRaises(legacy.SessionContractError):
             s.score_candidates({'a':[],'b':[2]})
 
-    def test_batched_candidate_scoring_fail_closed_on_non_batch1_cache(self):
+    def test_legacy_cache_contract_still_fails_closed_on_non_batch1_cache(self):
         s = make_scoring_session()
         k, v = s.past_key_values[0]
         s.past_key_values = ((k.repeat(2,1,1,1), v.repeat(2,1,1,1)),)
@@ -160,19 +145,6 @@ class GroundedOptimizationTests(unittest.TestCase):
             self.assertTrue(torch.equal(old[layer], new[layer]))
 
 
-    def test_batching_reduces_model_forward_count(self):
-        s = make_scoring_session()
-        candidates = {'zeta':[2], 'alpha':[4,5,6], 'mid':[3,7], 'long':[8,1,9,4]}
-        s.model.calls = 0
-        s.score_candidates_legacy(candidates)
-        legacy_calls = s.model.calls
-        s.model.calls = 0
-        s.score_candidates(candidates)
-        batched_calls = s.model.calls
-        self.assertEqual(legacy_calls, 6)
-        self.assertEqual(batched_calls, 3)
-        self.assertLess(batched_calls, legacy_calls)
-
     def test_multi_layer_capture_reduces_forward_count(self):
         model = ToyCaptureModel()
         ids, layers = [2,5,7,11], [0,1,2,3]
@@ -187,7 +159,7 @@ class GroundedOptimizationTests(unittest.TestCase):
         self.assertEqual(multi_calls, 1)
 
 
-    def test_candidate_batching_reduces_forward_calls_structurally(self):
+    def test_cpu_fallback_preserves_legacy_forward_geometry(self):
         s=make_scoring_session()
         candidates={f"cmd_{i:02d}":[2+(i%5),3+(i%5),4+(i%5)] for i in range(19)}
         s.model.calls=0
@@ -199,9 +171,7 @@ class GroundedOptimizationTests(unittest.TestCase):
         self.assertEqual(old_best,new_best)
         for name in old:
             self.assertAlmostEqual(old[name].mean_logprob,new[name].mean_logprob,places=7)
-        self.assertEqual(legacy_calls, 19*2)
-        self.assertEqual(optimized_calls, 3*2)  # ceil(19/8) chunks * (L-1)
-        self.assertLess(optimized_calls, legacy_calls)
+        self.assertEqual(optimized_calls,legacy_calls)
 
     def test_multi_layer_capture_reduces_forward_calls_structurally(self):
         model=ToyCaptureModel(); ids=[2,5,7,11]; layers=[0,1,2,3]
