@@ -1,0 +1,98 @@
+{
+  "acceptance": {
+    "action_only_no_later_action_or_plan_inputs": true,
+    "degenerate_order_control_fails_closed": true,
+    "legacy_localcontinuation_15_of_15": true,
+    "lengths_8_512_exact_and_deterministic": true,
+    "science_execution_forbidden": true,
+    "value_level_order_nonidentity": true,
+    "verdict": "PASS_STATIC_CONSTRUCTIBILITY_WITH_EXPLICIT_DEGENERATE_FAIL_CLOSED_GUARD"
+  },
+  "base_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "brain_decision_id": "d4820744-202f-4f3d-b225-5f5e0b31a534",
+  "brain_step_id": "87ec0a30-fe4e-4a5c-af80-81772275a01f",
+  "candidate_action_id": "d6f30fc7-7031-49b8-93ee-f71f81b41e9f",
+  "contract": {
+    "action_only": "fixed wrapper + exact action3 IDs + frozen neutral cycle to exact L; no truncation; no plan/action4/action5/future inputs",
+    "decode_reencode": false,
+    "direct_token_ids_only": true,
+    "neutral": "frozen token-ID cycle repeated to exact L",
+    "order_null": "four contiguous full-plan blocks; lexicographic search over strict block-index derangements; exact multiset and value-level output!=PLAN required; fail closed when no value-changing derangement exists",
+    "slot_length": "family-specific exact L=len(plan_ids), minimum 8",
+    "source_anchor": "all same-family source variants exact L; anchor offset L-1"
+  },
+  "edge_guards": {
+    "all_identical_plan_fail_closed": true,
+    "overlong_action_fail_closed": true,
+    "periodic_equal_blocks_fail_closed": true,
+    "short_slot_fail_closed": true
+  },
+  "engineering_task_id": "82981959-d4f0-4de7-91bb-4aebbc0ca43c",
+  "files": {
+    "helper": {
+      "path": "variable_slot_controls_v2.py",
+      "sha256": "5f5c059d94c1796c5d7cc6a62eb3a723c9bffa65dbb45bfc7933f0b6138d9bfe"
+    },
+    "tests": {
+      "path": "tests/test_variable_slot_controls_v2.py",
+      "sha256": "8d6164eac8775306a18f7544816f8be5f85a2d4235f3ee74c3183a5d6d07d836"
+    }
+  },
+  "hypothesis_id": "2a1b7f2b-80fa-4f48-b72b-f4ddadfb6538",
+  "kind": "PRE_SCIENCE_CPU_TOKEN_DIAGNOSTIC",
+  "limitations": [
+    "Synthetic integer token IDs only; no real tokenizer/model binding is established.",
+    "Static constructibility does not establish ALFWorld population eligibility or causal efficacy.",
+    "Plans invariant under every allowed four-block value permutation are prospectively unconstructible and must be excluded before any future E freeze, with no replacement, if this control family is later preregistered."
+  ],
+  "production_token_contract_status": "UNBOUND_PRE_SCIENCE",
+  "property_sweep": {
+    "anchor_equal_pass": 505,
+    "deterministic_pass": 505,
+    "exact_length_pass": 505,
+    "lengths_checked": 505,
+    "multiset_pass": 505,
+    "value_nonidentity_pass": 505
+  },
+  "schema": "PLANCARRY_REPLAYRESIDUAL_VARIABLESLOT_EXACT_TOKEN_DIAGNOSTIC_V2",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_baseline": {
+    "material_flaw": "block-index derangement could emit ORDER_NULL identical to PLAN for value-degenerate repeated-token sequences",
+    "stale_v1_audit_sha256": "70f04802491433d9dbd1f07939f1adddb077df066db2b52d564a3e05dafaebb1",
+    "stale_v1_helper_sha256": "d881a91e6072f41620bd6739ee5135ccf90bcaedee58a1014d3bd41585e890c2",
+    "stale_v1_test_sha256": "5e8a81afe0e4576ae128f3acb027fa37920f39f979511423e5b54117af4e4756"
+  },
+  "static_dependency_audit": {
+    "allowed_imports": [
+      "__future__",
+      "dataclasses",
+      "itertools",
+      "typing"
+    ],
+    "confirmation_accessed": false,
+    "environment_execution": 0,
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "itertools",
+      "typing"
+    ],
+    "model_calls": 0,
+    "packet_reads_for_tuning": 0,
+    "reserve_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "tests": {
+    "forbidden_imports": [],
+    "legacy_localcontinuation_execution_stack_cases": 15,
+    "legacy_localcontinuation_execution_stack_status": "PASS_15_OF_15",
+    "legacy_test_sha256": "53d894d6d9ac406f8ff51263ab01ffbfe22ed65894cdb8a4901bf318b019f3d1",
+    "py_compile": "PASS",
+    "targeted_status": "PASS_12_OF_12",
+    "targeted_unittest_cases": 12
+  },
+  "work_item_id": "cff27f3b-b2d6-41fe-9502-10b4dec7fec7"
+}
