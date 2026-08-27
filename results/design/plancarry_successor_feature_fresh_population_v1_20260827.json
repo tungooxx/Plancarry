@@ -1,0 +1,292 @@
+{
+  "available_never_selected_tail_n": 37,
+  "available_tail_newline_sha256": "4d15b0150d474bc9dcd24e11f9318df8d905d03d2f9d14160cf1fd30939054d3",
+  "causal_development_locked_n": 16,
+  "constructibility_n": 16,
+  "environment_execution": 0,
+  "exclusion_sources": [
+    {
+      "exact_paths": 266,
+      "file": "plancarry_localcontinuation_exposed_paths_v1_20260823.json",
+      "name": "historical_exposed",
+      "resolved_sha256": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+      "sha256": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json",
+      "name": "localcontinuation_v1_selected",
+      "resolved_sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+      "sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+      "name": "localcontinuation_v2_selected",
+      "resolved_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+      "sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+    },
+    {
+      "exact_paths": 64,
+      "file": "plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+      "name": "planunique_v1_selected",
+      "resolved_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+      "sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+    },
+    {
+      "exact_paths": 160,
+      "file": "plancarry_action_matched_future_plan_population_v1_20260825.json",
+      "name": "actionmatched_v1_selected",
+      "resolved_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+      "sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7"
+    }
+  ],
+  "game_files_opened": 0,
+  "grounded_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "grounded_reconstruction_select_match": true,
+  "grounded_selection_salt": "PlanCarry|ACTION_MATCHED_GROUNDED_V2|FRESH160|20260825",
+  "grounded_v2_selected_excluded_n": 160,
+  "historical_plus_prior_selected_exclusion_n": 593,
+  "hypothesis_id": "5afd3537-c30a-4c2b-90fe-c5efa0c49d74",
+  "inventory_n": 790,
+  "kind": "PLANCARRY_SUCCESSOR_FEATURE_FRESH_POPULATION_V1",
+  "model_calls": 0,
+  "paths": [
+    {
+      "game_path": "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-421/trial_T20190906_182523_085136",
+      "index": 0,
+      "phase": "constructibility",
+      "rank_sha256": "0235211f0e716c15b49d08056d2339dbd21803f9c2fa119027537a76a086cea4"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pillow-None-ArmChair-206/trial_T20190909_011730_702236",
+      "index": 1,
+      "phase": "constructibility",
+      "rank_sha256": "075a76fa9cb893f19c475ff9c332b21c8bd814ce6941e777f66c5fc3b53d176a"
+    },
+    {
+      "game_path": "pick_and_place_simple-Tomato-None-Microwave-5/trial_T20190918_171755_707602",
+      "index": 2,
+      "phase": "constructibility",
+      "rank_sha256": "1321e1765e3c76db705fccf96e9b8ca112d9f4ec289693b3e02517955ccddc33"
+    },
+    {
+      "game_path": "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-401/trial_T20190908_215205_687893",
+      "index": 3,
+      "phase": "constructibility",
+      "rank_sha256": "171c09e2d7e51939748cc9335ed6773556574b925b07837311e2ca73fbb0da35"
+    },
+    {
+      "game_path": "pick_and_place_simple-DishSponge-None-Toilet-430/trial_T20190907_144850_467372",
+      "index": 4,
+      "phase": "constructibility",
+      "rank_sha256": "3e399c8f00d2694e053a7c53c0be47c6f86626bf8762eb7ddae790ea60bd854b"
+    },
+    {
+      "game_path": "pick_and_place_simple-Cloth-None-Toilet-417/trial_T20190908_163225_559074",
+      "index": 5,
+      "phase": "constructibility",
+      "rank_sha256": "45ab9b35dfe4eddfeb1b5ac57d99e4d9f59515472e577500c892d602479fd3b1"
+    },
+    {
+      "game_path": "pick_and_place_simple-TissueBox-None-SideTable-229/trial_T20190908_114048_231845",
+      "index": 6,
+      "phase": "constructibility",
+      "rank_sha256": "4ad10820f84130d6ebe4f30bcf9b7dccbfb70b3bda338d57b03b33ca356480f5"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pillow-None-ArmChair-321/trial_T20190908_104935_443304",
+      "index": 7,
+      "phase": "constructibility",
+      "rank_sha256": "506efeac9c71e61028ad130e9cafc64bbdb84aacb4a699d2f6fe6c9426668980"
+    },
+    {
+      "game_path": "pick_and_place_simple-Tomato-None-Microwave-13/trial_T20190908_125158_098734",
+      "index": 8,
+      "phase": "constructibility",
+      "rank_sha256": "5cb94bf22e4da728e2e5adbaa6c4aaf78bf72f6a08002db14240f5976a737c69"
+    },
+    {
+      "game_path": "pick_and_place_simple-PepperShaker-None-Shelf-20/trial_T20190907_162359_655154",
+      "index": 9,
+      "phase": "constructibility",
+      "rank_sha256": "5d6afa3d97abed58de5af7e5db8979e0a9d19783ccfca3b97e3f2a801c61f689"
+    },
+    {
+      "game_path": "pick_and_place_simple-SoapBottle-None-GarbageCan-413/trial_T20190909_073938_279211",
+      "index": 10,
+      "phase": "constructibility",
+      "rank_sha256": "6142db7905a0c9d7bd5b07583cb842255ecd88db79df1017d0b378921138b16e"
+    },
+    {
+      "game_path": "pick_and_place_simple-Candle-None-Drawer-411/trial_T20190909_093542_770989",
+      "index": 11,
+      "phase": "constructibility",
+      "rank_sha256": "655f7d80e99f1d7af61dc42c4cfe85a5e0d1a107268180a94447ffb878b88678"
+    },
+    {
+      "game_path": "pick_and_place_simple-Statue-None-CoffeeTable-229/trial_T20190908_132906_260131",
+      "index": 12,
+      "phase": "constructibility",
+      "rank_sha256": "6c26ac9c97e74e1e512c5cd31e4512bfee7e64440f19fb8e7a03b51007712005"
+    },
+    {
+      "game_path": "pick_and_place_simple-Laptop-None-SideTable-221/trial_T20190908_110844_642249",
+      "index": 13,
+      "phase": "constructibility",
+      "rank_sha256": "6d7e6e8b7a12883028fd2f9d7e3f5e8f7c805ef1202a704e8bb445ad6ac415e7"
+    },
+    {
+      "game_path": "pick_and_place_simple-PepperShaker-None-SideTable-21/trial_T20190906_213353_632634",
+      "index": 14,
+      "phase": "constructibility",
+      "rank_sha256": "72cfac4720c1a4e61c810847a84bfd49fc0739e6a7b8a76092e6f2a4d8555557"
+    },
+    {
+      "game_path": "pick_and_place_simple-KeyChain-None-SideTable-309/trial_T20190908_214938_408925",
+      "index": 15,
+      "phase": "constructibility",
+      "rank_sha256": "77391c4dcbb0c844f9f4ca0b824ce6e2ab8f963580df9a58d2fe240940130e76"
+    },
+    {
+      "game_path": "pick_and_place_simple-KeyChain-None-Safe-323/trial_T20190918_181136_220658",
+      "index": 16,
+      "phase": "causal_development_locked",
+      "rank_sha256": "7ecba3e1257d93a29196a7ee6bdb2b3811d37844e7ea1770d4a693cf0cf6de88"
+    },
+    {
+      "game_path": "pick_and_place_simple-ToiletPaper-None-GarbageCan-416/trial_T20190906_202104_886119",
+      "index": 17,
+      "phase": "causal_development_locked",
+      "rank_sha256": "86e2482f435ecc86b193788ee0249735423d2839b1a05fce9c1e3ece3fef38fc"
+    },
+    {
+      "game_path": "pick_and_place_simple-Watch-None-Shelf-207/trial_T20190908_122239_644484",
+      "index": 18,
+      "phase": "causal_development_locked",
+      "rank_sha256": "88f45ca9a2f4db5c572f8df6e260283b9ab958535e74270220276fd7ca79a00e"
+    },
+    {
+      "game_path": "pick_and_place_simple-CreditCard-None-ArmChair-201/trial_T20190908_124413_314288",
+      "index": 19,
+      "phase": "causal_development_locked",
+      "rank_sha256": "8cb45f300f8286c8e568f78183dc662380cd496f033c7e3e966a30f0f66a4dcd"
+    },
+    {
+      "game_path": "pick_and_place_simple-Watch-None-CoffeeTable-222/trial_T20190908_032408_369750",
+      "index": 20,
+      "phase": "causal_development_locked",
+      "rank_sha256": "91cafa9c44bdd09ed48d2b8715b619ab071120a27244e4e6b8e9ba8e0a67ce29"
+    },
+    {
+      "game_path": "pick_and_place_simple-Mug-None-SideTable-329/trial_T20190909_032329_497305",
+      "index": 21,
+      "phase": "causal_development_locked",
+      "rank_sha256": "a8ae90958093ea78b47ac5afe517f9aceb90d0bfb46b08d7d08aa8a087f3762f"
+    },
+    {
+      "game_path": "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-409/trial_T20190907_152834_016179",
+      "index": 22,
+      "phase": "causal_development_locked",
+      "rank_sha256": "aaa3397a59119d6419160b23da49c30f5ea2bce0135139a27c4af7d59c0be480"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pen-None-SideTable-322/trial_T20190909_055242_347953",
+      "index": 23,
+      "phase": "causal_development_locked",
+      "rank_sha256": "b0a9d1e1cf4b48617e3bf7d30775a9e3079940cbd1f28409d5e45cb46701a40e"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pencil-None-Desk-307/trial_T20190909_075126_209289",
+      "index": 24,
+      "phase": "causal_development_locked",
+      "rank_sha256": "b6d828f163f71505ac36267bb7949a6b483cece7c067b1feae1266c8eb564444"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pencil-None-Desk-310/trial_T20190909_142857_563593",
+      "index": 25,
+      "phase": "causal_development_locked",
+      "rank_sha256": "bbae540fd724a150daa67f113f73d442ad63cc80e057ba975206c1e096086734"
+    },
+    {
+      "game_path": "pick_and_place_simple-RemoteControl-None-Sofa-216/trial_T20190909_150037_262342",
+      "index": 26,
+      "phase": "causal_development_locked",
+      "rank_sha256": "c339baedf01e79ed4d030cc3b4129f613d85a1761fc93138e6d946dd20a54fe0"
+    },
+    {
+      "game_path": "pick_and_place_simple-SprayBottle-None-CounterTop-427/trial_T20190908_232532_117315",
+      "index": 27,
+      "phase": "causal_development_locked",
+      "rank_sha256": "c824e72695a5e33c40cd635b05220881008ca196129ad412eba2f994debcbaaf"
+    },
+    {
+      "game_path": "pick_and_place_simple-SoapBottle-None-Toilet-412/trial_T20190907_133810_532978",
+      "index": 28,
+      "phase": "causal_development_locked",
+      "rank_sha256": "cdb6caf47c0de9af05e092da0e35bd99dcac5b98bd73407eafda83f12a058b5e"
+    },
+    {
+      "game_path": "pick_and_place_simple-Newspaper-None-Sofa-211/trial_T20190906_174949_956681",
+      "index": 29,
+      "phase": "causal_development_locked",
+      "rank_sha256": "cebfa016e375630956897b20d80d273fb3fc5d00bd7ef878b9d3a6d238d7f867"
+    },
+    {
+      "game_path": "pick_and_place_simple-KeyChain-None-Safe-323/trial_T20190908_115121_030635",
+      "index": 30,
+      "phase": "causal_development_locked",
+      "rank_sha256": "d31af953c3c25c0c007ca1b4702c7d82c6ec0fe4e002aaaf55d48d4a9a81fe04"
+    },
+    {
+      "game_path": "pick_and_place_simple-Kettle-None-StoveBurner-2/trial_T20190909_085833_355057",
+      "index": 31,
+      "phase": "causal_development_locked",
+      "rank_sha256": "dcbdcdc855beb514b853fe6c80ae1a0ef959a256e6cb147455859476de5c2722"
+    },
+    {
+      "game_path": "pick_and_place_simple-SoapBottle-None-SideTable-420/trial_T20190908_063550_595984",
+      "index": 32,
+      "phase": "spare_locked",
+      "rank_sha256": "e0ebe2bed8774b5d90ae26a8534920ed2f574ab3543d96b671fe3ab4b4447cfa"
+    },
+    {
+      "game_path": "pick_and_place_simple-Statue-None-CoffeeTable-227/trial_T20190909_101650_071380",
+      "index": 33,
+      "phase": "spare_locked",
+      "rank_sha256": "e2aa14f0a0ec95418e9d5b2895ea5710803792cfced39781aa54e82a184c755f"
+    },
+    {
+      "game_path": "pick_and_place_simple-Kettle-None-StoveBurner-2/trial_T20190909_085714_449235",
+      "index": 34,
+      "phase": "spare_locked",
+      "rank_sha256": "f4cf0ef3ec75c2504a5d49b945c57f8899ba51e4a3741f17901c0dda94823438"
+    },
+    {
+      "game_path": "pick_and_place_simple-Pencil-None-Shelf-313/trial_T20190908_182722_927182",
+      "index": 35,
+      "phase": "spare_locked",
+      "rank_sha256": "f577d3980c8343ecb7dc90deefaf95ca6bdc5a9072428bbd9aabd09c944dd8e3"
+    },
+    {
+      "game_path": "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-427/trial_T20190908_121628_520773",
+      "index": 36,
+      "phase": "spare_locked",
+      "rank_sha256": "f71ff71394dd9b6225841f7a7ae29309517eec2a62c950cd854cfdba67882916"
+    }
+  ],
+  "prohibitions": [
+    "No path outside this frozen 37-path residual tail may be substituted.",
+    "Causal-development-locked indices16..31 and spare indices32..36 are inaccessible during constructibility.",
+    "No confirmation/valid split is authorized by this artifact."
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "selection_rule": "Rank the exact 37 never-selected residual paths by SHA256(selection_salt|game_path), lexical game_path tie-break. Freeze first16 constructibility, next16 causal-development-locked, last5 spare-locked. No replacement.",
+  "selection_salt": "PlanCarry|SUCCESSOR_FEATURE|CONSTRUCTIBILITY_V1|20260827",
+  "source_split": "ALFWorld json_2.1.1/train",
+  "spare_locked_n": 5,
+  "status": "FROZEN_PRE_SCIENCE",
+  "task_family": "pick_and_place_simple",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false
+}

@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "all37_outside_prior_exclusions": true,
+    "all37_unique": true,
+    "environment_execution_zero": true,
+    "future_split_access_false": true,
+    "game_files_opened_zero": true,
+    "grounded_selection_reconstructed_exactly": true,
+    "inventory_count_790": true,
+    "model_calls_zero": true,
+    "new_split_counts_16_16_5": true,
+    "residual_tail_count_37": true,
+    "residual_tail_disjoint_grounded160": true,
+    "source_exclusion_count_593": true
+  },
+  "design_sha256": "f582099cab2e0ac2fec463c3ae4f870eaaf335217c707abe379ccfdd50b5e36a",
+  "grounded_population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "kind": "PLANCARRY_SUCCESSOR_FEATURE_DESIGN_STATIC_AUDIT_V1",
+  "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+  "residual_tail_newline_sha256": "4d15b0150d474bc9dcd24e11f9318df8d905d03d2f9d14160cf1fd30939054d3",
+  "scientific_result": "NOT_ASSESSED",
+  "source_hashes": {
+    "actionmatched_v1_selected": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+    "historical_exposed": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+    "localcontinuation_v1_selected": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+    "localcontinuation_v2_selected": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "planunique_v1_selected": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f"
+  }
+}
