@@ -1,0 +1,49 @@
+{
+  "base_commit": "127d1a46fe289f036cba4cd51d91a267ceed06ca",
+  "base_tree": "8e72ee560250fb0f61864eabe24e23136faaa6f2",
+  "engineering_task_id": "7fd017d4-df74-4974-80a9-8f727d42fcb1",
+  "exact_qwen_rtx5060_canary": "DEFERRED_UNTIL_LIVE_SCIENCE_RUN_TERMINAL_OR_NONCOMPETING_GPU",
+  "frozen_original_sha256": {
+    "grounded_driver": "b0286859cb9e6c74d0668ab4b81b8646afc5d96c44228b69ec3e03cec98a8f76",
+    "grounded_launcher": "701818356546d09a54f23decf644675a97378ea70889cd2e8c92c550c1d6ee22",
+    "grounded_runtime": "6600d4cf8310f9e43c35e8842df990ad9a0100f820e564ae1ea152f816cc7427",
+    "phase": "6c9ec235a919395d5d36f252480677007d98885d870f35896aed883407ac265f",
+    "session_runtime": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "validator": "43008333e3b4d19966ef405dfb4e604267306abc61f4b131c2db46a0d9c3da92"
+  },
+  "future_science_authorized": false,
+  "independent_review_required": true,
+  "kind": "ACTION_MATCHED_GROUNDED_V2_GPU_OPTIMIZATION_ENGINEERING_A1_V1",
+  "live_science_run_id": "62528595-e2e7-4939-93ef-0195d1db6db8",
+  "live_science_run_touched": false,
+  "optimizations": {
+    "candidate_scoring": "batch candidates across batch dimension while preserving exact autoregressive suffix order, per-token FP32 logprob, arithmetic mean, lexical tie-break, and live-KV immutability",
+    "multi_layer_capture": "capture layers 7/14/21/27 with observation-only hooks in a shared source forward rather than separate repeated source forwards",
+    "plus_minus_arm_batching": "NOT_IMPLEMENTED_CONSERVATIVE"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_sha256": {
+    "optimization": "44ca2e8d013a6f229a60c2c98a628f426f73cd92842a0d8ee0b20085ad4a5e62",
+    "optimization_test": "42355f6805afb3a9a124c41a4ab853c937f0ace5115ae626c2ff90d11f103cf2",
+    "optimized_driver": "028907088784a610eeb5ee816d84d501a03587984e728ccd4e8f051a1b9a31ea",
+    "optimized_launcher": "225c366a8ed62c7ff79eaa40bc2e9f62bd9a31b6d7b386b09ae80945948972f7",
+    "optimized_runtime": "d91378892f27f3037531cf82b27a7e05e1fd25695f05b213dedb26ca48f561f9"
+  },
+  "structural_forward_count_fixture": {
+    "candidate_scoring_batched": 3,
+    "candidate_scoring_legacy": 6,
+    "multi_layer_capture_legacy": 4,
+    "multi_layer_capture_optimized": 1
+  },
+  "tests": {
+    "future_split_flags": false,
+    "optimization_unittest": "7/7 PASS",
+    "optimized_preflight": "READY_NO_SCIENCE",
+    "original_grounded_executable": "17/17 PASS",
+    "preflight_environment_execution": 0,
+    "preflight_model_calls": 0,
+    "preflight_model_loads": 0
+  },
+  "work_item_id": "946e4070-34c0-4bf7-b70a-a383f7d36be3"
+}
