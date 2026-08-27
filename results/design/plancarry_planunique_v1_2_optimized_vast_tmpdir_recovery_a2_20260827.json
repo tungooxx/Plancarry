@@ -1,0 +1,77 @@
+{
+  "engineering_task_id": "aee1e611-0ed5-4eaa-8752-ed76f062e016",
+  "failure": {
+    "canonical_scientific_artifact_present": false,
+    "cause": "OSError Errno 28 while fast_downward copied libdownward.so into /tmp during ALFWorld/TextWorld reset",
+    "classification": "TECHNICAL_INVALID",
+    "experiment_id": "b56ca5ac-652e-4f96-91d7-5db1413a3650",
+    "failed_host": "vast_48729334",
+    "failed_host_current_status": "provider_missing",
+    "run_id": "cbcec1e0-4e26-466a-acf6-a5458073b719",
+    "scientific_grid_reached": false,
+    "scientific_result": "NOT_ASSESSED"
+  },
+  "immutable_science": {
+    "driver_sha256": "fa19457b0da36c28dc6f23718cbfe432922ca7deb044f0edc301c038d92a3b3b",
+    "implementation_commit": "29743d04d84792a593f7ef4be231b596b34908cb",
+    "implementation_tree": "265c5875a83b09906117529244f3c73dad44da90",
+    "launcher_sha256": "ceb17c8d2b86bc6469b098c89b42b4e48ad142d0528defb04a0a58f4c071e4fe",
+    "phase_sha256": "230aecf05d32e05ddb804bd8f7f8ccdc1203241708de43c5523755deb3890a40",
+    "scientific_variables_changed": [],
+    "source_experiment_id": "79407374-4e6c-4a6b-b421-24e6a0a4342c",
+    "validator_sha256": "ec9358ee081eed624887d39dbd2dd786c0f0fdaa59de7f448954f696910debfd"
+  },
+  "kind": "PLANCARRY_PLANUNIQUE_V1_2_OPTIMIZED_VAST_TMPDIR_RECOVERY",
+  "next_gate": "INDEPENDENT_RUNTIME_RECOVERY_REVIEW_THEN_USER_APPROVED_VAST_HOST_REBIND",
+  "non_scientific_canary": {
+    "copy_equal": true,
+    "copy_sha256": "e8236b0b5807ca823d66acd647f0dc9fdb4d452de3b09718db15d8beaf60d90d",
+    "free_before_bytes": 106881495040,
+    "minimum_free_bytes": 4294967296,
+    "source": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/lib/python3.13/site-packages/fast_downward/libdownward.so",
+    "source_bytes": 33068880,
+    "source_sha256": "e8236b0b5807ca823d66acd647f0dc9fdb4d452de3b09718db15d8beaf60d90d",
+    "tempfile_under_tmpdir": true,
+    "tmp_root": "/workspace/local-vlm/LLM/.tmp_planunique_fd_recovery"
+  },
+  "prohibitions": {
+    "confirmation_reserve_valid_access": true,
+    "model_or_alfworld_science_in_this_recovery": true,
+    "partial_outcome_adaptation": true,
+    "provider_lifecycle_autonomous": true,
+    "reuse_failed_run_or_partial_outputs": true,
+    "silent_host_substitution": true
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "recovery_binding": {
+    "command": "bash planunique_vast_primary_v1.sh development",
+    "held_env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "PLANCARRY_PYTHON": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry/bin/python",
+      "PLANUNIQUE_DEVELOPMENT_AUTHORIZATION": "RESEARCH_DECISION_BOUND"
+    },
+    "host_specific_env_unresolved": [
+      "HF_HOME",
+      "PLANUNIQUE_EXPECTED_DEVICE_NAME"
+    ],
+    "minimum_tmpdir_free_bytes": 4294967296,
+    "pre_decision_guards": [
+      "explicit user-approved live Vast host",
+      "workspace TMPDIR exists and is writable",
+      "TMPDIR free bytes >= 4294967296",
+      "fast_downward lib copy canary succeeds within TMPDIR",
+      "exact immutable implementation HEAD/tree/source hashes",
+      "all PlanUnique development/confirmation output targets absent",
+      "READY_NO_SCIENCE preflight",
+      "fresh independent host-rebind review PASS"
+    ],
+    "python_env": null,
+    "required_env_delta": {
+      "TMPDIR": "/workspace/plancarry-tmp"
+    },
+    "working_directory": "HOST_REBIND_REQUIRED"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "status": "FROZEN_PRE_SCIENCE_RUNTIME_RECOVERY",
+  "work_item_id": "463f470a-41a0-447d-9750-409030cd2da0"
+}
