@@ -1,0 +1,60 @@
+{
+  "contract_file_sha256": "92d7b6c10fb0e9a518e25c4509a1934da73ff976d647a83adbf689afc1386150",
+  "contract_path": "results/design/plancarry_replayresidual_v23_capability_bound_cuda_successor_contract_a1_20260828.json",
+  "exact_gpu_lock_removed": true,
+  "execution_location": "LOCAL_OR_REMOTE_IF_CAPABILITY_PASS",
+  "expected_examples": {
+    "future_gpu_name_not_special": "May pass if runtime/canary/headroom pass; no contract edit required.",
+    "rtx3080_name_not_special": "May pass if runtime/canary/headroom pass; name itself is ignored.",
+    "rtx4090_name_not_special": "May pass if runtime/canary/headroom pass; name itself is ignored."
+  },
+  "gpu_name_admission_lists_absent": true,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V23_CAPABILITY_BOUND_CUDA_SUCCESSOR_STATIC_AUDIT_A1_V1",
+  "measured_memory_motivation": {
+    "derived_live_free_minus_peak_mib": -110.6,
+    "derived_total_minus_peak_mib": 683.5,
+    "interpretation": "Exact model and slot128 capture technically ran without OOM on 4GB, but lacked the newly required 1024 MiB workload headroom. This motivates a capability/headroom gate rather than a GPU-name gate; it is engineering evidence only.",
+    "local_rtx3050_driver_free_preload_mib": 3301.4,
+    "local_rtx3050_slot128_peak_reserved_mib": 3412.0,
+    "local_rtx3050_total_vram_mib": 4095.5,
+    "source_observation_sha256": "dfaabd7f3fe0a3d724f5ff8fb15c410928ab63d71688e05ce10533af7e1a78c9",
+    "source_slot128_stress_sha256": "5c6ead105ac43b8a1057d8f709668f8cb5129c57e1270b7edfca1e63b041c02c"
+  },
+  "model_or_environment_execution_during_materialization": false,
+  "provider_lifecycle_authorized": false,
+  "science_section_sha256": {
+    "authoritative_sources": "7584d4e60577b9d2b74169fa439cec08a27b9f3e6191dd465fefb3bb9dfe0e30",
+    "canonical_hashing": "c4d87401ac7e9d8df4921ddde5e956977877e5610fb70166efeb20c940c90d25",
+    "conflict_resolution": "dd75f2f03f8dba46bbe48b1d3ee3fb176c54f5be6f3c45ab1972eb2c4f00c8da",
+    "executor": "6936a12f2892dffe9066ca4d29b75467c4b280cef47e5961f88d35e8e02a6452",
+    "observable_input_contract": "b92effb085b09445ce01c2de30f0ff7b72e30a8937742494b19c0dda89bc43c5",
+    "packet_schema": "5ae53fc4e16f89b2f0e50b72acb0ff68fdb2c40210032d762c5897e0b7be16b2",
+    "planner": "8abc5de5089c440fc2a5d6ecf7243c9ad25ba94c5bce6031bc690fcd980dfa12",
+    "population": "0ee51c7443bf6dad04f4a98382c46d2ace9ee282eb057521ac408e0618d1e8ae",
+    "qualification": "046cffe017f9e96038d586ecdf2d57dce750bf4e5f8549658fe6c81c6f0de022",
+    "replay_conditions": "ffc91fac3c9f3bc59a4406131d2e6547b8eaebfbd9420367fb1e6a08e596c8cd",
+    "sanity_binding": "21a8399884e6c7a7e5fb5cd0be8fb8e063a70f6dd01f6d35b59ec4e5bec98f47",
+    "trajectory": "c52def6869f7407070f29d821c8ee0e1736be4ba267929ee93e064f35f46dc4b"
+  },
+  "science_sections_exact": {
+    "authoritative_sources": true,
+    "canonical_hashing": true,
+    "conflict_resolution": true,
+    "executor": true,
+    "observable_input_contract": true,
+    "packet_schema": true,
+    "planner": true,
+    "population": true,
+    "qualification": true,
+    "replay_conditions": true,
+    "sanity_binding": true,
+    "trajectory": true
+  },
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_DESIGN_ONLY",
+  "source_v22_bound_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+  "test_path": "results/design/test_plancarry_replayresidual_v23_capability_bound_cuda_successor_a1_20260828.py",
+  "test_sha256": "d2bef4e72f0b755fe37c2496eb38be28418cc2f84b6b11509c0f1cf2a9e4314f",
+  "validator_path": "replayresidual_v23_capability_validator_a1.py",
+  "validator_sha256": "51b8f358078783946d870f168ad45397c0960c2bec5bd7fd8ca95442773dd8cd",
+  "work_item_id": "1a2c23ba-94a0-4558-b90c-ab7096530855"
+}

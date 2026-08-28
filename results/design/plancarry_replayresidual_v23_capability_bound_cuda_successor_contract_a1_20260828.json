@@ -1,0 +1,566 @@
+{
+  "authoritative_sources": {
+    "conflict_audit": {
+      "path": "results/design/plancarry_replay_residual_a4_execution_contract_conflict_audit_v1_20260821.json",
+      "sha256": "43a08cba3b69b42570c059ce30e0a4fbac96405b3fd87a5185333175ca40b247"
+    },
+    "fresh_cohort": {
+      "path": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json",
+      "sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009"
+    },
+    "packet_v1": {
+      "path": "results/design/plancarry_replay_residual_natural_packet_producer_contract_v1_20260821.json",
+      "sha256": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752"
+    },
+    "qualifier_v1": {
+      "path": "results/design/plancarry_replay_residual_natural_trajectory_qualifier_addendum_v1_20260821.json",
+      "sha256": "d4864a864c27166ac1e677e5dba3583351ce8511753d273916632e825b671ea0"
+    },
+    "sanity_v1_1": {
+      "path": "results/design/plancarry_replay_residual_sanity_prereg_v1_1_20260821.json",
+      "sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c"
+    },
+    "t1_v1_1": {
+      "path": "results/design/plancarry_replay_residual_t1_prereg_v1_1_20260821.json",
+      "sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2"
+    },
+    "untouched_population": {
+      "path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json",
+      "sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+    }
+  },
+  "canonical_hashing": {
+    "json_bytes": "UTF-8 json.dumps(value, sort_keys=True, separators=(\",\",\":\"), ensure_ascii=False, allow_nan=False); no trailing newline",
+    "list_order": "preserved as scientifically meaningful; dictionary keys sorted only by canonical serializer",
+    "sha256": "lowercase hexadecimal SHA256 over exactly json_bytes",
+    "tensor_payload_hash": "SHA256(canonical JSON metadata bytes concatenated with raw tensor bytes), as frozen in sanity v1.1"
+  },
+  "canonical_object_sha256_without_self_field": "a316d924d6c9273b899b57ea03296dfb61fd0aacf1fc011e61e18ce95c9a27e9",
+  "claim_boundary": "Prospective execution-authority successor only. It preserves ReplayResidual V2.2 scientific semantics exactly and changes only how a CUDA host is admitted and attested. It does not run model/environment science, inspect outcomes, or authorize provider lifecycle.",
+  "conflict_resolution": {
+    "policy": "Resolve prospectively by the frozen WorkItem 88ab2f5b specification and fidelity to the qualifier addendum for prompt/action semantics, while importing the packet contract all-32 atomic publication semantics and canonical sanity v1.1 controls/populations.",
+    "resolved_fields": {
+      "executor.action_prompt": "QUALIFIER_V1",
+      "executor.system": "QUALIFIER_V1",
+      "nontrivial_action_definition": "EXCLUDE_EXACT_help_inventory_look",
+      "planner.max_new_tokens": 128,
+      "planner.system": "QUALIFIER_V1",
+      "planner.user_template": "QUALIFIER_V1",
+      "sealed_index_binding": [
+        32,
+        63
+      ],
+      "task_instruction_source": "QUALIFIER_V1_LIVE_INITIAL_OBSERVATION_EXTRACTION"
+    }
+  },
+  "created_utc": "2026-08-28T10:45:00Z",
+  "estimand_changed": false,
+  "execution_capability_admission": {
+    "admission_interpretation": "A host is compatible iff objective runtime and stress-canary checks pass. GPU product name, provider offer, provider instance ID and local-vs-remote location are not admission criteria. A compatible RTX3080/3090/4090 or future CUDA GPU may pass; any named GPU may fail if capability/headroom checks fail.",
+    "all_required": true,
+    "cuda_available": true,
+    "exact_model_revision_load_required": true,
+    "exact_model_stress_canary": {
+      "capture_layers": [
+        7,
+        14,
+        21,
+        27
+      ],
+      "dtype": "bfloat16",
+      "environment_execution": 0,
+      "future_split_access": false,
+      "hook_count_per_layer": 1,
+      "model_id": "Qwen/Qwen3-1.7B",
+      "offload": "NONE",
+      "prefix_token_count": 128,
+      "quantization": "NONE",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "scientific_result": "NOT_ASSESSED_RUNTIME_CANARY_ONLY",
+      "study_packet_access": false,
+      "teacher_forced_suffix_token_count": 128
+    },
+    "exact_runtime_versions_required": true,
+    "gpu_name_blacklist": null,
+    "gpu_name_whitelist": null,
+    "memory_headroom_policy": {
+      "basis": "LIVE_EXACT_MODEL_SLOT128_STRESS_CANARY",
+      "driver_free_before_canary_minus_peak_reserved_mib_gte": 1024,
+      "minimum_headroom_mib": 1024,
+      "minimum_repeat_count": 3,
+      "oom_events_eq": 0,
+      "repeat_reserved_span_mib_lte": 64,
+      "total_vram_minus_peak_reserved_mib_gte": 1024
+    },
+    "native_bfloat16_supported": true,
+    "offload_required": "NONE",
+    "provider_or_instance_whitelist": null,
+    "quantization_required": "NONE"
+  },
+  "executor": {
+    "action_budget": 12,
+    "candidate_suffix": {
+      "joint_retokenization_forbidden": true,
+      "text": "single ASCII space + exact admissible command",
+      "tokenization": "tokenizer.encode(\" \"+command, add_special_tokens=False)"
+    },
+    "chat_template": {
+      "call": "tokenizer.apply_chat_template([system_message,user_message], tokenize=True, add_generation_prompt=True, enable_thinking=False)",
+      "shared_prefix_rule": "the returned assistant-generation prefix is identical for every candidate at the same step",
+      "user_terminal_literal": "ACTION:"
+    },
+    "choice": "maximum score; exact numerical tie -> lexicographically smallest exact admissible command",
+    "commands_serialization": "sort current admissible command strings lexicographically; serialize one command per line exactly as returned by AlfRuntime, no numbering and no filtering",
+    "history_serialization": "empty string before action1; after each step append exactly STEP {i}\\nACTION: {command}\\nOBSERVATION: {observation}; join steps with newline; keep original model-own plan_text visible verbatim on every action prompt",
+    "invalid_command_policy": "TECHNICAL_INVALID; no retry or heuristic rescue",
+    "score": {
+      "definition": "arithmetic mean teacher-forced suffix-token log probability over suffix positions only",
+      "forward_mode": "torch.inference_mode; no sampling",
+      "logits_conversion": "convert logits to FP32 before log_softmax; model weights remain BF16",
+      "prefix_tokens_excluded_from_score": true
+    },
+    "system": "You are executing an ALFWorld household task. The visible plan is advisory state from your own earlier planning turn. Choose the single best current admissible command to continue the task. Do not invent actions or hidden facts.",
+    "termination": "stop immediately on won or done, otherwise after 12 executed environment actions",
+    "user_template": "TASK\n{task_instruction}\nPLAN\n{plan_text}\nHISTORY\n{history}\nCURRENT OBSERVATION\n{observation}\nADMISSIBLE COMMANDS\n{commands}\nACTION:"
+  },
+  "future_gates": [
+    "ONE independent batched design review",
+    "freeze deterministic capability validator",
+    "live host capability+runtime+headroom attestation",
+    "artifact durability readiness",
+    "NEW Experiment/Prediction registration review",
+    "fresh ResearchDecision"
+  ],
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_UNIFIED_EXECUTION_CONTRACT_V2_3_CAPABILITY_BOUND_CUDA_SUCCESSOR",
+  "model_runtime": {
+    "cublas_workspace_config": ":4096:8",
+    "device": "cuda",
+    "device_identity_policy": "RECORD_ACTUAL_NAME_UUID_DRIVER_CC_VRAM; NEVER_COMPARE_GPU_MARKETING_NAME_FOR_ADMISSION",
+    "dtype": "bfloat16",
+    "enable_thinking": false,
+    "execution_location_policy": "LOCAL_OR_REMOTE_ALLOWED_IF_CAPABILITY_ADMISSION_PASSES",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "temperature": 0.0,
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "observable_input_contract": {
+    "admissible_commands_source": "live AlfRuntime.admissible_commands at each action step",
+    "forbidden_dataset_fields": [
+      "traj_data.plan",
+      "turk_annotations.high_descs",
+      "expert/oracle actions",
+      "hidden facts as model input",
+      "pddl_params as model input"
+    ],
+    "game_path_source": "fresh cohort manifest game_path only",
+    "hidden_facts_policy": "may contribute only to AlfRuntime state_hash/replay identity; never serialized to model prompt or packet-visible observation beyond the hash",
+    "initial_observation_source": "live AlfRuntime.observation after reset",
+    "task_instruction_source": "extract exactly from live initial TextWorld observation using the final occurrence matching /Your task is to:\\s*(.+?)(?:\\n|$)/i; normalized task instruction is captured text stripped, with terminal punctuation preserved; extraction failure => unqualified/technical packet, no alternate metadata source"
+  },
+  "output_semantics": {
+    "final_target_dir": "results/science/plancarry_replay_residual_sanity_packets_v2_3_capability_successor1",
+    "partial_packet_visibility_forbidden": true,
+    "private_staging_dir_rule": "same parent, unique hidden .inprogress directory not visible as final target",
+    "publication_sequence": [
+      "create private staging directory",
+      "write all 32 fixed-index packets plus manifest and aggregate provenance",
+      "fsync each file",
+      "fsync staging directory",
+      "validate exact packet index set equals 0..31 and all canonical hashes",
+      "require every fixed attempt represented including unqualified attempts",
+      "atomically rename staging directory to final target only if final target absent",
+      "fsync parent directory"
+    ],
+    "refuse_existing_final_target": true,
+    "representation_sanity_result_target": "results/science/plancarry_replay_residual_representation_sanity_v2_3_capability_successor1.json",
+    "resume": false,
+    "stdout_policy": "coarse count progress only; no per-family plan/action/qualification outcomes"
+  },
+  "packet_schema": {
+    "action_row_fields": [
+      "step",
+      "command",
+      "observation",
+      "score_fp32_mean_logprob",
+      "done",
+      "won",
+      "pre_state_hash",
+      "post_state_hash",
+      "admissible_commands",
+      "admissible_commands_sha256",
+      "action_prompt_token_ids_sha256",
+      "candidate_suffix_token_ids_sha256_by_command",
+      "candidate_score_vector_sha256",
+      "error"
+    ],
+    "control_provenance_fields": [
+      "condition_names",
+      "condition_slot_token_ids_sha256_by_condition",
+      "unrelated_donor_frozen_index",
+      "unrelated_donor_ordering_key",
+      "anchor_cycle",
+      "control_builder_source_sha256"
+    ],
+    "model_provenance_fields": [
+      "model_id",
+      "revision",
+      "dtype",
+      "device_name",
+      "transformers_version",
+      "tokenizers_version",
+      "torch_version",
+      "quantization",
+      "offload",
+      "enable_thinking"
+    ],
+    "plan_provenance_fields": [
+      "plan_text",
+      "plan_text_sha256",
+      "plan_token_ids_sha256",
+      "complete_block_token_count",
+      "planner_new_ids_sha256"
+    ],
+    "prompt_provenance_fields": [
+      "planner_system_sha256",
+      "planner_user_rendered_sha256",
+      "planner_chat_token_ids_sha256",
+      "executor_system_sha256",
+      "executor_user_template_sha256"
+    ],
+    "required_top_level_fields": [
+      "packet_contract_version",
+      "frozen_index",
+      "family",
+      "game_path",
+      "game_path_sha256",
+      "task_instruction",
+      "initial_observation",
+      "trajectory_eligible",
+      "qualified",
+      "qualification_stage1_reasons",
+      "qualification_stage2_reasons",
+      "model_provenance",
+      "prompt_provenance",
+      "plan_provenance",
+      "actions",
+      "success",
+      "interruption_after",
+      "trajectory_sha256",
+      "control_provenance",
+      "producer_contract_sha256"
+    ],
+    "unqualified_policy": "emit one packet for every frozen index with explicit reasons; never skip or replace"
+  },
+  "planner": {
+    "acceptance": {
+      "complete_decoded_plan_block_max_tokens_including_tags": 96,
+      "exactly_one_complete_block": true,
+      "fullmatch_regex": "<PLAN>.*?</PLAN>",
+      "non_whitespace_outside_block_forbidden": true,
+      "reasoning_markers_forbidden": [
+        "<think>",
+        "</think>",
+        "reasoning trace",
+        "chain-of-thought"
+      ],
+      "regex_flags": [
+        "IGNORECASE",
+        "DOTALL"
+      ],
+      "retry_policy": "NO_RETRY_NO_REGENERATION_NO_TRUNCATION_RESCUE",
+      "token_count_call": "len(tokenizer.encode(plan_text, add_special_tokens=False))"
+    },
+    "chat_template": "tokenizer.apply_chat_template([{system},{user}], tokenize=True, add_generation_prompt=True, enable_thinking=False)",
+    "generation": {
+      "do_sample": false,
+      "eos_token_id": "tokenizer.eos_token_id",
+      "max_new_tokens": 128,
+      "pad_token_id": "tokenizer.eos_token_id",
+      "temperature_effective": 0.0,
+      "use_cache": true
+    },
+    "new_token_decode": {
+      "call": "tokenizer.decode(new_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)",
+      "postprocess": "strip leading/trailing whitespace only; no other normalization"
+    },
+    "system": "You are planning an ALFWorld household task. Produce a concise ordered plan using only information in the task instruction and initial observation. Do not reveal chain-of-thought or hidden reasoning. Do not invent hidden world facts. Output only one <PLAN>...</PLAN> block.",
+    "user_template": "TASK\n{task_instruction}\nINITIAL OBSERVATION\n{initial_observation}\nWrite the action-level plan now. Keep the complete <PLAN>...</PLAN> block within 96 model tokens."
+  },
+  "population": {
+    "development_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "game_path_source": "fresh cohort manifest game_path only; no discovery or outcome-dependent substitution",
+    "minimum_qualified": 16,
+    "no_replacement": true,
+    "sealed_reserve_indices": [
+      32,
+      63
+    ],
+    "split": "train",
+    "task_type": "pick_and_place_simple",
+    "valid_seen_forbidden": true,
+    "valid_unseen_forbidden": true
+  },
+  "prohibitions": [
+    "design/materialization only: no model calls or ALFWorld study execution",
+    "no scientific outcome access or future split access",
+    "no provider create/start/resume/pay lifecycle authorization",
+    "do not mutate or reinterpret ReplayResidual V2.2 Experiment e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
+    "do not add exact GPU marketing-name equality as an admission criterion",
+    "do not use provider offer/instance identity as scientific authority",
+    "do not relax model revision/dtype/quantization/offload/runtime/scientific protocol to make a host pass",
+    "do not interpret runtime canary pass/fail as scientific evidence"
+  ],
+  "qualification": {
+    "below_minimum_label": "INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES",
+    "below_minimum_rescue_forbidden": true,
+    "minimum_final_qualified": 16,
+    "stage1": "After all fixed indices0..31 have been attempted, freeze E as exactly the trajectory-eligible families. Do not replace, rescue, or alter E afterward.",
+    "stage2": {
+      "control_builder": {
+        "all_seven_required": true,
+        "anchor_cycle": 2,
+        "conditions": [
+          "PLAN_PRESENT",
+          "NEUTRAL_FILLER",
+          "SHUFFLED_PLAN",
+          "UNRELATED_PLAN",
+          "GENERIC_HISTORY",
+          "ALT_NEUTRAL_POSITION",
+          "NEXT_ACTION_PRESERVED_LATE_NULL"
+        ],
+        "exact_slot_tokens": 128,
+        "failure": "qualified=false for affected fixed family; no replacement",
+        "implementation": "replay_residual_sanity_protocol_v1.build_condition_slots"
+      },
+      "if_E_size_lt_2": "no family may become final qualified; final result is INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES",
+      "unrelated_plan_donor_rule": {
+        "domain": "fixed frozen E only",
+        "ordering_key": "SHA256(UTF-8(\"ReplayResidual|UNRELATED_PLAN|\" + family + \"|\" + game_path))",
+        "selection": "sort E by ordering_key ascending; for each recipient take the next cyclic entry whose family differs; no alternate donor, no rescue, no outcome matching"
+      }
+    },
+    "two_stage": true
+  },
+  "registered_execution_authority_delta": {
+    "added_fields": [
+      "model_runtime.device_identity_policy",
+      "model_runtime.execution_location_policy",
+      "model_runtime.cublas_workspace_config",
+      "execution_capability_admission",
+      "runtime_attestation"
+    ],
+    "changed_fields": [
+      "output_semantics.final_target_dir",
+      "output_semantics.representation_sanity_result_target"
+    ],
+    "interpretation": "Prospective execution portability/attestation change only; scientific protocol and estimand are unchanged.",
+    "removed_v2_2_fields": [
+      "model_runtime.device_name_required"
+    ]
+  },
+  "registration_and_authority": {
+    "canonical_reserve_metadata": [
+      32,
+      63
+    ],
+    "new_successor_experiment_required": true,
+    "new_successor_prediction_required": true,
+    "old_device_name_required": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "old_experiment_execution": "IMMUTABLE_RTX3050_ONLY_DO_NOT_MUTATE_OR_REINTERPRET",
+    "old_experiment_id": "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
+    "successor_requirement": "Register ONE NEW ReplayResidual V2.3 Experiment/Prediction only after this capability-bound design receives one independent batched review PASS, the deterministic capability validator is frozen, a live host passes the exact-model stress canary with required headroom, artifact durability is ready, and a fresh ResearchDecision is created. No exact GPU product name may be added back as an admission criterion without a new prospective design because device identity is not a scientific variable here."
+  },
+  "replay_conditions": {
+    "ALT_NEUTRAL_POSITION": "independent neutral filler vocabulary/seed, exact128 tokens, same slot and positions",
+    "GENERIC_HISTORY": "deterministic transcript-derived non-plan facts from already-visible pre-anchor observations/actions + neutral padding, exact128 tokens",
+    "NEUTRAL_FILLER": "all-neutral tokenizer-audited filler, exact128 tokens",
+    "NEXT_ACTION_PRESERVED_LATE_NULL": "same exact first post-anchor realized admissible action string included verbatim in the fixed plan slot; all later plan structure replaced by deterministic unrelated/neutral clauses; exact128 tokens. This preserves immediate-action lexical evidence while destroying longer-horizon plan structure.",
+    "PLAN_PRESENT": "original model-generated plan content + neutral padding to exact128 tokens",
+    "SHUFFLED_PLAN": "same plan step clauses under deterministic SHA256 permutation + neutral padding, exact128 tokens",
+    "UNRELATED_PLAN": "deterministic different-family plan from fixed frozen trajectory-eligible E only, selected by the predeclared cyclic SHA256 order in qualification.stage2.unrelated_plan_donor_rule; final-qualified membership never participates in donor selection; content max96 then neutral padding to exact128; no outcome matching"
+  },
+  "runtime_attestation": {
+    "actual_gpu_name_is_provenance_not_authority": true,
+    "attestation_required_before_new_experiment_registration_decision_execution": true,
+    "provider_instance_id_is_ephemeral_non_authoritative": true,
+    "provider_offer_id_is_ephemeral_non_authoritative": true,
+    "required_actual_fields": [
+      "actual_gpu_name",
+      "actual_gpu_uuid_if_available",
+      "driver_version",
+      "cuda_runtime",
+      "compute_capability",
+      "total_vram_mib",
+      "driver_free_vram_before_canary_mib",
+      "peak_reserved_mib",
+      "post_canary_reserved_mib",
+      "repeat_reserved_span_mib",
+      "bf16_supported",
+      "oom_events",
+      "runtime_fingerprint"
+    ]
+  },
+  "sanity_binding": {
+    "anchors": {
+      "t1": "after first completed post-plan action-observation cycle",
+      "t2": "after second completed post-plan action-observation cycle; must precede the frozen interruption/reset point"
+    },
+    "candidate_layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "capture_token": "last token immediately before the next ACTION: field at each anchor",
+    "causal_layer_site_scale_selection_forbidden": true,
+    "frozen_sanity_gate": {
+      "all_required": true,
+      "fail_label": "FAIL_REPLAY_RESIDUAL_SANITY",
+      "failure_interpretation": "matched non-plan/position controls explain the replay residual or content identity is not stable enough; kill ReplayResidual before causal injection search",
+      "inconclusive_label": "INCONCLUSIVE_INSUFFICIENT_NATURAL_TRAJECTORIES",
+      "pass_interpretation": "representation sanity only; permits a separately preregistered bounded causal discovery but is NOT evidence of causal plan restoration/persistence",
+      "pass_label": "PASS_REPLAY_RESIDUAL_SANITY",
+      "requirements": [
+        "qualified_count>=16",
+        "median family_aggregate_margin >= 0.05",
+        "at least 70% of qualified families have family_aggregate_margin > 0",
+        "median same-plan temporal cosine exceeds median ALT_NEUTRAL_POSITION cosine by >=0.10",
+        "median across-layer same-family retrieval top1 accuracy >=0.25",
+        "median same-plan temporal cosine exceeds median NEXT_ACTION_PRESERVED_LATE_NULL cosine by >=0.05"
+      ]
+    },
+    "normalization": "retain raw FP32 residual for norm statistics; use L2-unit residual only for cosine/selectivity metrics; norm<=1e-8 maps to zero vector and is a failure for positive-selectivity family, never excluded",
+    "primary_metrics": {
+      "control_cosines": [
+        "cos(r_PLAN(t1),r_SHUFFLED(t2))",
+        "cos(r_PLAN(t1),r_UNRELATED(t2))",
+        "cos(r_PLAN(t1),r_GENERIC_HISTORY(t2))",
+        "cos(r_PLAN(t1),r_ALT_NEUTRAL_POSITION(t2))",
+        "cos(r_PLAN(t1),r_NEXT_ACTION_PRESERVED_LATE_NULL(t2))"
+      ],
+      "family_aggregate_margin": "median across the four frozen layers; no layer selection",
+      "family_layer_selectivity_margin": "same_plan_temporal_cosine - max(control_cosines)",
+      "retrieval_secondary": "for each frozen layer, query r_PLAN_i(t1) against all r_PLAN_j(t2); same-family top1 accuracy, leave-all-families-in, no training",
+      "same_plan_temporal_cosine": "cos(r_PLAN(t1), r_PLAN(t2)) per layer/family"
+    },
+    "site": "residual stream output of frozen transformer block",
+    "trajectory_invariant": "teacher-force the exact same realized action-observation trajectory in every replay arm; only the fixed 128-token plan block differs"
+  },
+  "scientific_protocol_inheritance": {
+    "estimand_changed": false,
+    "inherited_sections": [
+      "authoritative_sources",
+      "canonical_hashing",
+      "conflict_resolution",
+      "executor",
+      "observable_input_contract",
+      "packet_schema",
+      "planner",
+      "population",
+      "qualification",
+      "replay_conditions",
+      "sanity_binding",
+      "trajectory"
+    ],
+    "mode": "EXACT_BY_CANONICAL_SECTION_SHA256_FROM_V2_2_BOUND",
+    "scientific_protocol_variables_changed": [],
+    "section_sha256": {
+      "authoritative_sources": "7584d4e60577b9d2b74169fa439cec08a27b9f3e6191dd465fefb3bb9dfe0e30",
+      "canonical_hashing": "c4d87401ac7e9d8df4921ddde5e956977877e5610fb70166efeb20c940c90d25",
+      "conflict_resolution": "dd75f2f03f8dba46bbe48b1d3ee3fb176c54f5be6f3c45ab1972eb2c4f00c8da",
+      "executor": "6936a12f2892dffe9066ca4d29b75467c4b280cef47e5961f88d35e8e02a6452",
+      "observable_input_contract": "b92effb085b09445ce01c2de30f0ff7b72e30a8937742494b19c0dda89bc43c5",
+      "packet_schema": "5ae53fc4e16f89b2f0e50b72acb0ff68fdb2c40210032d762c5897e0b7be16b2",
+      "planner": "8abc5de5089c440fc2a5d6ecf7243c9ad25ba94c5bce6031bc690fcd980dfa12",
+      "population": "0ee51c7443bf6dad04f4a98382c46d2ace9ee282eb057521ac408e0618d1e8ae",
+      "qualification": "046cffe017f9e96038d586ecdf2d57dce750bf4e5f8549658fe6c81c6f0de022",
+      "replay_conditions": "ffc91fac3c9f3bc59a4406131d2e6547b8eaebfbd9420367fb1e6a08e596c8cd",
+      "sanity_binding": "21a8399884e6c7a7e5fb5cd0be8fb8e063a70f6dd01f6d35b59ec4e5bec98f47",
+      "trajectory": "c52def6869f7407070f29d821c8ee0e1736be4ba267929ee93e064f35f46dc4b"
+    }
+  },
+  "scientific_protocol_variables_changed": [],
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_DESIGN_ONLY",
+  "scientific_role": "PRE_OUTCOME_UNIFIED_EXECUTION_CONTRACT_ONLY",
+  "source_v2_2": {
+    "bound_contract_path": "results/design/plancarry_replayresidual_v22_unified_execution_contract_bound_a4_20260828.json",
+    "bound_contract_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+    "experiment_id": "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
+    "failed_run_id": "015ef2e6-bdd8-4693-a146-a06af0528fbf",
+    "old_device_name_required": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "old_experiment_execution": "DO_NOT_MUTATE_OR_REINTERPRET",
+    "old_experiment_immutable": true,
+    "template_path": "results/design/plancarry_replayresidual_v22_unified_execution_contract_template_20260828.json",
+    "template_sha256": "691b93024ffe45ad46c4bb3b6fc162b83dace44e939dd0373bcd6bdf822dc4a1"
+  },
+  "status": "FROZEN_DESIGN_ONLY_NOT_REGISTERED_NOT_EXECUTABLE",
+  "supersession_policy": {
+    "do_not_review_or_repair_exact_gpu_branches_to_progress_this_successor": true,
+    "exact_rtx3050_local_v2_3_branch_is_historical_non_authoritative_for_future_registration": true,
+    "exact_rtx4090_v2_3_branch_is_historical_non_authoritative_for_future_registration": true,
+    "existing_v2_2_remains_immutable": true
+  },
+  "trajectory": {
+    "interruption_after": 2,
+    "no_cut_search": true,
+    "nontrivial_command_definition": {
+      "case_sensitive": true,
+      "excluded_exact_commands": [
+        "help",
+        "inventory",
+        "look"
+      ]
+    },
+    "run": "uninterrupted with the model-own retained plan visible until won/done or 12 actions",
+    "trajectory_eligible_iff": [
+      "planner acceptance passes",
+      "success/won within <=12 executed environment actions",
+      "len(actions)>=4",
+      "first two executed commands are nontrivial",
+      "at least two commands after action2 are nontrivial",
+      "no invalid command/error",
+      "plan and trajectory hashes validate"
+    ]
+  },
+  "version": "2.3-capability-bound-cuda-successor-v1",
+  "work_item_id": "1a2c23ba-94a0-4558-b90c-ab7096530855"
+}
