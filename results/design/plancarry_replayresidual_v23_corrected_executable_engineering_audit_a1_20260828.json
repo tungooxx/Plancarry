@@ -1,0 +1,36 @@
+{
+  "base_commit": "d80fbe2bbceb694c71d2d53c58b0b0d1fc56b567",
+  "contract_sha256": "1289bbf073e4f4c6411a82cdac069ff9fe9094cacb92e4ccb333712d8af4a3bc",
+  "environment_execution": 0,
+  "estimand_changed": false,
+  "experiment_id": "47972f24-71ca-4001-8a1e-ca3dddb7c621",
+  "frozen_scientific_source_sha256": {
+    "replay_residual_capture_only_sidecar_v1.py": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "replay_residual_natural_packet_producer_v2_2_technical_successor.py": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8",
+    "replay_residual_sanity_runner_v1.py": "7a2c45dadb89a6e0736e53638132b69a38792ab83a3915a9d67ef937ce0a1bd3",
+    "whitebox_bridge_prefixstable_proto.py": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404"
+  },
+  "implementation_sha256_by_path": {
+    "results/design/plancarry_replayresidual_v23_capability_launcher_20260828.sh": "7e4f61cc55dae789c14f9eaef624aae3a0a4c19126aa0012b03712d08d758740",
+    "results/design/plancarry_replayresidual_v23_execution_binding_20260828.py": "6cd78e166a3c9ff849934fbaba293b0740adbba814aa8b08729b7d1f22f65837",
+    "results/design/plancarry_replayresidual_v23_registered_packet_adapter_20260828.py": "7409e7333b4c0b7aae08fa497e61f89f3c8b76b183ef0c0bdbb5b4d05c210876",
+    "tests/test_replayresidual_v23_corrected_execution.py": "fa2afb2fad405633bf2156835bb4742d78d436c5bd7fe51ab645553cee6b683d"
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V23_CORRECTED_EXECUTABLE_ENGINEERING_AUDIT",
+  "model_calls": 0,
+  "prediction_id": "55ab178a-67cb-4d82-a91c-cc9cac14b189",
+  "review_required": "ONE_INDEPENDENT_BATCHED_CORRECTED_REGISTRATION_AND_EXECUTABLE_REVIEW",
+  "runtime_fingerprint": "bdb1e690eb1a2d0f5913d11bcb0b1915b0eaad2c91974acb7b26b2a005b94021",
+  "scientific_variable_drift": false,
+  "study_outcome_access": false,
+  "superseded_registration_execution_forbidden": true,
+  "tests": {
+    "adapter_bound_metadata": "PASS",
+    "bash_syntax": "PASS",
+    "gpu_name_nonauthority": "PASS",
+    "launcher_preflight": "READY_NO_SCIENCE",
+    "python_compile": "PASS",
+    "unittest_count": 6,
+    "unittest_status": "PASS"
+  }
+}
