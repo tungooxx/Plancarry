@@ -1,0 +1,139 @@
+{
+  "baseline": {
+    "binding_runner_sha256": "01a253d06d215d02e41a228e42a744d5d284aded044f97f7d144c91d71f864e8",
+    "qualifier_sha256": "80092ae66ba6b3dd88e5f3d380ac7d6f0cb59c1c8426ba225c6db440c1650716",
+    "science_output": "results/science/alfworld_binding_v1.json",
+    "science_output_absent_after_recovery": true,
+    "source_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+    "source_tree": "adcbdad97ca772e4292fd50575099181e6cd5203"
+  },
+  "engineering_task_id": "03746f13-6cc7-477d-8e81-08f7875ba7f6",
+  "experiment_id": "49a5eed0-dc91-497a-a0e7-f9b5fc4cd5b1",
+  "failed_run_id": "43f2e3f6-15d4-45a0-b277-93541e1ea026",
+  "held_fixed": [
+    "Experiment 49a5eed0-dc91-497a-a0e7-f9b5fc4cd5b1 frozen plan",
+    "qwen2.5:7b-instruct model identity",
+    "temperature=0",
+    "tool schema and required tool choice",
+    "candidate pool SHA d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "target n=16/max scan=180",
+    "qualification/reset/compiler/arms/horizon",
+    "IAA/GDAA/TaskSuccess/RPA metrics and thresholds",
+    "valid_unseen reserve untouched"
+  ],
+  "model": {
+    "api_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "api_tags_exact_name_present": true,
+    "capabilities": [
+      "completion",
+      "tools"
+    ],
+    "context_length": 32768,
+    "embedding_length": 3584,
+    "family": "qwen2",
+    "format": "gguf",
+    "main_blob_bytes": 4683073952,
+    "main_blob_sha256": "2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730",
+    "name": "qwen2.5:7b-instruct",
+    "openai_v1_models_exact_name_present": true,
+    "parameter_size": "7.6B",
+    "quantization_level": "Q4_K_M",
+    "size_bytes": 4683087332
+  },
+  "recovery_scope": "runtime_transport_and_storage_only",
+  "runtime": {
+    "endpoint": "http://127.0.0.1:11434/v1",
+    "gpu": {
+      "driver_version": "581.95",
+      "memory_total_mib": 4096,
+      "name": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    },
+    "native_scratch_mirror": {
+      "destination_bytes": 4683088190,
+      "main_blob_sha256_verified": true,
+      "purpose": "storage_only_runtime_staging_from_slow_9p_mount; no model or science change",
+      "source_bytes": 4683088190
+    },
+    "native_scratch_model_store": "/tmp/plancarry-binding-ollama-models",
+    "observed_model_fit": {
+      "context_tokens": 4096,
+      "cpu_kv_buffer_mib": 136.0,
+      "cpu_mapped_model_buffer_mib": 2538.4,
+      "cuda_compute_buffer_mib": 183.44,
+      "cuda_kv_buffer_mib": 88.0,
+      "cuda_model_buffer_mib": 1922.05,
+      "gpu_layers_offloaded": "12/29",
+      "model_identity_changed": false,
+      "model_load_seconds": 18.11
+    },
+    "official_archive": {
+      "bytes": 1422189240,
+      "sha256": "88e0d36bd90121595e5516c84f6ab61b546368fbd2d825b4aae70999c949649d",
+      "url": "https://ollama.com/download/ollama-linux-amd64.tar.zst"
+    },
+    "ollama_binary": "/workspace/local-vlm/.ollama-local/bin/ollama",
+    "ollama_binary_sha256": "9f595107f966433f93f20ee19043f8e0cdea88e7403672f4dba2cadcb45ee085",
+    "ollama_version": "0.33.1",
+    "persistent_model_store": "/workspace/local-vlm/.ollama-models-binding"
+  },
+  "safety_guards": {
+    "alfworld_environment_execution": false,
+    "binding_arm_execution": false,
+    "cloud_or_paid_model_used": false,
+    "different_model_substituted": false,
+    "experiment_executed": false,
+    "research_decision_created": false,
+    "scientific_output_created_or_read": false,
+    "valid_unseen_accessed": false
+  },
+  "schema": "PLANCARRY_BINDING_SAME_MACHINE_OLLAMA_RUNTIME_ATTESTATION_V1",
+  "scientific_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "synthetic_required_tool_canary": {
+    "completion_tokens": 20,
+    "elapsed_seconds": 70.378878,
+    "finish_reason": "tool_calls",
+    "http_status": 200,
+    "job_id": "local_648ce9d6ba5646a9",
+    "max_tokens": 96,
+    "non_alfworld": true,
+    "pass": true,
+    "prompt_tokens": 170,
+    "returned_arguments": {
+      "index": 0
+    },
+    "returned_function": "choose_action",
+    "synthetic_options": [
+      "SYNTHETIC_ONLY"
+    ],
+    "temperature": 0,
+    "tool_choice": "required",
+    "tool_schema": {
+      "description": "Choose one currently admissible ALFWorld command by its numbered index.",
+      "name": "choose_action",
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "index": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "index"
+        ],
+        "type": "object"
+      }
+    },
+    "total_tokens": 190
+  },
+  "verification_jobs": {
+    "exact_model_pull": "local_7522e236db1d4c5b",
+    "final_hash_and_output_guard": "local_c4d46c60aaa44408",
+    "native_store_mirror": "local_bc39518d76514f6f",
+    "official_install": "local_962eeefed3494976",
+    "synthetic_tool_canary": "local_648ce9d6ba5646a9"
+  },
+  "work_item_id": "7dc3c3cd-4c5a-4bfc-8a46-9d0baa512d45"
+}
