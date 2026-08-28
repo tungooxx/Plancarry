@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+import math
 import pathlib
 import sys
 
@@ -30,6 +31,15 @@ EXPECTED_CANARY = {
     "hook_count_per_layer": 1,
     "scientific_result": "NOT_ASSESSED_RUNTIME_CANARY_ONLY",
 }
+FINGERPRINT_FIELDS = (
+    "actual_gpu_name", "actual_gpu_uuid_if_available", "driver_version", "cuda_runtime", "compute_capability",
+    "model_id", "revision", "dtype", "quantization", "offload", "torch", "transformers", "tokenizers",
+)
+NUMERIC_FIELDS = (
+    "total_vram_mib", "driver_free_vram_before_canary_mib", "peak_reserved_mib",
+    "post_canary_reserved_mib", "repeat_reserved_span_mib", "oom_events", "repeat_count",
+)
+
 REQUIRED_ATTESTATION_FIELDS = [
     "actual_gpu_name",
     "actual_gpu_uuid_if_available",
@@ -63,6 +73,12 @@ def _canonical_bytes(value):
 
 def _sha256(value):
     return hashlib.sha256(_canonical_bytes(value)).hexdigest()
+
+def compute_runtime_fingerprint(a):
+    return _sha256({k: a.get(k) for k in FINGERPRINT_FIELDS})
+
+def _finite_number(v):
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(float(v))
 
 def validate_contract(c):
     errors = []
@@ -106,6 +122,18 @@ def validate_attestation(c, a):
             errors.append(f"MISSING_ATTESTATION:{k}")
     if errors:
         return errors
+    for k in NUMERIC_FIELDS:
+        if not _finite_number(a.get(k)):
+            errors.append(f"NONFINITE_OR_NONNUMERIC:{k}")
+    if errors:
+        return errors
+    for k in ("total_vram_mib", "driver_free_vram_before_canary_mib", "peak_reserved_mib", "post_canary_reserved_mib", "repeat_reserved_span_mib"):
+        if float(a[k]) < 0:
+            errors.append(f"NEGATIVE_NUMERIC:{k}")
+    if float(a["peak_reserved_mib"]) > float(a["total_vram_mib"]):
+        errors.append("PEAK_RESERVED_GT_TOTAL")
+    if float(a["post_canary_reserved_mib"]) > float(a["total_vram_mib"]):
+        errors.append("POST_RESERVED_GT_TOTAL")
     if not a.get("cuda_available", False):
         errors.append("CUDA_UNAVAILABLE")
     if not a.get("bf16_supported", False):
@@ -134,6 +162,21 @@ def validate_attestation(c, a):
         errors.append("LIVE_FREE_VRAM_HEADROOM_LT_REQUIRED")
     if not str(a.get("actual_gpu_name", "")).strip():
         errors.append("ACTUAL_GPU_NAME_NOT_RECORDED")
+    if not str(a.get("actual_gpu_uuid_if_available", "")).strip():
+        errors.append("ACTUAL_GPU_UUID_REQUIRED_FOR_EXECUTION_BINDING")
+    if not str(a.get("driver_version", "")).strip():
+        errors.append("DRIVER_VERSION_NOT_RECORDED")
+    if not str(a.get("cuda_runtime", "")).strip():
+        errors.append("CUDA_RUNTIME_NOT_RECORDED")
+    if not str(a.get("compute_capability", "")).strip():
+        errors.append("COMPUTE_CAPABILITY_NOT_RECORDED")
+    try:
+        expected_fp = compute_runtime_fingerprint(a)
+    except Exception:
+        errors.append("RUNTIME_FINGERPRINT_INPUT_INVALID")
+    else:
+        if a.get("runtime_fingerprint") != expected_fp:
+            errors.append("RUNTIME_FINGERPRINT_MISMATCH")
     return errors
 
 def load_contract(path):

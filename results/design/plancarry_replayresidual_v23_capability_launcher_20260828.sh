@@ -18,12 +18,13 @@ ADAPTER="$ROOT/results/design/plancarry_replayresidual_v23_registered_packet_ada
 sha_eq(){ [[ "$(sha256sum "$1" | awk '{print $1}')" == "$2" ]] || { echo "SHA256_MISMATCH:$1" >&2; exit 70; }; }
 verify_static(){
   sha_eq "$CONTRACT" 1289bbf073e4f4c6411a82cdac069ff9fe9094cacb92e4ccb333712d8af4a3bc
-  sha_eq "$VALIDATOR" fea9a313d821902490df3052b6ddcbccdab2cb25e33df3dff622731615b5511e
-  sha_eq "$BINDER" 6cd78e166a3c9ff849934fbaba293b0740adbba814aa8b08729b7d1f22f65837
-  sha_eq "$ADAPTER" 7409e7333b4c0b7aae08fa497e61f89f3c8b76b183ef0c0bdbb5b4d05c210876
+  sha_eq "$VALIDATOR" a04a79fed515323bd42067d52bd5590506cc336e8de43345876524fc47507293
+  sha_eq "$BINDER" 31a2c8cf46c3fbd3b23bae0252a107dd5811f0d6a0c87a372c0e544bdd865d1f
+  sha_eq "$ADAPTER" b1906d5b3830f738c63ec82554b0d1a2a0d9fb0005e99e98c94f1f8002216bc8
   # Frozen scientific machinery is inherited byte-for-byte from V2.2.
   sha_eq replay_residual_natural_packet_producer_v2_2_technical_successor.py d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8
   sha_eq replay_residual_natural_packet_producer_v2_1_py313_compat.py 5e2caea4d6c6d2139dd696950299f3d2ad4cadb21dbcc1a0670e2d7805677472
+  sha_eq replay_residual_natural_packet_producer_v2_1.py bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55
   sha_eq replay_residual_textworld_py313_compat_v1.py a08a1e1e5536afc11d94868de40eaea89cb929ef43b59a1102f378446284a7f4
   sha_eq replay_residual_natural_packet_validator_v2_1.py f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2
   sha_eq replay_residual_sanity_runner_v1.py 7a2c45dadb89a6e0736e53638132b69a38792ab83a3915a9d67ef937ce0a1bd3
@@ -36,16 +37,21 @@ validate_binding_and_capability(){
   [[ -n "$canary" && -f "$canary" ]] || { echo 'V23_CAPABILITY_ATTESTATION_REQUIRED' >&2; exit 75; }
   "$STATIC_PY" "$BINDER" validate-bound --root "$ROOT" --input "$bound" >/dev/null
   "$STATIC_PY" "$VALIDATOR" "$CONTRACT" "$canary" >/dev/null
-  "$STATIC_PY" - "$bound" "$canary" <<'PY'
+  local current_uuid
+  current_uuid=$(nvidia-smi --query-gpu=uuid --format=csv,noheader | head -1 | tr -d "[:space:]")
+  [[ -n "$current_uuid" ]] || { echo 'CURRENT_GPU_UUID_REQUIRED' >&2; exit 83; }
+  "$STATIC_PY" - "$bound" "$canary" "$current_uuid" <<'PY'
 import hashlib,json,sys
-b=json.load(open(sys.argv[1])); a=json.load(open(sys.argv[2]))
+b=json.load(open(sys.argv[1])); a=json.load(open(sys.argv[2])); current_uuid=sys.argv[3]
 assert b['experiment_id']=='47972f24-71ca-4001-8a1e-ca3dddb7c621'
 assert b['prediction_id']=='55ab178a-67cb-4d82-a91c-cc9cac14b189'
-assert b['runtime_fingerprint']=='bdb1e690eb1a2d0f5913d11bcb0b1915b0eaad2c91974acb7b26b2a005b94021'
 assert a['runtime_fingerprint']==b['runtime_fingerprint']
+canary_sha=hashlib.sha256(open(sys.argv[2],'rb').read()).hexdigest()
+assert canary_sha==b['capability_attestation_sha256']
 assert b['superseded_registration_execution_forbidden'] is True
 assert b['packet_target']=='results/science/plancarry_replay_residual_sanity_packets_v2_3_capability_successor1'
 assert b['result_target']=='results/science/plancarry_replay_residual_representation_sanity_v2_3_capability_successor1.json'
+assert a['actual_gpu_uuid_if_available']==current_uuid
 print('V23_BINDING_CAPABILITY_PASS')
 PY
 }
@@ -84,7 +90,7 @@ execute(){
   [[ ! -e "$attest" ]] || { echo 'REFUSE_EXISTING_EXECUTION_ATTESTATION' >&2; exit 79; }
   local TMP; TMP=$(mktemp -d "$ROOT/.replayresidual_v23_exec.XXXXXX")
   local BRIDGE_PID='' SIDECAR_PID=''
-  cleanup(){ set +e; [[ -z "$SIDECAR_PID" ]] || { kill "$SIDECAR_PID" 2>/dev/null || true; wait "$SIDECAR_PID" 2>/dev/null || true; }; [[ -z "$BRIDGE_PID" ]] || { kill "$BRIDGE_PID" 2>/dev/null || true; wait "$BRIDGE_PID" 2>/dev/null || true; }; rm -rf "$TMP"; }
+  cleanup(){ set +e; [[ -z "${SIDECAR_PID:-}" ]] || { kill "$SIDECAR_PID" 2>/dev/null || true; wait "$SIDECAR_PID" 2>/dev/null || true; }; [[ -z "${BRIDGE_PID:-}" ]] || { kill "$BRIDGE_PID" 2>/dev/null || true; wait "$BRIDGE_PID" 2>/dev/null || true; }; [[ -z "${TMP:-}" ]] || rm -rf "$TMP"; }
   trap cleanup EXIT INT TERM
   "$PY" "$ADAPTER" produce --root "$ROOT" --bound-contract "$bound" >"$TMP/packet_producer.log" 2>&1
   "$PY" "$ADAPTER" validate --root "$ROOT" --bound-contract "$bound" --packet-dir "$PACKETS" >"$TMP/packet_validator.log" 2>&1

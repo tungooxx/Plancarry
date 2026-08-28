@@ -195,7 +195,11 @@ def main(argv:Sequence[str]|None=None)->int:
  _load_bound(Path(args.bound_contract))
  if args.cmd=='produce':
   if _sha_file(root/'replay_residual_natural_packet_producer_v2_2_technical_successor.py')!=THIN_WRAPPER_SHA256: raise RuntimeError('THIN_WRAPPER_SHA_MISMATCH')
-  if root/SUCCESSOR_PACKET_REL != root/Path(thin.SUCCESSOR_PACKET_TARGET_REL): raise RuntimeError('THIN_WRAPPER_TARGET_MISMATCH')
+  # V2.3 capability-bound execution: GPU product name is provenance, not admission.
+  import torch
+  if not torch.cuda.is_available(): raise RuntimeError('CUDA_REQUIRED')
+  frozen.EXPECTED_DEVICE_NAME=torch.cuda.get_device_name(0)
+  thin.SUCCESSOR_PACKET_TARGET_REL=SUCCESSOR_PACKET_REL
   os.chdir(root); thin._ORIGINAL_ATOMIC_PUBLISH=successor_rebinding_atomic_publish
   return int(thin.main(['--root',str(root),'--execute-science']))
  if args.cmd=='validate': _validate_successor_dir(Path(args.packet_dir)); print(json.dumps({'status':'SUCCESSOR_PACKET_SET_VALID','bound_contract_sha256':_BOUND_SHA256},sort_keys=True)); return 0

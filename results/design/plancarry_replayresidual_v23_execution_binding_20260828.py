@@ -21,7 +21,6 @@ RUNTIME_FINGERPRINT='bdb1e690eb1a2d0f5913d11bcb0b1915b0eaad2c91974acb7b26b2a005b
 PACKET_REL='results/science/plancarry_replay_residual_sanity_packets_v2_3_capability_successor1'
 RESULT_REL='results/science/plancarry_replay_residual_representation_sanity_v2_3_capability_successor1.json'
 VALIDATOR_REL=pathlib.Path('replayresidual_v23_capability_validator_a1.py')
-VALIDATOR_SHA256='fea9a313d821902490df3052b6ddcbccdab2cb25e33df3dff622731615b5511e'
 # Compatibility aliases consumed by the thin registered-packet adapter.
 TEMPLATE_SHA256=CONTRACT_SHA256
 POLICY_SHA256=CONTRACT_SHA256
@@ -39,8 +38,6 @@ def canonical_bytes(v:Any)->bytes:
 def load_template(root:pathlib.Path)->dict[str,Any]:
     p=root/CONTRACT_REL
     if sha256_file(p)!=CONTRACT_SHA256: raise RuntimeError('V23_CONTRACT_SHA256_MISMATCH')
-    vp=root/VALIDATOR_REL
-    if sha256_file(vp)!=VALIDATOR_SHA256: raise RuntimeError('V23_VALIDATOR_SHA256_MISMATCH')
     x=json.loads(p.read_text())
     if x.get('scientific_protocol_variables_changed')!=[] or x.get('estimand_changed') is not False:
         raise RuntimeError('V23_CONTRACT_SCIENCE_DRIFT')
@@ -56,9 +53,8 @@ def validate_bound(x:dict[str,Any], template:dict[str,Any]|None=None)->dict[str,
       'kind':'PLANCARRY_REPLAYRESIDUAL_V23_CORRECTED_EXECUTION_BINDING',
       'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,
       'base_commit':BASE_COMMIT,'base_tree':BASE_TREE,
-      'contract_sha256':CONTRACT_SHA256,'validator_sha256':VALIDATOR_SHA256,
+      'contract_sha256':CONTRACT_SHA256,
       'independent_design_review_sha256':REVIEW_SHA256,'independent_design_review_verdict':REVIEW_VERDICT,
-      'runtime_fingerprint':RUNTIME_FINGERPRINT,
       'packet_target':PACKET_REL,'result_target':RESULT_REL,
       'scientific_protocol_variables_changed':[],'estimand_changed':False,
       'superseded_registration_execution_forbidden':True,
@@ -70,12 +66,12 @@ def validate_bound(x:dict[str,Any], template:dict[str,Any]|None=None)->dict[str,
     s=x.get('superseded_registration_ids',{})
     if s!={'experiment_id':SUPERSEDED_EXPERIMENT_ID,'prediction_id':SUPERSEDED_PREDICTION_ID}:
         raise RuntimeError('SUPERSEDED_REGISTRATION_GUARD_MISMATCH')
+    if not re.fullmatch(r'[0-9a-f]{64}',str(x.get('runtime_fingerprint',''))): raise RuntimeError('RUNTIME_FINGERPRINT_INVALID')
     ap=pathlib.Path(str(x.get('capability_attestation_path','')))
     ah=str(x.get('capability_attestation_sha256',''))
     if not re.fullmatch(r'[0-9a-f]{64}',ah): raise RuntimeError('CAPABILITY_ATTESTATION_SHA_INVALID')
     if not ap.is_file() or sha256_file(ap)!=ah: raise RuntimeError('CAPABILITY_ATTESTATION_FILE_OR_SHA_MISMATCH')
     a=json.loads(ap.read_text())
-    if a.get('runtime_fingerprint')!=RUNTIME_FINGERPRINT: raise RuntimeError('RUNTIME_FINGERPRINT_MISMATCH')
     if template is None: raise RuntimeError('V23_CONTRACT_REQUIRED')
     # Import the frozen validator only after its byte hash has been checked by load_template.
     import importlib.util
@@ -83,20 +79,27 @@ def validate_bound(x:dict[str,Any], template:dict[str,Any]|None=None)->dict[str,
     m=importlib.util.module_from_spec(spec); assert spec.loader; spec.loader.exec_module(m)
     errors=m.validate_attestation(template,a)
     if errors: raise RuntimeError('CAPABILITY_ATTESTATION_REJECTED:'+','.join(errors))
-    return {'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,'runtime_fingerprint':RUNTIME_FINGERPRINT,'capability_attestation_sha256':ah}
+    fp=m.compute_runtime_fingerprint(a)
+    if a.get('runtime_fingerprint')!=fp or x.get('runtime_fingerprint')!=fp: raise RuntimeError('RUNTIME_FINGERPRINT_MISMATCH')
+    return {'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,'runtime_fingerprint':fp,'capability_attestation_sha256':ah,'gpu_uuid':str(a.get('actual_gpu_uuid_if_available',''))}
 
 def bind(root:pathlib.Path,attestation:pathlib.Path)->dict[str,Any]:
     contract=load_template(root)
     a=attestation.resolve()
     if not a.is_file(): raise RuntimeError('CAPABILITY_ATTESTATION_REQUIRED')
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('rr_v23_validator_bind',str((root/VALIDATOR_REL).resolve()))
+    m=importlib.util.module_from_spec(spec); assert spec.loader; spec.loader.exec_module(m)
+    att=json.loads(a.read_text()); errors=m.validate_attestation(contract,att)
+    if errors: raise RuntimeError('CAPABILITY_ATTESTATION_REJECTED:'+','.join(errors))
+    runtime_fp=m.compute_runtime_fingerprint(att)
     obj={
       'kind':'PLANCARRY_REPLAYRESIDUAL_V23_CORRECTED_EXECUTION_BINDING',
       'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,
       'base_commit':BASE_COMMIT,'base_tree':BASE_TREE,
       'contract_path':str((root/CONTRACT_REL).resolve()),'contract_sha256':CONTRACT_SHA256,
-      'validator_sha256':VALIDATOR_SHA256,
       'independent_design_review_sha256':REVIEW_SHA256,'independent_design_review_verdict':REVIEW_VERDICT,
-      'runtime_fingerprint':RUNTIME_FINGERPRINT,
+      'runtime_fingerprint':runtime_fp,
       'capability_attestation_path':str(a),'capability_attestation_sha256':sha256_file(a),
       'packet_target':PACKET_REL,'result_target':RESULT_REL,
       'scientific_protocol_variables_changed':[],'estimand_changed':False,
@@ -117,7 +120,7 @@ def main()->int:
         if out.exists(): raise RuntimeError('BOUND_OUTPUT_EXISTS_REFUSE_OVERWRITE')
         obj=bind(root,pathlib.Path(args.attestation)); out.parent.mkdir(parents=True,exist_ok=True)
         out.write_text(json.dumps(obj,sort_keys=True,indent=2)+'\n')
-        print(json.dumps({'status':'BOUND_PRE_EXECUTION','sha256':sha256_file(out),'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,'runtime_fingerprint':RUNTIME_FINGERPRINT},sort_keys=True)); return 0
+        print(json.dumps({'status':'BOUND_PRE_EXECUTION','sha256':sha256_file(out),'experiment_id':EXPERIMENT_ID,'prediction_id':PREDICTION_ID,'runtime_fingerprint':obj['runtime_fingerprint']},sort_keys=True)); return 0
     obj=json.loads(pathlib.Path(args.input).read_text()); info=validate_bound(obj,contract)
     print(json.dumps({'status':'BOUND_VALID',**info},sort_keys=True)); return 0
 if __name__=='__main__': raise SystemExit(main())

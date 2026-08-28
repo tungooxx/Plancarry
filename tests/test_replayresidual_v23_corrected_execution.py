@@ -10,14 +10,16 @@ binding=load(BIND,'v23_binding'); validator=load(VAL,'v23_validator')
 contract=json.loads(CONTRACT.read_text())
 
 def good_att(name='NVIDIA GeForce RTX 3080'):
-    return {
+    a={
       'actual_gpu_name':name,'actual_gpu_uuid_if_available':'GPU-test','driver_version':'580.142','cuda_runtime':'13.0','compute_capability':'8.6',
       'total_vram_mib':10240.0,'driver_free_vram_before_canary_mib':9876.0,'peak_reserved_mib':3430.0,'post_canary_reserved_mib':3430.0,
-      'repeat_reserved_span_mib':0.0,'bf16_supported':True,'oom_events':0,'runtime_fingerprint':binding.RUNTIME_FINGERPRINT,'cuda_available':True,
+      'repeat_reserved_span_mib':0.0,'bf16_supported':True,'oom_events':0,'cuda_available':True,
       'repeat_count':3,'capture_layers':[7,14,21,27],'hook_count_by_layer':[1,1,1,1],
       'model_id':'Qwen/Qwen3-1.7B','revision':'70d244cc86ccca08cf5af4e1e306ecf908b1ad5e','dtype':'bfloat16','quantization':'NONE','offload':'NONE',
       'torch':'2.13.0+cu130','transformers':'4.51.3','tokenizers':'0.21.1'
     }
+    a['runtime_fingerprint']=validator.compute_runtime_fingerprint(a)
+    return a
 class T(unittest.TestCase):
     def test_gpu_name_not_authority(self):
         for name in ['NVIDIA GeForce RTX 3080','NVIDIA GeForce RTX 4090','Future CUDA Device X']:
@@ -41,6 +43,16 @@ class T(unittest.TestCase):
             bad=copy.deepcopy(obj); bad['experiment_id']=binding.SUPERSEDED_EXPERIMENT_ID
             with self.assertRaisesRegex(RuntimeError,'V23_BINDING_MISMATCH:experiment_id'):
                 binding.validate_bound(bad,contract)
+    def test_nonfinite_fail_closed(self):
+        for k in ['total_vram_mib','driver_free_vram_before_canary_mib','peak_reserved_mib','post_canary_reserved_mib','repeat_reserved_span_mib']:
+            a=good_att(); a[k]=float('nan')
+            self.assertIn(f'NONFINITE_OR_NONNUMERIC:{k}',validator.validate_attestation(contract,a))
+    def test_runtime_fingerprint_tamper_fail(self):
+        a=good_att(); a['driver_version']='0.0'
+        self.assertIn('RUNTIME_FINGERPRINT_MISMATCH',validator.validate_attestation(contract,a))
+    def test_gpu_uuid_required(self):
+        a=good_att(); a['actual_gpu_uuid_if_available']=''; a['runtime_fingerprint']=validator.compute_runtime_fingerprint(a)
+        self.assertIn('ACTUAL_GPU_UUID_REQUIRED_FOR_EXECUTION_BINDING',validator.validate_attestation(contract,a))
     def test_frozen_science_hashes(self):
         want={
           'replay_residual_natural_packet_producer_v2_2_technical_successor.py':'d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8',
