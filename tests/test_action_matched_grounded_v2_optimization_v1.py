@@ -222,6 +222,20 @@ class GroundedOptimizationTests(unittest.TestCase):
         finally:
             drv._load_population,drv.produce_grounded_attempt,opt.reset_cuda_peak_memory,opt.require_cuda_headroom=orig_load,orig_prod,orig_reset,orig_req
 
+    def test_ineligibility_reason_histogram_is_deterministic_and_fail_closed(self):
+        attempts=[
+            {'eligible':False,'ineligibility_reasons':['ConstructibilityError:A5_EQUALS_B5']},
+            {'eligible':True,'ineligibility_reasons':[]},
+            {'eligible':False,'ineligibility_reasons':['RuntimeContractError:PLAN_FULLMATCH_REQUIRED']},
+            {'eligible':False,'ineligibility_reasons':['ConstructibilityError:A5_EQUALS_B5']},
+        ]
+        self.assertEqual(drv._ineligibility_reason_counts(attempts),{
+            'ConstructibilityError:A5_EQUALS_B5':2,
+            'RuntimeContractError:PLAN_FULLMATCH_REQUIRED':1,
+        })
+        with self.assertRaises(drv.ExecutionContractError):
+            drv._ineligibility_reason_counts([{'eligible':False,'ineligibility_reasons':[]}])
+
     def test_cuda_oom_is_technical_not_constructibility(self):
         class Param:
             device=torch.device('cpu')

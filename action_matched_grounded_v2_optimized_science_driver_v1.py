@@ -177,6 +177,18 @@ def produce_grounded_attempt(tok:Any,model:Any,row:Mapping[str,Any],model_prov:M
     packet['packet_semantic_sha256']=_sha({k:v for k,v in packet.items() if k!='packet_semantic_sha256'})
     return packet
 
+def _ineligibility_reason_counts(attempts:Sequence[Mapping[str,Any]])->dict[str,int]:
+    counts:dict[str,int]={}
+    for pkt in attempts:
+        if bool(pkt.get('eligible')):
+            continue
+        reasons=pkt.get('ineligibility_reasons')
+        if not isinstance(reasons,list) or not reasons or any(not isinstance(x,str) or not x for x in reasons):
+            raise ExecutionContractError('INELIGIBILITY_REASON_MISSING')
+        for reason in reasons:
+            counts[reason]=counts.get(reason,0)+1
+    return {k:counts[k] for k in sorted(counts)}
+
 def _scan_first20(tok:Any,model:Any,phase_name:str,model_prov:Mapping[str,Any])->tuple[list[dict[str,Any]],list[dict[str,Any]]]:
     attempts=[]; eligible=[]
     device=next(model.parameters()).device
@@ -327,7 +339,7 @@ def _refuse(paths:Sequence[Path])->None:
 
 def development(tok:Any,model:Any,model_prov:Mapping[str,Any])->dict[str,Any]:
     _refuse([DEV_PACKET_DIR,DEV_PAYLOAD,DEV_SEAL,DEV_TERMINAL]); attempts,eligible=_scan_first20(tok,model,'development',model_prov); packet_manifest_sha=_atomic_packet_set(attempts,eligible,DEV_PACKET_DIR,'development')
-    ep=execution_provenance(model_prov); common={'phase':'ACTION_MATCHED_GROUNDED_V2_DEVELOPMENT','eligible_indices':[int(x['frozen_index']) for x in eligible],'scan_attempted_indices':[int(x['frozen_index']) for x in attempts],'packet_manifest_sha256':packet_manifest_sha,'execution_provenance':ep,'execution_provenance_sha256':_sha(ep),'confirmation_accessed':False,'reserve_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False,**phase.binding_payload()}
+    ep=execution_provenance(model_prov); reason_counts=_ineligibility_reason_counts(attempts); common={'phase':'ACTION_MATCHED_GROUNDED_V2_DEVELOPMENT','eligible_indices':[int(x['frozen_index']) for x in eligible],'scan_attempted_indices':[int(x['frozen_index']) for x in attempts],'attempted_count':len(attempts),'ineligibility_reason_counts':reason_counts,'packet_manifest_sha256':packet_manifest_sha,'execution_provenance':ep,'execution_provenance_sha256':_sha(ep),'confirmation_accessed':False,'reserve_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False,**phase.binding_payload()}
     if len(eligible)<20:
         payload={**common,'grid_results':{}}; phase.atomic_write_new(_rel(DEV_PAYLOAD),payload); term=phase.select_development(payload); phase.atomic_write_new(_rel(DEV_TERMINAL),term); return term
     donor_map=_donor_map(eligible); by={int(x['frozen_index']):x for x in eligible}; bases={int(x['frozen_index']):_session_base(tok,x) for x in eligible}; sources={}

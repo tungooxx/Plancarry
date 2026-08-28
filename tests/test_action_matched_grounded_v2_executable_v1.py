@@ -166,6 +166,19 @@ class GroundedV2ExecutableTests(unittest.TestCase):
         self.assertFalse(x['confirmation_accessed']); self.assertFalse(x['reserve_accessed']); self.assertFalse(x['valid_seen_accessed']); self.assertFalse(x['valid_unseen_accessed'])
         self.assertEqual(x['development_pool_indices'],list(range(64)))
 
+    def test_constructibility_terminal_preserves_reason_diagnostics(self):
+        payload=dev_payload({},inds=list(range(3)))
+        payload['attempted_count']=6
+        payload['ineligibility_reason_counts']={'RuntimeContractError:PLAN_FULLMATCH_REQUIRED':2,'ConstructibilityError:A5_EQUALS_B5':1}
+        res=ph.select_development(payload)
+        self.assertEqual(res['status'],'INCONCLUSIVE_GROUNDED_PAIR_CONSTRUCTIBILITY')
+        self.assertEqual(res['attempted_count'],6)
+        self.assertEqual(res['ineligibility_reason_counts'],{'ConstructibilityError:A5_EQUALS_B5':1,'RuntimeContractError:PLAN_FULLMATCH_REQUIRED':2})
+        bad=copy.deepcopy(payload); bad['attempted_count']=7
+        with self.assertRaises(ph.ContractError): ph.select_development(bad)
+        bad=copy.deepcopy(payload); bad.pop('ineligibility_reason_counts')
+        with self.assertRaises(ph.ContractError): ph.select_development(bad)
+
     def test_confirmation_seal_and_refusal_precede_model_load_in_source(self):
         src=Path('action_matched_grounded_v2_science_driver_v1.py').read_text()
         block=src[src.index("if args.phase=='development'"):src.index("print(json.dumps({'ACTION_MATCHED_GROUNDED_V2_TERMINAL'")]

@@ -153,7 +153,16 @@ def select_development(payload:Mapping[str,Any],seal_path:str|Path|None=None)->d
     if not isinstance(eligible,list): raise ContractError('ELIGIBLE_INDICES_MISSING')
     if len(eligible)<20:
         if payload.get('grid_results') not in ({},None): raise ContractError('GRID_FORBIDDEN_BELOW_20')
-        return {'kind':'ACTION_MATCHED_GROUNDED_V2_DEVELOPMENT_TERMINAL_V1','status':'INCONCLUSIVE_GROUNDED_PAIR_CONSTRUCTIBILITY','eligible_count':len(eligible),'scientific_result':'NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY','confirmation_accessed':False,**binding_payload()}
+        attempted=payload.get('attempted_count'); reasons=payload.get('ineligibility_reason_counts')
+        if not isinstance(attempted,int) or isinstance(attempted,bool) or attempted<len(eligible): raise ContractError('ATTEMPTED_COUNT_INVALID')
+        if not isinstance(reasons,Mapping): raise ContractError('INELIGIBILITY_REASON_COUNTS_MISSING')
+        norm={}
+        for k,v in reasons.items():
+            if not isinstance(k,str) or not k or not isinstance(v,int) or isinstance(v,bool) or v<=0: raise ContractError('INELIGIBILITY_REASON_COUNTS_INVALID')
+            norm[k]=v
+        norm={k:norm[k] for k in sorted(norm)}
+        if sum(norm.values())!=attempted-len(eligible): raise ContractError('INELIGIBILITY_REASON_COUNT_MISMATCH')
+        return {'kind':'ACTION_MATCHED_GROUNDED_V2_DEVELOPMENT_TERMINAL_V1','status':'INCONCLUSIVE_GROUNDED_PAIR_CONSTRUCTIBILITY','eligible_count':len(eligible),'attempted_count':attempted,'ineligibility_reason_counts':norm,'scientific_result':'NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY','confirmation_accessed':False,**binding_payload()}
     if len(eligible)!=20: raise ContractError('EXACTLY_FIRST20_ELIGIBLE_REQUIRED')
     grids=payload.get('grid_results'); aggs={}
     if not isinstance(grids,Mapping): raise ContractError('GRID_RESULTS_MISSING')
