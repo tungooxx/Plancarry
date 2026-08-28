@@ -42,6 +42,13 @@ class OptimizedPersistentTokenSession(legacy.PersistentTokenSession):
 
     def score_candidates(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
         """Overlap candidates without changing the legacy batch-size-1 numerical geometry."""
+        # Real 8 GiB executions proved that concurrent CUDA streams retain too
+        # many full KV clones.  The authoritative implementation is already
+        # sequential batch-size-1 and releases each clone before the next.
+        return super().score_candidates(suffix_ids_by_command)
+
+        # Historical stream implementation retained below for provenance only;
+        # it is intentionally unreachable and must not be re-enabled.
         torch = legacy._torch()
         self._assert_open()
         if not suffix_ids_by_command:
@@ -105,7 +112,7 @@ def capture_activation_ids_multi(model: Any, prefix_ids: Sequence[int], layers_r
         def hook(_module: Any, _inp: Any, output: Any, *, _layer: int = layer):
             calls[_layer] += 1
             hidden, _tail = legacy._hidden_from_output(output)
-            captured[_layer] = hidden[:, resolved, :].detach().clone()
+            captured[_layer] = hidden[:, resolved, :].detach().float().cpu().clone()
             return output
         handles.append(stack[layer].register_forward_hook(hook))
     device = legacy._model_device(model)
