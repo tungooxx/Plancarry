@@ -1,0 +1,51 @@
+{
+  "authorization": "HOST_CANARY_PREPARATION_ONLY_NO_SCIENCE",
+  "correction_record_id": "2b3823bf-9cd3-48af-b442-a7514f6c86c3",
+  "correction_resolution": "EXPERIMENT_REQUIRED",
+  "correction_verification_id": "af06e3ec-bc61-4017-af73-1a0f7267c070",
+  "excluded_union_sha256": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+  "future_split_access": false,
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_PRESCIENCE_RECOVERY_INDEPENDENT_REVIEW_V1",
+  "old_run_scientific_outcome_values_used": false,
+  "population_metadata": {
+    "confirmation_locked": [
+      64,
+      127
+    ],
+    "development": [
+      0,
+      63
+    ],
+    "excluded_union": 593,
+    "fresh_capacity": 197,
+    "inventory": 790,
+    "reserve_locked": [
+      128,
+      159
+    ],
+    "selected": 160,
+    "unused_tail": 37
+  },
+  "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+  "recovery_commit": "6dd179d317588096d70ebbd45019e71c312a6f07",
+  "recovery_sha256": "c75a2cc1f37405a6ec22b36b1971cbba496b64e7845fb79ce44122d92e036132",
+  "recovery_static_audit_sha256": "4353905eb3c954debafa3b216900f0c9e362a49dbc01571732b5d594972d4d35",
+  "recovery_tree": "87250b214babd483a5cab89d6cc863a7abd11a07",
+  "remaining_gates": [
+    "independent memory-safe optimizer PASS",
+    "exact-model full-path >=8GB host canary PASS",
+    "fresh Experiment/Decision registration review before same-development execution"
+  ],
+  "reviewer_worker_id": "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+  "same_development_replay": "PERMITTED_ONLY_PROSPECTIVELY_WITH_BYTE_IDENTICAL_POPULATION_AND_ZERO_OLD_OUTPUT_IMPORT",
+  "scientific_variables_changed": [],
+  "tests": {
+    "constructibility": "19/19 PASS",
+    "diff_check": "PASS",
+    "executable_static_synthetic": "17/17 PASS",
+    "science_authority": "11/11 PASS"
+  },
+  "unused_tail_is_replacement_pool": false,
+  "verdict": "PASS_FOR_GROUNDED_V2_PRESCIENCE_RECOVERY_FREEZE"
+}
