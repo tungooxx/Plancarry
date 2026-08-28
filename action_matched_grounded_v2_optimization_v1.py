@@ -15,83 +15,74 @@ ENGINEERING_EQUIV_ATOL = 1e-6
 MAX_CANDIDATE_STREAMS = 4
 
 
+class TechnicalMemoryError(RuntimeError):
+    """Engineering-only GPU memory failure; never a scientific ineligibility."""
+
+
+MINIMUM_FREE_VRAM_MB = 768.0
+
+def _device_index(device: Any) -> int | None:
+    idx=getattr(device, "index", None)
+    return idx if idx is not None else None
+
+def reset_cuda_peak_memory(device: Any) -> None:
+    torch=legacy._torch()
+    if getattr(device, "type", str(device)) != "cuda" or not torch.cuda.is_available():
+        return
+    torch.cuda.synchronize(device)
+    torch.cuda.reset_peak_memory_stats(device)
+
+def cuda_memory_snapshot(device: Any) -> dict[str, float | bool]:
+    torch=legacy._torch()
+    if getattr(device, "type", str(device)) != "cuda" or not torch.cuda.is_available():
+        return {"cuda": False, "allocated_mb": 0.0, "reserved_mb": 0.0, "peak_allocated_mb": 0.0, "peak_reserved_mb": 0.0, "free_mb": 0.0, "total_mb": 0.0, "peak_reserved_headroom_mb": 0.0}
+    torch.cuda.synchronize(device)
+    free_b,total_b=torch.cuda.mem_get_info(device)
+    mib=1024.0*1024.0
+    peak_reserved=float(torch.cuda.max_memory_reserved(device))/mib
+    total=float(total_b)/mib
+    return {
+      "cuda": True,
+      "allocated_mb": float(torch.cuda.memory_allocated(device))/mib,
+      "reserved_mb": float(torch.cuda.memory_reserved(device))/mib,
+      "peak_allocated_mb": float(torch.cuda.max_memory_allocated(device))/mib,
+      "peak_reserved_mb": peak_reserved,
+      "free_mb": float(free_b)/mib,
+      "total_mb": total,
+      "peak_reserved_headroom_mb": total-peak_reserved,
+    }
+
+def require_cuda_headroom(device: Any, *, minimum_free_mb: float = MINIMUM_FREE_VRAM_MB) -> dict[str, float | bool]:
+    snap=cuda_memory_snapshot(device)
+    if not snap["cuda"]:
+        return snap
+    current=float(snap["free_mb"]); peak_headroom=float(snap["peak_reserved_headroom_mb"]); need=float(minimum_free_mb)
+    if current < need or peak_headroom < need:
+        raise TechnicalMemoryError(
+          f"CUDA_MEMORY_HEADROOM_UNSAFE:free_mb={current:.3f}:peak_reserved_headroom_mb={peak_headroom:.3f}:required_mb={need:.3f}"
+        )
+    return snap
+
+
 class OptimizedPersistentTokenSession(legacy.PersistentTokenSession):
-    """Drop-in session: exact batch-1 math, concurrent independent CUDA streams."""
+    """Memory-safe drop-in session preserving exact legacy candidate arithmetic."""
 
     def score_candidates_legacy(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
         return super().score_candidates(suffix_ids_by_command)
 
-    def _score_suffix_async(self, ids: Sequence[int], stream: Any):
-        """Launch one exact legacy-shaped batch-1 candidate chain on one CUDA stream."""
-        torch = legacy._torch()
-        seq = [int(x) for x in ids]
-        if not seq:
-            raise legacy.SessionContractError("candidate suffix must be nonempty")
-        with torch.cuda.stream(stream):
-            local_past = legacy.clone_cache(self.past_key_values)
-            local_logits = self.next_logits.detach().clone()
-            local_len = int(self.context_len)
-            terms = []
-            for j, token_id in enumerate(seq):
-                lp = torch.log_softmax(local_logits.float(), dim=-1)
-                terms.append(lp[0, token_id])
-                if j + 1 < len(seq):
-                    local_past, local_logits = self._step_model(token_id, local_past, local_len)
-                    local_len += 1
-        return terms
-
     def score_candidates(self, suffix_ids_by_command: Mapping[str, Sequence[int]]):
-        """Overlap candidates without changing the legacy batch-size-1 numerical geometry."""
-        # Real 8 GiB executions proved that concurrent CUDA streams retain too
-        # many full KV clones.  The authoritative implementation is already
-        # sequential batch-size-1 and releases each clone before the next.
-        return super().score_candidates(suffix_ids_by_command)
-
-        # Historical stream implementation retained below for provenance only;
-        # it is intentionally unreachable and must not be re-enabled.
-        torch = legacy._torch()
+        # The rejected stream implementation cloned several full KV caches concurrently
+        # and exhausted 8 GiB cards. Preserve exact legacy sequential batch-1 geometry,
+        # but retain an explicit fail-closed cache-shape guard before delegation.
         self._assert_open()
         if not suffix_ids_by_command:
             raise legacy.SessionContractError("candidate map must be nonempty")
-        commands = sorted(str(x) for x in suffix_ids_by_command)
-        seqs = {c:[int(x) for x in suffix_ids_by_command[c]] for c in commands}
-        if any(not ids for ids in seqs.values()):
+        if any(not [int(x) for x in suffix_ids_by_command[c]] for c in suffix_ids_by_command):
             raise legacy.SessionContractError("candidate suffix must be nonempty")
         for idx,(key,value) in enumerate(cache_layers(self.past_key_values)):
             if key.ndim < 3 or value.ndim < 3 or int(key.shape[0]) != 1 or int(value.shape[0]) != 1:
                 raise legacy.SessionContractError(f"optimized candidate scoring requires batch-1 cache at layer {idx}")
-        # CPU and non-CUDA callers retain the byte-for-byte legacy execution path.
-        if getattr(self.device, 'type', str(self.device)) != 'cuda' or not torch.cuda.is_available():
-            return super().score_candidates(suffix_ids_by_command)
-        before = legacy.cache_digest(self.past_key_values)
-        rows = {}
-        caller_stream = torch.cuda.current_stream(self.device)
-        for off in range(0, len(commands), MAX_CANDIDATE_STREAMS):
-            chunk = commands[off:off + MAX_CANDIDATE_STREAMS]
-            launched = []
-            for command in chunk:
-                stream = torch.cuda.Stream(device=self.device)
-                stream.wait_stream(caller_stream)
-                terms = self._score_suffix_async(seqs[command], stream)
-                launched.append((command, stream, terms))
-            # All candidate chains above were submitted before any synchronization,
-            # so the GPU may overlap them while every individual chain stays batch-1.
-            for command, stream, terms in launched:
-                stream.synchronize()
-                ids = seqs[command]
-                # Match legacy arithmetic exactly: token scalar -> Python float,
-                # then left-to-right Python float addition in token order.
-                total = 0.0
-                for term in terms:
-                    total += float(term.item())
-                n = len(ids)
-                rows[command] = legacy.CandidateScore(command, legacy.token_ids_sha256(ids), n, total, total / n)
-        after = legacy.cache_digest(self.past_key_values)
-        if before != after or legacy.cache_seq_len(self.past_key_values) != self.context_len:
-            raise legacy.SessionContractError("candidate scoring mutated live KV session")
-        best = sorted(rows.values(), key=lambda r: (-r.mean_logprob, r.command))[0]
-        return best.command, rows
-
+        return super().score_candidates(suffix_ids_by_command)
 
 def capture_activation_ids_multi(model: Any, prefix_ids: Sequence[int], layers_requested: Sequence[int], token_index: int = -1) -> dict[int, Any]:
     torch = legacy._torch()

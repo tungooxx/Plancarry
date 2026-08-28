@@ -11,6 +11,7 @@ from typing import Any, Mapping, Sequence
 import action_matched_grounded_v2_constructibility as gc
 import action_matched_grounded_v2_phase_runner_v1 as phase
 import action_matched_grounded_v2_optimized_runtime_v1 as am
+import action_matched_grounded_v2_optimization_v1 as gpuopt
 import localcontinuation_science_driver_v1 as lc
 
 ROOT=Path(__file__).resolve().parent
@@ -178,8 +179,20 @@ def produce_grounded_attempt(tok:Any,model:Any,row:Mapping[str,Any],model_prov:M
 
 def _scan_first20(tok:Any,model:Any,phase_name:str,model_prov:Mapping[str,Any])->tuple[list[dict[str,Any]],list[dict[str,Any]]]:
     attempts=[]; eligible=[]
+    device=next(model.parameters()).device
     for row in _load_population(phase_name):
-        pkt=produce_grounded_attempt(tok,model,row,model_prov); attempts.append(pkt)
+        gpuopt.reset_cuda_peak_memory(device)
+        try:
+            pkt=produce_grounded_attempt(tok,model,row,model_prov)
+        except Exception as exc:
+            # CUDA OOM and other technical failures must propagate; they are never
+            # converted to constructibility ineligibility.
+            if exc.__class__.__name__ in ('OutOfMemoryError','CudaError') or 'out of memory' in str(exc).lower():
+                raise gpuopt.TechnicalMemoryError(f'CUDA_OOM_TECHNICAL:{type(exc).__name__}:{exc}') from exc
+            raise
+        mem=gpuopt.require_cuda_headroom(device)
+        print(json.dumps({'stage':'grounded_v2_memory','phase':phase_name,'frozen_index':int(row['frozen_index']),**mem},sort_keys=True),flush=True)
+        attempts.append(pkt)
         print(json.dumps({'stage':'grounded_v2_scan','phase':phase_name,'attempted':len(attempts),'eligible':len(eligible)+int(pkt['eligible'])}),flush=True)
         if pkt['eligible']:
             eligible.append(pkt)
@@ -318,15 +331,23 @@ def development(tok:Any,model:Any,model_prov:Mapping[str,Any])->dict[str,Any]:
     if len(eligible)<20:
         payload={**common,'grid_results':{}}; phase.atomic_write_new(_rel(DEV_PAYLOAD),payload); term=phase.select_development(payload); phase.atomic_write_new(_rel(DEV_TERMINAL),term); return term
     donor_map=_donor_map(eligible); by={int(x['frozen_index']):x for x in eligible}; bases={int(x['frozen_index']):_session_base(tok,x) for x in eligible}; sources={}
+    device=next(model.parameters()).device
     for pos,pkt in enumerate(eligible,1):
-        i=int(pkt['frozen_index']); sources[i]=_capture_vectors_all_layers(model,pkt,by[donor_map[i]],phase.LAYERS)
+        i=int(pkt['frozen_index']); gpuopt.reset_cuda_peak_memory(device)
+        sources[i]=_capture_vectors_all_layers(model,pkt,by[donor_map[i]],phase.LAYERS)
+        mem=gpuopt.require_cuda_headroom(device)
+        print(json.dumps({'stage':'grounded_v2_memory','phase':'development_sources','frozen_index':i,**mem},sort_keys=True),flush=True)
         print(json.dumps({'stage':'grounded_v2_sources','done':pos,'total':20}),flush=True)
     grids={}
     for layer in phase.LAYERS:
         for alpha in phase.ALPHAS:
             key=phase.grid_key(layer,alpha); rows=[]
             for pos,pkt in enumerate(eligible,1):
-                i=int(pkt['frozen_index']); rows.append(_eval_point(tok,model,pkt,bases[i],sources[i][layer],layer,alpha)); print(json.dumps({'stage':'grounded_v2_grid','layer':layer,'alpha':alpha,'done':pos,'total':20}),flush=True)
+                i=int(pkt['frozen_index']); gpuopt.reset_cuda_peak_memory(device)
+                row=_eval_point(tok,model,pkt,bases[i],sources[i][layer],layer,alpha)
+                mem=gpuopt.require_cuda_headroom(device)
+                print(json.dumps({'stage':'grounded_v2_memory','phase':'development_grid','frozen_index':i,'layer':layer,'alpha':alpha,**mem},sort_keys=True),flush=True)
+                rows.append(row); print(json.dumps({'stage':'grounded_v2_grid','layer':layer,'alpha':alpha,'done':pos,'total':20}),flush=True)
             grids[key]=rows
     payload={**common,'grid_results':grids,'donor_map':donor_map}; phase.atomic_write_new(_rel(DEV_PAYLOAD),payload); term=phase.select_development(payload,_rel(DEV_SEAL)); phase.atomic_write_new(_rel(DEV_TERMINAL),term); return term
 
@@ -346,8 +367,13 @@ def confirmation(tok:Any,model:Any,model_prov:Mapping[str,Any],seal:Mapping[str,
     if len(eligible)<20:
         payload={**common,'families':[{'index':int(x['frozen_index']),'eligible':True} for x in eligible]}; phase.atomic_write_new(_rel(CONF_PAYLOAD),payload); result=phase.evaluate_confirmation(payload,seal,phase.canonical_sha(seal)); phase.atomic_write_new(_rel(CONF_RESULT),result); return result
     donor_map=_donor_map(eligible); by={int(x['frozen_index']):x for x in eligible}; layer=int(seal['selected_layer']); alpha=float(seal['selected_alpha']); rows=[]
+    device=next(model.parameters()).device
     for pos,pkt in enumerate(eligible,1):
-        i=int(pkt['frozen_index']); base=_session_base(tok,pkt); vecs=_capture_vectors(model,pkt,by[donor_map[i]],layer); row=_eval_point(tok,model,pkt,base,vecs,layer,alpha); row['eligible']=True; rows.append(row); print(json.dumps({'stage':'grounded_v2_confirmation','done':pos,'total':20}),flush=True)
+        i=int(pkt['frozen_index']); gpuopt.reset_cuda_peak_memory(device)
+        base=_session_base(tok,pkt); vecs=_capture_vectors(model,pkt,by[donor_map[i]],layer); row=_eval_point(tok,model,pkt,base,vecs,layer,alpha); row['eligible']=True
+        mem=gpuopt.require_cuda_headroom(device)
+        print(json.dumps({'stage':'grounded_v2_memory','phase':'confirmation','frozen_index':i,'layer':layer,'alpha':alpha,**mem},sort_keys=True),flush=True)
+        rows.append(row); print(json.dumps({'stage':'grounded_v2_confirmation','done':pos,'total':20}),flush=True)
     payload={**common,'families':rows,'donor_map':donor_map}; phase.atomic_write_new(_rel(CONF_PAYLOAD),payload); result=phase.evaluate_confirmation(payload,seal,phase.canonical_sha(seal)); phase.atomic_write_new(_rel(CONF_RESULT),result); return result
 
 def preflight()->dict[str,Any]:

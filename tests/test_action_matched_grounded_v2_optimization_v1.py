@@ -11,6 +11,7 @@ import torch.nn as nn
 import replay_residual_t1_session_runtime_v1 as legacy
 import action_matched_grounded_v2_optimization_v1 as opt
 import action_matched_grounded_v2_optimized_runtime_v1 as rt
+import action_matched_grounded_v2_optimized_science_driver_v1 as drv
 
 
 class ToyStepModel(nn.Module):
@@ -185,6 +186,58 @@ class GroundedOptimizationTests(unittest.TestCase):
             self.assertTrue(torch.equal(old[layer],new[layer]))
         self.assertEqual(legacy_calls,4)
         self.assertEqual(optimized_calls,1)
+
+    def test_stream_fanout_is_not_reachable(self):
+        import inspect
+        src=inspect.getsource(opt.OptimizedPersistentTokenSession.score_candidates)
+        self.assertNotIn('torch.cuda.Stream',src)
+        self.assertNotIn('_score_suffix_async',src)
+
+    def test_memory_helpers_cpu_are_noop_safe(self):
+        snap=opt.cuda_memory_snapshot(torch.device('cpu'))
+        self.assertFalse(snap['cuda'])
+        self.assertEqual(opt.require_cuda_headroom(torch.device('cpu')),snap)
+
+    def test_memory_canary_contract_fields_are_frozen(self):
+        text=Path('action_matched_grounded_v2_full_path_memory_canary_v1.py').read_text()
+        for field in ('peak_allocated_mb','peak_reserved_mb','minimum_free_vram_mb','oom_events','forward_count','elapsed_seconds','final_allocated_mb','memory_growth_after_repetitions_mb'):
+            self.assertIn(field,text)
+        self.assertIn("'alfworld_access':False",text)
+        self.assertIn('require_cuda_headroom',text)
+
+    def test_low_headroom_aborts_scan_before_attempt_record(self):
+        class Param:
+            device=torch.device('cpu')
+        class Model:
+            def parameters(self): return iter([Param()])
+        orig_load,orig_prod,orig_reset,orig_req=drv._load_population,drv.produce_grounded_attempt,opt.reset_cuda_peak_memory,opt.require_cuda_headroom
+        try:
+            drv._load_population=lambda phase:[{'frozen_index':0,'game_path':'synthetic/path','phase':phase}]
+            drv.produce_grounded_attempt=lambda *a,**k:{'frozen_index':0,'eligible':False}
+            opt.reset_cuda_peak_memory=lambda device:None
+            def fail(device,**kw): raise opt.TechnicalMemoryError('CUDA_MEMORY_HEADROOM_UNSAFE:test')
+            opt.require_cuda_headroom=fail
+            with self.assertRaises(opt.TechnicalMemoryError):
+                drv._scan_first20(None,Model(),'development',{})
+        finally:
+            drv._load_population,drv.produce_grounded_attempt,opt.reset_cuda_peak_memory,opt.require_cuda_headroom=orig_load,orig_prod,orig_reset,orig_req
+
+    def test_cuda_oom_is_technical_not_constructibility(self):
+        class Param:
+            device=torch.device('cpu')
+        class Model:
+            def parameters(self): return iter([Param()])
+        class OutOfMemoryError(RuntimeError): pass
+        orig_load,orig_prod,orig_reset=drv._load_population,drv.produce_grounded_attempt,opt.reset_cuda_peak_memory
+        try:
+            drv._load_population=lambda phase:[{'frozen_index':0,'game_path':'synthetic/path','phase':phase}]
+            def boom(*a,**k): raise OutOfMemoryError('CUDA out of memory')
+            drv.produce_grounded_attempt=boom
+            opt.reset_cuda_peak_memory=lambda device:None
+            with self.assertRaises(opt.TechnicalMemoryError):
+                drv._scan_first20(None,Model(),'development',{})
+        finally:
+            drv._load_population,drv.produce_grounded_attempt,opt.reset_cuda_peak_memory=orig_load,orig_prod,orig_reset
 
     def test_original_frozen_runtime_unchanged(self):
         expected={

@@ -1,0 +1,45 @@
+{
+  "exact_rtx5060_full_path_canary": "PENDING_HOST_EXITED_DO_NOT_LAUNCH_SCIENCE",
+  "file_sha256": {
+    "action_matched_grounded_v2_full_path_memory_canary_v1.py": "2e3043c508650be6b43726c307ee4ef56911c14fd92aa79431de0b6ebd3e7fb7",
+    "action_matched_grounded_v2_optimization_v1.py": "3dc00c253539d1e2f908eedfe0d32ce42575c37796fb3658ecc8ed6fe3885bfb",
+    "action_matched_grounded_v2_optimized_science_driver_v1.py": "00324f0ff569fbc2478fec12e80f9c1bca5b0e1f7fb01fed2b2856f426a7aa71",
+    "tests/test_action_matched_grounded_v2_optimization_v1.py": "8e734015b36ac39a10b8d2730d0f6b37e706b8e14f82914fc6bd6ff88692d118"
+  },
+  "kind": "ACTION_MATCHED_GROUNDED_V2_MEMORY_SAFETY_REPAIR_AUDIT_V1",
+  "prior_observation": {
+    "attempted": 64,
+    "eligible": 0,
+    "repeated_cuda_allocator_oom": true,
+    "scientific_use_forbidden": true
+  },
+  "prior_runtime_run_id": "f444139c-d322-4f84-9ad8-44744eb5b7c3",
+  "rejected_stream_optimizer_commit": "5263391c9fe33bec1dc74cad64a6c8087209ecb4",
+  "repair": {
+    "candidate_scoring": "exact legacy sequential batch-size-1 with explicit pre-delegation batch-1 KV guard",
+    "cuda_stream_fanout_reachable": false,
+    "full_path_canary": "synthetic-only exact-model generation + four-layer capture + persistent-KV scoring + intervention, repeated with telemetry",
+    "memory_failfast": "768 MiB minimum current-free and peak-reserved headroom checked before an attempted family/row is committed",
+    "multi_layer_capture": "one forward per source side; captured vectors immediately converted to FP32 CPU and hooks removed",
+    "oom_classification": "TechnicalMemoryError; never constructibility ineligibility"
+  },
+  "required_canary_fields": [
+    "peak_allocated_mb",
+    "peak_reserved_mb",
+    "minimum_free_vram_mb",
+    "oom_events",
+    "forward_count",
+    "elapsed_seconds",
+    "final_allocated_mb",
+    "memory_growth_after_repetitions_mb"
+  ],
+  "scientific_variables_changed": [],
+  "source_codex_commit": "c4b1005a483ac0bd6ed0456fcc8be6f720bcc323",
+  "tests": {
+    "git_diff_check": "PASS",
+    "inherited_grounded": "17/17 PASS",
+    "optimizer_and_memory_safety": "15/15 PASS",
+    "py_compile": "PASS",
+    "science_outputs_created": false
+  }
+}
