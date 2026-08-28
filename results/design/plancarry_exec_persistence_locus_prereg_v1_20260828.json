@@ -80,24 +80,40 @@
     }
   },
   "statistics": {
-    "primary_comparison": "external_exec vs binding_json on later_visible_goal_progress",
-    "test": "one-sided exact paired binomial over all 16 eligible episodes; discordant external-only are wins, binding-only are losses; ties retained in denominator for rate/effect but excluded from exact-binomial n; no continuity correction",
-    "alpha": 0.05,
-    "primary_effect_guard": "rate(external_exec later_visible_goal_progress) - rate(binding_json later_visible_goal_progress) >= 0.25",
-    "primary_absolute_guard": "rate(external_exec later_visible_goal_progress) >= 0.50",
-    "task_competence_guard": "TaskSuccess@8 external_exec >= TaskSuccess@8 binding_json - 0.10",
-    "supporting_external_vs_passive": "report same one-sided paired exact test and rate difference; not required for primary gate but interpreted as controller efficacy check",
-    "IAA": "report all three rates only; never sufficient for mechanistic PASS",
     "secondary": "report paired TaskSuccess@8 and continuation_success_credit; no threshold may rescue primary failure",
     "exact_p_formula": "Let w=number of episodes with external_exec later_visible_goal_progress=True and binding_json=False; l=number with external=False and binding=True; d=w+l. If d=0 p=1.0, else p=sum_{k=w..d} C(d,k)*0.5^d. Ties are excluded from d but remain in the fixed n=16 rate denominators.",
-    "multiplicity": "One preregistered primary comparison only; no multiplicity correction on primary. All other tests are secondary/supporting and cannot rescue primary failure."
+    "multiplicity": "Holm FWER 0.05 applies exactly to the two adherence contrasts. The later-progress test is a separate conjunctive mechanistic requirement; all PASS components must pass, and no component rescues another.",
+    "adherence_primary_family": {
+      "comparisons": [
+        "external_exec vs binding_json on IAA",
+        "external_exec vs passive_json on IAA"
+      ],
+      "test": "one-sided exact paired binomial for each contrast over all 16 eligible episodes; discordant external-only are wins, comparator-only are losses; ties excluded from discordant n but retained in fixed n=16 rate denominators",
+      "raw_p_formula": "For each comparator let w=external IAA=True/comparator=False, l=external=False/comparator=True, d=w+l. If d=0 raw_p=1.0 else raw_p=sum_{k=w..d} C(d,k)*0.5^d.",
+      "multiplicity": "Holm step-down FWER 0.05 across exactly these two adherence contrasts. Sort raw p values ascending p(1)<=p(2); require p(1)<=0.025 AND p(2)<=0.05. No other comparison enters this Holm family.",
+      "effect_guards": [
+        "IAA_rate(external_exec)-IAA_rate(binding_json) >= 0.25",
+        "IAA_rate(external_exec)-IAA_rate(passive_json) >= 0.25"
+      ],
+      "absolute_guard": "IAA_rate(external_exec) >= 0.50"
+    },
+    "later_progress_conjunctive": {
+      "comparison": "external_exec vs binding_json on later_visible_goal_progress",
+      "test": "one-sided exact paired binomial over all 16 eligible episodes using the already-frozen action2..8-only endpoint",
+      "alpha": 0.05,
+      "effect_guard": "rate(external_exec later_visible_goal_progress)-rate(binding_json later_visible_goal_progress) >= 0.25",
+      "absolute_guard": "rate(external_exec later_visible_goal_progress) >= 0.50",
+      "role": "separate conjunctive continuation requirement; it cannot rescue adherence-family failure or TaskSuccess failure"
+    },
+    "task_success_guard": "TaskSuccess@8 rate(external_exec) >= TaskSuccess@8 rate(binding_json); equality is allowed only when external has already passed both adherence-advantage gates. Any lower external TaskSuccess fails the PASS gate.",
+    "IAA": "PRIMARY adherence endpoint for external_exec vs binding_json and external_exec vs passive_json; both Holm-controlled contrasts and both >=0.25 effect guards are required."
   },
   "terminal_rules": {
     "measured": "MEASURED_AWAITING_SCIENTIFIC_ASSESSMENT only if target16 complete and all deterministic/technical guards pass",
-    "primary_gate": "primary p<=0.05 AND primary effect>=0.25 AND external absolute>=0.50 AND task competence guard passes",
+    "primary_gate": "ALL conjunctive components required: adherence Holm family passes for external>binding and external>passive; both adherence effects>=0.25; external IAA>=0.50; later-progress external>binding exact p<=0.05 with effect>=0.25 and external absolute>=0.50; TaskSuccess@8 external>=binding.",
     "pass_label_for_assessment": "PASS_EXTERNAL_EXECUTION_LOCUS_DISCRIMINATOR",
     "fail_label_for_assessment": "FAIL_EXTERNAL_EXECUTION_LOCUS_DISCRIMINATOR",
-    "interpretation_if_iaa_only": "If external execution increases IAA but primary first-action-excluded later progress fails, classify first-action compliance as insufficient; do not claim persistence locus support.",
+    "interpretation_if_iaa_only": "If adherence gates pass but later-progress or TaskSuccess conjunctive gates fail, do not claim controller utility PASS. If later-progress passes while adherence gates fail, classify as FAIL under the hypothesis kill condition; downstream state mediation cannot rescue missing adherence advantage.",
     "no_rescue": [
       "no replacement after scan",
       "no target-n reduction",
@@ -108,14 +124,24 @@
       "no alpha/effect-threshold change",
       "no excluding stale-fallback episodes",
       "no model switch",
-      "no benchmark/split switch"
+      "no benchmark/split switch",
+      "no downstream later-progress rescue of failed adherence gate",
+      "no TaskSuccess noninferiority margin below binding; external must be >= binding",
+      "no persistence-beyond-action1 claim from action2..8 endpoint",
+      "no changing Holm family or adherence effect thresholds"
     ],
     "primary_gate_components": [
-      "one-sided exact paired-binomial p(external_exec > binding_json on later_visible_goal_progress) <= 0.05",
-      "rate difference external_exec - binding_json on later_visible_goal_progress >= 0.25",
-      "external_exec later_visible_goal_progress rate >= 0.50",
-      "TaskSuccess@8 external_exec >= TaskSuccess@8 binding_json - 0.10"
-    ]
+      "Holm FWER .05 across exactly two one-sided paired-binomial IAA contrasts external_exec>binding_json and external_exec>passive_json: sorted raw p(1)<=.025 and p(2)<=.05",
+      "IAA effect external_exec-binding_json >= 0.25",
+      "IAA effect external_exec-passive_json >= 0.25",
+      "IAA rate external_exec >= 0.50",
+      "later_visible_goal_progress action2..8-only external_exec>binding_json one-sided exact paired-binomial p <= 0.05",
+      "later_visible_goal_progress rate difference external_exec-binding_json >= 0.25",
+      "later_visible_goal_progress rate external_exec >= 0.50",
+      "TaskSuccess@8 rate external_exec >= TaskSuccess@8 rate binding_json"
+    ],
+    "kill_condition_binding_match_guard": "FAIL closed if binding_json matches external_exec on IAA (no positive external adherence advantage satisfying both p/effect gates), even if later_visible_goal_progress favors external. Also FAIL if external TaskSuccess@8 is below binding_json.",
+    "pass_claim_scope": "PASS supports one-step external executable-controller utility under frozen guard/content parity. It does NOT establish persistence beyond the forced action1 state transition, because action2..8 outcomes remain causally mediated by the environment state created by action1."
   },
   "guards": [
     "candidate manifest SHA exact",
@@ -151,5 +177,13 @@
   "scientific_variables_changed": [
     "external execution locus arm is the intended new discriminator; all listed model/state/reset/parser/budget/memory semantics held fixed from binding-v1 where applicable"
   ],
-  "payload_sha256": "1960fe8580541ac4b1ccc8d39fa14e973cc8cc85f3d553a12c779bf07756661b"
+  "terminal_gate_repair": {
+    "source_review_work_item_id": "aeca3ace-8167-4519-8afa-a0fdac03010d",
+    "source_review_sha256": "88fccb044cbf78a2518cfe968e57edf0dc8c2e83ac6d84902e82574209349d1a",
+    "hypothesis_id": "5c72543b-c8f1-4e65-9eff-56892a8cdde5",
+    "repair_scope": "terminal inferential/effect gate and claim-scope wording only; population/runtime/arms/commitment/eligibility/metrics unchanged",
+    "binding_match_false_pass_fixed": true,
+    "science_executed": false
+  },
+  "payload_sha256": "cbc6b1a2ea48b35b8dc42242613a528150a70a2fc8ea7313a9282882e2ea535d"
 }

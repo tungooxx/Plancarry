@@ -18,7 +18,6 @@ assert len(set(M['candidates']))==176
 assert M['candidate_pool_sha256']==HT('\n'.join(M['candidates'])+'\n')
 assert P['population']['target_eligible']==16 and P['runtime']['post_reset_environment_action_horizon']==8
 assert P['metrics']['later_visible_goal_progress']['first_action_excluded'] is True
-assert P['statistics']['alpha']==0.05 and '>= 0.25' in P['statistics']['primary_effect_guard']
 # Exact one-sided paired-binomial tail is frozen; 5-0 discordants passes .05, 4-0 does not.
 import math
 def one_sided(w,l):
@@ -27,10 +26,53 @@ def one_sided(w,l):
 assert abs(one_sided(5,0)-0.03125)<1e-15
 assert abs(one_sided(4,0)-0.0625)<1e-15
 assert one_sided(0,0)==1.0
-assert len(P['terminal_rules']['primary_gate_components'])==4
-assert P['statistics']['primary_absolute_guard'].endswith('>= 0.50')
 assert P['stale_commitment_policy']['no_rescue'] is True
 assert 'no excluding stale-fallback episodes' in P['terminal_rules']['no_rescue']
+
+# Repaired terminal-gate logic: two adherence contrasts form a fixed Holm family.
+def paired_one_sided(w,l):
+ d=w+l
+ return 1.0 if d==0 else sum(math.comb(d,k) for k in range(w,d+1))/(2**d)
+def holm2(p_a,p_b):
+ lo,hi=sorted([p_a,p_b])
+ return lo<=0.025 and hi<=0.05
+def repaired_gate(ext_iaa,bind_iaa,pass_iaa,ext_later,bind_later,ext_success,bind_success):
+ # Inputs are 16-element booleans.
+ def paired(a,b):
+  w=sum(x and not y for x,y in zip(a,b)); l=sum((not x) and y for x,y in zip(a,b))
+  return paired_one_sided(w,l)
+ p_bind=paired(ext_iaa,bind_iaa); p_pass=paired(ext_iaa,pass_iaa)
+ iaa_effect_bind=sum(ext_iaa)/16-sum(bind_iaa)/16
+ iaa_effect_pass=sum(ext_iaa)/16-sum(pass_iaa)/16
+ p_later=paired(ext_later,bind_later)
+ later_effect=sum(ext_later)/16-sum(bind_later)/16
+ return (
+  holm2(p_bind,p_pass)
+  and iaa_effect_bind>=0.25 and iaa_effect_pass>=0.25 and sum(ext_iaa)/16>=0.50
+  and p_later<=0.05 and later_effect>=0.25 and sum(ext_later)/16>=0.50
+  and sum(ext_success)>=sum(bind_success)
+ )
+assert len(P['terminal_rules']['primary_gate_components'])==8
+assert P['statistics']['adherence_primary_family']['multiplicity'].startswith('Holm step-down FWER 0.05')
+# Exact p-value canaries.
+assert abs(paired_one_sided(5,0)-0.03125)<1e-15
+assert abs(paired_one_sided(4,0)-0.0625)<1e-15
+assert paired_one_sided(0,0)==1.0
+# A3 false-pass counterexample from independent review MUST now fail:
+# external and binding both adhere/succeed 16/16, while external later-progress is 8/16 vs binding 0/16.
+ones=[True]*16; zeros=[False]*16; half=[True]*8+[False]*8
+assert repaired_gate(ones,ones,zeros,half,zeros,ones,ones) is False
+# Binding-match kill remains fail-closed even if external downstream progress is perfect.
+assert repaired_gate(ones,ones,zeros,ones,zeros,ones,ones) is False
+# Lower TaskSuccess cannot pass even with strong adherence and downstream progress.
+ext_iaa=ones; bind_iaa=zeros; passive_iaa=zeros; ext_later=ones; bind_later=zeros
+ext_success=[True]*15+[False]; bind_success=ones
+assert repaired_gate(ext_iaa,bind_iaa,passive_iaa,ext_later,bind_later,ext_success,bind_success) is False
+# Positive sentinel: strong adherence advantage over BOTH comparators, later progress advantage, TaskSuccess parity.
+assert repaired_gate(ones,zeros,zeros,ones,zeros,ones,ones) is True
+assert 'one-step external executable-controller utility' in P['terminal_rules']['pass_claim_scope']
+assert 'does NOT establish persistence beyond the forced action1 state transition' in P['terminal_rules']['pass_claim_scope']
+
 # Reconstruct exact binding pool from frozen 790-path inventory.
 inv=json.loads((D/'plancarry_localcontinuation_canonical_inventory_v1_20260823.json').read_text())
 I={rel(x) for x in inv};absI=['/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/'+r for r in I]
