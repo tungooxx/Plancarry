@@ -1,0 +1,57 @@
+{
+  "base_commit": "3c1c6ebd7f43e44fc83f26604e32b7ec761a4c52",
+  "base_tree": "5e1e2429d9efc808cb715a6ba0b2f933696a17a4",
+  "implementation_sha256": "157400595d8173c181bdc1ba03de31a052d4f4cd906ae5661192308ec421e5f8",
+  "implemented_contract": {
+    "branch_plausibility": "six finite scores; second-highest softmax probability >=0.10",
+    "carrier": "4x6 uint8 rows sum255",
+    "controls": [
+      "BRANCH_PHASE_ONLY",
+      "TIME_SHUFFLED_OCCUPANCY",
+      "IMMEDIATE_ACTION_ONLY"
+    ],
+    "future_distance": "gamma^2 L1(row3)+gamma^3 L1(row4)",
+    "gamma": 0.8,
+    "no_environment_execution": true,
+    "no_model_import_or_load": true,
+    "no_retry_or_replacement": true,
+    "population_split": {
+      "causal_development_locked": [
+        16,
+        31
+      ],
+      "constructibility": [
+        0,
+        15
+      ],
+      "spare_locked": [
+        32,
+        36
+      ]
+    },
+    "serialization": "SF1: + 48 lowercase hex chars = 52 ASCII bytes",
+    "threshold": 0.5
+  },
+  "independent_design_review_sha256": "ff5d906bcb66cf706c6e8d738f5c6975da13b741c7035e4747a44008d9dc5622",
+  "kind": "SUCCESSOR_FEATURE_CONSTRUCTIBILITY_V2_IMPLEMENTATION_AUDIT",
+  "note": "Pure helper implementation only. No constructibility science executed; exact label-scoring prompt/token suffix binding remains a separately reviewed future executable step.",
+  "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+  "prereg_sha256": "e6ef3044d6636e03b4b6a5b7a68b1bda89bc92ba2b2da3c936e9e2a8a07e276f",
+  "prohibitions_verified": [
+    "no model/tokenizer/torch/transformers imports",
+    "no ALFWorld/TextWorld imports",
+    "no Experiment/Decision",
+    "no causal-development/spare/valid exposure"
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "test_sha256": "84a73cb5f5b13ed2a409402dad8249fd07724dc12baedaeecf87301d26ceb9a6",
+  "tests": {
+    "existing_static": "PASS_STATIC_PRE_SCIENCE_V2",
+    "git_diff_check": true,
+    "locked_population_exposure": "constructibility indices0..15 only",
+    "new_runtime_unit_tests": "12/12 PASS",
+    "py_compile": true,
+    "row2_only_counterexample_future_distance": 0.0
+  }
+}
