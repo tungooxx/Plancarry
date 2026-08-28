@@ -154,7 +154,7 @@ def select_development(payload:Mapping[str,Any],seal_path:str|Path|None=None)->d
     if len(eligible)<20:
         if payload.get('grid_results') not in ({},None): raise ContractError('GRID_FORBIDDEN_BELOW_20')
         attempted=payload.get('attempted_count'); reasons=payload.get('ineligibility_reason_counts')
-        if not isinstance(attempted,int) or isinstance(attempted,bool) or attempted<len(eligible): raise ContractError('ATTEMPTED_COUNT_INVALID')
+        if not isinstance(attempted,int) or isinstance(attempted,bool) or attempted<=0 or attempted<len(eligible): raise ContractError('ATTEMPTED_COUNT_INVALID')
         if not isinstance(reasons,Mapping): raise ContractError('INELIGIBILITY_REASON_COUNTS_MISSING')
         norm={}
         for k,v in reasons.items():

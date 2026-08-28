@@ -179,6 +179,13 @@ class GroundedV2ExecutableTests(unittest.TestCase):
         bad=copy.deepcopy(payload); bad.pop('ineligibility_reason_counts')
         with self.assertRaises(ph.ContractError): ph.select_development(bad)
 
+    def test_constructibility_terminal_rejects_zero_attempted_count(self):
+        payload=dev_payload({},inds=[])
+        payload['attempted_count']=0
+        payload['ineligibility_reason_counts']={}
+        with self.assertRaisesRegex(ph.ContractError,'^ATTEMPTED_COUNT_INVALID$'):
+            ph.select_development(payload)
+
     def test_confirmation_seal_and_refusal_precede_model_load_in_source(self):
         src=Path('action_matched_grounded_v2_science_driver_v1.py').read_text()
         block=src[src.index("if args.phase=='development'"):src.index("print(json.dumps({'ACTION_MATCHED_GROUNDED_V2_TERMINAL'")]
