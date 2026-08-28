@@ -1,0 +1,82 @@
+{
+  "authority": {
+    "phase_runner_sha256": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+    "session_runtime_sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "v2_1_contract_sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158"
+  },
+  "driver_sha256": "fe0d51abba9a2f1340d3ac40cc5fa30f2da44e7d602a2b9e2cdf89397a4426cf",
+  "future_split_accessed": false,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_DIRECT_T1_CAUSAL_DEV_DRIVER_INDEPENDENT_REVIEW_A2_V1",
+  "material_defect": {
+    "evidence": [
+      "The driver intentionally sets payload.sanity_status=PASS_REPLAY_RESIDUAL_SANITY only as phase-validator compatibility sentinel and separately sets payload.prereg_compliance.status=USER_DIRECTED_SANITY_GATE_OVERRIDE with original_sanity_pass_observed=false.",
+      "The frozen phase select_development output kind PLANCARRY_REPLAY_RESIDUAL_T1_DEVELOPMENT_SELECTION_V1 does not copy prereg_compliance, USER_DIRECTED_SANITY_GATE_OVERRIDE, original_sanity_pass_observed, or original_prereg_activation_gate_satisfied into the development seal.",
+      "The direct driver terminal stdout summary also omits override provenance.",
+      "Therefore the seal can be consumed or inspected independently and is indistinguishable in kind/provenance shape from an original prereg-compliant T1 development selection, violating the explicit review requirement that the compatibility sentinel must not be misread in final artifacts."
+    ],
+    "id": "OVERRIDE_PROVENANCE_DROPPED_FROM_FROZEN_DEVELOPMENT_SEAL",
+    "risk": "A later confirmation/consumer that binds only the canonical development seal and its SHA can lose the fact that the original representation-sanity activation gate was bypassed, allowing an exploratory override lineage to be mistaken for prereg-compliant T1.",
+    "severity": "MATERIAL",
+    "static_proof": {
+      "driver_audit_has_override": true,
+      "driver_payload_has_override": true,
+      "driver_terminal_summary_has_override": false,
+      "seal_has_original_sanity_pass_observed": false,
+      "seal_has_prereg_compliance": false,
+      "seal_has_user_directed_override": false,
+      "seal_kind_is_canonical_t1_development_selection": true
+    }
+  },
+  "passed_checks": {
+    "action_candidate_suffix_encoding_exact_space_plus_command": true,
+    "action_prompt_tail_appended_same_kv_after_hook_removed": true,
+    "alphas_exact": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "atomic_new_only_payload_seal_audit_writes": true,
+    "audit_override_provenance_explicit": true,
+    "candidate_scoring_does_not_mutate_live_kv": true,
+    "deterministic_first_two_reference_action_replay_state_hashes": true,
+    "dev_gate_missing_or_nonready_refused": true,
+    "dev_packet_indices_exact_0_31": true,
+    "driver_py_compile": true,
+    "future_split_paths_in_driver": false,
+    "later_observation_commands_action_prompt_append_same_session": true,
+    "layers_exact": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "lpa_excludes_first_post_reset_action": true,
+    "lpa_requires_action_and_preaction_world_state_match": true,
+    "max_post_reset_actions": 12,
+    "no_patch_present": true,
+    "packet_directory_exact_file_set_validator": true,
+    "payload_override_provenance_explicit": true,
+    "persistent_session_prefix_hook_exactly_once": true,
+    "pure_rademacher_rescale_invariants": "PASS",
+    "random_eq_norm_sha256_rademacher_deterministic_and_norm_matched": true,
+    "reset_action_token_split_unique_fail_closed": true,
+    "reset_serialization_exact_task_observation_sorted_commands_state_end_action": true,
+    "semantic_controls_residualized_vs_neutral_and_norm_matched": true,
+    "source_residual": "h_PLAN(t2)-h_NEUTRAL_FILLER(t2)",
+    "source_uses_frozen_build_condition_slots_and_build_replay_anchor2": true,
+    "task_success_and_valid_action_rate_reported": true,
+    "zero_add_self_replace_sentinels_atol_1e_6": true
+  },
+  "required_repair": [
+    "Preserve the frozen original phase-runner semantics, but make the authoritative development selection artifact itself fail-closed and unmistakably override-specific: it must bind USER_DIRECTED_SANITY_GATE_OVERRIDE, original_sanity_pass_observed=false, and original_prereg_activation_gate_satisfied=false (or be enclosed by an immutable override-specific envelope that every downstream confirmation consumer is required to bind).",
+    "The terminal execution summary must surface the override status rather than reporting only the canonical selection status/layer/alpha.",
+    "Any later confirmation wrapper must reject a direct-override development seal/envelope unless the explicit override provenance is present and hash-bound; it must never reinterpret the override as original prereg-compliant T1.",
+    "Re-run static/synthetic no-science review after repair; do not execute model/environment science or access confirmation32..51/T1R52..63/valid splits in the repair/review."
+  ],
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "science_execution_authorized": false,
+  "scientific_outcomes_inspected": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "d89860a9-659d-4f00-ab2c-7529233ae574"
+}
