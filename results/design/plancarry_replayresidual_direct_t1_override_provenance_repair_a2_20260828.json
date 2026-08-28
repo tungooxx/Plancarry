@@ -1,0 +1,81 @@
+{
+  "base_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "confirmation_accessed": false,
+  "engineering_task_id": "d325d9c1-1e0d-470a-aaad-6e5c36f90d1f",
+  "environment_execution": 0,
+  "failed_review_sha256": "9ac7cb516a570369275c33c6cc146396abebccfe544bf1413adb982a28ef6287",
+  "failed_review_work_item_id": "d89860a9-659d-4f00-ab2c-7529233ae574",
+  "files_sha256": {
+    "replay_residual_t1_direct_override_causal_dev_v1.py": "a0f78df784edde1af4e24641d85a0323fe95a3403b0dd48c020f098b80741b72",
+    "replay_residual_t1_phase_runner_v1.py": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+    "replay_residual_t1_session_runtime_v1.py": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+    "results/design/plancarry_replay_residual_t1_prereg_v1_1_20260821.json": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+    "results/design/plancarry_replay_residual_unified_execution_contract_v2_1_rw_20260821.json": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+    "tests/test_replay_residual_t1_direct_override_provenance_v1.py": "003075eef3b6dac176d17e0be8a9f4fdb4cece16d43b5952f208141b96dade4b"
+  },
+  "frozen_authority_checks": {
+    "phase_runner_sha256_exact": true,
+    "session_runtime_sha256_exact": true,
+    "t1_prereg_sha256_exact": true,
+    "v2_1_contract_sha256_exact": true
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_DIRECT_T1_OVERRIDE_PROVENANCE_REPAIR_A2_V1",
+  "model_calls": 0,
+  "model_loads": 0,
+  "repair_behavior": {
+    "canonical_plain_seal_rejected_by_downstream_guard": true,
+    "compatibility_sanity_status_explicit": true,
+    "inner_phase_selection_embedded": true,
+    "inner_phase_selection_file_sha256_bound": true,
+    "original_prereg_activation_gate_satisfied_false_bound": true,
+    "original_sanity_pass_observed_false_bound": true,
+    "override_status_hash_bound": true,
+    "preexisting_private_selection_refused": true,
+    "private_inner_selection_deleted_after_success": true,
+    "public_selection_kind": "PLANCARRY_REPLAY_RESIDUAL_T1_USER_OVERRIDE_DEVELOPMENT_SELECTION_V1",
+    "public_selection_status": "FROZEN_T1_DEVELOPMENT_SELECTION_USER_DIRECTED_SANITY_GATE_OVERRIDE",
+    "selected_layer_alpha_vectors_aggregates_mirrored_and_validated": true,
+    "tamper_missing_false_provenance_rejected": true,
+    "terminal_stdout_surfaces_override": true
+  },
+  "repair_scope": "ENGINEERING_ONLY_OVERRIDE_PROVENANCE_ENVELOPE",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_equivalence": {
+    "all_preexisting_non_main_functions_source_unchanged": true,
+    "base_main_prefix_sha256": "3b998cc3151176fa8de8c334ba7f58a414f69202c84c19531082483860d383c0",
+    "main_scientific_computation_prefix_through_payload_construction_unchanged": true,
+    "per_function_unchanged": {
+      "atomic_json_new": true,
+      "base_reset_provenance": true,
+      "canonical": true,
+      "continuation_ids": true,
+      "engineering_sentinels": true,
+      "exact_reset_tokens": true,
+      "file_sha": true,
+      "load_terminal_packets": true,
+      "make_family_base": true,
+      "make_runtime": true,
+      "rademacher_like": true,
+      "replay_to_reset": true,
+      "rescale_to": true,
+      "rollout": true,
+      "sha_bytes": true,
+      "sha_json": true,
+      "sha_text": true,
+      "source_vectors": true,
+      "suffix_map": true
+    },
+    "repaired_main_prefix_sha256": "3b998cc3151176fa8de8c334ba7f58a414f69202c84c19531082483860d383c0"
+  },
+  "t1r_accessed": false,
+  "tests": {
+    "frozen_pure_science_invariants": "PASS",
+    "git_diff_check": "PASS",
+    "pure_provenance_unittest": "10/10 PASS",
+    "py_compile": "PASS"
+  },
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "work_item_id": "cf665171-a608-4199-918f-bc6e603c5d9e"
+}

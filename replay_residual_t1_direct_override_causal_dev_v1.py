@@ -16,6 +16,9 @@ V21_SHA='83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158'
 SESSION_SHA='585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6'
 PHASE_SHA='c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8'
 DRIVER_KIND='PLANCARRY_REPLAYRESIDUAL_T1_DIRECT_OVERRIDE_CAUSAL_DEV_V1'
+OVERRIDE_STATUS='USER_DIRECTED_SANITY_GATE_OVERRIDE'
+OVERRIDE_SELECTION_KIND='PLANCARRY_REPLAY_RESIDUAL_T1_USER_OVERRIDE_DEVELOPMENT_SELECTION_V1'
+OVERRIDE_SELECTION_STATUS='FROZEN_T1_DEVELOPMENT_SELECTION_USER_DIRECTED_SANITY_GATE_OVERRIDE'
 LAYERS=(7,14,21,27)
 ALPHAS=(0.25,0.5,1.0)
 CONDITIONS=('PLAN_PRESENT','NEUTRAL_FILLER','SHUFFLED_PLAN','UNRELATED_PLAN','GENERIC_HISTORY','NEXT_ACTION_PRESERVED_LATE_NULL')
@@ -27,6 +30,92 @@ def sha_text(s:str)->str: return sha_bytes(s.encode())
 def canonical(obj:Any)->bytes: return json.dumps(obj,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
 def sha_json(obj:Any)->str: return sha_bytes(canonical(obj))
 def file_sha(p:Path)->str: return sha_bytes(p.read_bytes())
+def pretty_json_bytes(obj:Any)->bytes: return (json.dumps(obj,sort_keys=True,indent=2,allow_nan=False)+'\n').encode()
+def pretty_json_sha(obj:Any)->str: return sha_bytes(pretty_json_bytes(obj))
+
+def _override_inner_selection_path(public_path:Path)->Path:
+    return public_path.with_name('.'+public_path.name+'.phase_selection.private')
+
+def validate_override_development_seal_obj(seal:Mapping[str,Any])->dict[str,Any]:
+    if seal.get('kind')!=OVERRIDE_SELECTION_KIND or seal.get('status')!=OVERRIDE_SELECTION_STATUS:
+        raise RuntimeError('DIRECT_OVERRIDE_SELECTION_KIND_OR_STATUS_INVALID')
+    pc=seal.get('prereg_compliance')
+    if not isinstance(pc,Mapping) or pc.get('status')!=OVERRIDE_STATUS:
+        raise RuntimeError('DIRECT_OVERRIDE_PREREG_COMPLIANCE_MISSING')
+    if pc.get('original_sanity_pass_observed') is not False or pc.get('original_prereg_activation_gate_satisfied') is not False:
+        raise RuntimeError('DIRECT_OVERRIDE_ORIGINAL_SANITY_PROVENANCE_INVALID')
+    if seal.get('user_directed_sanity_gate_override') is not True or seal.get('original_sanity_pass_observed') is not False or seal.get('original_prereg_activation_gate_satisfied') is not False:
+        raise RuntimeError('DIRECT_OVERRIDE_TOP_LEVEL_PROVENANCE_INVALID')
+    if seal.get('compatibility_sanity_status')!='PASS_REPLAY_RESIDUAL_SANITY':
+        raise RuntimeError('DIRECT_OVERRIDE_COMPATIBILITY_SENTINEL_INVALID')
+    if seal.get('t1_prereg_sha256')!=T1_PREREG_SHA or seal.get('gap_matrix_sha256')!=GAP_SHA or seal.get('v2_1_contract_sha256')!=V21_SHA:
+        raise RuntimeError('DIRECT_OVERRIDE_PROTOCOL_PROVENANCE_INVALID')
+    if seal.get('phase_runner_sha256')!=PHASE_SHA or seal.get('session_runtime_sha256')!=SESSION_SHA:
+        raise RuntimeError('DIRECT_OVERRIDE_RUNTIME_PROVENANCE_INVALID')
+    driver_sha=str(seal.get('driver_sha256',''))
+    if len(driver_sha)!=64 or any(c not in '0123456789abcdef' for c in driver_sha):
+        raise RuntimeError('DIRECT_OVERRIDE_DRIVER_PROVENANCE_INVALID')
+    if seal.get('scientific_result')!='NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY':
+        raise RuntimeError('DIRECT_OVERRIDE_SCIENTIFIC_SCOPE_INVALID')
+    for flag in ('confirmation_accessed','t1r_accessed','valid_seen_accessed','valid_unseen_accessed'):
+        if seal.get(flag) is not False: raise RuntimeError(f'DIRECT_OVERRIDE_FUTURE_FLAG_INVALID:{flag}')
+    inner=seal.get('phase_selection')
+    if not isinstance(inner,Mapping): raise RuntimeError('DIRECT_OVERRIDE_INNER_SELECTION_MISSING')
+    inner_sha=str(seal.get('phase_selection_file_sha256',''))
+    if len(inner_sha)!=64 or pretty_json_sha(dict(inner))!=inner_sha:
+        raise RuntimeError('DIRECT_OVERRIDE_INNER_SELECTION_HASH_MISMATCH')
+    if inner.get('kind')!='PLANCARRY_REPLAY_RESIDUAL_T1_DEVELOPMENT_SELECTION_V1' or inner.get('status')!='FROZEN_T1_DEVELOPMENT_SELECTION':
+        raise RuntimeError('DIRECT_OVERRIDE_INNER_SELECTION_INVALID')
+    for key in ('selected_layer','selected_alpha','selected_vector_sha256_by_family','selected_vector_map_sha256','all_grid_aggregates','all_grid_aggregates_sha256','development_payload_sha256'):
+        if seal.get(key)!=inner.get(key): raise RuntimeError(f'DIRECT_OVERRIDE_MIRROR_MISMATCH:{key}')
+    return dict(seal)
+
+def load_validate_override_development_seal(path:Path, expected_file_sha256:str|None=None)->dict[str,Any]:
+    if not path.is_file(): raise RuntimeError(f'DIRECT_OVERRIDE_SELECTION_MISSING:{path}')
+    actual=file_sha(path)
+    if expected_file_sha256 is not None and actual!=str(expected_file_sha256):
+        raise RuntimeError('DIRECT_OVERRIDE_SELECTION_FILE_HASH_MISMATCH')
+    seal=json.loads(path.read_text())
+    return validate_override_development_seal_obj(seal)
+
+def write_override_development_selection(payload:Mapping[str,Any], phase:Any, public_path:Path)->dict[str,Any]:
+    if public_path.exists(): raise RuntimeError(f'REFUSE_EXISTING:{public_path}')
+    inner_path=_override_inner_selection_path(public_path)
+    if inner_path.exists(): raise RuntimeError(f'REFUSE_EXISTING_PRIVATE_PHASE_SELECTION:{inner_path}')
+    try:
+        result=phase.select_development(payload,inner_path)
+        if result.get('status')!='FROZEN_T1_DEVELOPMENT_SELECTION':
+            return dict(result)
+        if not inner_path.is_file(): raise RuntimeError('PRIVATE_PHASE_SELECTION_NOT_WRITTEN')
+        inner_raw=inner_path.read_bytes(); inner_sha=sha_bytes(inner_raw); inner=json.loads(inner_raw)
+        if result.get('seal_file_sha256')!=inner_sha: raise RuntimeError('PRIVATE_PHASE_SELECTION_RETURNED_HASH_MISMATCH')
+        if pretty_json_sha(inner)!=inner_sha: raise RuntimeError('PRIVATE_PHASE_SELECTION_SERIALIZATION_MISMATCH')
+        pc=dict(payload.get('prereg_compliance') or {})
+        envelope={
+            'kind':OVERRIDE_SELECTION_KIND,'status':OVERRIDE_SELECTION_STATUS,
+            'prereg_compliance':pc,'user_directed_sanity_gate_override':True,
+            'original_sanity_pass_observed':False,'original_prereg_activation_gate_satisfied':False,
+            'compatibility_sanity_status':str(payload.get('sanity_status')),
+            't1_prereg_sha256':T1_PREREG_SHA,'gap_matrix_sha256':GAP_SHA,'v2_1_contract_sha256':V21_SHA,
+            'session_runtime_sha256':SESSION_SHA,'phase_runner_sha256':PHASE_SHA,
+            'driver_kind':DRIVER_KIND,'driver_sha256':str(payload.get('driver_sha256')),
+            'development_payload_sha256':inner.get('development_payload_sha256'),
+            'phase_selection_file_sha256':inner_sha,'phase_selection':inner,
+            'selected_layer':inner.get('selected_layer'),'selected_alpha':inner.get('selected_alpha'),
+            'selected_vector_sha256_by_family':inner.get('selected_vector_sha256_by_family'),
+            'selected_vector_map_sha256':inner.get('selected_vector_map_sha256'),
+            'all_grid_aggregates':inner.get('all_grid_aggregates'),'all_grid_aggregates_sha256':inner.get('all_grid_aggregates_sha256'),
+            'qualified_indices':inner.get('qualified_indices'),'qualified_count':inner.get('qualified_count'),
+            'scientific_result':'NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY',
+            'confirmation_accessed':False,'t1r_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False,
+        }
+        validate_override_development_seal_obj(envelope)
+        public_sha=atomic_json_new(public_path,envelope)
+        out=dict(envelope); out['seal_file_sha256']=public_sha
+        return out
+    finally:
+        try: inner_path.unlink()
+        except FileNotFoundError: pass
 
 def atomic_json_new(path:Path,obj:Any)->str:
     if path.exists(): raise RuntimeError(f'REFUSE_EXISTING:{path}')
@@ -327,16 +416,20 @@ def main()->int:
         'driver_kind':DRIVER_KIND,'driver_sha256':file_sha(Path(__file__)),'confirmation_accessed':False,'t1r_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False,
     }
     payload_sha=atomic_json_new(PAYLOAD_OUT,payload)
-    result=phase.select_development(payload,SEAL_OUT)
-    if result.get('status')!='FROZEN_T1_DEVELOPMENT_SELECTION': raise RuntimeError(f"UNEXPECTED_SELECTION_RESULT:{result}")
+    result=write_override_development_selection(payload,phase,SEAL_OUT)
+    if result.get('status')!=OVERRIDE_SELECTION_STATUS: raise RuntimeError(f"UNEXPECTED_SELECTION_RESULT:{result}")
+    load_validate_override_development_seal(SEAL_OUT,result['seal_file_sha256'])
     audit={
       'kind':'PLANCARRY_REPLAYRESIDUAL_T1_DIRECT_OVERRIDE_DEVELOPMENT_EXECUTION_AUDIT_V1','driver_sha256':file_sha(Path(__file__)),
-      'payload_sha256':payload_sha,'seal_sha256':file_sha(SEAL_OUT),'qualified_count':len(qualified),'selected_layer':result['selected_layer'],'selected_alpha':result['selected_alpha'],
+      'payload_sha256':payload_sha,'seal_sha256':file_sha(SEAL_OUT),'inner_phase_selection_sha256':result['phase_selection_file_sha256'],
+      'qualified_count':len(qualified),'selected_layer':result['selected_layer'],'selected_alpha':result['selected_alpha'],
+      'prereg_compliance':{'status':OVERRIDE_STATUS,'original_sanity_pass_observed':False,'original_prereg_activation_gate_satisfied':False},
+      'compatibility_sanity_status':phase.SANITY_REQUIRED,
       'user_directed_sanity_gate_override':True,'original_prereg_sanity_activation_gate_satisfied':False,'confirmation_accessed':False,'t1r_accessed':False,'valid_seen_accessed':False,'valid_unseen_accessed':False,
-      'scientific_interpretation':'Exploratory direct-override development selection only; no confirmatory T1 claim until untouched confirmation32..51 executes under this frozen operating point.'
+      'scientific_interpretation':'Exploratory direct-override development selection only; no confirmatory T1 claim until untouched confirmation32..51 executes under this frozen operating point and binds the override-specific seal envelope.'
     }
     audit_sha=atomic_json_new(AUDIT_OUT,audit)
-    print(json.dumps({'T1_CAUSAL_DEV_TERMINAL':{'status':result['status'],'qualified_count':result['qualified_count'],'selected_layer':result['selected_layer'],'selected_alpha':result['selected_alpha'],'seal_file_sha256':result['seal_file_sha256']},'payload_sha256':payload_sha,'audit_sha256':audit_sha}),flush=True)
+    print(json.dumps({'T1_CAUSAL_DEV_TERMINAL':{'status':result['status'],'prereg_compliance_status':OVERRIDE_STATUS,'original_sanity_pass_observed':False,'original_prereg_activation_gate_satisfied':False,'compatibility_sanity_status':phase.SANITY_REQUIRED,'qualified_count':result['qualified_count'],'selected_layer':result['selected_layer'],'selected_alpha':result['selected_alpha'],'seal_file_sha256':result['seal_file_sha256'],'inner_phase_selection_sha256':result['phase_selection_file_sha256']},'payload_sha256':payload_sha,'audit_sha256':audit_sha}),flush=True)
     return 0
 
 if __name__=='__main__': raise SystemExit(main())
