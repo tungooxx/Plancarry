@@ -1,0 +1,157 @@
+{
+  "base_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "base_tree": "adcbdad97ca772e4292fd50575099181e6cd5203",
+  "canonical_object_sha256_without_self_field": "0eed44fb823a1ed767ec2c647ac75a716dd2b3aadeb26d5f226206aa7d05c9a4",
+  "engineering_task_id": "dbf403a1-d697-4201-9dd5-37258fd043af",
+  "execution_attestation": {
+    "native_research_execution_attest_required_before_terminal_sync_or_assessment": true,
+    "reset_compatibility_canary_separate_and_required": true,
+    "technical_valid_and_measurement_reached_required_for_scientific_assessment": true
+  },
+  "generated_artifacts": {
+    "contract_template": {
+      "path": "results/design/plancarry_replayresidual_v22_unified_execution_contract_template_20260828.json",
+      "sha256": "691b93024ffe45ad46c4bb3b6fc162b83dace44e939dd0373bcd6bdf822dc4a1"
+    },
+    "launcher": {
+      "path": "results/design/plancarry_replayresidual_v22_technical_successor_launcher_20260828.sh",
+      "sha256": "bdfc84b6e8fb3062cde1e1c76abf3edf775ae0c65b9ca8a57c02dffc22fb4e65"
+    },
+    "postregistration_binder": {
+      "path": "results/design/plancarry_replayresidual_v22_postregistration_binding_20260828.py",
+      "sha256": "3ef7dc647a8cf478fd35ae9ae8c1a2e0b5d0f76b60691b42a1a0ecce9ad03545"
+    },
+    "registered_packet_adapter": {
+      "path": "results/design/plancarry_replayresidual_v22_registered_packet_adapter_20260828.py",
+      "sha256": "94402dfb7d6de174773fbefb9d5733f73b1dbc9648d6d1a36764c3e6dd0f77c0"
+    },
+    "static_test": {
+      "path": "results/design/test_plancarry_replayresidual_v22_materialization_recovery_20260828.py",
+      "sha256": "d9ac50dbd0d3134c070e48cae14d99ef96bc9a5d3850fe6775c1a7d90f64a59a"
+    }
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_MATERIALIZATION_RECOVERY_STATIC_AUDIT",
+  "no_science_evidence": {
+    "baseline_target_absence_job": "local_54427ff8f5b04a0d",
+    "environment_execution": 0,
+    "final_regression_job": "local_17cd3df396a74839",
+    "model_calls": 0,
+    "model_loads": 0,
+    "old_v21_science_reads": 0,
+    "reserve_access": false,
+    "scientific_result_reads": 0,
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "packet_identity_rebinding": {
+    "hidden_stage_full_v2_1_validation_before_rebind": true,
+    "manifest_allowed_changes": [
+      "kind",
+      "experiment_id",
+      "prediction_id",
+      "technical_successor_v2_2"
+    ],
+    "packet_json_bytes_changed": false,
+    "provenance_allowed_changes": [
+      "kind",
+      "packet_manifest_sha256",
+      "technical_successor_v2_2"
+    ],
+    "public_successor_atomic_rename_after_rebind_validation": true,
+    "reason": "Frozen V2.1 packet manifest hard-codes the parent Experiment/Prediction IDs; V2.2 must not publish stale registration identity."
+  },
+  "parent_authority": {
+    "capture_sidecar_sha256": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "compat_shim_sha256": "a08a1e1e5536afc11d94868de40eaea89cb929ef43b59a1102f378446284a7f4",
+    "compat_wrapper_sha256": "5e2caea4d6c6d2139dd696950299f3d2ad4cadb21dbcc1a0670e2d7805677472",
+    "execution_attestation_contract_sha256": "40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666",
+    "execution_attestation_review_sha256": "a03a4cc7f2d7c83fe8df3112edba5b373bd0d4241d6f20731a373f62adc39765",
+    "execution_attestation_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION",
+    "execution_attestation_static_audit_sha256": "825ed04dbf87e890abf9e9d2085e2fe39722696327dfbd49aa3ebe3435292ad1",
+    "sanity_runner_sha256": "7a2c45dadb89a6e0736e53638132b69a38792ab83a3915a9d67ef937ce0a1bd3",
+    "successor_policy_review_sha256": "7044718fbef271fb86d8243e4345e2970894a66d65326be2c9d292af9214c750",
+    "successor_policy_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_TECHNICAL_SUCCESSOR_POLICY",
+    "successor_policy_sha256": "c9ee11ccaad981441c1462a60b59b9bd4ffa021b149ac4f0d18df568f4724c70",
+    "thin_output_wrapper_sha256": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8",
+    "v2_1_contract_sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+    "v2_1_packet_validator_sha256": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2",
+    "whitebox_bridge_sha256": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404"
+  },
+  "postregistration_binding": {
+    "bound_contract_rejects_drift_outside_registration_fields": true,
+    "required_materialization_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_MATERIALIZATION_RECOVERY",
+    "research_decision_required_after_binding": true,
+    "template_unbound_before_review": true
+  },
+  "review_requirement": {
+    "exact_pass_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_MATERIALIZATION_RECOVERY",
+    "fresh_independent_review_required": true,
+    "implementation_author_must_not_self_review": true,
+    "implementation_author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9"
+  },
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "scientific_variables_changed": [],
+  "semantic_diff_from_v2_1": {
+    "paths": [
+      "canonical_object_sha256_without_self_field",
+      "kind",
+      "output_semantics.final_target_dir",
+      "output_semantics.representation_sanity_result_target",
+      "technical_successor_v2_2",
+      "version",
+      "work_item_id"
+    ],
+    "scientific_objects_deep_equal": [
+      "model_runtime",
+      "population",
+      "planner",
+      "executor",
+      "qualification",
+      "replay_conditions",
+      "sanity_binding",
+      "packet_schema",
+      "observable_input_contract",
+      "trajectory",
+      "phase_isolation",
+      "prohibitions",
+      "authoritative_sources"
+    ]
+  },
+  "successor_output_binding": {
+    "both_targets_refused_if_preexisting": true,
+    "old_v2_1_packet_or_result_contents_permitted_as_successor_input": false,
+    "old_v2_1_packet_or_result_contents_read_during_materialization": false,
+    "packet_target": "results/science/plancarry_replay_residual_sanity_packets_v2_2_technical_retry1",
+    "result_target": "results/science/plancarry_replay_residual_representation_sanity_v2_2_technical_retry1.json"
+  },
+  "technical_error_guard": {
+    "failure_attestation_preserves_completed_stage_flags": true,
+    "old_failure_mode": "V2.1 could encode runtime exceptions as unqualified packet reasons.",
+    "scientific_noneligibility_reasons_preserved": true,
+    "v2_2_rule": "Any non-preregistered stage1/stage2 reason or action error is TECHNICAL_ERROR before representation evaluation."
+  },
+  "tests": {
+    "bash_n": "PASS",
+    "final_regression_job": "local_17cd3df396a74839",
+    "launcher_preflight": {
+      "environment_execution": 0,
+      "model_calls": 0,
+      "model_loads": 0,
+      "native_execution_attestation_required": true,
+      "old_v21_science_reads": 0,
+      "registration_bound": false,
+      "reserve_access": false,
+      "reset_canary_required_before_execute": true,
+      "scientific_result_reads": 0,
+      "status": "READY_NO_SCIENCE",
+      "valid_seen_access": false,
+      "valid_unseen_access": false
+    },
+    "py_compile": "PASS",
+    "static_materialization": "PASS_STATIC_PRE_SCIENCE_V22_MATERIALIZATION",
+    "textworld_explicit_eval_cases": "3/3 PASS",
+    "textworld_scope_tests": "4/4 PASS",
+    "v2_1_packet_tests": "10/10 PASS"
+  },
+  "work_item_id": "f2787bb9-4684-47a0-ab1c-ae342cc43ba2"
+}

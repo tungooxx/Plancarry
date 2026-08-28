@@ -99,11 +99,26 @@ execute(){
   write_failure_attestation(){
     local code="$1" line="$2" stage="$3"
     [[ -e "$attest" ]] && return 0
-    "$PY" - "$attest" "$bound" "$code" "$line" "$stage" <<'PY'
+    "$PY" - "$attest" "$bound" "$code" "$line" "$stage" "$PACKETS" <<'PY'
 import hashlib,json,os,sys,tempfile
-out,bound,code,line,stage=sys.argv[1:]
+out,bound,code,line,stage,packet_dir=sys.argv[1:]
 b=json.load(open(bound)); rb=b['technical_successor_v2_2']['registration_binding']
-obj={'kind':'PLANCARRY_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION','attestation_contract_sha256':'40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666','attestation_review_sha256':'a03a4cc7f2d7c83fe8df3112edba5b373bd0d4241d6f20731a373f62adc39765','bound_contract_sha256':hashlib.sha256(open(bound,'rb').read()).hexdigest(),'successor_experiment_id':rb['successor_experiment_id'],'successor_prediction_id':rb['successor_prediction_id'],'technical_status':'FAIL','episode_state':'TECHNICAL_ERROR','technical_valid':False,'measurement_reached':False,'technical_errors':[{'stage':stage,'type':'LAUNCHER_OR_RUNTIME_FAILURE','message':f'exit={code}:line={line}'}],'stages':{'runtime_initialized':False,'environment_reset':False,'initial_observation_received':False,'planner_called':False,'plan_parsed':False,'executor_started':False,'scientific_eligibility_evaluated':False,'scientific_metric_evaluated':False,'environment_actions_executed':0}}
+# The packet producer's technical scan is the first point after which every study-side
+# reset/planner/parser/executor/eligibility stage is known to have completed without a
+# technical error.  Preserve that distinction in failure attestations rather than
+# falsely claiming that no prior stage ran.
+packet_phase_passed = stage in {'capture_runtime_initialization','representation_sanity_evaluation','native_execution_attestation_finalize'}
+metric_completed = stage == 'native_execution_attestation_finalize'
+actions=0
+if packet_phase_passed and os.path.isdir(packet_dir):
+    for name in os.listdir(packet_dir):
+        if name.startswith('packet_') and name.endswith('.json'):
+            try:
+                actions += len(json.load(open(os.path.join(packet_dir,name))).get('actions',[]))
+            except Exception:
+                pass
+stages={'runtime_initialized':packet_phase_passed,'environment_reset':packet_phase_passed,'initial_observation_received':packet_phase_passed,'planner_called':packet_phase_passed,'plan_parsed':packet_phase_passed,'executor_started':packet_phase_passed,'scientific_eligibility_evaluated':packet_phase_passed,'scientific_metric_evaluated':metric_completed,'environment_actions_executed':actions}
+obj={'kind':'PLANCARRY_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION','attestation_contract_sha256':'40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666','attestation_review_sha256':'a03a4cc7f2d7c83fe8df3112edba5b373bd0d4241d6f20731a373f62adc39765','bound_contract_sha256':hashlib.sha256(open(bound,'rb').read()).hexdigest(),'successor_experiment_id':rb['successor_experiment_id'],'successor_prediction_id':rb['successor_prediction_id'],'technical_status':'FAIL','episode_state':'TECHNICAL_ERROR','technical_valid':False,'measurement_reached':False,'technical_errors':[{'stage':stage,'type':'LAUNCHER_OR_RUNTIME_FAILURE','message':f'exit={code}:line={line}'}],'stages':stages}
 os.makedirs(os.path.dirname(os.path.abspath(out)),exist_ok=True); fd,tmp=tempfile.mkstemp(prefix=os.path.basename(out)+'.tmp.',dir=os.path.dirname(os.path.abspath(out)))
 with os.fdopen(fd,'w') as f: json.dump(obj,f,sort_keys=True,separators=(',',':')); f.write('\n'); f.flush(); os.fsync(f.fileno())
 os.replace(tmp,out)
