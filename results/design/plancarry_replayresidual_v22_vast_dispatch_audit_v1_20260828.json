@@ -1,5 +1,19 @@
 {
+  "canonical_live_attestation": {
+    "commit": "388fa7786d49f4dd782dfe03617c5342f9693ad7",
+    "consumed_byte_identically": true,
+    "file": "results/design/plancarry_replayresidual_v22_vast48954592_poststage_live_attestation_a3_20260828.json",
+    "kind": "PLANCARRY_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION_A3_V1",
+    "sha256": "064bbc3a1471fc67057f1d3ec507c9afb09e8d47332de524f7586cc48df044db",
+    "status": "PASS_FOR_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION"
+  },
   "date": "2026-08-28",
+  "decision_bound_transport": {
+    "binding": "exact values must be present in ResearchDecision env and dispatcher verifies ssh-keyscan fingerprint before SSH",
+    "ed25519_fingerprint": "SHA256:mOJF8cM2NYBVFIuYvPU/pkdOx1TdMvc7ZL37etokals",
+    "host": "191.223.212.127",
+    "port": 32963
+  },
   "declared_outputs": [
     "results/science/plancarry_replay_residual_sanity_packets_v2_2_technical_retry1",
     "results/science/plancarry_replay_residual_representation_sanity_v2_2_technical_retry1.json",
@@ -26,25 +40,21 @@
     "launcher": "results/design/plancarry_replayresidual_v22_vast_rtx3080_launcher_a4_20260828.sh",
     "launcher_sha256": "7159c0da94c6436aef263225ae8904d40b0c693bf65cc4a0ff2396de39ecbd8a",
     "repo_commit": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
-    "repo_path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-rtx3080",
+    "repo_path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-911b081",
     "reset_canary_attestation_sha256": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2"
   },
   "implementation": {
     "test": "results/design/test_plancarry_replayresidual_v22_vast_dispatch_v1.py",
-    "test_sha256": "81ce3534e802e23c9b447f1d24310e653a1048e0d80e571d70db4e5a030c4bd1",
+    "test_sha256": "2ffd8cb1b8cd3742d943aef8fab8596c7f0b0b57d297c2a15e83e33b9604f9dc",
     "wrapper": "plancarry_replayresidual_v22_researchos_vast_dispatch_v1.py",
-    "wrapper_sha256": "796387923c7356fddfce59dd8b03cb0522fc9d2e3367e2896e982c924bcd1a25"
+    "wrapper_sha256": "8ae4bb4944d74953aa73b415b7305fdb925ba242c248f82af32025c731f7e424"
   },
   "kind": "PLANCARRY_REPLAYRESIDUAL_V22_ARTIFACT_SAFE_VAST_DISPATCH_AUDIT_V1",
   "late_bound_live_attestation": {
-    "future_split_access": false,
-    "kind": "PLANCARRY_REPLAYRESIDUAL_V22_LIVE_HOST_ATTESTATION_V1",
-    "outputs_absent": true,
-    "provider_lifecycle_action": "NONE",
-    "required_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_VAST_RTX3080_HOST_EQUIVALENCE",
-    "required_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
-    "rule": "fresh live host endpoint/port/ED25519 fingerprint and canonical repaired-host review SHA are content-hashed into one local attestation; ResearchDecision must bind its exact path+SHA before execute",
-    "study_cohort_access": false
+    "canonical_a3_attestation_sha256": "064bbc3a1471fc67057f1d3ec507c9afb09e8d47332de524f7586cc48df044db",
+    "canonical_schema_consumed_directly": true,
+    "dynamic_endpoint_separately_decision_bound": true,
+    "no_synthetic_flattened_attestation": true
   },
   "prohibitions": [
     "no provider lifecycle",
@@ -58,15 +68,25 @@
   ],
   "scientific_result": "NOT_ASSESSED",
   "scientific_variables_changed": [],
+  "source_dispatcher_commit": "cd4de65dd4319fe45f37d9bc270e23250161b093",
   "source_repair_commit": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
   "source_repair_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
-  "status": "PRE_SCIENCE_ENGINEERING_ONLY_PENDING_INDEPENDENT_DISPATCH_REVIEW",
+  "status": "PRE_SCIENCE_ENGINEERING_SCHEMA_REPAIR_PENDING_INDEPENDENT_REVIEW",
+  "successor_engineering_task_id": "e5380bef-66c5-4d95-9ed7-3d39dfefceca",
   "tests": {
     "alfworld_study_execution": 0,
     "bash_n_host_launcher": true,
-    "dispatcher_unit": "13/13 PASS",
+    "dispatcher_unit": "14/14 PASS",
     "future_split_access": false,
     "git_diff_check": true,
+    "live_preflight": "V22_DISPATCH_REMOTE_PREFLIGHT_PASS / READY_NO_SCIENCE",
+    "live_preflight_environment_execution": 0,
+    "live_preflight_job": "local_fc46cebb59e541b9",
+    "live_preflight_model_calls": 0,
+    "live_preflight_model_loads": 0,
+    "live_preflight_reserve_access": false,
+    "live_preflight_valid_seen_access": false,
+    "live_preflight_valid_unseen_access": false,
     "model_calls": 0,
     "model_forwards": 0,
     "model_generations": 0,

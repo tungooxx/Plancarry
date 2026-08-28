@@ -1,0 +1,95 @@
+{
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION_A3_V1",
+  "attested_at_utc": "2026-08-28T04:00:21Z",
+  "worker": "LLM A3",
+  "work_item_id": "ea33af73-149f-484a-9687-cb601b5664c1",
+  "staging_work_item_id": "b1b0faa3-a4a4-480c-8600-9ddf0a424d60",
+  "host_equivalence_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
+  "instance": {
+    "instance_id": "vast_48954592",
+    "provider_instance_id": "48954592",
+    "provider_status": "running",
+    "ssh_reachable": true,
+    "gpu_name": "NVIDIA GeForce RTX 3080",
+    "gpu_count": 1,
+    "gpu_memory_total_mib": 10240,
+    "gpu_memory_used_mib": 0,
+    "gpu_utilization_percent": 0,
+    "driver": "580.142",
+    "compute_processes_present": false,
+    "disk_free_gb": 73
+  },
+  "remote_checkout": {
+    "path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-911b081",
+    "head": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
+    "tree": "ad30adf6a8b1fc9af20c2e88e6839f4d30c99e27",
+    "clean": true
+  },
+  "reviewed_hashes": {
+    "reset_canary_script": "28a2185501fec546a660c733c26d015c9fd9139d853ef1af25a80c9d4d82a9aa",
+    "reset_canary_attestation": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2",
+    "host_binding": "302554698ac35990692884053e227a18d7d8af47db23503239c36af27690871b",
+    "host_static_audit": "f2004405f61d07d89fb43c01f831cb906ab760e219e993f7c6785f29b712ddc2",
+    "host_launcher": "7159c0da94c6436aef263225ae8904d40b0c693bf65cc4a0ff2396de39ecbd8a",
+    "registered_bound_contract": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+    "template": "691b93024ffe45ad46c4bb3b6fc162b83dace44e939dd0373bcd6bdf822dc4a1"
+  },
+  "runtime": {
+    "python_path": "/workspace/venv-replayresidual-v22/bin/python",
+    "python": "3.13.15",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3",
+    "tokenizers": "0.21.1",
+    "textworld": "1.7.0",
+    "alfworld": "0.4.2",
+    "torch_cuda_initialized_before_metadata_check": false,
+    "torch_cuda_initialized_after_metadata_check": false
+  },
+  "data_and_model": {
+    "qwen_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "qwen_cache_path": "/workspace/.hf_home/hub/models--Qwen--Qwen3-1.7B/snapshots/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "qwen_cache_present": true,
+    "alfworld_data_path": "/opt/gpu-lab/envs/plancarry-alfworld-data",
+    "alfworld_train_path_present": "/opt/gpu-lab/envs/plancarry-alfworld-data/json_2.1.1/train"
+  },
+  "preflight": {
+    "status": "READY_NO_SCIENCE",
+    "template_static_binding": "V22_TEMPLATE_STATIC_BINDING_PASS",
+    "model_calls": 0,
+    "model_loads": 0,
+    "environment_execution": 0,
+    "scientific_result_reads": 0,
+    "old_v21_science_reads": 0,
+    "reserve_access": false,
+    "valid_seen_access": false,
+    "valid_unseen_access": false,
+    "registration_bound": false,
+    "reset_canary_required_before_execute": true,
+    "native_execution_attestation_required": true
+  },
+  "science_targets": {
+    "packet_target": "results/science/plancarry_replay_residual_sanity_packets_v2_2_technical_retry1",
+    "packet_target_absent": true,
+    "result_target": "results/science/plancarry_replay_residual_representation_sanity_v2_2_technical_retry1.json",
+    "result_target_absent": true
+  },
+  "post_preflight": {
+    "remote_checkout_clean": true,
+    "gpu_memory_used_mib": 0,
+    "gpu_utilization_percent": 0,
+    "compute_processes_present": false,
+    "science_targets_absent": true
+  },
+  "prohibitions_observed": {
+    "provider_lifecycle_action": false,
+    "model_load_or_forward_or_generation": false,
+    "alfworld_study_reset_or_game": false,
+    "research_decision_or_science_execution": false,
+    "old_v21_science_read": false,
+    "future_split_access": false,
+    "host_substitution": false
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "status": "PASS_FOR_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION",
+  "authorization_boundary": "This attestation permits exact ResearchDecision preparation only. It does not execute or authorize provider lifecycle, model/environment science, future-split access, or scientific interpretation. Re-attest if provider/device/driver/runtime/repo/commit/output state changes before Decision."
+}

@@ -11,37 +11,52 @@ import plancarry_replayresidual_v22_researchos_vast_dispatch_v1 as d
 
 
 class V22DispatchTests(unittest.TestCase):
-    def live_attestation(self):
-        return {
-            'kind':d.LIVE_ATTESTATION_KIND,'experiment_id':d.EXPERIMENT_ID,
-            'instance_id':d.EXPECTED_INSTANCE_ID,'device_name':d.EXPECTED_GPU,'driver':d.EXPECTED_DRIVER,
-            'repo_path':d.REMOTE_REPO,'repo_commit':d.REMOTE_COMMIT,'launcher_path':d.LAUNCHER,
-            'launcher_sha256':d.LAUNCHER_SHA256,'host_review_work_item_id':d.HOST_REVIEW_WORK_ITEM_ID,
-            'host_review_verdict':d.HOST_REVIEW_PASS,'host_review_sha256':'1'*64,
-            'hostkey_ed25519_sha256':'2'*64,'host':'203.0.113.10','port':12345,
-            'future_split_access':False,'study_cohort_access':False,'provider_lifecycle_action':'NONE',
-            'outputs_absent':True,
-        }
+    def canonical_attestation(self):
+        p=Path('results/design/plancarry_replayresidual_v22_vast48954592_poststage_live_attestation_a3_20260828.json')
+        raw=p.read_bytes()
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),d.LIVE_ATTESTATION_SHA256)
+        return json.loads(raw),raw
 
     def write_att(self, td, mutate=None):
-        x=self.live_attestation()
-        if mutate: mutate(x)
-        p=Path(td)/'att.json'; p.write_text(json.dumps(x,sort_keys=True,separators=(',',':'))+'\n')
-        return p,hashlib.sha256(p.read_bytes()).hexdigest()
+        x,raw=self.canonical_attestation()
+        if mutate:
+            mutate(x)
+            raw=(json.dumps(x,sort_keys=True,separators=(',',':'))+'\n').encode()
+        p=Path(td)/'att.json';p.write_bytes(raw)
+        return p,hashlib.sha256(raw).hexdigest()
 
-    def test_live_attestation_exact(self):
+    def test_canonical_a3_live_attestation_exact(self):
         with tempfile.TemporaryDirectory() as td:
-            p,h=self.write_att(td); self.assertEqual(d.load_live_attestation(p,h)['instance_id'],d.EXPECTED_INSTANCE_ID)
+            p,_=self.write_att(td)
+            obj=d.load_live_attestation(p,d.LIVE_ATTESTATION_SHA256)
+            self.assertEqual(obj['remote_checkout']['path'],d.REMOTE_REPO)
+            self.assertEqual(obj['status'],d.LIVE_ATTESTATION_STATUS)
 
-    def test_live_attestation_tamper_rejected(self):
+    def test_live_attestation_byte_tamper_rejected(self):
         with tempfile.TemporaryDirectory() as td:
-            p,h=self.write_att(td); p.write_text(p.read_text().replace(d.EXPECTED_GPU,'OTHER'))
-            with self.assertRaisesRegex(ValueError,'SHA_MISMATCH'): d.load_live_attestation(p,h)
+            p,_=self.write_att(td)
+            raw=p.read_bytes().replace(b'10240',b'10241',1);p.write_bytes(raw)
+            with self.assertRaisesRegex(ValueError,'SHA_MISMATCH'):
+                d.load_live_attestation(p,d.LIVE_ATTESTATION_SHA256)
 
-    def test_live_attestation_future_access_rejected(self):
+    def test_nested_invariant_mutation_rejected_even_with_rehashed_input(self):
         with tempfile.TemporaryDirectory() as td:
-            p,h=self.write_att(td,lambda x:x.__setitem__('future_split_access',True))
-            with self.assertRaisesRegex(ValueError,'ACCESS_GUARD'): d.load_live_attestation(p,h)
+            p,h=self.write_att(td,lambda x:x['instance'].__setitem__('gpu_memory_used_mib',1))
+            # expected_sha cannot be changed to bless mutated bytes: canonical constant remains mandatory.
+            with self.assertRaisesRegex(ValueError,'SHA_MISMATCH'):
+                d.load_live_attestation(p,h)
+
+    def test_transport_binding_exact(self):
+        old=dict(os.environ)
+        try:
+            os.environ['REPLAYRESIDUAL_V22_VAST_HOST']=d.EXPECTED_HOST
+            os.environ['REPLAYRESIDUAL_V22_VAST_PORT']=str(d.EXPECTED_PORT)
+            os.environ['REPLAYRESIDUAL_V22_VAST_HOSTKEY_ED25519_SHA256']=d.EXPECTED_HOSTKEY_ED25519_SHA256
+            self.assertEqual(d.load_transport_binding(),(d.EXPECTED_HOST,d.EXPECTED_PORT,d.EXPECTED_HOSTKEY_ED25519_SHA256))
+            os.environ['REPLAYRESIDUAL_V22_VAST_PORT']='1'
+            with self.assertRaisesRegex(ValueError,'PORT_BINDING_MISMATCH'):d.load_transport_binding()
+        finally:
+            os.environ.clear();os.environ.update(old)
 
     def test_declared_paths_exact_only(self):
         for p in d.DECLARED_OUTPUTS:self.assertEqual(d.validate_declared_relpath(p),p)
@@ -54,14 +69,13 @@ class V22DispatchTests(unittest.TestCase):
         self.assertIn(d.REMOTE_REPO+'/'+d.BOUND_CONTRACT,cmd)
         self.assertIn(d.REMOTE_REPO+'/'+d.RESET_CANARY,cmd)
         self.assertIn(d.REMOTE_REPO+'/'+d.EXECUTION_ATTESTATION,cmd)
-        self.assertIn("bash '"+d.LAUNCHER+"' execute" if ' ' in d.LAUNCHER else 'bash '+d.LAUNCHER+' execute',cmd)
+        self.assertIn('bash '+d.LAUNCHER+' execute',cmd)
         self.assertNotIn('valid_seen',cmd);self.assertNotIn('valid_unseen',cmd);self.assertNotIn('reserve32',cmd)
 
-    def test_preflight_checks_exact_commit_gpu_driver_hashes_and_absence(self):
+    def test_preflight_checks_actual_repo_commit_gpu_driver_hashes_and_absence(self):
         cmd=d.remote_preflight_command()
-        for needle in [d.REMOTE_COMMIT,d.EXPECTED_GPU,d.EXPECTED_DRIVER,d.LAUNCHER_SHA256,d.BOUND_CONTRACT_SHA256,d.RESET_CANARY_SHA256,'READY_NO_SCIENCE']:
-            # READY_NO_SCIENCE is expected in output check by caller, not command literal from launcher output.
-            if needle!='READY_NO_SCIENCE':self.assertIn(needle,cmd)
+        for needle in [d.REMOTE_REPO,d.REMOTE_COMMIT,d.EXPECTED_GPU,d.EXPECTED_DRIVER,d.LAUNCHER_SHA256,d.BOUND_CONTRACT_SHA256,d.RESET_CANARY_SHA256]:
+            self.assertIn(needle,cmd)
         for rel in d.DECLARED_OUTPUTS:self.assertIn(rel,cmd)
 
     def make_bundle(self, td, extra=None, symlink=False):

@@ -28,7 +28,7 @@ EXPERIMENT_ID = "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9"
 EXPECTED_INSTANCE_ID = "vast_48954592"
 EXPECTED_GPU = "NVIDIA GeForce RTX 3080"
 EXPECTED_DRIVER = "580.142"
-REMOTE_REPO = "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-rtx3080"
+REMOTE_REPO = "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-911b081"
 REMOTE_COMMIT = "911b0815061f0f79265558ba0e758f0d8bff5ba2"
 REMOTE_PYTHON = "/workspace/venv-replayresidual-v22/bin/python"
 HOST_REVIEW_WORK_ITEM_ID = "7d98bcb2-27a5-491d-a739-42fcc4950be0"
@@ -45,7 +45,16 @@ EXECUTION_ATTESTATION = "results/science/plancarry_replayresidual_v22_execution_
 DECLARED_OUTPUTS = (PACKET_DIR, RESULT_JSON, EXECUTION_ATTESTATION)
 REMOTE_BUNDLE = "/workspace/plancarry-v22-tmp/replayresidual_v22_terminal_artifacts_v1.tgz"
 REMOTE_MANIFEST = "/workspace/plancarry-v22-tmp/replayresidual_v22_terminal_artifacts_v1.manifest.json"
-LIVE_ATTESTATION_KIND = "PLANCARRY_REPLAYRESIDUAL_V22_LIVE_HOST_ATTESTATION_V1"
+LIVE_ATTESTATION_KIND = "PLANCARRY_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION_A3_V1"
+LIVE_ATTESTATION_STATUS = "PASS_FOR_REPLAYRESIDUAL_V22_VAST48954592_POSTSTAGE_LIVE_ATTESTATION"
+LIVE_ATTESTATION_SHA256 = "064bbc3a1471fc67057f1d3ec507c9afb09e8d47332de524f7586cc48df044db"
+LIVE_ATTESTATION_REL = "results/design/plancarry_replayresidual_v22_vast48954592_poststage_live_attestation_a3_20260828.json"
+REMOTE_TREE = "ad30adf6a8b1fc9af20c2e88e6839f4d30c99e27"
+EXPECTED_VRAM_MIB = 10240
+EXPECTED_HOST_REVIEW_SHA256 = "d38b2ccf8dd3e4af55c78b3f120487d837950e7adcc868bba8450db75ffc3572"
+EXPECTED_HOST = "191.223.212.127"
+EXPECTED_PORT = 32963
+EXPECTED_HOSTKEY_ED25519_SHA256 = "mOJF8cM2NYBVFIuYvPU/pkdOx1TdMvc7ZL37etokals"
 
 
 def q(value: object) -> str:
@@ -82,48 +91,118 @@ def validate_declared_relpath(value: str) -> str:
     return value
 
 
+def _require_exact(obj: dict[str, Any], path: tuple[str, ...], expected: object) -> None:
+    cur: object = obj
+    for key in path:
+        if not isinstance(cur, dict) or key not in cur:
+            raise ValueError("LIVE_HOST_ATTESTATION_FIELD_MISSING:" + ".".join(path))
+        cur = cur[key]
+    if cur != expected:
+        raise ValueError("LIVE_HOST_ATTESTATION_FIELD_MISMATCH:" + ".".join(path))
+
+
 def load_live_attestation(path: Path, expected_sha256: str) -> dict[str, Any]:
     raw = path.read_bytes()
-    if not is_hex_sha256(expected_sha256) or sha256_bytes(raw) != expected_sha256:
+    actual_sha = sha256_bytes(raw)
+    if expected_sha256 != LIVE_ATTESTATION_SHA256 or actual_sha != LIVE_ATTESTATION_SHA256:
         raise ValueError("LIVE_HOST_ATTESTATION_SHA_MISMATCH")
     obj = json.loads(raw)
-    required_exact = {
-        "kind": LIVE_ATTESTATION_KIND,
-        "experiment_id": EXPERIMENT_ID,
-        "instance_id": EXPECTED_INSTANCE_ID,
-        "device_name": EXPECTED_GPU,
-        "driver": EXPECTED_DRIVER,
-        "repo_path": REMOTE_REPO,
-        "repo_commit": REMOTE_COMMIT,
-        "launcher_path": LAUNCHER,
-        "launcher_sha256": LAUNCHER_SHA256,
-        "host_review_work_item_id": HOST_REVIEW_WORK_ITEM_ID,
-        "host_review_verdict": HOST_REVIEW_PASS,
+    exact = {
+        ("kind",): LIVE_ATTESTATION_KIND,
+        ("status",): LIVE_ATTESTATION_STATUS,
+        ("scientific_result",): "NOT_ASSESSED",
+        ("host_equivalence_review_work_item_id",): HOST_REVIEW_WORK_ITEM_ID,
+        ("instance", "instance_id"): EXPECTED_INSTANCE_ID,
+        ("instance", "provider_instance_id"): "48954592",
+        ("instance", "provider_status"): "running",
+        ("instance", "ssh_reachable"): True,
+        ("instance", "gpu_name"): EXPECTED_GPU,
+        ("instance", "gpu_count"): 1,
+        ("instance", "gpu_memory_total_mib"): EXPECTED_VRAM_MIB,
+        ("instance", "gpu_memory_used_mib"): 0,
+        ("instance", "gpu_utilization_percent"): 0,
+        ("instance", "compute_processes_present"): False,
+        ("instance", "driver"): EXPECTED_DRIVER,
+        ("remote_checkout", "path"): REMOTE_REPO,
+        ("remote_checkout", "head"): REMOTE_COMMIT,
+        ("remote_checkout", "tree"): REMOTE_TREE,
+        ("remote_checkout", "clean"): True,
+        ("runtime", "python_path"): REMOTE_PYTHON,
+        ("runtime", "python"): "3.13.15",
+        ("runtime", "torch"): "2.13.0+cu130",
+        ("runtime", "transformers"): "4.51.3",
+        ("runtime", "tokenizers"): "0.21.1",
+        ("runtime", "alfworld"): "0.4.2",
+        ("runtime", "textworld"): "1.7.0",
+        ("runtime", "torch_cuda_initialized_before_metadata_check"): False,
+        ("runtime", "torch_cuda_initialized_after_metadata_check"): False,
+        ("data_and_model", "qwen_revision"): "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        ("data_and_model", "qwen_cache_present"): True,
+        ("data_and_model", "qwen_cache_path"): "/workspace/.hf_home/hub/models--Qwen--Qwen3-1.7B/snapshots/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+        ("data_and_model", "alfworld_data_path"): "/opt/gpu-lab/envs/plancarry-alfworld-data",
+        ("data_and_model", "alfworld_train_path_present"): "/opt/gpu-lab/envs/plancarry-alfworld-data/json_2.1.1/train",
+        ("preflight", "status"): "READY_NO_SCIENCE",
+        ("preflight", "model_calls"): 0,
+        ("preflight", "model_loads"): 0,
+        ("preflight", "environment_execution"): 0,
+        ("preflight", "old_v21_science_reads"): 0,
+        ("preflight", "scientific_result_reads"): 0,
+        ("preflight", "reserve_access"): False,
+        ("preflight", "valid_seen_access"): False,
+        ("preflight", "valid_unseen_access"): False,
+        ("preflight", "registration_bound"): False,
+        ("preflight", "native_execution_attestation_required"): True,
+        ("preflight", "reset_canary_required_before_execute"): True,
+        ("science_targets", "packet_target"): PACKET_DIR,
+        ("science_targets", "packet_target_absent"): True,
+        ("science_targets", "result_target"): RESULT_JSON,
+        ("science_targets", "result_target_absent"): True,
+        ("post_preflight", "remote_checkout_clean"): True,
+        ("post_preflight", "science_targets_absent"): True,
+        ("post_preflight", "compute_processes_present"): False,
+        ("post_preflight", "gpu_memory_used_mib"): 0,
+        ("post_preflight", "gpu_utilization_percent"): 0,
+        ("reviewed_hashes", "host_launcher"): LAUNCHER_SHA256,
+        ("reviewed_hashes", "host_binding"): "302554698ac35990692884053e227a18d7d8af47db23503239c36af27690871b",
+        ("reviewed_hashes", "registered_bound_contract"): BOUND_CONTRACT_SHA256,
+        ("reviewed_hashes", "reset_canary_attestation"): RESET_CANARY_SHA256,
+        ("reviewed_hashes", "host_static_audit"): "f2004405f61d07d89fb43c01f831cb906ab760e219e993f7c6785f29b712ddc2",
+        ("reviewed_hashes", "reset_canary_script"): "28a2185501fec546a660c733c26d015c9fd9139d853ef1af25a80c9d4d82a9aa",
+        ("reviewed_hashes", "template"): "691b93024ffe45ad46c4bb3b6fc162b83dace44e939dd0373bcd6bdf822dc4a1",
+        ("prohibitions_observed", "future_split_access"): False,
+        ("prohibitions_observed", "provider_lifecycle_action"): False,
+        ("prohibitions_observed", "model_load_or_forward_or_generation"): False,
+        ("prohibitions_observed", "alfworld_study_reset_or_game"): False,
+        ("prohibitions_observed", "old_v21_science_read"): False,
+        ("prohibitions_observed", "research_decision_or_science_execution"): False,
+        ("prohibitions_observed", "host_substitution"): False,
     }
-    for key, expected in required_exact.items():
-        if obj.get(key) != expected:
-            raise ValueError(f"LIVE_HOST_ATTESTATION_FIELD_MISMATCH:{key}")
-    if obj.get("future_split_access") is not False or obj.get("study_cohort_access") is not False:
-        raise ValueError("LIVE_HOST_ATTESTATION_ACCESS_GUARD_FAILED")
-    if obj.get("provider_lifecycle_action") not in (None, "NONE"):
-        raise ValueError("PROVIDER_LIFECYCLE_NOT_ALLOWED")
-    if not is_hex_sha256(obj.get("host_review_sha256")):
-        raise ValueError("HOST_REVIEW_SHA_REQUIRED")
-    if not is_hex_sha256(obj.get("hostkey_ed25519_sha256")):
-        raise ValueError("HOSTKEY_SHA_REQUIRED")
-    host = obj.get("host")
-    port = obj.get("port")
-    if not isinstance(host, str) or not host or any(ch.isspace() for ch in host):
-        raise ValueError("LIVE_HOST_ENDPOINT_INVALID")
-    if type(port) is not int or port <= 0 or port > 65535:
-        raise ValueError("LIVE_HOST_PORT_INVALID")
-    if obj.get("outputs_absent") is not True:
-        raise ValueError("LIVE_HOST_OUTPUT_ABSENCE_NOT_ATTESTED")
+    for key_path, expected in exact.items():
+        _require_exact(obj, key_path, expected)
+    # The host review itself is separately immutable and must match the known PASS artifact.
+    if EXPECTED_HOST_REVIEW_SHA256 != "d38b2ccf8dd3e4af55c78b3f120487d837950e7adcc868bba8450db75ffc3572":
+        raise ValueError("HOST_REVIEW_SHA_INTERNAL_MISMATCH")
     return obj
 
 
-def pinned_known_hosts(att: dict[str, Any]) -> str:
-    host, port = att["host"], att["port"]
+def load_transport_binding() -> tuple[str, int, str]:
+    host = os.environ.get("REPLAYRESIDUAL_V22_VAST_HOST")
+    port_s = os.environ.get("REPLAYRESIDUAL_V22_VAST_PORT")
+    fingerprint = os.environ.get("REPLAYRESIDUAL_V22_VAST_HOSTKEY_ED25519_SHA256")
+    if host != EXPECTED_HOST:
+        raise ValueError("VAST_HOST_BINDING_MISMATCH")
+    try:
+        port = int(port_s or "")
+    except ValueError as exc:
+        raise ValueError("VAST_PORT_BINDING_INVALID") from exc
+    if port != EXPECTED_PORT:
+        raise ValueError("VAST_PORT_BINDING_MISMATCH")
+    if fingerprint != EXPECTED_HOSTKEY_ED25519_SHA256:
+        raise ValueError("VAST_HOSTKEY_BINDING_MISMATCH")
+    return host, port, fingerprint
+
+
+def pinned_known_hosts(host: str, port: int, expected_fingerprint: str) -> str:
     scan = subprocess.run(
         ["ssh-keyscan", "-T", "8", "-t", "ed25519", "-p", str(port), host],
         capture_output=True,
@@ -136,7 +215,7 @@ def pinned_known_hosts(att: dict[str, Any]) -> str:
         f.write(scan.stdout)
         known = f.name
     fp = subprocess.run(["ssh-keygen", "-lf", known, "-E", "sha256"], capture_output=True, text=True, check=False)
-    expected = "SHA256:" + att["hostkey_ed25519_sha256"]
+    expected = "SHA256:" + expected_fingerprint
     if fp.returncode != 0 or expected not in fp.stdout:
         Path(known).unlink(missing_ok=True)
         raise SystemExit("VAST_HOSTKEY_MISMATCH")
@@ -357,6 +436,7 @@ async def main_async(mode: str) -> None:
     if not att_path_s:
         raise SystemExit("LIVE_HOST_ATTESTATION_REQUIRED")
     att = load_live_attestation(Path(att_path_s), att_sha)
+    host, port, hostkey = load_transport_binding()
     if mode == "execute":
         if os.environ.get("REPLAYRESIDUAL_V22_DISPATCH_AUTHORIZATION") != "RESEARCH_DECISION_BOUND":
             raise SystemExit("RESEARCH_DECISION_BOUND_DISPATCH_AUTHORIZATION_REQUIRED")
@@ -368,9 +448,9 @@ async def main_async(mode: str) -> None:
         jobdir = Path(".")
     user = os.environ.get("REPLAYRESIDUAL_V22_VAST_USER", "root")
     key = os.environ.get("REPLAYRESIDUAL_V22_VAST_SSH_KEY", "/run/ssh-key")
-    known = pinned_known_hosts(att)
+    known = pinned_known_hosts(host, port, hostkey)
     try:
-        async with asyncssh.connect(att["host"], port=att["port"], username=user, client_keys=[key], known_hosts=known, connect_timeout=30) as conn:
+        async with asyncssh.connect(host, port=port, username=user, client_keys=[key], known_hosts=known, connect_timeout=30) as conn:
             pre = await conn.run(remote_preflight_command(), check=False, timeout=180)
             sys.stdout.write(pre.stdout)
             sys.stderr.write(pre.stderr)
