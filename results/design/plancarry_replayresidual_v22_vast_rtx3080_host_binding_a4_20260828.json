@@ -1,0 +1,98 @@
+{
+  "adapter": {
+    "host_launcher_path": "results/design/plancarry_replayresidual_v22_vast_rtx3080_launcher_a4_20260828.sh",
+    "host_launcher_sha256": "a1631567e3f2bad7896141220d45b1bac8c8d9b6aa171b9b52cd75432c8b74b2",
+    "launcher_semantic_delta": [
+      {
+        "field": "whitebox_bridge.expected_device_substring",
+        "from": "NVIDIA GeForce RTX 3050 Laptop GPU",
+        "to": "NVIDIA GeForce RTX 3080"
+      }
+    ],
+    "parent_launcher_sha256": "bdfc84b6e8fb3062cde1e1c76abf3edf775ae0c65b9ca8a57c02dffc22fb4e65",
+    "reset_canary_script_path": "results/design/plancarry_replayresidual_v22_reset_canary_a4_20260828.py",
+    "reset_canary_script_sha256": "be15c5de1f7f0a8ba0af059c24f1d0791044b6ea5559c915b38300f73baf4dde"
+  },
+  "authority": {
+    "registered_bound_contract_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+    "registration_commit": "e31d05e48b1c5473d9df28bc7e5b50e5134a3cd2",
+    "registration_review_sha256": "a498b17784af24975ab101c2585f7cb154e5d3813d03781e9f3ab87679f97a49",
+    "registration_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_SUCCESSOR_REGISTRATION",
+    "registration_review_work_item_id": "d2978850-aa69-45ac-b365-ebefa959a89b"
+  },
+  "authorization_boundary": "PRE-SCIENCE host-equivalence freeze only. Requires fresh independent host/equivalence review PASS before any ResearchDecision or model/environment study execution. No provider lifecycle is authorized.",
+  "engineering_task_id": "533ec822-ebc5-4ae3-9ea3-cfd208ea3f7a",
+  "experiment_id": "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
+  "fresh_checkout": {
+    "canary_commit": "e086236951e53b61e9549352cad2f965869cf43a",
+    "canary_tree": "005272017cf1ff70231e93586eca4e649f8ed27d",
+    "clean": true,
+    "path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-rtx3080",
+    "repo_url": "https://github.com/tungooxx/Plancarry.git"
+  },
+  "host": {
+    "device_name": "NVIDIA GeForce RTX 3080",
+    "driver": "580.142",
+    "gpu_idle_at_canary": true,
+    "instance_id": "vast_48954592",
+    "memory_total_mib": 10240,
+    "provider": "vast",
+    "provider_status": "running",
+    "ssh_reachable": true
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_VAST_RTX3080_HOST_EQUIVALENCE_BINDING_A4_V1",
+  "output_targets": {
+    "both_absent": true,
+    "packet": "results/science/plancarry_replay_residual_sanity_packets_v2_2_technical_retry1",
+    "result": "results/science/plancarry_replay_residual_representation_sanity_v2_2_technical_retry1.json"
+  },
+  "prediction_id": "63c83ed5-7e58-4d86-afd8-dc2bd8ae5206",
+  "preflight": {
+    "environment_execution": 0,
+    "model_calls": 0,
+    "model_loads": 0,
+    "old_v21_science_reads": 0,
+    "reserve_access": false,
+    "scientific_result_reads": 0,
+    "status": "READY_NO_SCIENCE",
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "registered_bound_contract_remains_exact": true,
+  "reset_canary": {
+    "attestation_path": "results/design/plancarry_replayresidual_v22_reset_canary_attestation_vast48954592_a4_20260828.json",
+    "attestation_sha256": "7c7b8adcc7ccc44d867fed3d8fb34bb5e0b565d7d5493d3b9c57d4d8d52207a2",
+    "environment_actions": 0,
+    "environment_reset": true,
+    "model_calls": 0,
+    "model_forwards": 0,
+    "model_generations": 0,
+    "model_loads": 0,
+    "study_cohort_access": false,
+    "target_kind": "SYNTHETIC_TEXTWORLD_GRAMMAR_CANARY",
+    "technical_status": "PASS"
+  },
+  "runtime": {
+    "alfworld": "0.4.2",
+    "alfworld_persistent_data": "/opt/gpu-lab/envs/plancarry-alfworld-data",
+    "dtype": "bfloat16",
+    "hf_home": "/workspace/.hf_home",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "python": "3.13.15",
+    "python_path": "/workspace/venv-replayresidual-v22/bin/python",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "textworld": "1.7.0",
+    "tmpdir": "/workspace/plancarry-v22-tmp",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_contract_bytes_changed": false,
+  "scientific_result": "NOT_ASSESSED_HOST_EQUIVALENCE_ONLY",
+  "scientific_variables_changed": [],
+  "status": "FROZEN_PENDING_INDEPENDENT_REVIEW",
+  "work_item_id": "92461516-3c34-41f3-b4e3-6fcbdba982eb"
+}

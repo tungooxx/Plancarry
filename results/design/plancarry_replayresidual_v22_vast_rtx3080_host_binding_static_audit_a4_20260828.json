@@ -1,0 +1,34 @@
+{
+  "adapter_hashes": {
+    "host_binding_sha256": "SELF_EXCLUDED",
+    "host_launcher_sha256": "a1631567e3f2bad7896141220d45b1bac8c8d9b6aa171b9b52cd75432c8b74b2",
+    "reset_canary_attestation_sha256": "7c7b8adcc7ccc44d867fed3d8fb34bb5e0b565d7d5493d3b9c57d4d8d52207a2",
+    "reset_canary_script_sha256": "be15c5de1f7f0a8ba0af059c24f1d0791044b6ea5559c915b38300f73baf4dde"
+  },
+  "canary_commit": "e086236951e53b61e9549352cad2f965869cf43a",
+  "checks": {
+    "environment_actions_zero": true,
+    "exact_qwen_revision_cache_present": true,
+    "future_splits_sealed": true,
+    "host_launcher_exactly_one_device_string_substitution": true,
+    "model_calls_zero": true,
+    "model_loads_zero": true,
+    "official_alfworld_assets_present_but_not_opened": true,
+    "parent_launcher_sha_exact": true,
+    "provider_lifecycle_actions_zero": true,
+    "ready_no_science_preflight": true,
+    "registered_bound_contract_sha_exact": true,
+    "runtime_versions_exact": true,
+    "scientific_variables_changed_empty": true,
+    "study_cohort_access_false": true,
+    "synthetic_reset_canary_pass": true,
+    "technical_retry1_targets_absent": true
+  },
+  "engineering_task_id": "533ec822-ebc5-4ae3-9ea3-cfd208ea3f7a",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_VAST_RTX3080_HOST_EQUIVALENCE_STATIC_AUDIT_A4_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_commit": "e31d05e48b1c5473d9df28bc7e5b50e5134a3cd2",
+  "verdict": "READY_FOR_INDEPENDENT_HOST_EQUIVALENCE_REVIEW",
+  "work_item_id": "92461516-3c34-41f3-b4e3-6fcbdba982eb"
+}
