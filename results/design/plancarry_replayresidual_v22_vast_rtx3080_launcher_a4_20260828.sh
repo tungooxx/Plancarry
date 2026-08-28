@@ -60,7 +60,7 @@ assert x.get('kind')=='REPLAYRESIDUAL_V22_RESET_COMPATIBILITY_CANARY'
 assert x.get('technical_status')=='PASS'
 assert x.get('attestation_contract_sha256')=='40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666'
 assert x.get('compat_shim_sha256')=='a08a1e1e5536afc11d94868de40eaea89cb929ef43b59a1102f378446284a7f4'
-assert x.get('study_cohort_access') is False and int(x.get('model_calls',-1))==0 and int(x.get('environment_actions',-1))==0
+assert x.get('study_cohort_access') is False and 'future_split_access' in x and x['future_split_access'] is False and int(x.get('model_calls',-1))==0 and int(x.get('environment_actions',-1))==0
 assert x.get('environment_reset') is True and x.get('initial_observation_nonempty') is True and x.get('admissible_commands_nonempty') is True
 assert x.get('target_kind') in {'SYNTHETIC_TEXTWORLD_GRAMMAR_CANARY','PROSPECTIVELY_FROZEN_NON_STUDY_GAME'}
 print('RESET_COMPATIBILITY_CANARY_PASS')

@@ -57,6 +57,7 @@ def main() -> int:
       'python':'.'.join(map(str,sys.version_info[:3])),
       'packages':versions,
       'study_cohort_access':False,
+      'future_split_access':False,
       'alfworld_study_game_opened':False,
       'model_calls':0,'model_loads':0,'model_forwards':0,'model_generations':0,'environment_actions':0,
       'environment_reset':True,'initial_observation_nonempty':True,'admissible_commands_nonempty':True,

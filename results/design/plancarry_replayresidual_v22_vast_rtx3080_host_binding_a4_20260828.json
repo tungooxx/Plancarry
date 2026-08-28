@@ -1,7 +1,7 @@
 {
   "adapter": {
     "host_launcher_path": "results/design/plancarry_replayresidual_v22_vast_rtx3080_launcher_a4_20260828.sh",
-    "host_launcher_sha256": "a1631567e3f2bad7896141220d45b1bac8c8d9b6aa171b9b52cd75432c8b74b2",
+    "host_launcher_sha256": "7159c0da94c6436aef263225ae8904d40b0c693bf65cc4a0ff2396de39ecbd8a",
     "launcher_semantic_delta": [
       {
         "field": "whitebox_bridge.expected_device_substring",
@@ -11,7 +11,7 @@
     ],
     "parent_launcher_sha256": "bdfc84b6e8fb3062cde1e1c76abf3edf775ae0c65b9ca8a57c02dffc22fb4e65",
     "reset_canary_script_path": "results/design/plancarry_replayresidual_v22_reset_canary_a4_20260828.py",
-    "reset_canary_script_sha256": "be15c5de1f7f0a8ba0af059c24f1d0791044b6ea5559c915b38300f73baf4dde"
+    "reset_canary_script_sha256": "28a2185501fec546a660c733c26d015c9fd9139d853ef1af25a80c9d4d82a9aa"
   },
   "authority": {
     "registered_bound_contract_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
@@ -62,7 +62,7 @@
   "registered_bound_contract_remains_exact": true,
   "reset_canary": {
     "attestation_path": "results/design/plancarry_replayresidual_v22_reset_canary_attestation_vast48954592_a4_20260828.json",
-    "attestation_sha256": "7c7b8adcc7ccc44d867fed3d8fb34bb5e0b565d7d5493d3b9c57d4d8d52207a2",
+    "attestation_sha256": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2",
     "environment_actions": 0,
     "environment_reset": true,
     "model_calls": 0,
