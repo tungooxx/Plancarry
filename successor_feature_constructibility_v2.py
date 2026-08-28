@@ -78,7 +78,9 @@ def one_hot_row(label: str) -> tuple[int, ...]:
 def _validate_row(row: Sequence[int]) -> tuple[int, ...]:
     if len(row) != 6:
         raise ContractError("ROW_MUST_HAVE_SIX_VALUES")
-    vals = tuple(int(x) for x in row)
+    if any(type(x) is not int for x in row):
+        raise ContractError("ROW_VALUE_NOT_UINT8_INTEGER")
+    vals = tuple(row)
     if any(x < 0 or x > 255 for x in vals):
         raise ContractError("ROW_VALUE_OUT_OF_UINT8_RANGE")
     if sum(vals) != 255:
@@ -148,7 +150,7 @@ def branch_labels_if_plausible(scores: Sequence[float]) -> tuple[str, str]:
     """Return deterministic top-two labels iff frozen runner-up guard passes."""
     probs = softmax_float64(scores)
     order = sorted(range(6), key=lambda i: (-probs[i], i))
-    if probs[order[1]] + 1e-15 < SECOND_HIGHEST_PROB_MIN:
+    if probs[order[1]] < SECOND_HIGHEST_PROB_MIN:
         raise ContractError("SECOND_BRANCH_PROBABILITY_BELOW_0_10")
     return PHASE_LABELS[order[0]], PHASE_LABELS[order[1]]
 

@@ -1,6 +1,48 @@
 {
   "base_commit": "3c1c6ebd7f43e44fc83f26604e32b7ec761a4c52",
   "base_tree": "5e1e2429d9efc808cb715a6ba0b2f933696a17a4",
+  "guard_repair_v1": {
+    "causal_development_access": false,
+    "engineering_task_id": "5c23b6f8-f8aa-4c47-9653-416295394d86",
+    "environment_execution": 0,
+    "independent_failed_review_sha256": "9d1a33a63ac4eda6ba7e610ca6b8c89778b67bb5cbcf23d5baa4db29793036d9",
+    "independent_failed_review_work_item_id": "7d717fbe-abc3-4bb0-b033-f72e5074841f",
+    "model_calls": 0,
+    "model_loads": 0,
+    "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+    "prereg_sha256": "e6ef3044d6636e03b4b6a5b7a68b1bda89bc92ba2b2da3c936e9e2a8a07e276f",
+    "regressions": {
+      "adjacent_above_threshold_accepted": true,
+      "below_threshold_probability": 0.09999999999999995,
+      "below_threshold_rejected": true,
+      "rejected_types": [
+        "42.9",
+        "42.0",
+        "string 43",
+        "bool",
+        "NaN",
+        "Inf"
+      ]
+    },
+    "repairs": [
+      {
+        "change": "remove undocumented +1e-15 cushion; reject exactly when computed p_second < 0.10",
+        "scientific_design_changed": false,
+        "symbol": "branch_labels_if_plausible"
+      },
+      {
+        "change": "reject every non-bool/non-Python-int carrier value before range/sum checks; no int coercion",
+        "scientific_design_changed": false,
+        "symbol": "_validate_row"
+      }
+    ],
+    "scientific_result": "NOT_ASSESSED",
+    "scientific_variables_changed": [],
+    "source_commit": "f10536e226fcd60c25e43ba802466609c653c856",
+    "spare_access": false,
+    "valid_access": false,
+    "work_item_id": "a9a22c1c-8ac4-455f-b69a-72b3407372f7"
+  },
   "implementation_sha256": "157400595d8173c181bdc1ba03de31a052d4f4cd906ae5661192308ec421e5f8",
   "implemented_contract": {
     "branch_plausibility": "six finite scores; second-highest softmax probability >=0.10",

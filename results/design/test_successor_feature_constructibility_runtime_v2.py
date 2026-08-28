@@ -96,6 +96,34 @@ class SuccessorFeatureRuntimeV2Tests(unittest.TestCase):
             sf.serialize_carrier(c)
         with self.assertRaises(sf.ContractError): sf.parse_carrier('SF1:'+'00'*24)
 
+    def test_branch_plausibility_exact_threshold_boundary(self):
+        boundary = math.log(1.0 / 9.0)
+        below = math.nextafter(boundary, -math.inf)
+        scores_below = [0.0, below, -100.0, -100.0, -100.0, -100.0]
+        self.assertEqual(sf.softmax_float64(scores_below)[1], 0.09999999999999995)
+        with self.assertRaisesRegex(sf.ContractError, "SECOND_BRANCH_PROBABILITY_BELOW_0_10"):
+            sf.branch_labels_if_plausible(scores_below)
+
+        above = math.nextafter(boundary, math.inf)
+        scores_above = [0.0, above, -100.0, -100.0, -100.0, -100.0]
+        self.assertGreaterEqual(sf.softmax_float64(scores_above)[1], 0.10)
+        self.assertEqual(sf.branch_labels_if_plausible(scores_above), (sf.PHASE_LABELS[0], sf.PHASE_LABELS[1]))
+
+    def test_carrier_row_rejects_non_uint8_types(self):
+        valid = [43, 43, 43, 42, 42, 42]
+        self.assertEqual(sf._validate_row(valid), tuple(valid))
+        for row in (
+            [42.9, 43, 43, 43, 42, 42],
+            [42.0, 43, 43, 43, 42, 42],
+            ["43", 43, 43, 42, 42, 42],
+            [True, 43, 43, 42, 42, 84],
+            [float("nan"), 43, 43, 42, 42, 42],
+            [float("inf"), 43, 43, 42, 42, 42],
+        ):
+            with self.subTest(row=row):
+                with self.assertRaisesRegex(sf.ContractError, "ROW_VALUE_NOT_UINT8_INTEGER"):
+                    sf._validate_row(row)
+
     def test_no_forbidden_imports(self):
         src=(ROOT/'successor_feature_constructibility_v2.py').read_text().lower()
         for bad in ['transformers','torch','alfworld','textworld','tokenizer','cuda']:
