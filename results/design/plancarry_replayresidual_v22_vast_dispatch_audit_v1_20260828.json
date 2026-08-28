@@ -1,0 +1,86 @@
+{
+  "date": "2026-08-28",
+  "declared_outputs": [
+    "results/science/plancarry_replay_residual_sanity_packets_v2_2_technical_retry1",
+    "results/science/plancarry_replay_residual_representation_sanity_v2_2_technical_retry1.json",
+    "results/science/plancarry_replayresidual_v22_execution_attestation_technical_retry1.json"
+  ],
+  "durability_contract": {
+    "failure_may_preserve_partial_technical_attestation": true,
+    "implicit_globs": false,
+    "local_job_artifacts_written_before_successful_dispatch_exit": true,
+    "local_tar_symlink_or_hardlink_forbidden": true,
+    "manifest_file_sha256_and_size_verified_after_download": true,
+    "provider_loss_after_copy_does_not_remove_local_artifact_bytes": true,
+    "remote_realpath_escape_forbidden": true,
+    "remote_symlink_escape_forbidden": true,
+    "success_requires_all_declared_roots": true
+  },
+  "engineering_task_id": "e1150387-becb-4f6f-bd8e-fcb3fc174264",
+  "experiment_id": "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
+  "frozen_remote_binding": {
+    "bound_contract_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+    "device_name": "NVIDIA GeForce RTX 3080",
+    "driver": "580.142",
+    "instance_id": "vast_48954592",
+    "launcher": "results/design/plancarry_replayresidual_v22_vast_rtx3080_launcher_a4_20260828.sh",
+    "launcher_sha256": "7159c0da94c6436aef263225ae8904d40b0c693bf65cc4a0ff2396de39ecbd8a",
+    "repo_commit": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
+    "repo_path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-rtx3080",
+    "reset_canary_attestation_sha256": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2"
+  },
+  "implementation": {
+    "test": "results/design/test_plancarry_replayresidual_v22_vast_dispatch_v1.py",
+    "test_sha256": "81ce3534e802e23c9b447f1d24310e653a1048e0d80e571d70db4e5a030c4bd1",
+    "wrapper": "plancarry_replayresidual_v22_researchos_vast_dispatch_v1.py",
+    "wrapper_sha256": "796387923c7356fddfce59dd8b03cb0522fc9d2e3367e2896e982c924bcd1a25"
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_ARTIFACT_SAFE_VAST_DISPATCH_AUDIT_V1",
+  "late_bound_live_attestation": {
+    "future_split_access": false,
+    "kind": "PLANCARRY_REPLAYRESIDUAL_V22_LIVE_HOST_ATTESTATION_V1",
+    "outputs_absent": true,
+    "provider_lifecycle_action": "NONE",
+    "required_review_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_VAST_RTX3080_HOST_EQUIVALENCE",
+    "required_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
+    "rule": "fresh live host endpoint/port/ED25519 fingerprint and canonical repaired-host review SHA are content-hashed into one local attestation; ResearchDecision must bind its exact path+SHA before execute",
+    "study_cohort_access": false
+  },
+  "prohibitions": [
+    "no provider lifecycle",
+    "no model/environment execution during engineering",
+    "no scientific value inspection",
+    "no reserve32..63",
+    "no valid_seen",
+    "no valid_unseen",
+    "no old V2.1 artifact reuse",
+    "no science before host-review PASS + fresh live attestation + dispatcher independent review + fresh ResearchDecision"
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_repair_commit": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
+  "source_repair_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
+  "status": "PRE_SCIENCE_ENGINEERING_ONLY_PENDING_INDEPENDENT_DISPATCH_REVIEW",
+  "tests": {
+    "alfworld_study_execution": 0,
+    "bash_n_host_launcher": true,
+    "dispatcher_unit": "13/13 PASS",
+    "future_split_access": false,
+    "git_diff_check": true,
+    "model_calls": 0,
+    "model_forwards": 0,
+    "model_generations": 0,
+    "model_loads": 0,
+    "provider_lifecycle_actions": 0,
+    "py_compile": true,
+    "v22_materialization_static": "PASS_STATIC_PRE_SCIENCE_V22_MATERIALIZATION"
+  },
+  "unchanged_source_hashes": {
+    "bound_contract": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
+    "host_binding": "302554698ac35990692884053e227a18d7d8af47db23503239c36af27690871b",
+    "host_launcher": "7159c0da94c6436aef263225ae8904d40b0c693bf65cc4a0ff2396de39ecbd8a",
+    "packet_producer": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8",
+    "reset_canary_attestation": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2"
+  },
+  "work_item_id": "a43549cf-4bee-499a-beb1-3752e1cd9569"
+}
