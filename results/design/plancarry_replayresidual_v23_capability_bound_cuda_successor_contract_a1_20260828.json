@@ -35,7 +35,7 @@
     "sha256": "lowercase hexadecimal SHA256 over exactly json_bytes",
     "tensor_payload_hash": "SHA256(canonical JSON metadata bytes concatenated with raw tensor bytes), as frozen in sanity v1.1"
   },
-  "canonical_object_sha256_without_self_field": "a316d924d6c9273b899b57ea03296dfb61fd0aacf1fc011e61e18ce95c9a27e9",
+  "canonical_object_sha256_without_self_field": "08b39139eb3a9b7cd3cf396432ad041dd291e9c1ff28e9622f87e613296da1f4",
   "claim_boundary": "Prospective execution-authority successor only. It preserves ReplayResidual V2.2 scientific semantics exactly and changes only how a CUDA host is admitted and attested. It does not run model/environment science, inspect outcomes, or authorize provider lifecycle.",
   "conflict_resolution": {
     "policy": "Resolve prospectively by the frozen WorkItem 88ab2f5b specification and fidelity to the qualifier addendum for prompt/action semantics, while importing the packet contract all-32 atomic publication semantics and canonical sanity v1.1 controls/populations.",
@@ -436,8 +436,21 @@
       "repeat_reserved_span_mib",
       "bf16_supported",
       "oom_events",
-      "runtime_fingerprint"
-    ]
+      "runtime_fingerprint",
+      "cuda_available",
+      "repeat_count",
+      "capture_layers",
+      "hook_count_by_layer",
+      "model_id",
+      "revision",
+      "dtype",
+      "quantization",
+      "offload",
+      "torch",
+      "transformers",
+      "tokenizers"
+    ],
+    "required_actual_fields_semantics": "Self-contained list of every attestation key consumed by replayresidual_v23_capability_validator_a1.py; missing keys fail closed before any registration, Decision, model science, or provider action."
   },
   "sanity_binding": {
     "anchors": {
@@ -560,6 +573,17 @@
       "no invalid command/error",
       "plan and trajectory hashes validate"
     ]
+  },
+  "validator_integrity_repair": {
+    "failed_review_work_item_id": "c9f8c23e-4ef1-455a-8fc4-e5299b83b659",
+    "repair_scope": "Validator/schema integrity only; no scientific protocol variable, estimand, capability-admission policy, headroom threshold, provider policy, model runtime, population, control, metric or output semantics changed.",
+    "review_findings_repaired": [
+      "Validator now recomputes canonical_object_sha256_without_self_field and fails closed on contract semantic/hash drift.",
+      "Validator now checks all exact_model_stress_canary authority fields, including study/future/environment access, slot geometry, hook cardinality, and exact Qwen runtime semantics.",
+      "runtime_attestation.required_actual_fields now includes every key consumed by validate_attestation."
+    ],
+    "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REPAIR_ONLY",
+    "work_item_id": "5ca6e65a-9f90-4f3c-98ee-a166a9f3a7d4"
   },
   "version": "2.3-capability-bound-cuda-successor-v1",
   "work_item_id": "1a2c23ba-94a0-4558-b90c-ab7096530855"

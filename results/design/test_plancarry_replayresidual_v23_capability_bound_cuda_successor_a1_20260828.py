@@ -57,3 +57,41 @@ def test_capability_failure_is_fail_closed():
 def test_canonical_self_hash():
     c=json.loads(CONTRACT.read_text()); expected=c.pop('canonical_object_sha256_without_self_field')
     assert sha(c)==expected
+
+
+def test_contract_self_hash_and_canary_fields_fail_closed():
+    c=json.loads(CONTRACT.read_text()); v=load_validator()
+    assert v.validate_contract(c)==[]
+    bad=json.loads(CONTRACT.read_text())
+    bad['canonical_object_sha256_without_self_field']='0'*64
+    assert 'CONTRACT_SELF_HASH_MISMATCH' in v.validate_contract(bad)
+    for path,value,label in [
+        (['execution_capability_admission','exact_model_stress_canary','study_packet_access'], True, 'CANARY_CONTRACT_MISMATCH:study_packet_access'),
+        (['execution_capability_admission','exact_model_stress_canary','future_split_access'], True, 'CANARY_CONTRACT_MISMATCH:future_split_access'),
+        (['execution_capability_admission','exact_model_stress_canary','environment_execution'], 1, 'CANARY_CONTRACT_MISMATCH:environment_execution'),
+        (['execution_capability_admission','exact_model_stress_canary','prefix_token_count'], 64, 'CANARY_CONTRACT_MISMATCH:prefix_token_count'),
+        (['execution_capability_admission','exact_model_stress_canary','teacher_forced_suffix_token_count'], 64, 'CANARY_CONTRACT_MISMATCH:teacher_forced_suffix_token_count'),
+        (['execution_capability_admission','exact_model_stress_canary','hook_count_per_layer'], 2, 'CANARY_CONTRACT_MISMATCH:hook_count_per_layer'),
+        (['execution_capability_admission','exact_model_stress_canary','dtype'], 'float16', 'CANARY_CONTRACT_MISMATCH:dtype'),
+        (['execution_capability_admission','exact_model_stress_canary','quantization'], 'INT8', 'CANARY_CONTRACT_MISMATCH:quantization'),
+        (['execution_capability_admission','exact_model_stress_canary','offload'], 'CPU', 'CANARY_CONTRACT_MISMATCH:offload'),
+        (['execution_capability_admission','exact_model_stress_canary','revision'], 'wrong', 'CANARY_CONTRACT_MISMATCH:revision'),
+    ]:
+        b=json.loads(CONTRACT.read_text())
+        d=b
+        for k in path[:-1]: d=d[k]
+        d[path[-1]]=value
+        assert label in v.validate_contract(b)
+
+def test_required_actual_fields_cover_validator_inputs():
+    c=json.loads(CONTRACT.read_text())
+    required=set(c['runtime_attestation']['required_actual_fields'])
+    expected={
+      'actual_gpu_name','actual_gpu_uuid_if_available','driver_version','cuda_runtime','compute_capability',
+      'total_vram_mib','driver_free_vram_before_canary_mib','peak_reserved_mib','post_canary_reserved_mib',
+      'repeat_reserved_span_mib','bf16_supported','oom_events','runtime_fingerprint','cuda_available','repeat_count',
+      'capture_layers','hook_count_by_layer','model_id','revision','dtype','quantization','offload','torch','transformers','tokenizers'
+    }
+    assert expected <= required
+    v=load_validator(); a=base_attestation(); a.pop('transformers')
+    assert 'MISSING_ATTESTATION:transformers' in v.validate_attestation(c,a)

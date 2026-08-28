@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-08-28T11:05:41Z",
+  "failed_review_artifact_sha256": "8707af7ab4c99b2c6f117b6c889948fd2dff889742f3de95945b76e68862d155",
+  "failed_review_commit": "6b31e0965eff71e61faf2aa4836eeba2d2123419",
+  "failed_review_work_item_id": "c9f8c23e-4ef1-455a-8fc4-e5299b83b659",
+  "files_changed": {
+    "replayresidual_v23_capability_validator_a1.py": "fea9a313d821902490df3052b6ddcbccdab2cb25e33df3dff622731615b5511e",
+    "results/design/plancarry_replayresidual_v23_capability_bound_cuda_successor_contract_a1_20260828.json": "1289bbf073e4f4c6411a82cdac069ff9fe9094cacb92e4ccb333712d8af4a3bc",
+    "results/design/test_plancarry_replayresidual_v23_capability_bound_cuda_successor_a1_20260828.py": "500ed607f1ca5e9e2f558c8229a3cb4c10d7d5cf1b7589f21af65ca037ad4030"
+  },
+  "kind": "REPLAYRESIDUAL_V23_CAPABILITY_BOUND_CUDA_SUCCESSOR_INTEGRITY_REPAIR_AUDIT",
+  "repair_scope": "validator/schema integrity only; no ReplayResidual scientific protocol, estimand, capability-not-name admission, 1024MiB headroom threshold, runtime versions, provider policy, population, controls, metrics or output semantics changed",
+  "science_inheritance_preserved_by_test": "test_science_sections_exact_from_v22 passed against the 12 inherited V2.2 scientific sections and section hashes",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_REPAIR_ONLY",
+  "source_design_commit": "65248f8a0538c41432656f2bbd64f5c7e24602b2",
+  "tests_passed": [
+    "direct Python harness for all test_* functions in capability successor test file: 8/8 PASS",
+    "validator CLI on repaired contract: pass true errors []",
+    "manual admission probe: RTX3080, RTX4090 and arbitrary future CUDA name all pass with same capabilities",
+    "manual 4GB measured probe fails only TOTAL_VRAM_HEADROOM_LT_REQUIRED and LIVE_FREE_VRAM_HEADROOM_LT_REQUIRED",
+    "manual runtime drift probes for dtype, quantization, offload and revision fail closed",
+    "git diff --check PASS"
+  ],
+  "work_item_id": "5ca6e65a-9f90-4f3c-98ee-a166a9f3a7d4"
+}
