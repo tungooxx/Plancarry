@@ -6,6 +6,7 @@ and causal-LM suffix-score arithmetic.  It performs no model or environment I/O.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 from dataclasses import dataclass
@@ -68,6 +69,65 @@ def _require_utf8_text(value: object, field: str) -> str:
     except UnicodeEncodeError as exc:
         raise ContractError(f"{field}_INVALID_UTF8") from exc
     return value
+
+
+SUFFIX_TABLE_SERIALIZATION_SCHEMA = "SUCCESSOR_FEATURE_V2_SUFFIX_TABLE_CANONICAL_JSON_V1"
+
+
+def suffix_table_rows(
+    labels: Sequence[str] = PHASE_LABELS,
+    suffixes_utf8: Sequence[str] = LABEL_SUFFIXES_UTF8,
+    suffix_ids: Sequence[Sequence[int]] = LABEL_SUFFIX_IDS,
+) -> list[dict[str, object]]:
+    if not (len(labels) == len(suffixes_utf8) == len(suffix_ids) == 6):
+        raise ContractError("SUFFIX_TABLE_ROW_COUNT_MISMATCH")
+    rows: list[dict[str, object]] = []
+    for label, utf8, ids in zip(labels, suffixes_utf8, suffix_ids):
+        label_text = _require_utf8_text(label, "SUFFIX_TABLE_LABEL")
+        utf8_text = _require_utf8_text(utf8, "SUFFIX_TABLE_UTF8")
+        token_ids = list(ids)
+        if any(type(x) is not int or x < 0 for x in token_ids):
+            raise ContractError("SUFFIX_TABLE_TOKEN_ID_INVALID")
+        rows.append({"label": label_text, "utf8": utf8_text, "ids": token_ids})
+    return rows
+
+
+def canonical_suffix_table_utf8(
+    rows: Sequence[Mapping[str, object]] | None = None,
+) -> bytes:
+    if rows is None:
+        table_rows = suffix_table_rows()
+    else:
+        if len(rows) != 6:
+            raise ContractError("SUFFIX_TABLE_ROW_COUNT_MISMATCH")
+        table_rows = []
+        for row in rows:
+            if not isinstance(row, Mapping) or list(row.keys()) != ["label", "utf8", "ids"]:
+                raise ContractError("SUFFIX_TABLE_ROW_SCHEMA_MISMATCH")
+            label = _require_utf8_text(row["label"], "SUFFIX_TABLE_LABEL")
+            utf8 = _require_utf8_text(row["utf8"], "SUFFIX_TABLE_UTF8")
+            ids_obj = row["ids"]
+            if isinstance(ids_obj, (str, bytes)) or not isinstance(ids_obj, Sequence):
+                raise ContractError("SUFFIX_TABLE_TOKEN_IDS_MUST_BE_SEQUENCE")
+            token_ids = list(ids_obj)
+            if not token_ids or any(type(x) is not int or x < 0 for x in token_ids):
+                raise ContractError("SUFFIX_TABLE_TOKEN_ID_INVALID")
+            table_rows.append({"label": label, "utf8": utf8, "ids": token_ids})
+    payload = {"schema": SUFFIX_TABLE_SERIALIZATION_SCHEMA, "rows": table_rows}
+    text = json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=False)
+    return text.encode("utf-8", errors="strict")
+
+
+def canonical_suffix_table_sha256(
+    rows: Sequence[Mapping[str, object]] | None = None,
+) -> str:
+    return hashlib.sha256(canonical_suffix_table_utf8(rows)).hexdigest()
+
+
+SUFFIX_TABLE_SHA256 = "84dd917857b955a32accc394d5a090108419741d1481ad49607329acfc6d46c7"
+
+if canonical_suffix_table_sha256() != SUFFIX_TABLE_SHA256:
+    raise RuntimeError("SUFFIX_TABLE_CANONICAL_HASH_MISMATCH")
 
 
 def _canonical_json(value: object) -> str:

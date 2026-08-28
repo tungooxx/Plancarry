@@ -87,6 +87,34 @@ class LabelBindingTests(unittest.TestCase):
         ))
         lb.verify_tokenizer_binding(FakeTokenizer(),model_id=lb.MODEL_ID,revision=lb.MODEL_REVISION,transformers_version=lb.TRANSFORMERS_VERSION,tokenizers_version=lb.TOKENIZERS_VERSION)
 
+
+    def test_suffix_table_canonical_serialization_and_hash(self):
+        rows=lb.suffix_table_rows()
+        expected={
+            "schema": lb.SUFFIX_TABLE_SERIALIZATION_SCHEMA,
+            "rows": [
+                {"label": label, "utf8": utf8, "ids": list(ids)}
+                for label, utf8, ids in zip(PHASE_LABELS, lb.LABEL_SUFFIXES_UTF8, lb.LABEL_SUFFIX_IDS)
+            ],
+        }
+        expected_bytes=json.dumps(expected,ensure_ascii=False,separators=(",", ":"),sort_keys=False).encode("utf-8")
+        self.assertEqual(lb.canonical_suffix_table_utf8(),expected_bytes)
+        self.assertEqual(lb.canonical_suffix_table_sha256(),lb.SUFFIX_TABLE_SHA256)
+        audit=json.loads((ROOT/'results/design/plancarry_successor_feature_label_binding_v2_20260828.json').read_text())
+        self.assertEqual(audit['suffix_table_sha256'],lb.SUFFIX_TABLE_SHA256)
+        self.assertEqual(audit['suffix_table_serialization']['schema'],lb.SUFFIX_TABLE_SERIALIZATION_SCHEMA)
+
+    def test_suffix_table_hash_rejects_order_text_and_id_drift(self):
+        rows=lb.suffix_table_rows()
+        reversed_rows=list(reversed(rows))
+        self.assertNotEqual(lb.canonical_suffix_table_sha256(reversed_rows),lb.SUFFIX_TABLE_SHA256)
+        text_rows=[dict(x) for x in rows]
+        text_rows[0]=dict(text_rows[0]); text_rows[0]['utf8']=' SEEK_OBJECT_TAMPER'
+        self.assertNotEqual(lb.canonical_suffix_table_sha256(text_rows),lb.SUFFIX_TABLE_SHA256)
+        id_rows=[dict(x) for x in rows]
+        id_rows[0]=dict(id_rows[0]); id_rows[0]['ids']=list(id_rows[0]['ids']); id_rows[0]['ids'][0]+=1
+        self.assertNotEqual(lb.canonical_suffix_table_sha256(id_rows),lb.SUFFIX_TABLE_SHA256)
+
     def test_tokenizer_provenance_mismatch_fails_closed(self):
         for kw,val in [('model_id','wrong'),('revision','wrong'),('transformers_version','0'),('tokenizers_version','0')]:
             args=dict(model_id=lb.MODEL_ID,revision=lb.MODEL_REVISION,transformers_version=lb.TRANSFORMERS_VERSION,tokenizers_version=lb.TOKENIZERS_VERSION)

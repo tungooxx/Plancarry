@@ -147,7 +147,7 @@
     "tokenizers": "0.21.1",
     "transformers": "4.51.3"
   },
-  "suffix_table_sha256": "05ca1a99b8738f2f705ee481795972926df4418dae3602e913b35d2e579145e1",
+  "suffix_table_sha256": "84dd917857b955a32accc394d5a090108419741d1481ad49607329acfc6d46c7",
   "synthetic_canary": {
     "direct_concat_step2_sequence_sha256_by_label": {
       "ACQUIRE_OBJECT": "7f5bd455c330ae36d6f1a31ae246a7a0007d6f3e549e6ff2f8583277ad35afca",
@@ -196,5 +196,22 @@
     "git_diff_check": true,
     "new_label_binding": "11/11 PASS",
     "py_compile": true
+  },
+  "suffix_table_serialization": {
+    "schema": "SUCCESSOR_FEATURE_V2_SUFFIX_TABLE_CANONICAL_JSON_V1",
+    "payload_key_order": [
+      "schema",
+      "rows"
+    ],
+    "row_key_order": [
+      "label",
+      "utf8",
+      "ids"
+    ],
+    "row_order": "exact PHASE_LABELS order as frozen in suffix_binding.suffixes; six rows; no sorting",
+    "json": "json.dumps(..., ensure_ascii=False, separators=(comma,colon), sort_keys=False)",
+    "encoding": "strict UTF-8 bytes",
+    "trailing_newline": false,
+    "recompute": "SHA256 over exactly canonical_suffix_table_utf8() bytes from successor_feature_label_binding_v2.py"
   }
 }
