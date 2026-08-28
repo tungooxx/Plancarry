@@ -1,0 +1,155 @@
+{
+  "kind": "PLANCARRY_EXEC_PERSISTENCE_LOCUS_PREREG_V1",
+  "date": "2026-08-28",
+  "scientific_result": "NOT_ASSESSED",
+  "stage": "PRE_SCIENCE_DESIGN_ONLY",
+  "hypothesis_id": "5c72543b-c8f1-4e65-9eff-56892a8cdde5",
+  "source_binding_experiment_id": "49a5eed0-dc91-497a-a0e7-f9b5fc4cd5b1",
+  "activation_rule": "execute/review eligibility is independent of binding-v1 outcome; any binding result may affect later interpretation but MUST NOT alter this design, pool, endpoint, or threshold",
+  "question": "Does executing the same persisted intended action in an external controller produce first-action-excluded later visible-goal persistence beyond language-only binding of the identical commitment?",
+  "runtime": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0,
+    "alfworld": "0.4.2",
+    "backend": "TextWorld",
+    "split": "train",
+    "task_prefix": "pick_and_place_simple",
+    "qualification_max_environment_actions": 30,
+    "post_reset_environment_action_horizon": 8,
+    "memory_cap_proxy_tokens": 48,
+    "state_source": "deterministic prefix_only qualification state",
+    "reset_rule": "first frozen reset after goal-object acquisition exactly as binding-v1 derive_reset",
+    "expert_plan_visible": false,
+    "hidden_facts_visible_to_model": false,
+    "future_suffix_visible": false
+  },
+  "population": {
+    "manifest_file": "results/design/plancarry_exec_fresh_train_manifest_v1_20260828.json",
+    "manifest_file_sha256": "f6752d213bc479ae74e498c62feb490e35027e2903ade5a5a1c52799a427d810",
+    "candidate_pool_sha256": "2c7c861a2ffcbd5cb7645285bd3035b8d491db4fab740d7cbd0f4b37fe195e43",
+    "candidate_count": 176,
+    "target_eligible": 16,
+    "max_scan": 176,
+    "scan_without_replacement": true,
+    "eligibility": "reuse binding-v1 eligibility_from_qualification exactly: successful qualification, zero invalid turns, deterministic reset exists, intended_next_action exists and is current admissible, visible pick/place GDAA defined, intended action is in current GDAA-positive set, memory<=48 proxy tokens",
+    "insufficient_cohort_label": "INCONCLUSIVE_EXEC_PERSISTENCE_LOCUS_INSUFFICIENT_ELIGIBLE"
+  },
+  "commitment": {
+    "compiler": "exact ah.compile_plancarry(prefix_only, reset_after, 48) from binding-v1",
+    "bytes": "the exact plancarry_json bytes are stored once per eligible episode and supplied byte-identically to all three arms",
+    "atomic_content_mutation_forbidden": true,
+    "intended_next_action_field": "exact JSON string field intended_next_action"
+  },
+  "arms": {
+    "passive_json": "Fresh post-reset LLM receives current observation+admissible commands plus exact stored commitment JSON; no action-forcing wrapper.",
+    "binding_json": "Fresh post-reset LLM receives same reset state and exact same commitment JSON plus exact frozen binding-v1 BINDING_WRAPPER; model chooses every environment action.",
+    "external_exec": "From the identical reset snapshot, before any post-reset model call, controller recomputes the exact visible-goal positive set from goal_text and current admissible commands. It executes intended_next_action exactly once iff exact string is admissible AND in that positive set. That action consumes environment action 1 of horizon 8. Then a brand-new LLM conversation receives resulting observation+admissible commands plus the original byte-identical commitment JSON and NO binding wrapper, controlling at most remaining 7 environment actions. If either guard fails, controller executes nothing and arm falls back exactly to passive_json from reset with full horizon 8; episode remains in denominator and is marked stale_commitment_fallback."
+  },
+  "arm_order": {
+    "salt": "PlanCarry|EXEC_PERSISTENCE_LOCUS_V1|ARM_ORDER|20260828",
+    "method": "hash-derived deterministic 3-arm rotation plus reversal; each arm always replays from identical frozen prefix/reset snapshot"
+  },
+  "stale_commitment_policy": {
+    "no_forcing_if_not_exactly_admissible": true,
+    "no_forcing_if_not_visible_goal_positive": true,
+    "fallback": "passive_json, no replacement, same episode denominator",
+    "reset_hash_mismatch": "INVALID_GUARD_FAILURE, not stale fallback",
+    "no_rescue": true
+  },
+  "metrics": {
+    "IAA": {
+      "role": "manipulation_check_only",
+      "definition": "first non-information post-reset environment action equals frozen intended_next_action"
+    },
+    "later_visible_goal_progress": {
+      "role": "PRIMARY_MECHANISTIC_ENDPOINT",
+      "first_action_excluded": true,
+      "definition": "For environment action positions 2..8 only, pre-action admissible commands are reset commands for position1 or the previous action record post-state for later positions. Score each position with the exact frozen alfworld_gdaa.gdaa_score(command, goal_text, pre_action_admissible_commands). Episode endpoint is true iff any position 2..8 scores exactly True. None/undefined scores count non-positive; information actions count non-positive. Position1 is never included."
+    },
+    "later_visible_goal_progress_count": {
+      "role": "descriptive",
+      "definition": "count of action positions 2..8 scoring exactly True by the same frozen visible-goal parser"
+    },
+    "TaskSuccess_at_8": {
+      "role": "SUBSTANTIVE_TASK_ENDPOINT_AND_COMPETENCE_GUARD",
+      "definition": "ALFWorld won by or before total post-reset environment action horizon 8; external controller action, if executed, consumes one action of same budget"
+    },
+    "continuation_success_credit": {
+      "role": "secondary first-action-excluded composite",
+      "definition": "TaskSuccess_at_8 AND later_visible_goal_progress; prevents final success from being credited as persistent continuation when no post-position1 visible-goal-consistent action occurs"
+    }
+  },
+  "statistics": {
+    "primary_comparison": "external_exec vs binding_json on later_visible_goal_progress",
+    "test": "one-sided exact paired binomial over all 16 eligible episodes; discordant external-only are wins, binding-only are losses; ties retained in denominator for rate/effect but excluded from exact-binomial n; no continuity correction",
+    "alpha": 0.05,
+    "primary_effect_guard": "rate(external_exec later_visible_goal_progress) - rate(binding_json later_visible_goal_progress) >= 0.25",
+    "primary_absolute_guard": "rate(external_exec later_visible_goal_progress) >= 0.50",
+    "task_competence_guard": "TaskSuccess@8 external_exec >= TaskSuccess@8 binding_json - 0.10",
+    "supporting_external_vs_passive": "report same one-sided paired exact test and rate difference; not required for primary gate but interpreted as controller efficacy check",
+    "IAA": "report all three rates only; never sufficient for mechanistic PASS",
+    "secondary": "report paired TaskSuccess@8 and continuation_success_credit; no threshold may rescue primary failure",
+    "exact_p_formula": "Let w=number of episodes with external_exec later_visible_goal_progress=True and binding_json=False; l=number with external=False and binding=True; d=w+l. If d=0 p=1.0, else p=sum_{k=w..d} C(d,k)*0.5^d. Ties are excluded from d but remain in the fixed n=16 rate denominators.",
+    "multiplicity": "One preregistered primary comparison only; no multiplicity correction on primary. All other tests are secondary/supporting and cannot rescue primary failure."
+  },
+  "terminal_rules": {
+    "measured": "MEASURED_AWAITING_SCIENTIFIC_ASSESSMENT only if target16 complete and all deterministic/technical guards pass",
+    "primary_gate": "primary p<=0.05 AND primary effect>=0.25 AND external absolute>=0.50 AND task competence guard passes",
+    "pass_label_for_assessment": "PASS_EXTERNAL_EXECUTION_LOCUS_DISCRIMINATOR",
+    "fail_label_for_assessment": "FAIL_EXTERNAL_EXECUTION_LOCUS_DISCRIMINATOR",
+    "interpretation_if_iaa_only": "If external execution increases IAA but primary first-action-excluded later progress fails, classify first-action compliance as insufficient; do not claim persistence locus support.",
+    "no_rescue": [
+      "no replacement after scan",
+      "no target-n reduction",
+      "no extending past 176 candidates",
+      "no changing horizon",
+      "no wrapper/compiler/parser change",
+      "no endpoint swap",
+      "no alpha/effect-threshold change",
+      "no excluding stale-fallback episodes",
+      "no model switch",
+      "no benchmark/split switch"
+    ],
+    "primary_gate_components": [
+      "one-sided exact paired-binomial p(external_exec > binding_json on later_visible_goal_progress) <= 0.05",
+      "rate difference external_exec - binding_json on later_visible_goal_progress >= 0.25",
+      "external_exec later_visible_goal_progress rate >= 0.50",
+      "TaskSuccess@8 external_exec >= TaskSuccess@8 binding_json - 0.10"
+    ]
+  },
+  "guards": [
+    "candidate manifest SHA exact",
+    "candidate paths disjoint from binding180/GDAA/historical exposure",
+    "all arm reset hashes identical before intervention",
+    "commitment JSON bytes identical across arms",
+    "external action count <=1 and occurs only at position1",
+    "external action exact admissible and visible-goal-positive when forced",
+    "fallback never forces",
+    "same total horizon8",
+    "no post-reset technical failure",
+    "GDAA sentinels pass",
+    "memory cap<=48 proxy tokens",
+    "expert/future/hidden information unavailable",
+    "valid_seen and valid_unseen prohibited"
+  ],
+  "source_hashes": {
+    "alfworld_binding_runner.py": "01a253d06d215d02e41a228e42a744d5d284aded044f97f7d144c91d71f864e8",
+    "alfworld_cohort_runner.py": "80084414dbcab53b6afe0a4a9fb4ba1a430e3c4eb54c67fbb2defa24874d6606",
+    "alfworld_qualify.py": "80092ae66ba6b3dd88e5f3d380ac7d6f0cb59c1c8426ba225c6db440c1650716",
+    "alfworld_gdaa.py": "a51db409173bb0cfc9211d4122601aa9b8a0580edf2c6e9143b2fbe7271e8d1f",
+    "alfworld_interruption_harness.py": "c78ba1f1d2c357bf36aa0b13d874a1842acf8d45bdc6307b9264048869808b2d",
+    "alfworld_runtime.py": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6"
+  },
+  "prohibitions": [
+    "no model/environment execution during design",
+    "no binding-v1 result artifact inspection",
+    "no valid_seen",
+    "no valid_unseen",
+    "no expert/future/hidden information",
+    "no outcome-dependent adaptation"
+  ],
+  "scientific_variables_changed": [
+    "external execution locus arm is the intended new discriminator; all listed model/state/reset/parser/budget/memory semantics held fixed from binding-v1 where applicable"
+  ],
+  "payload_sha256": "1960fe8580541ac4b1ccc8d39fa14e973cc8cc85f3d553a12c779bf07756661b"
+}
