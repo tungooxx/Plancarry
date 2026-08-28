@@ -1,0 +1,114 @@
+{
+  "author_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "authorization": "NO_SCIENCE_AUTHORIZED",
+  "correction": {
+    "anomaly_id": "011f85bd-e94e-4cb3-940b-ee516cdaee9a",
+    "case_id": "729b275a-150a-4469-882a-e8b6abc89ade",
+    "challenge_id": "d8fdee05-ae96-4d4a-9f22-b20b37e679a0",
+    "clarification": "The pre-review execution was explicitly user-directed, not an unauthorized scheduler launch. It remains provisional/unassessed for causal use and cannot retroactively satisfy the intended prospective independent executable-review gate.",
+    "outcome_values_imported_into_recovery_design": false,
+    "outcome_values_permitted_for_tuning_selection_or_cohort_choice": false,
+    "protocol_invalid_run_id": "f444139c-d322-4f84-9ad8-44744eb5b7c3",
+    "user_directed_pre_review_override_recorded": true
+  },
+  "forbidden_actions": [
+    "No model forward or ALFWorld study execution in this recovery-design WorkItem.",
+    "No Experiment registration, ResearchDecision, or scientific execution before independent recovery review PASS.",
+    "No use of f444 scientific outcome values for interpretation, tuning, selection, cohort construction, or stopping.",
+    "No future split access.",
+    "No provider substitution without separate reviewed host rebind."
+  ],
+  "immutable_science_authority": {
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "authority_commit": "b30028eb25f12be60ac96af8c6f6ee2926db82e4",
+    "confirmation_scan_indices_locked": [
+      64,
+      127
+    ],
+    "development_scan_indices": [
+      0,
+      63
+    ],
+    "dtype": "BF16",
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "model": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "no_replacement": true,
+    "offload": false,
+    "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+    "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+    "quantization": false,
+    "reserve_indices_locked": [
+      128,
+      159
+    ],
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_PRESCIENCE_LINEAGE_RECOVERY_V1",
+  "next_gate": "FRESH_INDEPENDENT_REVIEW_OF_THIS_RECOVERY_DESIGN_AND_CORRECTION_VERIFICATION",
+  "population_exposure_policy": {
+    "confirmation_64_127_status": "SEALED_UNTOUCHED",
+    "consume_confirmation_or_reserve_to_make_fresh_development_forbidden": true,
+    "development_0_63_status": "DEVELOPMENT_EXPOSED_BY_PROVISIONAL_PRE_REVIEW_RUN",
+    "fresh_capacity_before_selection": 197,
+    "historically_or_selected_excluded_union_count": 593,
+    "historically_or_selected_excluded_union_sha256": "16840e99b5b04cd3f18b2ae4ccf51752b2d698f2422ebf2ed5a90aa18fe1bfe3",
+    "inventory_count": 790,
+    "population_bytes_must_remain_identical": true,
+    "post_exposure_replacement_forbidden": true,
+    "post_exposure_widening_forbidden": true,
+    "rationale": "Only 37 never-selected paths remain under the exact frozen exclusion/ranking universe, so manufacturing a fresh 64-path development cohort would require changing population rules or consuming sealed future splits. Neither is permitted as a hidden recovery.",
+    "reserve_128_159_status": "SEALED_UNTOUCHED",
+    "selected_count": 160,
+    "unselected_tail_count": 37,
+    "unselected_tail_status": "LOCKED_AS_UNUSED_TAIL_NOT_REPLACEMENT_POOL"
+  },
+  "prospective_recovery_sequence": [
+    "Independent correction verification/adjudication must explicitly permit the recovery scope; no automatic retro-certification of the provisional run.",
+    "An explicitly authorized available NVIDIA GeForce RTX 5060 host, or separately independently reviewed exact-equivalence host rebind, must be frozen before science.",
+    "Before any Experiment registration, an independent reviewer must reproduce the token-only exact Qwen3 legacy-vs-stream canary on the authorized host: candidate score/tie/cache equivalence and requested-layer [7,14,21,27] activation equivalence must be exact under the reviewed tolerance/identity contract.",
+    "Only if the correction adjudication permits same-development procedural replay, register a FRESH Experiment and Decision using byte-identical population/prereg/scientific variables and optimizer bytes that passed independent review.",
+    "That replay must scan exact development indices0..63, first20 eligible/no replacement, and remain DEVELOPMENT_SELECTION_ONLY / NOT_ASSESSED; no old provisional result, selected point, eligibility list, metric, terminal label, or partial artifact may be imported.",
+    "No code, threshold, control, layer, alpha, selection rule, eligibility rule, population ordering, or host-dependent scientific variable may be changed after exposure.",
+    "Confirmation64..127, reserve128..159, valid_seen, and valid_unseen remain inaccessible until a fresh reviewed development seal exists under this corrected lineage.",
+    "If correction adjudication does not permit exact same-development replay, STOP with NEW_POPULATION_OR_HUMAN_DECISION_REQUIRED; do not consume sealed future splits or the 37-path tail as an outcome-driven rescue."
+  ],
+  "same_development_replay_semantics": {
+    "allowed_only_after_correction_approval": true,
+    "confirmation_unlock_requires_new_atomic_development_seal_and_fresh_review": true,
+    "exact_same_development_indices": [
+      0,
+      63
+    ],
+    "exact_same_population_bytes": true,
+    "exact_same_scientific_variables": true,
+    "fresh_experiment_and_decision_required": true,
+    "fresh_replay_result_scope": "NOT_ASSESSED_DEVELOPMENT_SELECTION_ONLY",
+    "old_run_outputs_authoritative": false,
+    "old_run_outputs_read_by_new_execution": false,
+    "old_run_selection_or_terminal_import_forbidden": true,
+    "purpose": "restore prospective review-before-execution provenance for development selection without introducing outcome-driven adaptation"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "source_optimizer_commit": "5263391c9fe33bec1dc74cad64a6c8087209ecb4",
+  "source_optimizer_review": {
+    "artifact_sha256": "ff8da165005c4f34c69c0b569197c30670cb114ceac13fc9521b5a4ac1061426",
+    "commit": "beff67fdad060981415623bcbc19c4545abe6843",
+    "verdict": "MATERIAL_REPAIR_REQUIRED",
+    "work_item_id": "66c51625-9ea3-4706-91de-fb81b7a36b81"
+  },
+  "source_optimizer_tree": "d1b608169e4fc6498743e7bf461ab5a266221a36",
+  "status": "PRE_SCIENCE_FROZEN_RECOVERY_DESIGN",
+  "work_item_id": "ee064298-44f5-48a1-993d-1b3334fe85e4"
+}

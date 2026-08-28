@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "confirmation_indices_locked_64_127": true,
+    "constructibility_metadata_tests": "19/19 PASS",
+    "development_indices_exact_0_63": true,
+    "future_split_accessed": false,
+    "model_environment_execution": false,
+    "no_replacement_true": true,
+    "optimizer_independent_runtime_canary_still_required": true,
+    "optimizer_review_static_semantics_clean": true,
+    "population_fresh_capacity_197": true,
+    "population_selected_n_160": true,
+    "population_sha256_exact": true,
+    "population_unselected_tail_37": true,
+    "prereg_sha256_exact": true,
+    "protocol_invalid_run_outcome_values_used": false,
+    "reserve_indices_locked_128_159": true,
+    "scientific_variables_changed_empty": true,
+    "valid_seen_unseen_false": true
+  },
+  "correction_case_id": "729b275a-150a-4469-882a-e8b6abc89ade",
+  "kind": "PLANCARRY_ACTION_MATCHED_GROUNDED_V2_PRESCIENCE_LINEAGE_RECOVERY_STATIC_AUDIT_V1",
+  "population_sha256": "49ada50d70257e1106d30a39e69567af5c4892367e8972a09f4ba575029729bc",
+  "prereg_sha256": "23101c5ed38c12196e3b2b760001a1f7f0801d363de49ddd4963d9a35b86060b",
+  "recovery_design_sha256": "c75a2cc1f37405a6ec22b36b1971cbba496b64e7845fb79ce44122d92e036132",
+  "result": "PASS_STATIC_RECOVERY_DESIGN_CONSISTENCY_ONLY",
+  "review_artifact_sha256": "ff8da165005c4f34c69c0b569197c30670cb114ceac13fc9521b5a4ac1061426",
+  "scientific_result": "NOT_ASSESSED"
+}
