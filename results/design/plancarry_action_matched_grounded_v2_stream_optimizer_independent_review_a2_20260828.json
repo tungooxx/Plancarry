@@ -1,0 +1,79 @@
+{
+  "anomaly_id": "011f85bd-e94e-4cb3-940b-ee516cdaee9a",
+  "author_canary_lineage_check": {
+    "author_canary_implementation_commit": "5beb032663e3f1595efa5ef86644707eee930a0f",
+    "author_canary_not_substituted_for_independent_reproduction": true,
+    "only_later_change": "canary metadata record",
+    "target_code_bytes_identical_to_author_canary_commit": true
+  },
+  "authorization": "NO_SCIENCE_AUTHORIZED_BY_THIS_REVIEW",
+  "base_commit": "127d1a46fe289f036cba4cd51d91a267ceed06ca",
+  "base_tree": "8e72ee560250fb0f61864eabe24e23136faaa6f2",
+  "engineering_result_id": "3c1a2b68-c37c-4b42-a174-bc8fd7c4096a",
+  "engineering_task_id": "d63d4db5-b165-4ee1-a547-39e54ee25776",
+  "independent_static_checks": {
+    "base_tree_exact": true,
+    "diff_exactly_seven_added_files": true,
+    "expected_target_hashes_exact": true,
+    "inherited_grounded_executable_tests": "17/17 PASS",
+    "optimized_preflight": "READY_NO_SCIENCE",
+    "optimizer_tests": "10/10 PASS",
+    "original_session_runtime_driver_launcher_byte_identical": true,
+    "preflight_confirmation_accessed": false,
+    "preflight_environment_execution": 0,
+    "preflight_model_calls": 0,
+    "preflight_model_loads": 0,
+    "preflight_reserve_accessed": false,
+    "preflight_valid_seen_accessed": false,
+    "preflight_valid_unseen_accessed": false,
+    "py_compile": true,
+    "target_tree_exact": true
+  },
+  "kind": "ACTION_MATCHED_GROUNDED_V2_STREAM_OPTIMIZER_INDEPENDENT_REVIEW_A2_V1",
+  "mandatory_independent_runtime_check": {
+    "pass_condition_satisfied": false,
+    "provider_status": "exited",
+    "required_device": "NVIDIA GeForce RTX 5060",
+    "required_instance_id": "vast_48908751",
+    "resume_attempt": "PROVIDER_RESOURCES_UNAVAILABLE",
+    "ssh_reachable": false,
+    "status": "NOT_REPRODUCIBLE_BY_REVIEWER"
+  },
+  "protocol_findings": {
+    "cancelled_or_pre_review_outputs_authoritative": false,
+    "detail": "Optimized ExperimentRun f444139c-d322-4f84-9ad8-44744eb5b7c3 executed and completed before this mandatory independent PRE-SCIENCE review reached PASS; its terminal provenance itself states science_execution_forbidden_until_executable_review_pass=true.",
+    "future_split_accessed_by_review": false,
+    "pre_science_review_order": "FAIL",
+    "scientific_outcomes_used_in_review": false
+  },
+  "required_repairs": [
+    "Do not retroactively certify or use ExperimentRun f444139c-d322-4f84-9ad8-44744eb5b7c3 as scientific evidence.",
+    "Restore a prospective gate order: independent optimizer review must reach PASS before any new optimized Experiment registration/execution.",
+    "Provide an explicitly authorized/reviewed RTX5060 execution host (or separately approved exact-equivalence rebind) on which an independent reviewer can reproduce the required token-only Qwen3 legacy-vs-stream exact-equivalence canary before science.",
+    "Resolve population/exposure handling prospectively through a fresh reviewed correction lineage without using the accidentally exposed scientific outcome to tune protocol or select a cohort."
+  ],
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "semantic_review": {
+    "candidate_autoregressive_token_order_preserved": true,
+    "candidate_scoring_batch_size_one_guard": true,
+    "fp32_log_softmax_preserved": true,
+    "lexical_tie_break_preserved": true,
+    "live_kv_digest_and_context_guard_preserved": true,
+    "max_candidate_streams": 4,
+    "multi_layer_capture_single_shared_forward": true,
+    "multi_layer_requested_layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "non_batch1_cache_fails_closed": true,
+    "python_float_left_to_right_accumulation_preserved": true,
+    "scientific_variable_drift_found": false,
+    "unsafe_batch_dimension_variant_present_in_authoritative_code": false
+  },
+  "target_commit": "5263391c9fe33bec1dc74cad64a6c8087209ecb4",
+  "target_tree": "d1b608169e4fc6498743e7bf461ab5a266221a36",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "66c51625-9ea3-4706-91de-fb81b7a36b81"
+}
