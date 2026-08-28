@@ -291,8 +291,13 @@ for rel in declared:
    if child.is_file():
     real=child.resolve()
     if root not in real.parents: raise SystemExit('REMOTE_ARTIFACT_REALPATH_ESCAPE')
-    rows.append({{'path':child.relative_to(root).as_posix(),'sha256':digest(child),'size':child.stat().st_size}})
- elif full.is_file(): rows.append({{'path':rel,'sha256':digest(full),'size':full.stat().st_size}})
+    st=child.stat()
+    if st.st_nlink != 1: raise SystemExit('REMOTE_ARTIFACT_HARDLINK_FORBIDDEN')
+    rows.append({{'path':child.relative_to(root).as_posix(),'sha256':digest(child),'size':st.st_size}})
+ elif full.is_file():
+  st=full.stat()
+  if st.st_nlink != 1: raise SystemExit('REMOTE_ARTIFACT_HARDLINK_FORBIDDEN')
+  rows.append({{'path':rel,'sha256':digest(full),'size':st.st_size}})
  else: raise SystemExit('REMOTE_ARTIFACT_TYPE_FORBIDDEN')
 if required and not rows: raise SystemExit('REQUIRED_REMOTE_ARTIFACT_SET_EMPTY')
 obj={{'kind':'PLANCARRY_REPLAYRESIDUAL_V22_REMOTE_ARTIFACT_MANIFEST_V1','experiment_id':{EXPERIMENT_ID!r},'repo_commit':{REMOTE_COMMIT!r},'declared_roots':list(declared),'files':rows}}

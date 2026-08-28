@@ -2,6 +2,8 @@ import hashlib
 import io
 import json
 import os
+import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -78,7 +80,43 @@ class V22DispatchTests(unittest.TestCase):
             self.assertIn(needle,cmd)
         for rel in d.DECLARED_OUTPUTS:self.assertIn(rel,cmd)
 
-    def make_bundle(self, td, extra=None, symlink=False):
+    def remote_manifest_script(self, require_success_outputs=False):
+        cmd=d.remote_bundle_command(require_success_outputs)
+        return cmd.split("<<'PYREMOTE'\n",1)[1].split("\nPYREMOTE\n",1)[0]
+
+    def run_remote_manifest(self, root, require_success_outputs=False):
+        out=Path(root)/'remote_manifest.json'
+        proc=subprocess.run(
+            [sys.executable,'-',d.PACKET_DIR,d.RESULT_JSON,d.EXECUTION_ATTESTATION,str(out),'1' if require_success_outputs else '0'],
+            input=self.remote_manifest_script(require_success_outputs),text=True,cwd=root,capture_output=True
+        )
+        return proc,out
+
+    def test_remote_manifest_regular_files_pass(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            p=root/d.RESULT_JSON;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'result\n')
+            proc,out=self.run_remote_manifest(root,False)
+            self.assertEqual(proc.returncode,0,proc.stderr)
+            x=json.loads(out.read_text());self.assertEqual([r['path'] for r in x['files']],[d.RESULT_JSON])
+
+    def test_remote_manifest_direct_hardlink_alias_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td);secret=root/'hidden/reserve/secret.txt';secret.parent.mkdir(parents=True);secret.write_bytes(b'FUTURE_SECRET')
+            alias=root/d.RESULT_JSON;alias.parent.mkdir(parents=True,exist_ok=True);os.link(secret,alias)
+            self.assertEqual(alias.stat().st_nlink,2);self.assertFalse(alias.is_symlink())
+            proc,out=self.run_remote_manifest(root,False)
+            self.assertNotEqual(proc.returncode,0);self.assertIn('REMOTE_ARTIFACT_HARDLINK_FORBIDDEN',proc.stderr);self.assertFalse(out.exists())
+
+    def test_remote_manifest_recursive_hardlink_alias_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td);secret=root/'hidden/reserve/secret.txt';secret.parent.mkdir(parents=True);secret.write_bytes(b'FUTURE_SECRET')
+            alias=root/d.PACKET_DIR/'packet_000.json';alias.parent.mkdir(parents=True,exist_ok=True);os.link(secret,alias)
+            self.assertEqual(alias.stat().st_nlink,2);self.assertFalse(alias.is_symlink())
+            proc,out=self.run_remote_manifest(root,False)
+            self.assertNotEqual(proc.returncode,0);self.assertIn('REMOTE_ARTIFACT_HARDLINK_FORBIDDEN',proc.stderr);self.assertFalse(out.exists())
+
+    def make_bundle(self, td, extra=None, symlink=False, hardlink=False):
         root=Path(td); src=root/'src'; src.mkdir()
         files={
             d.PACKET_DIR+'/manifest.json':b'packet-manifest\n',
@@ -98,6 +136,8 @@ class V22DispatchTests(unittest.TestCase):
             for rel in files:tf.add(src/rel,arcname=rel,recursive=False)
             if symlink:
                 ti=tarfile.TarInfo(d.PACKET_DIR+'/badlink');ti.type=tarfile.SYMTYPE;ti.linkname='../../etc/passwd';tf.addfile(ti)
+            if hardlink:
+                ti=tarfile.TarInfo(d.PACKET_DIR+'/badhard');ti.type=tarfile.LNKTYPE;ti.linkname=d.RESULT_JSON;tf.addfile(ti)
         return tp,mp,files
 
     def test_bundle_verification_and_durable_copy(self):
@@ -137,6 +177,11 @@ class V22DispatchTests(unittest.TestCase):
             tp,mp,_=self.make_bundle(td,symlink=True);art=Path(td)/'a';art.mkdir()
             with self.assertRaisesRegex(ValueError,'UNSAFE'):d.verify_and_extract_bundle(tp,mp,art)
 
+    def test_bundle_hardlink_member_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            tp,mp,_=self.make_bundle(td,hardlink=True);art=Path(td)/'a';art.mkdir()
+            with self.assertRaisesRegex(ValueError,'UNSAFE'):d.verify_and_extract_bundle(tp,mp,art)
+
     def test_manifest_undeclared_future_path_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             extra={'results/science/valid_unseen/leak.json':b'no'}
@@ -154,6 +199,8 @@ class V22DispatchTests(unittest.TestCase):
         for rel in d.DECLARED_OUTPUTS:self.assertIn(rel,cmd)
         self.assertNotIn('valid_seen',cmd);self.assertNotIn('valid_unseen',cmd)
         self.assertIn('REMOTE_ARTIFACT_SYMLINK_FORBIDDEN',cmd)
+        self.assertIn('REMOTE_ARTIFACT_HARDLINK_FORBIDDEN',cmd)
+        self.assertIn('st_nlink',cmd)
         self.assertIn('REQUIRED_REMOTE_ARTIFACT_MISSING',cmd)
 
 

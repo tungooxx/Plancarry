@@ -26,11 +26,12 @@
     "local_tar_symlink_or_hardlink_forbidden": true,
     "manifest_file_sha256_and_size_verified_after_download": true,
     "provider_loss_after_copy_does_not_remove_local_artifact_bytes": true,
+    "remote_hardlink_alias_forbidden": true,
     "remote_realpath_escape_forbidden": true,
     "remote_symlink_escape_forbidden": true,
     "success_requires_all_declared_roots": true
   },
-  "engineering_task_id": "e1150387-becb-4f6f-bd8e-fcb3fc174264",
+  "engineering_task_id": "81e89eb9-a44a-4809-ae46-f2c4cfce56a4",
   "experiment_id": "e9a95d91-7b68-4ffc-9f1c-ec3dc5c3c6e9",
   "frozen_remote_binding": {
     "bound_contract_sha256": "f125b6f8a0c96ca74beb75893e9ac6a40ea2ea436306e73c4b0667150ecd3726",
@@ -43,11 +44,20 @@
     "repo_path": "/workspace/GPU-Lab/repos/plancarry-replayresidual-v22-911b081",
     "reset_canary_attestation_sha256": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2"
   },
+  "hardlink_alias_repair": {
+    "baseline_counterexample_job": "local_93ff489d16914772",
+    "baseline_observation": "synthetic hardlink alias has st_nlink=2, is not a symlink, resolves to declared pathname, and exposes aliased bytes",
+    "failed_review_commit": "e4f34f87ffbd4ffb72612144223c18f6503f2230",
+    "failed_review_sha256": "dbb68f160677d1a09f8a30949c8ba805461dc84497bfc0243fcb26a5ee76e11b",
+    "failed_review_work_item_id": "c36003fc-7db4-4e41-8322-3dfb3771f8dc",
+    "guard": "every direct declared regular file and every recursive regular child must have stat().st_nlink == 1 before digest/manifest/tar",
+    "scientific_variables_changed": []
+  },
   "implementation": {
     "test": "results/design/test_plancarry_replayresidual_v22_vast_dispatch_v1.py",
-    "test_sha256": "2ffd8cb1b8cd3742d943aef8fab8596c7f0b0b57d297c2a15e83e33b9604f9dc",
+    "test_sha256": "a28c8458b59b753d762eb2a16e1e9b6a82b28b281556c486f216b1235420d90a",
     "wrapper": "plancarry_replayresidual_v22_researchos_vast_dispatch_v1.py",
-    "wrapper_sha256": "8ae4bb4944d74953aa73b415b7305fdb925ba242c248f82af32025c731f7e424"
+    "wrapper_sha256": "ab55ca4649f7fe757b5d27776a4019a85b5237ac356b14af15237b7af84fc0b3"
   },
   "kind": "PLANCARRY_REPLAYRESIDUAL_V22_ARTIFACT_SAFE_VAST_DISPATCH_AUDIT_V1",
   "late_bound_live_attestation": {
@@ -56,6 +66,8 @@
     "dynamic_endpoint_separately_decision_bound": true,
     "no_synthetic_flattened_attestation": true
   },
+  "predecessor_dispatcher_commit": "fa54a1b860c22cc73e419142ab5e9d3bdbdf2e5d",
+  "predecessor_engineering_task_id": "e5380bef-66c5-4d95-9ed7-3d39dfefceca",
   "prohibitions": [
     "no provider lifecycle",
     "no model/environment execution during engineering",
@@ -68,31 +80,35 @@
   ],
   "scientific_result": "NOT_ASSESSED",
   "scientific_variables_changed": [],
-  "source_dispatcher_commit": "cd4de65dd4319fe45f37d9bc270e23250161b093",
+  "source_dispatcher_commit": "fa54a1b860c22cc73e419142ab5e9d3bdbdf2e5d",
   "source_repair_commit": "911b0815061f0f79265558ba0e758f0d8bff5ba2",
   "source_repair_review_work_item_id": "7d98bcb2-27a5-491d-a739-42fcc4950be0",
-  "status": "PRE_SCIENCE_ENGINEERING_SCHEMA_REPAIR_PENDING_INDEPENDENT_REVIEW",
+  "status": "PRE_SCIENCE_ENGINEERING_HARDLINK_REPAIR_PENDING_INDEPENDENT_REVIEW",
   "successor_engineering_task_id": "e5380bef-66c5-4d95-9ed7-3d39dfefceca",
   "tests": {
     "alfworld_study_execution": 0,
     "bash_n_host_launcher": true,
-    "dispatcher_unit": "14/14 PASS",
+    "dispatcher_unit": "18/18 PASS",
     "future_split_access": false,
     "git_diff_check": true,
     "live_preflight": "V22_DISPATCH_REMOTE_PREFLIGHT_PASS / READY_NO_SCIENCE",
     "live_preflight_environment_execution": 0,
-    "live_preflight_job": "local_fc46cebb59e541b9",
+    "live_preflight_job": "local_ca152cbfd3b441b1",
     "live_preflight_model_calls": 0,
     "live_preflight_model_loads": 0,
     "live_preflight_reserve_access": false,
     "live_preflight_valid_seen_access": false,
     "live_preflight_valid_unseen_access": false,
+    "local_tar_hardlink_member_rejected": true,
     "model_calls": 0,
     "model_forwards": 0,
     "model_generations": 0,
     "model_loads": 0,
     "provider_lifecycle_actions": 0,
     "py_compile": true,
+    "remote_manifest_direct_hardlink_alias_rejected": true,
+    "remote_manifest_recursive_hardlink_alias_rejected": true,
+    "remote_manifest_regular_file_control_pass": true,
     "v22_materialization_static": "PASS_STATIC_PRE_SCIENCE_V22_MATERIALIZATION"
   },
   "unchanged_source_hashes": {
@@ -102,5 +118,5 @@
     "packet_producer": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8",
     "reset_canary_attestation": "a660a118e93664f6f8a233fac4de6c36b9348ddb418eb2f1a807d8598401aab2"
   },
-  "work_item_id": "a43549cf-4bee-499a-beb1-3752e1cd9569"
+  "work_item_id": "439278f1-f273-4563-862d-5981fc582966"
 }
