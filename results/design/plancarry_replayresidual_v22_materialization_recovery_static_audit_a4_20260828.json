@@ -1,0 +1,116 @@
+{
+  "authority_hashes": {
+    "adapter": "94402dfb7d6de174773fbefb9d5733f73b1dbc9648d6d1a36764c3e6dd0f77c0",
+    "attestation_contract": "40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666",
+    "attestation_independent_review": "a03a4cc7f2d7c83fe8df3112edba5b373bd0d4241d6f20731a373f62adc39765",
+    "attestation_static_audit": "825ed04dbf87e890abf9e9d2085e2fe39722696327dfbd49aa3ebe3435292ad1",
+    "binder": "3ef7dc647a8cf478fd35ae9ae8c1a2e0b5d0f76b60691b42a1a0ecce9ad03545",
+    "compat_shim": "a08a1e1e5536afc11d94868de40eaea89cb929ef43b59a1102f378446284a7f4",
+    "compat_wrapper": "5e2caea4d6c6d2139dd696950299f3d2ad4cadb21dbcc1a0670e2d7805677472",
+    "launcher": "aaa07dbbbcbb1d16ef888e1fc0b8c8d38a58a18e8df0b0533f3a175e4f49c3ee",
+    "parent_contract": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+    "successor_policy": "c9ee11ccaad981441c1462a60b59b9bd4ffa021b149ac4f0d18df568f4724c70",
+    "successor_policy_review": "7044718fbef271fb86d8243e4345e2970894a66d65326be2c9d292af9214c750",
+    "template": "691b93024ffe45ad46c4bb3b6fc162b83dace44e939dd0373bcd6bdf822dc4a1",
+    "test": "d9ac50dbd0d3134c070e48cae14d99ef96bc9a5d3850fe6775c1a7d90f64a59a",
+    "thin_wrapper": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8"
+  },
+  "base_commit": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "checks": {
+    "environment_execution": 0,
+    "execution_attestation_exact_pass_artifact_present": true,
+    "experiment_registered": false,
+    "gpu_provider_lifecycle": false,
+    "launcher_preflight_is_host_neutral_static_only": true,
+    "launcher_requires_exact_explicit_runtime_python_for_execute": true,
+    "launcher_requires_native_execution_attestation_target": true,
+    "launcher_requires_separate_nonstudy_reset_compatibility_canary": true,
+    "launcher_suppresses_partial_scientific_values_from_stdout": true,
+    "model_calls": 0,
+    "model_loads": 0,
+    "native_attestation_required_before_scientific_assessment": true,
+    "old_v21_science_artifact_contents_hashed": false,
+    "old_v21_science_artifact_contents_read": false,
+    "old_v21_science_artifacts_modified": false,
+    "packet_bytes_changed_by_postregistration_rebind": false,
+    "parent_scientific_contract_byte_exact": true,
+    "postregistration_bound_contract_rejects_science_field_tamper": true,
+    "research_decision_created": false,
+    "reserve_access": false,
+    "reviewed_compat_shim_wrapper_byte_exact": true,
+    "scientific_result_reads": 0,
+    "stale_parent_experiment_prediction_ids_rebound_only_in_manifest_provenance": true,
+    "successor_policy_exact_pass_artifact_present": true,
+    "technical_exception_reason_fails_closed_before_representation_evaluation": true,
+    "v22_packet_target_absent": true,
+    "v22_result_target_absent": true,
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "engineering_task_id": "dbf403a1-d697-4201-9dd5-37258fd043af",
+  "future_activation_requirements": [
+    "fresh independent materialization review by worker other than A4 with exact PASS_FOR_REPLAYRESIDUAL_V22_MATERIALIZATION_RECOVERY",
+    "resolve canonical authority relationship for the historical attestation review or replace it with a fresh canonical reviewed attestation gate; no inference from PASS JSON alone",
+    "fresh successor Experiment/Prediction registration after review PASS",
+    "postregistration binding through the frozen binder with exact review WorkItem/SHA/verdict",
+    "separately reviewed explicit runtime Python/model/host binding",
+    "separate non-study reset compatibility canary attestation",
+    "fresh ResearchDecision bound to exact launcher/cwd/env/runtime",
+    "native research_execution_attest from immutable execution attestation before scientific assessment"
+  ],
+  "historical_attestation_authority_resolution": {
+    "canonical_completion_proven": false,
+    "execution_authorized_by_this_audit": false,
+    "fail_closed_rule": "The immutable PASS artifact is supporting evidence only until canonical work/gate provenance is resolved by a fresh independent materialization review/registration chain. Do not infer execution authorization from filename, commit, or PASS prose alone.",
+    "immutable_review_artifact_sha256": "a03a4cc7f2d7c83fe8df3112edba5b373bd0d4241d6f20731a373f62adc39765",
+    "immutable_review_artifact_verdict": "PASS_FOR_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION",
+    "required_historical_review_work_item_id_from_recovery_card": "f486ddd7-471d-4bbb-bbde-ca463e4c19aa",
+    "review_artifact_git_commit": "a5a8bd48cbefbf30a672ca9e7a178904b7bdfbca"
+  },
+  "interpretation": "Mechanical engineering recovery only. The package is ready for fresh independent materialization review, but execution remains blocked. This audit is not scientific evidence and does not authorize model/environment execution.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_MATERIALIZATION_RECOVERY_STATIC_AUDIT_A4_20260828",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "semantic_diff_paths_vs_parent_v2_1": [
+    "canonical_object_sha256_without_self_field",
+    "kind",
+    "output_semantics.final_target_dir",
+    "output_semantics.representation_sanity_result_target",
+    "technical_successor_v2_2",
+    "version",
+    "work_item_id"
+  ],
+  "stale_identity_repair": {
+    "problem": "Frozen V2.1 producer/validator manifests bind parent Experiment fbfeb9e9-4850-46c7-ad13-326cbe8da380 and Prediction d3208f84-ad00-47e3-ad77-c6a320e08c2d.",
+    "repair": "Produce and fully validate unchanged V2.1 packets in a private hidden directory; preserve every packet byte; rebind only manifest/provenance identity and technical-successor metadata to fresh reviewed post-registration IDs; independently verify packet hashes before atomic publication to the V2.2 target.",
+    "scientific_variable_change": false
+  },
+  "status": "PASS_STATIC_PRE_SCIENCE_MATERIALIZATION_RECOVERY_EXECUTION_BLOCKED",
+  "technical_error_guard": {
+    "allowed_stage1_noneligibility": [
+      "PLAN_ACCEPTANCE_FAILED",
+      "NOT_WON_WITHIN_ACTION_BUDGET",
+      "TRAJECTORY_HAS_FEWER_THAN_4_ACTIONS",
+      "TRAJECTORY_EXCEEDS_ACTION_BUDGET",
+      "FIRST_TWO_ACTIONS_NOT_BOTH_NONTRIVIAL",
+      "FIRST_TWO_ACTIONS_UNAVAILABLE",
+      "FEWER_THAN_TWO_POST_CUT_NONTRIVIAL_ACTIONS"
+    ],
+    "allowed_stage2_noneligibility": [
+      "FROZEN_E_SIZE_LT_2",
+      "NO_DIFFERENT_FAMILY_DONOR_IN_FROZEN_E",
+      "NOT_IN_FROZEN_TRAJECTORY_ELIGIBLE_E"
+    ],
+    "reason": "V2.1 can record runtime/action exceptions inside ineligible packets. V2.2 may not silently count such failures as scientific non-eligibility.",
+    "synthetic_nameerror_sentinel_caught": true,
+    "unknown_reason_or_action_error": "TECHNICAL_ERROR; stop before representation evaluation"
+  },
+  "test_evidence": {
+    "inherited_v21_packet_tests": "10/10 PASS",
+    "inherited_v21_regression_preflight_job": "local_14868488434a412a",
+    "launcher_preflight": "READY_NO_SCIENCE",
+    "materialization_adversarial_suite": "PASS_STATIC_PRE_SCIENCE_V22_MATERIALIZATION",
+    "materialization_adversarial_suite_job": "local_d6b3d537c871485e"
+  },
+  "work_item_id": "f2787bb9-4684-47a0-ab1c-ae342cc43ba2"
+}
