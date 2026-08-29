@@ -1,0 +1,72 @@
+{
+  "authority_note": "Rejected and partial commits were diagnostic history only; successor was implemented in a fresh isolated worktree at the reviewed base.",
+  "engineering_task_id": "ae7bce09-735d-4f6d-8374-302002e192ec",
+  "exact_arms": [
+    "NO_CARRY",
+    "STATIC_ONESHOT",
+    "STATIC_REPEAT",
+    "ALIGNED_RECURSION",
+    "TRANSITION_PERMUTED",
+    "MATCHED_INFORMATION"
+  ],
+  "fresh_independent_non_a5_non_a2_review_required": true,
+  "implementation_sha256": "4410f55cd4644e0d3488e687fcadb913b669f2b2aec25abc858d4c2ec6ba8c83",
+  "mechanistic_support_or_refutation_available": false,
+  "partial_history_commit": "51f386df6201f7f05da3c4b216f37ab1260eb0d0",
+  "phase": "PRE_SCIENCE_CONSTRUCTIBILITY_ONLY",
+  "preferred_reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "prohibited_actions_observed": {
+    "environment_execution": 0,
+    "experiment_or_decision_creation": 0,
+    "future_or_legacy_split_access": 0,
+    "gpu_provider_actions": 0,
+    "model_calls": 0,
+    "numeric_science_threshold_freeze": 0,
+    "planroute_actions": 0,
+    "successorfeature_promotion": 0
+  },
+  "protected_authority_sha256": {
+    "cpds_graphfork_contract_validator_v1.py": "c3f6b9ee38fff7a984449e9608b925a0b9f6c7b1bbd268db9beba148b25cbd20",
+    "results/design/plancarry_cpds_graphfork_adversarial_cases_v1_20260829.json": "dbe60905114a41c6a6c2b6a96d591ca7d844e29d6fb1db7a011b01b91748d9ba",
+    "results/design/plancarry_cpds_graphfork_constructibility_contract_v1_20260829.json": "87bce823aea942250a906f189dee5fc72658681df961e7f984c5963924eca4f7",
+    "results/design/plancarry_cpds_graphfork_constructibility_static_audit_v1_20260829.json": "30a075e366b910068e9c5af333a6f7d3182494bea6544ee13fe1202a2bd27ba9",
+    "results/design/plancarry_cpds_graphfork_generator_spec_v1_20260829.json": "a5075c8285afee23d8c50237a7c9e87c0e97683cb8617a92306415e5f81df430",
+    "tests/test_cpds_graphfork_contract_validator_v1.py": "3cfcc74671b98564c8c68ed131779a1288e9dc4bc8a91c1bcd88914aa04fa74e"
+  },
+  "rejected_history_commit": "ef7db504da640f58688d603229bed172e652dc13",
+  "review_failure_source_work_item_id": "07ff0c36-74d3-4774-a7ec-9249267d21c1",
+  "reviewed_base_commit": "056d9082c82fd0418c733390077d23b8341ce896",
+  "reviewed_base_tree": "3fc9c456ff521b864f9c6815fb85f31ec45c9c5d",
+  "reviewer_defects_addressed": [
+    "external source/snapshot/manifest authority via caller-frozen expected seals and source rebuild",
+    "certificate hash and family binding derived from externally sealed source+manifest",
+    "observed transition records must exactly match sealed common-prefix transition keys in causal observed order",
+    "per-arm exact state_policy/update_operation semantics prevent static or matched-information controls becoming aligned recursion",
+    "full exact six-arm ordered algebra with missing/extra/duplicate rejection",
+    "deterministic nonidentity permutation derived only from authenticated already-observed transition keys",
+    "G nonexecuting/nonforcing/environment-nonmutating and strict carrier provenance allowlist",
+    "first-action-excluded reviewed endpoint binding",
+    "development/confirmation source, namespace, structural-family and family-ID independence",
+    "summary revalidates packet against external source/manifest authority and remains NOT_ASSESSED"
+  ],
+  "schema": "PLANCARRY_CPDS_GRAPHFORK_CONSTRUCTIBILITY_IMPLEMENTATION_AUDIT_V3",
+  "scientific_result": "NOT_ASSESSED",
+  "test_sha256": "e29276fa95ecfc0981a10e5a6f3a7bc52750b903209007a5e38e4f831f38c09c",
+  "verification": {
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "prohibited_import_ast_scan": "PASS",
+    "protected_hash_check": "PASS",
+    "self_test": {
+      "environment_execution": 0,
+      "future_split_access": 0,
+      "model_calls": 0,
+      "scientific_result": "NOT_ASSESSED",
+      "status": "PASS_CONSTRUCTIBLE"
+    },
+    "unit_test_count": 20,
+    "unit_test_result": "PASS",
+    "unit_tests": "python -m unittest tests.test_cpds_graphfork_constructibility_v1 tests.test_cpds_graphfork_contract_validator_v1"
+  },
+  "work_item_id": "fbdffb0d-3e76-45c6-9c44-a649cfd4a1bf"
+}
