@@ -1,0 +1,90 @@
+{
+  "acceptance": {
+    "action_only_no_plan_or_later_action_inputs": "PASS",
+    "adversarial_one_clause_no_punctuation_repeated_token": "PASS",
+    "all_lengths_8_512_exact": true,
+    "all_lengths_deterministic": true,
+    "anchor_equality": true,
+    "legacy_v1_regression_15_of_15": "PASS",
+    "no_decode_reencode_or_science_deps": true,
+    "order_block_derangement": true,
+    "order_multiset_preserved": true,
+    "short_or_overlong_fail_closed": "PASS",
+    "zero_information_controls_fail_closed": "PASS"
+  },
+  "contract": {
+    "action_only_forbidden_inputs": [
+      "plan_ids",
+      "reference_action4_ids",
+      "reference_action5_ids",
+      "future_observations"
+    ],
+    "action_only_rule": "fixed wrapper + exact reference action3 IDs + fixed neutral token cycle; wrapper-matched neutral replaces exactly the action3 span; identical action/control pair fails closed",
+    "decode_reencode": false,
+    "minimum_supported_slot_length": 8,
+    "neutral_rule": "prospectively frozen token-ID cycle repeated to exact family length L; PLAN_PRESENT==NEUTRAL_L fails closed",
+    "order_block_count": 4,
+    "order_rule": "four contiguous blocks; deterministic left rotation [1,2,3,0]; every block index changes and original final block is non-final; byte-identical permutation fails closed",
+    "production_token_contract_status": "UNBOUND_PRE_SCIENCE",
+    "source_anchor_rule": "all same-family source conditions have exact L and anchor offset L-1",
+    "zero_information_controls": "FAIL_CLOSED"
+  },
+  "engineering_task_id": "e6e788d7-61fe-4986-8a14-a65c3edf2200",
+  "helper": {
+    "path": "variable_slot_controls_v1.py",
+    "rule_version": "REPLAYRESIDUAL_VARIABLE_SLOT_CONTROLS_V1",
+    "sha256": "a4cb466d2ba4a8183958caf62a78d15a4390014cc09faa44a5d18636f65186ce"
+  },
+  "hypothesis_id": "2a1b7f2b-80fa-4f48-b72b-f4ddadfb6538",
+  "legacy_v1_hash_guards": {
+    "localcontinuation_packet_builder_v1.py": "116c213d27af987e782e463bc0317d8d443e95bf1ba571dbba0386d63d109128",
+    "replay_residual_natural_packet_producer_v2_1.py": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "tests/test_localcontinuation_execution_stack_v1.py": "53d894d6d9ac406f8ff51263ab01ffbfe22ed65894cdb8a4901bf318b019f3d1"
+  },
+  "limitations": [
+    "Synthetic integer token IDs only; this does not bind real Qwen neutral/wrapper token IDs.",
+    "No claim is made about semantic fluency of ORDER_NULL or neutral fillers before a prospectively frozen tokenizer-level contract is independently reviewed.",
+    "Degenerate exact-token cases where a nuisance/control would be byte-identical are explicitly unconstructible and fail closed; no replacement policy is authorized here.",
+    "No ALFWorld population constructibility or causal effect has been measured."
+  ],
+  "property_sweep": {
+    "anchor_equal_pass": 505,
+    "derangement_pass": 505,
+    "deterministic_pass": 505,
+    "exact_length_pass": 505,
+    "lengths_checked": 505,
+    "multiset_pass": 505,
+    "nonzero_contrast_pass": 505
+  },
+  "schema": "PLANCARRY_REPLAYRESIDUAL_VARIABLESLOT_STATIC_CONTRACT_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "source_head": "b4271d4e57aab521acd94990e8ecab31597213ab",
+  "source_run_context": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
+  "static_dependency_audit": {
+    "forbidden_science_dependency_hits": [],
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "typing"
+    ]
+  },
+  "study_execution": {
+    "alfworld_environment_calls": 0,
+    "consumed_v1_packet_reads_for_tuning": 0,
+    "model_forward_calls": 0,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "tests": {
+    "legacy_v1_cases": 15,
+    "path": "tests/test_variable_slot_controls_v1.py",
+    "sha256": "e11820f11ad0ed3fa7626b9ed63f287b1bf6ab6ea2381872d763887f3f9447ec",
+    "unittest_cases": 8
+  },
+  "zero_information_guard_fixtures": [
+    "all_identical_order",
+    "periodic_identical_blocks",
+    "action_pair_identical",
+    "active_pair_identical"
+  ]
+}
