@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "assignment_manifest_tamper_fail_closed": true,
+    "both_split_atomic_bundle_implemented": true,
+    "candidate_commit_tree_four_files_externally_bound": true,
+    "candidate_set_mutation_rejected": true,
+    "constructibility_commit_tree_files_bound": true,
+    "cross_split_source_structural_family_disjointness_required": true,
+    "exact_33_each_split_required": true,
+    "exact_six_arms_preserved": true,
+    "exact_six_slots_preserved": true,
+    "factoradic_720_bijection_implemented": true,
+    "fresh_non_author_review_required": true,
+    "independent_review_commit_artifact_bound": true,
+    "injectable_test_rng_supported": true,
+    "recurrent_realization_unchanged": true,
+    "slot_mutable_state_isolated": true,
+    "static_repeat_scratch_isolated_from_G_endpoint": true,
+    "transition_permuted_no_future_preview": true,
+    "u16_rejection_cutoff_64800_implemented": true,
+    "v3_commit_tree_files_bound": true,
+    "v3_statistics_and_endpoint_unchanged": true,
+    "working_protected_bytes_fail_closed": true,
+    "write_once_no_redraw_implemented": true
+  },
+  "engineering_task_id": "76b84872-fdc7-4daa-8463-607fbd055f8e",
+  "notes": "Static/synthetic PRE_SCIENCE implementation only. PASS of engineering tests is not CPDS mechanism evidence.",
+  "prohibited_actions_observed": {
+    "confirmation_outcome_access": 0,
+    "development_arm_outcome_access": 0,
+    "environment_execution": 0,
+    "experiment_registration_or_execution": 0,
+    "future_split_access": 0,
+    "gpu_provider_lifecycle": 0,
+    "model_or_tokenizer_forward": 0,
+    "planroute_action": 0,
+    "research_decision": 0
+  },
+  "schema": "PLANCARRY_CPDS_EXECUTABLE_IMPLEMENTATION_READINESS_STATIC_AUDIT_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "work_item_id": "25bd6c39-b01f-4577-a904-2bd3f83fbf59"
+}

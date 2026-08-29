@@ -1,0 +1,415 @@
+{
+  "adapter_G": {
+    "G_fit_recipe": "NONE",
+    "G_id": "CPDS_PARAMETER_FREE_COSINE_WHOLE_ACTION_RERANK_V1",
+    "G_trainable_parameters": 0,
+    "can_execute_action": false,
+    "can_force_single_action": false,
+    "can_mutate_environment": false,
+    "candidate_set": "Exactly the candidate action strings already scored by the frozen base-policy scorer at that scoring point; G may not add, delete, filter, relabel, or inspect branch-equivalence classes.",
+    "formula": "delta(a,z)=dot(unit_l2(z),unit_l2(q(a))); adjusted_whole_action_logscore(a)=base_whole_action_logscore(a)+delta(a,z). Identity coefficient 1.0 is frozen; there is no tunable gain/temperature.",
+    "input_sources": [
+      "current_base_policy_whole_action_logscore",
+      "current_z_t",
+      "branch_blind_action_feature"
+    ],
+    "nonexecuting": true,
+    "normalization": "If a normalized probability distribution is required for endpoint scoring, normalize adjusted whole-action logscores over the same frozen candidate set only.",
+    "runtime_use": "G outputs adjusted scores only. Environment/action execution is outside G and forbidden in this PRE_SCIENCE freeze."
+  },
+  "arm_realization": {
+    "ALIGNED_RECURSION": "Starting from sealed z0, execute exact F sequentially over sealed transition features in authenticated causal order; expose current recurrent state to exact G at inherited matched locations.",
+    "MATCHED_INFORMATION": "Use same sealed z0, state width/dtype, F/G call identities/count/sites/timing and information-volume budget. Sequentially update using fixed P(x_t) control features in authenticated causal order.",
+    "NO_CARRY": "No z/F/G state interface; inherited null semantics.",
+    "STATIC_ONESHOT": "Expose sealed z0 exactly once at inherited oneshot G location; no F update.",
+    "STATIC_REPEAT": "Expose byte-identical sealed z0 at every matched G location. At every matched updater slot execute the same F callable in an isolated scratch chain on the same sealed x_t inputs, but the scratch state has no directed path to G or endpoint scoring; exposed state remains z0.",
+    "TRANSITION_PERMUTED": "Use same sealed z0, same sealed transition-feature multiset, same F/G, same call count/sites/budgets. Apply the accepted deterministic nonidentity permutation only when every permuted source record has already causally occurred; no future preview. Only transition replay order differs from ALIGNED_RECURSION."
+  },
+  "authority": {
+    "constructibility_commit": "c1c6517ff4678c2a9b151f67a1ff4dd6f5aae244",
+    "constructibility_review_verdict": "PASS_FOR_CPDS_GRAPHFORK_GEOMETRY_DUPLICATE_REPAIR",
+    "constructibility_review_work_item_id": "772625e7-9100-485c-a36e-07a319bd6bfa",
+    "planroute": "USER_NOOP_RETIRED",
+    "statistical_commit": "df17c5ee3a3d2c6bccd70367886216cd043d40f3",
+    "statistical_review_verdict": "PASS_FOR_CPDS_V3_STATISTICAL_REPAIR",
+    "statistical_review_work_item_id": "8578d9b8-55f8-445c-933b-b7b8faaed433",
+    "successorfeature": "STATIC_BASELINE_ONLY"
+  },
+  "canonical_object_sha256_without_self_field": "3dbb9e6563055113c02fd0baa7e6e5bc5b85bd862c0b27da0afd9d1044bcb5b6",
+  "canonical_serialization": {
+    "action_payload": "RFC8259-style UTF-8 JSON object with exactly key action; separators comma/colon with no extra whitespace; ensure_ascii=false; value is exact candidate action string already scored by the frozen base-policy scorer.",
+    "empty_token_sequence": "TECHNICAL_INVALID_ENTIRE_SPLIT_NO_REPLACEMENT",
+    "tokenization": "Frozen model tokenizer revision; add_special_tokens=false; no chat template; no decode/re-tokenize normalization after tokenization.",
+    "transition_payload": "RFC8259-style UTF-8 JSON object with exactly keys command,observation; keys sorted lexicographically; separators comma/colon with no extra whitespace; ensure_ascii=false; values are exact runtime-causally-observed strings; no branch/family/evaluator fields."
+  },
+  "enabling_method": "Parameter-free native-hidden-state recurrence and nonexecuting cosine whole-action reranking are the prospective enabling method used to instantiate CPDS with no architecture fitting. This method is not itself the mechanism claim and is not evidence that native hidden geometry is privileged.",
+  "feature_basis": {
+    "action_feature": "For each exact candidate action string already present in the frozen base-policy scoring set, run one isolated standalone frozen-model forward on canonical action JSON; take final model-normalized hidden immediately before lm_head at final input token; convert BF16->FLOAT32; apply exact unit_l2. G never receives graph branch-equivalence membership or evaluator target labels.",
+    "basis_id": "QWEN3_FINAL_NORMALIZED_HIDDEN_NATIVE2048_V1",
+    "feature_sealing": "z0 and every transition feature are content-hashed and sealed before any arm-specific transformation or endpoint scoring. All matched arms consume byte-identical sealed z0 and transition feature bytes except the explicitly frozen MATCHED_INFORMATION scramble and TRANSITION_PERMUTED order.",
+    "transition_feature": "For each authenticated already-observed (command_t, observation_t+1), run one isolated standalone frozen-model forward on canonical transition JSON; no generation, no mutable KV/cache carry from any family/arm/slot; take final model-normalized hidden immediately before lm_head at final input token; convert BF16->FLOAT32; apply exact unit_l2.",
+    "unit_l2": "u(v)=v/sqrt(sum_i v_i^2), computed FLOAT32 with deterministic reduction order i=0..2047; require every input/output finite and norm_squared>0; no epsilon, learned normalization, PCA, projection, whitening, SVD, or outcome-selected basis.",
+    "z0_source": "Exact normal base-policy pre-reset forward: final model-normalized hidden vector immediately before lm_head at the last model-visible token before reset. No evaluator-secret, outcome-only, branch-id, family-id, source-graph-id, or future-transition field may contribute."
+  },
+  "frozen_model_basis": {
+    "carrier_numeric_dtype": "FLOAT32",
+    "config_sha256": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+    "hidden_size": 2048,
+    "minimality_rationale": "d_z=2048 is exactly the frozen model native hidden width. Any d_z<2048 would introduce a new projection/bottleneck whose basis and dimension have no pre-outcome authority; any d_z>2048 adds capacity without necessity. This is not a claim that 2048 is the scientifically minimal sufficient latent dimension.",
+    "minimality_scope": "SMALLEST_NO_NEW_BOTTLENECK_AND_NO_EXPANSION_REALIZATION",
+    "model_forward_dtype": "BF16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_mode": "EVAL_NO_GRAD",
+    "new_trainable_parameters": 0,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "hypothesis_id": "5d262191-9177-49ce-86ff-4944832aa1dc",
+  "lineage_audit_limitation": {
+    "blocking_code": "DISCOVERY_LINEAGE_INCOMPLETE",
+    "design_fields_missing": [],
+    "discovery_context_observation": {
+      "explicit_lineage_for_overlap_records": false,
+      "overlap_terms_include_generic_tokens": [
+        "and",
+        "matched",
+        "only",
+        "hidden"
+      ],
+      "parent_ids": []
+    },
+    "falsified_prerequisites_still_relevant": [],
+    "interpretation": "The remaining warning is conservative retrieval coverage, not a newly identified failed prerequisite. discovery_context_build returned broad lexical-overlap records with explicit_lineage=false and retrieval_scope.parent_ids=[]; generic early PlanCarry hypotheses and duplicate ResearchDecision records are therefore not silently promoted into CPDS causal ancestry.",
+    "latest_hypothesis_lineage_audit_passed": false,
+    "not_a_pass_claim": "This candidate does not claim the lineage audit itself passed. It freezes immutable candidate bytes so independent review can resolve the remaining coverage warning before any implementation or science.",
+    "required_independent_review": "Fresh non-author review must independently challenge whether any materially relevant scientific lineage was omitted, especially source-binding -> Direct-T1 -> LocalContinuation-v1/v2 -> ActionMatched -> PlanUnique-v1.2 -> Grounded-v2 technical history -> ReplayResidual V2.3, plus untouched-confirmation and same-population-reordering failures."
+  },
+  "lineage_reconstruction": {
+    "chronology_rule": "Separate original discovery motivations from current cumulative evidence. Technical/cancelled Grounded-v2 history contributes zero scientific evidence. Later scientific negatives modify design requirements but do not retroactively change what motivated earlier hypotheses.",
+    "current_authority_basis": [
+      {
+        "addressed_by_current_design": "Inherited exactly by reference; no mechanistic support claimed.",
+        "epistemic_class": "PRE_SCIENCE_CONSTRUCTIBILITY_PASS",
+        "implication": "Exact source authentication, observed-transition binding, six-arm algebra, G nonforcing, timing, endpoint, split independence, and duplicate guards are implementation/design authority only.",
+        "records": [
+          "5c343fa0c327ce8e00b87e0565879d357a56b692",
+          "c1c6517ff4678c2a9b151f67a1ff4dd6f5aae244",
+          "69f5b280-3cb7-425f-adb2-b51b15f2d5a8",
+          "772625e7-9100-485c-a36e-07a319bd6bfa"
+        ],
+        "stage": "CPDS graph-fork constructibility"
+      },
+      {
+        "addressed_by_current_design": "Preserved unchanged; this realization freeze does not alter n/k/randomization/power/statistical terminals.",
+        "epistemic_class": "PRE_SCIENCE_STATISTICAL_PASS",
+        "implication": "Fixed 33-family cohorts with randomized arm-to-isolated-slot assignment license the frozen randomization inference without graph-family iid assumption.",
+        "records": [
+          "df17c5ee3a3d2c6bccd70367886216cd043d40f3",
+          "8578d9b8-55f8-445c-933b-b7b8faaed433"
+        ],
+        "stage": "CPDS V3 randomized-slot statistics"
+      }
+    ],
+    "dead_assumptions_explicitly_not_inherited": [
+      "whole-task success or end-task success as cohort-entry prerequisite",
+      "fixed global textual token slot or clause-parser constructibility",
+      "symbolic A/B or STEP1/STEP2 source-binding sufficiency",
+      "changing model family alone repairs source binding",
+      "one-shot single residual vector sufficiency",
+      "development-selected layer, alpha, gain, projection dimension, recurrent dimension, or trainable F/G parameters",
+      "deterministic reordering/resampling of the same population constitutes independent confirmation",
+      "old ActionMatched future-branch pair-constructor prevalence",
+      "Grounded-v2 cancelled/technical partial outcomes are scientific evidence",
+      "nominal valid_seen remainder counts as untouched confirmation",
+      "same-population deterministic ordering or resampling counts as independent confirmation"
+    ],
+    "falsified_prerequisite_responses": [
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The valid_seen pool was large enough to supply a genuinely untouched confirmation cohort after v3 development inspection.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Different deterministic ordering schemes on the same 790-game train population were sufficient to provide non-overlapping prospective development cohorts.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Qwen2.5-1.5B would reliably bind the symbolic A/B order marker to the actual first divergent ALFWorld action while the option clauses remained fixed in position.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Semantic STEP1/STEP2 slot binding alone would make Qwen2.5-1.5B express the intended reciprocal plan branch strongly enough to pass the fixed source-competence gate.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Changing only from Qwen2.5-1.5B to Qwen3-1.7B would provide enough reciprocal source-plan expressivity under the unchanged corrected-v2.6 construction to cross the fixed 12/20 feasibility gate.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Changing only from Qwen2.5-1.5B to exact Qwen3-1.7B would restore the fixed source-competence property strongly enough to clear the preregistered 12/20 gate.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "Changing only from Qwen2.5-1.5B to exact Qwen3-1.7B would restore sufficiently reliable reciprocal source-plan binding under the fixed corrected-v2.6 source semantics.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The exact Qwen3-1.7B natural-plan executor would solve enough fixed pick_and_place_simple episodes within the frozen 12-action budget to yield an intervention-eligible population.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The inherited fixed-slot control representation was compatible with natural LocalContinuation plan formatting and history length. In particular, requiring a parseable >=2-clause shuffled plan and bounding rich GENERIC_HISTORY content to <=96 model tokens inside an exact 128-token slot was not satisfied by the fresh natural trajectories, even though those trajectories themselves were 32/32 eligible.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The inherited V2.1 Stage-2 control family was assumed constructible on LocalContinuation's natural fresh packets. Specifically, raw visible-history serialization was assumed to fit the 96-token content budget and every accepted natural plan was assumed to expose at least two shuffleable clauses. Both assumptions failed structurally; this is not evidence that the five-action local trajectory or causal residual mechanism lacks expressivity.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The inherited fixed-slot textual control representation was universally constructible enough for natural model-own five-action trajectories. The failure is in control representation/serialization, not trajectory expressivity or a measured causal effect.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The chosen episode-specific PLAN_PRESENT-minus-NEUTRAL residual and MSA2 endpoint would yield a plan-specific, behaviorally discriminable operating point after reset. Instead the discrete endpoint is invariant across interventions and the continuous margin effects are small/non-specific, with action/history controls often matching or exceeding ACTIVE.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The preregistered deterministic matched future-branch construction is sufficiently prevalent under Qwen3-1.7B on this fixed fresh ALFWorld development pool to obtain 20 eligible families within 64 scans.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "A single raw nuisance-orthogonal residual direction, injected once at the frozen reset-prefix site, is sufficient to isolate a plan-specific causal carrier with a stable positive matched-state continuation effect in this Qwen3-1.7B/ALFWorld setting.",
+        "status": "NOT_INHERITED"
+      },
+      {
+        "design_response": "Explicitly excluded by lineage_reconstruction and frozen CPDS graph-fork/V3 authority; no later implementation may reintroduce it without a new prospectively reviewed repair.",
+        "failed_assumption": "The frozen natural model-own greedy rollout and end-task-success qualification, under the fixed action budget and fixed development population, would produce enough successful natural trajectories to enter the ReplayResidual representation-sanity estimand.",
+        "status": "NOT_INHERITED"
+      }
+    ],
+    "falsified_prerequisites_verbatim": [
+      "The valid_seen pool was large enough to supply a genuinely untouched confirmation cohort after v3 development inspection.",
+      "Different deterministic ordering schemes on the same 790-game train population were sufficient to provide non-overlapping prospective development cohorts.",
+      "Qwen2.5-1.5B would reliably bind the symbolic A/B order marker to the actual first divergent ALFWorld action while the option clauses remained fixed in position.",
+      "Semantic STEP1/STEP2 slot binding alone would make Qwen2.5-1.5B express the intended reciprocal plan branch strongly enough to pass the fixed source-competence gate.",
+      "Changing only from Qwen2.5-1.5B to Qwen3-1.7B would provide enough reciprocal source-plan expressivity under the unchanged corrected-v2.6 construction to cross the fixed 12/20 feasibility gate.",
+      "Changing only from Qwen2.5-1.5B to exact Qwen3-1.7B would restore the fixed source-competence property strongly enough to clear the preregistered 12/20 gate.",
+      "Changing only from Qwen2.5-1.5B to exact Qwen3-1.7B would restore sufficiently reliable reciprocal source-plan binding under the fixed corrected-v2.6 source semantics.",
+      "The exact Qwen3-1.7B natural-plan executor would solve enough fixed pick_and_place_simple episodes within the frozen 12-action budget to yield an intervention-eligible population.",
+      "The inherited fixed-slot control representation was compatible with natural LocalContinuation plan formatting and history length. In particular, requiring a parseable >=2-clause shuffled plan and bounding rich GENERIC_HISTORY content to <=96 model tokens inside an exact 128-token slot was not satisfied by the fresh natural trajectories, even though those trajectories themselves were 32/32 eligible.",
+      "The inherited V2.1 Stage-2 control family was assumed constructible on LocalContinuation's natural fresh packets. Specifically, raw visible-history serialization was assumed to fit the 96-token content budget and every accepted natural plan was assumed to expose at least two shuffleable clauses. Both assumptions failed structurally; this is not evidence that the five-action local trajectory or causal residual mechanism lacks expressivity.",
+      "The inherited fixed-slot textual control representation was universally constructible enough for natural model-own five-action trajectories. The failure is in control representation/serialization, not trajectory expressivity or a measured causal effect.",
+      "The chosen episode-specific PLAN_PRESENT-minus-NEUTRAL residual and MSA2 endpoint would yield a plan-specific, behaviorally discriminable operating point after reset. Instead the discrete endpoint is invariant across interventions and the continuous margin effects are small/non-specific, with action/history controls often matching or exceeding ACTIVE.",
+      "The preregistered deterministic matched future-branch construction is sufficiently prevalent under Qwen3-1.7B on this fixed fresh ALFWorld development pool to obtain 20 eligible families within 64 scans.",
+      "A single raw nuisance-orthogonal residual direction, injected once at the frozen reset-prefix site, is sufficient to isolate a plan-specific causal carrier with a stable positive matched-state continuation effect in this Qwen3-1.7B/ALFWorld setting.",
+      "The frozen natural model-own greedy rollout and end-task-success qualification, under the fixed action budget and fixed development population, would produce enough successful natural trajectories to enter the ReplayResidual representation-sanity estimand."
+    ],
+    "method_mechanism_distinction": {
+      "enabling_method_role": "The native-2048 parameter-free feature/F/G construction is a low-assumption way to make the already-specified CPDS causal contrast executable. Its success/failure can be realization-dependent.",
+      "key_falsifier": "Under a valid, constructible experiment, ALIGNED_RECURSION fails the frozen co-primary ordered-dynamics comparisons versus BOTH STATIC_REPEAT and TRANSITION_PERMUTED under V3 randomization inference and frozen effect guards.",
+      "mechanism_role": "The mechanism claim concerns whether temporally aligned causal updates contain predictive information that is lost when the same static state is repeated or the same observed transition multiset is replayed in a prospectively permuted order.",
+      "scope_guard": "Such a null/refutation is scoped to CPDS_NATIVE2048_UNIT_SUM_RECURRENCE_V1 plus its frozen native feature/G realization unless later independent evidence justifies broader generalization."
+    },
+    "original_discovery_basis": [
+      {
+        "addressed_by_current_design": "Yes: CPDS requires independently generated development and confirmation snapshots/namespaces and explicitly forbids resampled-development confirmation.",
+        "epistemic_class": "SCIENTIFIC_VALID_NEGATIVE",
+        "failed_assumption": "Different deterministic ordering schemes on the same 790-game train population were sufficient to provide non-overlapping prospective development cohorts.",
+        "implication": "Deterministic reordering/resampling of the same source population is not independent confirmation.",
+        "records": [
+          "bb8122e2-8e1c-444d-bef1-59af5fc24479"
+        ],
+        "stage": "same-population deterministic-order independence failure"
+      },
+      {
+        "addressed_by_current_design": "Yes: CPDS V3 requires a separately frozen confirmation source snapshot/namespace with structural-family and family-ID disjointness before development arm outcomes; no valid_seen remainder is used.",
+        "epistemic_class": "SCIENTIFIC_VALID_NEGATIVE",
+        "failed_assumption": "The valid_seen pool was large enough to supply a genuinely untouched confirmation cohort after v3 development inspection.",
+        "implication": "Never infer untouched confirmation merely from a nominal remainder of a previously inspected population.",
+        "records": [
+          "8d9dc8f8-c1f1-434d-a45d-96c12ab678ba"
+        ],
+        "stage": "untouched-confirmation pool failure"
+      },
+      {
+        "addressed_by_current_design": "Yes: z0 and transition features contain no branch/family/evaluator identifiers; feature serialization uses only model-visible pre-reset content and already-observed command/observation records.",
+        "epistemic_class": "SCIENTIFIC_VALID_NEGATIVE",
+        "failed_assumption": "Symbolic/slot-bound A/B source prompts, including model-family change to exact Qwen3-1.7B, would reliably bind intended branch semantics strongly enough for the fixed source-competence gate.",
+        "implication": "Do not encode CPDS branch identity through symbolic A/B markers or assume a model switch solves binding. Carrier inputs must be branch-blind and grounded in authenticated model-visible/runtime-observed content.",
+        "records": [
+          "68e0c335-95fe-42cb-9c39-3e69fff90f9b",
+          "984dcd22-5296-443b-9c33-05e44c143c0b",
+          "b6af3ba1-9f96-4d4f-80b2-9b25e2d39034",
+          "c4657654-4ae3-4511-8e78-35d13112eb38",
+          "c5802c68-3709-45f6-8bf6-dc580c1c99cf"
+        ],
+        "stage": "source-binding v2.6/v2.7 and Qwen3 recovery"
+      },
+      {
+        "addressed_by_current_design": "Yes: CPDS graph-fork family eligibility is structural/pre-outcome and the realization freeze adds no task-success cohort-entry rule.",
+        "epistemic_class": "SCIENTIFIC_VALID_CONSTRUCTIBILITY_NEGATIVE",
+        "failed_assumption": "Full/natural task success within the old fixed action budget would provide enough intervention-eligible episodes.",
+        "implication": "Do not require whole-task success merely to enter a representation/dynamics cohort.",
+        "records": [
+          "1459c8ae-95c1-4838-9fd3-8e9f8b1d1863"
+        ],
+        "stage": "direct-T1 natural checkpoint"
+      },
+      {
+        "addressed_by_current_design": "Yes: CPDS features have native 2048 numeric width independent of plan text length/clauses; transition serialization is direct canonical command/observation JSON and no textual plan-control constructor is used.",
+        "epistemic_class": "SCIENTIFIC_VALID_CONSTRUCTIBILITY_NEGATIVE",
+        "failed_assumption": "A fixed global token slot, clause parser, and inherited exact-128 textual controls would be constructible for arbitrary natural plans/history.",
+        "implication": "Do not depend on fixed textual slot length, clause parsing, or decode/re-encode control synthesis.",
+        "records": [
+          "4dcad46c-7f6e-4a9e-bfbc-cdd0aad07e00",
+          "d6e23bb4-e7c8-40ff-b6fa-b1bb7e41cb4d",
+          "3ae14748-f10f-4d74-bb40-48bff9130f44"
+        ],
+        "stage": "LocalContinuation-v1"
+      },
+      {
+        "addressed_by_current_design": "Yes: no residual injection, no layer/alpha search, zero fitted parameters; the primary discriminator is ALIGNED_RECURSION versus STATIC_REPEAT and TRANSITION_PERMUTED plus MATCHED_INFORMATION.",
+        "epistemic_class": "SCIENTIFIC_VALID_DEVELOPMENT_NEGATIVE",
+        "failed_assumption": "One episode-specific PLAN_PRESENT-minus-NEUTRAL residual and its selected layer/alpha would yield plan-specific behavioral discrimination; controls often matched/exceeded ACTIVE.",
+        "implication": "Do not treat a one-shot residual direction or development-selected layer/alpha as sufficient. Require dynamic order-specific evidence against strong matched controls.",
+        "records": [
+          "4a591fe9-d60d-42fc-9b37-ac7c808796c8"
+        ],
+        "stage": "LocalContinuation-v2"
+      },
+      {
+        "addressed_by_current_design": "Yes: CPDS uses the independently reviewed graph-fork generator/certificates and independently generated development/confirmation snapshots, not the ActionMatched consumed population or constructor.",
+        "epistemic_class": "SCIENTIFIC_VALID_CONSTRUCTIBILITY_NEGATIVE",
+        "failed_assumption": "The old deterministic future-branch matched-pair constructor would yield enough eligible pairs (20 within 64).",
+        "implication": "Do not inherit that pair constructor/prevalence assumption.",
+        "records": [
+          "7d90317c-13cd-4ee3-9cbd-c34f987e2929"
+        ],
+        "stage": "ActionMatched"
+      },
+      {
+        "addressed_by_current_design": "Yes with narrow scope: z is a vector-valued state at any instant, but the tested causal object is the ORDERED UPDATE PROCESS over multiple authenticated transitions. STATIC_REPEAT uses the same z0, TRANSITION_PERMUTED uses the same transition multiset/F/G with only order changed, and MATCHED_INFORMATION matches recurrence/budget. A null therefore targets this dynamic realization, not all predictive state.",
+        "epistemic_class": "SCIENTIFIC_VALID_DEVELOPMENT_NEGATIVE",
+        "failed_assumption": "A single nuisance-orthogonal residual direction injected once is a sufficient plan-specific causal carrier with stable positive matched-state effect.",
+        "implication": "Any active successor must explicitly avoid reasserting one-shot single-vector residual sufficiency and must discriminate temporal dynamics from static carrier content.",
+        "records": [
+          "71cdf5a0-1217-414b-ba5c-7246882e52e5"
+        ],
+        "stage": "PlanUnique-v1.2"
+      },
+      {
+        "addressed_by_current_design": "Yes: zero Grounded-v2 outcomes or partial logs are used in feature/F/G choices.",
+        "epistemic_class": "TECHNICAL_CANCELLED_HISTORY_ONLY",
+        "failed_assumption": "None scientifically established; run history is technical/cancelled.",
+        "implication": "Do not use partial/cancelled Grounded-v2 logs as mechanism evidence or as a scientific prerequisite.",
+        "records": [
+          "62528595-e2e7-4939-93ef-0195d1db6db8"
+        ],
+        "stage": "Grounded-v2"
+      },
+      {
+        "addressed_by_current_design": "Yes: no full-task-success requirement is introduced; pre-outcome graph-fork constructibility failures remain constructibility/inconclusive.",
+        "epistemic_class": "SCIENTIFIC_VALID_CONSTRUCTIBILITY_NEGATIVE",
+        "failed_assumption": "Full end-task-success qualification on the frozen population would yield enough trajectories for the representation-sanity estimand.",
+        "implication": "Do not revive full-success entry as a CPDS prerequisite; classify entry failure as constructibility, not mechanism null.",
+        "records": [
+          "31831dce-59f9-47b2-8222-fd7d13291955"
+        ],
+        "stage": "ReplayResidual V2.3"
+      }
+    ]
+  },
+  "matched_information_control": {
+    "application": "Keep byte-identical z0. At each matched-information update slot call the exact same F callable on P(x_t) instead of x_t; expose the resulting recurrent state to the exact same G. Operation label remains CONTROL_MATCHED_UPDATE_SLOTS because only control-scrambled inputs are allowed to reach the exposed state.",
+    "control_id": "CPDS_NATIVE2048_SIGNED_SHIFT_SCRAMBLE_V1",
+    "properties": [
+      "fixed globally before data",
+      "orthogonal signed permutation",
+      "nonidentity",
+      "invertible",
+      "L2-norm preserving",
+      "same 2048 FLOAT32 values/capacity",
+      "independent of family id, branch labels, evaluator secrets, outcomes, and future transitions"
+    ],
+    "scope": "This is a task-irrelevant native-basis scramble control. It is not claimed to erase all mutual information; it tests whether generic same-budget recurrence/basis perturbation explains the active effect.",
+    "transform": "P(x)[i]=(-1)^i * x[(i+1) mod 2048] for i=0..2047"
+  },
+  "mechanistic_hypothesis": "If temporally ordered authenticated transition dynamics carry causal predictive state beyond static content, generic same-budget recurrence, and transition content without correct order, then ALIGNED_RECURSION should produce a larger first-action-excluded future-branch log-probability shift than BOTH STATIC_REPEAT and TRANSITION_PERMUTED under the exact matched randomized-slot design; MATCHED_INFORMATION tests whether generic same-budget recurrent computation/native-basis perturbation is sufficient.",
+  "phase": "PRE_SCIENCE_DESIGN_FREEZE",
+  "preoutcome_fail_closed_guards": [
+    "model id/revision/config SHA/hidden_size mismatch",
+    "any nonfinite captured feature/state/action feature or norm_squared<=0",
+    "any feature vector not exact length 2048 FLOAT32",
+    "transition feature source not authenticated RUNTIME_CAUSALLY_OBSERVED",
+    "any evaluator-secret/outcome-only/branch-id/family-id/source-graph-id/future-transition path into z0,F,G,feature basis,action feature,eligibility,or tuning",
+    "different z0/transition feature bytes across matched arms before explicit permutation/scramble",
+    "any trainable F/G parameter, optimizer, gradient update, PCA/SVD/projection/whitening, gain/temperature search, layer search, or state-dimension search",
+    "identity transition permutation or future transition preview",
+    "aligned/permuted final recurrent state byte-identical after sealed features and accepted permutation",
+    "MATCHED_INFORMATION scramble differs from exact globally frozen P or depends on family/target/outcome",
+    "G candidate-set mutation, action execution/forcing, environment mutation, or branch-equivalence access",
+    "cross-slot/cross-family mutable-state or cache carryover"
+  ],
+  "recurrent_state": {
+    "F_callable": "F(z,x)=unit_l2(z+x), elementwise FLOAT32 addition then exact unit_l2",
+    "F_dimension_selection": "NONE",
+    "F_fit_recipe": "NONE",
+    "F_hyperparameter_selection": "NONE",
+    "F_optimizer": "NONE",
+    "F_trainable_parameters": 0,
+    "F_training_data": "NONE",
+    "boundedness": "Every valid exposed recurrent state has L2 norm exactly one up to deterministic FLOAT32 arithmetic; nonfinite or zero-norm update is TECHNICAL_INVALID_ENTIRE_SPLIT.",
+    "initial_state": "z0=unit_l2(pre_reset_native_hidden)",
+    "order_specificity": "F is applied sequentially. The aligned final state is fold(F,z0,[x_1,...,x_n]); the permuted final state is fold(F,z0,[x_pi(1),...,x_pi(n)]). A byte-identical aligned/permuted final state is PREOUTCOME_CONSTRUCTIBILITY_INCONCLUSIVE for the whole split, never a dropped/replaced family.",
+    "state_capacity_bytes": 8192,
+    "state_dim": 2048,
+    "state_dtype": "FLOAT32",
+    "state_id": "CPDS_NATIVE2048_UNIT_SUM_RECURRENCE_V1"
+  },
+  "runtime_timing_and_isolation": {
+    "causal_rule": "A transition feature cannot be constructed or consumed before its exact authenticated source record is RUNTIME_CAUSALLY_OBSERVED.",
+    "immutable_input_packet": "Per family, sealed z0 plus sealed transition features are read-only carrier inputs cloned into isolated arm slots. Mutable F/G state, caches, RNG, outputs, or scratch buffers never flow across arms, randomized slots, or families.",
+    "matched_budget_rule": "ALIGNED_RECURSION, STATIC_REPEAT, TRANSITION_PERMUTED, MATCHED_INFORMATION use state capacity 2048xFLOAT32, same feature width/dtype, same F callable identity/zero params, same G callable identity/zero params, same candidate set, same G exposure count/locations, same update slot count/timing, and same runtime geometry.",
+    "oneshot_and_nocarry": "Remain intentionally non-exposure-matched baselines exactly as accepted constructibility authority.",
+    "permuted_rule": "The permuted replay over a set of records may begin only at the inherited contracted replay/scoring phase where all records in that permutation have already causally occurred. No future transition is previewed.",
+    "static_scratch_rule": "STATIC_REPEAT scratch recurrence is computation matching only; validator must prove no scratch-to-G/endpoint path."
+  },
+  "schema": "PLANCARRY_CPDS_RECURRENT_REALIZATION_FEATURE_BASIS_V1",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scope_and_terminals": {
+    "constructibility_failure": "Any realization-specific preoutcome guard failure is CONSTRUCTIBILITY_INCONCLUSIVE or TECHNICAL_INVALID as prospectively classified; it is never mechanism refutation.",
+    "no_science_authorization": "This freeze and its eventual review do not themselves authorize model/environment science. Fresh executable implementation/readiness, source/manifests/assignment freezes, and required independent reviews remain mandatory.",
+    "not_planunique_retest": "This is not a retest of one-shot residual sufficiency: no plan-minus-neutral residual is injected, no frozen layer/alpha residual operating point is selected, z is recomputed by an ordered multi-transition recurrence, and the decisive active-vs-permuted contrast holds z0, transition multiset, F, G, capacity, and exposure geometry fixed while changing only temporal order.",
+    "null_scope": "A future valid null/refutation applies to CPDS_NATIVE2048_UNIT_SUM_RECURRENCE_V1 plus its exact feature/G realization; it is not a universal refutation of all possible dynamic predictive-state architectures.",
+    "support_scope": "A future independently valid PASS may support ordered CPDS recurrence under this exact parameter-free native-2048 realization and frozen graph/model/task scope only."
+  },
+  "statistics_binding": {
+    "component_randomization_tail_p": 0.0400716562,
+    "joint_power_lower_bound_reference": 0.8025570627867475,
+    "n": 33,
+    "note": "These remain V3 randomization-inference quantities; this realization freeze does not alter thresholds, population, arm assignment, p-values, or power claims.",
+    "positive_each_min": 22,
+    "preserve_v3_randomized_slot_authority": true,
+    "statistical_contract_changed": false
+  },
+  "unresolved_after_this_freeze": [
+    "fresh independent non-author review of this realization/feature-basis contract",
+    "exact 33-family development and confirmation source snapshots and generator-run manifests frozen before any development arm outcome",
+    "executable randomized arm-to-isolated-slot assignment generator/validator and both assignment manifests frozen before any development arm outcome",
+    "model-facing implementation plus fresh executable/runtime/deployment-readiness review"
+  ],
+  "work_item_id": "2c3de74f-b00d-4f57-971e-fa8bd427380e"
+}
