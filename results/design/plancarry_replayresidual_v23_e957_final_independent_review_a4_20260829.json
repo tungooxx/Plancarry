@@ -1,0 +1,67 @@
+{
+  "candidate_commit": "e95782874f5aea0095e87f33ed2194e282d2cfee",
+  "candidate_tree": "10a1663c89a968295dc7afb7d5260ce654c2d14a",
+  "frozen_science_sha256": {
+    "replay_residual_capture_only_sidecar_v1.py": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "replay_residual_natural_packet_producer_v2_1.py": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "replay_residual_natural_packet_producer_v2_2_technical_successor.py": "d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8",
+    "replay_residual_sanity_runner_v1.py": "7a2c45dadb89a6e0736e53638132b69a38792ab83a3915a9d67ef937ce0a1bd3",
+    "whitebox_bridge_prefixstable_proto.py": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404"
+  },
+  "identity": {
+    "candidate_tree_clean_before_reviewer_artifact": true,
+    "fresh_detached_worktree": "PASS",
+    "git_diff_check": "PASS",
+    "six_file_diff_exact": true
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V23_E957_FINAL_INDEPENDENT_REVIEW_A4",
+  "repair_audit_sha256": "70786d5bd6d8e9085cfe5aa6275595f49e218d5219ea11349b090b23a5f681da",
+  "reviewer_attacks": {
+    "capability_types": [
+      "cuda_available exact bool True only",
+      "bf16_supported exact bool True only",
+      "oom_events nonnegative int not bool/string/float",
+      "repeat_count nonnegative int not bool/string/float and >=3",
+      "capture_layers integral not bool/float and exact set",
+      "hook_count_by_layer exact integral ones",
+      "driver_free_vram<=total",
+      "NaN/Inf/non-numeric rejected"
+    ],
+    "legacy_device_flag": [
+      "nonempty separated rejected",
+      "late duplicate nonempty rejected",
+      "nonempty equals rejected",
+      "all empty duplicates canonicalize exactly one empty option",
+      "argparse abbreviated legacy flag cannot restore nonempty admission because final canonical exact empty wins"
+    ],
+    "provenance": [
+      "runtime fingerprint tamper rejected",
+      "GPU UUID required",
+      "valid arbitrary nonempty GPU names pass name-invariant",
+      "canary SHA and current-device UUID still bound in launcher"
+    ]
+  },
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "robustness_observation": "Extremely large Python integers in physical numeric fields can raise OverflowError during float conversion rather than return a structured validation error. This remains fail-closed: validator exits nonzero and set -e launcher cannot proceed. It is not an admission bypass and is not material to this historical closure.",
+  "same_protocol_v23_rerun_authorized": false,
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_REVIEW_ONLY",
+  "scope": "Historical V2.3 executable guard closure only. No model/environment/GPU/provider/future split access; no same-protocol science rerun.",
+  "source_failed_review_commit": "e5670f955d31b231b76477789b1f795d1c511984",
+  "terminal_science_context": {
+    "classification": "CONSTRUCTIBILITY_INCONCLUSIVE_NOT_MECHANISTIC",
+    "negative_result_id": "31831dce-59f9-47b2-8222-fd7d13291955",
+    "qualified_count": 0
+  },
+  "tests": {
+    "bash_n": "PASS",
+    "capability_design": "PASS",
+    "corrected_v23": "13/13 PASS",
+    "diff_check": "PASS",
+    "gpu_name_admission": "5/5 PASS",
+    "py_compile": "PASS",
+    "reviewer_adversarial": "PASS",
+    "reviewer_robustness_fuzz": "PASS"
+  },
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_V23_FINAL_CAPABILITY_GUARD_CLOSURE",
+  "work_item_id": "7b5de075-e8ce-48a0-95ec-51564d29b340"
+}
