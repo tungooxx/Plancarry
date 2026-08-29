@@ -37,7 +37,7 @@ FINGERPRINT_FIELDS = (
 )
 NUMERIC_FIELDS = (
     "total_vram_mib", "driver_free_vram_before_canary_mib", "peak_reserved_mib",
-    "post_canary_reserved_mib", "repeat_reserved_span_mib", "oom_events", "repeat_count",
+    "post_canary_reserved_mib", "repeat_reserved_span_mib",
 )
 
 REQUIRED_ATTESTATION_FIELDS = [
@@ -134,23 +134,34 @@ def validate_attestation(c, a):
         errors.append("PEAK_RESERVED_GT_TOTAL")
     if float(a["post_canary_reserved_mib"]) > float(a["total_vram_mib"]):
         errors.append("POST_RESERVED_GT_TOTAL")
-    if not a.get("cuda_available", False):
-        errors.append("CUDA_UNAVAILABLE")
-    if not a.get("bf16_supported", False):
-        errors.append("BF16_UNSUPPORTED")
+    if float(a["driver_free_vram_before_canary_mib"]) > float(a["total_vram_mib"]):
+        errors.append("DRIVER_FREE_GT_TOTAL")
+    if a.get("cuda_available") is not True:
+        errors.append("CUDA_AVAILABLE_NOT_TRUE_BOOL")
+    if a.get("bf16_supported") is not True:
+        errors.append("BF16_SUPPORTED_NOT_TRUE_BOOL")
     for k, v in REQUIRED_RUNTIME.items():
         if a.get(k) != v:
             errors.append(f"ATTESTED_RUNTIME_MISMATCH:{k}")
-    if int(a.get("oom_events", -1)) != 0:
+    oom=a.get("oom_events")
+    repeat=a.get("repeat_count")
+    oom_is_int=isinstance(oom,int) and not isinstance(oom,bool) and oom>=0
+    repeat_is_int=isinstance(repeat,int) and not isinstance(repeat,bool) and repeat>=0
+    if not oom_is_int:
+        errors.append("OOM_EVENTS_NOT_NONNEGATIVE_INTEGER")
+    elif oom != 0:
         errors.append("CANARY_OOM")
-    if int(a.get("repeat_count", 0)) < 3:
+    if not repeat_is_int:
+        errors.append("REPEAT_COUNT_NOT_NONNEGATIVE_INTEGER")
+    elif repeat < 3:
         errors.append("CANARY_REPEAT_COUNT_LT3")
     if float(a.get("repeat_reserved_span_mib", 1e18)) > 64:
         errors.append("CANARY_RESERVED_GROWTH")
-    if a.get("capture_layers") != EXPECTED_LAYERS:
+    layers=a.get("capture_layers")
+    if layers != EXPECTED_LAYERS or not isinstance(layers,list) or any(not isinstance(x,int) or isinstance(x,bool) for x in layers):
         errors.append("CANARY_LAYER_SET_MISMATCH")
     hooks = a.get("hook_count_by_layer", [])
-    if len(hooks) != 4 or any(int(x) != 1 for x in hooks):
+    if not isinstance(hooks,list) or len(hooks) != 4 or any(not isinstance(x,int) or isinstance(x,bool) or x != 1 for x in hooks):
         errors.append("CANARY_HOOK_COUNT")
     peak = float(a.get("peak_reserved_mib", 1e18))
     total = float(a.get("total_vram_mib", 0))

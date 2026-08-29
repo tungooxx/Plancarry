@@ -22,6 +22,12 @@ class T(unittest.TestCase):
         self.assertEqual(['--expected-device-substring',''],m.normalized_argv(['--expected-device-substring','']))
         with self.assertRaisesRegex(RuntimeError,'V23_DEVICE_NAME_ADMISSION_FORBIDDEN'):
             m.normalized_argv(['--expected-device-substring','some-device'])
+        self.assertEqual(['--port','8892','--expected-device-substring',''],m.normalized_argv(['--expected-device-substring','','--port','8892','--expected-device-substring','']))
+        with self.assertRaisesRegex(RuntimeError,'V23_DEVICE_NAME_ADMISSION_FORBIDDEN'):
+            m.normalized_argv(['--expected-device-substring','','--expected-device-substring','late-device'])
+        with self.assertRaisesRegex(RuntimeError,'V23_DEVICE_NAME_ADMISSION_FORBIDDEN'):
+            m.normalized_argv(['--expected-device-substring=late-device'])
+        self.assertEqual(['--port','8892','--expected-device-substring',''],m.normalized_argv(['--expected-device-substring=','--port','8892']))
     def test_packet_adapter_has_no_expected_name_rebinding(self):
         src=ADAPTER.read_text()
         self.assertNotIn('frozen.EXPECTED_DEVICE_NAME=',src)

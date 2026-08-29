@@ -53,6 +53,38 @@ class T(unittest.TestCase):
     def test_gpu_uuid_required(self):
         a=good_att(); a['actual_gpu_uuid_if_available']=''; a['runtime_fingerprint']=validator.compute_runtime_fingerprint(a)
         self.assertIn('ACTUAL_GPU_UUID_REQUIRED_FOR_EXECUTION_BINDING',validator.validate_attestation(contract,a))
+    def test_boolean_capabilities_require_exact_true_bool(self):
+        for key in ['cuda_available','bf16_supported']:
+            for bad in ['false','true',1,0,1.0,None]:
+                a=good_att(); a[key]=bad
+                e=validator.validate_attestation(contract,a)
+                want='CUDA_AVAILABLE_NOT_TRUE_BOOL' if key=='cuda_available' else 'BF16_SUPPORTED_NOT_TRUE_BOOL'
+                self.assertIn(want,e,(key,bad,e))
+    def test_count_fields_require_nonnegative_integer_type(self):
+        for bad in [0.5,-0.5,-1,True,'0',None]:
+            a=good_att(); a['oom_events']=bad
+            e=validator.validate_attestation(contract,a)
+            if bad == -1:
+                self.assertIn('OOM_EVENTS_NOT_NONNEGATIVE_INTEGER',e)
+            else:
+                self.assertIn('OOM_EVENTS_NOT_NONNEGATIVE_INTEGER',e,(bad,e))
+        for bad in [3.5,-1,True,'3',None]:
+            a=good_att(); a['repeat_count']=bad
+            self.assertIn('REPEAT_COUNT_NOT_NONNEGATIVE_INTEGER',validator.validate_attestation(contract,a),(bad,validator.validate_attestation(contract,a)))
+        a=good_att(); a['repeat_count']=2
+        self.assertIn('CANARY_REPEAT_COUNT_LT3',validator.validate_attestation(contract,a))
+        a=good_att(); a['oom_events']=1
+        self.assertIn('CANARY_OOM',validator.validate_attestation(contract,a))
+    def test_driver_free_cannot_exceed_total(self):
+        a=good_att(); a['driver_free_vram_before_canary_mib']=20000.0
+        self.assertIn('DRIVER_FREE_GT_TOTAL',validator.validate_attestation(contract,a))
+    def test_layer_and_hook_counts_do_not_coerce_numeric_types(self):
+        a=good_att(); a['capture_layers']=[7.0,14.0,21.0,27.0]
+        self.assertIn('CANARY_LAYER_SET_MISMATCH',validator.validate_attestation(contract,a))
+        a=good_att(); a['hook_count_by_layer']=[1.0,1.0,1.0,1.0]
+        self.assertIn('CANARY_HOOK_COUNT',validator.validate_attestation(contract,a))
+        a=good_att(); a['hook_count_by_layer']=[True,1,1,1]
+        self.assertIn('CANARY_HOOK_COUNT',validator.validate_attestation(contract,a))
     def test_frozen_science_hashes(self):
         want={
           'replay_residual_natural_packet_producer_v2_2_technical_successor.py':'d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8',

@@ -12,13 +12,26 @@ if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 import whitebox_bridge_prefixstable_proto as frozen
 
 def normalized_argv(argv:list[str])->list[str]:
-    out=list(argv)
+    # Remove every legacy device-name option and append exactly one disabled
+    # occurrence. Any non-empty occurrence is rejected before frozen argparse
+    # can apply its normal last-option-wins semantics.
+    out=[]
     flag="--expected-device-substring"
-    if flag in out:
-        i=out.index(flag)
-        if i+1>=len(out) or out[i+1]!="":
-            raise RuntimeError("V23_DEVICE_NAME_ADMISSION_FORBIDDEN")
-        return out
+    i=0
+    while i<len(argv):
+        arg=argv[i]
+        if arg==flag:
+            if i+1>=len(argv) or argv[i+1]!="":
+                raise RuntimeError("V23_DEVICE_NAME_ADMISSION_FORBIDDEN")
+            i+=2
+            continue
+        if arg.startswith(flag+"="):
+            if arg.split("=",1)[1]!="":
+                raise RuntimeError("V23_DEVICE_NAME_ADMISSION_FORBIDDEN")
+            i+=1
+            continue
+        out.append(arg)
+        i+=1
     out.extend([flag,""])
     return out
 

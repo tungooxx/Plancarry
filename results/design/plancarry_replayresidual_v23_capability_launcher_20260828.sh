@@ -20,11 +20,11 @@ BRIDGE_ADAPTER="$ROOT/results/design/plancarry_replayresidual_v23_bridge_capabil
 sha_eq(){ [[ "$(sha256sum "$1" | awk '{print $1}')" == "$2" ]] || { echo "SHA256_MISMATCH:$1" >&2; exit 70; }; }
 verify_static(){
   sha_eq "$CONTRACT" 1289bbf073e4f4c6411a82cdac069ff9fe9094cacb92e4ccb333712d8af4a3bc
-  sha_eq "$VALIDATOR" a04a79fed515323bd42067d52bd5590506cc336e8de43345876524fc47507293
+  sha_eq "$VALIDATOR" 851ffaa9eb8705358c8f55c39035c644da8835ca9726e50d72f74c3de3aefd92
   sha_eq "$BINDER" 31a2c8cf46c3fbd3b23bae0252a107dd5811f0d6a0c87a372c0e544bdd865d1f
   sha_eq "$ADAPTER" ac28d4d81fdccb3373cfb4d33f78bfb51752e6aa74f6a824a6a778bdf5b17f83
   sha_eq "$SANITY_ADAPTER" a09dfcae8e4547dfa44428f41b679f1b972fa9934a76d3eda84cae69ff8366f2
-  sha_eq "$BRIDGE_ADAPTER" 3e1c98b8b4bdbd20c3f2db6ad19dbbbce41ed0123ab1a9edde278cbb9137c8d2
+  sha_eq "$BRIDGE_ADAPTER" 4ea6f5226911041299ce72693ce9cd4e0d0bc6a686b9c5d00129ba104ea111ba
   # Frozen scientific machinery is inherited byte-for-byte from V2.2.
   sha_eq replay_residual_natural_packet_producer_v2_2_technical_successor.py d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8
   sha_eq replay_residual_natural_packet_producer_v2_1_py313_compat.py 5e2caea4d6c6d2139dd696950299f3d2ad4cadb21dbcc1a0670e2d7805677472
