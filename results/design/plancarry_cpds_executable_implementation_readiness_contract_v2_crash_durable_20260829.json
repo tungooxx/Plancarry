@@ -1,0 +1,231 @@
+{
+  "authority_bindings": {
+    "candidate": {
+      "commit": "30bdce87343a20994dd82cd849fd9ec210f4dc22",
+      "files": {
+        "cpds_recurrent_realization_contract_validator_v1.py": "898bfef39ec60a983936c3499e75b1cadcc0975a5fc274a788a2e24062258629",
+        "results/design/plancarry_cpds_recurrent_realization_feature_basis_v1_20260829.json": "dc50e2a8b1d116cb81602102717e35323ce43d45d0989ca1a3783a8aaa84b772",
+        "results/design/plancarry_cpds_recurrent_realization_static_audit_v1_20260829.json": "cf93cbd6cd2b5b2217c30b27ca731c75ae749253d819de8026a8fc1831bbb322",
+        "tests/test_cpds_recurrent_realization_feature_basis_v1.py": "d5c6db46fa8fbd37b9a485abcd715a27bd3eed5c7fbf206bcfd97f3acee48087"
+      },
+      "tree": "5c08e73522855193cbafcf85cf6b33ec777e173d"
+    },
+    "constructibility": {
+      "commit": "c1c6517ff4678c2a9b151f67a1ff4dd6f5aae244",
+      "files": {
+        "cpds_graphfork_constructibility_v1.py": "18e719298703bdff9b5c88e5a4c913fa787892fde6f1d0fc049cfeea2aeb5550",
+        "cpds_graphfork_contract_validator_v1.py": "c3f6b9ee38fff7a984449e9608b925a0b9f6c7b1bbd268db9beba148b25cbd20",
+        "tests/test_cpds_graphfork_constructibility_v1.py": "5c027408523e82b7b40719e0e32e2b3c83c2e9fb2b58fa6055e1b746f0dbb44e",
+        "tests/test_cpds_graphfork_contract_validator_v1.py": "3cfcc74671b98564c8c68ed131779a1288e9dc4bc8a91c1bcd88914aa04fa74e"
+      },
+      "tree": "0f048dde696aef3bbb531214ace21ed387be1f62"
+    },
+    "independent_review": {
+      "commit": "dac9dfc848bbf28c18c9515b933b510afd63a292",
+      "files": {
+        "results/design/plancarry_cpds_recurrent_realization_feature_basis_independent_review_a4_20260829.json": "77c7b3adc4ff95b96547494a182064bd41a68683b1020a06ce540a95ed70fcfb"
+      },
+      "tree": "ec365b59246fff2112a60152e54e4a043f857cd9"
+    },
+    "v3_statistics": {
+      "commit": "df17c5ee3a3d2c6bccd70367886216cd043d40f3",
+      "files": {
+        "results/design/plancarry_cpds_numeric_statistical_decision_contract_v3_20260829.json": "24e393c426edae7d52ff4e30bc8f24559d21f352076a91695458c32e238d0f21",
+        "results/design/plancarry_cpds_numeric_statistical_static_audit_v3_20260829.json": "2d3c5e27f1f896c6241d2989d6ebf08bc8cca2b2a782faae85ff9b85181407ba",
+        "results/design/plancarry_cpds_randomized_arm_slot_inference_spec_v1_20260829.json": "cdcad645a3c30cc92eebd573eeb9b4e6497ea2769db990566b3863850f3649c7",
+        "tests/test_cpds_numeric_statistical_decision_contract_v3.py": "5b67d0abd51dcdd054ad2b37472328319789573671c33c8b07e7d499d8543de8"
+      },
+      "tree": "f0cd2ee999838dbfa88c54732a7ee1988f5f2adf"
+    },
+    "working_files": {
+      "cpds_graphfork_constructibility_v1.py": "18e719298703bdff9b5c88e5a4c913fa787892fde6f1d0fc049cfeea2aeb5550",
+      "cpds_graphfork_contract_validator_v1.py": "c3f6b9ee38fff7a984449e9608b925a0b9f6c7b1bbd268db9beba148b25cbd20",
+      "cpds_recurrent_realization_contract_validator_v1.py": "898bfef39ec60a983936c3499e75b1cadcc0975a5fc274a788a2e24062258629",
+      "results/design/plancarry_cpds_recurrent_realization_feature_basis_v1_20260829.json": "dc50e2a8b1d116cb81602102717e35323ce43d45d0989ca1a3783a8aaa84b772",
+      "results/design/plancarry_cpds_recurrent_realization_static_audit_v1_20260829.json": "cf93cbd6cd2b5b2217c30b27ca731c75ae749253d819de8026a8fc1831bbb322",
+      "tests/test_cpds_graphfork_constructibility_v1.py": "5c027408523e82b7b40719e0e32e2b3c83c2e9fb2b58fa6055e1b746f0dbb44e",
+      "tests/test_cpds_graphfork_contract_validator_v1.py": "3cfcc74671b98564c8c68ed131779a1288e9dc4bc8a91c1bcd88914aa04fa74e",
+      "tests/test_cpds_recurrent_realization_feature_basis_v1.py": "d5c6db46fa8fbd37b9a485abcd715a27bd3eed5c7fbf206bcfd97f3acee48087"
+    },
+    "working_files_policy": "PROTECTED_BYTES_MUST_EQUAL_FROZEN_PARENT_BYTES"
+  },
+  "canonical_object_sha256_without_self_field": "c07d4b707683ea05a938820ecea1e5bda4c642d41424b475088607ecf190bed0",
+  "canonical_review_bindings": {
+    "constructibility": {
+      "verdict": "PASS_FOR_CPDS_GRAPHFORK_GEOMETRY_DUPLICATE_REPAIR",
+      "work_item_id": "772625e7-9100-485c-a36e-07a319bd6bfa"
+    },
+    "recurrent_realization": {
+      "review_artifact_sha256": "77c7b3adc4ff95b96547494a182064bd41a68683b1020a06ce540a95ed70fcfb",
+      "review_commit": "dac9dfc848bbf28c18c9515b933b510afd63a292",
+      "verdict": "PASS_FOR_CPDS_RECURRENT_REALIZATION_FEATURE_BASIS_FREEZE",
+      "work_item_id": "8712c3ab-7d8d-4bbb-946d-694270641d6d"
+    },
+    "v3_statistics": {
+      "verdict": "PASS_FOR_CPDS_V3_STATISTICAL_REPAIR",
+      "work_item_id": "8578d9b8-55f8-445c-933b-b7b8faaed433"
+    }
+  },
+  "crash_durability": {
+    "ambiguous_or_corrupt_state": "FAIL_CLOSED_NO_UNLINK_NO_RESEED_NO_REDRAW",
+    "assignment_randomness_source": "OS_CSPRNG_16BIT_WORDS",
+    "bundle_finalize": "O_CREAT|O_EXCL; canonical JSON; file fsync then parent-directory fsync; exact readback required",
+    "concurrency": "O_EXCL selects one durable record; racing writers must load and use the winner, never their losing random word",
+    "draw_create": "one canonical write-once record per transaction/split/family/draw_counter; O_CREAT|O_EXCL; file fsync then parent-directory fsync",
+    "draw_record_schema": "PLANCARRY_CPDS_DURABLE_OS_CSPRNG_U16_DRAW_V1",
+    "existing_bundle_missing_or_extra_journal": "FAIL_CLOSED_NO_REGENERATION",
+    "hmac_or_prf_assignment_expansion": false,
+    "parent_directory_fsync_required": true,
+    "reason": "Preserve frozen V3 literal OS_CSPRNG_16BIT_WORDS randomization authority while closing the independently reproduced crash/restart redraw window.",
+    "restart": "reuse exact transaction and all existing draw records; generate only a not-yet-existing next raw draw when no final bundle exists; if final bundle exists every journal record must already exist and match",
+    "same_parent_requirement": true,
+    "transaction_create": "O_CREAT|O_EXCL; canonical JSON; file fsync then parent-directory fsync; preexisting parent required",
+    "transaction_nonce_bytes": 32,
+    "transaction_nonce_role": "DURABLE_IDENTITY_ONLY_NOT_ASSIGNMENT_RANDOMNESS",
+    "transaction_schema": "PLANCARRY_CPDS_ASSIGNMENT_FREEZE_TRANSACTION_V2",
+    "write_ahead_rule": "RAW_WORD_FILE_AND_PARENT_DIRECTORY_FSYNC_RETURN_BEFORE_THRESHOLD_OR_ACCEPTANCE_USE"
+  },
+  "deployment_preflight": [
+    "validate crash-durable readiness contract self-hash",
+    "verify candidate/constructibility/V3/recurrent-review immutable Git commit+tree+file hashes",
+    "verify current protected candidate+constructibility bytes unchanged",
+    "validate recurrent and graphfork contracts",
+    "verify no prohibited-action counter is nonzero",
+    "before any assignment draw, create or recover one canonical transaction header with O_EXCL + file fsync + parent-directory fsync in a preexisting directory",
+    "for each split/family/draw counter, persist the raw OS-CSPRNG u16 word with O_EXCL + file fsync + parent-directory fsync before threshold/acceptance use",
+    "finalize both exact 33-family assignment manifests as one canonical two-split bundle using O_EXCL + file fsync + parent-directory fsync; restart must recover identical journal/bundle or fail closed",
+    "require fresh non-author independent review of this immutable crash-durable repair before any model/environment readiness canary or science"
+  ],
+  "endpoint": "FIRST_ACTION_EXCLUDED_ROUTE_TOLERANT_FUTURE_BRANCH_LOGPROB_SHIFT_OVER_GRAPH_DEFINED_ACTION_EQUIVALENCE_CLASSES",
+  "engineering_task_id": "3bd07d97-e1f0-4ccb-a584-ce66ca9b03b1",
+  "exact_arms": [
+    "NO_CARRY",
+    "STATIC_ONESHOT",
+    "STATIC_REPEAT",
+    "ALIGNED_RECURSION",
+    "TRANSITION_PERMUTED",
+    "MATCHED_INFORMATION"
+  ],
+  "exact_slots": [
+    "SLOT_0",
+    "SLOT_1",
+    "SLOT_2",
+    "SLOT_3",
+    "SLOT_4",
+    "SLOT_5"
+  ],
+  "first_action_excluded": true,
+  "next_gate": "FRESH_NON_AUTHOR_CRASH_DURABILITY_READINESS_REVIEW",
+  "non_authorizations": [
+    "NO_MODEL_OR_TOKENIZER_FORWARD",
+    "NO_ENVIRONMENT_EXECUTION",
+    "NO_GPU_PROVIDER_LIFECYCLE",
+    "NO_EXPERIMENT_OR_RESEARCH_DECISION",
+    "NO_CPDS_ARM_OUTCOMES",
+    "NO_FUTURE_SPLIT_ACCESS",
+    "NO_PLANROUTE_ACTION",
+    "NO_SUCCESSORFEATURE_PROMOTION"
+  ],
+  "phase": "PRE_SCIENCE_EXECUTABLE_READINESS",
+  "population": {
+    "all_candidates_required": true,
+    "confirmation_count": 33,
+    "confirmation_namespace": "CPDS_CONFIRMATION_GRAPH_FAMILIES_V1",
+    "development_count": 33,
+    "development_namespace": "CPDS_DEVELOPMENT_GRAPH_FAMILIES_V1",
+    "different_source_snapshots": true,
+    "no_replacement": true,
+    "zero_family_id_overlap": true,
+    "zero_structural_family_overlap": true
+  },
+  "recurrent_realization": {
+    "F": "F(z,x)=unit_l2(z+x)",
+    "G_gain": 1.0,
+    "G_id": "CPDS_PARAMETER_FREE_COSINE_WHOLE_ACTION_RERANK_V1",
+    "fit_or_search": "NONE",
+    "matched_information_transform": "P(x)[i]=(-1)^i * x[(i+1) mod 2048]",
+    "new_trainable_parameters": 0,
+    "state_dim": 2048,
+    "state_dtype": "FLOAT32",
+    "state_id": "CPDS_NATIVE2048_UNIT_SUM_RECURRENCE_V1"
+  },
+  "runtime_dependencies": {
+    "environment_required": false,
+    "git_object_database_required_for_external_authority_preflight": true,
+    "gpu_required": false,
+    "implementation_language": "Python stdlib only plus frozen local CPDS modules",
+    "model_or_tokenizer_required": false,
+    "tested_python": "3.13.15",
+    "third_party_packages_required": []
+  },
+  "runtime_plumbing": {
+    "G": "adjusted scores only over exact unchanged base-policy candidate set; no execute/force/environment mutation",
+    "MATCHED_INFORMATION": "same recurrent callable on fixed signed-cyclic P(x); no information-destruction claim",
+    "STATIC_REPEAT": "same sealed z0 exposed; same recurrent callable may execute only in scratch; scratch has no path to G or endpoint",
+    "TRANSITION_PERMUTED": "same authenticated already-observed transition multiset; deterministic nonidentity order; no future preview",
+    "input": "externally sealed constructibility packet + preoutcome assignment record + exact base-policy candidate action set",
+    "slot_isolation": "unique mutable-state scope per family/slot; no cross-slot or cross-family mutable input"
+  },
+  "schema": "PLANCARRY_CPDS_EXECUTABLE_IMPLEMENTATION_READINESS_V2_CRASH_DURABLE",
+  "science_execution_forbidden": true,
+  "scientific_result": "NOT_ASSESSED",
+  "supersedes_failed_readiness": {
+    "defect_id": "CRASH_RESTART_REDRAW_WINDOW",
+    "failed_commit": "4ea5080aa85dd1340e526885c402d04d0db361f0",
+    "failed_review_artifact_sha256": "ac2309628de815e348266aa2d7af98204831388347d523d1cfd41036e8e70a0b",
+    "failed_review_commit": "385ee466b54929805be4ea334a3ad28269f6a6f2",
+    "failed_review_work_item_id": "dd5ae582-732e-457c-b3f8-2410b0d0cf96",
+    "failed_tree": "4ac4515812e5a842842c9407a8c29fb44fdf5911",
+    "repair_scope": "ENGINEERING_DURABILITY_PROVENANCE_ONLY_NO_SCIENTIFIC_CHANGE",
+    "verdict": "MATERIAL_REPAIR_REQUIRED"
+  },
+  "v3_assignment": {
+    "accept": "FIRST_WORD_LT_64800",
+    "both_split_manifests_one_preoutcome_bundle": true,
+    "durable_draw_semantics": "Every raw unsigned big-endian OS-CSPRNG u16 word is persisted as a canonical draw record using O_EXCL + file fsync + parent-directory fsync before the word may be compared to cutoff 64800 or treated as accepted. Rejected words remain durably logged. Restart reuses exact existing draw records.",
+    "index": "accepted_word mod 720",
+    "mapping": "LEXICOGRAPHIC_FACTORADIC_UNRANK",
+    "no_redraw_after_acceptance": true,
+    "production_rng_injection": "FORBIDDEN",
+    "rejection_cutoff": 64800,
+    "rng": "OS_CSPRNG_16BIT_WORDS_DURABLY_JOURNALED_BEFORE_THRESHOLD_OR_ACCEPTANCE_USE",
+    "space_size": 720,
+    "test_rng_injection": "EXPLICIT_TEST_ONLY_HELPERS_NOT_PRODUCTION_AUTHORITY",
+    "transaction_nonce_role": "DURABLE_TRANSACTION_IDENTITY_ONLY_NOT_ASSIGNMENT_RANDOMNESS",
+    "word_space": 65536
+  },
+  "v3_statistics_preserved": {
+    "joint_power_lower_bound_reference": 0.8025570627867475,
+    "n_per_split": 33,
+    "p_22_of_33": 0.04007165622897446,
+    "positive_each_min": 22,
+    "statistical_contract_changed": false
+  },
+  "work_item_id": "3c34f64c-2bad-432f-81fa-1c83d3a4680f",
+  "zero_tolerance_guard_counter_schema": [
+    "leakage_or_provenance_violations",
+    "G_force_execute_or_environment_mutation_violations",
+    "call_geometry_or_arm_matching_violations",
+    "arm_slot_assignment_manifest_violations",
+    "cross_slot_or_cross_family_interference_violations"
+  ],
+  "zero_tolerance_guards": [
+    "authority commit/tree/file hash mismatch",
+    "source/generator/assignment manifest tamper",
+    "missing/duplicate family",
+    "wrong split namespace",
+    "assignment modulo bias or redraw after first accepted word",
+    "duplicate/missing arm or slot",
+    "cross-slot mutable carryover",
+    "STATIC_REPEAT scratch-to-G/endpoint path",
+    "future/unobserved transition use",
+    "G candidate-set mutation",
+    "G action execution/forcing/environment mutation",
+    "model/environment/scientific outcome access during this gate",
+    "accepted raw assignment word without a preexisting durably fsynced journal record",
+    "missing/corrupt/extra draw journal after final bundle exists",
+    "transaction or final bundle create without parent-directory fsync",
+    "unlink/reseed/redraw after ambiguous persistence failure",
+    "production RNG/seed/word-source injection"
+  ]
+}

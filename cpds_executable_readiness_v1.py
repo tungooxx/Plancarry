@@ -9,11 +9,13 @@ an arm, register an Experiment/Decision, or inspect scientific outcomes.
 from __future__ import annotations
 
 import copy
+import fcntl
 import hashlib
 import json
 import math
 import os
 import subprocess
+import stat
 import sys
 from math import factorial
 from pathlib import Path
@@ -24,13 +26,16 @@ import cpds_recurrent_realization_contract_validator_v1 as rr
 
 ROOT = Path(__file__).resolve().parent
 DESIGN = ROOT / "results" / "design"
-CONTRACT_PATH = DESIGN / "plancarry_cpds_executable_implementation_readiness_contract_v1_20260829.json"
-AUDIT_PATH = DESIGN / "plancarry_cpds_executable_implementation_readiness_static_audit_v1_20260829.json"
+CONTRACT_PATH = DESIGN / "plancarry_cpds_executable_implementation_readiness_contract_v2_crash_durable_20260829.json"
+AUDIT_PATH = DESIGN / "plancarry_cpds_executable_implementation_readiness_static_audit_v2_crash_durable_20260829.json"
 
-SCHEMA = "PLANCARRY_CPDS_EXECUTABLE_IMPLEMENTATION_READINESS_V1"
+SCHEMA = "PLANCARRY_CPDS_EXECUTABLE_IMPLEMENTATION_READINESS_V2_CRASH_DURABLE"
 ASSIGNMENT_MANIFEST_SCHEMA = "PLANCARRY_CPDS_ARM_SLOT_ASSIGNMENT_MANIFEST_V1"
 TWO_SPLIT_BUNDLE_SCHEMA = "PLANCARRY_CPDS_TWO_SPLIT_PREOUTCOME_FREEZE_BUNDLE_V1"
 RUNTIME_PLAN_SCHEMA = "PLANCARRY_CPDS_ISOLATED_SIX_ARM_RUNTIME_PLAN_V1"
+DURABLE_TRANSACTION_SCHEMA = "PLANCARRY_CPDS_ASSIGNMENT_FREEZE_TRANSACTION_V2"
+DURABLE_DRAW_RECORD_SCHEMA = "PLANCARRY_CPDS_DURABLE_OS_CSPRNG_U16_DRAW_V1"
+TRANSACTION_NONCE_BYTES = 32
 EXACT_ARMS = (
     "NO_CARRY",
     "STATIC_ONESHOT",
@@ -220,6 +225,10 @@ def validate_contract(contract: Mapping[str, Any] | None = None) -> bool:
         raise ValueError("READINESS_ARM_SLOT_DRIFT")
     if d["v3_assignment"]["space_size"] != 720 or d["v3_assignment"]["rejection_cutoff"] != 64800:
         raise ValueError("READINESS_RANDOMIZATION_DRIFT")
+    if d["v3_assignment"]["rng"] != "OS_CSPRNG_16BIT_WORDS_DURABLY_JOURNALED_BEFORE_THRESHOLD_OR_ACCEPTANCE_USE":
+        raise ValueError("READINESS_RANDOMIZATION_SOURCE_DRIFT")
+    if d["v3_assignment"]["production_rng_injection"] != "FORBIDDEN":
+        raise ValueError("READINESS_PRODUCTION_RNG_INJECTION")
     if d["population"]["development_count"] != FAMILY_COUNT or d["population"]["confirmation_count"] != FAMILY_COUNT:
         raise ValueError("READINESS_POPULATION_DRIFT")
     if d["endpoint"] != PRIMARY_ENDPOINT or d["first_action_excluded"] is not True:
@@ -239,6 +248,40 @@ def validate_contract(contract: Mapping[str, Any] | None = None) -> bool:
         raise ValueError("READINESS_V3_STATISTICS_DRIFT")
     if d["zero_tolerance_guard_counter_schema"] != list(ZERO_TOLERANCE_GUARDS):
         raise ValueError("READINESS_ZERO_GUARD_SCHEMA")
+    durability = d["crash_durability"]
+    expected_durability = {
+        "transaction_schema": DURABLE_TRANSACTION_SCHEMA,
+        "draw_record_schema": DURABLE_DRAW_RECORD_SCHEMA,
+        "transaction_nonce_bytes": TRANSACTION_NONCE_BYTES,
+        "transaction_nonce_role": "DURABLE_IDENTITY_ONLY_NOT_ASSIGNMENT_RANDOMNESS",
+        "assignment_randomness_source": "OS_CSPRNG_16BIT_WORDS",
+        "write_ahead_rule": "RAW_WORD_FILE_AND_PARENT_DIRECTORY_FSYNC_RETURN_BEFORE_THRESHOLD_OR_ACCEPTANCE_USE",
+        "transaction_create": "O_CREAT|O_EXCL; canonical JSON; file fsync then parent-directory fsync; preexisting parent required",
+        "draw_create": "one canonical write-once record per transaction/split/family/draw_counter; O_CREAT|O_EXCL; file fsync then parent-directory fsync",
+        "bundle_finalize": "O_CREAT|O_EXCL; canonical JSON; file fsync then parent-directory fsync; exact readback required",
+        "restart": "reuse exact transaction and all existing draw records; generate only a not-yet-existing next raw draw when no final bundle exists; if final bundle exists every journal record must already exist and match",
+        "ambiguous_or_corrupt_state": "FAIL_CLOSED_NO_UNLINK_NO_RESEED_NO_REDRAW",
+        "concurrency": "O_EXCL selects one durable record; racing writers must load and use the winner, never their losing random word",
+        "existing_bundle_missing_or_extra_journal": "FAIL_CLOSED_NO_REGENERATION",
+        "same_parent_requirement": True,
+        "parent_directory_fsync_required": True,
+        "hmac_or_prf_assignment_expansion": False,
+        "reason": "Preserve frozen V3 literal OS_CSPRNG_16BIT_WORDS randomization authority while closing the independently reproduced crash/restart redraw window.",
+    }
+    if durability != expected_durability:
+        raise ValueError("READINESS_CRASH_DURABILITY_DRIFT")
+    supersedes = d["supersedes_failed_readiness"]
+    if supersedes != {
+        "failed_commit": "4ea5080aa85dd1340e526885c402d04d0db361f0",
+        "failed_tree": "4ac4515812e5a842842c9407a8c29fb44fdf5911",
+        "failed_review_commit": "385ee466b54929805be4ea334a3ad28269f6a6f2",
+        "failed_review_artifact_sha256": "ac2309628de815e348266aa2d7af98204831388347d523d1cfd41036e8e70a0b",
+        "failed_review_work_item_id": "dd5ae582-732e-457c-b3f8-2410b0d0cf96",
+        "verdict": "MATERIAL_REPAIR_REQUIRED",
+        "defect_id": "CRASH_RESTART_REDRAW_WINDOW",
+        "repair_scope": "ENGINEERING_DURABILITY_PROVENANCE_ONLY_NO_SCIENTIFIC_CHANGE",
+    }:
+        raise ValueError("READINESS_FAILED_REVIEW_BINDING")
     return True
 
 
@@ -257,11 +300,6 @@ def factoradic_unrank(index: int, arms: Sequence[str] = EXACT_ARMS) -> tuple[str
     return tuple(out)
 
 
-def os_u16_words() -> Iterator[int]:
-    while True:
-        yield int.from_bytes(os.urandom(2), "big", signed=False)
-
-
 def draw_uniform_assignment_index(words: Iterable[int]) -> tuple[list[int], int, int]:
     seen: list[int] = []
     for word in words:
@@ -277,7 +315,7 @@ def assignment_record_identity(record: Mapping[str, Any]) -> str:
     return _canon_sha(dict(record))
 
 
-def build_assignment_record(
+def _build_assignment_record_from_words(
     split_namespace: str,
     certificate: Mapping[str, Any],
     words: Iterable[int],
@@ -354,10 +392,10 @@ def assignment_manifest_identity(manifest: Mapping[str, Any]) -> str:
     return _canon_sha(_manifest_payload(manifest))
 
 
-def build_assignment_manifest(
+def _build_assignment_manifest_from_word_sources(
     generator_manifest: Mapping[str, Any],
     expected_generator_manifest_sha256: str,
-    word_source_factory: Callable[[str], Iterable[int]] | None = None,
+    word_source_factory: Callable[[str], Iterable[int]],
     generator_code_sha256: str | None = None,
 ) -> dict[str, Any]:
     gf.validate_generator_run_manifest(generator_manifest, expected_generator_manifest_sha256)
@@ -368,8 +406,9 @@ def build_assignment_manifest(
     if len(certs) != FAMILY_COUNT:
         raise ValueError("ASSIGNMENT_EXACT_33_REQUIRED")
     code_sha = generator_code_sha256 or _sha_file(Path(__file__))
-    factory = word_source_factory or (lambda _family_id: os_u16_words())
-    records = [build_assignment_record(namespace, cert, factory(cert["family_id"]), code_sha) for cert in certs]
+    if word_source_factory is None:
+        raise ValueError("WORD_SOURCE_FACTORY_REQUIRED_INTERNAL")
+    records = [_build_assignment_record_from_words(namespace, cert, word_source_factory(cert["family_id"]), code_sha) for cert in certs]
     manifest = {
         "schema": ASSIGNMENT_MANIFEST_SCHEMA,
         "phase": "PRE_SCIENCE",
@@ -447,7 +486,7 @@ def bundle_identity(bundle: Mapping[str, Any]) -> str:
     return _canon_sha(_bundle_payload(bundle))
 
 
-def freeze_two_split_bundle(
+def _freeze_two_split_bundle_from_word_sources(
     development_snapshot: Mapping[str, Any], development_source_sha256: str,
     development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
     confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
@@ -472,8 +511,10 @@ def freeze_two_split_bundle(
     if len(development_generator_manifest["certificates"]) != FAMILY_COUNT or len(confirmation_generator_manifest["certificates"]) != FAMILY_COUNT:
         raise ValueError("EXACT_33_BOTH_SPLITS")
     code_sha = generator_code_sha256 or _sha_file(Path(__file__))
-    dev = build_assignment_manifest(development_generator_manifest, development_generator_manifest_sha256, development_word_source_factory, code_sha)
-    conf = build_assignment_manifest(confirmation_generator_manifest, confirmation_generator_manifest_sha256, confirmation_word_source_factory, code_sha)
+    if development_word_source_factory is None or confirmation_word_source_factory is None:
+        raise ValueError("WORD_SOURCE_FACTORY_REQUIRED_INTERNAL")
+    dev = _build_assignment_manifest_from_word_sources(development_generator_manifest, development_generator_manifest_sha256, development_word_source_factory, code_sha)
+    conf = _build_assignment_manifest_from_word_sources(confirmation_generator_manifest, confirmation_generator_manifest_sha256, confirmation_word_source_factory, code_sha)
     bundle = {
         "schema": TWO_SPLIT_BUNDLE_SCHEMA,
         "phase": "PRE_SCIENCE",
@@ -497,6 +538,49 @@ def freeze_two_split_bundle(
         code_sha,
     )
     return bundle
+
+
+
+
+
+def build_assignment_record_test_only(
+    split_namespace: str, certificate: Mapping[str, Any], words: Iterable[int],
+    generator_code_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Synthetic/adversarial helper only; never a production randomization path."""
+    return _build_assignment_record_from_words(split_namespace, certificate, words, generator_code_sha256)
+
+
+def build_assignment_manifest_test_only(
+    generator_manifest: Mapping[str, Any], expected_generator_manifest_sha256: str,
+    word_source_factory: Callable[[str], Iterable[int]], generator_code_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Synthetic/adversarial helper only; production must use durable freeze."""
+    return _build_assignment_manifest_from_word_sources(
+        generator_manifest, expected_generator_manifest_sha256, word_source_factory, generator_code_sha256
+    )
+
+
+def freeze_two_split_bundle_test_only(
+    development_snapshot: Mapping[str, Any], development_source_sha256: str,
+    development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
+    confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
+    confirmation_generator_manifest: Mapping[str, Any], confirmation_generator_manifest_sha256: str,
+    development_word_source_factory: Callable[[str], Iterable[int]],
+    confirmation_word_source_factory: Callable[[str], Iterable[int]],
+    *, development_arm_outcomes_opened: bool, existing_bundle: Mapping[str, Any] | None = None,
+    generator_code_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Explicit test-only in-memory path; production callers cannot inject RNG."""
+    return _freeze_two_split_bundle_from_word_sources(
+        development_snapshot, development_source_sha256,
+        development_generator_manifest, development_generator_manifest_sha256,
+        confirmation_snapshot, confirmation_source_sha256,
+        confirmation_generator_manifest, confirmation_generator_manifest_sha256,
+        development_word_source_factory, confirmation_word_source_factory,
+        development_arm_outcomes_opened=development_arm_outcomes_opened,
+        existing_bundle=existing_bundle, generator_code_sha256=generator_code_sha256,
+    )
 
 
 def validate_two_split_bundle(
@@ -543,25 +627,547 @@ def validate_two_split_bundle(
     return True
 
 
-def write_bundle_once(path: Path | str, bundle: Mapping[str, Any]) -> str:
+
+
+def _open_parent_dir(path: Path) -> tuple[Path, int]:
+    if path.name in {"", ".", ".."}:
+        raise ValueError("DURABLE_FILE_NAME")
+    try:
+        parent = path.parent.resolve(strict=True)
+    except FileNotFoundError as exc:
+        raise ValueError("DURABLE_PARENT_DIRECTORY_MUST_PREEXIST") from exc
+    if not parent.is_dir():
+        raise ValueError("DURABLE_PARENT_DIRECTORY_MUST_PREEXIST")
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_CLOEXEC", 0)
+    try:
+        fd = os.open(parent, flags)
+    except OSError as exc:
+        raise ValueError("DURABLE_PARENT_DIRECTORY_OPEN_FAILED") from exc
+    return parent, fd
+
+
+def _read_regular_file_at(dir_fd: int, name: str) -> bytes:
+    flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        fd = os.open(name, flags, dir_fd=dir_fd)
+    except FileNotFoundError:
+        raise
+    except OSError as exc:
+        raise ValueError("DURABLE_FILE_READ_FAILED") from exc
+    try:
+        st = os.fstat(fd)
+        if not stat.S_ISREG(st.st_mode) or st.st_nlink != 1:
+            raise ValueError("DURABLE_PATH_NOT_SINGLE_REGULAR_FILE")
+        chunks: list[bytes] = []
+        while True:
+            chunk = os.read(fd, 65536)
+            if not chunk:
+                break
+            chunks.append(chunk)
+        return b"".join(chunks)
+    finally:
+        os.close(fd)
+
+
+def _create_regular_file_once_durable(path: Path | str, raw: bytes, exists_error: str) -> str:
     p = Path(path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    raw = _canonical_bytes(bundle) + b"\n"
+    _, dir_fd = _open_parent_dir(p)
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+    fd: int | None = None
     try:
-        fd = os.open(p, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
-    except FileExistsError as exc:
-        raise ValueError("ASSIGNMENT_BUNDLE_ALREADY_EXISTS_NO_REDRAW") from exc
-    try:
-        with os.fdopen(fd, "wb") as f:
-            f.write(raw)
-            f.flush()
-            os.fsync(f.fileno())
-    except Exception:
         try:
-            p.unlink(missing_ok=True)
-        finally:
-            raise
+            fd = os.open(p.name, flags, 0o600, dir_fd=dir_fd)
+        except FileExistsError as exc:
+            raise ValueError(exists_error) from exc
+        st = os.fstat(fd)
+        if not stat.S_ISREG(st.st_mode) or st.st_nlink != 1:
+            raise ValueError("DURABLE_CREATED_PATH_NOT_SINGLE_REGULAR_FILE")
+        view = memoryview(raw)
+        written = 0
+        while written < len(view):
+            n = os.write(fd, view[written:])
+            if n <= 0:
+                raise OSError("short durable write")
+            written += n
+        os.fsync(fd)
+        # Creation is not authoritative until the directory entry is durable.
+        os.fsync(dir_fd)
+    finally:
+        if fd is not None:
+            os.close(fd)
+        os.close(dir_fd)
+    # Deliberately never unlink on error. Ambiguous/partial state is recovered
+    # by exact validation or fails closed; it is never replaced with fresh RNG.
     return _sha_bytes(raw)
+
+
+def _durable_binding(
+    development_source_sha256: str, development_generator_manifest_sha256: str,
+    confirmation_source_sha256: str, confirmation_generator_manifest_sha256: str,
+    generator_code_sha256: str,
+) -> dict[str, str]:
+    vals = {
+        "development_source_snapshot_sha256": development_source_sha256,
+        "development_generator_manifest_sha256": development_generator_manifest_sha256,
+        "confirmation_source_snapshot_sha256": confirmation_source_sha256,
+        "confirmation_generator_manifest_sha256": confirmation_generator_manifest_sha256,
+        "generator_code_sha256": generator_code_sha256,
+    }
+    if any(not _is_sha(v) for v in vals.values()):
+        raise ValueError("DURABLE_TRANSACTION_BINDING_SHA")
+    return vals
+
+
+def _transaction_payload(record: Mapping[str, Any]) -> dict[str, Any]:
+    x = copy.deepcopy(dict(record))
+    x.pop("transaction_sha256", None)
+    return x
+
+
+def transaction_identity(record: Mapping[str, Any]) -> str:
+    return _canon_sha(_transaction_payload(record))
+
+
+def _build_transaction_record(binding: Mapping[str, str], transaction_nonce: bytes) -> dict[str, Any]:
+    if not isinstance(transaction_nonce, bytes) or len(transaction_nonce) != TRANSACTION_NONCE_BYTES:
+        raise ValueError("TRANSACTION_NONCE_EXACT_32_BYTES")
+    record = {
+        "schema": DURABLE_TRANSACTION_SCHEMA,
+        "phase": "PRE_SCIENCE",
+        "scientific_result": "NOT_ASSESSED",
+        "assignment_randomness_source": "OS_CSPRNG_16BIT_WORDS_DURABLY_JOURNALED_BEFORE_USE",
+        "transaction_nonce_hex": transaction_nonce.hex(),
+        "transaction_nonce_role": "DURABLE_IDENTITY_ONLY_NOT_ASSIGNMENT_RANDOMNESS",
+        "binding": dict(binding),
+        "created_before_any_assignment_draw_use": True,
+        "no_reseed_or_redraw": True,
+    }
+    record["transaction_sha256"] = transaction_identity(record)
+    validate_transaction_record(record, binding)
+    return record
+
+
+def build_transaction_record_test_only(binding: Mapping[str, str], transaction_nonce: bytes) -> dict[str, Any]:
+    """Explicit test-only deterministic transaction identity constructor."""
+    return _build_transaction_record(binding, transaction_nonce)
+
+
+def validate_transaction_record(record: Mapping[str, Any], expected_binding: Mapping[str, str]) -> bool:
+    required = {
+        "schema", "phase", "scientific_result", "assignment_randomness_source",
+        "transaction_nonce_hex", "transaction_nonce_role", "binding",
+        "created_before_any_assignment_draw_use", "no_reseed_or_redraw", "transaction_sha256",
+    }
+    if not isinstance(record, Mapping) or set(record) != required:
+        raise ValueError("DURABLE_TRANSACTION_SCHEMA")
+    if record["schema"] != DURABLE_TRANSACTION_SCHEMA or record["phase"] != "PRE_SCIENCE" or record["scientific_result"] != "NOT_ASSESSED":
+        raise ValueError("DURABLE_TRANSACTION_SCOPE")
+    if record["assignment_randomness_source"] != "OS_CSPRNG_16BIT_WORDS_DURABLY_JOURNALED_BEFORE_USE":
+        raise ValueError("DURABLE_TRANSACTION_RNG_SOURCE")
+    if record["transaction_nonce_role"] != "DURABLE_IDENTITY_ONLY_NOT_ASSIGNMENT_RANDOMNESS":
+        raise ValueError("DURABLE_TRANSACTION_NONCE_ROLE")
+    if record["binding"] != dict(expected_binding):
+        raise ValueError("DURABLE_TRANSACTION_BINDING")
+    h = record["transaction_nonce_hex"]
+    if not isinstance(h, str) or len(h) != 2 * TRANSACTION_NONCE_BYTES:
+        raise ValueError("DURABLE_TRANSACTION_NONCE")
+    try:
+        nonce = bytes.fromhex(h)
+    except ValueError as exc:
+        raise ValueError("DURABLE_TRANSACTION_NONCE") from exc
+    if len(nonce) != TRANSACTION_NONCE_BYTES:
+        raise ValueError("DURABLE_TRANSACTION_NONCE")
+    if record["created_before_any_assignment_draw_use"] is not True or record["no_reseed_or_redraw"] is not True:
+        raise ValueError("DURABLE_TRANSACTION_TIMING")
+    if record["transaction_sha256"] != transaction_identity(record):
+        raise ValueError("DURABLE_TRANSACTION_SHA")
+    return True
+
+
+def _load_canonical_json_regular(path: Path | str, corrupt_error: str) -> dict[str, Any]:
+    p = Path(path)
+    _, dir_fd = _open_parent_dir(p)
+    try:
+        raw = _read_regular_file_at(dir_fd, p.name)
+    except FileNotFoundError:
+        raise
+    finally:
+        os.close(dir_fd)
+    try:
+        obj = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(corrupt_error) from exc
+    if not isinstance(obj, dict) or raw != _canonical_bytes(obj) + b"\
+":
+        raise ValueError(corrupt_error)
+    return obj
+
+
+def load_durable_transaction(path: Path | str, expected_binding: Mapping[str, str]) -> dict[str, Any]:
+    try:
+        record = _load_canonical_json_regular(path, "DURABLE_TRANSACTION_CORRUPT_FAIL_CLOSED")
+    except FileNotFoundError as exc:
+        raise ValueError("DURABLE_TRANSACTION_MISSING") from exc
+    validate_transaction_record(record, expected_binding)
+    return record
+
+
+def _ensure_durable_transaction_with_nonce_supplier(
+    path: Path | str, binding: Mapping[str, str], nonce_supplier: Callable[[], bytes],
+) -> dict[str, Any]:
+    p = Path(path)
+    try:
+        return load_durable_transaction(p, binding)
+    except ValueError as exc:
+        if str(exc) != "DURABLE_TRANSACTION_MISSING":
+            raise
+    nonce = nonce_supplier()
+    record = _build_transaction_record(binding, nonce)
+    raw = _canonical_bytes(record) + b"\
+"
+    try:
+        _create_regular_file_once_durable(p, raw, "DURABLE_TRANSACTION_ALREADY_EXISTS")
+        return record
+    except ValueError as exc:
+        if str(exc) != "DURABLE_TRANSACTION_ALREADY_EXISTS":
+            raise
+        return load_durable_transaction(p, binding)
+
+
+def ensure_durable_transaction(path: Path | str, binding: Mapping[str, str]) -> dict[str, Any]:
+    """Production transaction creation; accepts no caller RNG/seed injection."""
+    return _ensure_durable_transaction_with_nonce_supplier(path, binding, lambda: os.urandom(TRANSACTION_NONCE_BYTES))
+
+
+def ensure_durable_transaction_test_only(
+    path: Path | str, binding: Mapping[str, str], transaction_nonce: bytes,
+) -> dict[str, Any]:
+    """Explicit deterministic test helper; transaction nonce is identity only."""
+    return _ensure_durable_transaction_with_nonce_supplier(path, binding, lambda: transaction_nonce)
+
+
+def _draw_payload(record: Mapping[str, Any]) -> dict[str, Any]:
+    x = copy.deepcopy(dict(record))
+    x.pop("draw_record_sha256", None)
+    return x
+
+
+def draw_record_identity(record: Mapping[str, Any]) -> str:
+    return _canon_sha(_draw_payload(record))
+
+
+def _draw_path(transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str, family_id: str, draw_counter: int) -> Path:
+    if split_namespace == DEVELOPMENT_NAMESPACE:
+        split_tag = "dev"
+    elif split_namespace == CONFIRMATION_NAMESPACE:
+        split_tag = "conf"
+    else:
+        raise ValueError("DURABLE_DRAW_NAMESPACE")
+    if not _is_sha(family_id) or type(draw_counter) is not int or draw_counter < 0:
+        raise ValueError("DURABLE_DRAW_IDENTITY")
+    txid = transaction.get("transaction_sha256")
+    if not _is_sha(txid):
+        raise ValueError("DURABLE_DRAW_TRANSACTION_ID")
+    name = f".cpdsdraw-{txid}-{split_tag}-{family_id}-{draw_counter:08d}.json"
+    if len(name.encode()) > 240:
+        raise ValueError("DURABLE_DRAW_FILENAME_TOO_LONG")
+    return Path(transaction_path).parent / name
+
+
+def _build_draw_record(transaction: Mapping[str, Any], split_namespace: str, family_id: str, draw_counter: int, word_u16: int) -> dict[str, Any]:
+    if type(word_u16) is not int or not 0 <= word_u16 < WORD_SPACE:
+        raise ValueError("RNG_WORD_U16")
+    record = {
+        "schema": DURABLE_DRAW_RECORD_SCHEMA,
+        "phase": "PRE_SCIENCE",
+        "scientific_result": "NOT_ASSESSED",
+        "transaction_sha256": transaction["transaction_sha256"],
+        "split_namespace": split_namespace,
+        "family_id": family_id,
+        "draw_counter": draw_counter,
+        "word_u16": word_u16,
+        "rng_source": "OS_CSPRNG_16BIT_WORDS",
+        "durably_persisted_before_threshold_or_acceptance_use": True,
+    }
+    record["draw_record_sha256"] = draw_record_identity(record)
+    validate_draw_record(record, transaction, split_namespace, family_id, draw_counter)
+    return record
+
+
+def build_draw_record_test_only(transaction: Mapping[str, Any], split_namespace: str, family_id: str, draw_counter: int, word_u16: int) -> dict[str, Any]:
+    return _build_draw_record(transaction, split_namespace, family_id, draw_counter, word_u16)
+
+
+def validate_draw_record(record: Mapping[str, Any], transaction: Mapping[str, Any], split_namespace: str, family_id: str, draw_counter: int) -> bool:
+    required = {
+        "schema", "phase", "scientific_result", "transaction_sha256", "split_namespace",
+        "family_id", "draw_counter", "word_u16", "rng_source",
+        "durably_persisted_before_threshold_or_acceptance_use", "draw_record_sha256",
+    }
+    if not isinstance(record, Mapping) or set(record) != required:
+        raise ValueError("DURABLE_DRAW_RECORD_SCHEMA")
+    if record["schema"] != DURABLE_DRAW_RECORD_SCHEMA or record["phase"] != "PRE_SCIENCE" or record["scientific_result"] != "NOT_ASSESSED":
+        raise ValueError("DURABLE_DRAW_SCOPE")
+    if record["transaction_sha256"] != transaction["transaction_sha256"] or record["split_namespace"] != split_namespace or record["family_id"] != family_id or record["draw_counter"] != draw_counter:
+        raise ValueError("DURABLE_DRAW_BINDING")
+    if type(record["word_u16"]) is not int or not 0 <= record["word_u16"] < WORD_SPACE:
+        raise ValueError("DURABLE_DRAW_WORD")
+    if record["rng_source"] != "OS_CSPRNG_16BIT_WORDS" or record["durably_persisted_before_threshold_or_acceptance_use"] is not True:
+        raise ValueError("DURABLE_DRAW_RNG_AUTHORITY")
+    if record["draw_record_sha256"] != draw_record_identity(record):
+        raise ValueError("DURABLE_DRAW_SHA")
+    return True
+
+
+def _load_durable_draw(path: Path, transaction: Mapping[str, Any], split_namespace: str, family_id: str, draw_counter: int) -> dict[str, Any]:
+    try:
+        record = _load_canonical_json_regular(path, "DURABLE_DRAW_CORRUPT_FAIL_CLOSED")
+    except FileNotFoundError:
+        raise
+    validate_draw_record(record, transaction, split_namespace, family_id, draw_counter)
+    return record
+
+
+def _get_or_create_durable_draw(
+    transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str, family_id: str,
+    draw_counter: int, word_supplier: Callable[[], int],
+) -> int:
+    path = _draw_path(transaction_path, transaction, split_namespace, family_id, draw_counter)
+    try:
+        return _load_durable_draw(path, transaction, split_namespace, family_id, draw_counter)["word_u16"]
+    except FileNotFoundError:
+        pass
+    word = word_supplier()
+    record = _build_draw_record(transaction, split_namespace, family_id, draw_counter, word)
+    raw = _canonical_bytes(record) + b"\
+"
+    try:
+        _create_regular_file_once_durable(path, raw, "DURABLE_DRAW_ALREADY_EXISTS")
+        # Word may be tested/accepted only after file+directory fsync returned.
+        return word
+    except ValueError as exc:
+        if str(exc) != "DURABLE_DRAW_ALREADY_EXISTS":
+            raise
+        return _load_durable_draw(path, transaction, split_namespace, family_id, draw_counter)["word_u16"]
+
+
+def durable_os_u16_words(
+    transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str, family_id: str,
+) -> Iterator[int]:
+    """Production literal V3 OS-CSPRNG stream, write-ahead journaled per raw u16."""
+    counter = 0
+    while True:
+        yield _get_or_create_durable_draw(
+            transaction_path, transaction, split_namespace, family_id, counter,
+            lambda: int.from_bytes(os.urandom(2), "big", signed=False),
+        )
+        counter += 1
+
+
+def durable_u16_words_test_only(
+    transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str, family_id: str, words: Iterable[int],
+) -> Iterator[int]:
+    """Explicit deterministic test helper. Existing journal words always win on restart."""
+    source = iter(words)
+    counter = 0
+    while True:
+        def supply() -> int:
+            try:
+                return next(source)
+            except StopIteration as exc:
+                raise ValueError("TEST_DURABLE_WORD_STREAM_EXHAUSTED") from exc
+        yield _get_or_create_durable_draw(transaction_path, transaction, split_namespace, family_id, counter, supply)
+        counter += 1
+
+
+def _durable_word_factory(transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str) -> Callable[[str], Iterable[int]]:
+    return lambda family_id: durable_os_u16_words(transaction_path, transaction, split_namespace, family_id)
+
+
+def _durable_test_word_factory(
+    transaction_path: Path | str, transaction: Mapping[str, Any], split_namespace: str, test_factory: Callable[[str], Iterable[int]],
+) -> Callable[[str], Iterable[int]]:
+    return lambda family_id: durable_u16_words_test_only(transaction_path, transaction, split_namespace, family_id, test_factory(family_id))
+
+
+def _load_existing_bundle(path: Path | str) -> tuple[dict[str, Any], str]:
+    try:
+        bundle = _load_canonical_json_regular(path, "DURABLE_EXISTING_BUNDLE_CORRUPT_FAIL_CLOSED")
+    except FileNotFoundError as exc:
+        raise ValueError("DURABLE_BUNDLE_MISSING") from exc
+    raw = _canonical_bytes(bundle) + b"\
+"
+    return bundle, _sha_bytes(raw)
+
+
+def _journal_expected_names(transaction_path: Path | str, transaction: Mapping[str, Any], bundle: Mapping[str, Any]) -> set[str]:
+    expected: set[str] = set()
+    for manifest in (bundle["development_assignment_manifest"], bundle["confirmation_assignment_manifest"]):
+        namespace = manifest["split_namespace"]
+        for record in manifest["records"]:
+            for counter, word in enumerate(record["draw_words_u16_in_order"]):
+                path = _draw_path(transaction_path, transaction, namespace, record["family_id"], counter)
+                try:
+                    draw = _load_durable_draw(path, transaction, namespace, record["family_id"], counter)
+                except FileNotFoundError as exc:
+                    raise ValueError("DURABLE_JOURNAL_MISSING_FAIL_CLOSED") from exc
+                if draw["word_u16"] != word:
+                    raise ValueError("DURABLE_JOURNAL_WORD_MISMATCH")
+                expected.add(path.name)
+            next_path = _draw_path(transaction_path, transaction, namespace, record["family_id"], len(record["draw_words_u16_in_order"]))
+            if next_path.exists():
+                raise ValueError("DURABLE_JOURNAL_REDRAW_AFTER_ACCEPTANCE")
+    return expected
+
+
+def validate_draw_journal_against_bundle(transaction_path: Path | str, transaction: Mapping[str, Any], bundle: Mapping[str, Any]) -> bool:
+    expected = _journal_expected_names(transaction_path, transaction, bundle)
+    parent = Path(transaction_path).parent
+    prefix = f".cpdsdraw-{transaction['transaction_sha256']}-"
+    found = {x.name for x in parent.iterdir() if x.name.startswith(prefix) and x.name.endswith(".json")}
+    if found != expected:
+        raise ValueError("DURABLE_JOURNAL_FILE_SET_MISMATCH")
+    return True
+
+
+def write_bundle_once(path: Path | str, bundle: Mapping[str, Any]) -> str:
+    """Create-once finalization with file fsync + parent-directory fsync; never unlinks on error."""
+    raw = _canonical_bytes(bundle) + b"\
+"
+    return _create_regular_file_once_durable(path, raw, "ASSIGNMENT_BUNDLE_ALREADY_EXISTS_NO_REDRAW")
+
+
+def _validate_durable_split_inputs(
+    development_snapshot: Mapping[str, Any], development_source_sha256: str,
+    development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
+    confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
+    confirmation_generator_manifest: Mapping[str, Any], confirmation_generator_manifest_sha256: str,
+) -> None:
+    gf.validate_confirmation_disjointness(
+        development_generator_manifest, confirmation_generator_manifest,
+        development_snapshot, confirmation_snapshot,
+        development_source_sha256, confirmation_source_sha256,
+        development_generator_manifest_sha256, confirmation_generator_manifest_sha256,
+    )
+    if development_generator_manifest["cohort_namespace"] != DEVELOPMENT_NAMESPACE or confirmation_generator_manifest["cohort_namespace"] != CONFIRMATION_NAMESPACE:
+        raise ValueError("EXACT_SPLIT_NAMESPACE")
+    if len(development_generator_manifest["certificates"]) != FAMILY_COUNT or len(confirmation_generator_manifest["certificates"]) != FAMILY_COUNT:
+        raise ValueError("EXACT_33_BOTH_SPLITS")
+
+
+def _freeze_two_split_bundle_durable_impl(
+    transaction_path: Path | str, bundle_path: Path | str,
+    development_snapshot: Mapping[str, Any], development_source_sha256: str,
+    development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
+    confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
+    confirmation_generator_manifest: Mapping[str, Any], confirmation_generator_manifest_sha256: str,
+    *, development_arm_outcomes_opened: bool, generator_code_sha256: str | None,
+    transaction_nonce_supplier: Callable[[], bytes],
+    development_test_word_source_factory: Callable[[str], Iterable[int]] | None = None,
+    confirmation_test_word_source_factory: Callable[[str], Iterable[int]] | None = None,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    if development_arm_outcomes_opened is not False:
+        raise ValueError("DEVELOPMENT_OUTCOME_ALREADY_OPEN")
+    txp, bp = Path(transaction_path), Path(bundle_path)
+    tx_parent, tx_dir_fd = _open_parent_dir(txp)
+    os.close(tx_dir_fd)
+    bp_parent, bp_dir_fd = _open_parent_dir(bp)
+    os.close(bp_dir_fd)
+    if txp.name == bp.name or tx_parent != bp_parent:
+        raise ValueError("DURABLE_TRANSACTION_AND_BUNDLE_REQUIRE_SAME_PREEXISTING_DIRECTORY")
+    _validate_durable_split_inputs(
+        development_snapshot, development_source_sha256, development_generator_manifest, development_generator_manifest_sha256,
+        confirmation_snapshot, confirmation_source_sha256, confirmation_generator_manifest, confirmation_generator_manifest_sha256,
+    )
+    code_sha = generator_code_sha256 or _sha_file(Path(__file__))
+    binding = _durable_binding(
+        development_source_sha256, development_generator_manifest_sha256,
+        confirmation_source_sha256, confirmation_generator_manifest_sha256, code_sha,
+    )
+    tx = _ensure_durable_transaction_with_nonce_supplier(txp, binding, transaction_nonce_supplier)
+
+    # If a final bundle exists, it is authoritative only if its entire raw-word
+    # journal is already present and matches. Never generate replacement draws.
+    if bp.exists():
+        existing, sha = _load_existing_bundle(bp)
+        validate_two_split_bundle(
+            existing, development_snapshot, development_generator_manifest, development_generator_manifest_sha256,
+            confirmation_snapshot, confirmation_generator_manifest, confirmation_generator_manifest_sha256, code_sha,
+        )
+        validate_draw_journal_against_bundle(txp, tx, existing)
+        return existing, sha, tx
+
+    if development_test_word_source_factory is None:
+        dev_factory = _durable_word_factory(txp, tx, DEVELOPMENT_NAMESPACE)
+        conf_factory = _durable_word_factory(txp, tx, CONFIRMATION_NAMESPACE)
+    else:
+        if confirmation_test_word_source_factory is None:
+            raise ValueError("TEST_DURABLE_BOTH_WORD_FACTORIES_REQUIRED")
+        dev_factory = _durable_test_word_factory(txp, tx, DEVELOPMENT_NAMESPACE, development_test_word_source_factory)
+        conf_factory = _durable_test_word_factory(txp, tx, CONFIRMATION_NAMESPACE, confirmation_test_word_source_factory)
+
+    bundle = _freeze_two_split_bundle_from_word_sources(
+        development_snapshot, development_source_sha256, development_generator_manifest, development_generator_manifest_sha256,
+        confirmation_snapshot, confirmation_source_sha256, confirmation_generator_manifest, confirmation_generator_manifest_sha256,
+        dev_factory, conf_factory, development_arm_outcomes_opened=False, existing_bundle=None, generator_code_sha256=code_sha,
+    )
+    validate_draw_journal_against_bundle(txp, tx, bundle)
+    try:
+        sha = write_bundle_once(bp, bundle)
+    except ValueError as exc:
+        if str(exc) != "ASSIGNMENT_BUNDLE_ALREADY_EXISTS_NO_REDRAW":
+            raise
+        existing, sha = _load_existing_bundle(bp)
+        if existing != bundle:
+            raise ValueError("DURABLE_CONCURRENT_BUNDLE_MISMATCH_FAIL_CLOSED")
+        validate_draw_journal_against_bundle(txp, tx, existing)
+        bundle = existing
+    # Read back exact canonical bytes after durable finalization.
+    final, final_sha = _load_existing_bundle(bp)
+    if final != bundle or final_sha != sha:
+        raise ValueError("DURABLE_FINAL_BUNDLE_READBACK_MISMATCH")
+    return final, final_sha, tx
+
+
+def freeze_two_split_bundle_durable(
+    transaction_path: Path | str, bundle_path: Path | str,
+    development_snapshot: Mapping[str, Any], development_source_sha256: str,
+    development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
+    confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
+    confirmation_generator_manifest: Mapping[str, Any], confirmation_generator_manifest_sha256: str,
+    *, development_arm_outcomes_opened: bool,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    """Production crash-durable freeze. No RNG/seed/word/code-SHA injection surface exists."""
+    return _freeze_two_split_bundle_durable_impl(
+        transaction_path, bundle_path,
+        development_snapshot, development_source_sha256, development_generator_manifest, development_generator_manifest_sha256,
+        confirmation_snapshot, confirmation_source_sha256, confirmation_generator_manifest, confirmation_generator_manifest_sha256,
+        development_arm_outcomes_opened=development_arm_outcomes_opened, generator_code_sha256=_sha_file(Path(__file__)),
+        transaction_nonce_supplier=lambda: os.urandom(TRANSACTION_NONCE_BYTES),
+    )
+
+
+def freeze_two_split_bundle_durable_test_only(
+    transaction_path: Path | str, bundle_path: Path | str,
+    development_snapshot: Mapping[str, Any], development_source_sha256: str,
+    development_generator_manifest: Mapping[str, Any], development_generator_manifest_sha256: str,
+    confirmation_snapshot: Mapping[str, Any], confirmation_source_sha256: str,
+    confirmation_generator_manifest: Mapping[str, Any], confirmation_generator_manifest_sha256: str,
+    development_test_word_source_factory: Callable[[str], Iterable[int]],
+    confirmation_test_word_source_factory: Callable[[str], Iterable[int]],
+    *, development_arm_outcomes_opened: bool, test_transaction_nonce: bytes,
+    generator_code_sha256: str | None = None,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    """Explicit deterministic crash/adversarial test surface; never production authority."""
+    return _freeze_two_split_bundle_durable_impl(
+        transaction_path, bundle_path,
+        development_snapshot, development_source_sha256, development_generator_manifest, development_generator_manifest_sha256,
+        confirmation_snapshot, confirmation_source_sha256, confirmation_generator_manifest, confirmation_generator_manifest_sha256,
+        development_arm_outcomes_opened=development_arm_outcomes_opened, generator_code_sha256=generator_code_sha256,
+        transaction_nonce_supplier=lambda: test_transaction_nonce,
+        development_test_word_source_factory=development_test_word_source_factory,
+        confirmation_test_word_source_factory=confirmation_test_word_source_factory,
+    )
 
 
 def validate_candidate_actions(actions: Sequence[str]) -> tuple[str, ...]:

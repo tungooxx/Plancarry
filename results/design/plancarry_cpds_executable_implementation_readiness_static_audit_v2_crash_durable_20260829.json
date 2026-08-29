@@ -1,0 +1,53 @@
+{
+  "checks": {
+    "corrupt_or_partial_draw_fail_closed": true,
+    "corrupt_or_partial_transaction_fail_closed": true,
+    "draw_file_fsync": true,
+    "draw_parent_directory_fsync": true,
+    "exact_33_each_split_unchanged": true,
+    "exact_720_factoradic_mapping_unchanged": true,
+    "exact_u16_cutoff_64800_unchanged": true,
+    "existing_final_bundle_never_regenerates_missing_journal": true,
+    "failed_review_defect_reproduced_before_repair": true,
+    "final_bundle_file_fsync": true,
+    "final_bundle_parent_directory_fsync": true,
+    "fresh_non_author_review_required": true,
+    "literal_v3_os_csprng_u16_source_preserved": true,
+    "no_hmac_or_prf_assignment_expansion": true,
+    "no_unlink_on_ambiguous_persistence_error": true,
+    "o_excl_single_winner_concurrency": true,
+    "production_rng_injection_surface_absent": true,
+    "raw_word_write_ahead_journal_before_threshold_or_acceptance": true,
+    "recurrent_realization_unchanged": true,
+    "restart_reuses_existing_transaction_and_draw_records": true,
+    "six_arm_runtime_semantics_unchanged": true,
+    "test_only_rng_surface_explicitly_named": true,
+    "transaction_file_fsync": true,
+    "transaction_header_before_any_draw_use": true,
+    "transaction_parent_directory_fsync": true,
+    "v3_statistics_and_endpoint_unchanged": true
+  },
+  "engineering_task_id": "3bd07d97-e1f0-4ccb-a584-ce66ca9b03b1",
+  "failed_review": {
+    "artifact_sha256": "ac2309628de815e348266aa2d7af98204831388347d523d1cfd41036e8e70a0b",
+    "commit": "385ee466b54929805be4ea334a3ad28269f6a6f2",
+    "defect_id": "CRASH_RESTART_REDRAW_WINDOW",
+    "verdict": "MATERIAL_REPAIR_REQUIRED",
+    "work_item_id": "dd5ae582-732e-457c-b3f8-2410b0d0cf96"
+  },
+  "notes": "Narrow PRE_SCIENCE crash-durability/provenance repair only. The failed 4ea5080 readiness mechanics passed deterministic tests but were not crash-durable. V2 preserves literal V3 OS-CSPRNG u16 draws by write-ahead journaling every raw word before use; no HMAC/PRF assignment expansion is introduced.",
+  "prohibited_actions_observed": {
+    "confirmation_outcome_access": 0,
+    "development_arm_outcome_access": 0,
+    "environment_execution": 0,
+    "experiment_registration_or_execution": 0,
+    "future_split_access": 0,
+    "gpu_provider_lifecycle": 0,
+    "model_or_tokenizer_forward": 0,
+    "planroute_action": 0,
+    "research_decision": 0
+  },
+  "schema": "PLANCARRY_CPDS_EXECUTABLE_IMPLEMENTATION_READINESS_STATIC_AUDIT_V2_CRASH_DURABLE",
+  "scientific_result": "NOT_ASSESSED",
+  "work_item_id": "3c34f64c-2bad-432f-81fa-1c83d3a4680f"
+}

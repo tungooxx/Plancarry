@@ -98,7 +98,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
 
     def test_06_assignment_record_tamper_and_redraw_fail_closed(self):
         cert=self.dev[2]["certificates"][0]
-        r=m.build_assignment_record(m.DEVELOPMENT_NAMESPACE,cert,iter([65535,17]),self.code_sha)
+        r=m.build_assignment_record_test_only(m.DEVELOPMENT_NAMESPACE,cert,iter([65535,17]),self.code_sha)
         self.assertTrue(m.validate_assignment_record(r,cert,m.DEVELOPMENT_NAMESPACE,self.code_sha))
         for mut in ("assignment_index","arm_permutation","accepted_word_u16","generator_code_sha256"):
             b=copy.deepcopy(r)
@@ -112,7 +112,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
 
     def test_07_assignment_manifest_exact_33_and_tamper_rejection(self):
         snap,ss,man,ms=self.dev
-        a=m.build_assignment_manifest(man,ms,word_factory(),self.code_sha)
+        a=m.build_assignment_manifest_test_only(man,ms,word_factory(),self.code_sha)
         self.assertEqual(len(a["records"]),33)
         self.assertTrue(m.validate_assignment_manifest(a,man,ms,self.code_sha))
         b=copy.deepcopy(a); b["records"]=b["records"][:-1]; b["assignment_manifest_sha256"]=m.assignment_manifest_identity(b)
@@ -122,17 +122,17 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
 
     def test_08_two_split_bundle_atomic_disjoint_and_no_redraw(self):
         ds,dss,dm,dms=self.dev; cs,css,cm,cms=self.conf
-        b=m.freeze_two_split_bundle(ds,dss,dm,dms,cs,css,cm,cms,word_factory(0),word_factory(1),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
+        b=m.freeze_two_split_bundle_test_only(ds,dss,dm,dms,cs,css,cm,cms,word_factory(0),word_factory(1),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
         self.assertTrue(m.validate_two_split_bundle(b,ds,dm,dms,cs,cm,cms,self.code_sha))
         self.assertTrue(b["confirmation_outcomes_untouched"])
         with self.assertRaises(ValueError):
-            m.freeze_two_split_bundle(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,existing_bundle=b,generator_code_sha256=self.code_sha)
+            m.freeze_two_split_bundle_test_only(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,existing_bundle=b,generator_code_sha256=self.code_sha)
         with self.assertRaises(ValueError):
-            m.freeze_two_split_bundle(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=True,generator_code_sha256=self.code_sha)
+            m.freeze_two_split_bundle_test_only(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=True,generator_code_sha256=self.code_sha)
 
     def test_09_bundle_write_is_create_once(self):
         ds,dss,dm,dms=self.dev; cs,css,cm,cms=self.conf
-        b=m.freeze_two_split_bundle(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
+        b=m.freeze_two_split_bundle_test_only(ds,dss,dm,dms,cs,css,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
         with tempfile.TemporaryDirectory() as td:
             p=Path(td)/"freeze.json"
             h=m.write_bundle_once(p,b); self.assertEqual(h,hashlib.sha256(p.read_bytes()).hexdigest())
@@ -143,7 +143,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
         # Same source cannot masquerade as independent confirmation.
         cm=gf.build_generator_run_manifest(ds,m.CONFIRMATION_NAMESPACE,dss); cms=cm["manifest_sha256"]
         with self.assertRaises(ValueError):
-            m.freeze_two_split_bundle(ds,dss,dm,dms,ds,dss,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
+            m.freeze_two_split_bundle_test_only(ds,dss,dm,dms,ds,dss,cm,cms,word_factory(),word_factory(),development_arm_outcomes_opened=False,generator_code_sha256=self.code_sha)
 
     def _packet_authority(self):
         snap,ss,man,ms=self.dev
@@ -154,7 +154,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
 
     def test_11_runtime_plan_preserves_six_arms_and_slot_isolation(self):
         auth,cert=self._packet_authority()
-        rec=m.build_assignment_record(m.DEVELOPMENT_NAMESPACE,cert,iter([5]),self.code_sha)
+        rec=m.build_assignment_record_test_only(m.DEVELOPMENT_NAMESPACE,cert,iter([5]),self.code_sha)
         plan=m.build_family_runtime_plan(auth,rec,["open fridge","close fridge","look"],self.code_sha)
         self.assertTrue(m.validate_family_runtime_plan(plan,auth,rec,["open fridge","close fridge","look"],self.code_sha))
         self.assertEqual({s["arm_id"] for s in plan["slots"]},set(m.EXACT_ARMS))
@@ -162,7 +162,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
         self.assertTrue(all(s["cross_slot_mutable_inputs"]==[] for s in plan["slots"]))
 
     def test_12_static_repeat_scratch_cannot_reach_G_or_endpoint(self):
-        auth,cert=self._packet_authority(); rec=m.build_assignment_record(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
+        auth,cert=self._packet_authority(); rec=m.build_assignment_record_test_only(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
         plan=m.build_family_runtime_plan(auth,rec,["a","b"],self.code_sha)
         slot=next(s for s in plan["slots"] if s["arm_id"]=="STATIC_REPEAT")
         self.assertTrue(slot["scratch_only"]); self.assertFalse(slot["scratch_state_reaches_G"]); self.assertFalse(slot["scratch_state_reaches_endpoint"])
@@ -170,7 +170,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
         with self.assertRaises(ValueError): m.validate_family_runtime_plan(bad,auth,rec,["a","b"],self.code_sha)
 
     def test_13_permuted_arm_is_same_observed_multiset_wrong_order_no_future(self):
-        auth,cert=self._packet_authority(); rec=m.build_assignment_record(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
+        auth,cert=self._packet_authority(); rec=m.build_assignment_record_test_only(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
         plan=m.build_family_runtime_plan(auth,rec,["a","b"],self.code_sha)
         slot=next(s for s in plan["slots"] if s["arm_id"]=="TRANSITION_PERMUTED")
         observed=[r["transition_key"] for r in auth["packet"]["observed_transition_records"]]
@@ -190,7 +190,7 @@ class TestCPDSExecutableReadinessV1(unittest.TestCase):
         with self.assertRaises(ValueError): m.validate_g_score_output(base,bad)
 
     def test_15_runtime_plan_tamper_arm_or_cross_slot_fails(self):
-        auth,cert=self._packet_authority(); rec=m.build_assignment_record(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
+        auth,cert=self._packet_authority(); rec=m.build_assignment_record_test_only(m.DEVELOPMENT_NAMESPACE,cert,iter([0]),self.code_sha)
         plan=m.build_family_runtime_plan(auth,rec,["a","b"],self.code_sha)
         bad=copy.deepcopy(plan); bad["slots"][0]["arm_id"]="ALIGNED_RECURSION"
         with self.assertRaises(ValueError): m.validate_family_runtime_plan(bad,auth,rec,["a","b"],self.code_sha)
