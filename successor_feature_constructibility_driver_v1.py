@@ -20,6 +20,7 @@ import successor_feature_label_binding_v2 as lb
 SCHEMA = "SUCCESSOR_FEATURE_CONSTRUCTIBILITY_PACKET_V1"
 MANIFEST_SCHEMA = "SUCCESSOR_FEATURE_CONSTRUCTIBILITY_MANIFEST_V1"
 SUMMARY_SCHEMA = "SUCCESSOR_FEATURE_CONSTRUCTIBILITY_SUMMARY_V1"
+MATERIAL_MANIFEST_SCHEMA = "SUCCESSOR_FEATURE_ATTEMPT_MATERIAL_MANIFEST_V1"
 PREREG_REL = Path("results/design/plancarry_successor_feature_constructibility_prereg_v2_20260827.json")
 POPULATION_REL = Path("results/design/plancarry_successor_feature_fresh_population_v1_20260827.json")
 LABEL_BINDING_REL = Path("results/design/plancarry_successor_feature_label_binding_v2_20260828.json")
@@ -92,7 +93,9 @@ def canonical_sha256(value: object) -> str:
 
 
 def _exact_keys(value: Mapping[str, object], keys: Sequence[str], error: str) -> None:
-    if not isinstance(value, Mapping) or tuple(value.keys()) != tuple(keys):
+    # JSON object member order is not semantic.  Require the exact key set and
+    # cardinality, while accepting canonical-sorted or insertion-order encodings.
+    if not isinstance(value, Mapping) or len(value) != len(keys) or set(value.keys()) != set(keys):
         raise DriverContractError(error)
 
 
@@ -145,8 +148,7 @@ def build_manifest(root: str | Path) -> dict[str, object]:
     rows = sf.load_constructibility_population(Path(root) / POPULATION_REL)
     paths = []
     for expected_index, row in enumerate(rows):
-        if tuple(row.keys()) != ("game_path", "index", "phase", "rank_sha256"):
-            raise DriverContractError("POPULATION_ROW_SCHEMA_DRIFT")
+        _exact_keys(row, ("game_path", "index", "phase", "rank_sha256"), "POPULATION_ROW_SCHEMA_DRIFT")
         if row["index"] != expected_index or row["phase"] != "constructibility":
             raise DriverContractError("CONSTRUCTIBILITY_POPULATION_PHASE_DRIFT")
         strict_constructibility_index(row["index"])
@@ -207,6 +209,56 @@ def _phase_argmax(scores: Sequence[float]) -> str:
     return sf.PHASE_LABELS[min(range(6), key=lambda i: (-probs[i], i))]
 
 
+_NONFINITE_TAG = "__successor_feature_nonfinite_float_v1__"
+
+
+def _freeze_attempt_evidence(value: object) -> object:
+    """Convert exact attempt material to deterministic JSON-safe evidence.
+
+    Non-finite score inputs are scientifically ineligible but must still be
+    packetizable.  They are represented by a typed sentinel so the validator can
+    later reconstruct the exact invalid input and re-run the frozen derivation.
+    """
+    if isinstance(value, float) and not math.isfinite(value):
+        if math.isnan(value):
+            label = "nan"
+        elif value > 0:
+            label = "+inf"
+        else:
+            label = "-inf"
+        return {_NONFINITE_TAG: label}
+    if isinstance(value, Mapping):
+        out: dict[str, object] = {}
+        for key, child in value.items():
+            if not isinstance(key, str):
+                raise DriverContractError("ATTEMPT_EVIDENCE_KEY_MUST_BE_TEXT")
+            out[key] = _freeze_attempt_evidence(child)
+        return out
+    if isinstance(value, list):
+        return [_freeze_attempt_evidence(x) for x in value]
+    if isinstance(value, tuple):
+        return [_freeze_attempt_evidence(x) for x in value]
+    if value is None or type(value) in (bool, int, float, str):
+        return value
+    raise DriverContractError("ATTEMPT_EVIDENCE_VALUE_UNSUPPORTED")
+
+
+def attempt_material_sha256(material: Mapping[str, object]) -> str:
+    """Hash attempt material through a canonical JSON-safe evidence projection.
+
+    Frozen constructibility semantics classify NaN/Inf score records as
+    ineligible rather than as serializer failures.  The external material seal
+    therefore hashes a typed non-finite sentinel projection, never permissive
+    JSON NaN spellings.
+    """
+    if not isinstance(material, Mapping):
+        raise DriverContractError("ATTEMPT_MATERIAL_MUST_BE_OBJECT")
+    frozen = _freeze_attempt_evidence(material)
+    if not isinstance(frozen, Mapping):
+        raise DriverContractError("ATTEMPT_MATERIAL_EVIDENCE_MUST_BE_OBJECT")
+    return canonical_sha256(frozen)
+
+
 def _validate_material_identity(material: Mapping[str, object], manifest: Mapping[str, object]) -> tuple[int, Mapping[str, object]]:
     _exact_keys(material, _TOP_KEYS, "ATTEMPT_MATERIAL_SCHEMA_MISMATCH")
     index = strict_constructibility_index(material["index"])
@@ -216,8 +268,120 @@ def _validate_material_identity(material: Mapping[str, object], manifest: Mappin
     return index, expected
 
 
-def build_attempt_packet(material: Mapping[str, object], manifest: Mapping[str, object]) -> dict[str, object]:
+def build_attempt_material_manifest(
+    materials: Sequence[Mapping[str, object]], manifest: Mapping[str, object]
+) -> dict[str, object]:
+    """Seal exactly the fixed 16 runtime-adapter material records before packetization.
+
+    The returned digest is an external authorization value: packetization and
+    summarization require the caller to present this exact digest rather than
+    deriving authority from mutable packet/material directories.
+    """
+    if len(materials) != len(FIXED_INDICES):
+        raise DriverContractError("MATERIAL_MANIFEST_REQUIRES_EXACTLY_16_MATERIALS")
+    by_index: dict[int, Mapping[str, object]] = {}
+    for material in materials:
+        if not isinstance(material, Mapping):
+            raise DriverContractError("ATTEMPT_MATERIAL_MUST_BE_OBJECT")
+        idx, _ = _validate_material_identity(material, manifest)
+        if idx in by_index:
+            raise DriverContractError("DUPLICATE_ATTEMPT_MATERIAL_INDEX")
+        by_index[idx] = material
+    if set(by_index) != set(FIXED_INDICES):
+        raise DriverContractError("ATTEMPT_MATERIAL_INDEX_SET_MISMATCH")
+    entries = []
+    for i in FIXED_INDICES:
+        expected = manifest["paths"][i]  # type: ignore[index]
+        entries.append({
+            "index": i,
+            "game_path": expected["game_path"],
+            "rank_sha256": expected["rank_sha256"],
+            "attempt_material_sha256": attempt_material_sha256(by_index[i]),
+        })
+    payload = {
+        "schema": MATERIAL_MANIFEST_SCHEMA,
+        "scientific_manifest_sha256": manifest["manifest_sha256"],
+        "fixed_indices": list(FIXED_INDICES),
+        "entries": entries,
+        "seal_contract": "bind material_manifest_sha256 outside mutable material/packet directories before packetization and summary",
+        "scientific_result": "NOT_ASSESSED",
+    }
+    return {**payload, "material_manifest_sha256": canonical_sha256(payload)}
+
+
+def validate_attempt_material_manifest(
+    material_manifest: Mapping[str, object],
+    manifest: Mapping[str, object],
+    expected_material_manifest_sha256: str,
+) -> dict[str, object]:
+    keys = (
+        "schema", "scientific_manifest_sha256", "fixed_indices", "entries",
+        "seal_contract", "scientific_result", "material_manifest_sha256",
+    )
+    _exact_keys(material_manifest, keys, "MATERIAL_MANIFEST_SCHEMA_MISMATCH")
+    if material_manifest["schema"] != MATERIAL_MANIFEST_SCHEMA or material_manifest["scientific_result"] != "NOT_ASSESSED":
+        raise DriverContractError("MATERIAL_MANIFEST_AUTHORITY_FIELDS_MISMATCH")
+    if material_manifest["scientific_manifest_sha256"] != manifest["manifest_sha256"]:
+        raise DriverContractError("MATERIAL_MANIFEST_SCIENTIFIC_MANIFEST_MISMATCH")
+    if material_manifest["fixed_indices"] != list(FIXED_INDICES):
+        raise DriverContractError("MATERIAL_MANIFEST_FIXED_INDICES_MISMATCH")
+    if material_manifest["seal_contract"] != "bind material_manifest_sha256 outside mutable material/packet directories before packetization and summary":
+        raise DriverContractError("MATERIAL_MANIFEST_SEAL_CONTRACT_MISMATCH")
+    if not isinstance(expected_material_manifest_sha256, str) or len(expected_material_manifest_sha256) != 64:
+        raise DriverContractError("EXPECTED_MATERIAL_MANIFEST_SHA256_INVALID")
+    if any(c not in "0123456789abcdef" for c in expected_material_manifest_sha256):
+        raise DriverContractError("EXPECTED_MATERIAL_MANIFEST_SHA256_INVALID")
+    payload = {k: material_manifest[k] for k in keys if k != "material_manifest_sha256"}
+    recomputed = canonical_sha256(payload)
+    if material_manifest["material_manifest_sha256"] != recomputed:
+        raise DriverContractError("MATERIAL_MANIFEST_SELF_SHA256_MISMATCH")
+    if recomputed != expected_material_manifest_sha256:
+        raise DriverContractError("MATERIAL_MANIFEST_EXTERNAL_SEAL_MISMATCH")
+    entries = material_manifest["entries"]
+    if not isinstance(entries, list) or len(entries) != len(FIXED_INDICES):
+        raise DriverContractError("MATERIAL_MANIFEST_ENTRIES_MISMATCH")
+    out_entries = []
+    for expected_i, entry in enumerate(entries):
+        if not isinstance(entry, Mapping):
+            raise DriverContractError("MATERIAL_MANIFEST_ENTRY_MUST_BE_OBJECT")
+        _exact_keys(entry, ("index", "game_path", "rank_sha256", "attempt_material_sha256"), "MATERIAL_MANIFEST_ENTRY_SCHEMA_MISMATCH")
+        i = strict_constructibility_index(entry["index"])
+        if i != expected_i:
+            raise DriverContractError("MATERIAL_MANIFEST_ENTRY_ORDER_MISMATCH")
+        expected = manifest["paths"][i]  # type: ignore[index]
+        if entry["game_path"] != expected["game_path"] or entry["rank_sha256"] != expected["rank_sha256"]:
+            raise DriverContractError("MATERIAL_MANIFEST_FROZEN_IDENTITY_MISMATCH")
+        digest = entry["attempt_material_sha256"]
+        if not isinstance(digest, str) or len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest):
+            raise DriverContractError("ATTEMPT_MATERIAL_SHA256_INVALID")
+        out_entries.append(dict(entry))
+    return {**{k: material_manifest[k] for k in keys if k != "entries"}, "entries": out_entries}
+
+
+def _validate_material_against_seal(
+    material: Mapping[str, object],
+    manifest: Mapping[str, object],
+    material_manifest: Mapping[str, object],
+    expected_material_manifest_sha256: str,
+) -> tuple[int, Mapping[str, object], str]:
+    validated_manifest = validate_attempt_material_manifest(material_manifest, manifest, expected_material_manifest_sha256)
     index, expected = _validate_material_identity(material, manifest)
+    material_sha = attempt_material_sha256(material)
+    entry = validated_manifest["entries"][index]  # type: ignore[index]
+    if entry["attempt_material_sha256"] != material_sha:
+        raise DriverContractError("ATTEMPT_MATERIAL_SHA256_MISMATCH")
+    return index, expected, material_sha
+
+
+def build_attempt_packet(
+    material: Mapping[str, object],
+    manifest: Mapping[str, object],
+    material_manifest: Mapping[str, object],
+    expected_material_manifest_sha256: str,
+) -> dict[str, object]:
+    index, expected, material_sha = _validate_material_against_seal(
+        material, manifest, material_manifest, expected_material_manifest_sha256
+    )
     prefix = material["prefix"]
     if not isinstance(prefix, Mapping):
         raise DriverContractError("PREFIX_MUST_BE_OBJECT")
@@ -237,6 +401,8 @@ def build_attempt_packet(material: Mapping[str, object], manifest: Mapping[str, 
     base = {
         "schema": SCHEMA,
         "manifest_sha256": manifest["manifest_sha256"],
+        "attempt_material_manifest_sha256": expected_material_manifest_sha256,
+        "attempt_material_sha256": material_sha,
         "index": index,
         "game_path": expected["game_path"],
         "rank_sha256": expected["rank_sha256"],
@@ -286,7 +452,7 @@ def build_attempt_packet(material: Mapping[str, object], manifest: Mapping[str, 
     try:
         step2_scores = _finite_scores(step2["scores"], "STEP2_SCORES_INVALID")
         top0, top1 = sf.branch_labels_if_plausible(step2_scores)
-    except sf.ContractError as exc:
+    except (sf.ContractError, DriverContractError) as exc:
         if branches_obj:
             raise DriverContractError("INELIGIBLE_STEP2_MUST_NOT_HAVE_BRANCH_SCORES") from exc
         payload = {
@@ -390,49 +556,75 @@ def build_attempt_packet(material: Mapping[str, object], manifest: Mapping[str, 
     return {**payload, "packet_sha256": canonical_sha256(payload)}
 
 
-def validate_packet(packet: Mapping[str, object], manifest: Mapping[str, object]) -> dict[str, object]:
+def validate_packet(
+    packet: Mapping[str, object],
+    material: Mapping[str, object],
+    manifest: Mapping[str, object],
+    material_manifest: Mapping[str, object],
+    expected_material_manifest_sha256: str,
+) -> dict[str, object]:
+    """Rebuild from sealed attempt evidence; never trust packet self-authorship."""
     if not isinstance(packet, Mapping):
         raise DriverContractError("PACKET_MUST_BE_OBJECT")
-    expected_keys = ("schema", "manifest_sha256", "index", "game_path", "rank_sha256", "scientific_result", "eligible", "eligibility_reasons", "prefix_provenance", "constructibility", "packet_sha256")
-    if set(packet.keys()) != set(expected_keys) or len(packet) != len(expected_keys):
-        raise DriverContractError("PACKET_SCHEMA_MISMATCH")
-    if packet["schema"] != SCHEMA or packet["scientific_result"] != "NOT_ASSESSED":
-        raise DriverContractError("PACKET_AUTHORITY_FIELDS_MISMATCH")
-    index = strict_constructibility_index(packet["index"])
-    expected = manifest["paths"][index]  # type: ignore[index]
-    if packet["manifest_sha256"] != manifest["manifest_sha256"] or packet["game_path"] != expected["game_path"] or packet["rank_sha256"] != expected["rank_sha256"]:
-        raise DriverContractError("PACKET_FROZEN_IDENTITY_MISMATCH")
-    payload = {k: packet[k] for k in expected_keys if k != "packet_sha256"}
-    if packet["packet_sha256"] != canonical_sha256(payload):
-        raise DriverContractError("PACKET_SHA256_MISMATCH")
-    if type(packet["eligible"]) is not bool:
-        raise DriverContractError("PACKET_ELIGIBLE_MUST_BE_BOOL")
-    reasons = packet["eligibility_reasons"]
-    if not isinstance(reasons, list) or any(not isinstance(x, str) or not x for x in reasons):
-        raise DriverContractError("PACKET_REASONS_INVALID")
-    if packet["eligible"] and reasons:
-        raise DriverContractError("ELIGIBLE_PACKET_HAS_REASONS")
-    if not packet["eligible"] and not reasons:
-        raise DriverContractError("INELIGIBLE_PACKET_MISSING_REASON")
-    return dict(packet)
+    expected = build_attempt_packet(
+        material, manifest, material_manifest, expected_material_manifest_sha256
+    )
+    if canonical_json_bytes(packet) != canonical_json_bytes(expected):
+        raise DriverContractError("PACKET_DOES_NOT_MATCH_SEALED_MATERIAL_RECOMPUTATION")
+    return expected
 
 
-def terminal_summary(packets: Sequence[Mapping[str, object]], manifest: Mapping[str, object]) -> dict[str, object]:
+def terminal_summary(
+    packets: Sequence[Mapping[str, object]],
+    materials: Sequence[Mapping[str, object]],
+    material_manifest: Mapping[str, object],
+    expected_material_manifest_sha256: str,
+    manifest: Mapping[str, object],
+) -> dict[str, object]:
     if len(packets) != len(FIXED_INDICES):
         raise DriverContractError("TERMINAL_SUMMARY_REQUIRES_EXACTLY_16_PACKETS")
-    validated = [validate_packet(x, manifest) for x in packets]
+    if len(materials) != len(FIXED_INDICES):
+        raise DriverContractError("TERMINAL_SUMMARY_REQUIRES_EXACTLY_16_MATERIALS")
+    validated_material_manifest = validate_attempt_material_manifest(
+        material_manifest, manifest, expected_material_manifest_sha256
+    )
+    materials_by_index: dict[int, Mapping[str, object]] = {}
+    for material in materials:
+        if not isinstance(material, Mapping):
+            raise DriverContractError("ATTEMPT_MATERIAL_MUST_BE_OBJECT")
+        idx, _, material_sha = _validate_material_against_seal(
+            material, manifest, validated_material_manifest, expected_material_manifest_sha256
+        )
+        if idx in materials_by_index:
+            raise DriverContractError("DUPLICATE_ATTEMPT_MATERIAL_INDEX")
+        # Redundant explicit check makes the authority path auditable here.
+        entry = validated_material_manifest["entries"][idx]  # type: ignore[index]
+        if entry["attempt_material_sha256"] != material_sha:
+            raise DriverContractError("ATTEMPT_MATERIAL_SHA256_MISMATCH")
+        materials_by_index[idx] = material
+    if set(materials_by_index) != set(FIXED_INDICES):
+        raise DriverContractError("ATTEMPT_MATERIAL_INDEX_SET_MISMATCH")
+
     by_index: dict[int, dict[str, object]] = {}
-    for packet in validated:
-        idx = int(packet["index"])
+    for packet in packets:
+        if not isinstance(packet, Mapping) or "index" not in packet:
+            raise DriverContractError("PACKET_MUST_BE_OBJECT_WITH_INDEX")
+        idx = strict_constructibility_index(packet["index"])
         if idx in by_index:
             raise DriverContractError("DUPLICATE_PACKET_INDEX")
-        by_index[idx] = packet
+        validated = validate_packet(
+            packet, materials_by_index[idx], manifest,
+            validated_material_manifest, expected_material_manifest_sha256,
+        )
+        by_index[idx] = validated
     if set(by_index) != set(FIXED_INDICES):
         raise DriverContractError("TERMINAL_PACKET_INDEX_SET_MISMATCH")
     eligible_count = sum(bool(by_index[i]["eligible"]) for i in FIXED_INDICES)
     payload = {
         "schema": SUMMARY_SCHEMA,
         "manifest_sha256": manifest["manifest_sha256"],
+        "attempt_material_manifest_sha256": expected_material_manifest_sha256,
+        "attempt_material_sha256_by_index": [validated_material_manifest["entries"][i]["attempt_material_sha256"] for i in FIXED_INDICES],  # type: ignore[index]
         "packet_sha256_by_index": [by_index[i]["packet_sha256"] for i in FIXED_INDICES],
         "eligible_count": eligible_count,
         "target_count": 16,
