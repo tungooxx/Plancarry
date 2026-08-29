@@ -1,0 +1,51 @@
+{
+  "authority_refs": {
+    "constructibility_commit": "c1c6517ff4678c2a9b151f67a1ff4dd6f5aae244",
+    "constructibility_review_verdict": "PASS_FOR_CPDS_GRAPHFORK_GEOMETRY_DUPLICATE_REPAIR",
+    "constructibility_review_work_item_id": "772625e7-9100-485c-a36e-07a319bd6bfa",
+    "planroute": "USER_NOOP_RETIRED",
+    "statistical_commit": "df17c5ee3a3d2c6bccd70367886216cd043d40f3",
+    "statistical_review_verdict": "PASS_FOR_CPDS_V3_STATISTICAL_REPAIR",
+    "statistical_review_work_item_id": "8578d9b8-55f8-445c-933b-b7b8faaed433",
+    "successorfeature": "STATIC_BASELINE_ONLY"
+  },
+  "checks": {
+    "F_parameter_free_and_bounded": true,
+    "G_parameter_free_nonexecuting": true,
+    "branch_blind_feature_basis": true,
+    "dead_assumptions_not_inherited_explicit": true,
+    "enabling_method_distinguished_from_mechanism": true,
+    "fresh_independent_review_required": true,
+    "full_lineage_reconstruction_explicit": true,
+    "grounded_v2_technical_history_not_science": true,
+    "independent_confirmation_dead_assumptions_explicit": true,
+    "lineage_audit_limitation_explicit": true,
+    "lineage_audit_not_falsely_marked_pass": true,
+    "matched_four_arm_budgets_explicit": true,
+    "matched_information_fixed_norm_preserving_scramble": true,
+    "native_hidden_width_exact_2048": true,
+    "new_trainable_parameters_zero": true,
+    "no_layer_or_dimension_or_gain_search": true,
+    "no_new_bottleneck_or_expansion": true,
+    "permutation_future_preview_forbidden": true,
+    "planroute_noop": true,
+    "planunique_one_shot_residual_not_retested": true,
+    "successorfeature_static_only": true,
+    "v3_statistics_unchanged": true,
+    "verbatim_falsified_prerequisites_declared": true
+  },
+  "contract_sha256": "dc50e2a8b1d116cb81602102717e35323ce43d45d0989ca1a3783a8aaa84b772",
+  "lineage_audit_status": "DISCOVERY_LINEAGE_INCOMPLETE_REQUIRES_INDEPENDENT_REVIEW",
+  "prohibited_actions_observed": {
+    "development_or_confirmation_outcome_access": 0,
+    "environment_execution": 0,
+    "experiment_registration_or_execution": 0,
+    "future_split_access": 0,
+    "gpu_provider_lifecycle": 0,
+    "model_forward": 0,
+    "research_decision": 0
+  },
+  "schema": "PLANCARRY_CPDS_RECURRENT_REALIZATION_STATIC_AUDIT_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "work_item_id": "2c3de74f-b00d-4f57-971e-fa8bd427380e"
+}
