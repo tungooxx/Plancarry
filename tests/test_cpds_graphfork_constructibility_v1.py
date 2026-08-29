@@ -72,6 +72,18 @@ class TestCPDSGraphForkConstructibilityV2(unittest.TestCase):
         self.assertEqual(st["model_calls"], 0)
         self.assertEqual(st["environment_execution"], 0)
 
+    def test_duplicate_geometry_inputs_fail_closed(self):
+        g = geometry()
+        for field in ("G_exposure_locations", "updater_invocation_sites", "carrier_provenance_sources"):
+            bad = copy.deepcopy(g)
+            bad[field].append(bad[field][0])
+            with self.assertRaisesRegex(ValueError, "GEOMETRY_DUPLICATE_" + field):
+                m.validate_geometry(bad)
+        bad = copy.deepcopy(g)
+        bad["runtime_call_geometry"].append(bad["runtime_call_geometry"][-1])
+        with self.assertRaisesRegex(ValueError, "GEOMETRY_DUPLICATE_runtime_call_geometry"):
+            m.validate_geometry(bad)
+
     def test_source_edit_self_rehash_fails_external_seal(self):
         _, s, ss, _, _ = self.authority("src")
         bad = copy.deepcopy(s)

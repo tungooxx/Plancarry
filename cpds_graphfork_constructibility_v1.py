@@ -365,6 +365,16 @@ def validate_geometry(geometry: Mapping[str, Any]) -> bool:
         value = geometry[key]
         if not isinstance(value, list) or not value or not all(isinstance(x, str) and x for x in value):
             raise ValueError("GEOMETRY_" + key)
+        # These lists identify distinct locations, sites, or provenance sources.
+        # Repeating an identifier adds no permitted geometry and must fail closed.
+        if key != "runtime_call_geometry" and len(set(value)) != len(value):
+            raise ValueError("GEOMETRY_DUPLICATE_" + key)
+    # Runtime geometry is an ordered event sequence, so non-adjacent event names
+    # legitimately recur (for example G_EXPOSURE / UPDATE_SLOT alternation).  A
+    # repeated adjacent event is instead a duplicated call slot and is rejected.
+    runtime = geometry["runtime_call_geometry"]
+    if any(left == right for left, right in zip(runtime, runtime[1:])):
+        raise ValueError("GEOMETRY_DUPLICATE_runtime_call_geometry")
     if geometry["oneshot_G_exposure_location"] not in geometry["G_exposure_locations"]:
         raise ValueError("ONESHOT_EXPOSURE_NOT_CONTRACTED")
     if any(bool(geometry[k]) for k in ("G_can_execute_action", "G_can_force_single_action", "G_can_mutate_environment")):
