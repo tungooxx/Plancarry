@@ -39,6 +39,54 @@ _BOUND_PATH:Path|None=None
 _BOUND_SHA256:str|None=None
 
 
+def v23_validate_model_provenance(prov:Mapping[str,Any])->None:
+ # V2.3: device marketing name is provenance only, never admission authority.
+ for key,expected in frozen.EXPECTED_MODEL_PROVENANCE.items():
+  if prov.get(key)!=expected:
+   raise RuntimeError(f'MODEL_PROVENANCE_MISMATCH:{key}:{prov.get(key)!r}:{expected!r}')
+ device_name=prov.get('device_name')
+ if not isinstance(device_name,str) or not device_name.strip():
+  raise RuntimeError('MODEL_DEVICE_PROVENANCE_REQUIRED')
+
+
+def v23_load_production_runtime(root:Path):
+ # Exact frozen runtime, but capability-bound rather than product-name-bound.
+ import torch
+ import transformers
+ import tokenizers as tokenizers_pkg
+ from transformers import AutoModelForCausalLM,AutoTokenizer
+ if str(torch.__version__)!=frozen.TORCH_VERSION:
+  raise RuntimeError(f'TORCH_VERSION_MISMATCH:{torch.__version__}:{frozen.TORCH_VERSION}')
+ if str(transformers.__version__)!=frozen.TRANSFORMERS_VERSION:
+  raise RuntimeError(f'TRANSFORMERS_VERSION_MISMATCH:{transformers.__version__}:{frozen.TRANSFORMERS_VERSION}')
+ if str(tokenizers_pkg.__version__)!=frozen.TOKENIZERS_VERSION:
+  raise RuntimeError(f'TOKENIZERS_VERSION_MISMATCH:{tokenizers_pkg.__version__}:{frozen.TOKENIZERS_VERSION}')
+ if not torch.cuda.is_available():
+  raise RuntimeError('CUDA_REQUIRED')
+ if not bool(torch.cuda.is_bf16_supported()):
+  raise RuntimeError('NATIVE_BF16_REQUIRED')
+ device_name=str(torch.cuda.get_device_name(0))
+ if not device_name.strip():
+  raise RuntimeError('MODEL_DEVICE_PROVENANCE_REQUIRED')
+ tokenizer=AutoTokenizer.from_pretrained(frozen.MODEL_ID,revision=frozen.MODEL_REVISION,trust_remote_code=False)
+ model=AutoModelForCausalLM.from_pretrained(
+  frozen.MODEL_ID,revision=frozen.MODEL_REVISION,torch_dtype=torch.bfloat16,trust_remote_code=False,
+ ).to('cuda')
+ model.eval()
+ prov=frozen.derive_model_provenance(device_name)
+ v23_validate_model_provenance(prov)
+ return tokenizer,model,prov
+
+
+
+
+def install_v23_capability_overrides()->None:
+ # Patch only process-local operational admission hooks. Frozen science bytes stay unchanged.
+ frozen.validate_model_provenance=v23_validate_model_provenance
+ frozen.load_production_runtime=v23_load_production_runtime
+ import replay_residual_natural_packet_validator_v2_1 as packet_validator
+ packet_validator.validate_model_provenance=v23_validate_model_provenance
+
 def _sha_file(p:Path)->str:
  return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -195,10 +243,8 @@ def main(argv:Sequence[str]|None=None)->int:
  _load_bound(Path(args.bound_contract))
  if args.cmd=='produce':
   if _sha_file(root/'replay_residual_natural_packet_producer_v2_2_technical_successor.py')!=THIN_WRAPPER_SHA256: raise RuntimeError('THIN_WRAPPER_SHA_MISMATCH')
-  # V2.3 capability-bound execution: GPU product name is provenance, not admission.
-  import torch
-  if not torch.cuda.is_available(): raise RuntimeError('CUDA_REQUIRED')
-  frozen.EXPECTED_DEVICE_NAME=torch.cuda.get_device_name(0)
+  # V2.3 capability-bound execution: retain device name only as provenance.
+  install_v23_capability_overrides()
   thin.SUCCESSOR_PACKET_TARGET_REL=SUCCESSOR_PACKET_REL
   os.chdir(root); thin._ORIGINAL_ATOMIC_PUBLISH=successor_rebinding_atomic_publish
   return int(thin.main(['--root',str(root),'--execute-science']))

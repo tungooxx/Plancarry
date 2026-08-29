@@ -14,13 +14,17 @@ CONTRACT="$ROOT/results/design/plancarry_replayresidual_v23_capability_bound_cud
 VALIDATOR="$ROOT/replayresidual_v23_capability_validator_a1.py"
 BINDER="$ROOT/results/design/plancarry_replayresidual_v23_execution_binding_20260828.py"
 ADAPTER="$ROOT/results/design/plancarry_replayresidual_v23_registered_packet_adapter_20260828.py"
+SANITY_ADAPTER="$ROOT/results/design/plancarry_replayresidual_v23_sanity_runner_capability_adapter_20260829.py"
+BRIDGE_ADAPTER="$ROOT/results/design/plancarry_replayresidual_v23_bridge_capability_adapter_20260829.py"
 
 sha_eq(){ [[ "$(sha256sum "$1" | awk '{print $1}')" == "$2" ]] || { echo "SHA256_MISMATCH:$1" >&2; exit 70; }; }
 verify_static(){
   sha_eq "$CONTRACT" 1289bbf073e4f4c6411a82cdac069ff9fe9094cacb92e4ccb333712d8af4a3bc
   sha_eq "$VALIDATOR" a04a79fed515323bd42067d52bd5590506cc336e8de43345876524fc47507293
   sha_eq "$BINDER" 31a2c8cf46c3fbd3b23bae0252a107dd5811f0d6a0c87a372c0e544bdd865d1f
-  sha_eq "$ADAPTER" b1906d5b3830f738c63ec82554b0d1a2a0d9fb0005e99e98c94f1f8002216bc8
+  sha_eq "$ADAPTER" ac28d4d81fdccb3373cfb4d33f78bfb51752e6aa74f6a824a6a778bdf5b17f83
+  sha_eq "$SANITY_ADAPTER" a09dfcae8e4547dfa44428f41b679f1b972fa9934a76d3eda84cae69ff8366f2
+  sha_eq "$BRIDGE_ADAPTER" 3e1c98b8b4bdbd20c3f2db6ad19dbbbce41ed0123ab1a9edde278cbb9137c8d2
   # Frozen scientific machinery is inherited byte-for-byte from V2.2.
   sha_eq replay_residual_natural_packet_producer_v2_2_technical_successor.py d1be7ecbabc1ac3d8d24587a57e53141623b320615400a5acd0d9b7437635ab8
   sha_eq replay_residual_natural_packet_producer_v2_1_py313_compat.py 5e2caea4d6c6d2139dd696950299f3d2ad4cadb21dbcc1a0670e2d7805677472
@@ -107,14 +111,13 @@ PY
 )
   printf '%s\n' "$UP_TOKEN" > "$TMP/upstream.token"
   export PLANCARRY_WHITEBOX_TOKEN="$UP_TOKEN"
-  # Empty expected-device substring deliberately disables product-name admission;
-  # capability/runtime admission was validated above from the frozen V2.3 attestation.
-  "$PY" whitebox_bridge_prefixstable_proto.py --host 127.0.0.1 --port 8892 --disable-patch --model-id Qwen/Qwen3-1.7B --revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e --device cuda --dtype bfloat16 --expected-device-substring '' >"$TMP/bridge.log" 2>&1 &
+  # V2.3 bridge adapter forces legacy product-name admission off.
+  "$PY" "$BRIDGE_ADAPTER" --host 127.0.0.1 --port 8892 --disable-patch --model-id Qwen/Qwen3-1.7B --revision 70d244cc86ccca08cf5af4e1e306ecf908b1ad5e --device cuda --dtype bfloat16 >"$TMP/bridge.log" 2>&1 &
   BRIDGE_PID=$!; wait_health http://127.0.0.1:8892/health "$UP_TOKEN"
   export PLANCARRY_REPLAY_SANITY_TOKEN="$DOWN_TOKEN"
   "$PY" replay_residual_capture_only_sidecar_v1.py --host 127.0.0.1 --port 8893 --upstream http://127.0.0.1:8892 --upstream-token-file "$TMP/upstream.token" --downstream-token-env PLANCARRY_REPLAY_SANITY_TOKEN >"$TMP/sidecar.log" 2>&1 &
   SIDECAR_PID=$!; wait_health http://127.0.0.1:8893/health "$DOWN_TOKEN"
-  "$PY" replay_residual_sanity_runner_v1.py --episode-dir "$PACKETS" --output "$OUT" --url http://127.0.0.1:8893 --token "$DOWN_TOKEN" >"$TMP/sanity_runner.log" 2>&1
+  "$PY" "$SANITY_ADAPTER" --episode-dir "$PACKETS" --output "$OUT" --url http://127.0.0.1:8893 --token "$DOWN_TOKEN" >"$TMP/sanity_runner.log" 2>&1
   "$PY" "$ADAPTER" attest --root "$ROOT" --bound-contract "$bound" --packet-dir "$PACKETS" --result "$OUT" --output "$attest" >"$TMP/final_attestation.log" 2>&1
   [[ -s "$attest" ]] || { echo 'FINAL_ATTESTATION_MISSING' >&2; exit 81; }
   printf '%s\n' '{"status":"V23_EXECUTION_TERMINAL_ATTESTATION_READY","partial_scientific_outcomes_printed":false,"next_required_step":"research_execution_attest_before_scientific_assessment"}'
