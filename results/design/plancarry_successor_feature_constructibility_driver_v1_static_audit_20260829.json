@@ -1,0 +1,63 @@
+{
+  "adapter_boundary": {
+    "reviewed_action_selection_source_pinned": true,
+    "reviewed_environment_runtime_source_pinned": true,
+    "row1_classifier_not_invented": true,
+    "runtime_material_must_not_include_whole_task_win_postcut_future_expert_oracle_criteria": true,
+    "shared_action_phase_supplied_by_separately_reviewed_narrow_runtime_adapter": true
+  },
+  "base_commit": "7649007ae0779d1583a42c86f1d5dc7f235b52c3",
+  "changed_file_sha256": {
+    "launch_successor_feature_constructibility_v1.sh": "3cc89af4a11dac2ad3fb191f13b4b2d0414dd8c9d262eeb8bb7fa9176150cdf7",
+    "successor_feature_constructibility_driver_v1.py": "4d0a76ccc43525cb88237f8699871a1a82b148e27be9c620588f951aedaa759a",
+    "successor_feature_constructibility_validator_v1.py": "531068299772f942f462d534659ad4686573e941e3172829014e9c7837d07f3c",
+    "tests/test_successor_feature_constructibility_driver_v1.py": "18a1c603d9a44ae9cbf99c4bcdeef9aea52dae1df9f4b9206358493587295435"
+  },
+  "checks": {
+    "bash_n": true,
+    "causal_development_16_31_locked": true,
+    "cli_fixed_16_synthetic": "PASS; 12 eligible + 4 explicit prefix failures; terminal verdict PASS_SUCCESSOR_FEATURE_CONSTRUCTIBILITY_ONLY",
+    "cli_synthetic_summary_sha256": "66370cea98554c170bb63df78c9221b067e74c4a6f44a54efce51402bb4cd4e7",
+    "environment_execution": 0,
+    "existing_constructibility_runtime_tests": "14/14 PASS",
+    "existing_label_binding_tests": "13/13 PASS",
+    "existing_static_prereg": "PASS_STATIC_PRE_SCIENCE_V2",
+    "experiments_created": 0,
+    "forbidden_import_audit": true,
+    "future_or_oracle_fields_fail_closed_by_exact_schema": true,
+    "git_diff_check": true,
+    "model_forwards": 0,
+    "model_generations": 0,
+    "model_loads": 0,
+    "new_driver_tests": "17/17 PASS",
+    "no_direct_science_execute_launcher_mode": true,
+    "no_replacement": true,
+    "one_packet_per_fixed_attempt_contract": true,
+    "only_fixed_indices_0_15_exposed": true,
+    "pass_gate_ge_12_of_16": true,
+    "provider_lifecycle_actions": 0,
+    "py_compile": true,
+    "research_decisions_created": 0,
+    "spare_32_36_locked": true,
+    "terminal_summary_requires_exact_16": true,
+    "valid_split_fields_absent": true,
+    "whole_task_success_criterion_forbidden": true
+  },
+  "engineering_task_id": "67861737-292c-46f6-a7c1-ee5e3546bc85",
+  "frozen_authority": {
+    "action_primitive_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "label_binding_file_sha256": "6a31e850b32486f250f58007a02f86044d4f6d1362a48594c094a50811bb686f",
+    "label_helper_sha256": "9f269f3fab4b76600d1148043da1a5f47fc2808d01082765cd1a2581ebd812b0",
+    "manifest_sha256": "1259a8413301b8ce1fc674074c0e6d6b5604ba802ff3ac6ff681d08f35924c72",
+    "population_sha256": "d35271102561040901ead7a663e080242b577c9afd75743f94ad3cce014d24d2",
+    "prereg_sha256": "e6ef3044d6636e03b4b6a5b7a68b1bda89bc92ba2b2da3c936e9e2a8a07e276f",
+    "runtime_primitive_sha256": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "successor_helper_sha256": "94fb69bf8b11e2a3812573b07360a3c07a37efc8b607773256856bd72e302401",
+    "suffix_table_sha256": "84dd917857b955a32accc394d5a090108419741d1481ad49607329acfc6d46c7"
+  },
+  "independent_suffix_provenance_review_commit": "3b555fd",
+  "interpretation": "Engineering constructibility execution preparation only. Synthetic PASS demonstrates packet/validator/launcher constructibility, not SuccessorFeature scientific support and not authorization for a model or environment call.",
+  "kind": "SUCCESSOR_FEATURE_CONSTRUCTIBILITY_DRIVER_V1_STATIC_AUDIT",
+  "scientific_result": "NOT_ASSESSED",
+  "work_item_id": "58246201-5aca-492a-ab77-6b92afa2f425"
+}
