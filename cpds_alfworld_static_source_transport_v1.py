@@ -116,7 +116,7 @@ def fetch_train_spans(layout, output_dir: Path, chunk_bytes: int=CHUNK_BYTES):
         span_bytes=sum(t-s for s,t,_ in a['train_spans'])
         if total!=span_bytes: raise RuntimeError('TRAIN_SPAN_CONCAT_SIZE')
         s0=a['train_spans'][0][0]; t1=a['train_spans'][-1][1]
-        access.append({'asset_id':aid,'asset_name':a['name'],'range_start':s0,'range_end_inclusive':t1-1,'bytes':total,'sha256':hsh.hexdigest(),'etag':a['etag'],'forbidden_overlap_count':0,'chunk_count':len(ars),'chunks':[{k:r[k] for k in ('range_start','range_end_inclusive','bytes','sha256','forbidden_overlap_count')} for r in ars]})
+        access.append({'asset_id':aid,'asset_name':a['name'],'range_start':s0,'range_end_inclusive':t1-1,'bytes':total,'sha256':hsh.hexdigest(),'etag':a['etag'],'forbidden_overlap_count':0,'chunk_count':len(ars),'chunks':[{'chunk_index':i,**{k:r[k] for k in ('range_start','range_end_inclusive','bytes','sha256','forbidden_overlap_count')}} for i,r in enumerate(ars)]})
     return access
 
 def main():
