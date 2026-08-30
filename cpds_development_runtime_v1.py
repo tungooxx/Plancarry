@@ -256,9 +256,14 @@ def _load_model_runtime():
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     c=load_contract(); m=c["model_runtime"]
-    tok=AutoTokenizer.from_pretrained(MODEL_ID,revision=MODEL_REVISION,cache_dir=m["hf_home"],local_files_only=True,use_fast=True)
-    model=AutoModelForCausalLM.from_pretrained(MODEL_ID,revision=MODEL_REVISION,cache_dir=m["hf_home"],local_files_only=True,torch_dtype=torch.bfloat16)
+    if not torch.cuda.is_available(): raise ValueError("CUDA_REQUIRED")
+    if not torch.cuda.is_bf16_supported(): raise ValueError("CUDA_BF16_REQUIRED")
+    cache_dir=str(pathlib.Path(m["hf_home"])/"hub")
+    tok=AutoTokenizer.from_pretrained(MODEL_ID,revision=MODEL_REVISION,cache_dir=cache_dir,local_files_only=True,use_fast=True)
+    model=AutoModelForCausalLM.from_pretrained(MODEL_ID,revision=MODEL_REVISION,cache_dir=cache_dir,local_files_only=True,torch_dtype=torch.bfloat16,device_map=None)
+    model.to(device=torch.device("cuda"),dtype=torch.bfloat16)
     model.eval(); model.requires_grad_(False)
+    if next(model.parameters()).device.type!="cuda": raise ValueError("MODEL_NOT_CUDA")
     return torch,tok,model
 
 
