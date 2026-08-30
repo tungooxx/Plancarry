@@ -38,6 +38,12 @@ def contrasts(m):
       'nocarry':d['ALIGNED_RECURSION'],
     }
 
+def lse(xs):
+    m=max(xs)
+    return m+math.log(sum(math.exp(x-m) for x in xs))
+
+def margin(a,b): return lse(a)-lse(b)
+
 class TestCPDSV4BranchPreferenceEndpoint(unittest.TestCase):
   def test_01_contract_self_hash(self):
     o=load(CONTRACT); got=o.pop('canonical_object_sha256_without_self_field')
@@ -145,6 +151,8 @@ class TestCPDSV4BranchPreferenceEndpoint(unittest.TestCase):
     g=c['practical_effect_guards']; d=c['development_rule']
     self.assertEqual(g['median_C_static_nats_min'],.05); self.assertEqual(g['median_C_permuted_nats_min'],.05)
     self.assertEqual(d['positive_static_min'],22); self.assertEqual(d['positive_permuted_min'],22)
+    self.assertTrue(d['median_D_aligned_gt0']); self.assertNotIn('median_D_aligned_nats_min',d)
+    self.assertNotIn('median_C_oneshot_gt0',d)
     self.assertEqual(d['on_failure'],'DEVELOPMENT_FUTILITY_STOP_CONFIRMATION_REMAINS_SEALED')
 
   def test_15_no_science_authorization(self):
@@ -155,7 +163,34 @@ class TestCPDSV4BranchPreferenceEndpoint(unittest.TestCase):
     self.assertIn('NO_CONFIRMATION_OUTCOMES',c['non_authorizations'])
     self.assertEqual(c['preserved_authority']['planroute'],'USER_NOOP_RETIRED')
 
-  def test_16_audit_hash_closure(self):
+  def test_16_numeric_rules_are_exact_and_no_epsilon(self):
+    n=load(CONTRACT)['numeric_determinism']
+    self.assertEqual(n['scalar_type'],'IEEE_754_BINARY64')
+    self.assertIn('no epsilon/tolerance',n['sign_rule'])
+    self.assertIn('17th value',n['median_rule_33'])
+    self.assertIn('without tolerance',n['practical_floor'])
+
+  def test_17_common_score_offset_and_branch_swap_invariance_from_action_scores(self):
+    A=[-1.2,-2.4,-3.0]; B=[-1.6,-2.1]
+    r=margin(A,B)
+    for off in (-100.0,-3.25,0.0,7.5,100.0):
+      self.assertTrue(math.isclose(margin([x+off for x in A],[x+off for x in B]),r,rel_tol=0,abs_tol=2e-14))
+    self.assertTrue(math.isclose(margin(B,A),-r,rel_tol=0,abs_tol=2e-15))
+    c=load(CONTRACT)['nuisance_invariances']
+    self.assertIn('cardinality are identical across all six arms',c['fixed_class_cardinality'])
+    self.assertIn('ALIGNED exceeds STATIC_REPEAT and TRANSITION_PERMUTED',c['confidence_boundary'])
+
+  def test_18_actual_33x2_audit_closure(self):
+    c=load(CONTRACT)['authority']; a=load(ACTUAL_AUDIT)
+    self.assertEqual(sha(ACTUAL_AUDIT.read_bytes()),c['actual_33x2_audit_file_sha256'])
+    self.assertEqual(a['development_family_count'],33); self.assertEqual(a['confirmation_family_count'],33)
+    self.assertEqual(a['source_graph_overlap_count'],0); self.assertEqual(a['structural_family_overlap_count'],0); self.assertEqual(a['family_id_overlap_count'],0)
+    self.assertEqual(a['durable_draw_journal_file_count'],66)
+    self.assertEqual(a['assignment_transaction_sha256'],c['transaction_sha256'])
+    self.assertEqual(a['assignment_bundle_sha256'],c['assignment_bundle_sha256'])
+    self.assertEqual(a['source_authority_seal'],c['source_authority_seal'])
+
+  def test_19_audit_hash_closure(self):
     a=load(AUDIT); x=dict(a); got=x.pop('canonical_object_sha256_without_self_field')
     self.assertEqual(got,sha(canonical_bytes(x)))
     self.assertEqual(a['contract_sha256'],sha(CONTRACT.read_bytes()))
