@@ -14,6 +14,7 @@ import torch
 import torch.nn.functional as F
 
 from cpds_v5_partition_v1 import partition_name, validate_blind_reserved_overlap, validate_source_graph_disjoint
+from cpds_v5_provenance_v1 import build_train_provenance, load_reserved_v4_hash_seal, validate_calibration_checkpoint_binding
 from cpds_v5_predictive_recurrence_v1 import (
     BASE_MODEL_ID, BASE_MODEL_REVISION, CPDSV5Adapter, G_GAIN, NATIVE_WIDTH, REALIZATION,
     STATE_WIDTH, canonical_bytes, deterministic_nonidentity_permutation, save_deterministic_checkpoint,
@@ -70,10 +71,12 @@ def _packet(path: Path) -> dict[str, Any]:
     return d
 
 
-def load_packet_dir(packet_dir: str | Path, expected_partition: str, reserved_v4_hash_file: str | Path | None = None) -> list[dict[str, Any]]:
+def load_packet_dir(packet_dir: str | Path, expected_partition: str, reserved_v4_hash_file: str | Path | None, recipe: Mapping[str, Any] | None = None) -> list[dict[str, Any]]:
     packet_dir = Path(packet_dir)
     if expected_partition not in ("TRAIN", "CALIBRATION"):
         raise ValueError("PARTITION")
+    recipe = load_recipe() if recipe is None else recipe
+    reserved_seal, _ = load_reserved_v4_hash_seal(reserved_v4_hash_file, recipe)
     packets = [_packet(p) for p in sorted(packet_dir.glob("*.json"))]
     if not packets:
         raise ValueError("NO_PACKETS")
@@ -83,11 +86,7 @@ def load_packet_dir(packet_dir: str | Path, expected_partition: str, reserved_v4
     if len(graph_ids) != len(set(graph_ids)):
         raise ValueError("DUPLICATE_SOURCE_GRAPH")
     candidate_hashes = [p["structural_key_sha256"] for p in packets]
-    if reserved_v4_hash_file is not None:
-        reserved = json.loads(Path(reserved_v4_hash_file).read_text(encoding="utf-8"))
-        if not isinstance(reserved, list):
-            raise ValueError("RESERVED_HASH_FORMAT")
-        validate_blind_reserved_overlap(candidate_hashes, reserved)
+    validate_blind_reserved_overlap(candidate_hashes, reserved_seal["structural_family_key_sha256s"])
     return packets
 
 
@@ -205,20 +204,23 @@ def calibration_gate(model: CPDSV5Adapter, calibration_packets: Sequence[Mapping
 def main() -> int:
     ap=argparse.ArgumentParser()
     sub=ap.add_subparsers(dest="mode",required=True)
-    t=sub.add_parser("train"); t.add_argument("--train-dir",required=True); t.add_argument("--reserved-v4-hashes"); t.add_argument("--checkpoint",required=True); t.add_argument("--manifest",required=True)
-    c=sub.add_parser("calibrate"); c.add_argument("--calibration-dir",required=True); c.add_argument("--reserved-v4-hashes"); c.add_argument("--checkpoint",required=True); c.add_argument("--checkpoint-sha256",required=True); c.add_argument("--result",required=True)
+    t=sub.add_parser("train"); t.add_argument("--train-dir",required=True); t.add_argument("--reserved-v4-hashes",required=True); t.add_argument("--checkpoint",required=True); t.add_argument("--manifest",required=True)
+    c=sub.add_parser("calibrate"); c.add_argument("--calibration-dir",required=True); c.add_argument("--reserved-v4-hashes",required=True); c.add_argument("--checkpoint",required=True); c.add_argument("--checkpoint-sha256",required=True); c.add_argument("--train-manifest",required=True); c.add_argument("--train-manifest-sha256",required=True); c.add_argument("--result",required=True)
     args=ap.parse_args(); recipe=load_recipe(); recipe_sha=sha256_file(RECIPE_PATH)
+    _, reserved_seal_sha = load_reserved_v4_hash_seal(args.reserved_v4_hashes, recipe)
     if args.mode=="train":
-        packets=load_packet_dir(args.train_dir,"TRAIN",args.reserved_v4_hashes)
+        packets=load_packet_dir(args.train_dir,"TRAIN",args.reserved_v4_hashes,recipe)
         model,train_info=train_model(packets,recipe)
-        ck=save_deterministic_checkpoint(args.checkpoint,model,recipe_sha256=recipe_sha,provenance={"partition":"TRAIN","packet_count":len(packets),"source_graph_ids_sha256":hashlib.sha256(canonical_bytes(sorted(p["source_graph_id"] for p in packets))).hexdigest()})
-        manifest={"schema":"PLANCARRY_CPDS_V5_TRAIN_FREEZE_V1","scientific_result":"NOT_ASSESSED_TRAIN_ONLY","realization":REALIZATION,"recipe_sha256":recipe_sha,"checkpoint_sha256":ck["sha256"],"checkpoint_bytes":ck["bytes"],"train":train_info,"development_access":False,"confirmation_access":False}
+        train_prov=build_train_provenance(packets,reserved_seal_sha)
+        ck=save_deterministic_checkpoint(args.checkpoint,model,recipe_sha256=recipe_sha,provenance=train_prov)
+        manifest={"schema":"PLANCARRY_CPDS_V5_TRAIN_FREEZE_V1","scientific_result":"NOT_ASSESSED_TRAIN_ONLY","realization":REALIZATION,"recipe_sha256":recipe_sha,"reserved_v4_hash_seal_sha256":reserved_seal_sha,"checkpoint_sha256":ck["sha256"],"checkpoint_bytes":ck["bytes"],"checkpoint_header_sha256":ck["header_sha256"],"train_provenance":train_prov,"train":train_info,"development_access":False,"confirmation_access":False}
         Path(args.manifest).write_bytes(canonical_bytes(manifest)); return 0
-    packets=load_packet_dir(args.calibration_dir,"CALIBRATION",args.reserved_v4_hashes)
+    packets=load_packet_dir(args.calibration_dir,"CALIBRATION",args.reserved_v4_hashes,recipe)
+    binding=validate_calibration_checkpoint_binding(checkpoint_path=args.checkpoint,checkpoint_sha256=args.checkpoint_sha256,recipe_sha256=recipe_sha,reserved_v4_hash_seal_sha256=reserved_seal_sha,train_manifest_path=args.train_manifest,train_manifest_sha256=args.train_manifest_sha256)
     model=CPDSV5Adapter().cpu().eval()
     from cpds_v5_predictive_recurrence_v1 import load_deterministic_checkpoint
     load_deterministic_checkpoint(args.checkpoint,model,expected_sha256=args.checkpoint_sha256)
-    result=calibration_gate(model,packets); result["checkpoint_sha256"]=args.checkpoint_sha256; result["recipe_sha256"]=recipe_sha
+    result=calibration_gate(model,packets); result["checkpoint_sha256"]=args.checkpoint_sha256; result["recipe_sha256"]=recipe_sha; result["reserved_v4_hash_seal_sha256"]=reserved_seal_sha; result["train_manifest_sha256"]=binding["train_manifest_sha256"]; result["checkpoint_header_sha256"]=binding["checkpoint_header_sha256"]; result["train_source_provenance"]=binding["train_provenance"]
     Path(args.result).write_bytes(canonical_bytes(result)); return 0
 
 if __name__=="__main__": raise SystemExit(main())

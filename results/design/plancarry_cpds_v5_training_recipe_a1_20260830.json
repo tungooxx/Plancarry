@@ -68,5 +68,16 @@
     "threshold tuning",
     "PlanRoute",
     "discovery round"
-  ]
+  ],
+  "provenance": {
+    "v4_reserved_structural_key_hash_seal": {
+      "schema": "PLANCARRY_CPDS_V5_V4_RESERVED_STRUCTURAL_KEY_HASH_SEAL_V1",
+      "path": "results/design/plancarry_cpds_v5_v4_reserved_structural_key_hash_seal_a3_20260830.json",
+      "file_sha256": "e2d6cecb4a13ff27cd5f2e76fd6d1e021fa27cf1e1d582aeb1808b2f40f075e2",
+      "count": 66,
+      "development_manifest_sha256": "b1c078ab0b756c04ea8a6056855f7691e80a9374d00899904574194d8448177c",
+      "confirmation_manifest_sha256": "8847e5962a5a210925a6a2c916e388f678676a991537be1786004c0f87c4fcce"
+    },
+    "calibration_checkpoint_binding": "REQUIRE_EXACT_CHECKPOINT_SHA256_TRAIN_MANIFEST_SHA256_RECIPE_AND_TRAIN_SOURCE_PROVENANCE"
+  }
 }
