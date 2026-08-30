@@ -1,0 +1,278 @@
+{
+  "actual_development_structure": {
+    "common_prefix_transition_count_per_family": 2,
+    "family_count": 33,
+    "immediate_step_is_not_an_F_input": true,
+    "reason": "The frozen observed-transition packet is exactly common_prefix_transition_keys; immediate_next_command_canonical is a separate graph step and is not an observed_transition_record consumed by F."
+  },
+  "actual_timeline": {
+    "aligned_equivalence": "For deterministic F(z,x)=unit_l2(z+x), replaying the complete observed causal prefix from sealed z0 at each site yields exactly the same exposed ALIGNED state as persistent streaming recurrence after each observed common transition. Recompute-vs-persist is an implementation equivalence, not a scientific variable.",
+    "fixed_events": [
+      {
+        "event": "RESET_PREFIX",
+        "matched_G": true,
+        "matched_prefix_replay_F_calls": 0,
+        "observed_common_transition_count": 0,
+        "ordinal": 0
+      },
+      {
+        "F_consumes_event": false,
+        "event": "FROZEN_IMMEDIATE_STEP_REPLAY",
+        "matched_G": false,
+        "matched_prefix_replay_F_calls": 0,
+        "observed_common_transition_count": 0,
+        "ordinal": 1
+      },
+      {
+        "event": "COMMON_TRANSITION_1_OBSERVED",
+        "matched_G_event": "POST_TRANSITION_1",
+        "matched_prefix_replay_F_calls": 1,
+        "observed_common_transition_count": 1,
+        "ordinal": 2
+      },
+      {
+        "event": "COMMON_TRANSITION_2_OBSERVED",
+        "matched_G_event": "BRANCH_POINT",
+        "matched_prefix_replay_F_calls": 2,
+        "observed_common_transition_count": 2,
+        "ordinal": 3,
+        "primary_score_site": true
+      }
+    ],
+    "fixed_prefix_nonselection": "G outputs at RESET_PREFIX and POST_TRANSITION_1 are diagnostic/matching-geometry outputs only and never select, force, replace, skip, or mutate the frozen graph-valid immediate/common-prefix replay. Only the BRANCH_POINT sealed score map enters V4 endpoint aggregation.",
+    "matched_G_exposure_locations": [
+      "RESET_PREFIX",
+      "POST_TRANSITION_1",
+      "BRANCH_POINT"
+    ],
+    "prefix_replay_F_calls_by_G_site": [
+      0,
+      1,
+      2
+    ],
+    "rule": "Before each matched G exposure, reconstruct the arm state from byte-identical sealed z0 using only the causally observed common-transition prefix available at that site. No future transition may be read, featurized, buffered into F, or scored before its observation event.",
+    "total_F_calls_per_matched_arm": 3
+  },
+  "arms": {
+    "ALIGNED_RECURSION": {
+      "F_calls_by_site": [
+        0,
+        1,
+        2
+      ],
+      "G_exposure_locations": [
+        "RESET_PREFIX",
+        "POST_TRANSITION_1",
+        "BRANCH_POINT"
+      ],
+      "branch_state": "F(F(z0,x1),x2)",
+      "prefix_orders": {
+        "BRANCH_POINT": [
+          0,
+          1
+        ],
+        "POST_TRANSITION_1": [
+          0
+        ],
+        "RESET_PREFIX": []
+      }
+    },
+    "MATCHED_INFORMATION": {
+      "F_calls_by_site": [
+        0,
+        1,
+        2
+      ],
+      "G_exposure_locations": [
+        "RESET_PREFIX",
+        "POST_TRANSITION_1",
+        "BRANCH_POINT"
+      ],
+      "P": "existing frozen CPDS_NATIVE2048_SIGNED_SHIFT_SCRAMBLE_V1 only",
+      "branch_state": "F(F(z0,P(x1)),P(x2))",
+      "prefix_orders": {
+        "BRANCH_POINT": [
+          0,
+          1
+        ],
+        "POST_TRANSITION_1": [
+          0
+        ],
+        "RESET_PREFIX": []
+      }
+    },
+    "NO_CARRY": {
+      "F_calls_by_site": [
+        0,
+        0,
+        0
+      ],
+      "G_exposure_locations": [],
+      "branch_score": "BASE_POLICY_WHOLE_ACTION_SCORE",
+      "branch_state": "NO_CPDS_STATE"
+    },
+    "STATIC_ONESHOT": {
+      "F_calls_by_site": [
+        0,
+        0,
+        0
+      ],
+      "G_exposure_locations": [
+        "BRANCH_POINT"
+      ],
+      "branch_score": "G(BASE_SCORE,Z0,ACTION_FEATURE)",
+      "branch_state": "SEALED_Z0",
+      "location_freeze": "BRANCH_POINT is the prospectively frozen actual-family one-shot location. RESET_PREFIX appeared only in the old three-transition synthetic self-test and was never an actual-33 immutable geometry binding."
+    },
+    "STATIC_REPEAT": {
+      "F_calls_by_site": [
+        0,
+        1,
+        2
+      ],
+      "G_exposure_locations": [
+        "RESET_PREFIX",
+        "POST_TRANSITION_1",
+        "BRANCH_POINT"
+      ],
+      "exposed_state_each_site": "SEALED_Z0",
+      "scratch_prefix_replay": "At each post-transition site execute the exact ALIGNED prefix replay in isolated scratch solely to match F call budget; scratch has no directed path to G, endpoint, later scratch, environment, or any other arm."
+    },
+    "TRANSITION_PERMUTED": {
+      "F_calls_by_site": [
+        0,
+        1,
+        2
+      ],
+      "G_exposure_locations": [
+        "RESET_PREFIX",
+        "POST_TRANSITION_1",
+        "BRANCH_POINT"
+      ],
+      "branch_state": "F(F(z0,x2),x1)",
+      "causal_prefix_rule": "Before two records exist, no nonidentity two-record permutation is causally available, so the one-record prefix is replayed identically. After x2 is observed, reconstruct from z0 using the already-frozen deterministic nonidentity full order [x2,x1]. Thus no future preview occurs and only final temporal order differs.",
+      "prefix_orders": {
+        "BRANCH_POINT": [
+          1,
+          0
+        ],
+        "POST_TRANSITION_1": [
+          0
+        ],
+        "RESET_PREFIX": []
+      }
+    }
+  },
+  "authority": {
+    "actual_33x2_freeze_commit": "e4c1ed318c96f5a2e6ac3e059d5e43dfec14d16a",
+    "actual_development_generator_manifest": "results/design/plancarry_cpds_actual_development_generator_manifest_v3_20260829.json",
+    "actual_development_source_snapshot": "results/design/plancarry_cpds_actual_development_source_snapshot_v2_20260829.json",
+    "assignment_bundle_sha256": "d01568854cabce0d2a219db3da71cd4c384f6680cf72dba455e21af21d59a002",
+    "base_runtime_commit": "04c4ab13f8ef28bd57ec28e2ad3323d8c5e3a5a0",
+    "corrected_v4_commit": "e152a8449760bda6cf9f4ea5e215832522479a92",
+    "recurrent_file": "results/design/plancarry_cpds_recurrent_realization_feature_basis_v1_20260829.json",
+    "recurrent_realization_commit": "30bdce87343a20994dd82cd849fd9ec210f4dc22",
+    "source_authority_seal": "a2ca2421f0c4405c403d09ca7f9e78066f57a1c2ee931600bbbc249ddff8810f",
+    "v4_endpoint_file": "results/design/plancarry_cpds_v4_branch_preference_endpoint_contract_a2_20260830.json"
+  },
+  "branch_scoring": {
+    "all_six_whole_action_maps_required": true,
+    "carry_branch_scores": "STATIC_ONESHOT, STATIC_REPEAT, ALIGNED_RECURSION, TRANSITION_PERMUTED and MATCHED_INFORMATION each use exactly one branch-point G evaluation over that arm's branch_state and the exact frozen candidate action set.",
+    "evaluator_open": "Only after all six maps and provenance hashes are atomically sealed may A/B class membership be opened for V4 aggregation; opening cannot trigger rescore, state recomputation, environment action, filtering, replacement, or tuning.",
+    "no_carry_branch_scores": "NO_CARRY uses the exact base-policy whole-action map with no G.",
+    "oneshot_static_relation": "At BRANCH_POINT, STATIC_ONESHOT and STATIC_REPEAT expose the same sealed z0 through the same G over the same base prompt/candidate set. Under required isolation/determinism their branch score maps are exactly equal; therefore C_oneshot equals C_static. The retained V4 C_oneshot confirmation guard is algebraically redundant under this actual realization and MUST NOT be presented as an independent mechanistic control or evidence family. No V4 threshold is changed by this repair.",
+    "sealed_before_evaluator_classes": true,
+    "site": "BRANCH_POINT"
+  },
+  "canonical_object_sha256_without_self_field": "770a29e1c60ff483837b018c5987e6f7dab156e615950911803a02ee2be0d550",
+  "experiment_id": "e2b14311-bb6e-4c4b-b222-bc2d5bd9b49d",
+  "hypothesis_id": "5d262191-9177-49ce-86ff-4944832aa1dc",
+  "matching_invariants": {
+    "matched_arms": [
+      "STATIC_REPEAT",
+      "ALIGNED_RECURSION",
+      "TRANSITION_PERMUTED",
+      "MATCHED_INFORMATION"
+    ],
+    "no_future_preview": true,
+    "permuted_final_only_difference": "At BRANCH_POINT, ALIGNED versus TRANSITION_PERMUTED differs only in the order of the same two already-observed sealed transition features.",
+    "same_F_call_budget_by_site": [
+      0,
+      1,
+      2
+    ],
+    "same_F_callable": true,
+    "same_G_callable": true,
+    "same_G_count": 3,
+    "same_G_sites": true,
+    "same_candidate_sets": true,
+    "same_total_F_calls": 3,
+    "same_z0_capacity_dtype": true
+  },
+  "mechanical_guards": {
+    "G_nonforcing": "G may only compute adjusted scores; it cannot execute/choose/force an action, mask candidate vocabulary, mutate environment, or persist a side effect into another G site.",
+    "assignment_and_provenance": "Family-to-slot assignments, exact 33 membership/order, runtime/model/source hashes and transition records must match frozen authorities before scoring. Any mismatch is whole-split technical invalidity.",
+    "branch_blindness": "No A/B membership or label may reach z0, x1/x2, P, F, G, candidate scoring, arm assignment, replay, guards, filtering or tuning. A/B opens only after score-map seal.",
+    "call_geometry_or_arm_matching": "For each matched arm verify exact G sites [RESET_PREFIX,POST_TRANSITION_1,BRANCH_POINT], F-call budget [0,1,2], same callable identities, state width/dtype, candidate set, isolation, and no scratch path to G/endpoint.",
+    "generic_competence": "No new generic-competence numeric gate is introduced here. V4's frozen validity authority is implemented exactly; local graph admissibility and immediate-action invariance are the behavioral guard counts required for DEVELOPMENT.",
+    "graph_admissibility": {
+      "family_pass": "During isolated deterministic replay, immediate_next_command_canonical and each frozen common-prefix command must be present in the exact runtime admissible-command set at its preceding observation; at BRANCH_POINT the exact scored candidate set must equal the runtime admissible-command set and both evaluator A/B classes must map to nonempty disjoint subsets after score sealing.",
+      "split_rule": "Required count 33/33; any failure is whole-split TECHNICAL_INVALID/validity failure, never post-score family filtering or replacement."
+    },
+    "immediate_action_invariance": {
+      "score_maps": "Compute the exact reset-site admissible-action score map for NO_CARRY and each matched recurrent arm. STATIC_ONESHOT has no reset-site G and therefore uses the same base map as NO_CARRY at this diagnostic site.",
+      "site": "RESET_PREFIX",
+      "split_rule": "Count pass over all 33 frozen families; required count is 33. Failure invalidates/fails the whole frozen split under V4 validity and never filters/replaces a family.",
+      "top_set_rule": "For each arm, define the exact binary64 maximizer set with no epsilon. Pass one family iff every arm maximizer set equals the NO_CARRY maximizer set. Do NOT require that set to contain immediate_next_command_canonical; that would reintroduce a model-competence selection rule."
+    },
+    "interference": "Mutable model/cache/environment/carrier/scratch/output state is isolated per family and randomized arm slot; no mutable cross-slot or cross-family path is allowed.",
+    "nonfinite_or_missing_scores": "Every one of all six sealed branch-point score maps must have exactly the frozen candidate keys once each and finite binary64 values; any missing/duplicate/nonfinite/unmatched score invalidates the entire split with no replacement."
+  },
+  "non_authorizations": [
+    "NO_MODEL_LOAD",
+    "NO_MODEL_FORWARD",
+    "NO_TOKENIZER_LOAD",
+    "NO_ENVIRONMENT_EXECUTION",
+    "NO_RESEARCH_DECISION",
+    "NO_DEVELOPMENT_OUTCOMES",
+    "NO_CONFIRMATION_BODY_OR_OUTCOMES",
+    "NO_PROVIDER_LIFECYCLE",
+    "NO_PLANROUTE"
+  ],
+  "phase": "PRE_SCIENCE_EXECUTION_SEMANTIC_REPAIR_ONLY",
+  "prediction_id": "261e2f30-dbd1-4ad9-89f0-6b8c35e26834",
+  "preserved_science": {
+    "V4_endpoint_formulas_unchanged": true,
+    "confirmation": "HARD_SEALED_NO_RUNTIME_ROUTE",
+    "confirmation_C_oneshot_guard_retained": true,
+    "development_C_oneshot_guard": false,
+    "development_thresholds_unchanged": true,
+    "fixed_33x2_membership_unchanged": true,
+    "model_runtime_identity_unchanged": true,
+    "n33_k22_randomization_unchanged": true,
+    "native2048_z0_F_G_formulas_unchanged": true,
+    "no_replacement_resampling_redraw": true,
+    "planroute": "USER_NOOP_RETIRED",
+    "six_arm_assignment_unchanged": true
+  },
+  "repair_reason": {
+    "blocking_anomaly_id": "b471a21b-1282-4f78-80a9-1b244a4bc569",
+    "corroborating_anomaly_id": "8522df30-e729-4b59-9501-4541b4f78a5d",
+    "statement": "Actual frozen DEVELOPMENT families have exactly two common-prefix transition records, while prior explicit 4-G/3-update geometry was only a three-transition synthetic constructibility self-test. STATIC_ONESHOT had no actual-family G location frozen, and V4 requires a later branch-point score. Post-outcome guards also require mechanical definitions. Freeze these semantics prospectively before any outcomes."
+  },
+  "required_next_steps": [
+    "FRESH_NON_AUTHOR_SEMANTIC_DELTA_REVIEW",
+    "RETURN_TO_EXISTING_ADAPTER_WORKITEM_6893F639_AFTER_PASS",
+    "FOCUSED_FINAL_EXECUTABLE_DELTA_REVIEW",
+    "THEN_FRESH_RESEARCH_DECISION_AND_DEVELOPMENT_ONLY"
+  ],
+  "schema": "PLANCARRY_CPDS_V4_ACTUAL_FAMILY_EXECUTION_SEMANTICS_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "terminal_rules": {
+    "preoutcome_semantic_or_geometry_failure": "TECHNICAL_OR_DESIGN_INVALID_PRE_SCIENCE",
+    "runtime_missing_or_guard_or_provenance_failure": "TECHNICAL_INVALID_ENTIRE_SPLIT_NOT_ASSESSED",
+    "valid_development_gate_failure": "DEVELOPMENT_FUTILITY_STOP_CONFIRMATION_REMAINS_SEALED",
+    "valid_development_gate_pass": "DEVELOPMENT_READINESS_PASS_NOT_SCIENTIFIC_SUPPORT"
+  },
+  "work_item_id": "00c967bd-6009-4228-a2a4-1fa00b5fa1ec"
+}

@@ -1,0 +1,20 @@
+{
+  "base_commit": "04c4ab13f8ef28bd57ec28e2ad3323d8c5e3a5a0",
+  "confirmation_access": false,
+  "finding": "MATERIAL_EXECUTION_SEMANTICS_GAP_REPAIRED_PROSPECTIVELY_PENDING_INDEPENDENT_REVIEW",
+  "independent_observations": [
+    "Development source snapshot contains exactly 33 families and every common_prefix_transition_keys list has length 2.",
+    "No non-test immutable artifact at base commit binds actual-family oneshot_G_exposure_location=RESET_PREFIX; RESET_PREFIX occurs only in constructibility self-test/test geometry.",
+    "A nonidentity two-record temporal permutation cannot be used at the one-record site without future preview. Prefix replay resolves this: the one-record state is necessarily identical; the final two-record state uses the frozen nonidentity order after both records are observed.",
+    "Cumulative replay from sealed z0 preserves ALIGNED streaming-state values exactly for deterministic F while matching call budgets across matched arms.",
+    "STATIC_ONESHOT is frozen at BRANCH_POINT to make its V4 score defined with exactly one G call; it is endpoint-equivalent to STATIC_REPEAT under the score-only nonpersistent G realization, making C_oneshot redundant rather than an independent control."
+  ],
+  "no_science_accessed": true,
+  "planroute": "USER_NOOP_RETIRED",
+  "schema": "PLANCARRY_CPDS_V4_ACTUAL_FAMILY_EXECUTION_SEMANTICS_AUDIT_V1",
+  "unresolved_for_review": [
+    "Reviewer must decide whether algebraic C_oneshot=C_static redundancy is acceptable under the already-frozen V4 confirmation rule or requires a further semantic repair before execution.",
+    "Reviewer must independently verify cumulative causal prefix replay does not weaken the intended CPDS ordered-recurrence claim or introduce timing/information asymmetry."
+  ],
+  "work_item_id": "00c967bd-6009-4228-a2a4-1fa00b5fa1ec"
+}
