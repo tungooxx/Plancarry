@@ -14,6 +14,8 @@ import math
 import os
 import pathlib
 import inspect
+import importlib
+import re
 import shutil
 import sys
 from typing import Any, Callable, Mapping, Sequence
@@ -126,6 +128,69 @@ def _game_file(source_graph_id: str) -> pathlib.Path:
     p = root / "json_2.1.1" / "train" / source_graph_id / "game.tw-pddl"
     _require(p.is_file(), "DEVELOPMENT_GAME_FILE_MISSING")
     return p
+
+
+_SYMBOLIC_ACTION_RE = re.compile(r"^(GotoLocation|examineReceptacle)\(([^()]*)\)$")
+
+
+def _translate_symbolic_action(command: str, demangle_object: Callable[[str], str]) -> str:
+    """Translate the frozen graph action identity to ALFWorld's surface command.
+
+    The actual33 source snapshots are static-PDDL graph authorities. AlfRuntime uses
+    AlfredDemangler(shuffle=False), so its admissible-command strings are surface text.
+    This bridge changes only the environment/model-facing spelling; the caller retains
+    the original symbolic command for transition identity and F payloads.
+    """
+    symbolic = str(command)
+    match = _SYMBOLIC_ACTION_RE.fullmatch(symbolic)
+    _require(match is not None, "SYMBOLIC_ACTION_SYNTAX")
+    op, body = match.group(1), match.group(2)
+    args = body.split(",")
+    expected_arity = 4 if op == "GotoLocation" else 2
+    _require(len(args) == expected_arity and args[0] == "agent1", "SYMBOLIC_ACTION_ARITY")
+    object_name = str(demangle_object(args[-1]))
+    _require(bool(object_name), "SYMBOLIC_OBJECT_DEMANGLE_EMPTY")
+    if op == "GotoLocation":
+        return f"go to {object_name}"
+    if op == "examineReceptacle":
+        return f"examine {object_name}"
+    raise TechnicalInvalid("SYMBOLIC_ACTION_OPERATOR")
+
+
+def _build_symbolic_surface_resolver(env: Any) -> Callable[[str], str]:
+    """Return a deterministic symbolic->surface resolver for one exact AlfRuntime game.
+
+    Synthetic test runtimes intentionally use symbolic actions directly and do not expose
+    TextWorld wrapper internals; identity resolution keeps those no-science fixtures valid.
+    The real AlfRuntime path fails closed on case-fold collisions or missing entity IDs.
+    """
+    try:
+        demangler_wrapper = env.env.batch_env.envs[0]._wrapped_env._wrapped_env
+        infos = demangler_wrapper._entity_infos
+    except (AttributeError, IndexError, TypeError):
+        return lambda command: str(command)
+
+    Demangler = importlib.import_module("alfworld.agents.utils.misc").Demangler
+    demangler = Demangler(game_infos=infos, shuffle=False)
+    id_by_casefold: dict[str, str] = {}
+    for info in infos.values():
+        entity_id = str(info.id)
+        key = entity_id.casefold()
+        _require(key not in id_by_casefold or id_by_casefold[key] == entity_id, "SYMBOLIC_OBJECT_CASEFOLD_COLLISION")
+        id_by_casefold[key] = entity_id
+
+    def demangle_object(symbolic_object_id: str) -> str:
+        runtime_id = id_by_casefold.get(str(symbolic_object_id).casefold())
+        _require(runtime_id is not None, "SYMBOLIC_OBJECT_NOT_IN_GAME")
+        return str(demangler.demangle_alfred_name(runtime_id))
+
+    return lambda command: _translate_symbolic_action(str(command), demangle_object)
+
+
+def _runtime_surface_command(env: Any, resolver: Callable[[str], str], symbolic: str, code: str) -> str:
+    surface = str(resolver(str(symbolic)))
+    _require(surface in env.admissible_commands, code)
+    return surface
 
 
 def _top_set(scores: Mapping[str, float]) -> tuple[str, ...]:
@@ -272,15 +337,16 @@ def _runtime_factory_default(game_file: str):
 def _slot_replay_guard(runtime_factory: Callable[[str], Any], game_file: pathlib.Path, family: Mapping[str, Any], witness: Mapping[str, Any], expected_branch_candidates: Sequence[str]) -> dict[str, Any]:
     env = runtime_factory(str(game_file))
     try:
+        resolve_surface = _build_symbolic_surface_resolver(env)
         for cmd in family["allowed_pre_reset_history_canonical"]:
-            _require(cmd in env.admissible_commands, "PRE_RESET_HISTORY_NOT_ADMISSIBLE")
-            rec = env.step(cmd); _require(rec.error is None, "PRE_RESET_HISTORY_STEP_ERROR")
+            surface = _runtime_surface_command(env, resolve_surface, cmd, "PRE_RESET_HISTORY_NOT_ADMISSIBLE")
+            rec = env.step(surface); _require(rec.error is None, "PRE_RESET_HISTORY_STEP_ERROR")
         reset_candidates = tuple(sorted(str(x) for x in env.admissible_commands))
-        _require(family["immediate_next_command_canonical"] in reset_candidates, "IMMEDIATE_NOT_ADMISSIBLE")
-        rec = env.step(family["immediate_next_command_canonical"]); _require(rec.error is None, "IMMEDIATE_STEP_ERROR")
+        immediate_surface = _runtime_surface_command(env, resolve_surface, family["immediate_next_command_canonical"], "IMMEDIATE_NOT_ADMISSIBLE")
+        rec = env.step(immediate_surface); _require(rec.error is None, "IMMEDIATE_STEP_ERROR")
         for step in witness["common_prefix_steps"]:
-            _require(step["command"] in env.admissible_commands, "COMMON_NOT_ADMISSIBLE")
-            rec = env.step(step["command"]); _require(rec.error is None, "COMMON_STEP_ERROR")
+            surface = _runtime_surface_command(env, resolve_surface, step["command"], "COMMON_NOT_ADMISSIBLE")
+            rec = env.step(surface); _require(rec.error is None, "COMMON_STEP_ERROR")
         branch = tuple(sorted(str(x) for x in env.admissible_commands))
         _require(branch == tuple(expected_branch_candidates), "BRANCH_CANDIDATE_REPLAY_MISMATCH")
         return {"reset_candidate_sha256": _sha_obj(list(reset_candidates)), "branch_candidate_sha256": _sha_obj(list(branch)), "replay_steps": len(family["allowed_pre_reset_history_canonical"]) + 3}
@@ -323,19 +389,20 @@ def _execute_family(
     # G at each frozen site before any later transition is observed/featurized.
     env = runtime_factory(str(game))
     try:
+        resolve_surface = _build_symbolic_surface_resolver(env)
         for cmd in carrier["allowed_pre_reset_history_canonical"]:
-            _require(cmd in env.admissible_commands, "CARRIER_HISTORY_NOT_ADMISSIBLE")
-            rec = env.step(cmd); _require(rec.error is None, "CARRIER_HISTORY_STEP_ERROR")
+            surface = _runtime_surface_command(env, resolve_surface, cmd, "CARRIER_HISTORY_NOT_ADMISSIBLE")
+            rec = env.step(surface); _require(rec.error is None, "CARRIER_HISTORY_STEP_ERROR")
         reset_obs = str(env.observation); reset_candidates = tuple(sorted(str(x) for x in env.admissible_commands))
-        _require(carrier["immediate_next_command_canonical"] in reset_candidates, "CARRIER_IMMEDIATE_NOT_ADMISSIBLE")
+        immediate_surface = _runtime_surface_command(env, resolve_surface, carrier["immediate_next_command_canonical"], "CARRIER_IMMEDIATE_NOT_ADMISSIBLE")
         reset_site = _score_site(torch, tokenizer, model, carrier["goal_canonical"], reset_obs, reset_candidates)
         z0 = rt.native_hidden_feature(torch, tokenizer, model, reset_site["prompt"].encode("utf-8"))
         score_arms_now("RESET_PREFIX", reset_site, [])
 
-        imm = env.step(carrier["immediate_next_command_canonical"]); _require(imm.error is None, "CARRIER_IMMEDIATE_STEP_ERROR")
+        imm = env.step(immediate_surface); _require(imm.error is None, "CARRIER_IMMEDIATE_STEP_ERROR")
         step1 = common_steps[0]
-        _require(step1["command"] in env.admissible_commands, "CARRIER_COMMON1_NOT_ADMISSIBLE")
-        r1 = env.step(step1["command"]); _require(r1.error is None, "CARRIER_COMMON1_STEP_ERROR")
+        step1_surface = _runtime_surface_command(env, resolve_surface, step1["command"], "CARRIER_COMMON1_NOT_ADMISSIBLE")
+        r1 = env.step(step1_surface); _require(r1.error is None, "CARRIER_COMMON1_STEP_ERROR")
         transition_features[common_keys[0]] = rt.native_hidden_feature(
             torch, tokenizer, model, rt.canonical_transition_payload(step1["command"], str(r1.observation))
         )
@@ -344,8 +411,8 @@ def _execute_family(
         score_arms_now("POST_TRANSITION_1", post1_site, [common_keys[0]])
 
         step2 = common_steps[1]
-        _require(step2["command"] in env.admissible_commands, "CARRIER_COMMON2_NOT_ADMISSIBLE")
-        r2 = env.step(step2["command"]); _require(r2.error is None, "CARRIER_COMMON2_STEP_ERROR")
+        step2_surface = _runtime_surface_command(env, resolve_surface, step2["command"], "CARRIER_COMMON2_NOT_ADMISSIBLE")
+        r2 = env.step(step2_surface); _require(r2.error is None, "CARRIER_COMMON2_STEP_ERROR")
         transition_features[common_keys[1]] = rt.native_hidden_feature(
             torch, tokenizer, model, rt.canonical_transition_payload(step2["command"], str(r2.observation))
         )
@@ -380,9 +447,14 @@ def _execute_family(
     # order in a deep-copied sealed view rather than round-tripping through sorted JSON.
     sealed_maps = {a: copy.deepcopy(ordered_maps[a]) for a in EXACT_ARMS}
 
-    # Evaluator-only A/B classes are first consumed after score-map seal.
-    branch_A = evaluator_secret["branch_A_equivalence_class"]
-    branch_B = evaluator_secret["branch_B_equivalence_class"]
+    # Evaluator-only A/B classes are first consumed after score-map seal. Their frozen
+    # identities remain symbolic PDDL; only now translate them to the exact surface-action
+    # keys used by the sealed policy score maps.
+    branch_A_symbolic = list(evaluator_secret["branch_A_equivalence_class"])
+    branch_B_symbolic = list(evaluator_secret["branch_B_equivalence_class"])
+    branch_A = [resolve_surface(x) for x in branch_A_symbolic]
+    branch_B = [resolve_surface(x) for x in branch_B_symbolic]
+    _require(len(branch_A) == len(set(branch_A)) and len(branch_B) == len(set(branch_B)), "BRANCH_SURFACE_MAPPING_NOT_INJECTIVE")
     graph_admissible = set(branch_A) <= candidate_keys and set(branch_B) <= candidate_keys and bool(branch_A) and bool(branch_B) and not (set(branch_A) & set(branch_B))
     _require(graph_admissible, "BRANCH_GRAPH_ADMISSIBILITY")
     endpoint = rt.v4_endpoint_from_sealed_scores(sealed_maps, branch_A, branch_B)
@@ -416,8 +488,8 @@ def _execute_family(
         "score_map_seal_sha256": seal_sha,
         "sealed_branch_score_maps": sealed_maps,
         "diagnostic_score_map_sha256": diagnostic_hashes,
-        "branch_A_equivalence_class": list(branch_A),
-        "branch_B_equivalence_class": list(branch_B),
+        "branch_A_equivalence_class": branch_A_symbolic,
+        "branch_B_equivalence_class": branch_B_symbolic,
         "endpoint": endpoint,
         "guards": guards,
         "geometry": geometry,
