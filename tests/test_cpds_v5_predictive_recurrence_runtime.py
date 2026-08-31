@@ -18,7 +18,7 @@ def site(target=0):
 
 
 def packet(graph,part):
-    return {"schema":tc.PACKET_SCHEMA,"base_model_id":rt.BASE_MODEL_ID,"base_model_revision":rt.BASE_MODEL_REVISION,"source_graph_id":graph,"partition":part,"structural_key_sha256":hashlib.sha256(graph.encode()).hexdigest(),"pre_reset_hidden":v(0).tolist(),"updates":[{"transition_hidden":v(1).tolist(),"prediction_site":site(0),"next_transition_hidden":v(2).tolist(),"negative_transition_hidden":v(3).tolist()},{"transition_hidden":v(2).tolist(),"prediction_site":site(1),"next_transition_hidden":v(4).tolist(),"negative_transition_hidden":v(5).tolist()}],"final_prediction_site":site(1)}
+    return {"schema":tc.PACKET_SCHEMA,"base_model_id":rt.BASE_MODEL_ID,"base_model_revision":rt.BASE_MODEL_REVISION,"source_graph_id":graph,"packet_id":"packet-"+graph,"partition":part,"structural_key_sha256":hashlib.sha256(graph.encode()).hexdigest(),"pre_reset_hidden":v(0).tolist(),"updates":[{"transition_hidden":v(1).tolist(),"prediction_site":site(0),"next_transition_hidden":v(2).tolist(),"negative_transition_hidden":v(3).tolist()},{"transition_hidden":v(2).tolist(),"prediction_site":site(1),"next_transition_hidden":v(4).tolist(),"negative_transition_hidden":v(5).tolist()}],"final_prediction_site":site(1)}
 
 
 class T(unittest.TestCase):
@@ -82,8 +82,12 @@ class T(unittest.TestCase):
         for i in range(100):
             cand=f"cal-{i}"
             if partition_name(cand)=="CALIBRATION": g=cand; break
-        p=packet(g,"CALIBRATION")
-        out=tc.calibration_gate(self.m,[p])
+        g2=None
+        for i in range(101,300):
+            cand=f"cal-{i}"
+            if partition_name(cand)=="CALIBRATION" and cand != g: g2=cand; break
+        p=packet(g,"CALIBRATION"); p2=packet(g2,"CALIBRATION")
+        out=tc.calibration_gate(self.m,[p,p2])
         self.assertIn(out["status"],(tc.CALIBRATION_PASS,tc.CALIBRATION_FAIL))
         self.assertFalse(out["v5_development_authorized"])
         self.assertEqual(out["confirmation_status"],"HARD_SEALED_NO_RUNTIME_ROUTE")

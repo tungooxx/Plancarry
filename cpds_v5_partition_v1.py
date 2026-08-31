@@ -67,3 +67,36 @@ def deterministic_donor_index(target_graph_id: str, operator_id: str, candidates
         raise ValueError("NO_IN_DISTRIBUTION_DONOR")
     eligible.sort()
     return eligible[0][1]
+
+_DONOR_Z0_FORBIDDEN_KEYS = frozenset({
+    "branch_A", "branch_B", "branch_A_equivalence_class", "branch_B_equivalence_class",
+    "evaluator_label", "outcome", "correctness", "endpoint", "score",
+})
+
+
+def deterministic_z0_donor_index(
+    target_structural_id: str,
+    target_source_graph_id: str,
+    phase: str,
+    candidates: Sequence[Mapping[str, str]],
+) -> int:
+    """Reviewed V5 donor-z0 selector: structure-only, phase-local, different graph."""
+    if not target_structural_id or not target_source_graph_id or phase not in ("CALIBRATION", "DEVELOPMENT", "CONFIRMATION"):
+        raise ValueError("DONOR_Z0_TARGET_IDENTITY")
+    eligible = []
+    for i, row in enumerate(candidates):
+        if _DONOR_Z0_FORBIDDEN_KEYS & set(row):
+            raise ValueError("DONOR_Z0_OUTCOME_OR_EVALUATOR_FIELD_FORBIDDEN")
+        donor_graph = row.get("source_graph_id")
+        donor_structural_id = row.get("structural_id")
+        donor_phase = row.get("phase")
+        if not donor_graph or not donor_structural_id or not donor_phase:
+            raise ValueError("DONOR_Z0_CANDIDATE_IDENTITY")
+        if donor_phase != phase or donor_graph == target_source_graph_id:
+            continue
+        key = _sha("CPDS_V5_DONOR_Z0_V1|" + target_structural_id + "|" + donor_structural_id)
+        eligible.append((key, donor_structural_id, i))
+    if not eligible:
+        raise ValueError("NO_PHASE_LOCAL_DIFFERENT_GRAPH_Z0_DONOR")
+    eligible.sort()
+    return eligible[0][2]

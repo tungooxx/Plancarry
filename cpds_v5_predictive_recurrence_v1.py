@@ -19,8 +19,10 @@ NATIVE_WIDTH = 2048
 STATE_WIDTH = 256
 G_GAIN = 1.0
 ARMS = (
-    "NO_CARRY", "STATIC_ONESHOT", "STATIC_REPEAT", "ALIGNED_RECURSION",
-    "TRANSITION_PERMUTED", "MATCHED_INFORMATION",
+    "NO_CARRY", "STATIC_ONESHOT", "STATIC_REPEAT", "STATIC_PREDICTIVE_SHARED_G",
+    "ALIGNED_RECURSION", "ZERO_Z0_RECURSION", "DONOR_Z0_RECURSION",
+    "LAST_TRANSITION_ONLY", "BAGGED_TRANSITIONS", "TRANSITION_PERMUTED",
+    "MATCHED_INFORMATION",
 )
 
 
@@ -70,14 +72,24 @@ class CPDSV5Adapter(nn.Module):
 
     def __init__(self) -> None:
         super().__init__()
+        # Construction order is scientifically frozen by the reviewed V5 contract.
         self.W0 = nn.Linear(NATIVE_WIDTH, STATE_WIDTH, bias=False)
         self.Wx = nn.Linear(NATIVE_WIDTH, STATE_WIDTH, bias=False)
         self.gru = nn.GRUCell(STATE_WIDTH, STATE_WIDTH)
         self.Wa = nn.Linear(NATIVE_WIDTH, STATE_WIDTH, bias=False)
+        self.static_fc1 = nn.Linear(NATIVE_WIDTH, 512, bias=True)
+        self.static_fc2 = nn.Linear(512, 512, bias=True)
+        self.static_fc3 = nn.Linear(512, STATE_WIDTH, bias=True)
 
     def z0(self, h_pre_reset: Tensor) -> Tensor:
         h = _require_vector(h_pre_reset, NATIVE_WIDTH, "PRE_RESET")
         return unit_l2(self.W0(h))
+
+    def static_state(self, h_pre_reset: Tensor) -> Tensor:
+        h = _require_vector(h_pre_reset, NATIVE_WIDTH, "PRE_RESET")
+        x = torch.tanh(self.static_fc1(h))
+        x = torch.tanh(self.static_fc2(x))
+        return unit_l2(self.static_fc3(x))
 
     def transition_input(self, h_transition: Tensor) -> Tensor:
         h = _require_vector(h_transition, NATIVE_WIDTH, "TRANSITION")
@@ -94,6 +106,39 @@ class CPDSV5Adapter(nn.Module):
         for h in transitions:
             z = self.step(z, h)
         return z
+
+    def fold_zero_z0(self, transitions: Sequence[Tensor]) -> Tensor:
+        if not transitions:
+            raise ValueError("ZERO_Z0_REQUIRES_TRANSITION")
+        z = torch.zeros(STATE_WIDTH, dtype=torch.float32, device=transitions[0].device)
+        for h in transitions:
+            z = self.step(z, h)
+        return z
+
+    def last_transition_only(self, z0: Tensor, transitions: Sequence[Tensor]) -> Tensor:
+        z0u = unit_l2(_require_vector(z0, STATE_WIDTH, "STATE"))
+        if not transitions:
+            return z0u
+        # No transition-to-transition state path: every transition is evaluated from z0.
+        out = z0u
+        for h in transitions:
+            out = self.step(z0u, h)
+        return out
+
+    def bagged_transitions(self, z0: Tensor, transitions: Sequence[Tensor]) -> Tensor:
+        z0u = unit_l2(_require_vector(z0, STATE_WIDTH, "STATE"))
+        if not transitions:
+            return z0u
+        # Exact reviewed null: canonicalize the multiset before summation so floating-point
+        # accumulation is bitwise invariant to the presented transition order. Each F call
+        # remains independent from the same z0 and every transition is evaluated exactly once.
+        keyed = []
+        for h in transitions:
+            hv = _require_vector(h, NATIVE_WIDTH, "TRANSITION")
+            keyed.append((sha256_bytes(_tensor_bytes(hv)), hv))
+        keyed.sort(key=lambda item: item[0])
+        independent = [self.step(z0u, h) for _, h in keyed]
+        return unit_l2(torch.stack(independent, dim=0).sum(dim=0))
 
     def action_q(self, h_actions: Tensor) -> Tensor:
         h = _require_matrix(h_actions, NATIVE_WIDTH, "ACTION")
@@ -124,19 +169,39 @@ class CPDSV5Adapter(nn.Module):
         *,
         permuted_order: Sequence[int] | None = None,
         donor_transitions: Sequence[Tensor] | None = None,
+        donor_z0: Tensor | None = None,
+        h_pre_reset: Tensor | None = None,
     ) -> Tensor | None:
         if arm not in ARMS:
             raise ValueError("ARM")
         if arm == "NO_CARRY":
             return None
+        if arm == "ZERO_Z0_RECURSION":
+            # Strict null: do not inspect, normalize, or otherwise consume target z0.
+            return self.fold_zero_z0(aligned_transitions)
+        if arm == "STATIC_PREDICTIVE_SHARED_G":
+            # Static null depends only on its own h_pre_reset encoder and shared Wa/G.
+            if h_pre_reset is None:
+                raise ValueError("STATIC_PRE_RESET_REQUIRED")
+            return self.static_state(h_pre_reset)
+        if arm == "DONOR_Z0_RECURSION":
+            # Donor null replaces target z0 entirely; target z0 is not inspected.
+            if donor_z0 is None:
+                raise ValueError("DONOR_Z0_REQUIRED")
+            donor = unit_l2(_require_vector(donor_z0, STATE_WIDTH, "DONOR_Z0"))
+            return self.fold(donor, aligned_transitions)
         z0u = unit_l2(_require_vector(z0, STATE_WIDTH, "STATE"))
         if arm in ("STATIC_ONESHOT", "STATIC_REPEAT"):
             if arm == "STATIC_REPEAT":
-                # Matched computation only. The scratch value is intentionally discarded.
+                # Matched recurrent computation only; scratch has no path to exposed G state.
                 _ = self.fold(z0u, aligned_transitions)
             return z0u
         if arm == "ALIGNED_RECURSION":
             return self.fold(z0u, aligned_transitions)
+        if arm == "LAST_TRANSITION_ONLY":
+            return self.last_transition_only(z0u, aligned_transitions)
+        if arm == "BAGGED_TRANSITIONS":
+            return self.bagged_transitions(z0u, aligned_transitions)
         if arm == "TRANSITION_PERMUTED":
             if permuted_order is None:
                 raise ValueError("PERMUTATION_REQUIRED")
