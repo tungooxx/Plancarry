@@ -1,0 +1,83 @@
+{
+  "schema": "PLANCARRY_CPDS_V5_TRAINING_RECIPE_A1_V1",
+  "design_commit": "5f08cf2ac645e0ab7709be1ab0b4be87726283f3",
+  "realization": "CPDS_PREDICTIVE_GRU256_BOUNDED_COSINE_V1",
+  "scientific_result": "NOT_ASSESSED_PREDEVELOPMENT_IMPLEMENTATION_ONLY",
+  "base_model": {
+    "id": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "weights_frozen": true,
+    "native_feature_width": 2048
+  },
+  "adapter": {
+    "state_width": 256,
+    "state_dtype": "FLOAT32",
+    "W0_bias": false,
+    "Wx_bias": false,
+    "Wa_bias": false,
+    "gru": "torch.nn.GRUCell(input_size=256,hidden_size=256)",
+    "state_normalization": "unit_l2_after_W0_and_after_each_GRU_update",
+    "G": "dot(unit_l2(z),unit_l2(Wa*h_action))",
+    "G_gain": 1.0
+  },
+  "training": {
+    "seed": 20260830,
+    "torch_num_threads": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "weight_decay": 0.0001,
+    "epochs": 32,
+    "batch_sequences": 8,
+    "gradient_clip_norm": 1.0,
+    "secondary_contrastive_weight": 0.25,
+    "early_stopping": "NONE",
+    "checkpoint_selection": "FINAL_EPOCH_ONLY",
+    "calibration_model_selection": false,
+    "objective": "mean next-observed-command cross_entropy of frozen base_scores+bounded_G plus 0.25*pairwise logistic contrastive next-transition loss"
+  },
+  "partition": {
+    "algorithm": "SHA256 source_graph_id namespace bucket modulo 10",
+    "train_buckets": [0,1,2,3,4,5,6,7],
+    "calibration_buckets": [8,9],
+    "source_graph_disjoint": true,
+    "v4_reserved_structural_key_overlap": "BLIND_HASH_REJECT_BEFORE_PARTITION_USE"
+  },
+  "calibration": {
+    "model_selection": false,
+    "uses_branch_endpoint": false,
+    "required": [
+      "all recurrent states finite/nonzero",
+      "aligned/permuted final states nonidentical for every qualifying sequence",
+      "median aligned predictive loss < median static-z0 predictive loss",
+      "median aligned predictive loss < median transition-permuted predictive loss",
+      "G residuals finite within [-1,1] and nonconstant over every final legal candidate set",
+      "zero evaluator-branch/outcome paths"
+    ],
+    "pass": "CALIBRATION_CONSTRUCTIBILITY_PASS_NOT_SCIENTIFIC_SUPPORT",
+    "failure": "CONSTRUCTIBILITY_INCONCLUSIVE_NO_V5_DEVELOPMENT"
+  },
+  "forbidden": [
+    "V4 DEVELOPMENT endpoint tuning",
+    "V4 confirmation access or repurpose",
+    "V5 DEVELOPMENT access",
+    "V5 CONFIRMATION access",
+    "branch A/B labels in training or calibration",
+    "gain tuning",
+    "threshold tuning",
+    "PlanRoute",
+    "discovery round"
+  ],
+  "provenance": {
+    "v4_reserved_structural_key_hash_seal": {
+      "schema": "PLANCARRY_CPDS_V5_V4_RESERVED_STRUCTURAL_KEY_HASH_SEAL_V1",
+      "path": "results/design/plancarry_cpds_v5_v4_reserved_structural_key_hash_seal_a3_20260830.json",
+      "file_sha256": "e2d6cecb4a13ff27cd5f2e76fd6d1e021fa27cf1e1d582aeb1808b2f40f075e2",
+      "count": 66,
+      "development_manifest_sha256": "b1c078ab0b756c04ea8a6056855f7691e80a9374d00899904574194d8448177c",
+      "confirmation_manifest_sha256": "8847e5962a5a210925a6a2c916e388f678676a991537be1786004c0f87c4fcce"
+    },
+    "calibration_checkpoint_binding": "REQUIRE_EXACT_CHECKPOINT_SHA256_TRAIN_MANIFEST_SHA256_RECIPE_AND_TRAIN_SOURCE_PROVENANCE"
+  }
+}
