@@ -1,0 +1,61 @@
+{
+  "contract_test": {
+    "exact_runner": "python tests/test_cpds_v5_post_adversarial_design_repair.py",
+    "framework": "python stdlib unittest",
+    "path": "tests/test_cpds_v5_post_adversarial_design_repair.py",
+    "test_method_count": 9,
+    "verified_result": "9_TESTS_PASS"
+  },
+  "correction_of_failed_review_card": {
+    "repair": "bind review to immutable commit/tree/file hashes/spec hash and exact 9-test unittest contract above",
+    "wrong_advertised_design_sha256": "056b4b0554b9afe008396c1652de90c1522101c736210481915f76be96778030",
+    "wrong_advertised_semantic_diff_sha256": "252cd6eb34ff31dfe2a45ddbf18a76dfa25446387b33904ac5e41d07d8cb197f",
+    "wrong_advertised_test_count": 15,
+    "wrong_advertised_test_sha256": "c81dc48011be0100a6e47c6cfb14b444942cc6db9599a6c82fee0f0215f9ac7e",
+    "wrong_advertised_tree": "8352daafa385599727947f1ea45d93e9a1f89542"
+  },
+  "failed_review_result_id": "7e596afa-cea3-4409-b168-ba1715312256",
+  "failed_review_work_item_id": "87653c89-02c9-4c70-a6e4-1e123a113d88",
+  "fresh_independent_semantic_design_delta_review_required": true,
+  "immutable_file_sha256": {
+    "results/design/plancarry_cpds_v5_post_adversarial_design_repair_a1_20260831.json": "936c7681b61b29956a0094b95c8d6498c5192d5b55cf73eeb643041cdd3327d2",
+    "results/design/plancarry_cpds_v5_post_adversarial_semantic_diff_a1_20260831.json": "bc1d5732bf70d6868edf3ff13e85380b7e9ed2928fec14e65029f2c216ba1570",
+    "tests/test_cpds_v5_post_adversarial_design_repair.py": "d4442304adedf0b3cf4b8bb94bc5ba42200991e353ed02ea23954b97c0763cb2"
+  },
+  "intended_repaired_design": {
+    "commit": "9b17ce8acd746494b7e0ca83f99af4dd1b1b67d3",
+    "parent_source_design_commit": "5f08cf2ac645e0ab7709be1ab0b4be87726283f3",
+    "tree": "e912d50693387a7e3b68a4ca70c8b6193efd2109"
+  },
+  "non_authorizations": [
+    "NO_MODEL_OR_TOKENIZER_LOAD_OR_FORWARD",
+    "NO_ENVIRONMENT_EXECUTION",
+    "NO_GPU_OR_PROVIDER_LIFECYCLE",
+    "NO_RESEARCH_DECISION",
+    "NO_TRAIN_EXECUTION",
+    "NO_CALIBRATION_EXECUTION",
+    "NO_V5_DEVELOPMENT_EXECUTION",
+    "NO_CONFIRMATION_ACCESS"
+  ],
+  "phase": "PRE_SCIENCE_IDENTITY_ONLY_REBIND",
+  "protected_scientific_spec_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2",
+  "repair_author_self_review_forbidden": true,
+  "schema": "PLANCARRY_CPDS_V5_POST_ADVERSARIAL_IDENTITY_BINDING_A1_V1",
+  "semantic_verification": {
+    "calibration_model_selection": false,
+    "claim_ceiling": "A positive repaired V5 result may support only the exact bundled pre-reset-initialized learned predictive-state realization (recurrent state plus shared learned bounded action binding) against the prospectively tested nulls. It does not uniquely identify GRU-256, does not establish a generic recurrent architecture mechanism, and does not generalize beyond the frozen model/task/population without replication.",
+    "design_or_implementation_bytes_modified": false,
+    "planroute": "USER_NOOP_RETIRED",
+    "required_attack_controls_present": [
+      "ZERO_Z0_RECURSION",
+      "DONOR_Z0_RECURSION",
+      "LAST_TRANSITION_ONLY",
+      "BAGGED_TRANSITIONS",
+      "STATIC_PREDICTIVE_SHARED_G"
+    ],
+    "scientific_variable_drift_relative_to_intended_9b17ce8_bytes": false,
+    "training_contract_frozen": true,
+    "v4_confirmation": "HARD_SEALED_NEVER_REPURPOSED"
+  },
+  "work_item_id": "88937488-555d-4eae-8602-a846f40b2359"
+}
