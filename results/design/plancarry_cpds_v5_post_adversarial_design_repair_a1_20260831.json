@@ -1,0 +1,490 @@
+{
+  "arms": {
+    "ALIGNED_RECURSION": "same z0; update exact trained F sequentially on causally observed transitions in authenticated order; expose current z at matched G sites",
+    "BAGGED_TRANSITIONS": "same correct target z0, trained F, shared G and matched exposure sites. At exposure t, independently compute u_i=unit_l2(F(z0,x_i)) for every observed target transition i<=t, then expose unit_l2(sum_i u_i). This consumes the same transition multiset and one F evaluation per transition but is exactly order-insensitive and has no transition-to-transition recurrent state path.",
+    "DONOR_Z0_RECURSION": "same trained recurrent F/G and exact target post-reset transitions/count/timing as ALIGNED_RECURSION, but z0 is W0(h_pre_reset) from one prospectively hash-selected different same-phase graph family. Donor identity is frozen from structure-only identifiers before any endpoint/outcome access; no evaluator A/B label or outcome may influence donor selection.",
+    "LAST_TRANSITION_ONLY": "same correct target z0, trained F, shared G and matched G exposure sites as ALIGNED_RECURSION. At each exposure after transition t, state is recomputed as unit_l2(F(z0,x_t)) from only the chronologically latest observed target transition; earlier post-reset transitions cannot enter the state. One F evaluation is attributed to each observed transition, matching the per-transition update budget without recurrent carry.",
+    "MATCHED_INFORMATION": "same z0/F/G/count/timing, but each transition input is replaced by a precommitted in-distribution same-operator donor transition from a different source graph selected by hash before outcomes; preserves feature realism/information volume while removing target-family transition identity",
+    "NO_CARRY": "unchanged base-policy scores; no z/F/G",
+    "STATIC_ONESHOT": "redundant diagnostic: expose trained z0 at the final branch scoring site only; no F update; never a DEVELOPMENT gate",
+    "STATIC_PREDICTIVE_SHARED_G": "objective-matched static predictor using only h_pre_reset: S(h)=unit_l2(Linear512to256(tanh(Linear512to512(tanh(Linear2048to512(h)))))). The static state is repeated at every matched G site, receives no post-reset transition input, and uses the exact same tied Wa/action projection and bounded gain-1 G as the recurrent branch. Static encoder has 1,443,072 trainable state parameters versus 1,443,328 recurrent-state parameters (W0+Wx+GRU), a difference of 256 (<0.018%).",
+    "STATIC_REPEAT": "same trained z0 exposed at every matched G site; execute F on isolated scratch using same inputs/count but scratch has no path to G",
+    "TRANSITION_PERMUTED": "same z0, transition multiset, F/G, update/exposure count and timing; after all required transitions have occurred, replay exact precommitted nonidentity order; only order differs",
+    "ZERO_Z0_RECURSION": "same trained recurrent F and exact same post-reset transition sequence, update count, G, candidate scores, and exposure sites as ALIGNED_RECURSION, but initialize recurrent state to the exact all-zero 256D vector. No pre-reset feature enters this arm. Zero state is permitted before the first GRU update; every post-update state is unit-normalized."
+  },
+  "development_contrasts": {
+    "C_bagged": "D_ALIGNED_RECURSION-D_BAGGED_TRANSITIONS",
+    "C_donor_z0": "D_ALIGNED_RECURSION-D_DONOR_Z0_RECURSION",
+    "C_information": "D_ALIGNED_RECURSION-D_MATCHED_INFORMATION",
+    "C_last_transition": "D_ALIGNED_RECURSION-D_LAST_TRANSITION_ONLY",
+    "C_permuted": "D_ALIGNED_RECURSION-D_TRANSITION_PERMUTED",
+    "C_static": "D_ALIGNED_RECURSION-D_STATIC_REPEAT",
+    "C_static_predictive": "D_ALIGNED_RECURSION-D_STATIC_PREDICTIVE_SHARED_G",
+    "C_zero_z0": "D_ALIGNED_RECURSION-D_ZERO_Z0_RECURSION"
+  },
+  "development_endpoint": "Reuse exact orientation-invariant V4 branch-preference endpoint: R_g=LSE(A)-LSE(B); D_g=abs(R_g-R_NO_CARRY); C_static=D_ALIGNED-D_STATIC_REPEAT; C_permuted=D_ALIGNED-D_TRANSITION_PERMUTED; C_information=D_ALIGNED-D_MATCHED_INFORMATION.",
+  "development_gates": {
+    "C_oneshot_used_as_gate": false,
+    "failure": "DEVELOPMENT_FUTILITY_STOP_CONFIRMATION_REMAINS_SEALED",
+    "logic": "ALL_CONJUNCTIVE_IUT_NO_RESCUE",
+    "median_D_ALIGNED_gt0": true,
+    "median_effect_nats_min": {
+      "C_bagged": 0.05,
+      "C_last_transition": 0.05,
+      "C_permuted": 0.05,
+      "C_static": 0.05,
+      "C_static_predictive": 0.05
+    },
+    "median_strict_gt_zero": [
+      "C_information",
+      "C_zero_z0",
+      "C_donor_z0"
+    ],
+    "multiplicity": "Conjunctive intersection-union gate: every listed requirement must pass; no endpoint or control can rescue failure of another. Positive declaration is therefore not created by choosing among controls.",
+    "n": 33,
+    "pass": "DEVELOPMENT_READINESS_PASS_NOT_SCIENTIFIC_SUPPORT",
+    "positive_count_min_each": {
+      "C_bagged": 22,
+      "C_donor_z0": 22,
+      "C_last_transition": 22,
+      "C_permuted": 22,
+      "C_static": 22,
+      "C_static_predictive": 22,
+      "C_zero_z0": 22
+    },
+    "validity_isolation_provenance_randomization_violations_max": 0
+  },
+  "donor_z0_selection": {
+    "branch_blind": true,
+    "different_source_graph_required": true,
+    "freeze_time": "manifest construction before any phase endpoint/outcome access",
+    "no_replacement_resampling_redraw": true,
+    "outcome_blind": true,
+    "phase_local": true,
+    "selection_key": "argmin SHA256(\"CPDS_V5_DONOR_Z0_V1|\" + target_structural_id + \"|\" + donor_structural_id) over eligible same-phase different-graph donors"
+  },
+  "non_authorizations": [
+    "NO_MODEL_OR_TOKENIZER_LOAD_OR_FORWARD",
+    "NO_ENVIRONMENT_EXECUTION",
+    "NO_GPU_OR_PROVIDER_LIFECYCLE",
+    "NO_RESEARCH_DECISION",
+    "NO_TRAIN_EXECUTION",
+    "NO_CALIBRATION_EXECUTION",
+    "NO_V5_DEVELOPMENT_EXECUTION",
+    "NO_CONFIRMATION_ACCESS",
+    "NO_V4_CONFIRMATION_REPURPOSE",
+    "NO_POSTHOC_GAIN_TUNING",
+    "NO_POSTHOC_THRESHOLD_TUNING",
+    "NO_POSTHOC_CONTROL_SELECTION",
+    "NO_DISCOVERY_ROUND",
+    "NO_PLANROUTE"
+  ],
+  "null_models_addressed": {
+    "670cd5dc-c8c9-464c-a862-5922768ab282": {
+      "controls": [
+        "ZERO_Z0_RECURSION",
+        "DONOR_Z0_RECURSION"
+      ],
+      "name": "z0-ignored online regrounding",
+      "required": "ALIGNED_RECURSION must beat both under frozen calibration and DEVELOPMENT gates"
+    },
+    "b85d42bb-c4c3-4534-82bc-a35dfc48c09d": {
+      "controls": [
+        "LAST_TRANSITION_ONLY",
+        "BAGGED_TRANSITIONS"
+      ],
+      "name": "nonrecurrent local-transition estimator",
+      "required": "ALIGNED_RECURSION must beat both latest-transition and order-insensitive summaries"
+    },
+    "f40e6226-0a54-4b6f-a3ad-59b1fc7b4e7f": {
+      "controls": [
+        "STATIC_PREDICTIVE_SHARED_G"
+      ],
+      "name": "static+learned-G",
+      "required": "ALIGNED_RECURSION must beat the objective-matched nearly parameter-identical static encoder using the exact tied Wa/G"
+    }
+  },
+  "phase": "PRE_SCIENCE_CPDS_ONLY_SCIENTIFIC_DESIGN_REPAIR",
+  "predevelopment_constructibility_gate": {
+    "data": "CALIBRATION only; source-graph-disjoint; no V4/V5 branch endpoints; no DEVELOPMENT/CONFIRMATION access",
+    "failure": "CONSTRUCTIBILITY_INCONCLUSIVE_NO_V5_DEVELOPMENT",
+    "model_selection": false,
+    "pass": "CALIBRATION_CONSTRUCTIBILITY_PASS_NOT_SCIENTIFIC_SUPPORT",
+    "requirements": [
+      "all recurrent/static/control states and all G residuals finite; every exposed nonzero state unit-normalized",
+      "G residuals finite within [-1,1] and not exactly constant over every final legal candidate set",
+      "aligned versus full-permuted final recurrent states nonidentical for every qualifying sequence",
+      "median predictive loss ALIGNED_RECURSION < STATIC_REPEAT/static-z0 predictive loss",
+      "median predictive loss ALIGNED_RECURSION < TRANSITION_PERMUTED predictive loss",
+      "median predictive loss ALIGNED_RECURSION < ZERO_Z0_RECURSION predictive loss",
+      "median predictive loss ALIGNED_RECURSION < DONOR_Z0_RECURSION predictive loss",
+      "median predictive loss ALIGNED_RECURSION < LAST_TRANSITION_ONLY predictive loss",
+      "median predictive loss ALIGNED_RECURSION < BAGGED_TRANSITIONS predictive loss",
+      "median predictive loss ALIGNED_RECURSION < STATIC_PREDICTIVE_SHARED_G predictive loss",
+      "zero evaluator branch-label, correctness, outcome, DEVELOPMENT, CONFIRMATION, or V4 endpoint path to fitting, checkpointing, donor selection, calibration, thresholds, or tie-breaks"
+    ],
+    "thresholds_and_tie_breaks_frozen": true
+  },
+  "protected_invariants": [
+    "orientation-invariant branch endpoint",
+    "STATIC_REPEAT co-primary",
+    "TRANSITION_PERMUTED co-primary",
+    "NO_CARRY anchor",
+    "branch labels evaluator-only",
+    "whole-action score maps sealed before A/B aggregation",
+    "first action excluded",
+    "same state/update/exposure budget within matched arms",
+    "no replacement/resampling/redraw",
+    "zero outcome-based family filtering",
+    "confirmation hard seal",
+    "PlanRoute retired",
+    "objective-matched static predictive baseline through exact shared bounded G",
+    "correct-z0 dependence required beyond zero-z0 and donor-z0 recurrence",
+    "local-transition and order-insensitive nulls required",
+    "all TRAIN/CALIBRATION hyperparameters/loss weights/checkpoint rules/thresholds/partition/tie-breaks frozen before TRAIN"
+  ],
+  "protected_scientific_semantics": {
+    "arms": {
+      "ALIGNED_RECURSION": "same z0; update exact trained F sequentially on causally observed transitions in authenticated order; expose current z at matched G sites",
+      "BAGGED_TRANSITIONS": "same correct target z0, trained F, shared G and matched exposure sites. At exposure t, independently compute u_i=unit_l2(F(z0,x_i)) for every observed target transition i<=t, then expose unit_l2(sum_i u_i). This consumes the same transition multiset and one F evaluation per transition but is exactly order-insensitive and has no transition-to-transition recurrent state path.",
+      "DONOR_Z0_RECURSION": "same trained recurrent F/G and exact target post-reset transitions/count/timing as ALIGNED_RECURSION, but z0 is W0(h_pre_reset) from one prospectively hash-selected different same-phase graph family. Donor identity is frozen from structure-only identifiers before any endpoint/outcome access; no evaluator A/B label or outcome may influence donor selection.",
+      "LAST_TRANSITION_ONLY": "same correct target z0, trained F, shared G and matched G exposure sites as ALIGNED_RECURSION. At each exposure after transition t, state is recomputed as unit_l2(F(z0,x_t)) from only the chronologically latest observed target transition; earlier post-reset transitions cannot enter the state. One F evaluation is attributed to each observed transition, matching the per-transition update budget without recurrent carry.",
+      "MATCHED_INFORMATION": "same z0/F/G/count/timing, but each transition input is replaced by a precommitted in-distribution same-operator donor transition from a different source graph selected by hash before outcomes; preserves feature realism/information volume while removing target-family transition identity",
+      "NO_CARRY": "unchanged base-policy scores; no z/F/G",
+      "STATIC_ONESHOT": "redundant diagnostic: expose trained z0 at the final branch scoring site only; no F update; never a DEVELOPMENT gate",
+      "STATIC_PREDICTIVE_SHARED_G": "objective-matched static predictor using only h_pre_reset: S(h)=unit_l2(Linear512to256(tanh(Linear512to512(tanh(Linear2048to512(h)))))). The static state is repeated at every matched G site, receives no post-reset transition input, and uses the exact same tied Wa/action projection and bounded gain-1 G as the recurrent branch. Static encoder has 1,443,072 trainable state parameters versus 1,443,328 recurrent-state parameters (W0+Wx+GRU), a difference of 256 (<0.018%).",
+      "STATIC_REPEAT": "same trained z0 exposed at every matched G site; execute F on isolated scratch using same inputs/count but scratch has no path to G",
+      "TRANSITION_PERMUTED": "same z0, transition multiset, F/G, update/exposure count and timing; after all required transitions have occurred, replay exact precommitted nonidentity order; only order differs",
+      "ZERO_Z0_RECURSION": "same trained recurrent F and exact same post-reset transition sequence, update count, G, candidate scores, and exposure sites as ALIGNED_RECURSION, but initialize recurrent state to the exact all-zero 256D vector. No pre-reset feature enters this arm. Zero state is permitted before the first GRU update; every post-update state is unit-normalized."
+    },
+    "base_model": "Qwen/Qwen3-1.7B@70d244cc86ccca08cf5af4e1e306ecf908b1ad5e; frozen weights",
+    "claim_ceiling": "A positive repaired V5 result may support only the exact bundled pre-reset-initialized learned predictive-state realization (recurrent state plus shared learned bounded action binding) against the prospectively tested nulls. It does not uniquely identify GRU-256, does not establish a generic recurrent architecture mechanism, and does not generalize beyond the frozen model/task/population without replication.",
+    "confirmation": {
+      "v4": "HARD_SEALED_NEVER_REPURPOSED",
+      "v5": "FRESH_33_HARD_SEALED_UNTIL_V5_DEVELOPMENT_PASS_AND_SEPARATE_AUTHORIZATION"
+    },
+    "development_contrasts": {
+      "C_bagged": "D_ALIGNED_RECURSION-D_BAGGED_TRANSITIONS",
+      "C_donor_z0": "D_ALIGNED_RECURSION-D_DONOR_Z0_RECURSION",
+      "C_information": "D_ALIGNED_RECURSION-D_MATCHED_INFORMATION",
+      "C_last_transition": "D_ALIGNED_RECURSION-D_LAST_TRANSITION_ONLY",
+      "C_permuted": "D_ALIGNED_RECURSION-D_TRANSITION_PERMUTED",
+      "C_static": "D_ALIGNED_RECURSION-D_STATIC_REPEAT",
+      "C_static_predictive": "D_ALIGNED_RECURSION-D_STATIC_PREDICTIVE_SHARED_G",
+      "C_zero_z0": "D_ALIGNED_RECURSION-D_ZERO_Z0_RECURSION"
+    },
+    "development_endpoint": "Reuse exact orientation-invariant V4 branch-preference endpoint: R_g=LSE(A)-LSE(B); D_g=abs(R_g-R_NO_CARRY); C_static=D_ALIGNED-D_STATIC_REPEAT; C_permuted=D_ALIGNED-D_TRANSITION_PERMUTED; C_information=D_ALIGNED-D_MATCHED_INFORMATION.",
+    "development_gates": {
+      "C_oneshot_used_as_gate": false,
+      "failure": "DEVELOPMENT_FUTILITY_STOP_CONFIRMATION_REMAINS_SEALED",
+      "logic": "ALL_CONJUNCTIVE_IUT_NO_RESCUE",
+      "median_D_ALIGNED_gt0": true,
+      "median_effect_nats_min": {
+        "C_bagged": 0.05,
+        "C_last_transition": 0.05,
+        "C_permuted": 0.05,
+        "C_static": 0.05,
+        "C_static_predictive": 0.05
+      },
+      "median_strict_gt_zero": [
+        "C_information",
+        "C_zero_z0",
+        "C_donor_z0"
+      ],
+      "multiplicity": "Conjunctive intersection-union gate: every listed requirement must pass; no endpoint or control can rescue failure of another. Positive declaration is therefore not created by choosing among controls.",
+      "n": 33,
+      "pass": "DEVELOPMENT_READINESS_PASS_NOT_SCIENTIFIC_SUPPORT",
+      "positive_count_min_each": {
+        "C_bagged": 22,
+        "C_donor_z0": 22,
+        "C_last_transition": 22,
+        "C_permuted": 22,
+        "C_static": 22,
+        "C_static_predictive": 22,
+        "C_zero_z0": 22
+      },
+      "validity_isolation_provenance_randomization_violations_max": 0
+    },
+    "development_population": {
+      "fresh_v5_development": true,
+      "n": 33,
+      "no_outcome_dependent_exclusion": true,
+      "no_redraw": true,
+      "no_replacement": true,
+      "no_resampling": true
+    },
+    "donor_z0_selection": {
+      "branch_blind": true,
+      "different_source_graph_required": true,
+      "freeze_time": "manifest construction before any phase endpoint/outcome access",
+      "no_replacement_resampling_redraw": true,
+      "outcome_blind": true,
+      "phase_local": true,
+      "selection_key": "argmin SHA256(\"CPDS_V5_DONOR_Z0_V1|\" + target_structural_id + \"|\" + donor_structural_id) over eligible same-phase different-graph donors"
+    },
+    "non_authorizations": [
+      "NO_MODEL_OR_TOKENIZER_LOAD_OR_FORWARD",
+      "NO_ENVIRONMENT_EXECUTION",
+      "NO_GPU_OR_PROVIDER_LIFECYCLE",
+      "NO_RESEARCH_DECISION",
+      "NO_TRAIN_EXECUTION",
+      "NO_CALIBRATION_EXECUTION",
+      "NO_V5_DEVELOPMENT_EXECUTION",
+      "NO_CONFIRMATION_ACCESS",
+      "NO_V4_CONFIRMATION_REPURPOSE",
+      "NO_POSTHOC_GAIN_TUNING",
+      "NO_POSTHOC_THRESHOLD_TUNING",
+      "NO_POSTHOC_CONTROL_SELECTION",
+      "NO_DISCOVERY_ROUND",
+      "NO_PLANROUTE"
+    ],
+    "parent_hypothesis_id": "5d262191-9177-49ce-86ff-4944832aa1dc",
+    "planroute": "USER_NOOP_RETIRED",
+    "predevelopment_constructibility_gate": {
+      "data": "CALIBRATION only; source-graph-disjoint; no V4/V5 branch endpoints; no DEVELOPMENT/CONFIRMATION access",
+      "failure": "CONSTRUCTIBILITY_INCONCLUSIVE_NO_V5_DEVELOPMENT",
+      "model_selection": false,
+      "pass": "CALIBRATION_CONSTRUCTIBILITY_PASS_NOT_SCIENTIFIC_SUPPORT",
+      "requirements": [
+        "all recurrent/static/control states and all G residuals finite; every exposed nonzero state unit-normalized",
+        "G residuals finite within [-1,1] and not exactly constant over every final legal candidate set",
+        "aligned versus full-permuted final recurrent states nonidentical for every qualifying sequence",
+        "median predictive loss ALIGNED_RECURSION < STATIC_REPEAT/static-z0 predictive loss",
+        "median predictive loss ALIGNED_RECURSION < TRANSITION_PERMUTED predictive loss",
+        "median predictive loss ALIGNED_RECURSION < ZERO_Z0_RECURSION predictive loss",
+        "median predictive loss ALIGNED_RECURSION < DONOR_Z0_RECURSION predictive loss",
+        "median predictive loss ALIGNED_RECURSION < LAST_TRANSITION_ONLY predictive loss",
+        "median predictive loss ALIGNED_RECURSION < BAGGED_TRANSITIONS predictive loss",
+        "median predictive loss ALIGNED_RECURSION < STATIC_PREDICTIVE_SHARED_G predictive loss",
+        "zero evaluator branch-label, correctness, outcome, DEVELOPMENT, CONFIRMATION, or V4 endpoint path to fitting, checkpointing, donor selection, calibration, thresholds, or tie-breaks"
+      ],
+      "thresholds_and_tie_breaks_frozen": true
+    },
+    "question": "Does a pre-reset initialized, learned order-sensitive predictive state contribute causally beyond static pre-reset state, z0-free online regrounding, local-transition estimation, order-insensitive transition summaries, full-order permutation, and matched-information controls to the orientation-invariant CPDS branch-preference endpoint on fresh graph families?",
+    "realization": "CPDS_PREDICTIVE_GRU256_BOUNDED_COSINE_V2_POST_ADVERSARIAL",
+    "recurrent_state": {
+      "state_dtype": "FLOAT32",
+      "state_width": 256,
+      "transition": "x_t=unit_l2(Wx*h_transition(command_t,observation_t+1))",
+      "update": "z_t+1=unit_l2(GRUCell256(x_t,z_t))",
+      "z0": "unit_l2(W0*h_pre_reset)"
+    },
+    "shared_G": {
+      "action_feature": "q(a)=unit_l2(Wa*h_action(a))",
+      "bound": "[-1,1]",
+      "delta": "dot(unit_l2(z),q(a))",
+      "gain": 1.0,
+      "whole_action_scores_sealed_before_A_B_aggregation": true
+    },
+    "static_baseline": {
+      "absolute_param_difference": 256,
+      "architecture": "2048->512(tanh)->512(tanh)->256->unit_l2",
+      "post_reset_transition_access": false,
+      "recurrent_state_encoder_params": 1443328,
+      "relative_difference_fraction": 0.000177367860943597,
+      "shares_exact_Wa_G": true,
+      "state_encoder_params": 1443072
+    },
+    "training_and_evaluation_partition": {
+      "calibration": "SHA256 buckets 8..9; predictive/constructibility only",
+      "confirmation": "fresh exactly 33 V5 CONFIRMATION families frozen before DEVELOPMENT and hard sealed until V5 DEVELOPMENT passes plus separate authorization",
+      "development": "fresh exactly 33 V5 DEVELOPMENT families; disjoint from TRAIN/CALIBRATION/V4 DEVELOPMENT/V4 sealed CONFIRMATION/V5 CONFIRMATION",
+      "principle": "source-graph-disjoint deterministic hash partition before any V5 fitting or endpoint access",
+      "train": "SHA256 buckets 0..7 after blind rejection of the exact frozen V4 DEVELOPMENT+CONFIRMATION 66 structural-key union",
+      "v4_development_use": "diagnosis of failed V4 realization only; forbidden for V5 optimizer, hyperparameter, gain, threshold, cohort, donor, baseline, or checkpoint selection"
+    },
+    "training_contract": {
+      "base_optimizer_and_per_branch_predictive_loss_recipe_preserved_exactly": true,
+      "exact_recurrent_recipe": {
+        "batch_sequences": 8,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "calibration_model_selection": false,
+        "checkpoint_selection": "FINAL_EPOCH_ONLY",
+        "early_stopping": "NONE",
+        "epochs": 32,
+        "eps": 1e-08,
+        "gradient_clip_norm": 1.0,
+        "learning_rate": 0.0003,
+        "model_selection_tie_break": "NOT_APPLICABLE_SINGLE_FINAL_EPOCH_ONLY",
+        "objective": "0.5*L_recurrent + 0.5*L_static, where each L is mean next-observed-command cross_entropy of frozen base_scores+bounded shared-G plus 0.25*pairwise logistic contrastive next-transition loss",
+        "optimizer": "AdamW",
+        "packet_order": "SHA256(source_graph_id || packet_id || seed), ascending",
+        "recurrent_static_joint_weight": {
+          "RECURRENT": 0.5,
+          "STATIC_PREDICTIVE_SHARED_G": 0.5
+        },
+        "secondary_contrastive_weight": 0.25,
+        "seed": 20260830,
+        "torch_num_threads": 1,
+        "weight_decay": 0.0001
+      },
+      "loss_weights_frozen_before_train": {
+        "RECURRENT": 0.5,
+        "STATIC_PREDICTIVE_SHARED_G": 0.5,
+        "secondary_contrastive_within_each": 0.25
+      },
+      "no_calibration_model_selection": true,
+      "no_early_stopping": true,
+      "optimizer_parameter_set": "single AdamW over W0, Wx, GRUCell256, shared Wa, and StaticMLP parameters in frozen construction order; no parameter group overrides",
+      "parameter_initialization": {
+        "construction_order": [
+          "W0 Linear2048to256 bias=False",
+          "Wx Linear2048to256 bias=False",
+          "GRUCell256",
+          "Wa Linear2048to256 bias=False",
+          "StaticMLP Linear2048to512 bias=True",
+          "StaticMLP Linear512to512 bias=True",
+          "StaticMLP Linear512to256 bias=True"
+        ],
+        "no_reinitialization_or_seed_search": true,
+        "torch_manual_seed": 20260830
+      },
+      "recipe_provenance": {
+        "commit": "ef7ef0a618827b4a7e8b2ac5c0c6022a2ce3c409",
+        "file_sha256": "861537f18959bcff736e7cbe30fdf07e128c7621ed5fb4e3522d598f77acab8c",
+        "path": "results/design/plancarry_cpds_v5_training_recipe_a1_20260830.json"
+      },
+      "static_baseline_training": "Train recurrent and STATIC_PREDICTIVE_SHARED_G branches jointly on TRAIN only with exact shared Wa/G and equal 0.5 branch weights; no branch endpoint is available. The static encoder gets the same primary and secondary predictive losses and exact same optimizer/seed/epochs/batching/clip. Final epoch only is frozen for both."
+    }
+  },
+  "review_requirement": {
+    "attack_author_may_verify_but_cannot_be_sole_repair_reviewer": true,
+    "fresh_independent_design_delta_review": true,
+    "pass_authorizes": "ENGINEERING_UPDATE_AND_EXISTING_PROVENANCE_DELTA_CONTINUATION_ONLY_NOT_TRAIN_OR_DEVELOPMENT",
+    "repair_author_must_not_self_review": true
+  },
+  "schema": "PLANCARRY_CPDS_V5_POST_ADVERSARIAL_DESIGN_REPAIR_A1_V2",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_spec_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2",
+  "scientific_variable_drift_from_5f08cf2": true,
+  "scope": {
+    "claim": "A positive repaired V5 result may support only the exact bundled pre-reset-initialized learned predictive-state realization (recurrent state plus shared learned bounded action binding) against the prospectively tested nulls. It does not uniquely identify GRU-256, does not establish a generic recurrent architecture mechanism, and does not generalize beyond the frozen model/task/population without replication.",
+    "new_discovery_round": false,
+    "new_hypothesis": false,
+    "planroute": "USER_NOOP_RETIRED",
+    "program": "CPDS_ONLY",
+    "v4_confirmation": "HARD_SEALED_NEVER_REPURPOSED"
+  },
+  "semantic_diff_from_source": [
+    {
+      "change": "NARROWED",
+      "from": "same CPDS ordered predictive-state mechanism; new F/G realization only",
+      "path": "scope.claim",
+      "to": "bundled pre-reset-initialized predictive-state realization only; not uniquely GRU-256"
+    },
+    {
+      "change": "ADD",
+      "path": "arms",
+      "values": [
+        "ZERO_Z0_RECURSION",
+        "DONOR_Z0_RECURSION",
+        "LAST_TRANSITION_ONLY",
+        "BAGGED_TRANSITIONS",
+        "STATIC_PREDICTIVE_SHARED_G"
+      ]
+    },
+    {
+      "change": "MATERIAL",
+      "detail": "freeze exact optimizer/seed/epochs/batch/clip/loss weights/checkpoint/tie-breaks and jointly fit objective-matched static baseline with exact shared Wa/G",
+      "path": "training_contract"
+    },
+    {
+      "change": "EXPANDED",
+      "detail": "must beat zero-z0, donor-z0, last-transition, bagged-transition and static-predictive controls on predictive loss before DEVELOPMENT",
+      "path": "predevelopment_constructibility_gate.requirements"
+    },
+    {
+      "change": "EXPANDED",
+      "detail": "prospective conjunctive z0-dependence, local/order and static-predictive discriminators; no rescue",
+      "path": "development_contrasts_and_gates"
+    }
+  ],
+  "source_design": {
+    "attack_review_result_id": "52e65996-6bbd-4aab-a69e-7475061ae3b4",
+    "attack_work_item_id": "b94b9c16-fbb5-4741-acd4-01c6968edb7a",
+    "commit": "5f08cf2ac645e0ab7709be1ab0b4be87726283f3",
+    "file": "results/design/plancarry_cpds_v5_predictive_recurrence_repair_a1_20260830.json",
+    "file_sha256": "fcbdfcde2241ee24b594bb7ad49e277d7d11b666c65dd81af97b8c86ea59c692"
+  },
+  "training_and_evaluation_partition": {
+    "calibration": "SHA256 buckets 8..9; predictive/constructibility only",
+    "confirmation": "fresh exactly 33 V5 CONFIRMATION families frozen before DEVELOPMENT and hard sealed until V5 DEVELOPMENT passes plus separate authorization",
+    "development": "fresh exactly 33 V5 DEVELOPMENT families; disjoint from TRAIN/CALIBRATION/V4 DEVELOPMENT/V4 sealed CONFIRMATION/V5 CONFIRMATION",
+    "principle": "source-graph-disjoint deterministic hash partition before any V5 fitting or endpoint access",
+    "train": "SHA256 buckets 0..7 after blind rejection of the exact frozen V4 DEVELOPMENT+CONFIRMATION 66 structural-key union",
+    "v4_development_use": "diagnosis of failed V4 realization only; forbidden for V5 optimizer, hyperparameter, gain, threshold, cohort, donor, baseline, or checkpoint selection"
+  },
+  "training_contract": {
+    "base_optimizer_and_per_branch_predictive_loss_recipe_preserved_exactly": true,
+    "exact_recurrent_recipe": {
+      "batch_sequences": 8,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "calibration_model_selection": false,
+      "checkpoint_selection": "FINAL_EPOCH_ONLY",
+      "early_stopping": "NONE",
+      "epochs": 32,
+      "eps": 1e-08,
+      "gradient_clip_norm": 1.0,
+      "learning_rate": 0.0003,
+      "model_selection_tie_break": "NOT_APPLICABLE_SINGLE_FINAL_EPOCH_ONLY",
+      "objective": "0.5*L_recurrent + 0.5*L_static, where each L is mean next-observed-command cross_entropy of frozen base_scores+bounded shared-G plus 0.25*pairwise logistic contrastive next-transition loss",
+      "optimizer": "AdamW",
+      "packet_order": "SHA256(source_graph_id || packet_id || seed), ascending",
+      "recurrent_static_joint_weight": {
+        "RECURRENT": 0.5,
+        "STATIC_PREDICTIVE_SHARED_G": 0.5
+      },
+      "secondary_contrastive_weight": 0.25,
+      "seed": 20260830,
+      "torch_num_threads": 1,
+      "weight_decay": 0.0001
+    },
+    "loss_weights_frozen_before_train": {
+      "RECURRENT": 0.5,
+      "STATIC_PREDICTIVE_SHARED_G": 0.5,
+      "secondary_contrastive_within_each": 0.25
+    },
+    "no_calibration_model_selection": true,
+    "no_early_stopping": true,
+    "optimizer_parameter_set": "single AdamW over W0, Wx, GRUCell256, shared Wa, and StaticMLP parameters in frozen construction order; no parameter group overrides",
+    "parameter_initialization": {
+      "construction_order": [
+        "W0 Linear2048to256 bias=False",
+        "Wx Linear2048to256 bias=False",
+        "GRUCell256",
+        "Wa Linear2048to256 bias=False",
+        "StaticMLP Linear2048to512 bias=True",
+        "StaticMLP Linear512to512 bias=True",
+        "StaticMLP Linear512to256 bias=True"
+      ],
+      "no_reinitialization_or_seed_search": true,
+      "torch_manual_seed": 20260830
+    },
+    "recipe_provenance": {
+      "commit": "ef7ef0a618827b4a7e8b2ac5c0c6022a2ce3c409",
+      "file_sha256": "861537f18959bcff736e7cbe30fdf07e128c7621ed5fb4e3522d598f77acab8c",
+      "path": "results/design/plancarry_cpds_v5_training_recipe_a1_20260830.json"
+    },
+    "static_baseline_training": "Train recurrent and STATIC_PREDICTIVE_SHARED_G branches jointly on TRAIN only with exact shared Wa/G and equal 0.5 branch weights; no branch endpoint is available. The static encoder gets the same primary and secondary predictive losses and exact same optimizer/seed/epochs/batching/clip. Final epoch only is frozen for both."
+  },
+  "unchanged_from_source": [
+    "parent hypothesis identity",
+    "Qwen3-1.7B frozen base revision",
+    "GRU state width 256 and W0/Wx/GRU realization",
+    "bounded cosine G functional form and fixed gain 1.0",
+    "orientation-invariant V4 R/D endpoint",
+    "NO_CARRY, STATIC_REPEAT, TRANSITION_PERMUTED, MATCHED_INFORMATION and STATIC_ONESHOT diagnostic",
+    "V4 n=33 static/permuted effect floors where reused",
+    "branch labels evaluator-only and whole-action score sealing",
+    "first-action exclusion",
+    "no replacement/resampling/redraw/outcome filtering",
+    "V4 confirmation HARD_SEALED",
+    "PlanRoute USER_NOOP_RETIRED"
+  ]
+}

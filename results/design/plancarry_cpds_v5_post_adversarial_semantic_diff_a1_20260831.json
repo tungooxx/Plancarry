@@ -1,0 +1,37 @@
+{
+  "changed_protected_semantics": [
+    "claim ceiling",
+    "arms/controls",
+    "training loss composition for shared-G static baseline",
+    "calibration kill requirements",
+    "DEVELOPMENT contrasts/gates",
+    "donor-z0 selection contract",
+    "exact hyperparameter/tie-break freeze"
+  ],
+  "development_or_confirmation_access": false,
+  "implementation_files_modified": false,
+  "model_or_environment_execution": false,
+  "preserved_protected_semantics": [
+    "parent hypothesis identity",
+    "Qwen3-1.7B frozen base revision",
+    "GRU state width 256 and W0/Wx/GRU realization",
+    "bounded cosine G functional form and fixed gain 1.0",
+    "orientation-invariant V4 R/D endpoint",
+    "NO_CARRY, STATIC_REPEAT, TRANSITION_PERMUTED, MATCHED_INFORMATION and STATIC_ONESHOT diagnostic",
+    "V4 n=33 static/permuted effect floors where reused",
+    "branch labels evaluator-only and whole-action score sealing",
+    "first-action exclusion",
+    "no replacement/resampling/redraw/outcome filtering",
+    "V4 confirmation HARD_SEALED",
+    "PlanRoute USER_NOOP_RETIRED"
+  ],
+  "schema": "PLANCARRY_CPDS_V5_POST_ADVERSARIAL_SEMANTIC_DIFF_A1_V1",
+  "scientific_variable_drift": true,
+  "source_commit": "5f08cf2ac645e0ab7709be1ab0b4be87726283f3",
+  "source_design_sha256": "fcbdfcde2241ee24b594bb7ad49e277d7d11b666c65dd81af97b8c86ea59c692",
+  "source_scientific_spec_hash": "UNAVAILABLE_SOURCE_PRE_HASH_SCHEMA",
+  "target_design_file": "results/design/plancarry_cpds_v5_post_adversarial_design_repair_a1_20260831.json",
+  "target_design_sha256": "936c7681b61b29956a0094b95c8d6498c5192d5b55cf73eeb643041cdd3327d2",
+  "target_scientific_spec_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2",
+  "train_or_calibration_execution": false
+}
