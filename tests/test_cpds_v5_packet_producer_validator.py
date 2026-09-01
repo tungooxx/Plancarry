@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -85,6 +86,7 @@ class PacketProducerValidator(unittest.TestCase):
                 "game_tw_pddl_sha256": r["game_tw_pddl_sha256"],
                 "runtime_fingerprint": "a" * 64,
                 "model_snapshot_revision": validator.BASE_MODEL_REVISION,
+                "packet_binding_commit": validator.PACKET_BINDING_COMMIT,
                 "continuation_symbolic_command": r["continuation_symbolic_command"],
                 "continuation_surface_command": continuation_surface,
                 "producer_code_sha256": validator.sha_file(producer.__file__),
@@ -116,12 +118,32 @@ class PacketProducerValidator(unittest.TestCase):
         self.assertEqual(audit["packet_binding"]["commit"], "4c4de54e16f697e9aa12b3b7fa8b07f6ee80da34")
         self.assertEqual(audit["packet_binding"]["review_result_id"], "0c3fe27e-9762-4526-beb8-3a23fc57323d")
         self.assertEqual(audit["packet_binding"]["review_verdict"], "PASS_FOR_CPDS_V5_PACKET_CONSTRUCTION_BINDING")
+        source_commit = "ccc831c69cbb76304ad88790be9b2056c636bb25"
         for rel, sha in audit["implementation_files_sha256"].items():
-            self.assertEqual(validator.sha_file(ROOT / rel), sha)
+            blob = subprocess.check_output(["git", "show", f"{source_commit}:{rel}"], cwd=ROOT)
+            self.assertEqual(hashlib.sha256(blob).hexdigest(), sha)
         for rel, sha in audit["unchanged_bound_files_sha256"].items():
-            self.assertEqual(validator.sha_file(ROOT / rel), sha)
+            blob = subprocess.check_output(["git", "show", f"{source_commit}:{rel}"], cwd=ROOT)
+            self.assertEqual(hashlib.sha256(blob).hexdigest(), sha)
         self.assertEqual(audit["population"], {"TRAIN":1504,"CALIBRATION":423,"DEVELOPMENT":0,"CONFIRMATION":0})
         self.assertTrue(all(v is False for v in audit["execution_counters"].values()))
+
+    def test_provenance_repair_audit_self_hash_and_current_bytes(self):
+        audit_path = ROOT / "results" / "design" / "plancarry_cpds_v5_packet_validator_provenance_repair_a4_20260901.json"
+        audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        x = copy.deepcopy(audit); expected = x.pop("audit_sha256")
+        self.assertEqual(expected, validator.sha_obj(x))
+        self.assertEqual(audit["source_commit"], "ccc831c69cbb76304ad88790be9b2056c636bb25")
+        self.assertEqual(audit["failed_review_result_id"], "30cf9667-30c9-4244-a024-5bd9e2d3318b")
+        self.assertEqual(audit["regression_proposal_id"], "3940c1bd-4ab8-4cb8-8e1a-dcbc8db6b68d")
+        self.assertEqual(audit["packet_science_commit"], validator.PACKET_BINDING_COMMIT)
+        self.assertEqual(audit["protected_scientific_semantic_hash"], validator.PROTECTED_SPEC_SHA256)
+        self.assertFalse(audit["scientific_variable_drift"])
+        self.assertEqual(audit["scientific_result"], "NOT_ASSESSED")
+        self.assertTrue(all(v is False for v in audit["execution_counters"].values()))
+        for rel, sha in audit["repair_files_sha256"].items():
+            self.assertEqual(validator.sha_file(ROOT / rel), sha)
+        self.assertEqual(audit["producer_sha256_unchanged"], validator.sha_file(ROOT / "cpds_v5_packet_producer_v1.py"))
 
     def test_strict_real_demangler_has_no_identity_fallback(self):
         class Fake: pass
@@ -153,6 +175,22 @@ class PacketProducerValidator(unittest.TestCase):
         p = self.sample_packet(); p["updates"][1]["prediction_site"]["prompt"] += "tamper"; self.reseal(p)
         with self.assertRaisesRegex(ValueError, "PROMPT_MISMATCH"):
             validator.validate_packet(p, self.row)
+
+    def test_producer_identity_and_packet_binding_provenance_tamper_fail_closed(self):
+        attacks = (
+            ("producer_code_sha256", "0" * 64, "PROVENANCE:producer_code_sha256"),
+            ("packet_binding_commit", "deadbeef" * 5, "PROVENANCE:packet_binding_commit"),
+            ("continuation_symbolic_command", "MUTATED_FUTURE_SYMBOLIC_COMMAND", "PROVENANCE:continuation_symbolic_command"),
+        )
+        for key, value, error in attacks:
+            with self.subTest(key=key):
+                p = self.sample_packet()
+                p["producer_provenance"][key] = value
+                self.reseal(p)
+                with self.assertRaisesRegex(ValueError, error):
+                    validator.validate_packet(p, self.row)
+        self.assertEqual(validator.PRODUCER_CODE_SHA256, validator.sha_file(producer.__file__))
+        self.assertEqual(validator.PACKET_BINDING_COMMIT, "4c4de54e16f697e9aa12b3b7fa8b07f6ee80da34")
 
     def test_recursive_evaluator_outcome_and_nonunit_features_rejected(self):
         p = self.sample_packet(); p["producer_provenance"]["outcome"] = "x"; self.reseal(p)

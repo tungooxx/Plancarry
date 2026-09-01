@@ -37,6 +37,8 @@ RESERVED_FILE_SHA256 = "e2d6cecb4a13ff27cd5f2e76fd6d1e021fa27cf1e1d582aeb1808b2f
 RECIPE_FILE_SHA256 = "861537f18959bcff736e7cbe30fdf07e128c7621ed5fb4e3522d598f77acab8c"
 V4_RUNTIME_FILE_SHA256 = "3dd4d52676b26e7c7e4fc4394cb0b16378b3560aa4711f574ce8ee1d2385ddaa"
 PROTECTED_SPEC_SHA256 = "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2"
+PRODUCER_CODE_SHA256 = "b7ecc835a481648cddb22e2cfba57514fd5b8240a651d4b0b86f0d1fd8a35d73"
+PACKET_BINDING_COMMIT = "4c4de54e16f697e9aa12b3b7fa8b07f6ee80da34"
 TRACE_VERSION = "IMMEDIATE_EXCLUDED_COMMON1_COMMON2_EXAMINE_STAGING2_V1"
 PACKET_ID_DOMAIN = "CPDS_V5_PACKET_ID_V1"
 FORBIDDEN_KEYS = {
@@ -49,6 +51,7 @@ BOUND_CODE_SHA256 = {
     "cpds_development_driver_v1.py": "6daf31543e63eb7aca2ae67c1f83577b6af8c2b08c1f1fdd0e70d532b2ddae02",
     "cpds_development_runtime_v1.py": "2d4933c75c69ecccb9495d10cc3568e9906bf57ca485b175956b290f74cd0da5",
     "cpds_v5_partition_v1.py": "0e9a007b6e8911a8432c385fbf0f6ba9ccc834467360a427c1c5c1e17a955439",
+    "cpds_v5_packet_producer_v1.py": PRODUCER_CODE_SHA256,
     "cpds_v5_predictive_recurrence_v1.py": "3a5a190de95c43d8bd4578f056e279c6217d53815a07527974eca5fe1d2f85c5",
     "cpds_v5_train_calibration_v1.py": "96132d7da8e7f75b7d8aaf8557c636d0ef167c47c4194462551fd30fc5ca1068",
 }
@@ -262,6 +265,9 @@ def validate_packet(packet: Mapping[str, Any], row: Mapping[str, Any]) -> dict[s
         "v4_reserved_seal_sha256": RESERVED_FILE_SHA256,
         "game_tw_pddl_sha256": row["game_tw_pddl_sha256"],
         "model_snapshot_revision": BASE_MODEL_REVISION,
+        "packet_binding_commit": PACKET_BINDING_COMMIT,
+        "continuation_symbolic_command": row["continuation_symbolic_command"],
+        "producer_code_sha256": PRODUCER_CODE_SHA256,
     }
     for key, expected in expected_prov.items():
         if provenance.get(key) != expected:
