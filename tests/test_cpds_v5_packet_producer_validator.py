@@ -88,6 +88,7 @@ class PacketProducerValidator(unittest.TestCase):
                 "continuation_symbolic_command": r["continuation_symbolic_command"],
                 "continuation_surface_command": continuation_surface,
                 "producer_code_sha256": validator.sha_file(producer.__file__),
+                "packet_binding_commit": validator.EXPECTED_PACKET_BINDING_COMMIT,
             },
         }
         p["packet_sha256"] = validator.sha_obj(p)
@@ -116,11 +117,31 @@ class PacketProducerValidator(unittest.TestCase):
         self.assertEqual(audit["packet_binding"]["commit"], "4c4de54e16f697e9aa12b3b7fa8b07f6ee80da34")
         self.assertEqual(audit["packet_binding"]["review_result_id"], "0c3fe27e-9762-4526-beb8-3a23fc57323d")
         self.assertEqual(audit["packet_binding"]["review_verdict"], "PASS_FOR_CPDS_V5_PACKET_CONSTRUCTION_BINDING")
-        for rel, sha in audit["implementation_files_sha256"].items():
-            self.assertEqual(validator.sha_file(ROOT / rel), sha)
+        self.assertEqual(audit["implementation_files_sha256"]["cpds_v5_packet_producer_v1.py"], validator.EXPECTED_PRODUCER_CODE_SHA256)
+        self.assertEqual(validator.sha_file(ROOT / "cpds_v5_packet_producer_v1.py"), validator.EXPECTED_PRODUCER_CODE_SHA256)
+        self.assertEqual(audit["implementation_files_sha256"]["cpds_v5_packet_validator_v1.py"], "446ed137758bd84d66bba8252ea1a5964497a52921cc5ffa427ddb0e9cbe2e8c")
+        self.assertEqual(audit["implementation_files_sha256"]["tests/test_cpds_v5_packet_producer_validator.py"], "f15bb63e830b9b37663085dc474add231aee2993e07766c9385b06532fff9df5")
         for rel, sha in audit["unchanged_bound_files_sha256"].items():
             self.assertEqual(validator.sha_file(ROOT / rel), sha)
         self.assertEqual(audit["population"], {"TRAIN":1504,"CALIBRATION":423,"DEVELOPMENT":0,"CONFIRMATION":0})
+        self.assertTrue(all(v is False for v in audit["execution_counters"].values()))
+
+    def test_provenance_repair_audit_self_hash_and_exact_successor_bytes(self):
+        audit_path = ROOT / "results" / "design" / "plancarry_cpds_v5_packet_provenance_repair_a1_20260901.json"
+        audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        x = copy.deepcopy(audit); expected = x.pop("audit_sha256")
+        self.assertEqual(expected, validator.sha_obj(x))
+        self.assertEqual(audit["source_release_commit"], "ccc831c69cbb76304ad88790be9b2056c636bb25")
+        self.assertEqual(audit["failed_review_result_id"], "30cf9667-30c9-4244-a024-5bd9e2d3318b")
+        self.assertEqual(audit["regression_proposal_id"], "3940c1bd-4ab8-4cb8-8e1a-dcbc8db6b68d")
+        self.assertFalse(audit["scientific_variable_drift"])
+        self.assertEqual(audit["exact_provenance_guards"], {
+            "producer_code_sha256": validator.EXPECTED_PRODUCER_CODE_SHA256,
+            "packet_binding_commit": validator.EXPECTED_PACKET_BINDING_COMMIT,
+        })
+        for rel, sha in audit["successor_files_sha256"].items():
+            self.assertEqual(validator.sha_file(ROOT / rel), sha)
+        self.assertEqual(validator.sha_file(ROOT / "cpds_v5_packet_producer_v1.py"), validator.EXPECTED_PRODUCER_CODE_SHA256)
         self.assertTrue(all(v is False for v in audit["execution_counters"].values()))
 
     def test_strict_real_demangler_has_no_identity_fallback(self):
@@ -152,6 +173,14 @@ class PacketProducerValidator(unittest.TestCase):
             validator.validate_packet(p, self.row)
         p = self.sample_packet(); p["updates"][1]["prediction_site"]["prompt"] += "tamper"; self.reseal(p)
         with self.assertRaisesRegex(ValueError, "PROMPT_MISMATCH"):
+            validator.validate_packet(p, self.row)
+
+    def test_resealed_producer_provenance_tamper_fails_closed(self):
+        p = self.sample_packet(); p["producer_provenance"]["producer_code_sha256"] = "0" * 64; self.reseal(p)
+        with self.assertRaisesRegex(ValueError, "PROVENANCE:producer_code_sha256"):
+            validator.validate_packet(p, self.row)
+        p = self.sample_packet(); p["producer_provenance"]["packet_binding_commit"] = "deadbeef" * 5; self.reseal(p)
+        with self.assertRaisesRegex(ValueError, "PROVENANCE:packet_binding_commit"):
             validator.validate_packet(p, self.row)
 
     def test_recursive_evaluator_outcome_and_nonunit_features_rejected(self):

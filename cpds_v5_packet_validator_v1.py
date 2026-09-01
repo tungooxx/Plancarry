@@ -21,6 +21,8 @@ RECIPE_PATH = DESIGN / "plancarry_cpds_v5_training_recipe_a1_20260830.json"
 V4_RUNTIME_PATH = DESIGN / "plancarry_cpds_development_runtime_contract_v1_20260830.json"
 
 PACKET_SCHEMA = "PLANCARRY_CPDS_V5_PRECOMPUTED_FEATURE_SEQUENCE_V1"
+EXPECTED_PRODUCER_CODE_SHA256 = "b7ecc835a481648cddb22e2cfba57514fd5b8240a651d4b0b86f0d1fd8a35d73"
+EXPECTED_PACKET_BINDING_COMMIT = "4c4de54e16f697e9aa12b3b7fa8b07f6ee80da34"
 BASE_MODEL_ID = "Qwen/Qwen3-1.7B"
 BASE_MODEL_REVISION = "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
 NATIVE_WIDTH = 2048
@@ -262,6 +264,8 @@ def validate_packet(packet: Mapping[str, Any], row: Mapping[str, Any]) -> dict[s
         "v4_reserved_seal_sha256": RESERVED_FILE_SHA256,
         "game_tw_pddl_sha256": row["game_tw_pddl_sha256"],
         "model_snapshot_revision": BASE_MODEL_REVISION,
+        "producer_code_sha256": EXPECTED_PRODUCER_CODE_SHA256,
+        "packet_binding_commit": EXPECTED_PACKET_BINDING_COMMIT,
     }
     for key, expected in expected_prov.items():
         if provenance.get(key) != expected:
