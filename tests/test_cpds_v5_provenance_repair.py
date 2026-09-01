@@ -64,6 +64,26 @@ class T(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'TRAIN_MANIFEST_RESERVED_SEAL_SHA|CHECKPOINT_RESERVED_SEAL_SHA'):
                 pv.validate_calibration_checkpoint_binding(checkpoint_path=ck,checkpoint_sha256=cki['sha256'],recipe_sha256=recipe_sha,reserved_v4_hash_seal_sha256='2'*64,train_manifest_path=mp,train_manifest_sha256=msha)
 
+    def test_post_adversarial_train_manifest_schema_is_single_authority_and_legacy_rejected(self):
+        self.assertEqual(pv.TRAIN_MANIFEST_SCHEMA, 'PLANCARRY_CPDS_V5_TRAIN_FREEZE_V2_POST_ADVERSARIAL')
+        src=Path('cpds_v5_train_calibration_v1.py').read_text()
+        self.assertIn('TRAIN_MANIFEST_SCHEMA,', src)
+        self.assertIn('"schema": TRAIN_MANIFEST_SCHEMA', src)
+        self.assertNotIn('"schema": "PLANCARRY_CPDS_V5_TRAIN_FREEZE_V2_POST_ADVERSARIAL"', src)
+        g=self._graph('TRAIN'); p=packet(g,'TRAIN')
+        with tempfile.TemporaryDirectory() as td:
+            d=Path(td); model=rt.CPDSV5Adapter(); recipe_sha=hashlib.sha256(Path(tc.RECIPE_PATH).read_bytes()).hexdigest()
+            train_prov=pv.build_train_provenance([p],self.seal_sha)
+            ck=d/'m.ckpt'; cki=rt.save_deterministic_checkpoint(ck,model,recipe_sha256=recipe_sha,provenance=train_prov)
+            manifest={'schema':pv.TRAIN_MANIFEST_SCHEMA,'scientific_result':'NOT_ASSESSED_TRAIN_ONLY','realization':rt.REALIZATION,'recipe_sha256':recipe_sha,'reserved_v4_hash_seal_sha256':self.seal_sha,'checkpoint_sha256':cki['sha256'],'checkpoint_bytes':cki['bytes'],'checkpoint_header_sha256':cki['header_sha256'],'train_provenance':train_prov,'train':{'seed':20260830},'development_access':False,'confirmation_access':False}
+            mp=d/'train-v2.json'; mp.write_bytes(rt.canonical_bytes(manifest)); msha=hashlib.sha256(mp.read_bytes()).hexdigest()
+            out=pv.validate_calibration_checkpoint_binding(checkpoint_path=ck,checkpoint_sha256=cki['sha256'],recipe_sha256=recipe_sha,reserved_v4_hash_seal_sha256=self.seal_sha,train_manifest_path=mp,train_manifest_sha256=msha)
+            self.assertEqual(out['train_manifest_sha256'],msha)
+            legacy=dict(manifest); legacy['schema']='PLANCARRY_CPDS_V5_TRAIN_FREEZE_V1'
+            lp=d/'train-v1.json'; lp.write_bytes(rt.canonical_bytes(legacy)); lsha=hashlib.sha256(lp.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(ValueError,'TRAIN_MANIFEST_IDENTITY'):
+                pv.validate_calibration_checkpoint_binding(checkpoint_path=ck,checkpoint_sha256=cki['sha256'],recipe_sha256=recipe_sha,reserved_v4_hash_seal_sha256=self.seal_sha,train_manifest_path=lp,train_manifest_sha256=lsha)
+
     def test_cli_requires_seal_and_train_manifest_hash(self):
         src=Path(tc.__file__).read_text()
         self.assertIn('t.add_argument("--reserved-v4-hashes",required=True)',src)

@@ -17,6 +17,7 @@ from cpds_v5_partition_v1 import (
     validate_blind_reserved_overlap,
 )
 from cpds_v5_provenance_v1 import (
+    TRAIN_MANIFEST_SCHEMA,
     build_train_provenance,
     load_reserved_v4_hash_seal,
     validate_calibration_checkpoint_binding,
@@ -337,7 +338,7 @@ def main() -> int:
         train_prov = build_train_provenance(packets, reserved_seal_sha)
         ck = save_deterministic_checkpoint(args.checkpoint, model, recipe_sha256=recipe_sha, provenance=train_prov)
         manifest = {
-            "schema": "PLANCARRY_CPDS_V5_TRAIN_FREEZE_V2_POST_ADVERSARIAL",
+            "schema": TRAIN_MANIFEST_SCHEMA,
             "scientific_result": "NOT_ASSESSED_TRAIN_ONLY", "realization": REALIZATION,
             "scientific_spec_hash": contract["scientific_spec_hash"], "recipe_sha256": recipe_sha,
             "reserved_v4_hash_seal_sha256": reserved_seal_sha, "checkpoint_sha256": ck["sha256"],
