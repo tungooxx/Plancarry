@@ -1,0 +1,125 @@
+{
+  "anomaly_id": "e5a5bac6-c109-4561-83a2-1fc3c816e952",
+  "base_protected_scientific_semantic_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2",
+  "base_reviewed_packet_commit": "3bd2c69e60df3bde8fe489b7bb946ef5be1ca354",
+  "candidate_universe": {
+    "eligible_before_v4_reserved_exclusion": 1993,
+    "retained_non_v4_reserved_source_graph_count": 1927,
+    "source": "existing reviewed V5 packet behavior manifest; no endpoint/outcome fields used",
+    "v4_reserved_structural_family_count": 66
+  },
+  "external_evaluation_source_audit": {
+    "all_game_count": 200,
+    "candidate_fresh_after_conservative_exact_identity_text_screen_count": 70,
+    "candidate_fresh_set_sha256": "89cc69bb058c7dc8ccd76338f0f99e1ac1495b7f8dd8e17309a4eae92aeea4e7",
+    "endpoint_or_confirmation_outcome_access": false,
+    "identity_screen_scope": "exact source_graph_id string scan over project textual result/design artifacts, excluding V5 tensor packet directory and files >25MB; safety filter only, no outcome interpretation",
+    "known_prior_project_identity_mentioned_eligible_count": 41,
+    "model_or_environment_execution_for_audit": false,
+    "relative_source_id_overlap_with_entire_original_train_namespace_count": 0,
+    "same_static_graphfork_eligible_count": 111,
+    "selected_namespace": "ALFWorld json_2.1.1/valid_train"
+  },
+  "non_authorizations": [
+    "NO_DEVELOPMENT_EXECUTION",
+    "NO_CONFIRMATION_OUTCOME_ACCESS",
+    "NO_V4_CONFIRMATION_REPURPOSE",
+    "NO_MODEL_GAIN_THRESHOLD_CONTROL_TUNING",
+    "NO_PLANROUTE",
+    "NO_NEW_DISCOVERY_ROUND",
+    "NO_PROVIDER_LIFECYCLE"
+  ],
+  "parent_hypothesis_id": "5d262191-9177-49ce-86ff-4944832aa1dc",
+  "phase": "PRE_DEVELOPMENT_SCIENTIFIC_DESIGN_REPAIR_ONLY",
+  "prospective_partition_algorithm": {
+    "eval_phase_assignment": "within the frozen 66 reserve, sort by SHA256(\"CPDS_V5_EXTERNAL_EVAL_PHASE_V2|VALID_TRAIN|PRIOR_IDENTITY_SCREEN\\0\" + source_graph_id), ascending; first 33 DEVELOPMENT, remaining 33 CONFIRMATION",
+    "eval_reserve_priority": "SHA256(\"CPDS_V5_EXTERNAL_EVAL_RESERVE_V2|VALID_TRAIN|PRIOR_IDENTITY_SCREEN\\0\" + source_graph_id), ascending; exact first 66 source graphs",
+    "forbidden_selection_inputs": [
+      "model score",
+      "packet feature values",
+      "TRAIN loss",
+      "CALIBRATION per-sequence loss",
+      "branch A/B endpoint",
+      "correctness",
+      "outcome",
+      "V4 DEVELOPMENT values",
+      "any confirmation outcome"
+    ],
+    "input": "the 70 statically eligible valid_train source graphs that pass the conservative prior-identity screen; this namespace has zero relative source-id overlap with the entire original train namespace used by V4/V5 fitting",
+    "outcome_filtering": false,
+    "remaining_assignment": "none; the 4 unselected source graphs remain unused and cannot replace failures",
+    "replacement_resampling_redraw": false,
+    "selection_inputs": [
+      "official split namespace",
+      "static PDDL graph-fork eligibility under the existing reviewed structural construction",
+      "exact source_graph_id identity",
+      "conservative prior-identity exposure screen"
+    ]
+  },
+  "rejected_repair_candidate": {
+    "candidate": "reserve 66 from the already-fitted 1927 train-namespace graphs and refit",
+    "reason_rejected_before_review": "Although source disjointness could be restored by refitting, those graph identities were already processed by the completed V5 fitting/calibration lifecycle and the original design required partition authority before fitting. Prefer a genuinely external untouched source namespace instead."
+  },
+  "repair_reason": "The original V5 packet partition consumed the entire non-V4-reserved official-train eligible source universe in TRAIN/CALIBRATION, so the required fresh source-graph-disjoint V5 33+33 evaluation cohorts cannot come from that same universe. A separate untouched official ALFWorld source namespace must be frozen before DEVELOPMENT.",
+  "repair_scope": {
+    "changes_only": "prospective V5 evaluation-source authority/timing after calibration constructibility, before any DEVELOPMENT endpoint access",
+    "new_discovery_round": false,
+    "new_hypothesis": false,
+    "planroute": "USER_NOOP_RETIRED",
+    "v4_confirmation": "HARD_SEALED_NEVER_REPURPOSED",
+    "v5_confirmation": "HARD_SEALED_AFTER_PROSPECTIVE_FREEZE"
+  },
+  "repair_semantic_fingerprint_sha256": "3219bebd4739b06346742f0df113c14fb8b6db6403bb82878caa251914762201",
+  "required_invalidation_and_reexecution": {
+    "development_before_independent_review_and_manifest_freeze": false,
+    "existing_calibration_result_sha256": "5a511226e807987a5ea8e458f3d66eb4fb712afc86cf37aa95b066257b341eaa",
+    "existing_checkpoint_sha256": "ab1a638a89db005b1346750c20ce8c1e7ea81cc3d1556af562a59fae8af503f9",
+    "existing_fit_status": "MAY_REMAIN_ELIGIBLE_FOR_DEVELOPMENT_ONLY_IF_INDEPENDENT_REVIEW_ACCEPTS_EXTERNAL_VALID_TRAIN_EVALUATION_POOL_AND_POST_CALIBRATION_PRE_DEVELOPMENT_FREEZE_AMENDMENT",
+    "required_next_steps": [
+      "independent scientific-design/adversarial review of this exact repair",
+      "if PASS, implement and independently verify immutable valid_train source authority + static eligibility/prior-exposure seal + 33/33 manifests without outcomes",
+      "freeze V5 confirmation manifest before DEVELOPMENT and expose only its hash/attestation to the execution owner",
+      "register and execute V5 DEVELOPMENT using the unchanged checkpoint/arms/endpoints/gates",
+      "confirmation remains sealed unless DEVELOPMENT passes and receives separate authorization"
+    ],
+    "why_no_refit_required_under_candidate_repair": "the external valid_train evaluation namespace has zero source-graph identity overlap with the entire original train namespace used for V5 TRAIN/CALIBRATION and was not used by the V5 fitting pipeline"
+  },
+  "schema": "PLANCARRY_CPDS_V5_EVALUATION_PARTITION_REPAIR_A1_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "shadow_constructibility_hashes": {
+    "candidate_fresh_count": 70,
+    "candidate_fresh_set_sha256": "89cc69bb058c7dc8ccd76338f0f99e1ac1495b7f8dd8e17309a4eae92aeea4e7",
+    "confirmation_count": 33,
+    "confirmation_identities_exposed_in_repair_artifact": false,
+    "confirmation_source_set_sha256": "31f922381255339c109a447bcc048b427053e997c70b31b5675b3d72782aa083",
+    "development_count": 33,
+    "development_source_set_sha256": "760e72c66a275246a4679cd13ac560176e5733077a17e4f79bff4a131a29905c",
+    "evaluation_reserve_count": 66,
+    "evaluation_reserve_source_set_sha256": "27a82f151ef103b63277e9706c0eeee8a521b91e3dfbb07b771902fa629b81c6",
+    "external_namespace": "valid_train",
+    "pairwise_dev_confirmation_disjoint": true,
+    "source_disjoint_from_entire_original_train_namespace": true,
+    "unselected_fresh_slack_count": 4
+  },
+  "timing_amendment": {
+    "calibration_used_for_selection": "only the predeclared binary constructibility decision to continue; no per-sequence calibration values, branch endpoints, gains, thresholds, controls, or identities select the external cohort",
+    "candidate_repair_rule": "external evaluation source namespace is frozen after the preregistered CALIBRATION constructibility pass but before any V5 branch endpoint access; no source graph in that namespace participated in V5 fitting",
+    "materiality": "SCIENTIFIC_DESIGN_AMENDMENT_REQUIRES_INDEPENDENT_REVIEW",
+    "original_rule": "source-graph-disjoint deterministic evaluation authority intended before any V5 fitting/endpoint access"
+  },
+  "unchanged_scientific_semantics": [
+    "Qwen/Qwen3-1.7B exact frozen revision",
+    "GRU-256 predictive recurrence F",
+    "bounded learned action projection G with fixed coefficient 1.0",
+    "all V5 arms and matched controls",
+    "orientation-invariant V4 branch-preference endpoint",
+    "first action excluded",
+    "all conjunctive DEVELOPMENT gates and thresholds",
+    "training optimizer/seed/32-epoch recipe",
+    "V4 66 structural-key exclusion",
+    "no replacement/resampling/redraw",
+    "zero outcome-based family filtering",
+    "confirmation hard seal"
+  ],
+  "work_item_id": "10e81c1e-c210-4e2f-bca6-18bbc3e1f560"
+}
