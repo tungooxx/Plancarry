@@ -1,0 +1,172 @@
+{
+  "attack_consensus": "UNANIMOUS_3_OF_3_REVISE_DESIGN",
+  "design_attack_batch_id": "16802c15-dc8f-430a-b0b3-ea33471c943a",
+  "design_attack_synthesis_id": "648e2b00-7953-4f2e-94d4-9cba96d838ea",
+  "non_authorizations": [
+    "NO_MODEL_OR_ENVIRONMENT_EXECUTION",
+    "NO_TRAIN_OR_CALIBRATION_REFIT",
+    "NO_DEVELOPMENT",
+    "NO_CONFIRMATION",
+    "NO_PROVIDER_LIFECYCLE",
+    "NO_ENDPOINT_ACCESS",
+    "NO_PLANROUTE",
+    "NO_ALTERNATE_NAMESPACE_SEARCH_AFTER_FREEZE"
+  ],
+  "parent_hypothesis_id": "5d262191-9177-49ce-86ff-4944832aa1dc",
+  "phase": "PRE_DEVELOPMENT_SCIENTIFIC_DESIGN_REPAIR_ONLY",
+  "protected_external_evaluation_semantics": {
+    "canonical_prior_exposure_seal": {
+      "canonical_surfaces": [
+        "RESEARCH_OS_PROJECT_SCIENTIFIC_EXECUTIONS_AND_INSPECTIONS",
+        "RESEARCH_OS_COHORT_MANIFESTS_AND_IDENTITY_BEARING_RESEARCH_OBJECTS",
+        "IMMUTABLE_REPOSITORY_SCIENTIFIC_DESIGN_RESULT_AND_MANIFEST_ARTIFACTS"
+      ],
+      "completeness_requirement": "FAIL_CLOSED_CANONICAL_ENUMERATION_NOT_SEMANTIC_SEARCH",
+      "excluded_prior_uses_include": [
+        "development",
+        "confirmation",
+        "diagnostic_scientific_model_or_scorer_execution",
+        "prior_frozen_scientific_cohort_or_manifest_with_episode_identity"
+      ],
+      "exclusion_rule": "EXCLUDE_IF_ANY_ALIAS_IS_LINKED_TO_PRIOR_SCIENTIFIC_EXECUTION_INSPECTION_OR_OUTCOME_BEARING_COHORT_USE",
+      "identity_alias_tuple": [
+        "official_split_namespace",
+        "task_family_or_type",
+        "stable_relative_game_or_trial_path",
+        "sha256_game_tw_pddl_bytes_or_equivalent_immutable_game_source",
+        "reviewed_graphfork_structural_digest",
+        "source_graph_id"
+      ],
+      "if_complete_canonical_enumeration_unavailable": "PRE_SCIENCE_BLOCKED_EXPOSURE_LEDGER_UNAVAILABLE",
+      "if_fewer_than_66_unexposed_eligible_games": "INCONCLUSIVE_EVAL_PARTITION_CONSTRUCTIBILITY_NO_ALTERNATE_POOL_NO_REPLACEMENT",
+      "non_excluding_mentions": "Generic source-code or prose mention without a resolvable game identity does not itself exclude a game.",
+      "required_before_executable_manifest_freeze": true,
+      "semantic_or_vector_search_is_sufficient_for_completeness": false
+    },
+    "claim_scope": {
+      "forbidden_interpretations": [
+        "NO_ORIGINAL_TRAIN_POPULATION_AVERAGE_EFFECT_CLAIM",
+        "NO_EXCHANGEABILITY_CLAIM_FROM_SOURCE_DISJOINTNESS_ALONE",
+        "NO_SAME_POPULATION_CLAIM_WITHOUT_SEPARATE_PROSPECTIVE_TRANSPORT_PROTOCOL",
+        "NO_GENERIC_GRU256_MECHANISM_CLAIM"
+      ],
+      "primary_estimand": "EXTERNAL_VALID_TRAIN_GENERALIZATION_ONLY",
+      "statement": "Evaluate whether the exact frozen CPDS V5 bundled predictive-state realization trained/calibrated on the original official-train population satisfies the unchanged V5 endpoint and gates on a separately frozen official ALFWorld valid_train graph-fork population."
+    },
+    "disjointness": {
+      "checkpoint_reuse_reason": "External evaluation remains untouched by fitting only if this alias-aware disjointness and canonical exposure seal pass.",
+      "failure_action": "FAIL_CLOSED_PRE_SCIENCE_NO_REFIT_NO_SUBSTITUTE_NAMESPACE",
+      "must_be_zero_alias_or_content_overlap_with": [
+        "V5_TRAIN1504",
+        "V5_CALIBRATION423",
+        "V4_DEVELOPMENT33",
+        "V4_CONFIRMATION33",
+        "ANY_PRIOR_CPDS_SCIENTIFIC_EXECUTION_COHORT"
+      ]
+    },
+    "external_source_authority": {
+      "first_repair_observed_all_games": 200,
+      "first_repair_observed_static_eligible": 111,
+      "namespace": "ALFWorld json_2.1.1/valid_train",
+      "population_selection_must_not_use_model_or_endpoint_values": true,
+      "source_graph_id_overlap_with_original_train_namespace_required": 0,
+      "static_eligibility_constructor": "BYTE_SEMANTICALLY_IDENTICAL_TO_REVIEWED_CPDS_STATIC_GRAPHFORK_CONSTRUCTOR"
+    },
+    "frozen_fit": {
+      "base_scientific_semantic_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2",
+      "calibration_result_sha256": "5a511226e807987a5ea8e458f3d66eb4fb712afc86cf37aa95b066257b341eaa",
+      "checkpoint_sha256": "ab1a638a89db005b1346750c20ce8c1e7ea81cc3d1556af562a59fae8af503f9",
+      "development_gate_change": false,
+      "model_feature_control_or_endpoint_change": false,
+      "refit_on_valid_train": false,
+      "reuse_rule": "REUSE_LOCKED_CHECKPOINT_AND_CALIBRATION_IF_AND_ONLY_IF_CANONICAL_EVALUATION_DISJOINTNESS_AND_EXPOSURE_SEAL_PASS",
+      "threshold_or_gain_change": false
+    },
+    "phase_walls": {
+      "confirmation_requires_separate_authority": true,
+      "development_requires": [
+        "complete canonical exposure seal",
+        "immutable 66 reserve and 33 development/33 confirmation manifests",
+        "outcome-blind structural transport audit",
+        "fresh independent implementation/release verification",
+        "separate canonical development execution authority"
+      ],
+      "next_permitted_stage_after_independent_design_pass": "PRE_SCIENCE_EXPOSURE_LEDGER_STRUCTURAL_AUDIT_AND_MANIFEST_IMPLEMENTATION_ONLY",
+      "provider_lifecycle_authorized": false,
+      "this_design_repair_authorizes_execution": false
+    },
+    "prospective_manifest_algorithm": {
+      "canonical_alias_serialization": "UTF8 compact sorted-key JSON of the identity_alias_tuple with normalized forward-slash relative path and lowercase sha256 hex",
+      "confirmation": "remaining 33",
+      "confirmation_frozen_before_development": true,
+      "confirmation_identity_access_to_development_owner": "HASH_AND_SEAL_ATTESTATION_ONLY",
+      "development": "first 33",
+      "input": "ALL_VALID_TRAIN_STATIC_ELIGIBLE_GAMES_MINUS_CANONICALLY_EXPOSED_IDENTITIES",
+      "outcome_filtering": false,
+      "phase_order": "ascending SHA256(phase_salt + NUL + canonical_alias_serialization) within frozen 66",
+      "phase_salt": "CPDS_V5_EXTERNAL_VALIDTRAIN_EVAL_V2_PHASE",
+      "replacement_resampling_redraw": false,
+      "reserve": "exact first 66 only",
+      "reserve_order": "ascending SHA256(reserve_salt + NUL + canonical_alias_serialization)",
+      "reserve_salt": "CPDS_V5_EXTERNAL_VALIDTRAIN_EVAL_V2_RESERVE",
+      "slack_replacement": false
+    },
+    "protocol_amendment": {
+      "classification": "POST_FIT_POST_BINARY_CALIBRATION_PRE_ENDPOINT_EXTERNAL_VALIDATION_AMENDMENT",
+      "historical_statement": "This amendment does not claim that the original pre-fit evaluation-source authority survived unchanged; it prospectively defines a new external-validation stage after model lock and before any V5 branch endpoint access.",
+      "reason": "The completed TRAIN1504+CALIBRATION423 allocation exhausted the 1927 non-V4-reserved official-train eligible source graphs, making the originally promised fresh source-disjoint 33+33 V5 evaluation reserve impossible in that namespace.",
+      "timing_guards": {
+        "alternate_namespace_search_after_this_freeze": false,
+        "calibration_information_permitted_before_amendment": "ONLY_PREDECLARED_BINARY_CONSTRUCTIBILITY_CONTINUE_STOP",
+        "calibration_magnitudes_or_per_sequence_values_for_source_choice": false,
+        "outcome_or_endpoint_based_namespace_choice": false,
+        "v5_confirmation_endpoint_access_before_freeze": false,
+        "v5_development_endpoint_access_before_freeze": false
+      }
+    },
+    "structural_transport_audit": {
+      "fixed_outcome_blind_covariates": [
+        "task_family_or_type",
+        "staging_length_or_step_count",
+        "branch_or_fork_degree",
+        "admissible_or_candidate_action_cardinality",
+        "goal_object_and_receptacle_category",
+        "operator_sequence_category",
+        "transition_count_and_fork_topology",
+        "static_graphfork_structural_digest_components"
+      ],
+      "may_change_thresholds_gates_model_or_checkpoint": false,
+      "may_filter_rows_or_change_manifest": false,
+      "may_upgrade_primary_claim_to_same_population": false,
+      "populations": [
+        "ORIGINAL_OFFICIAL_TRAIN_STATIC_ELIGIBLE_POPULATION",
+        "FULL_VALID_TRAIN_STATIC_ELIGIBLE_POPULATION"
+      ],
+      "required_before_endpoint_access": true,
+      "role": "DESCRIPTIVE_SCOPE_AUDIT_ONLY_FOR_PRIMARY_EXTERNAL_CLAIM",
+      "stronger_transport_claim_rule": "Requires a separate prospectively specified equivalence-margin protocol and fresh independent review; this repair does not create such a claim."
+    },
+    "unchanged_science": {
+      "effect_threshold_nats": 0.05,
+      "no_replacement_resampling_redraw": true,
+      "planroute": "USER_NOOP_RETIRED",
+      "positive_count_gate": "22_OF_33 where prospectively applicable",
+      "v4_confirmation": "HARD_SEALED_NEVER_REPURPOSED",
+      "v5_arms_endpoints_controls_statistics_and_conjunctive_no_rescue_gates": "BYTE_SEMANTICALLY_UNCHANGED_FROM_REVIEWED_V5_AUTHORITY",
+      "v5_confirmation": "HARD_SEALED_SEPARATE_AUTHORIZATION_AFTER_VALID_DEVELOPMENT"
+    }
+  },
+  "protected_external_evaluation_semantics_sha256": "6e1a84cabf819e653f8033c05f8e3e23214a1e47a2e0b96fdfc52a0d2f84fc91",
+  "repair_strategy": "EXTERNAL_GENERALIZATION_WITH_CANONICAL_EXPOSURE_SEAL_NO_REFIT",
+  "repair_work_item_id": "c4ffb650-3977-441c-9845-c0d007668c08",
+  "schema": "PLANCARRY_CPDS_V5_EXTERNAL_VALIDTRAIN_EVALUATION_REPAIR_A4_V2",
+  "scientific_result": "NOT_ASSESSED",
+  "source_design_semantic_hash": "bbdab300ee03a8497123624781cdb8b64a19a3069154fbf364405bb2a1216353",
+  "source_evaluation_repair_commit": "2fb130470654097b76c08c0070c37037648aa1b9",
+  "source_scientific_design_id": "2832bb54-dde7-4a06-9a6c-e0f8af9f663f",
+  "supersedes_first_repair_semantics": [
+    "same-constructor/source-disjointness no longer implies same-population interpretation",
+    "repo-text exact-source-id screen no longer qualifies as freshness authority",
+    "post-fit source change is explicitly a protocol amendment rather than preservation of original pre-fit partition wording"
+  ]
+}
