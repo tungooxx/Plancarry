@@ -15,7 +15,9 @@ import hashlib
 import inspect
 import json
 import math
+import os
 import pathlib
+import sys
 import unicodedata
 from dataclasses import dataclass, replace
 from typing import Any, Iterable, Mapping, Sequence
@@ -80,18 +82,22 @@ REGISTRY_FIELDS = (
 REGISTRY_PHASES = ("DEVELOPMENT", "CONFIRMATION")
 REGISTRY_FIELD_TYPES = {field: "string" for field in REGISTRY_FIELDS}
 
-SOURCE_CONTRACT_SCHEMA = "PLANCARRY_CPDS_V5_V15_UINT16_SOURCE_CONTRACT_V1"
+SOURCE_CONTRACT_SCHEMA = "PLANCARRY_CPDS_V5_V15_UINT16_SOURCE_CONTRACT_V2"
 RANDOMIZATION_CONTEXT_SCHEMA = "PLANCARRY_CPDS_V5_V15_RANDOMIZATION_CONTEXT_V1"
 TRANSCRIPT_SCHEMA = "PLANCARRY_CPDS_V5_V15_ENTROPY_TRANSCRIPT_V1"
 MONITOR_RELEASE_SCHEMA = "PLANCARRY_CPDS_V5_V15_MONITOR_RELEASE_V1"
 PROGRAM_LEDGER_SCHEMA = "PLANCARRY_CPDS_V5_V15_PROGRAM_CONSUMPTION_LEDGER_V2"
 PROGRAM_LEDGER_AUTHORITY_ID = "CPDS_V15_GLOBAL_NON_EQUIVOCATING_PROGRAM_LEDGER_V1"
-ENTROPY_REALIZATION_PROOF_SCHEMA = "PLANCARRY_CPDS_V5_V15_ENTROPY_REALIZATION_PROOF_V2"
+ENTROPY_REALIZATION_PROOF_SCHEMA = "PLANCARRY_CPDS_V5_V15_ENTROPY_REALIZATION_PROOF_V3"
 CONDITIONAL_LAW_PROOF_SCHEMA = "PLANCARRY_CPDS_V5_V15_CONDITIONAL_LAW_PROOF_V2"
 BOUND_INVOCATION_SELECTOR_ID = "CONTEXT_DERIVED_SINGLE_INVOCATION_V1"
 BOUND_INVOCATION_DERIVATION_ID = "SHA256_AUTHORITY_FAMILY_CONTEXT_V1"
-BOUND_STREAM_PARTITION_SELECTOR_ID = "EXACT_FAMILY_ID_NAMESPACE_V1"
+BOUND_STREAM_PARTITION_SELECTOR_ID = "FIXED_8_UINT16_WORD_BLOCK_PER_EXACT_FAMILY_V1"
 BOUND_TRANSDUCER_ID = "REJECT_GE_65520_THEN_FACTORADIC_UNRANK_S6_V1"
+BOUND_ENTROPY_AUTHORITY_ID = "CPDS_V15_LINUX_GETRANDOM_UINT16_AUTHORITY_V1"
+BOUND_SOURCE_PRIMITIVE_ID = "LINUX_OS_GETRANDOM_FLAGS0_SINGLE_LOGICAL_INVOCATION_V1"
+BOUND_SOURCE_WORDS_PER_FAMILY = 8
+SOURCE_INVOCATION_EVIDENCE_SCHEMA = "PLANCARRY_CPDS_V5_V15_SOURCE_INVOCATION_EVIDENCE_V1"
 
 RANDOMIZATION_ANCESTOR_FIELDS = frozenset(
     {
@@ -262,29 +268,49 @@ def verify_registry_root_binding(*, monitor_root: str, selector_root: str, manif
     _require(monitor_contract_hash == selector_contract_hash == manifest_contract_hash == expected, "REGISTRY_CONTRACT_IDENTITY")
 
 
-def _bound_uint16_stream_implementation(words: Sequence[int]) -> tuple[int, ...]:
-    # Executable source-side interface bound by exact source hash.  It is deliberately
-    # identity-only: the external entropy authority supplies the raw iid uint16 stream;
-    # this implementation may neither inspect another family nor transform/select words.
-    out: list[int] = []
-    for word in words:
-        _require(type(word) is int and 0 <= word < UINT16_SPACE, "UINT16_WORD")
-        out.append(word)
-    return tuple(out)
+def _bound_source_primitive_attestation() -> dict[str, Any]:
+    fn = getattr(os, "getrandom", None)
+    _require(sys.platform.startswith("linux"), "SOURCE_PRIMITIVE_PLATFORM")
+    _require(fn is not None and inspect.isbuiltin(fn) and getattr(fn, "__name__", "") == "getrandom", "SOURCE_PRIMITIVE_NOT_BUILTIN_GETRANDOM")
+    att = {
+        "primitive_id": BOUND_SOURCE_PRIMITIVE_ID,
+        "python_binding": "os.getrandom",
+        "python_binding_module": getattr(fn, "__module__", ""),
+        "flags": 0,
+        "logical_invocation_count": 1,
+        "bytes_requested": DEVELOPMENT_N * BOUND_SOURCE_WORDS_PER_FAMILY * 2,
+    }
+    att["attestation_sha256"] = sha_obj(att)
+    return att
+
+
+def _invoke_bound_uint16_source_bytes(byte_count: int) -> bytes:
+    _bound_source_primitive_attestation()
+    _require(type(byte_count) is int and byte_count == DEVELOPMENT_N * BOUND_SOURCE_WORDS_PER_FAMILY * 2, "SOURCE_REQUEST_SIZE")
+    raw = os.getrandom(byte_count, 0)
+    _require(type(raw) is bytes and len(raw) == byte_count, "SOURCE_SHORT_READ_FAIL_CLOSED")
+    return raw
 
 
 def bound_entropy_implementation_sha256() -> str:
-    return _source_hash(_bound_uint16_stream_implementation)
+    if "_partition_invocation_bytes" in globals():
+        return _final_bound_entropy_implementation_sha256()
+    return sha_obj({
+        "primitive_attestation_verifier_sha256": _source_hash(_bound_source_primitive_attestation),
+        "source_invocation_sha256": _source_hash(_invoke_bound_uint16_source_bytes),
+        "partition_sha256": "DEFERRED_UNTIL_MODULE_DEFINITION_COMPLETE",
+    })
 
 
 def bound_entropy_implementation_id() -> str:
-    return sha_obj({"domain": "CPDS_V15_BOUND_UINT16_SOURCE_IMPLEMENTATION_V2", "source_sha256": bound_entropy_implementation_sha256()})
+    return sha_obj({"domain": "CPDS_V15_BOUND_KERNEL_GETRANDOM_SOURCE_IMPLEMENTATION_V3", "source_sha256": bound_entropy_implementation_sha256()})
 
 
 @dataclass(frozen=True)
 class EntropySourceAuthority:
     authority_id: str
     implementation_id: str
+    source_primitive_id: str
     source_contract_hash: str
     invocation_selector_id: str
     invocation_identity_derivation_id: str
@@ -295,14 +321,17 @@ class EntropySourceAuthority:
         d = {
             "authority_id": _nfc(self.authority_id),
             "implementation_id": _nfc(self.implementation_id),
+            "source_primitive_id": _nfc(self.source_primitive_id),
             "source_contract_hash": self.source_contract_hash,
             "invocation_selector_id": _nfc(self.invocation_selector_id),
             "invocation_identity_derivation_id": _nfc(self.invocation_identity_derivation_id),
             "stream_partition_selector_id": _nfc(self.stream_partition_selector_id),
             "source_to_assignment_transducer_id": _nfc(self.source_to_assignment_transducer_id),
         }
+        _require(d["authority_id"] == BOUND_ENTROPY_AUTHORITY_ID, "SOURCE_AUTHORITY_ALIAS")
         _require(_is_sha256(d["source_contract_hash"]), "SOURCE_CONTRACT_HASH")
         _require(d["implementation_id"] == bound_entropy_implementation_id(), "SOURCE_IMPLEMENTATION_UNBOUND")
+        _require(d["source_primitive_id"] == BOUND_SOURCE_PRIMITIVE_ID, "SOURCE_PRIMITIVE_UNBOUND")
         _require(d["invocation_selector_id"] == BOUND_INVOCATION_SELECTOR_ID, "SOURCE_INVOCATION_SELECTOR_UNBOUND")
         _require(d["invocation_identity_derivation_id"] == BOUND_INVOCATION_DERIVATION_ID, "SOURCE_INVOCATION_DERIVATION_UNBOUND")
         _require(d["stream_partition_selector_id"] == BOUND_STREAM_PARTITION_SELECTOR_ID, "SOURCE_STREAM_PARTITION_UNBOUND")
@@ -314,10 +343,12 @@ class EntropySourceAuthority:
         return sha_obj(self.canonical())
 
 
-def bound_entropy_source_authority(authority_id: str = "CPDS_V15_ENTROPY_AUTHORITY") -> EntropySourceAuthority:
+def bound_entropy_source_authority(authority_id: str = BOUND_ENTROPY_AUTHORITY_ID) -> EntropySourceAuthority:
+    _require(authority_id == BOUND_ENTROPY_AUTHORITY_ID, "SOURCE_AUTHORITY_ALIAS")
     return EntropySourceAuthority(
-        authority_id=authority_id,
+        authority_id=BOUND_ENTROPY_AUTHORITY_ID,
         implementation_id=bound_entropy_implementation_id(),
+        source_primitive_id=BOUND_SOURCE_PRIMITIVE_ID,
         source_contract_hash=exact_uint16_source_contract()["contract_sha256"],
         invocation_selector_id=BOUND_INVOCATION_SELECTOR_ID,
         invocation_identity_derivation_id=BOUND_INVOCATION_DERIVATION_ID,
@@ -329,13 +360,18 @@ def bound_entropy_source_authority(authority_id: str = "CPDS_V15_ENTROPY_AUTHORI
 def exact_uint16_source_contract() -> dict[str, Any]:
     contract = {
         "schema": SOURCE_CONTRACT_SCHEMA,
+        "source_primitive_id": BOUND_SOURCE_PRIMITIVE_ID,
         "word_width_bits": 16,
         "word_domain": [0, UINT16_SPACE - 1],
         "conditional_uniformity": "EACH_NEXT_WORD_EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_HISTORY",
-        "family_stream_independence": "MUTUALLY_INDEPENDENT_ACROSS_EXACT_33_FAMILY_STREAMS",
+        "family_stream_independence": "MUTUALLY_INDEPENDENT_ACROSS_EXACT_33_DISJOINT_FIXED_BLOCKS",
         "source_switching_after_binding": False,
         "fresh_invocation_on_retry": False,
         "availability_latency_preview_selection": False,
+        "logical_source_invocations": 1,
+        "words_per_family": BOUND_SOURCE_WORDS_PER_FAMILY,
+        "short_read_policy": "FAIL_CLOSED_NO_FRESH_INVOCATION",
+        "all_rejected_family_policy": "FAIL_CLOSED_CONSUMED_ATTEMPT_NO_REDRAW",
         "transducer": "REJECT_GE_65520_THEN_FACTORADIC_UNRANK_S6_V1",
     }
     contract["contract_sha256"] = sha_obj(contract)
@@ -354,6 +390,7 @@ def verify_preobservation_binding(authority: EntropySourceAuthority, *, observed
     _require(len(observed_source_facts) == 0, "SOURCE_OBSERVED_BEFORE_BINDING")
     canonical = authority.canonical()
     _require(canonical["source_contract_hash"] == exact_uint16_source_contract()["contract_sha256"], "SOURCE_CONTRACT_AUTHORITY_BINDING")
+    _require(canonical["source_primitive_id"] == _bound_source_primitive_attestation()["primitive_id"], "SOURCE_PRIMITIVE_RUNTIME_BINDING")
     return authority.authority_hash
 
 
@@ -391,6 +428,27 @@ def exact_sampler_count_proof() -> dict[str, Any]:
     return {"accepted": UINT16_ACCEPT_LIMIT, "rejected": rejected, "per_rank_preimages": counts[0], "rank_count": len(counts)}
 
 
+def fixed_block_conditional_rank_count_proof() -> dict[str, Any]:
+    # For one fixed L-word family block, first accepted rank r can occur after j rejected
+    # words in 16^j ways, then one accepted word has exactly 91 preimages for r, and the
+    # remaining L-j-1 words are unrestricted.  This count is identical for all 720 ranks.
+    L = BOUND_SOURCE_WORDS_PER_FAMILY
+    per_rank = sum((UINT16_REJECT_COUNT ** j) * (UINT16_SPACE // PERMUTATION_COUNT) * (UINT16_SPACE ** (L - j - 1)) for j in range(L))
+    failed = UINT16_REJECT_COUNT ** L
+    total = UINT16_SPACE ** L
+    successful = total - failed
+    _require(per_rank * PERMUTATION_COUNT == successful, "FIXED_BLOCK_CONDITIONAL_UNIFORMITY")
+    return {
+        "words_per_family": L,
+        "total_blocks": total,
+        "all_rejected_blocks": failed,
+        "successful_blocks": successful,
+        "successful_blocks_per_rank": per_rank,
+        "rank_count": PERMUTATION_COUNT,
+        "conditional_rank_law_given_success": "EXACT_UNIFORM_S6",
+    }
+
+
 def first_accepted_assignment(words: Sequence[int]) -> tuple[tuple[str, ...], tuple[int, ...]]:
     prefix: list[int] = []
     for word in words:
@@ -402,47 +460,129 @@ def first_accepted_assignment(words: Sequence[int]) -> tuple[tuple[str, ...], tu
     raise ValueError("ENTROPY_PREFIX_NO_ACCEPTED_WORD")
 
 
-def build_entropy_realization_proof(*, family_ids: Sequence[str], family_stream_words: Mapping[str, Sequence[int]], source_contract: Mapping[str, Any], authority: EntropySourceAuthority, consumed_family_id: str, context_root: str, invocation_id: str) -> dict[str, Any]:
-    validate_source_contract(source_contract)
+def _partition_invocation_bytes(raw: bytes, family_ids: Sequence[str]) -> dict[str, tuple[int, ...]]:
+    _require(type(raw) is bytes, "SOURCE_RAW_BYTES")
+    _require(len(family_ids) == DEVELOPMENT_N and len(set(family_ids)) == DEVELOPMENT_N, "RANDOMIZATION_FAMILY_IDS")
+    _require(all(type(fid) is str and fid for fid in family_ids), "RANDOMIZATION_FAMILY_ID_TYPE")
+    expected_n = DEVELOPMENT_N * BOUND_SOURCE_WORDS_PER_FAMILY * 2
+    _require(len(raw) == expected_n, "SOURCE_RAW_BYTE_COUNT")
+    streams: dict[str, tuple[int, ...]] = {}
+    offset = 0
+    for fid in family_ids:
+        block = raw[offset:offset + BOUND_SOURCE_WORDS_PER_FAMILY * 2]
+        offset += len(block)
+        words = tuple(int.from_bytes(block[i:i+2], "big") for i in range(0, len(block), 2))
+        _require(len(words) == BOUND_SOURCE_WORDS_PER_FAMILY, "SOURCE_PARTITION_WORD_COUNT")
+        streams[fid] = words
+    _require(offset == expected_n, "SOURCE_PARTITION_COVERAGE")
+    return streams
+
+
+def _final_bound_entropy_implementation_sha256() -> str:
+    return sha_obj({
+        "primitive_attestation_verifier_sha256": _source_hash(_bound_source_primitive_attestation),
+        "source_invocation_sha256": _source_hash(_invoke_bound_uint16_source_bytes),
+        "partition_sha256": _source_hash(_partition_invocation_bytes),
+    })
+
+
+def _require_final_source_implementation_binding(authority: EntropySourceAuthority) -> None:
+    # EntropySourceAuthority was created before this helper is defined, so verify the
+    # complete post-definition implementation digest here as part of every invocation.
+    _require(authority.implementation_id == sha_obj({"domain": "CPDS_V15_BOUND_KERNEL_GETRANDOM_SOURCE_IMPLEMENTATION_V3", "source_sha256": _final_bound_entropy_implementation_sha256()}), "SOURCE_FINAL_IMPLEMENTATION_UNBOUND")
+
+
+def invoke_bound_entropy_source(*, family_ids: Sequence[str], authority: EntropySourceAuthority, consumed_family_id: str, context_root: str, invocation_id: str) -> dict[str, Any]:
     authority_hash = verify_preobservation_binding(authority, observed_source_facts=[])
+    _require_final_source_implementation_binding(authority)
     _require(_is_sha256(context_root), "ENTROPY_CONTEXT_ROOT")
     _require(invocation_id == derive_invocation_id(authority_hash=authority_hash, consumed_family_id=consumed_family_id, context_root=context_root), "ENTROPY_INVOCATION_ID")
     _require(len(family_ids) == DEVELOPMENT_N and len(set(family_ids)) == DEVELOPMENT_N, "RANDOMIZATION_FAMILY_IDS")
-    _require(set(family_stream_words) == set(family_ids), "RANDOMIZATION_STREAM_SET")
-    canonical_streams: list[dict[str, Any]] = []
-    full_stream_hashes: list[str] = []
+    raw = _invoke_bound_uint16_source_bytes(DEVELOPMENT_N * BOUND_SOURCE_WORDS_PER_FAMILY * 2)
+    streams = _partition_invocation_bytes(raw, family_ids)
+    # A family with only rejected words consumes the one current-program realization and
+    # fails closed.  There is no second source invocation or redraw.
     for fid in family_ids:
-        words = _bound_uint16_stream_implementation(family_stream_words[fid])
-        _require(bool(words), "ENTROPY_STREAM_EMPTY")
-        stream_hash = sha_obj(list(words))
-        full_stream_hashes.append(stream_hash)
-        canonical_streams.append({
-            "family_id": _nfc(fid),
-            "stream_namespace_id": sha_obj({"domain": "CPDS_V15_FAMILY_STREAM_NAMESPACE_V2", "invocation_id": invocation_id, "family_id": fid}),
-            "words": list(words),
-            "stream_sha256": stream_hash,
-        })
-    # Conservative deterministic anti-dependence witness: a maximally coupled repeated
-    # concrete stream is inadmissible even though accidental finite collisions can occur
-    # under the ideal law.  The exact law itself is bound to the audited source primitive
-    # and disjoint family namespaces below, not inferred from marginal declarations.
-    _require(len(set(full_stream_hashes)) == DEVELOPMENT_N, "ENTROPY_STREAM_DEPENDENCE_WITNESS")
-    proof = {
-        "schema": ENTROPY_REALIZATION_PROOF_SCHEMA,
+        first_accepted_assignment(streams[fid])
+    attestation = _bound_source_primitive_attestation()
+    evidence = {
+        "schema": SOURCE_INVOCATION_EVIDENCE_SCHEMA,
         "authority": authority.canonical(),
         "authority_hash": authority_hash,
-        "source_implementation_sha256": bound_entropy_implementation_sha256(),
-        "source_contract_hash": validate_source_contract(source_contract),
+        "source_primitive_attestation": attestation,
+        "source_implementation_sha256": _final_bound_entropy_implementation_sha256(),
+        "source_contract_hash": exact_uint16_source_contract()["contract_sha256"],
         "consumed_family_id": _nfc(consumed_family_id),
         "context_root": context_root,
         "invocation_id": invocation_id,
         "family_ids": [_nfc(x) for x in family_ids],
+        "words_per_family": BOUND_SOURCE_WORDS_PER_FAMILY,
+        "raw_bytes_hex": raw.hex(),
+        "raw_bytes_sha256": hashlib.sha256(raw).hexdigest(),
+        "partition_rule": BOUND_STREAM_PARTITION_SELECTOR_ID,
+        "transducer_id": BOUND_TRANSDUCER_ID,
+        "invocation_builder_sha256": _source_hash(invoke_bound_entropy_source),
+    }
+    evidence["evidence_sha256"] = sha_obj(evidence)
+    return evidence
+
+
+def verify_source_invocation_evidence(evidence: Mapping[str, Any]) -> tuple[str, dict[str, tuple[int, ...]]]:
+    d = copy.deepcopy(dict(evidence))
+    claimed = d.pop("evidence_sha256", None)
+    _require(_is_sha256(claimed) and sha_obj(d) == claimed, "SOURCE_INVOCATION_EVIDENCE_SELF_HASH")
+    required = {"schema","authority","authority_hash","source_primitive_attestation","source_implementation_sha256","source_contract_hash","consumed_family_id","context_root","invocation_id","family_ids","words_per_family","raw_bytes_hex","raw_bytes_sha256","partition_rule","transducer_id","invocation_builder_sha256"}
+    _require(set(d) == required and d["schema"] == SOURCE_INVOCATION_EVIDENCE_SCHEMA, "SOURCE_INVOCATION_EVIDENCE_FIELDS")
+    authority = EntropySourceAuthority(**dict(d["authority"]))
+    _require(authority.authority_hash == d["authority_hash"], "SOURCE_INVOCATION_AUTHORITY_HASH")
+    _require_final_source_implementation_binding(authority)
+    _require(d["source_primitive_attestation"] == _bound_source_primitive_attestation(), "SOURCE_INVOCATION_PRIMITIVE_ATTESTATION")
+    _require(d["source_implementation_sha256"] == _final_bound_entropy_implementation_sha256(), "SOURCE_INVOCATION_IMPLEMENTATION")
+    _require(d["source_contract_hash"] == exact_uint16_source_contract()["contract_sha256"], "SOURCE_INVOCATION_CONTRACT")
+    _require(d["invocation_id"] == derive_invocation_id(authority_hash=d["authority_hash"], consumed_family_id=d["consumed_family_id"], context_root=d["context_root"]), "SOURCE_INVOCATION_ID")
+    _require(d["words_per_family"] == BOUND_SOURCE_WORDS_PER_FAMILY and d["partition_rule"] == BOUND_STREAM_PARTITION_SELECTOR_ID, "SOURCE_INVOCATION_PARTITION")
+    _require(d["transducer_id"] == BOUND_TRANSDUCER_ID and d["invocation_builder_sha256"] == _source_hash(invoke_bound_entropy_source), "SOURCE_INVOCATION_CODE_BINDING")
+    try:
+        raw = bytes.fromhex(d["raw_bytes_hex"])
+    except (TypeError, ValueError):
+        raise ValueError("SOURCE_INVOCATION_RAW_HEX")
+    _require(hashlib.sha256(raw).hexdigest() == d["raw_bytes_sha256"], "SOURCE_INVOCATION_RAW_HASH")
+    streams = _partition_invocation_bytes(raw, d["family_ids"])
+    for fid in d["family_ids"]:
+        first_accepted_assignment(streams[fid])
+    return str(claimed), streams
+
+
+def build_entropy_realization_proof(*, source_invocation_evidence: Mapping[str, Any]) -> dict[str, Any]:
+    evidence_hash, streams = verify_source_invocation_evidence(source_invocation_evidence)
+    e = dict(source_invocation_evidence)
+    canonical_streams: list[dict[str, Any]] = []
+    for fid in e["family_ids"]:
+        words = streams[fid]
+        canonical_streams.append({
+            "family_id": fid,
+            "stream_namespace_id": sha_obj({"domain": "CPDS_V15_FAMILY_STREAM_NAMESPACE_V3", "invocation_id": e["invocation_id"], "family_id": fid}),
+            "words": list(words),
+            "stream_sha256": sha_obj(list(words)),
+        })
+    proof = {
+        "schema": ENTROPY_REALIZATION_PROOF_SCHEMA,
+        "source_invocation_evidence": copy.deepcopy(dict(source_invocation_evidence)),
+        "source_invocation_evidence_hash": evidence_hash,
+        "authority_hash": e["authority_hash"],
+        "source_implementation_sha256": e["source_implementation_sha256"],
+        "source_contract_hash": e["source_contract_hash"],
+        "consumed_family_id": e["consumed_family_id"],
+        "context_root": e["context_root"],
+        "invocation_id": e["invocation_id"],
+        "family_ids": list(e["family_ids"]),
         "family_streams": canonical_streams,
-        "stream_partition_rule": "DISJOINT_EXACT_FAMILY_ID_NAMESPACE_V2",
-        "conditional_word_law": "EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_REJECTION_HISTORY",
-        "cross_family_law": "PRODUCT_INDEPENDENT_EXACT_33_STREAM_NAMESPACES",
+        "stream_partition_rule": BOUND_STREAM_PARTITION_SELECTOR_ID,
+        "conditional_word_law": "EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_REJECTION_HISTORY_CONDITIONAL_ON_BOUND_SOURCE_CONTRACT",
+        "cross_family_law": "PRODUCT_INDEPENDENT_EXACT_33_DISJOINT_FIXED_BLOCKS_CONDITIONAL_ON_BOUND_SOURCE_CONTRACT",
         "transducer_id": BOUND_TRANSDUCER_ID,
         "sampler_count_proof": exact_sampler_count_proof(),
+        "fixed_block_conditional_rank_count_proof": fixed_block_conditional_rank_count_proof(),
         "verifier_sha256": _source_hash(verify_entropy_realization_proof),
     }
     proof["proof_sha256"] = sha_obj(proof)
@@ -453,48 +593,48 @@ def verify_entropy_realization_proof(proof: Mapping[str, Any]) -> str:
     d = copy.deepcopy(dict(proof))
     claimed = d.pop("proof_sha256", None)
     _require(_is_sha256(claimed) and sha_obj(d) == claimed, "ENTROPY_REALIZATION_PROOF_SELF_HASH")
-    required = {"schema","authority","authority_hash","source_implementation_sha256","source_contract_hash","consumed_family_id","context_root","invocation_id","family_ids","family_streams","stream_partition_rule","conditional_word_law","cross_family_law","transducer_id","sampler_count_proof","verifier_sha256"}
+    required = {"schema","source_invocation_evidence","source_invocation_evidence_hash","authority_hash","source_implementation_sha256","source_contract_hash","consumed_family_id","context_root","invocation_id","family_ids","family_streams","stream_partition_rule","conditional_word_law","cross_family_law","transducer_id","sampler_count_proof","fixed_block_conditional_rank_count_proof","verifier_sha256"}
     _require(set(d) == required and d["schema"] == ENTROPY_REALIZATION_PROOF_SCHEMA, "ENTROPY_REALIZATION_PROOF_FIELDS")
-    a = d["authority"]
-    _require(isinstance(a, Mapping), "ENTROPY_REALIZATION_AUTHORITY")
-    authority = EntropySourceAuthority(**dict(a))
-    _require(authority.authority_hash == d["authority_hash"], "ENTROPY_REALIZATION_AUTHORITY_HASH")
-    _require(d["source_implementation_sha256"] == bound_entropy_implementation_sha256(), "ENTROPY_REALIZATION_IMPLEMENTATION")
-    _require(d["source_contract_hash"] == exact_uint16_source_contract()["contract_sha256"], "ENTROPY_REALIZATION_SOURCE_CONTRACT")
-    _require(d["invocation_id"] == derive_invocation_id(authority_hash=d["authority_hash"], consumed_family_id=d["consumed_family_id"], context_root=d["context_root"]), "ENTROPY_REALIZATION_INVOCATION")
+    evidence_hash, streams = verify_source_invocation_evidence(d["source_invocation_evidence"])
+    e = d["source_invocation_evidence"]
+    _require(d["source_invocation_evidence_hash"] == evidence_hash, "ENTROPY_REALIZATION_INVOCATION_EVIDENCE_BINDING")
+    for key in ("authority_hash","source_implementation_sha256","source_contract_hash","consumed_family_id","context_root","invocation_id","family_ids"):
+        _require(d[key] == e[key], "ENTROPY_REALIZATION_INVOCATION_FIELD:" + key)
     _require(d["verifier_sha256"] == _source_hash(verify_entropy_realization_proof), "ENTROPY_REALIZATION_VERIFIER")
-    _require(d["stream_partition_rule"] == "DISJOINT_EXACT_FAMILY_ID_NAMESPACE_V2", "ENTROPY_REALIZATION_PARTITION_RULE")
-    _require(d["conditional_word_law"] == "EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_REJECTION_HISTORY", "ENTROPY_REALIZATION_CONDITIONAL_LAW")
-    _require(d["cross_family_law"] == "PRODUCT_INDEPENDENT_EXACT_33_STREAM_NAMESPACES", "ENTROPY_REALIZATION_CROSS_FAMILY_LAW")
-    _require(d["transducer_id"] == BOUND_TRANSDUCER_ID and d["sampler_count_proof"] == exact_sampler_count_proof(), "ENTROPY_REALIZATION_TRANSDUCER")
-    family_ids = d["family_ids"]
-    streams = d["family_streams"]
-    _require(isinstance(family_ids, list) and len(family_ids) == DEVELOPMENT_N and len(set(family_ids)) == DEVELOPMENT_N, "ENTROPY_REALIZATION_FAMILIES")
-    _require(isinstance(streams, list) and len(streams) == DEVELOPMENT_N, "ENTROPY_REALIZATION_STREAMS")
-    seen_ids, seen_hashes, seen_namespaces = set(), set(), set()
-    for row in streams:
+    _require(d["stream_partition_rule"] == BOUND_STREAM_PARTITION_SELECTOR_ID, "ENTROPY_REALIZATION_PARTITION_RULE")
+    _require(d["conditional_word_law"] == "EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_REJECTION_HISTORY_CONDITIONAL_ON_BOUND_SOURCE_CONTRACT", "ENTROPY_REALIZATION_CONDITIONAL_LAW")
+    _require(d["cross_family_law"] == "PRODUCT_INDEPENDENT_EXACT_33_DISJOINT_FIXED_BLOCKS_CONDITIONAL_ON_BOUND_SOURCE_CONTRACT", "ENTROPY_REALIZATION_CROSS_FAMILY_LAW")
+    _require(d["transducer_id"] == BOUND_TRANSDUCER_ID and d["sampler_count_proof"] == exact_sampler_count_proof() and d["fixed_block_conditional_rank_count_proof"] == fixed_block_conditional_rank_count_proof(), "ENTROPY_REALIZATION_TRANSDUCER")
+    rows = d["family_streams"]
+    _require(isinstance(rows, list) and len(rows) == DEVELOPMENT_N, "ENTROPY_REALIZATION_STREAMS")
+    seen_ids, seen_namespaces = set(), set()
+    for row in rows:
         _require(isinstance(row, Mapping) and set(row) == {"family_id","stream_namespace_id","words","stream_sha256"}, "ENTROPY_REALIZATION_STREAM_FIELDS")
         fid = row["family_id"]
-        _require(type(fid) is str and fid in family_ids and fid not in seen_ids, "ENTROPY_REALIZATION_STREAM_FAMILY")
-        words = _bound_uint16_stream_implementation(row["words"])
+        _require(type(fid) is str and fid in streams and fid not in seen_ids, "ENTROPY_REALIZATION_STREAM_FAMILY")
+        words = streams[fid]
         expected_hash = sha_obj(list(words))
-        expected_ns = sha_obj({"domain": "CPDS_V15_FAMILY_STREAM_NAMESPACE_V2", "invocation_id": d["invocation_id"], "family_id": fid})
-        _require(row["stream_sha256"] == expected_hash, "ENTROPY_REALIZATION_STREAM_HASH")
+        expected_ns = sha_obj({"domain": "CPDS_V15_FAMILY_STREAM_NAMESPACE_V3", "invocation_id": d["invocation_id"], "family_id": fid})
+        _require(row["words"] == list(words) and row["stream_sha256"] == expected_hash, "ENTROPY_REALIZATION_STREAM_DERIVATION")
         _require(row["stream_namespace_id"] == expected_ns, "ENTROPY_REALIZATION_STREAM_NAMESPACE")
-        seen_ids.add(fid); seen_hashes.add(expected_hash); seen_namespaces.add(expected_ns)
-    _require(seen_ids == set(family_ids) and len(seen_namespaces) == DEVELOPMENT_N, "ENTROPY_REALIZATION_STREAM_COVERAGE")
-    _require(len(seen_hashes) == DEVELOPMENT_N, "ENTROPY_STREAM_DEPENDENCE_WITNESS")
+        seen_ids.add(fid); seen_namespaces.add(expected_ns)
+    _require(seen_ids == set(d["family_ids"]) and len(seen_namespaces) == DEVELOPMENT_N, "ENTROPY_REALIZATION_STREAM_COVERAGE")
+    # Do not reject accidental equal realized streams: exact product-law validity is a
+    # property of the bound source invocation and disjoint partition, not of empirical
+    # uniqueness in one finite realization.
     return str(claimed)
 
 
-def build_assignment_vector(*, family_ids: Sequence[str], family_stream_words: Mapping[str, Sequence[int]], source_contract: Mapping[str, Any], authority: EntropySourceAuthority, consumed_family_id: str, context_root: str, invocation_id: str) -> tuple[dict[str, Any], ...]:
-    proof = build_entropy_realization_proof(family_ids=family_ids, family_stream_words=family_stream_words, source_contract=source_contract, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+def build_assignment_vector(*, family_ids: Sequence[str], authority: EntropySourceAuthority, consumed_family_id: str, context_root: str, invocation_id: str) -> tuple[tuple[dict[str, Any], ...], dict[str, Any]]:
+    evidence = invoke_bound_entropy_source(family_ids=family_ids, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+    proof = build_entropy_realization_proof(source_invocation_evidence=evidence)
     proof_hash = verify_entropy_realization_proof(proof)
+    _, streams = verify_source_invocation_evidence(evidence)
     out: list[dict[str, Any]] = []
     for i, fid in enumerate(family_ids):
-        perm, consumed = first_accepted_assignment(family_stream_words[fid])
+        perm, consumed = first_accepted_assignment(streams[fid])
         out.append({"family_index": i, "family_id": fid, "arm_permutation": list(perm), "consumed_word_count": len(consumed), "consumed_words_sha256": sha_obj(list(consumed)), "entropy_realization_proof_sha256": proof_hash})
-    return tuple(out)
+    return tuple(out), proof
 
 
 def randomization_context_root(context: Mapping[str, Any]) -> str:

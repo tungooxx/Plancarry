@@ -37,22 +37,20 @@ def registry_entries(n: int = 4):
 
 def entropy_fixture():
     source = v15.exact_uint16_source_contract()
-    authority = v15.bound_entropy_source_authority("authority-A")
+    authority = v15.bound_entropy_source_authority()
     consumed_family_id = "current-v15-program-family"
     context_root = h("v15-randomization-context")
     invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
     families = [f"f{i:02d}" for i in range(33)]
-    streams = {fid: [65535] * (i % 3) + [i * 91] for i, fid in enumerate(families)}
-    proof = v15.build_entropy_realization_proof(
+    rows, proof = v15.build_assignment_vector(
         family_ids=families,
-        family_stream_words=streams,
-        source_contract=source,
         authority=authority,
         consumed_family_id=consumed_family_id,
         context_root=context_root,
         invocation_id=invocation_id,
     )
-    transcript = v15.EntropyTranscript(authority.authority_hash, context_root, invocation_id).append(65535).append(42)
+    _, streams = v15.verify_source_invocation_evidence(proof["source_invocation_evidence"])
+    transcript = v15.EntropyTranscript(authority.authority_hash, context_root, invocation_id).append(next(iter(streams.values()))[0])
     return source, authority, consumed_family_id, context_root, invocation_id, families, streams, proof, transcript
 
 def equivalence_fields():
@@ -90,6 +88,14 @@ class V15AuthorityProof(unittest.TestCase):
         self.assertEqual(len(seen), 720)
         self.assertTrue(all(set(x) == set(v15.EXACT_ARMS) for x in seen))
 
+    def test_fixed_block_failure_conditioning_preserves_exact_uniform_rank(self):
+        proof = v15.fixed_block_conditional_rank_count_proof()
+        self.assertEqual(proof["words_per_family"], v15.BOUND_SOURCE_WORDS_PER_FAMILY)
+        self.assertEqual(proof["rank_count"], 720)
+        self.assertEqual(proof["conditional_rank_law_given_success"], "EXACT_UNIFORM_S6")
+        self.assertEqual(proof["successful_blocks_per_rank"] * 720, proof["successful_blocks"])
+        self.assertEqual(proof["total_blocks"] - proof["successful_blocks"], proof["all_rejected_blocks"])
+
     def test_source_contract_rejects_marginal_only_or_dependent_streams(self):
         good = v15.exact_uint16_source_contract()
         self.assertEqual(v15.validate_source_contract(good), good["contract_sha256"])
@@ -109,28 +115,25 @@ class V15AuthorityProof(unittest.TestCase):
 
     def test_preobservation_authority_refuses_source_shopping(self):
         sc = v15.exact_uint16_source_contract()
-        authority = v15.bound_entropy_source_authority("authority-A")
+        authority = v15.bound_entropy_source_authority()
         self.assertEqual(v15.verify_preobservation_binding(authority, observed_source_facts=[]), authority.authority_hash)
         for fact in ("availability", "latency", "preview", "health", "candidate-invocation-metadata"):
             with self.assertRaisesRegex(ValueError, "SOURCE_OBSERVED_BEFORE_BINDING"):
                 v15.verify_preobservation_binding(authority, observed_source_facts=[fact])
 
     def test_exact_33_family_assignment_vector_and_rejection_histories(self):
-        source = v15.exact_uint16_source_contract()
         families = [f"f{i:02d}" for i in range(33)]
-        streams = {}
-        for i, fid in enumerate(families):
-            # Some streams exercise 0,1,2 rejected 16-bit words before acceptance.
-            streams[fid] = [65535] * (i % 3) + [i * 91]
-        authority = v15.bound_entropy_source_authority("authority-A")
+        authority = v15.bound_entropy_source_authority()
         consumed_family_id = "current-v15-program-family"
         context_root = h("v15-randomization-context")
         invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
-        rows = v15.build_assignment_vector(family_ids=families, family_stream_words=streams, source_contract=source, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+        rows, proof = v15.build_assignment_vector(family_ids=families, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
         self.assertEqual(len(rows), 33)
         self.assertEqual([x["family_id"] for x in rows], families)
         self.assertTrue(all(set(x["arm_permutation"]) == set(v15.EXACT_ARMS) for x in rows))
-        self.assertEqual({x["consumed_word_count"] for x in rows}, {1, 2, 3})
+        self.assertTrue(all(1 <= x["consumed_word_count"] <= v15.BOUND_SOURCE_WORDS_PER_FAMILY for x in rows))
+        self.assertEqual(v15.verify_entropy_realization_proof(proof), proof["proof_sha256"])
+        self.assertEqual(proof["source_invocation_evidence"]["source_primitive_attestation"]["primitive_id"], v15.BOUND_SOURCE_PRIMITIVE_ID)
 
     def test_transcript_retry_cannot_switch_source_context_or_prefix(self):
         authority_hash, context_root = h("authority"), h("context")
@@ -268,15 +271,41 @@ class V15AuthorityProof(unittest.TestCase):
             v15.consume_current_program(equivalence_defining_fields=fields, ledger_record=tampered)
 
     def test_reviewer_dependent_streams_repro_is_closed(self):
-        source = v15.exact_uint16_source_contract()
-        authority = v15.bound_entropy_source_authority("authority-A")
+        authority = v15.bound_entropy_source_authority()
         consumed_family_id = "current-v15-program-family"
         context_root = h("v15-randomization-context")
         invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
         families = [f"f{i:02d}" for i in range(33)]
-        dependent = {fid: [0, 1, 2] for fid in families}
-        with self.assertRaisesRegex(ValueError, "ENTROPY_STREAM_DEPENDENCE_WITNESS"):
-            v15.build_assignment_vector(family_ids=families, family_stream_words=dependent, source_contract=source, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+        dependent = {fid: [i] for i, fid in enumerate(families)}
+        affine = {fid: [17 * i + 3] for i, fid in enumerate(families)}
+        # Raw family words are no longer an admissible proof input at all.
+        for bad in (dependent, affine):
+            with self.assertRaises(TypeError):
+                v15.build_assignment_vector(family_ids=families, family_stream_words=bad, source_contract=v15.exact_uint16_source_contract(), authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+
+        # Recomputing outer proof hashes cannot replace the family streams derived from
+        # the bound source invocation evidence.
+        _, proof = v15.build_assignment_vector(family_ids=families, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+        tampered = copy.deepcopy(proof)
+        for i, row in enumerate(tampered["family_streams"]):
+            row["words"] = [i] * v15.BOUND_SOURCE_WORDS_PER_FAMILY
+            row["stream_sha256"] = v15.sha_obj(row["words"])
+        tampered["proof_sha256"] = v15.sha_obj({k: val for k, val in tampered.items() if k != "proof_sha256"})
+        with self.assertRaisesRegex(ValueError, "ENTROPY_REALIZATION_STREAM_DERIVATION"):
+            v15.verify_entropy_realization_proof(tampered)
+
+    def test_entropy_authority_alias_and_realized_collision_semantics(self):
+        with self.assertRaisesRegex(ValueError, "SOURCE_AUTHORITY_ALIAS"):
+            v15.bound_entropy_source_authority("authority-A")
+        authority = v15.bound_entropy_source_authority()
+        self.assertEqual(authority.authority_id, v15.BOUND_ENTROPY_AUTHORITY_ID)
+        # Equal realized stream values are mathematically possible under an iid source;
+        # partitioning must not condition the law on empirical hash uniqueness.
+        families = [f"f{i:02d}" for i in range(33)]
+        raw = b"\x00\x00" * (33 * v15.BOUND_SOURCE_WORDS_PER_FAMILY)
+        streams = v15._partition_invocation_bytes(raw, families)
+        self.assertEqual(len({v15.sha_obj(list(words)) for words in streams.values()}), 1)
+        self.assertTrue(all(v15.first_accepted_assignment(words)[1] == (0,) for words in streams.values()))
 
     def test_reviewer_fake_release_proof_repro_is_closed(self):
         source, authority, consumed_family_id, context_root, invocation_id, families, streams, entropy_proof, transcript = entropy_fixture()
