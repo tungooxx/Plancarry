@@ -33,6 +33,28 @@ def registry_entries(n: int = 4):
     return out
 
 
+
+
+def entropy_fixture():
+    source = v15.exact_uint16_source_contract()
+    authority = v15.bound_entropy_source_authority("authority-A")
+    consumed_family_id = "current-v15-program-family"
+    context_root = h("v15-randomization-context")
+    invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
+    families = [f"f{i:02d}" for i in range(33)]
+    streams = {fid: [65535] * (i % 3) + [i * 91] for i, fid in enumerate(families)}
+    proof = v15.build_entropy_realization_proof(
+        family_ids=families,
+        family_stream_words=streams,
+        source_contract=source,
+        authority=authority,
+        consumed_family_id=consumed_family_id,
+        context_root=context_root,
+        invocation_id=invocation_id,
+    )
+    transcript = v15.EntropyTranscript(authority.authority_hash, context_root, invocation_id).append(65535).append(42)
+    return source, authority, consumed_family_id, context_root, invocation_id, families, streams, proof, transcript
+
 def equivalence_fields():
     return {
         "checkpoint": v15.CHECKPOINT_SHA256,
@@ -87,7 +109,7 @@ class V15AuthorityProof(unittest.TestCase):
 
     def test_preobservation_authority_refuses_source_shopping(self):
         sc = v15.exact_uint16_source_contract()
-        authority = v15.EntropySourceAuthority("authority-A", "impl-v1", sc["contract_sha256"], "selector-v1", "invocation-derive-v1", "family-stream-v1", "reject65520-factoradic-v1")
+        authority = v15.bound_entropy_source_authority("authority-A")
         self.assertEqual(v15.verify_preobservation_binding(authority, observed_source_facts=[]), authority.authority_hash)
         for fact in ("availability", "latency", "preview", "health", "candidate-invocation-metadata"):
             with self.assertRaisesRegex(ValueError, "SOURCE_OBSERVED_BEFORE_BINDING"):
@@ -100,7 +122,11 @@ class V15AuthorityProof(unittest.TestCase):
         for i, fid in enumerate(families):
             # Some streams exercise 0,1,2 rejected 16-bit words before acceptance.
             streams[fid] = [65535] * (i % 3) + [i * 91]
-        rows = v15.build_assignment_vector(family_ids=families, family_stream_words=streams, source_contract=source)
+        authority = v15.bound_entropy_source_authority("authority-A")
+        consumed_family_id = "current-v15-program-family"
+        context_root = h("v15-randomization-context")
+        invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
+        rows = v15.build_assignment_vector(family_ids=families, family_stream_words=streams, source_contract=source, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
         self.assertEqual(len(rows), 33)
         self.assertEqual([x["family_id"] for x in rows], families)
         self.assertTrue(all(set(x["arm_permutation"]) == set(v15.EXACT_ARMS) for x in rows))
@@ -147,7 +173,8 @@ class V15AuthorityProof(unittest.TestCase):
 
     def test_finite_program_alias_reset_and_future_alpha_are_refused(self):
         fields = equivalence_fields()
-        auth = v15.consume_current_program(equivalence_defining_fields=fields, external_consumption_nonce="external-ledger-record-001")
+        ledger = v15.canonical_consumption_ledger_record(equivalence_defining_fields=fields)
+        auth = v15.consume_current_program(equivalence_defining_fields=fields, ledger_record=ledger)
         v15.validate_same_consumed_program(auth, equivalence_defining_fields=fields)
         for field in fields:
             changed = copy.deepcopy(fields)
@@ -165,14 +192,16 @@ class V15AuthorityProof(unittest.TestCase):
         self.assertEqual(v15.assess_future_study(requests_authority_from_v15=False, conditions_on_v15_status=True, separate_authority_frozen_before_earliest_conditioned_v15_status=True), "SEPARATE_SCIENCE_NO_V15_ALPHA_OR_EVIDENCE")
 
     def test_release_admission_requires_full_history_conditional_law(self):
-        law = h("exact-full-history-law-proof")
-        self.assertEqual(v15.validate_release_event(event_name="prebound-admit", depends_on=[], fixed_before_entropy=True, full_history_conditional_law_proof_sha256=None, expected_conditional_law_proof_sha256=law), "PRE_ENTROPY_FIXED")
+        source, authority, consumed_family_id, context_root, invocation_id, families, streams, entropy_proof, transcript = entropy_fixture()
+        self.assertEqual(v15.validate_release_event(event_name="prebound-admit", depends_on=[], fixed_before_entropy=True), "PRE_ENTROPY_FIXED")
         with self.assertRaisesRegex(ValueError, "PREENTROPY_EVENT_RANDOMIZATION_DEPENDENCY"):
-            v15.validate_release_event(event_name="fake-prebound", depends_on=["source_latency"], fixed_before_entropy=True, full_history_conditional_law_proof_sha256=None, expected_conditional_law_proof_sha256=law)
+            v15.validate_release_event(event_name="fake-prebound", depends_on=["source_latency"], fixed_before_entropy=True)
+        history = [{"event": "source-bound", "ordinal": 1}, {"event": "entropy-prefix-consumed", "ordinal": 2}]
         for proxy in ("assignment", "rejection_history", "source_metadata", "source_latency", "source_health", "scientific_outcome"):
             with self.assertRaisesRegex(ValueError, "POSTENTROPY_FULL_HISTORY_LAW_PROOF_REQUIRED"):
-                v15.validate_release_event(event_name="post-event", depends_on=[proxy], fixed_before_entropy=False, full_history_conditional_law_proof_sha256=None, expected_conditional_law_proof_sha256=law)
-            self.assertEqual(v15.validate_release_event(event_name="post-event", depends_on=[proxy], fixed_before_entropy=False, full_history_conditional_law_proof_sha256=law, expected_conditional_law_proof_sha256=law), "POST_ENTROPY_CONDITIONAL_LAW_PROVED")
+                v15.validate_release_event(event_name="post-event", depends_on=[proxy], fixed_before_entropy=False, context_root=context_root, transcript=transcript, release_event_history=history)
+            proof = v15.make_conditional_law_proof(event_name="post-event", depends_on=[proxy], context_root=context_root, transcript=transcript, entropy_realization_proof=entropy_proof, release_event_history=history)
+            self.assertEqual(v15.validate_release_event(event_name="post-event", depends_on=[proxy], fixed_before_entropy=False, conditional_law_proof=proof, context_root=context_root, transcript=transcript, release_event_history=history), "POST_ENTROPY_CONDITIONAL_LAW_PROVED")
 
     def test_same_verdict_monitor_has_byte_identical_design_visible_release(self):
         pass_rows = {v15.monitor_visible_release("PASS", hidden_witness={"secret": i}, hidden_authenticator=h(str(i))) for i in range(64)}
@@ -225,6 +254,50 @@ class V15AuthorityProof(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "REUSED_CLOSED_ENV"):
                 drv._slot_replay_guard(bad_factory, pathlib.Path("synthetic"), family, witness, expected)
 
+
+    def test_reviewer_multi_consume_repro_is_closed(self):
+        fields = equivalence_fields()
+        ledger = v15.canonical_consumption_ledger_record(equivalence_defining_fields=fields)
+        a = v15.consume_current_program(equivalence_defining_fields=fields, ledger_record=ledger)
+        b = v15.consume_current_program(equivalence_defining_fields=fields, ledger_record=copy.deepcopy(ledger))
+        self.assertEqual(a, b)
+        tampered = copy.deepcopy(ledger)
+        tampered["ledger_record_id"] = h("alternate-external-nonce")
+        tampered["record_sha256"] = v15.sha_obj({k: v for k, v in tampered.items() if k != "record_sha256"})
+        with self.assertRaisesRegex(ValueError, "PROGRAM_LEDGER_NON_EQUIVOCATION_OR_ONE_USE"):
+            v15.consume_current_program(equivalence_defining_fields=fields, ledger_record=tampered)
+
+    def test_reviewer_dependent_streams_repro_is_closed(self):
+        source = v15.exact_uint16_source_contract()
+        authority = v15.bound_entropy_source_authority("authority-A")
+        consumed_family_id = "current-v15-program-family"
+        context_root = h("v15-randomization-context")
+        invocation_id = v15.derive_invocation_id(authority_hash=authority.authority_hash, consumed_family_id=consumed_family_id, context_root=context_root)
+        families = [f"f{i:02d}" for i in range(33)]
+        dependent = {fid: [0, 1, 2] for fid in families}
+        with self.assertRaisesRegex(ValueError, "ENTROPY_STREAM_DEPENDENCE_WITNESS"):
+            v15.build_assignment_vector(family_ids=families, family_stream_words=dependent, source_contract=source, authority=authority, consumed_family_id=consumed_family_id, context_root=context_root, invocation_id=invocation_id)
+
+    def test_reviewer_fake_release_proof_repro_is_closed(self):
+        source, authority, consumed_family_id, context_root, invocation_id, families, streams, entropy_proof, transcript = entropy_fixture()
+        history = [{"event": "entropy-consumed", "ordinal": 1}]
+        fake = {"proof_sha256": h("arbitrary-matching-hash")}
+        with self.assertRaises(ValueError):
+            v15.validate_release_event(event_name="post-event", depends_on=["source_latency"], fixed_before_entropy=False, conditional_law_proof=fake, context_root=context_root, transcript=transcript, release_event_history=history)
+        real = v15.make_conditional_law_proof(event_name="post-event", depends_on=["source_latency"], context_root=context_root, transcript=transcript, entropy_realization_proof=entropy_proof, release_event_history=history)
+        tampered = copy.deepcopy(real)
+        tampered["event_name"] = "other-event"
+        with self.assertRaises(ValueError):
+            v15.validate_release_event(event_name="post-event", depends_on=["source_latency"], fixed_before_entropy=False, conditional_law_proof=tampered, context_root=context_root, transcript=transcript, release_event_history=history)
+
+    def test_reviewer_nonstring_registry_repro_is_closed(self):
+        row = registry_entries(1)[0]
+        row["candidate_id"] = 123
+        with self.assertRaisesRegex(ValueError, "REGISTRY_FIELD_TYPE:candidate_id"):
+            v15.registry_bytes([row])
+        good = registry_entries(1)
+        raw = v15.registry_bytes(good)
+        self.assertEqual(v15.verify_cross_interpreter_equivalence(raw, v15.registry_interpretation_contract_hash())[0][0], "cand-00")
 
     def test_frozen_contract_and_static_audit_self_hashes(self):
         import json
