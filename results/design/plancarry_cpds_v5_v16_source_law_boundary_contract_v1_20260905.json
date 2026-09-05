@@ -1,0 +1,111 @@
+{
+  "claim_boundary": {
+    "randomization_claim_scope": "EXACT_PRODUCT_UNIFORM_S6_POWER_33_CONDITIONAL_ON_FROZEN_SOURCE_LAW_ASSUMPTION",
+    "receipt_proves_randomness_origin": false,
+    "receipt_proves_source_law": false,
+    "serialized_receipt_role": "PROVENANCE_AND_INTEGRITY_ONLY_NOT_RANDOMNESS_ORIGIN_PROOF",
+    "stronger_origin_claim_requires_external_trusted_authority": true,
+    "unconditional_kernel_randomness_claim": false
+  },
+  "design_attack_synthesis_id": "477fd4dd-d316-4693-b9be-db481133c061",
+  "design_semantic_hash": "58c2c1f2169789a9d42bfbb941f54c9b4392e29e0370af806bc9d2a9a4497429",
+  "deterministic_transducer": {
+    "accepted_uint16_count": 65520,
+    "fixed_block_conditional_rank_law_given_success": "EXACT_UNIFORM_S6",
+    "partition_id": "CPDS_V16_33_ORDERED_DISJOINT_BLOCKS_X8_UINT16_BE_V1",
+    "preimages_per_rank": 91,
+    "rejected_uint16_count": 16,
+    "s6_rank_count": 720,
+    "transducer_id": "CPDS_V16_FIRST_ACCEPTED_REJECT_GE_65520_FACTORADIC_S6_V1"
+  },
+  "failure_retry": {
+    "all_rejected_family": "STOP_CONSUMED_ATTEMPT_NO_REDRAW",
+    "continuity_failure": "STOP_WITH_NO_SCIENTIFIC_CLAIM",
+    "retry": "REUSE_EXACT_ASSIGNMENT_BUNDLE_ONLY",
+    "short_read": "STOP_CONSUMED_ATTEMPT_NO_FRESH_INVOCATION"
+  },
+  "implementation_files": {
+    "cpds_v5_v16_source_law_boundary_v1.py": "48a82b065249f455c8aa1b4c89e95f3b35521abebe12619e3f45bb843af5ada6",
+    "tests/test_cpds_v5_v16_source_law_boundary.py": "6ecc41e46991d055ba00cd0a0842024489bbaa43aff92018bd06a619680f860d"
+  },
+  "inherited_v15_controls": {
+    "confirmation": "HARD_SEALED_NO_RUNTIME_ROUTE",
+    "finite_program": "EXACTLY_ONE_33_DEVELOPMENT_PLUS_33_CONFIRMATION_ATTEMPT",
+    "full_release_admission_conditioning": "REQUIRED",
+    "future_program_authority": "NONE",
+    "historical_unsupported_exposure": "UNKNOWN",
+    "production_slot_sutva": "REQUIRED",
+    "registry_interpretation_contract": "UNCHANGED",
+    "same_verdict_monitor_noninterference": "UNCHANGED"
+  },
+  "production_randomization": {
+    "bytes_requested": 528,
+    "caller_entropy_injection": false,
+    "entrypoint": "produce_development_assignment_bundle",
+    "family_blocks": 33,
+    "flags": 0,
+    "fresh_entropy_on_retry": false,
+    "logical_invocations": 1,
+    "receipt_substitution": false,
+    "source_primitive": "os.getrandom",
+    "source_shopping": false,
+    "uint16_words": 264,
+    "words_per_family": 8
+  },
+  "prohibited_now": [
+    "model_load_or_forward",
+    "environment_scientific_execution",
+    "TRAIN",
+    "CALIBRATION",
+    "DEVELOPMENT",
+    "CONFIRMATION",
+    "ResearchDecision",
+    "provider_lifecycle"
+  ],
+  "protected_hashes": {
+    "calibration_sha256": "5a511226e807987a5ea8e458f3d66eb4fb712afc86cf37aa95b066257b341eaa",
+    "checkpoint_sha256": "ab1a638a89db005b1346750c20ce8c1e7ea81cc3d1556af562a59fae8af503f9",
+    "cpds_development_driver_v1.py": "6daf31543e63eb7aca2ae67c1f83577b6af8c2b08c1f1fdd0e70d532b2ddae02",
+    "cpds_v5_v15_authority_proof_v1.py": "960d93b93370d53cb13fcfdef545d45ee9e02260892ec63f563b686b637bc475",
+    "protected_v5_science_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2"
+  },
+  "schema": "PLANCARRY_CPDS_V5_V16_SOURCE_LAW_BOUNDARY_CONTRACT_V1",
+  "scientific_design_id": "faee370b-d0e6-4305-b3d8-da57dede7cab",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_ONLY",
+  "scientific_variable_drift": false,
+  "source_authority": {
+    "authority_id": "CPDS_V16_LINUX_KERNEL_GETRANDOM_FLAGS0_AUTHORITY_V1",
+    "authority_sha256": "860f967c4193539bd2626e130f8a4d6e370ba5da2227b93ea537769753c22477",
+    "fresh_entropy_on_retry": false,
+    "implementation_sha256": "baaf6e4bf34b69f4ad8c68c4f7dcbe52ca85537b9edf7c7a6e4a5484c0da1862",
+    "one_shot": true,
+    "partition_id": "CPDS_V16_33_ORDERED_DISJOINT_BLOCKS_X8_UINT16_BE_V1",
+    "schema": "CPDS_V5_V16_SOURCE_AUTHORITY_V1",
+    "source_contract_sha256": "d513fa6d45288d0a9964236b14e8d82614dc9064d5463de4d17b52828127b072",
+    "source_law_assumption_sha256": "da73790dfc3f3fae36a93129364499b00acaddd0ad1a899832cde8e411e5abd5",
+    "source_primitive_id": "LINUX_OS_GETRANDOM_FLAGS0",
+    "source_shopping": false,
+    "transducer_id": "CPDS_V16_FIRST_ACCEPTED_REJECT_GE_65520_FACTORADIC_S6_V1"
+  },
+  "source_law_assumption": {
+    "assumption_id": "d34d0cf0-6405-4feb-bba0-4c4820211144",
+    "assumption_sha256": "da73790dfc3f3fae36a93129364499b00acaddd0ad1a899832cde8e411e5abd5",
+    "authority_id": "CPDS_V16_LINUX_KERNEL_GETRANDOM_FLAGS0_AUTHORITY_V1",
+    "bytes_requested": 528,
+    "design_semantic_hash": "58c2c1f2169789a9d42bfbb941f54c9b4392e29e0370af806bc9d2a9a4497429",
+    "external_randomness_origin_authentication_claim": false,
+    "flags": 0,
+    "logical_invocation_count": 1,
+    "mechanically_proven_by_serialized_receipt": false,
+    "platform": "linux",
+    "python_binding": "os.getrandom",
+    "randomization_claim": "EXACT_PRODUCT_UNIFORM_S6_POWER_33_CONDITIONAL_ON_FROZEN_SOURCE_LAW_ASSUMPTION",
+    "schema": "CPDS_V5_V16_SOURCE_LAW_ASSUMPTION_V1",
+    "scientific_design_id": "faee370b-d0e6-4305-b3d8-da57dede7cab",
+    "source_primitive_id": "LINUX_OS_GETRANDOM_FLAGS0",
+    "source_word_law_assumed": "EXACT_UNIFORM_UINT16_GIVEN_COMPLETE_PRIOR_HISTORY_WITH_REQUIRED_CROSS_BLOCK_INDEPENDENCE",
+    "unconditional_kernel_randomness_claim": false,
+    "word_count": 264,
+    "word_interpretation": "UINT16_BIG_ENDIAN"
+  }
+}
