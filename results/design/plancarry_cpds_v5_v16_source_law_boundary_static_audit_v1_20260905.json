@@ -1,6 +1,5 @@
 {
   "checks": {
-    "authority_not_live_rehashed": true,
     "conditional_claim": true,
     "confirmation_sealed": true,
     "design_bound": true,
@@ -10,24 +9,29 @@
     "frozen_source_binding": true,
     "future_alpha_none": true,
     "no_caller_entropy": true,
+    "no_mutable_helper_source_delegation": true,
     "no_retry_entropy": true,
     "no_scientific_drift": true,
     "one_shot_source": true,
+    "pair_source_hash_plus_helper_closed": true,
+    "pair_verifier_plus_helper_closed": true,
     "pre_science_only": true,
+    "producer_direct_source_call": true,
     "receipt_not_origin_proof": true,
-    "reviewer_repro_regression_declared": true,
     "v15_module_protected": true,
     "zero_model_env_science": true
   },
   "contract_path": "results/design/plancarry_cpds_v5_v16_source_law_boundary_contract_v1_20260905.json",
-  "contract_sha256": "fbabf88852291bf1a8dd801508990d2093c1909ba34a0888e60ba2f6349e6331",
+  "contract_sha256": "5596bedc678a23c2a0a4380bf8e7143527d5bbfb6b56cc7c0c5fc4a8a84cf05b",
   "design_semantic_hash": "58c2c1f2169789a9d42bfbb941f54c9b4392e29e0370af806bc9d2a9a4497429",
-  "implementation_sha256": "43db3557b470c3f03117c60df38ab0acff4933909f59590440cdd497099e6953",
-  "n_passed": 18,
-  "n_total": 18,
+  "implementation_sha256": "5f1ac9589fb8686aed3e5ab3c4385639d8e0abef5a863533845474630599bc15",
+  "n_passed": 20,
+  "n_total": 20,
   "passed": true,
+  "patched_verification_job": "local_494f8e3d103845a9",
   "protected_driver_sha256": "6daf31543e63eb7aca2ae67c1f83577b6af8c2b08c1f1fdd0e70d532b2ddae02",
   "protected_v15_authority_module_sha256": "960d93b93370d53cb13fcfdef545d45ee9e02260892ec63f563b686b637bc475",
+  "reviewer_pair_repro": "local_45e54791e1d54e25",
   "schema": "PLANCARRY_CPDS_V5_V16_SOURCE_LAW_BOUNDARY_STATIC_AUDIT_V1",
   "scientific_design_id": "faee370b-d0e6-4305-b3d8-da57dede7cab",
   "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_ONLY",
@@ -49,14 +53,17 @@
       "words_per_family": 8
     },
     "frozen_production_source_bindings": {
+      "binding_verifier": "d5eb6f28154906a6d90093c30ac7f7d576935a53c6d5e8009e8dbf52f3a01e20",
       "one_shot_source_call": "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7",
       "primitive_attestation": "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c",
+      "production_entrypoint": "3901f048d367d6254adf8192723c9fbb0f93c46a20eca6473f44bb6c27276c25",
+      "source_hash_helper": "6f51a422f39418be33083497cb763611413faf3d19660ae8e5d79813df8f41b2",
       "v15_factoradic": "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865",
       "v15_first_accepted": "3cf25fe00a1a7e91cba7d454870de8fe750e89f53cfe3ff3b8eeb0072c749411",
       "v15_partition": "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9",
       "v16_transducer": "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
     },
-    "frozen_production_source_implementation_sha256": "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38",
+    "frozen_production_source_implementation_sha256": "3d5ffc1f4f00d03283086044dbfdf611f898bb889b92d5ba02ef739b1ca84fea",
     "inherited_v15_controls": {
       "finite_program_authority": "INHERITED_V15_ONE_CONSUMED_33_PLUS_33",
       "historical_unsupported_exposure": "UNKNOWN",
@@ -84,6 +91,7 @@
     "model_calls": 0,
     "production_noninjectability": {
       "caller_entropy_in_production": false,
+      "producer_delegated_helper_call_count": 0,
       "producer_parameters": [
         "family_ids",
         "consumed_family_id",
@@ -133,5 +141,5 @@
     },
     "train_calls": 0
   },
-  "test_sha256": "1c31c72114e6b5b526940d080086e9067929226f8eb6c24cfc8b2dcfaca78fe4"
+  "test_sha256": "8cb8869cdf5638fc8394adacf3d8f8bf14a04bd9c9330bf3d19bcd553f8e6d1a"
 }

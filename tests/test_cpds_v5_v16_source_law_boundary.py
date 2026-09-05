@@ -63,6 +63,26 @@ def inspectable_fake_factoradic(rank):
     return tuple(v15.EXACT_ARMS)
 
 
+def inspectable_fake_binding_verifier():
+    return {}
+
+
+def inspectable_forged_source_hash(fn):
+    if fn is inspectable_fake_source_once:
+        return v16.FROZEN_ONE_SHOT_SOURCE_CALL_SHA256
+    mapping = {
+        "_source_hash": v16.FROZEN_SOURCE_HASH_HELPER_SHA256,
+        "verify_frozen_production_source_bindings": v16.FROZEN_BINDING_VERIFIER_SHA256,
+        "produce_development_assignment_bundle": v16.FROZEN_PRODUCTION_ENTRYPOINT_SHA256,
+        "_production_source_primitive_attestation": v16.FROZEN_PRIMITIVE_ATTESTATION_SHA256,
+        "deterministic_transducer_proof_from_raw": v16.FROZEN_V16_TRANSDUCER_SHA256,
+        "_partition_invocation_bytes": v16.FROZEN_V15_PARTITION_SHA256,
+        "first_accepted_assignment": v16.FROZEN_V15_FIRST_ACCEPTED_SHA256,
+        "factoradic_unrank_s6": v16.FROZEN_V15_FACTORADIC_SHA256,
+    }
+    return mapping.get(getattr(fn, "__name__", ""), v16.FROZEN_ONE_SHOT_SOURCE_CALL_SHA256)
+
+
 class V16SourceLawBoundary(unittest.TestCase):
     def test_source_law_is_explicit_assumption_not_receipt_proof(self):
         a = v16.source_law_assumption()
@@ -93,39 +113,51 @@ class V16SourceLawBoundary(unittest.TestCase):
             after = v16.production_source_authority()
             self.assertEqual(after, before)
             self.assertEqual(v16.derive_invocation_id(consumed_family_id=consumed_family_id(), context_root=context_root()), iid)
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_mutated_primitive_attestation_cannot_self_authorize(self):
         iid = invocation_id()
         with mock.patch.object(v16, "_production_source_primitive_attestation", inspectable_fake_attestation):
             self.assertEqual(v16.derive_invocation_id(consumed_family_id=consumed_family_id(), context_root=context_root()), iid)
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_mutated_v16_transducer_cannot_self_authorize(self):
         iid = invocation_id()
         with mock.patch.object(v16, "deterministic_transducer_proof_from_raw", inspectable_fake_transducer):
             self.assertEqual(v16.derive_invocation_id(consumed_family_id=consumed_family_id(), context_root=context_root()), iid)
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_mutated_v15_partition_alias_cannot_self_authorize(self):
         iid = invocation_id()
         with mock.patch.object(v15, "_partition_invocation_bytes", inspectable_fake_partition):
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_mutated_v15_first_accepted_alias_cannot_self_authorize(self):
         iid = invocation_id()
         with mock.patch.object(v15, "first_accepted_assignment", inspectable_fake_first_accepted):
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_mutated_v15_factoradic_alias_cannot_self_authorize(self):
         iid = invocation_id()
         with mock.patch.object(v15, "factoradic_unrank_s6", inspectable_fake_factoradic):
-            with self.assertRaisesRegex(ValueError, "V16_FROZEN_SOURCE_COMPONENT_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_(?:FROZEN_SOURCE_COMPONENT|PRODUCTION_INLINE_BINDING)_DRIFT"):
+                v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
+
+    def test_paired_source_hash_and_source_helper_bypass_fails_closed(self):
+        iid = invocation_id()
+        with mock.patch.object(v16, "_source_hash", inspectable_forged_source_hash), mock.patch.object(v16, "_invoke_production_source_once", inspectable_fake_source_once):
+            with self.assertRaisesRegex(ValueError, "V16_PRODUCTION_INLINE_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
+
+    def test_paired_binding_verifier_and_source_helper_bypass_fails_closed(self):
+        iid = invocation_id()
+        with mock.patch.object(v16, "verify_frozen_production_source_bindings", inspectable_fake_binding_verifier), mock.patch.object(v16, "_invoke_production_source_once", inspectable_fake_source_once):
+            with self.assertRaisesRegex(ValueError, "V16_PRODUCTION_INLINE_BINDING_DRIFT"):
                 v16.produce_development_assignment_bundle(family_ids=families(), consumed_family_id=consumed_family_id(), context_root=context_root(), invocation_id=iid)
 
     def test_exact_sampler_and_fixed_block_counting(self):

@@ -50,7 +50,10 @@ FROZEN_V16_TRANSDUCER_SHA256 = "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8
 FROZEN_V15_PARTITION_SHA256 = "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9"
 FROZEN_V15_FIRST_ACCEPTED_SHA256 = "3cf25fe00a1a7e91cba7d454870de8fe750e89f53cfe3ff3b8eeb0072c749411"
 FROZEN_V15_FACTORADIC_SHA256 = "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865"
-FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38"
+FROZEN_SOURCE_HASH_HELPER_SHA256 = "6f51a422f39418be33083497cb763611413faf3d19660ae8e5d79813df8f41b2"
+FROZEN_BINDING_VERIFIER_SHA256 = "d5eb6f28154906a6d90093c30ac7f7d576935a53c6d5e8009e8dbf52f3a01e20"
+FROZEN_PRODUCTION_ENTRYPOINT_SHA256 = "3901f048d367d6254adf8192723c9fbb0f93c46a20eca6473f44bb6c27276c25"
+FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "3d5ffc1f4f00d03283086044dbfdf611f898bb889b92d5ba02ef739b1ca84fea"
 
 
 
@@ -135,6 +138,9 @@ def production_source_implementation_sha256() -> str:
 def verify_frozen_production_source_bindings() -> dict[str, str]:
     """Fail closed if a source/transducer alias differs from the frozen V16 bytes."""
     observed = {
+        "source_hash_helper": _source_hash(_source_hash),
+        "binding_verifier": _source_hash(verify_frozen_production_source_bindings),
+        "production_entrypoint": _source_hash(produce_development_assignment_bundle),
         "primitive_attestation": _source_hash(_production_source_primitive_attestation),
         "one_shot_source_call": _source_hash(_invoke_production_source_once),
         "v16_transducer": _source_hash(deterministic_transducer_proof_from_raw),
@@ -143,6 +149,9 @@ def verify_frozen_production_source_bindings() -> dict[str, str]:
         "v15_factoradic": _source_hash(v15.factoradic_unrank_s6),
     }
     expected = {
+        "source_hash_helper": FROZEN_SOURCE_HASH_HELPER_SHA256,
+        "binding_verifier": FROZEN_BINDING_VERIFIER_SHA256,
+        "production_entrypoint": FROZEN_PRODUCTION_ENTRYPOINT_SHA256,
         "primitive_attestation": FROZEN_PRIMITIVE_ATTESTATION_SHA256,
         "one_shot_source_call": FROZEN_ONE_SHOT_SOURCE_CALL_SHA256,
         "v16_transducer": FROZEN_V16_TRANSDUCER_SHA256,
@@ -152,7 +161,7 @@ def verify_frozen_production_source_bindings() -> dict[str, str]:
     }
     _require(observed == expected, "V16_FROZEN_SOURCE_COMPONENT_DRIFT")
     observed_aggregate = _sha_obj({
-        "domain": "CPDS_V16_FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_V2",
+        "domain": "CPDS_V16_FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_V3",
         "components": observed,
     })
     _require(observed_aggregate == FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256, "V16_FROZEN_SOURCE_IMPLEMENTATION_DRIFT")
@@ -302,10 +311,38 @@ def produce_development_assignment_bundle(*, family_ids: Sequence[str], consumed
     _require(all(type(fid) is str and fid for fid in family_ids), "V16_FAMILY_ID_TYPE")
     _require(v15._is_sha256(context_root), "V16_CONTEXT_ROOT")
     _require(invocation_id == derive_invocation_id(consumed_family_id=consumed_family_id, context_root=context_root), "V16_INVOCATION_ID")
-    # Enforce frozen component identity at the source-use boundary, after all
-    # caller-provided bindings are validated and immediately before acquisition.
-    verify_frozen_production_source_bindings()
-    raw = _invoke_production_source_once()
+    # Authority-critical source acquisition is owned directly by this exact
+    # production entrypoint.  It does not delegate scientific source bytes to
+    # the caller-mutable verifier/helper pair.  Use direct stdlib hashing here
+    # rather than _source_hash so replacing _source_hash cannot bless a forged
+    # source helper.  These checks are implementation integrity, not proof of
+    # the scientific source-law assumption.
+    direct_observed = {
+        "source_hash_helper": hashlib.sha256(inspect.getsource(_source_hash).encode("utf-8")).hexdigest(),
+        "binding_verifier": hashlib.sha256(inspect.getsource(verify_frozen_production_source_bindings).encode("utf-8")).hexdigest(),
+        "production_entrypoint": hashlib.sha256(inspect.getsource(produce_development_assignment_bundle).encode("utf-8")).hexdigest(),
+        "primitive_attestation": hashlib.sha256(inspect.getsource(_production_source_primitive_attestation).encode("utf-8")).hexdigest(),
+        "one_shot_source_call": hashlib.sha256(inspect.getsource(_invoke_production_source_once).encode("utf-8")).hexdigest(),
+        "v16_transducer": hashlib.sha256(inspect.getsource(deterministic_transducer_proof_from_raw).encode("utf-8")).hexdigest(),
+        "v15_partition": hashlib.sha256(inspect.getsource(v15._partition_invocation_bytes).encode("utf-8")).hexdigest(),
+        "v15_first_accepted": hashlib.sha256(inspect.getsource(v15.first_accepted_assignment).encode("utf-8")).hexdigest(),
+        "v15_factoradic": hashlib.sha256(inspect.getsource(v15.factoradic_unrank_s6).encode("utf-8")).hexdigest(),
+    }
+    direct_expected = {
+        "source_hash_helper": FROZEN_SOURCE_HASH_HELPER_SHA256,
+        "binding_verifier": FROZEN_BINDING_VERIFIER_SHA256,
+        "production_entrypoint": FROZEN_PRODUCTION_ENTRYPOINT_SHA256,
+        "primitive_attestation": FROZEN_PRIMITIVE_ATTESTATION_SHA256,
+        "one_shot_source_call": FROZEN_ONE_SHOT_SOURCE_CALL_SHA256,
+        "v16_transducer": FROZEN_V16_TRANSDUCER_SHA256,
+        "v15_partition": FROZEN_V15_PARTITION_SHA256,
+        "v15_first_accepted": FROZEN_V15_FIRST_ACCEPTED_SHA256,
+        "v15_factoradic": FROZEN_V15_FACTORADIC_SHA256,
+    }
+    _require(direct_observed == direct_expected, "V16_PRODUCTION_INLINE_BINDING_DRIFT")
+    _production_source_primitive_attestation()
+    raw = os.getrandom(SOURCE_REQUEST_BYTES, 0)
+    _require(type(raw) is bytes and len(raw) == SOURCE_REQUEST_BYTES, "V16_SOURCE_SHORT_READ_FAIL_CLOSED")
     # If any block has no accepted word, deterministic_transducer_proof_from_raw raises.
     # The already-consumed one-shot realization is not retried or redrawn.
     transducer_proof = deterministic_transducer_proof_from_raw(raw=raw, family_ids=family_ids)
@@ -438,8 +475,12 @@ def verify_production_noninjectability() -> dict[str, Any]:
     _require(len(call.args) == 2 and isinstance(call.args[0], ast.Name) and call.args[0].id == "SOURCE_REQUEST_BYTES" and isinstance(call.args[1], ast.Constant) and call.args[1].value == 0, "V16_SOURCE_CALL_BINDING")
 
     producer_tree = ast.parse(inspect.getsource(produce_development_assignment_bundle))
-    producer_source_calls = [n for n in ast.walk(producer_tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "_invoke_production_source_once"]
-    _require(len(producer_source_calls) == 1, "V16_PRODUCTION_SOURCE_CALL_COUNT")
+    producer_helper_calls = [n for n in ast.walk(producer_tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "_invoke_production_source_once"]
+    _require(len(producer_helper_calls) == 0, "V16_PRODUCTION_DELEGATED_SOURCE_CALL")
+    producer_getrandom_calls = [n for n in ast.walk(producer_tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and isinstance(n.func.value, ast.Name) and n.func.value.id == "os" and n.func.attr == "getrandom"]
+    _require(len(producer_getrandom_calls) == 1, "V16_PRODUCTION_SOURCE_CALL_COUNT")
+    producer_call = producer_getrandom_calls[0]
+    _require(len(producer_call.args) == 2 and isinstance(producer_call.args[0], ast.Name) and producer_call.args[0].id == "SOURCE_REQUEST_BYTES" and isinstance(producer_call.args[1], ast.Constant) and producer_call.args[1].value == 0, "V16_PRODUCTION_SOURCE_CALL_BINDING")
     names = {n.attr for n in ast.walk(producer_tree) if isinstance(n, ast.Attribute)} | {n.id for n in ast.walk(producer_tree) if isinstance(n, ast.Name)}
     _require("verify_source_invocation_evidence" not in names and "build_entropy_realization_proof" not in names, "V16_OLD_RECEIPT_PROOF_PATH")
 
@@ -454,6 +495,7 @@ def verify_production_noninjectability() -> dict[str, Any]:
         "source_request_bytes": SOURCE_REQUEST_BYTES,
         "source_flags": 0,
         "producer_source_call_count": 1,
+        "producer_delegated_helper_call_count": 0,
         "retry_source_call_count": 0,
         "caller_entropy_in_production": False,
         "receipt_substitution_in_production": False,
