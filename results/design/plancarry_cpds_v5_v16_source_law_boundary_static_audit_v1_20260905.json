@@ -1,10 +1,13 @@
 {
   "checks": {
+    "authority_not_live_rehashed": true,
     "conditional_claim": true,
     "confirmation_sealed": true,
     "design_bound": true,
     "driver_protected": true,
     "exact_counts": true,
+    "frozen_component_binding": true,
+    "frozen_source_binding": true,
     "future_alpha_none": true,
     "no_caller_entropy": true,
     "no_retry_entropy": true,
@@ -12,15 +15,16 @@
     "one_shot_source": true,
     "pre_science_only": true,
     "receipt_not_origin_proof": true,
+    "reviewer_repro_regression_declared": true,
     "v15_module_protected": true,
     "zero_model_env_science": true
   },
   "contract_path": "results/design/plancarry_cpds_v5_v16_source_law_boundary_contract_v1_20260905.json",
-  "contract_sha256": "81cd98a8a5c32bff93c635be005a2a0a0d2cff6c68866b835aee188e62889271",
+  "contract_sha256": "fbabf88852291bf1a8dd801508990d2093c1909ba34a0888e60ba2f6349e6331",
   "design_semantic_hash": "58c2c1f2169789a9d42bfbb941f54c9b4392e29e0370af806bc9d2a9a4497429",
-  "implementation_sha256": "48a82b065249f455c8aa1b4c89e95f3b35521abebe12619e3f45bb843af5ada6",
-  "n_passed": 14,
-  "n_total": 14,
+  "implementation_sha256": "43db3557b470c3f03117c60df38ab0acff4933909f59590440cdd497099e6953",
+  "n_passed": 18,
+  "n_total": 18,
   "passed": true,
   "protected_driver_sha256": "6daf31543e63eb7aca2ae67c1f83577b6af8c2b08c1f1fdd0e70d532b2ddae02",
   "protected_v15_authority_module_sha256": "960d93b93370d53cb13fcfdef545d45ee9e02260892ec63f563b686b637bc475",
@@ -44,6 +48,15 @@
       "total_blocks": 340282366920938463463374607431768211456,
       "words_per_family": 8
     },
+    "frozen_production_source_bindings": {
+      "one_shot_source_call": "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7",
+      "primitive_attestation": "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c",
+      "v15_factoradic": "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865",
+      "v15_first_accepted": "3cf25fe00a1a7e91cba7d454870de8fe750e89f53cfe3ff3b8eeb0072c749411",
+      "v15_partition": "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9",
+      "v16_transducer": "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
+    },
+    "frozen_production_source_implementation_sha256": "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38",
     "inherited_v15_controls": {
       "finite_program_authority": "INHERITED_V15_ONE_CONSUMED_33_PLUS_33",
       "historical_unsupported_exposure": "UNKNOWN",
@@ -120,5 +133,5 @@
     },
     "train_calls": 0
   },
-  "test_sha256": "6ecc41e46991d055ba00cd0a0842024489bbaa43aff92018bd06a619680f860d"
+  "test_sha256": "1c31c72114e6b5b526940d080086e9067929226f8eb6c24cfc8b2dcfaca78fe4"
 }

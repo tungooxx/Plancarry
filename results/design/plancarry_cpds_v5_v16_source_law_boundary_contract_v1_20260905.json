@@ -1,5 +1,7 @@
 {
   "claim_boundary": {
+    "arbitrary_hostile_same_process_rewrite_of_guard_and_frozen_literals_claim": false,
+    "mechanical_binding_scope": "FAIL_CLOSED_ON_LIVE_SOURCE_ATTESTATION_SOURCE_HELPER_AND_FROZEN_TRANSDUCER_ALIAS_DRIFT",
     "randomization_claim_scope": "EXACT_PRODUCT_UNIFORM_S6_POWER_33_CONDITIONAL_ON_FROZEN_SOURCE_LAW_ASSUMPTION",
     "receipt_proves_randomness_origin": false,
     "receipt_proves_source_law": false,
@@ -24,9 +26,33 @@
     "retry": "REUSE_EXACT_ASSIGNMENT_BUNDLE_ONLY",
     "short_read": "STOP_CONSUMED_ATTEMPT_NO_FRESH_INVOCATION"
   },
+  "frozen_source_binding": {
+    "aggregate_implementation_sha256": "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38",
+    "alias_mutations_covered": [
+      "v16._invoke_production_source_once",
+      "v16._production_source_primitive_attestation",
+      "v16.deterministic_transducer_proof_from_raw",
+      "v15._partition_invocation_bytes",
+      "v15.first_accepted_assignment",
+      "v15.factoradic_unrank_s6",
+      "os.getrandom"
+    ],
+    "authority_is_dynamically_reminted_from_live_helpers": false,
+    "checked_immediately_before_production_acquisition": true,
+    "component_sha256": {
+      "one_shot_source_call": "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7",
+      "primitive_attestation": "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c",
+      "v15_factoradic": "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865",
+      "v15_first_accepted": "3cf25fe00a1a7e91cba7d454870de8fe750e89f53cfe3ff3b8eeb0072c749411",
+      "v15_partition": "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9",
+      "v16_transducer": "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
+    },
+    "live_os_getrandom_builtin_attestation_required": true,
+    "reviewer_source_helper_repro": "FAIL_CLOSED"
+  },
   "implementation_files": {
-    "cpds_v5_v16_source_law_boundary_v1.py": "48a82b065249f455c8aa1b4c89e95f3b35521abebe12619e3f45bb843af5ada6",
-    "tests/test_cpds_v5_v16_source_law_boundary.py": "6ecc41e46991d055ba00cd0a0842024489bbaa43aff92018bd06a619680f860d"
+    "cpds_v5_v16_source_law_boundary_v1.py": "43db3557b470c3f03117c60df38ab0acff4933909f59590440cdd497099e6953",
+    "tests/test_cpds_v5_v16_source_law_boundary.py": "1c31c72114e6b5b526940d080086e9067929226f8eb6c24cfc8b2dcfaca78fe4"
   },
   "inherited_v15_controls": {
     "confirmation": "HARD_SEALED_NO_RUNTIME_ROUTE",
@@ -69,15 +95,23 @@
     "cpds_v5_v15_authority_proof_v1.py": "960d93b93370d53cb13fcfdef545d45ee9e02260892ec63f563b686b637bc475",
     "protected_v5_science_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2"
   },
+  "repair_lineage": {
+    "base_implementation_commit": "f298b87f99eaccebd0905af269ee37965680b4db",
+    "critical_repro_job": "local_1eaebcfc45ca40fb",
+    "engineering_task_id": "bd22158e-509f-4129-8467-4de8dfa74dad",
+    "failed_review_result_id": "41956d92-fcd6-4348-9671-41f3c241fb50",
+    "repair_work_item_id": "acda9393-4d9c-46f3-b147-e8c1820b614a",
+    "reviewer_harness_id": "5f77503b-7d35-4a1a-a564-b4203ce640fb"
+  },
   "schema": "PLANCARRY_CPDS_V5_V16_SOURCE_LAW_BOUNDARY_CONTRACT_V1",
   "scientific_design_id": "faee370b-d0e6-4305-b3d8-da57dede7cab",
   "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_ONLY",
   "scientific_variable_drift": false,
   "source_authority": {
     "authority_id": "CPDS_V16_LINUX_KERNEL_GETRANDOM_FLAGS0_AUTHORITY_V1",
-    "authority_sha256": "860f967c4193539bd2626e130f8a4d6e370ba5da2227b93ea537769753c22477",
+    "authority_sha256": "b25f8c4d27716e9b0965f14e654d7c3d0ff22d992a21a18dfdb4c3e93c3f22fc",
     "fresh_entropy_on_retry": false,
-    "implementation_sha256": "baaf6e4bf34b69f4ad8c68c4f7dcbe52ca85537b9edf7c7a6e4a5484c0da1862",
+    "implementation_sha256": "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38",
     "one_shot": true,
     "partition_id": "CPDS_V16_33_ORDERED_DISJOINT_BLOCKS_X8_UINT16_BE_V1",
     "schema": "CPDS_V5_V16_SOURCE_AUTHORITY_V1",

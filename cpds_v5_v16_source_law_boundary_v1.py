@@ -41,6 +41,18 @@ TRANSDUCER_PROOF_SCHEMA = "CPDS_V5_V16_DETERMINISTIC_TRANSDUCER_PROOF_V1"
 ASSIGNMENT_BUNDLE_SCHEMA = "CPDS_V5_V16_PRODUCTION_ASSIGNMENT_BUNDLE_V1"
 RELEASE_PROOF_SCHEMA = "CPDS_V5_V16_RELEASE_CONDITIONAL_LAW_PROOF_V1"
 
+# These component identities and the aggregate implementation identity are
+# prospectively frozen literals from the exact reviewed successor bytes.
+# Production authority never re-mints itself from current mutable function objects.
+FROZEN_PRIMITIVE_ATTESTATION_SHA256 = "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c"
+FROZEN_ONE_SHOT_SOURCE_CALL_SHA256 = "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7"
+FROZEN_V16_TRANSDUCER_SHA256 = "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
+FROZEN_V15_PARTITION_SHA256 = "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9"
+FROZEN_V15_FIRST_ACCEPTED_SHA256 = "3cf25fe00a1a7e91cba7d454870de8fe750e89f53cfe3ff3b8eeb0072c749411"
+FROZEN_V15_FACTORADIC_SHA256 = "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865"
+FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "1d06a74ba367d47a88f94a889b6a9b4a1e64d3fc6a42ca3d53fdeed328fa2d38"
+
+
 
 def _require(condition: bool, code: str) -> None:
     if not condition:
@@ -103,6 +115,11 @@ def _production_source_primitive_attestation() -> dict[str, Any]:
 
 def _invoke_production_source_once() -> bytes:
     """The sole production entropy acquisition primitive. No injectable arguments."""
+    # Re-check the exact prospectively frozen source-use identities inside the
+    # acquisition boundary.  A replaced helper cannot self-authorize by causing
+    # production_source_authority() to mint a new matching implementation hash.
+    _require(_source_hash(_invoke_production_source_once) == FROZEN_ONE_SHOT_SOURCE_CALL_SHA256, "V16_FROZEN_SOURCE_CALL_DRIFT")
+    _require(_source_hash(_production_source_primitive_attestation) == FROZEN_PRIMITIVE_ATTESTATION_SHA256, "V16_FROZEN_SOURCE_ATTESTATION_DRIFT")
     _production_source_primitive_attestation()
     raw = os.getrandom(SOURCE_REQUEST_BYTES, 0)
     _require(type(raw) is bytes and len(raw) == SOURCE_REQUEST_BYTES, "V16_SOURCE_SHORT_READ_FAIL_CLOSED")
@@ -110,13 +127,37 @@ def _invoke_production_source_once() -> bytes:
 
 
 def production_source_implementation_sha256() -> str:
-    return _sha_obj({
-        "primitive_attestation_sha256": _source_hash(_production_source_primitive_attestation),
-        "one_shot_source_call_sha256": _source_hash(_invoke_production_source_once),
-        "partition_sha256": _source_hash(v15._partition_invocation_bytes),
-        "first_accepted_sha256": _source_hash(v15.first_accepted_assignment),
-        "factoradic_sha256": _source_hash(v15.factoradic_unrank_s6),
+    # Never derive authority from live mutable helpers.  This literal identifies
+    # the exact prospectively reviewed component set.
+    return FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256
+
+
+def verify_frozen_production_source_bindings() -> dict[str, str]:
+    """Fail closed if a source/transducer alias differs from the frozen V16 bytes."""
+    observed = {
+        "primitive_attestation": _source_hash(_production_source_primitive_attestation),
+        "one_shot_source_call": _source_hash(_invoke_production_source_once),
+        "v16_transducer": _source_hash(deterministic_transducer_proof_from_raw),
+        "v15_partition": _source_hash(v15._partition_invocation_bytes),
+        "v15_first_accepted": _source_hash(v15.first_accepted_assignment),
+        "v15_factoradic": _source_hash(v15.factoradic_unrank_s6),
+    }
+    expected = {
+        "primitive_attestation": FROZEN_PRIMITIVE_ATTESTATION_SHA256,
+        "one_shot_source_call": FROZEN_ONE_SHOT_SOURCE_CALL_SHA256,
+        "v16_transducer": FROZEN_V16_TRANSDUCER_SHA256,
+        "v15_partition": FROZEN_V15_PARTITION_SHA256,
+        "v15_first_accepted": FROZEN_V15_FIRST_ACCEPTED_SHA256,
+        "v15_factoradic": FROZEN_V15_FACTORADIC_SHA256,
+    }
+    _require(observed == expected, "V16_FROZEN_SOURCE_COMPONENT_DRIFT")
+    observed_aggregate = _sha_obj({
+        "domain": "CPDS_V16_FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_V2",
+        "components": observed,
     })
+    _require(observed_aggregate == FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256, "V16_FROZEN_SOURCE_IMPLEMENTATION_DRIFT")
+    _production_source_primitive_attestation()
+    return observed
 
 
 def production_source_authority() -> dict[str, Any]:
@@ -261,6 +302,9 @@ def produce_development_assignment_bundle(*, family_ids: Sequence[str], consumed
     _require(all(type(fid) is str and fid for fid in family_ids), "V16_FAMILY_ID_TYPE")
     _require(v15._is_sha256(context_root), "V16_CONTEXT_ROOT")
     _require(invocation_id == derive_invocation_id(consumed_family_id=consumed_family_id, context_root=context_root), "V16_INVOCATION_ID")
+    # Enforce frozen component identity at the source-use boundary, after all
+    # caller-provided bindings are validated and immediately before acquisition.
+    verify_frozen_production_source_bindings()
     raw = _invoke_production_source_once()
     # If any block has no accepted word, deterministic_transducer_proof_from_raw raises.
     # The already-consumed one-shot realization is not retried or redrawn.
@@ -434,6 +478,7 @@ def verify_inherited_v15_controls(root: pathlib.Path = ROOT) -> dict[str, Any]:
 def static_preflight(root: pathlib.Path = ROOT) -> dict[str, Any]:
     inherited = verify_inherited_v15_controls(root)
     noninjectable = verify_production_noninjectability()
+    frozen_bindings = verify_frozen_production_source_bindings()
     sampler = v15.exact_sampler_count_proof()
     block = v15.fixed_block_conditional_rank_count_proof()
     _require(sampler == {"accepted": 65520, "rejected": 16, "per_rank_preimages": 91, "rank_count": 720}, "V16_STATIC_COUNTS")
@@ -448,6 +493,8 @@ def static_preflight(root: pathlib.Path = ROOT) -> dict[str, Any]:
         "randomization_claim_scope": SOURCE_LAW_CLAIM,
         "receipt_semantics": RECEIPT_ROLE,
         "production_noninjectability": noninjectable,
+        "frozen_production_source_bindings": frozen_bindings,
+        "frozen_production_source_implementation_sha256": FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256,
         "sampler_count_proof": sampler,
         "fixed_block_conditional_rank_count_proof": block,
         "inherited_v15_controls": inherited,
