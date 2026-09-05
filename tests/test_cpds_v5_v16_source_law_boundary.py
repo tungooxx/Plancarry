@@ -2,6 +2,7 @@ import ast
 import copy
 import hashlib
 import inspect
+import types
 import unittest
 from unittest import mock
 
@@ -103,8 +104,71 @@ class V16SourceLawBoundary(unittest.TestCase):
 
     def test_builtin_source_attestation_rejects_monkeypatched_source(self):
         with mock.patch.object(v16.os, "getrandom", lambda n, flags=0: b"\x00" * n):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_NOT_BUILTIN_GETRANDOM"):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
                 v16._production_source_primitive_attestation()
+
+    def test_reviewer_inspect_isbuiltin_plus_getrandom_bypass_fails_closed(self):
+        iid = invocation_id()
+        chosen = lambda n, flags=0: b"\x00" * n
+        with mock.patch.object(v16.inspect, "isbuiltin", lambda fn: True), mock.patch.object(v16.os, "getrandom", chosen):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_os_module_alias_substitution_fails_closed(self):
+        iid = invocation_id()
+        fake_os = types.SimpleNamespace(getrandom=v16._FROZEN_OS_GETRANDOM_OBJECT)
+        with mock.patch.object(v16, "os", fake_os):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_MODULE_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_posix_module_alias_substitution_fails_closed(self):
+        iid = invocation_id()
+        fake_posix = types.SimpleNamespace(getrandom=v16._FROZEN_POSIX_GETRANDOM_OBJECT)
+        with mock.patch.object(v16, "_posix", fake_posix):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_POSIX_MODULE_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_import_time_getrandom_anchor_alias_substitution_fails_closed(self):
+        iid = invocation_id()
+        fake = lambda n, flags=0: b"\x00" * n
+        with mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", fake):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_paired_live_getrandom_and_anchor_substitution_still_fails_on_posix_relation(self):
+        iid = invocation_id()
+        fake = lambda n, flags=0: b"\x00" * n
+        with mock.patch.object(v16.os, "getrandom", fake), mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", fake):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_RELATION_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_paired_os_and_posix_getrandom_substitution_fails_on_import_anchor(self):
+        iid = invocation_id()
+        fake = lambda n, flags=0: b"\x00" * n
+        with mock.patch.object(v16.os, "getrandom", fake), mock.patch.object(v16._posix, "getrandom", fake):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+                v16.produce_development_assignment_bundle(
+                    family_ids=families(), consumed_family_id=consumed_family_id(),
+                    context_root=context_root(), invocation_id=iid)
+
+    def test_runtime_identity_relation_is_exact_and_not_inspect_based(self):
+        att = v16._production_source_primitive_attestation()
+        self.assertIs(v16.os.getrandom, v16._posix.getrandom)
+        self.assertIs(v16.os.getrandom, v16._FROZEN_OS_GETRANDOM_OBJECT)
+        self.assertEqual(att["runtime_identity_relation"], "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_IMPORT_TIME_FROZEN_BUILTIN")
+        tree = ast.parse(inspect.getsource(v16._production_source_primitive_attestation))
+        isbuiltin_calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and n.func.attr == "isbuiltin"]
+        self.assertEqual(isbuiltin_calls, [])
 
     def test_frozen_authority_does_not_rehash_mutated_source_helper(self):
         before = v16.production_source_authority()
@@ -187,6 +251,21 @@ class V16SourceLawBoundary(unittest.TestCase):
         # A deterministic transducer proof may be valid for fabricated bytes; its scope is explicit.
         p = v16.deterministic_transducer_proof_from_raw(raw=raw, family_ids=families())
         self.assertIn("DOES_NOT_PROVE_SOURCE_LAW", p["proof_scope"])
+
+    def test_duplicate_realized_blocks_are_not_conditioned_away(self):
+        p = v16.deterministic_transducer_proof_from_raw(raw=fabricated_raw_all_zero(), family_ids=families())
+        perms = [tuple(a["arm_permutation"]) for a in p["assignments"]]
+        self.assertEqual(len(perms), 33)
+        self.assertEqual(len(set(perms)), 1)
+
+    def test_short_read_guard_has_one_source_call_and_no_redraw_path(self):
+        producer_tree = ast.parse(inspect.getsource(v16.produce_development_assignment_bundle))
+        calls = [n for n in ast.walk(producer_tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and isinstance(n.func.value, ast.Name) and n.func.value.id == "os" and n.func.attr == "getrandom"]
+        self.assertEqual(len(calls), 1)
+        self.assertIn("V16_SOURCE_SHORT_READ_FAIL_CLOSED", inspect.getsource(v16.produce_development_assignment_bundle))
+        retry_tree = ast.parse(inspect.getsource(v16.retry_same_assignment_bundle))
+        retry_calls = [n for n in ast.walk(retry_tree) if isinstance(n, ast.Call) and ((isinstance(n.func, ast.Attribute) and n.func.attr == "getrandom") or (isinstance(n.func, ast.Name) and n.func.id == "_invoke_production_source_once"))]
+        self.assertEqual(retry_calls, [])
 
     def test_receipt_cannot_overclaim_even_after_rehash(self):
         raw = fabricated_raw_distinct_correlated()

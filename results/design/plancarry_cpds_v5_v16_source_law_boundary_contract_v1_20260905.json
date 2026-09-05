@@ -1,7 +1,7 @@
 {
   "claim_boundary": {
     "arbitrary_hostile_same_process_rewrite_of_guard_and_frozen_literals_claim": false,
-    "mechanical_binding_scope": "PRODUCTION_ENTRYPOINT_DIRECTLY_OWNS_GETRANDOM_AND_FAILS_CLOSED_ON_FROZEN_VERIFIER_SOURCE_HASH_AND_TRANSDUCER_DRIFT",
+    "mechanical_binding_scope": "PRODUCTION_ENTRYPOINT_DIRECTLY_OWNS_GETRANDOM_AND_FAILS_CLOSED_ON_IMPORT_TIME_OS_POSIX_PRIMITIVE_IDENTITY_RELATION_PLUS_FROZEN_COMPONENT_DRIFT",
     "randomization_claim_scope": "EXACT_PRODUCT_UNIFORM_S6_POWER_33_CONDITIONAL_ON_FROZEN_SOURCE_LAW_ASSUMPTION",
     "receipt_proves_randomness_origin": false,
     "receipt_proves_source_law": false,
@@ -27,8 +27,13 @@
     "short_read": "STOP_CONSUMED_ATTEMPT_NO_FRESH_INVOCATION"
   },
   "frozen_source_binding": {
-    "aggregate_implementation_sha256": "3d5ffc1f4f00d03283086044dbfdf611f898bb889b92d5ba02ef739b1ca84fea",
+    "aggregate_implementation_sha256": "ec61580ac09a90b24293313be19aeb7b736ffae0390b708e20b54cb7f2f1a740",
     "alias_mutations_covered": [
+      "inspect.isbuiltin",
+      "v16.os",
+      "v16._posix",
+      "v16._FROZEN_OS_GETRANDOM_OBJECT",
+      "v16._FROZEN_POSIX_GETRANDOM_OBJECT",
       "v16._source_hash",
       "v16.verify_frozen_production_source_bindings",
       "v16._invoke_production_source_once",
@@ -37,14 +42,15 @@
       "v15._partition_invocation_bytes",
       "v15.first_accepted_assignment",
       "v15.factoradic_unrank_s6",
-      "os.getrandom"
+      "os.getrandom",
+      "posix.getrandom"
     ],
     "authority_is_dynamically_reminted_from_live_helpers": false,
     "checked_immediately_before_production_acquisition": true,
     "component_sha256": {
       "binding_verifier": "d5eb6f28154906a6d90093c30ac7f7d576935a53c6d5e8009e8dbf52f3a01e20",
       "one_shot_source_call": "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7",
-      "primitive_attestation": "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c",
+      "primitive_attestation": "9278c95892304203f1f5be3edc336ae4862d371219e0d32b794733d1ff3bd26d",
       "production_entrypoint": "3901f048d367d6254adf8192723c9fbb0f93c46a20eca6473f44bb6c27276c25",
       "source_hash_helper": "6f51a422f39418be33083497cb763611413faf3d19660ae8e5d79813df8f41b2",
       "v15_factoradic": "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd1576e16e48807c1d865",
@@ -52,16 +58,21 @@
       "v15_partition": "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9",
       "v16_transducer": "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
     },
-    "live_os_getrandom_builtin_attestation_required": true,
+    "inspect_isbuiltin_used_as_authority": false,
+    "live_os_getrandom_builtin_attestation_required": false,
+    "paired_live_getrandom_plus_import_anchor_repro": "FAIL_CLOSED_V16_SOURCE_PRIMITIVE_RELATION_DRIFT",
     "production_delegates_source_bytes_to_mutable_helper": false,
     "production_entrypoint_directly_owns_source_acquisition": true,
+    "reviewer_inspect_isbuiltin_plus_getrandom_repro": "FAIL_CLOSED_V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT",
     "reviewer_pair_repro_source_hash_plus_source_helper": "FAIL_CLOSED_V16_PRODUCTION_INLINE_BINDING_DRIFT",
     "reviewer_pair_repro_verifier_plus_source_helper": "FAIL_CLOSED_V16_PRODUCTION_INLINE_BINDING_DRIFT",
+    "runtime_identity_relation": "os.getrandom is posix.getrandom is import-time captured original builtin object",
+    "runtime_identity_relation_required": true,
     "whole_process_hostile_rewrite_resistance_claim": false
   },
   "implementation_files": {
-    "cpds_v5_v16_source_law_boundary_v1.py": "5f1ac9589fb8686aed3e5ab3c4385639d8e0abef5a863533845474630599bc15",
-    "tests/test_cpds_v5_v16_source_law_boundary.py": "8cb8869cdf5638fc8394adacf3d8f8bf14a04bd9c9330bf3d19bcd553f8e6d1a"
+    "cpds_v5_v16_source_law_boundary_v1.py": "5ba2ca02332bafd6bab157bf6f3ff86152561fd3b9753ce80572ab97761848b8",
+    "tests/test_cpds_v5_v16_source_law_boundary.py": "ca31071cbcdac04e2f00fd97ee711427ce5749e0b8ffbaff46b92628f55be593"
   },
   "inherited_v15_controls": {
     "confirmation": "HARD_SEALED_NO_RUNTIME_ROUTE",
@@ -106,15 +117,17 @@
     "protected_v5_science_hash": "3a730d7fca46ae1c9736d3546588fb08143212f0ba52e580f70b7ba450a189b2"
   },
   "repair_lineage": {
-    "base_implementation_commit": "9dfe9401b4fa973c5bebbfe8a814c07c589647c3",
-    "baseline_pair_repro_job": "local_57e90fb3eed746e4",
-    "critical_repro_job": "local_45e54791e1d54e25",
-    "engineering_task_id": "0a8f39f5-76f4-4b8e-96d3-27d0030bf65d",
-    "failed_review_result_id": "90acf7ba-45af-4d3a-9aed-cb5f92334ffd",
-    "failed_review_work_item_id": "d4e3e57d-328d-48ad-8f56-39bb846553bd",
-    "patched_verification_job": "local_494f8e3d103845a9",
-    "repair_work_item_id": "eb59717b-1050-4469-a753-9f0389fc4cb8",
-    "reviewer_harness_id": "04e07f66-7aff-44a4-883f-8e3977c550d9"
+    "critical_repro_job": "local_baab8da02fb54b10",
+    "engineering_task_id": "0ee6ca6c-3864-4a89-a1b6-1f5f88644956",
+    "failed_review_result_id": "04f8ba66-fc89-4fd8-aca4-bd68e40bdff2",
+    "failed_review_work_item_id": "f4706d59-6f1b-4e6a-9b02-e63bbf3d6e57",
+    "prior_pair_repro_job": "local_45e54791e1d54e25",
+    "repair_work_item_id": "9e1dc55e-5aa1-4575-bf58-c202bd2c9f88",
+    "repro_and_protected_job": "local_8146df0319874af5",
+    "reviewer_harness_id": "b808d0e7-9b5a-4d92-ae38-2bc5157930b3",
+    "source_implementation_commit": "4c1570041bb749939acdd57d70d0a9c3f8e1132b",
+    "source_implementation_tree": "751108e6bb22a5b8be44594e0eb33375bfa39b26",
+    "targeted_verification_job": "local_cd3d4e8c81df4018"
   },
   "schema": "PLANCARRY_CPDS_V5_V16_SOURCE_LAW_BOUNDARY_CONTRACT_V1",
   "scientific_design_id": "faee370b-d0e6-4305-b3d8-da57dede7cab",
@@ -122,9 +135,9 @@
   "scientific_variable_drift": false,
   "source_authority": {
     "authority_id": "CPDS_V16_LINUX_KERNEL_GETRANDOM_FLAGS0_AUTHORITY_V1",
-    "authority_sha256": "9b8157993688bfed8e13b8d318003b1baff71747aac2dd304f1d8132ba2406b1",
+    "authority_sha256": "c2b4ab2036b072e0a8ad0c68a4fc28820e6ab31084b64ea2b0db7c3f62bf9576",
     "fresh_entropy_on_retry": false,
-    "implementation_sha256": "3d5ffc1f4f00d03283086044dbfdf611f898bb889b92d5ba02ef739b1ca84fea",
+    "implementation_sha256": "ec61580ac09a90b24293313be19aeb7b736ffae0390b708e20b54cb7f2f1a740",
     "one_shot": true,
     "partition_id": "CPDS_V16_33_ORDERED_DISJOINT_BLOCKS_X8_UINT16_BE_V1",
     "schema": "CPDS_V5_V16_SOURCE_AUTHORITY_V1",

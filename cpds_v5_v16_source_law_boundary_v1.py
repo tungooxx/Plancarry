@@ -19,10 +19,20 @@ import hashlib
 import inspect
 import os
 import pathlib
+import posix as _posix
 import sys
 from typing import Any, Iterable, Mapping, Sequence
 
 import cpds_v5_v15_authority_proof_v1 as v15
+
+# Import-time runtime identity anchors. These are engineering guards only: they
+# bind the Python os facade to CPython's builtin POSIX primitive before any
+# production source observation. They are not randomness-origin credentials and
+# do not claim resistance to arbitrary hostile rewrite of the whole process.
+_FROZEN_OS_MODULE_OBJECT = os
+_FROZEN_POSIX_MODULE_OBJECT = _posix
+_FROZEN_OS_GETRANDOM_OBJECT = os.getrandom
+_FROZEN_POSIX_GETRANDOM_OBJECT = _posix.getrandom
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DESIGN_ID = "faee370b-d0e6-4305-b3d8-da57dede7cab"
@@ -44,7 +54,7 @@ RELEASE_PROOF_SCHEMA = "CPDS_V5_V16_RELEASE_CONDITIONAL_LAW_PROOF_V1"
 # These component identities and the aggregate implementation identity are
 # prospectively frozen literals from the exact reviewed successor bytes.
 # Production authority never re-mints itself from current mutable function objects.
-FROZEN_PRIMITIVE_ATTESTATION_SHA256 = "4afce2738aab32f6cbdfdfe6867a7c08ee2dbc120c0afcc8b9d87047a8a4d41c"
+FROZEN_PRIMITIVE_ATTESTATION_SHA256 = "9278c95892304203f1f5be3edc336ae4862d371219e0d32b794733d1ff3bd26d"
 FROZEN_ONE_SHOT_SOURCE_CALL_SHA256 = "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7"
 FROZEN_V16_TRANSDUCER_SHA256 = "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
 FROZEN_V15_PARTITION_SHA256 = "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9"
@@ -53,7 +63,7 @@ FROZEN_V15_FACTORADIC_SHA256 = "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd157
 FROZEN_SOURCE_HASH_HELPER_SHA256 = "6f51a422f39418be33083497cb763611413faf3d19660ae8e5d79813df8f41b2"
 FROZEN_BINDING_VERIFIER_SHA256 = "d5eb6f28154906a6d90093c30ac7f7d576935a53c6d5e8009e8dbf52f3a01e20"
 FROZEN_PRODUCTION_ENTRYPOINT_SHA256 = "3901f048d367d6254adf8192723c9fbb0f93c46a20eca6473f44bb6c27276c25"
-FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "3d5ffc1f4f00d03283086044dbfdf611f898bb889b92d5ba02ef739b1ca84fea"
+FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "ec61580ac09a90b24293313be19aeb7b736ffae0390b708e20b54cb7f2f1a740"
 
 
 
@@ -103,13 +113,23 @@ def verify_source_law_assumption_declaration(assumption: Mapping[str, Any]) -> s
 
 
 def _production_source_primitive_attestation() -> dict[str, Any]:
-    fn = getattr(os, "getrandom", None)
+    # Do not use inspect.isbuiltin as the authority boundary: it is itself a
+    # mutable Python alias. Instead require the exact import-time os/posix
+    # object relation that CPython exposes for the Linux getrandom primitive.
     _require(sys.platform.startswith("linux"), "V16_SOURCE_PLATFORM")
-    _require(fn is not None and inspect.isbuiltin(fn) and getattr(fn, "__name__", "") == "getrandom", "V16_SOURCE_NOT_BUILTIN_GETRANDOM")
+    _require(os is _FROZEN_OS_MODULE_OBJECT, "V16_SOURCE_OS_MODULE_BINDING_DRIFT")
+    _require(_posix is _FROZEN_POSIX_MODULE_OBJECT, "V16_SOURCE_POSIX_MODULE_BINDING_DRIFT")
+    fn = getattr(os, "getrandom", None)
+    posix_fn = getattr(_posix, "getrandom", None)
+    _require(fn is _FROZEN_OS_GETRANDOM_OBJECT, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT")
+    _require(posix_fn is _FROZEN_POSIX_GETRANDOM_OBJECT, "V16_SOURCE_POSIX_GETRANDOM_BINDING_DRIFT")
+    _require(fn is posix_fn and _FROZEN_OS_GETRANDOM_OBJECT is _FROZEN_POSIX_GETRANDOM_OBJECT, "V16_SOURCE_PRIMITIVE_RELATION_DRIFT")
+    _require(getattr(fn, "__name__", "") == "getrandom" and getattr(fn, "__module__", "") == "posix", "V16_SOURCE_PRIMITIVE_METADATA_DRIFT")
     return {
         "primitive_id": SOURCE_PRIMITIVE_ID,
         "python_binding": "os.getrandom",
-        "python_binding_module": getattr(fn, "__module__", ""),
+        "python_binding_module": "posix",
+        "runtime_identity_relation": "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_IMPORT_TIME_FROZEN_BUILTIN",
         "flags": 0,
         "bytes_requested": SOURCE_REQUEST_BYTES,
         "attestation_scope": "RUNTIME_BINDING_ONLY_NOT_RANDOMNESS_ORIGIN_PROOF",
@@ -460,6 +480,7 @@ def verify_release_conditional_law_proof(proof: Mapping[str, Any], *, event_name
 
 def verify_production_noninjectability() -> dict[str, Any]:
     """Static proof that scientific source acquisition has no caller entropy channel."""
+    primitive_attestation = _production_source_primitive_attestation()
     source_sig = inspect.signature(_invoke_production_source_once)
     producer_sig = inspect.signature(produce_development_assignment_bundle)
     retry_sig = inspect.signature(retry_same_assignment_bundle)
@@ -499,6 +520,7 @@ def verify_production_noninjectability() -> dict[str, Any]:
         "retry_source_call_count": 0,
         "caller_entropy_in_production": False,
         "receipt_substitution_in_production": False,
+        "source_primitive_runtime_identity_relation": primitive_attestation["runtime_identity_relation"],
     }
 
 
