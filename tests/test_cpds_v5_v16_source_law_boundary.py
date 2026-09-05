@@ -104,21 +104,21 @@ class V16SourceLawBoundary(unittest.TestCase):
 
     def test_builtin_source_attestation_rejects_monkeypatched_source(self):
         with mock.patch.object(v16.os, "getrandom", lambda n, flags=0: b"\x00" * n):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_NOT_CPYTHON_BUILTIN"):
                 v16._production_source_primitive_attestation()
 
     def test_reviewer_inspect_isbuiltin_plus_getrandom_bypass_fails_closed(self):
         iid = invocation_id()
         chosen = lambda n, flags=0: b"\x00" * n
         with mock.patch.object(v16.inspect, "isbuiltin", lambda fn: True), mock.patch.object(v16.os, "getrandom", chosen):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_NOT_CPYTHON_BUILTIN"):
                 v16.produce_development_assignment_bundle(
                     family_ids=families(), consumed_family_id=consumed_family_id(),
                     context_root=context_root(), invocation_id=iid)
 
     def test_os_module_alias_substitution_fails_closed(self):
         iid = invocation_id()
-        fake_os = types.SimpleNamespace(getrandom=v16._FROZEN_OS_GETRANDOM_OBJECT)
+        fake_os = types.SimpleNamespace(getrandom=v16.os.getrandom)
         with mock.patch.object(v16, "os", fake_os):
             with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_MODULE_BINDING_DRIFT"):
                 v16.produce_development_assignment_bundle(
@@ -127,48 +127,58 @@ class V16SourceLawBoundary(unittest.TestCase):
 
     def test_posix_module_alias_substitution_fails_closed(self):
         iid = invocation_id()
-        fake_posix = types.SimpleNamespace(getrandom=v16._FROZEN_POSIX_GETRANDOM_OBJECT)
+        fake_posix = types.SimpleNamespace(getrandom=v16._posix.getrandom)
         with mock.patch.object(v16, "_posix", fake_posix):
             with self.assertRaisesRegex(ValueError, "V16_SOURCE_POSIX_MODULE_BINDING_DRIFT"):
                 v16.produce_development_assignment_bundle(
                     family_ids=families(), consumed_family_id=consumed_family_id(),
                     context_root=context_root(), invocation_id=iid)
 
-    def test_import_time_getrandom_anchor_alias_substitution_fails_closed(self):
+    def test_reviewer_four_binding_frozen_anchor_pair_bypass_fails_closed(self):
         iid = invocation_id()
-        fake = lambda n, flags=0: b"\x00" * n
-        with mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", fake):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+        def chosen(n, flags=0):
+            return b"\x00" * n
+        chosen.__name__ = "getrandom"
+        chosen.__module__ = "posix"
+        with mock.patch.object(v16.os, "getrandom", chosen), \
+             mock.patch.object(v16._posix, "getrandom", chosen), \
+             mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", chosen, create=True), \
+             mock.patch.object(v16, "_FROZEN_POSIX_GETRANDOM_OBJECT", chosen, create=True):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_NOT_CPYTHON_BUILTIN"):
                 v16.produce_development_assignment_bundle(
                     family_ids=families(), consumed_family_id=consumed_family_id(),
                     context_root=context_root(), invocation_id=iid)
 
-    def test_paired_live_getrandom_and_anchor_substitution_still_fails_on_posix_relation(self):
-        iid = invocation_id()
+    def test_legacy_injected_frozen_anchors_are_not_authority(self):
         fake = lambda n, flags=0: b"\x00" * n
-        with mock.patch.object(v16.os, "getrandom", fake), mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", fake):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_RELATION_DRIFT"):
-                v16.produce_development_assignment_bundle(
-                    family_ids=families(), consumed_family_id=consumed_family_id(),
-                    context_root=context_root(), invocation_id=iid)
+        with mock.patch.object(v16, "_FROZEN_OS_GETRANDOM_OBJECT", fake, create=True), \
+             mock.patch.object(v16, "_FROZEN_POSIX_GETRANDOM_OBJECT", fake, create=True):
+            att = v16._production_source_primitive_attestation()
+            self.assertEqual(att["runtime_identity_relation"], "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_CPYTHON_POSIX_BOUND_BUILTIN")
 
-    def test_paired_os_and_posix_getrandom_substitution_fails_on_import_anchor(self):
+    def test_paired_live_getrandom_substitution_fails_builtin_owner_guard(self):
         iid = invocation_id()
         fake = lambda n, flags=0: b"\x00" * n
         with mock.patch.object(v16.os, "getrandom", fake), mock.patch.object(v16._posix, "getrandom", fake):
-            with self.assertRaisesRegex(ValueError, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT"):
+            with self.assertRaisesRegex(ValueError, "V16_SOURCE_PRIMITIVE_NOT_CPYTHON_BUILTIN"):
                 v16.produce_development_assignment_bundle(
                     family_ids=families(), consumed_family_id=consumed_family_id(),
                     context_root=context_root(), invocation_id=iid)
 
-    def test_runtime_identity_relation_is_exact_and_not_inspect_based(self):
+    def test_runtime_identity_relation_is_exact_and_not_inspect_or_anchor_based(self):
         att = v16._production_source_primitive_attestation()
         self.assertIs(v16.os.getrandom, v16._posix.getrandom)
-        self.assertIs(v16.os.getrandom, v16._FROZEN_OS_GETRANDOM_OBJECT)
-        self.assertEqual(att["runtime_identity_relation"], "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_IMPORT_TIME_FROZEN_BUILTIN")
+        self.assertIs(v16.os.getrandom.__self__, v16._posix)
+        self.assertIs(type(v16.os.getrandom), type([].append))
+        self.assertEqual(att["runtime_identity_relation"], "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_CPYTHON_POSIX_BOUND_BUILTIN")
         tree = ast.parse(inspect.getsource(v16._production_source_primitive_attestation))
         isbuiltin_calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute) and n.func.attr == "isbuiltin"]
         self.assertEqual(isbuiltin_calls, [])
+        source = inspect.getsource(v16._production_source_primitive_attestation)
+        self.assertNotIn("_FROZEN_OS_GETRANDOM_OBJECT", source)
+        self.assertNotIn("_FROZEN_POSIX_GETRANDOM_OBJECT", source)
+        self.assertFalse(hasattr(v16, "_FROZEN_OS_GETRANDOM_OBJECT"))
+        self.assertFalse(hasattr(v16, "_FROZEN_POSIX_GETRANDOM_OBJECT"))
 
     def test_frozen_authority_does_not_rehash_mutated_source_helper(self):
         before = v16.production_source_authority()

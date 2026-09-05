@@ -25,14 +25,13 @@ from typing import Any, Iterable, Mapping, Sequence
 
 import cpds_v5_v15_authority_proof_v1 as v15
 
-# Import-time runtime identity anchors. These are engineering guards only: they
-# bind the Python os facade to CPython's builtin POSIX primitive before any
-# production source observation. They are not randomness-origin credentials and
-# do not claim resistance to arbitrary hostile rewrite of the whole process.
-_FROZEN_OS_MODULE_OBJECT = os
-_FROZEN_POSIX_MODULE_OBJECT = _posix
-_FROZEN_OS_GETRANDOM_OBJECT = os.getrandom
-_FROZEN_POSIX_GETRANDOM_OBJECT = _posix.getrandom
+# Source authority deliberately does not live in writable module-global
+# "frozen" object aliases.  The production boundary instead checks structural
+# properties of CPython's C-bound posix.getrandom object plus canonical module
+# registry identity immediately before acquisition.  This is an engineering
+# same-process binding guard, not randomness-origin proof and not resistance to
+# arbitrary hostile rewrite of the entire interpreter (including sys.modules or
+# builtins).
 
 ROOT = pathlib.Path(__file__).resolve().parent
 DESIGN_ID = "faee370b-d0e6-4305-b3d8-da57dede7cab"
@@ -54,7 +53,7 @@ RELEASE_PROOF_SCHEMA = "CPDS_V5_V16_RELEASE_CONDITIONAL_LAW_PROOF_V1"
 # These component identities and the aggregate implementation identity are
 # prospectively frozen literals from the exact reviewed successor bytes.
 # Production authority never re-mints itself from current mutable function objects.
-FROZEN_PRIMITIVE_ATTESTATION_SHA256 = "9278c95892304203f1f5be3edc336ae4862d371219e0d32b794733d1ff3bd26d"
+FROZEN_PRIMITIVE_ATTESTATION_SHA256 = "39f65118fb7f258a6a67ffc5f610f470ead05057f5897fab95748af9cec067fe"
 FROZEN_ONE_SHOT_SOURCE_CALL_SHA256 = "ab376b946d7670a3bf897da41c45b8100eef1d1f34ef1242aeb9ff0bf489b1e7"
 FROZEN_V16_TRANSDUCER_SHA256 = "015e99ef43beb686f3f41d078efae347c9fbe8bf2f1389b8b03fdd35fa7d39c1"
 FROZEN_V15_PARTITION_SHA256 = "d12ce8825c00c6366fb9fb72ee550e26169b8231b8d81e34839fd4c5359281b9"
@@ -63,7 +62,7 @@ FROZEN_V15_FACTORADIC_SHA256 = "462b038d230b121db5ca6ecdf0e0f8c0136685d3876fd157
 FROZEN_SOURCE_HASH_HELPER_SHA256 = "6f51a422f39418be33083497cb763611413faf3d19660ae8e5d79813df8f41b2"
 FROZEN_BINDING_VERIFIER_SHA256 = "d5eb6f28154906a6d90093c30ac7f7d576935a53c6d5e8009e8dbf52f3a01e20"
 FROZEN_PRODUCTION_ENTRYPOINT_SHA256 = "3901f048d367d6254adf8192723c9fbb0f93c46a20eca6473f44bb6c27276c25"
-FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "ec61580ac09a90b24293313be19aeb7b736ffae0390b708e20b54cb7f2f1a740"
+FROZEN_PRODUCTION_SOURCE_IMPLEMENTATION_SHA256 = "1ee84c398ee5ecd38c19c5dd3c07457fe47de9c41da10c4b2416a05c2ce4b369"
 
 
 
@@ -113,23 +112,27 @@ def verify_source_law_assumption_declaration(assumption: Mapping[str, Any]) -> s
 
 
 def _production_source_primitive_attestation() -> dict[str, Any]:
-    # Do not use inspect.isbuiltin as the authority boundary: it is itself a
-    # mutable Python alias. Instead require the exact import-time os/posix
-    # object relation that CPython exposes for the Linux getrandom primitive.
+    # inspect.isbuiltin and writable module-global object aliases are not
+    # authority.  Require the canonical interpreter module identities, then
+    # require os.getrandom and posix.getrandom to be the *same* CPython
+    # builtin-function object, C-bound to the canonical posix module.  A Python
+    # function can spoof __name__/__module__ strings but cannot satisfy this
+    # builtin type + __self__ ownership relation.
     _require(sys.platform.startswith("linux"), "V16_SOURCE_PLATFORM")
-    _require(os is _FROZEN_OS_MODULE_OBJECT, "V16_SOURCE_OS_MODULE_BINDING_DRIFT")
-    _require(_posix is _FROZEN_POSIX_MODULE_OBJECT, "V16_SOURCE_POSIX_MODULE_BINDING_DRIFT")
+    _require(sys.modules.get("os") is os, "V16_SOURCE_OS_MODULE_BINDING_DRIFT")
+    _require(sys.modules.get("posix") is _posix, "V16_SOURCE_POSIX_MODULE_BINDING_DRIFT")
     fn = getattr(os, "getrandom", None)
     posix_fn = getattr(_posix, "getrandom", None)
-    _require(fn is _FROZEN_OS_GETRANDOM_OBJECT, "V16_SOURCE_OS_GETRANDOM_BINDING_DRIFT")
-    _require(posix_fn is _FROZEN_POSIX_GETRANDOM_OBJECT, "V16_SOURCE_POSIX_GETRANDOM_BINDING_DRIFT")
-    _require(fn is posix_fn and _FROZEN_OS_GETRANDOM_OBJECT is _FROZEN_POSIX_GETRANDOM_OBJECT, "V16_SOURCE_PRIMITIVE_RELATION_DRIFT")
+    builtin_function_type = type([].append)
+    _require(type(fn) is builtin_function_type and type(posix_fn) is builtin_function_type, "V16_SOURCE_PRIMITIVE_NOT_CPYTHON_BUILTIN")
+    _require(fn is posix_fn, "V16_SOURCE_PRIMITIVE_RELATION_DRIFT")
+    _require(getattr(fn, "__self__", None) is _posix and getattr(posix_fn, "__self__", None) is _posix, "V16_SOURCE_PRIMITIVE_OWNER_DRIFT")
     _require(getattr(fn, "__name__", "") == "getrandom" and getattr(fn, "__module__", "") == "posix", "V16_SOURCE_PRIMITIVE_METADATA_DRIFT")
     return {
         "primitive_id": SOURCE_PRIMITIVE_ID,
         "python_binding": "os.getrandom",
         "python_binding_module": "posix",
-        "runtime_identity_relation": "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_IMPORT_TIME_FROZEN_BUILTIN",
+        "runtime_identity_relation": "OS_GETRANDOM_IS_POSIX_GETRANDOM_IS_CPYTHON_POSIX_BOUND_BUILTIN",
         "flags": 0,
         "bytes_requested": SOURCE_REQUEST_BYTES,
         "attestation_scope": "RUNTIME_BINDING_ONLY_NOT_RANDOMNESS_ORIGIN_PROOF",
