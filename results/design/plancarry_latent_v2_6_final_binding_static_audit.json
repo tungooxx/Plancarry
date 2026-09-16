@@ -1,0 +1,26 @@
+{
+  "allowed_runtime_guard_changes": [
+    "GTX1650 device substring -> exact RTX3050 device name",
+    "add exact torch 2.13.0+cu130 guard"
+  ],
+  "checks": {
+    "bridge_unchanged": true,
+    "bundle_load_pass": true,
+    "client_unchanged": true,
+    "confirmation_sealed": true,
+    "corrected_design_sha": true,
+    "corrected_experiment": true,
+    "corrected_prediction": true,
+    "old_gtx_guard_absent": true,
+    "quarantined_ids_absent_from_executable": true,
+    "rtx3050_exact_device_guard": true,
+    "runner_nonruntime_semantic_equal": true,
+    "scientific_variables_changed_empty": true,
+    "torch_exact_guard": true,
+    "validator_nonbundle_semantic_equal": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_6_FINAL_BINDING_SEMANTIC_STATIC_AUDIT",
+  "runner_mismatches_after_provenance_normalization": [],
+  "scientific_result": "NOT_ASSESSED",
+  "validator_mismatches_after_provenance_normalization": []
+}

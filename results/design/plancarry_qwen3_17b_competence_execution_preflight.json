@@ -1,0 +1,27 @@
+{
+  "all_hashes_match": true,
+  "existing_science_outputs": [],
+  "expected": {
+    "bridge": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "client": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+    "design": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+    "eng_audit": "35053849c0c8563f2e4568f771b1c165c6c6fa6b0b73774085ff911663af6897",
+    "manifest": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "review_support": "75f118e5142f560c370d76643f7221198d6906e9e007af87627409b29a3e2ceb",
+    "runner": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+    "validator": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28"
+  },
+  "hashes": {
+    "bridge": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "client": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+    "design": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+    "eng_audit": "35053849c0c8563f2e4568f771b1c165c6c6fa6b0b73774085ff911663af6897",
+    "manifest": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "review_support": "75f118e5142f560c370d76643f7221198d6906e9e007af87627409b29a3e2ceb",
+    "runner": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+    "validator": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28"
+  },
+  "kind": "QWEN3_COMPETENCE_EXECUTION_PREFLIGHT_NO_MODEL",
+  "model_calls": 0,
+  "port_8891_free": false
+}

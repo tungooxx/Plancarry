@@ -1,0 +1,31 @@
+{
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_T1_DEV_VAST4080S_HOST_ADAPTER_AUDIT_V1",
+  "model_calls": 0,
+  "oom_retry_runner_path": "replay_residual_t1_direct_override_dev_v1_2_oom_retry.py",
+  "oom_retry_runner_sha256": "7554699b299a05b930e12830a9a8c5ba1b7ca2c4e885a7d506dbfeb134e80d00",
+  "review_required_before_science": true,
+  "scientific_invariants_held": [
+    "dev0..31",
+    "Qwen/Qwen3-1.7B exact revision",
+    "BF16 no quantization/offload",
+    "natural-plan producer semantics",
+    "same-index OOM retry max3",
+    "seven controls",
+    "minimum final qualified=16",
+    "no confirmation32..51",
+    "no T1R52..63",
+    "no valid splits",
+    "USER_DIRECTED_SANITY_GATE_OVERRIDE"
+  ],
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "source_host_adapter_path": "replay_residual_t1_direct_override_dev_v1_3_vast4070s.py",
+  "source_host_adapter_sha256": "14283b740473dd84580a548282bba9c1950b13ff68a9c539501938569296cac2",
+  "technical_change": {
+    "from_device": "NVIDIA GeForce RTX 4070 SUPER",
+    "to_device": "NVIDIA GeForce RTX 4080 SUPER"
+  },
+  "wrapper_path": "replay_residual_t1_direct_override_dev_v1_4_vast4080s.py",
+  "wrapper_sha256": "60c0aea6f903660a2d3ba27cd762c31ada508b319e52e9108501937d896eb87d"
+}

@@ -1,0 +1,43 @@
+{
+  "authoritative_sanity_v1_1_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+  "changed_leaf_count": 17,
+  "changed_leaf_paths": [
+    "future_protocol_binding.latent_payload_provenance",
+    "future_protocol_binding.norm_and_operating_point",
+    "future_protocol_binding.replay_pairing",
+    "future_protocol_binding.sanity_v1_1_hardening",
+    "kind",
+    "lineage_rebind.authoritative_sanity_v1_1_path",
+    "lineage_rebind.authoritative_sanity_v1_1_sha256",
+    "lineage_rebind.environment_execution",
+    "lineage_rebind.model_calls",
+    "lineage_rebind.outcomes_accessed",
+    "lineage_rebind.reason",
+    "lineage_rebind.sanity_v1_to_v1_1_diff_audit_path",
+    "lineage_rebind.sanity_v1_to_v1_1_diff_audit_sha256",
+    "lineage_rebind.source_confirmation_freeze_path",
+    "lineage_rebind.source_confirmation_freeze_sha256",
+    "source_sanity_prereg.path",
+    "source_sanity_prereg.sha256"
+  ],
+  "core_equal": {
+    "control_mapping": true,
+    "freeze_rule": true,
+    "population": true,
+    "replication_reserve": true,
+    "sealing_guards": true,
+    "untouched_confirmation": true
+  },
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_CONFIRMATION_V1_TO_V1_1_LINEAGE_REBIND_DIFF_AUDIT",
+  "model_calls": 0,
+  "outcomes_accessed": false,
+  "passed": true,
+  "rebound_path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json",
+  "rebound_sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7",
+  "sanity_v1_to_v1_1_diff_audit_sha256": "73b9eb775aa9cc0011ba71e1e176fc069f69abc3e1fa3ef3000495875b38ff66",
+  "scientific_variables_changed": [],
+  "source_path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_20260821.json",
+  "source_sha256": "1bb9270305130c51d0ea2c41a5de5ef36b24460a93e3d8f7cf0dd181dea9ef03",
+  "unexpected_changed_paths": []
+}

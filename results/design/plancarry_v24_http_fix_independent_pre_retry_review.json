@@ -1,0 +1,43 @@
+{
+  "alfworld_scientific_model_calls_in_review": false,
+  "checks": {
+    "auth_header_preserved": true,
+    "client_checks_ok_before_return": true,
+    "client_requires_dict": true,
+    "client_requires_result": true,
+    "client_unwraps_result": true,
+    "compiler_live": true,
+    "discovery_selection_absent": true,
+    "failed_run_pre_contexts": true,
+    "hash:plancarry_latent_v2_4_runner.py": true,
+    "hash:plancarry_latent_v2_4_validator.py": true,
+    "hash:results/design/plancarry_latent_v2_2_unrelated_donor_map.json": true,
+    "hash:results/design/plancarry_latent_v2_4_prereg_immutable_20260819T1624Z.json": true,
+    "hash:results/design/plancarry_latent_v2_matched_pair_manifest.json": true,
+    "hash:results/design/plancarry_whitebox_http_envelope_real_gtx1650_check.json": true,
+    "hash:results/design/plancarry_whitebox_http_envelope_repair_audit.json": true,
+    "hash:whitebox_bridge.py": true,
+    "hash:whitebox_client.py": true,
+    "real:capture_ok": true,
+    "real:nonzero_add_changes_score": true,
+    "real:nonzero_add_finite": true,
+    "real:provenance_exact": true,
+    "real:score_ok": true,
+    "real:self_patch_le_1e_4": true,
+    "real:zero_add_le_1e_6": true,
+    "real_check_pass": true,
+    "real_non_alfworld": true
+  },
+  "confirmation_accessed": false,
+  "engineering_result_id": "95ba93dc-b05a-47aa-9fc8-2544fb6d0836",
+  "failed_run_id": "c043e8f3-81c3-438d-9f1d-3c18a40b4563",
+  "kind": "V24_HTTP_FIX_INDEPENDENT_PRE_RETRY_REVIEW",
+  "real_http_metrics": {
+    "nonzero_add_max_abs": 0.004115104675292969,
+    "self_patch_max_abs": 0.0,
+    "zero_add_max_abs": 0.0
+  },
+  "reviewer_worker": "864d68d1-1906-4392-a1d9-ff65cb0bc5b2",
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "PASS_FOR_T1_DISCOVERY_RETRY"
+}

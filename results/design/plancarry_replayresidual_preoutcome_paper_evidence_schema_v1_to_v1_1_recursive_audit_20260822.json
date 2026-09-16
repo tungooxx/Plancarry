@@ -1,0 +1,28 @@
+{
+  "all_pass": true,
+  "changed_paths": [
+    "tables.T0_representation_sanity.technical_invalid_reporting",
+    "tables.T1_primary_causal_confirmation.required_arms"
+  ],
+  "environment_execution": 0,
+  "expected_changed_paths": [
+    "tables.T0_representation_sanity.technical_invalid_reporting",
+    "tables.T1_primary_causal_confirmation.required_arms"
+  ],
+  "failed_independent_review_sha256": "3e849d74d76d1089b476fa5c718c371d7fcba4fd3db1be59679aa29cbe28d69b",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PAPER_EVIDENCE_SCHEMA_V1_TO_V1_1_RECURSIVE_AUDIT",
+  "model_calls": 0,
+  "preserved_semantics": "All other tables, figures, claim boundaries, metrics, gates, populations, statistics, systems fairness, external-validity separation, negative-outcome reporting, and novelty exclusions are byte-semantically unchanged after JSON normalization.",
+  "reporting_only_changes": [
+    "Enumerate exact ten T1 v1.1 arms with no shorthand/substitution.",
+    "TECHNICAL_INVALID unreached T0 metrics are NA/NOT_ASSESSED, never zero or aggregated; exact technical guard remains reportable."
+  ],
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "source_path": "results/design/plancarry_replayresidual_preoutcome_paper_evidence_schema_v1_20260821.json",
+  "source_sha256": "4f0a1b35bda1cd941ff0c296a44937e05ba053c335656fe77fc01b9a8c577d70",
+  "successor_path": "results/design/plancarry_replayresidual_preoutcome_paper_evidence_schema_v1_1_20260822.json",
+  "successor_sha256": "b01f78d4c8d0bcd903b5e057e2261c8af385e96f30d72a629429016fdbae363c",
+  "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "unexpected_changed_paths": []
+}

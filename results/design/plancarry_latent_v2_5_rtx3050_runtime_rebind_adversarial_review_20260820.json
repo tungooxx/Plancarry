@@ -1,0 +1,337 @@
+{
+  "base_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "check_count": 64,
+  "checks": [
+    {
+      "detail": "",
+      "name": "base_sha",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "rebind_sha",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "machine_audit_sha",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_sha",
+      "passed": true
+    },
+    {
+      "detail": "['/model/bridge_required_real_verification', '/model/execution_host_policy', '/runtime_rebind_provenance', '/validity_guards/3']",
+      "name": "diff_paths_exact",
+      "passed": true
+    },
+    {
+      "detail": "4",
+      "name": "diff_count_4",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "audit_exact_equal",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "audit_allowed_paths_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "audit_scientific_variables_empty",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "prospective_runtime_only_kind",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "base_link_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "engineering_result_link",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_link",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "runtime_only_flag",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "scientific_variables_changed_empty",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "no_science_before_rebind",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_unseen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "valid_seen_unseen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "device_frozen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "driver_frozen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "torch_frozen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "model_id_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "model_revision_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "precision_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "quantization_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "transformers_required_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "tokenizers_required_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "prefix_stable_bridge_sha256_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "whitebox_client_sha256_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "manifest_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "split_20_20",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "layers_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "alphas_unchanged",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "plumbing_guard_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "zero_tolerance_frozen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "self_tolerance_frozen",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "prefix_scoring_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "intervention_math_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "selection_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "primary_confirmation_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "expressivity_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "pair_variable_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "validity_guard_count_same",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "novelty_T1_scope_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "prediction_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "research_question_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_acceptance",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_32_cases",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_all_noop",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_all_under_120",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_zero_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qualification_self_exact",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "no_latency_blowup",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "no_memory_blowup",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_device",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_torch",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_model_rev",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_fp16",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_no_quant",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_transformers",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_tokenizers",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_no_science",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_no_confirmation",
+      "passed": true
+    },
+    {
+      "detail": "",
+      "name": "qual_no_valid_splits",
+      "passed": true
+    }
+  ],
+  "kind": "PLANCARRY_V25_RTX3050_RUNTIME_REBIND_ADVERSARIAL_REVIEW",
+  "machine_audit_sha256": "3f0ac4e6cf057cc3dd22bd4e0e2d1434a2812c24c9b9355dbcbafc151d8c415e",
+  "passed_count": 64,
+  "qualification_sha256": "82ce82653d7f4808b31dc2854a37addc31ddcfd2f2d3180f5b70ae4ef44dad9f",
+  "rebind_design_sha256": "4287f59c4af2bb187343c8010bbea9a84322f6852c697683d8e89987b1af97cd",
+  "registration_condition": "Register a NEW Experiment identity prospectively; do not mutate or execute old GTX1650 Experiment 7d53 on RTX3050. New executable runner/validator must bind the new Experiment/Prediction plus rebind design/review hashes before discovery.",
+  "review_work_item_id": "89c98c01-5af4-48a2-9c15-ba36ac48afa5",
+  "science_accessed_during_review": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "verdict": "PASS_FOR_RTX3050_REGISTRATION"
+}

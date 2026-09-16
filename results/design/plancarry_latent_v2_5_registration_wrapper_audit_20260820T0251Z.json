@@ -1,0 +1,20 @@
+{
+  "added_keys": [
+    "canonical_review_provenance",
+    "control",
+    "intervention"
+  ],
+  "alias_derivation": {
+    "intervention_active_exact": true,
+    "intervention_alphas_exact": true,
+    "intervention_archived_exact": true,
+    "intervention_random_exact": true,
+    "intervention_unrelated_exact": true,
+    "no_science_or_confirmation": true
+  },
+  "authoritative_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "kind": "V25_REGISTRATION_WRAPPER_AUDIT",
+  "registration_wrapper_sha256": "4baeb09009e66574ffa881e12ea8d27c2386dbe54ce3cb07c2c150f080213f9b",
+  "scientific_result": "NOT_ASSESSED",
+  "source_keys_exactly_unchanged": true
+}

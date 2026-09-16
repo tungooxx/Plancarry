@@ -1,0 +1,61 @@
+{
+  "dtype": "float16",
+  "expected_device_substring": "RTX 3050",
+  "files": [
+    {
+      "bytes": 804,
+      "name": "README.md",
+      "sha256": "0bd38b311fb632c6438834fa649e74b4241ae77219278a31f974b7391b92e3dd"
+    },
+    {
+      "bytes": 479,
+      "name": "launch_linux.sh",
+      "sha256": "7f2542fb3a785153b6d51fefaeac96ec078252acbe2b2ed7c6f832771a598fae"
+    },
+    {
+      "bytes": 582,
+      "name": "launch_windows.ps1",
+      "sha256": "3a736258ffdb082f40a92cc7a4f8ef82b742c575eff6776b6b451d978c09044f"
+    },
+    {
+      "bytes": 1528,
+      "name": "preflight.py",
+      "sha256": "29827ff2e7c60e5aab5562e5b6a162a3917017a1bbd46454ed815ebfbddd296a"
+    },
+    {
+      "bytes": 1993,
+      "name": "probe.py",
+      "sha256": "b262dff0aa02397b5f899acc363018c18a48a5c208ba0ce8957d18d2f6b2b98e"
+    },
+    {
+      "bytes": 469,
+      "name": "requirements.txt",
+      "sha256": "e7f169d9c78240ba6ddc4f21c7a8abf14fe884d9358d02a5124186bd52689c9c"
+    },
+    {
+      "bytes": 2822,
+      "name": "smoke.py",
+      "sha256": "78c5585fcdca0f9cd4814099886ae57e0ebef2f6eb4a1f19009102acef3b9d97"
+    },
+    {
+      "bytes": 26094,
+      "name": "whitebox_bridge.py",
+      "sha256": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2"
+    },
+    {
+      "bytes": 4810,
+      "name": "whitebox_client.py",
+      "sha256": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae"
+    }
+  ],
+  "kind": "plancarry_rtx3050_whitebox_deploy_bundle_v1",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "port": 8765,
+  "quantization": "NONE",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "scientific_result": "NOT_ASSESSED",
+  "upstream": {
+    "whitebox_bridge.py": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+    "whitebox_client.py": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae"
+  }
+}

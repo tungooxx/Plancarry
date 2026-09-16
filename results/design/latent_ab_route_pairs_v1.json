@@ -1,0 +1,430 @@
+{
+  "kind": "PLANCARRY_LATENT_ROUTE_ORDER_PAIRS_V1",
+  "source_manifest_sha256": "a5d7259238c957f96486ea92fe9b9ce9fa2423283ef83a0b104efe0d17b2d3cf",
+  "pair_selection": "first 32 viable in frozen candidate order; X/Y chosen by sha256(salt+game+command), requiring X->Y and Y->X both environment-legal",
+  "salt": "plancarry-latent-route-pair-v1-2026-08-19",
+  "pair_count": 32,
+  "localization_count": 8,
+  "confirmatory_count": 24,
+  "lexical_control": "Plan A=X then Y; Plan B=Y then X. Same command strings/token multiset, only order differs.",
+  "pairs": [
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-ArmChair-206/trial_T20190909_023729_905485/game.tw-pddl",
+      "route_x": "go to tvstand 2",
+      "route_y": "go to armchair 1",
+      "plan_a": [
+        "go to tvstand 2",
+        "go to armchair 1"
+      ],
+      "plan_b": [
+        "go to armchair 1",
+        "go to tvstand 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pen-None-Drawer-305/trial_T20190907_224041_853486/game.tw-pddl",
+      "route_x": "go to drawer 5",
+      "route_y": "go to laundryhamper 1",
+      "plan_a": [
+        "go to drawer 5",
+        "go to laundryhamper 1"
+      ],
+      "plan_b": [
+        "go to laundryhamper 1",
+        "go to drawer 5"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_064648_618132/game.tw-pddl",
+      "route_x": "go to armchair 3",
+      "route_y": "go to drawer 1",
+      "plan_a": [
+        "go to armchair 3",
+        "go to drawer 1"
+      ],
+      "plan_b": [
+        "go to drawer 1",
+        "go to armchair 3"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pan-None-CounterTop-8/trial_T20190908_105438_904625/game.tw-pddl",
+      "route_x": "go to cabinet 10",
+      "route_y": "go to countertop 4",
+      "plan_a": [
+        "go to cabinet 10",
+        "go to countertop 4"
+      ],
+      "plan_b": [
+        "go to countertop 4",
+        "go to cabinet 10"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Tomato-None-Microwave-6/trial_T20190907_235735_175320/game.tw-pddl",
+      "route_x": "go to cabinet 5",
+      "route_y": "go to countertop 2",
+      "plan_a": [
+        "go to cabinet 5",
+        "go to countertop 2"
+      ],
+      "plan_b": [
+        "go to countertop 2",
+        "go to cabinet 5"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-GarbageCan-415/trial_T20190907_070408_668418/game.tw-pddl",
+      "route_x": "go to drawer 1",
+      "route_y": "go to shelf 2",
+      "plan_a": [
+        "go to drawer 1",
+        "go to shelf 2"
+      ],
+      "plan_b": [
+        "go to shelf 2",
+        "go to drawer 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Shelf-310/trial_T20190908_023553_529151/game.tw-pddl",
+      "route_x": "go to sidetable 1",
+      "route_y": "go to drawer 2",
+      "plan_a": [
+        "go to sidetable 1",
+        "go to drawer 2"
+      ],
+      "plan_b": [
+        "go to drawer 2",
+        "go to sidetable 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_040329_875526/game.tw-pddl",
+      "route_x": "go to sidetable 1",
+      "route_y": "go to drawer 2",
+      "plan_a": [
+        "go to sidetable 1",
+        "go to drawer 2"
+      ],
+      "plan_b": [
+        "go to drawer 2",
+        "go to sidetable 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Cabinet-403/trial_T20190908_221042_476220/game.tw-pddl",
+      "route_x": "go to towelholder 2",
+      "route_y": "go to countertop 1",
+      "plan_a": [
+        "go to towelholder 2",
+        "go to countertop 1"
+      ],
+      "plan_b": [
+        "go to countertop 1",
+        "go to towelholder 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-PepperShaker-None-CounterTop-27/trial_T20190909_010836_535047/game.tw-pddl",
+      "route_x": "go to cabinet 9",
+      "route_y": "go to stoveburner 3",
+      "plan_a": [
+        "go to cabinet 9",
+        "go to stoveburner 3"
+      ],
+      "plan_b": [
+        "go to stoveburner 3",
+        "go to cabinet 9"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pen-None-Shelf-319/trial_T20190907_203129_732698/game.tw-pddl",
+      "route_x": "go to shelf 3",
+      "route_y": "go to dresser 1",
+      "plan_a": [
+        "go to shelf 3",
+        "go to dresser 1"
+      ],
+      "plan_b": [
+        "go to dresser 1",
+        "go to shelf 3"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Cloth-None-CounterTop-414/trial_T20190909_064959_475757/game.tw-pddl",
+      "route_x": "go to cabinet 7",
+      "route_y": "go to cabinet 3",
+      "plan_a": [
+        "go to cabinet 7",
+        "go to cabinet 3"
+      ],
+      "plan_b": [
+        "go to cabinet 3",
+        "go to cabinet 7"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Sofa-228/trial_T20190908_122625_912366/game.tw-pddl",
+      "route_x": "go to sidetable 2",
+      "route_y": "go to diningtable 1",
+      "plan_a": [
+        "go to sidetable 2",
+        "go to diningtable 1"
+      ],
+      "plan_b": [
+        "go to diningtable 1",
+        "go to sidetable 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Newspaper-None-Sofa-211/trial_T20190906_175004_203092/game.tw-pddl",
+      "route_x": "go to garbagecan 1",
+      "route_y": "go to shelf 1",
+      "plan_a": [
+        "go to garbagecan 1",
+        "go to shelf 1"
+      ],
+      "plan_b": [
+        "go to shelf 1",
+        "go to garbagecan 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Desk-309/trial_T20190918_231048_923335/game.tw-pddl",
+      "route_x": "go to safe 1",
+      "route_y": "go to desk 1",
+      "plan_a": [
+        "go to safe 1",
+        "go to desk 1"
+      ],
+      "plan_b": [
+        "go to desk 1",
+        "go to safe 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Desk-304/trial_T20190907_192658_005358/game.tw-pddl",
+      "route_x": "go to desk 1",
+      "route_y": "go to laundryhamper 1",
+      "plan_a": [
+        "go to desk 1",
+        "go to laundryhamper 1"
+      ],
+      "plan_b": [
+        "go to laundryhamper 1",
+        "go to desk 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Watch-None-DiningTable-326/trial_T20190908_132712_949739/game.tw-pddl",
+      "route_x": "go to shelf 12",
+      "route_y": "go to shelf 5",
+      "plan_a": [
+        "go to shelf 12",
+        "go to shelf 5"
+      ],
+      "plan_b": [
+        "go to shelf 5",
+        "go to shelf 12"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Newspaper-None-Ottoman-203/trial_T20190908_173745_461691/game.tw-pddl",
+      "route_x": "go to drawer 7",
+      "route_y": "go to diningtable 1",
+      "plan_a": [
+        "go to drawer 7",
+        "go to diningtable 1"
+      ],
+      "plan_b": [
+        "go to diningtable 1",
+        "go to drawer 7"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SoapBottle-None-Toilet-408/trial_T20190907_084114_235446/game.tw-pddl",
+      "route_x": "go to cabinet 3",
+      "route_y": "go to towelholder 1",
+      "plan_a": [
+        "go to cabinet 3",
+        "go to towelholder 1"
+      ],
+      "plan_b": [
+        "go to towelholder 1",
+        "go to cabinet 3"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Watch-None-DiningTable-326/trial_T20190912_074626_851427/game.tw-pddl",
+      "route_x": "go to shelf 9",
+      "route_y": "go to drawer 2",
+      "plan_a": [
+        "go to shelf 9",
+        "go to drawer 2"
+      ],
+      "plan_b": [
+        "go to drawer 2",
+        "go to shelf 9"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Dresser-217/trial_T20190910_203316_646156/game.tw-pddl",
+      "route_x": "go to armchair 1",
+      "route_y": "go to drawer 4",
+      "plan_a": [
+        "go to armchair 1",
+        "go to drawer 4"
+      ],
+      "plan_b": [
+        "go to drawer 4",
+        "go to armchair 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-PepperShaker-None-Drawer-5/trial_T20190908_195236_701456/game.tw-pddl",
+      "route_x": "go to shelf 2",
+      "route_y": "go to drawer 1",
+      "plan_a": [
+        "go to shelf 2",
+        "go to drawer 1"
+      ],
+      "plan_b": [
+        "go to drawer 1",
+        "go to shelf 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-Desk-310/trial_T20190909_142909_426067/game.tw-pddl",
+      "route_x": "go to cabinet 2",
+      "route_y": "go to drawer 1",
+      "plan_a": [
+        "go to cabinet 2",
+        "go to drawer 1"
+      ],
+      "plan_b": [
+        "go to drawer 1",
+        "go to cabinet 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Sofa-225/trial_T20190908_131203_170721/game.tw-pddl",
+      "route_x": "go to shelf 3",
+      "route_y": "go to armchair 1",
+      "plan_a": [
+        "go to shelf 3",
+        "go to armchair 1"
+      ],
+      "plan_b": [
+        "go to armchair 1",
+        "go to shelf 3"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-HandTowel-None-GarbageCan-416/trial_T20190908_234752_613977/game.tw-pddl",
+      "route_x": "go to drawer 2",
+      "route_y": "go to garbagecan 1",
+      "plan_a": [
+        "go to drawer 2",
+        "go to garbagecan 1"
+      ],
+      "plan_b": [
+        "go to garbagecan 1",
+        "go to drawer 2"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Toilet-420/trial_T20190909_113828_525912/game.tw-pddl",
+      "route_x": "go to garbagecan 1",
+      "route_y": "go to drawer 1",
+      "plan_a": [
+        "go to garbagecan 1",
+        "go to drawer 1"
+      ],
+      "plan_b": [
+        "go to drawer 1",
+        "go to garbagecan 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CellPhone-None-SideTable-326/trial_T20190909_150051_438324/game.tw-pddl",
+      "route_x": "go to bed 1",
+      "route_y": "go to diningtable 1",
+      "plan_a": [
+        "go to bed 1",
+        "go to diningtable 1"
+      ],
+      "plan_b": [
+        "go to diningtable 1",
+        "go to bed 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-ArmChair-207/trial_T20190908_140615_941385/game.tw-pddl",
+      "route_x": "go to sofa 1",
+      "route_y": "go to coffeetable 1",
+      "plan_a": [
+        "go to sofa 1",
+        "go to coffeetable 1"
+      ],
+      "plan_b": [
+        "go to coffeetable 1",
+        "go to sofa 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-SideTable-322/trial_T20190909_091659_910683/game.tw-pddl",
+      "route_x": "go to sidetable 1",
+      "route_y": "go to drawer 3",
+      "plan_a": [
+        "go to sidetable 1",
+        "go to drawer 3"
+      ],
+      "plan_b": [
+        "go to drawer 3",
+        "go to sidetable 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-Dresser-217/trial_T20190909_053720_916417/game.tw-pddl",
+      "route_x": "go to coffeetable 1",
+      "route_y": "go to garbagecan 1",
+      "plan_a": [
+        "go to coffeetable 1",
+        "go to garbagecan 1"
+      ],
+      "plan_b": [
+        "go to garbagecan 1",
+        "go to coffeetable 1"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-RemoteControl-None-ArmChair-207/trial_T20190908_140544_546482/game.tw-pddl",
+      "route_x": "go to shelf 8",
+      "route_y": "go to tvstand 1",
+      "plan_a": [
+        "go to shelf 8",
+        "go to tvstand 1"
+      ],
+      "plan_b": [
+        "go to tvstand 1",
+        "go to shelf 8"
+      ]
+    },
+    {
+      "game_file": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-Desk-310/trial_T20190908_033219_058539/game.tw-pddl",
+      "route_x": "go to cabinet 4",
+      "route_y": "go to shelf 1",
+      "plan_a": [
+        "go to cabinet 4",
+        "go to shelf 1"
+      ],
+      "plan_b": [
+        "go to shelf 1",
+        "go to cabinet 4"
+      ]
+    }
+  ],
+  "rejected_before_freeze": [],
+  "pairs_sha256": "daaa13e73cdc6ca984e2f7ff064b32ad6cfca08751adcf25e6da726fb07143b5"
+}

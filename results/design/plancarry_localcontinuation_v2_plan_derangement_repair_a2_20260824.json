@@ -1,0 +1,60 @@
+{
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_PLAN_DERANGEMENT_REPAIR_AUDIT",
+  "status": "PRE_SCIENCE_REPAIR_FROZEN_LOCAL_PENDING_INDEPENDENT_REVIEW",
+  "scientific_result": "NOT_ASSESSED",
+  "work_item_id": "87121706-6c9d-449c-b2c8-ef454316deca",
+  "source_commit": "77e77bbef5acb7987cb4d36a4f0fa2b15f11d0b2",
+  "source_independent_review_sha256": "30fce37fdd7f4b7990b9ce9837a90875da8c5ca9dde8e6f3779049a61fcc20f9",
+  "source_hashes": {
+    "control_contract": "3320b466c023f88955e93e92999a7dcfb91addbf86e3bf0ff9dbd8b0b12fcee5",
+    "prereg": "99f6ecdf63f883c2b3b9607c41eb94dab8b24112e5764bdb7febc54b0449cec3",
+    "test": "f5a42e5ae0e149b9df52dea04327fdf6eefd9df7e7e31fbcf0713e12eba5a002",
+    "static_audit": "9173d648c09077ac2aa74c89847c5ea9201fc0ee2cf674eac9455f8abcbf141c"
+  },
+  "repaired_hashes": {
+    "control_contract": "6f29522ba1db9c1feaa90110adbba6152bc3eb71bd409fadadbb040d26645709",
+    "prereg": "a11d2b52b76d1090c9be65123778917d1ce348eba200cba7b2a7d0756a7d0d4e",
+    "test": "d7514bf53a1d31b30b0c84e8ddbb8674ac311e8449f35afdd66825b290a2f322",
+    "static_audit": "44b8fab13ac997cab206e7e55fc94abe3a9c820cc3c8b08678500a86077fcf21",
+    "population": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+  },
+  "repair_scope": [
+    "PLAN_BLOCK_DERANGED semantics",
+    "prospective Stage1 constructibility guard",
+    "dependent tests and binding hashes"
+  ],
+  "held_fixed": [
+    "fresh population bytes",
+    "model/revision/BF16",
+    "reset/cut/source residual",
+    "one injection/same KV/no reinjection",
+    "layer-alpha grid",
+    "MSA2/LCA2 endpoints",
+    "statistics/thresholds",
+    "32/20/12 split"
+  ],
+  "prohibitions": [
+    "no model forward",
+    "no ALFWorld reset/game open",
+    "no scientific outcome",
+    "no Experiment registration/execution",
+    "no Vast"
+  ],
+  "independent_review_required": true,
+  "model_calls": 0,
+  "environment_execution": 0,
+  "verification": {
+    "v2_synthetic_status": "PASS",
+    "v2_synthetic_checks": 11,
+    "exhaustive_constructible_cases": 88542,
+    "balanced_block_primary_cases": 59046,
+    "deterministic_rotation_fallback_cases": 29496,
+    "all_equal_fail_closed_cases": 27,
+    "legacy_execution_stack_tests": "15/15 PASS",
+    "population_selector_tests": "11/11 PASS",
+    "git_diff_check": "PASS",
+    "model_calls": 0,
+    "environment_execution": 0,
+    "fresh_population_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18"
+  }
+}

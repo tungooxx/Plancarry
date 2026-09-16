@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "all20_confirmation_denominator": true,
+    "bf16_no_quant_offload": true,
+    "equal_norm_random_primary": true,
+    "exact_model_revision": true,
+    "first_action_excluded": true,
+    "holm_two_primary": true,
+    "late_null_primary": true,
+    "no_per_family_selection": true,
+    "no_science_executed": true,
+    "persistent_kv_explicit": true,
+    "population_32_20_12": true,
+    "populations_family_disjoint": true,
+    "replication_no_retuning": true,
+    "sanity_pass_dependency": true,
+    "single_injection_explicit": true,
+    "source_hashes_exact": true,
+    "valid_splits_untouched": true
+  },
+  "created_utc": "2026-08-21T01:33:00Z",
+  "design_path": "results/design/plancarry_replay_residual_t1_prereg_v1_20260821.json",
+  "design_sha256": "8ae963cfd6894a96b2c11097c82f460598b67d2e618c2b4ff39cf7c43ce5f858",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_PREREG_STATIC_AUDIT_V1",
+  "model_calls": 0,
+  "passed": true,
+  "passed_count": 17,
+  "population_binding_path": "results/design/plancarry_replay_residual_t1_population_binding_v1_20260821.json",
+  "population_binding_sha256": "e84e6fe28594cab88e9d08b636fb3aaad164459eae2eb967fdb0bf36e5456c23",
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_AUDIT_ONLY",
+  "total": 17
+}

@@ -1,0 +1,160 @@
+{
+  "claim_boundary": {
+    "candidate_claim_if_full_ladder_passes": "episode-specific plan-state causal sufficiency across a real context reset using exactly one intervention, with later-action persistence beyond a next-action-preserved null, followed by no-retune replication; compactness/storage or generality require separate T3/G evidence",
+    "forbidden_novelty_claims": [
+      "first hidden-state transport",
+      "first latent communication",
+      "first persistent KV/context restoration",
+      "first activation memory",
+      "first activation-difference steering",
+      "first replay pairing"
+    ],
+    "systems_table_role": "comparative practicality/effectiveness only; it cannot substitute for causal T1/T1R evidence"
+  },
+  "common_runtime": {
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "environment": "same ALFWorld task instance/reset snapshot per family and arm",
+    "evaluator": "same frozen task-success, valid-action and later-plan-agreement implementation; LPA excludes first post-reset action exactly as T1 prereg",
+    "generation": {
+      "admissible_action_constrained": true,
+      "enable_thinking": false,
+      "temperature": 0.0
+    },
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "post_reset_action_budget": 12,
+    "quantization": "NONE",
+    "randomness": "deterministic/frozen where applicable; any random-vector seeds derive from immutable family/arm hashes",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "created_utc": "2026-08-21T01:45:00Z",
+  "execution_gate": {
+    "if_t1_prereg_is_repaired": "Any prospectively reviewed successor to T1 prereg SHA 8ae963cf... requires a lineage-only baseline-contract rebind + independent review before systems execution; no silent inheritance.",
+    "no_model_or_environment_calls_in_this_design": true,
+    "primary_systems_table": "FORBIDDEN until the exact canonical ReplayResidual primary causal confirmation on source indices32..51 is terminal and assessed SUPPORTED_REPLAY_RESIDUAL_T1. No systems-arm execution may influence T1 selection, thresholds, confirmation interpretation, or operating point.",
+    "replication_systems_table": "FORBIDDEN until the exact n12 T1R reserve indices52..63 has itself completed terminally under its prospectively reviewed no-retune rule. Systems baselines must never consume or influence T1R."
+  },
+  "fairness_exclusions": [
+    "No published NPM headline metric is a direct numerical comparator because models/cohorts/tasks differ.",
+    "No expert/oracle plan, expert action trace or hidden future state may enter TEXT_PLAN_128 or ReplayResidual.",
+    "No confirmation/replication data may tune layer, alpha, NPM retrieval/synthesis, prompt format, memory bank, thresholds or action budget.",
+    "FULL_HISTORY_TEXT and FULL_KV_RESTORE are information-rich ceilings and must not be presented as storage-matched mechanistic peers.",
+    "StateBridge and persistent-Q4-KV are prior-art/positioning rows unless a separately reviewed faithful same-task adaptation is available; do not invent proxy implementations.",
+    "No systems result may rescue a null causal T1 or null T1R."
+  ],
+  "frozen_sources": {
+    "npm_paper_id": "285fcd01-c5ee-45c7-b861-3a754e001d04",
+    "persistent_q4_kv_paper_id": "aa72ca11-1e65-477c-8cd3-bbd98bc2aa47",
+    "population_binding_sha256": "e84e6fe28594cab88e9d08b636fb3aaad164459eae2eb967fdb0bf36e5456c23",
+    "sanity_v1_1_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "statebridge_paper_id": "9f4f81b0-aff9-4968-ab73-0c2fd9653bcb",
+    "t1_prereg_sha256": "8ae963cfd6894a96b2c11097c82f460598b67d2e618c2b4ff39cf7c43ce5f858"
+  },
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PUBLICATION_BASELINE_CONTRACT_V1",
+  "matched_population": {
+    "no_family_filtering_or_replacement": true,
+    "primary": "exact T1 confirmation source indices32..51, n=20, after T1 support only; secondary systems evidence on an already-consumed causal-confirmation population, not an independent empirical confirmation",
+    "replication_secondary": "exact T1R source indices52..63, n=12, only after T1R terminal completion; descriptive/robustness systems comparison, never used to establish T1R"
+  },
+  "measurement_contract": {
+    "behavioral": [
+      "TaskSuccess within 12 post-reset environment actions",
+      "later_plan_agreement_LPA under the exact T1 endpoint where meaningful",
+      "valid_action_rate",
+      "first_action_match descriptive only"
+    ],
+    "intervention_accounting": [
+      "number of intervention applications per episode",
+      "number of generation events/tokens exposed to intervention",
+      "single versus repeated intervention flag"
+    ],
+    "latency_accounting": [
+      "checkpoint/memory construction wall time separated from resume time",
+      "resume prefill/load wall time",
+      "retrieval/synthesis wall time if applicable",
+      "intervention overhead",
+      "post-reset generation+environment wall time",
+      "peak VRAM and host RAM where measurable"
+    ],
+    "quality_reporting": "per-family arm results plus aggregate means/rates; no dropping failures; same action budget and evaluator across arms",
+    "storage_accounting": [
+      "persistent payload bytes",
+      "persistent payload tokens where textual",
+      "metadata bytes separately",
+      "for NPM: synthesized working vector bytes AND complete reusable memory-repository bytes/number of stored vectors",
+      "for FULL_KV: exact serialized bytes and sequence length"
+    ]
+  },
+  "positioning_rows": {
+    "NPM_arXiv_2606_29824": "procedural activation memory / repeated activation steering; establishes implicit procedural steering prior art",
+    "Persistent_Q4_KV_arXiv_2603_04428": "below-prompt persistent KV/context restoration; establishes latent context persistence prior art, not compact causal plan-state sufficiency",
+    "StateBridge_arXiv_2608_13317": "training-free hidden-state alignment / latent communication; establishes hidden-state transport prior art, not same-agent plan-specific causal reset restoration"
+  },
+  "predeclared_primary_systems_questions": [
+    "Does single-injection ReplayResidual improve TaskSuccess and LPA over RESET_ONLY under the same backbone/cohort/action budget?",
+    "How close does ReplayResidual come to TEXT_PLAN_128 and information-rich FULL_HISTORY/FULL_KV ceilings?",
+    "If faithful NPM adaptation exists, can one reset-time injection match repeated procedural steering while using fewer intervention applications and smaller episode-specific state?",
+    "What checkpoint-build, resume-latency, storage and VRAM tradeoffs accompany each arm?"
+  ],
+  "scientific_result": "NOT_ASSESSED_PUBLICATION_BASELINE_DESIGN_ONLY",
+  "systems_arms": {
+    "FULL_HISTORY_TEXT": {
+      "intervention": "full text retained/replayed at resume",
+      "payload": "complete pre-reset model-visible task/dialogue/action-observation history through the frozen interruption, with reasoning traces excluded under the same strict-thinking-disabled contract",
+      "repeated_intervention": false,
+      "role": "high-information textual ceiling",
+      "stored_state": "all exact tokenizer ids and UTF-8 bytes; no token-budget matching; ceiling, not mechanistic peer"
+    },
+    "FULL_KV_RESTORE": {
+      "fairness": "must not be described as a compact or mechanistically matched baseline; it is an upper/engineering ceiling",
+      "intervention": "full cache restore, not a residual injection",
+      "payload": "exact model KV cache immediately before the reset boundary, persisted/restored without truncation if technically auditable on the same model/runtime",
+      "repeated_intervention": false,
+      "role": "latent-state systems ceiling, not mechanistic peer",
+      "stored_state_formula": "for standard BF16 dynamic KV: seq_len * num_layers(28) * 2(K,V) * num_kv_heads(8) * head_dim(128) * 2 bytes = seq_len * 114688 bytes, plus cache metadata; report measured serialized bytes as authoritative"
+    },
+    "NPM_STYLE_REPEATED_STEERING": {
+      "published_headline_comparison_forbidden": true,
+      "repeated_intervention": true,
+      "required_fidelity": [
+        "same Qwen3-1.7B revision/runtime and frozen population",
+        "construct procedural memory only from allowed development/historical data, never confirmation/replication",
+        "contrastive successful-vs-degenerate experience representation consistent with NPM",
+        "task-time retrieval/synthesis when required by faithful method",
+        "inject steering during each action-generation event as the NPM-style repeated intervention, rather than replacing it with a single reset-time patch",
+        "freeze layer/scale/retrieval/synthesis choices on development before systems-table confirmation execution"
+      ],
+      "role": "direct prior-art procedural activation-memory baseline only if faithful adaptation is independently verified",
+      "source_paper": "Neural Procedural Memory, arXiv:2606.29824v1",
+      "unavailable_policy": "If faithful same-model implementation cannot be demonstrated prospectively and independently, record DIRECT_BASELINE_UNAVAILABLE and retain NPM only as prior-art/positioning. Never substitute a hand-made repeated vector and call it NPM."
+    },
+    "PLANCARRY_REPLAYRESIDUAL_SINGLE_INJECTION": {
+      "intervention": "exactly one reset-prefix hook at the frozen site, then remove hook permanently and continue same KV/session",
+      "operating_point": "import exact frozen T1 global layer/alpha and normalization; zero retuning for systems table",
+      "payload": "exact episode-specific active plan residual and complete frozen provenance from supported T1",
+      "repeated_intervention": false,
+      "role": "proposed method",
+      "stored_payload_formula": "hidden_size(2048) * 4 bytes FP32 = 8192 raw vector bytes plus explicitly serialized metadata/provenance; report both vector-only and total payload bytes"
+    },
+    "RESET_ONLY": {
+      "intervention": "none",
+      "payload": "task instruction + current reset observation + current admissible actions only",
+      "repeated_intervention": false,
+      "role": "no-memory lower baseline",
+      "stored_state": "none beyond external environment snapshot"
+    },
+    "TEXT_PLAN_128": {
+      "fairness": "no extra workflow, history, reasoning trace or expert annotation beyond the model-own frozen plan",
+      "intervention": "visible text in reset context only",
+      "payload": "the exact same model-own natural plan used by ReplayResidual, serialized in the frozen 128-token plan slot; no expert/oracle plan",
+      "repeated_intervention": false,
+      "role": "matched visible-text plan baseline",
+      "stored_state": "exact tokenizer ids + UTF-8 bytes for 128-token slot"
+    }
+  }
+}

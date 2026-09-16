@@ -1,0 +1,1113 @@
+{
+  "acceptance_pass": true,
+  "active_control_scientific_effects_computed": false,
+  "all_noop_pass": true,
+  "all_requests_under_120s": true,
+  "bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "canonical_experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+  "client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+  "confirmation_accessed": false,
+  "cycles": [
+    {
+      "case_count": 8,
+      "cycle": 1,
+      "details": [
+        {
+          "layer": 6,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 6,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        }
+      ],
+      "elapsed_seconds": 43.240250887,
+      "gpu_after": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 69.0,
+        "util_pct": 26.0
+      },
+      "gpu_before": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3203.0,
+        "temp_c": 58.0,
+        "util_pct": 0.0
+      },
+      "max_request_seconds": 4.181500209999967,
+      "max_self_patch_error": 0.0,
+      "max_zero_add_error": 0.0,
+      "mean_request_seconds": 1.3512155064999938,
+      "passed": true,
+      "request_count": 32
+    },
+    {
+      "case_count": 8,
+      "cycle": 2,
+      "details": [
+        {
+          "layer": 6,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 6,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        }
+      ],
+      "elapsed_seconds": 32.74042187800001,
+      "gpu_after": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 70.0,
+        "util_pct": 36.0
+      },
+      "gpu_before": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 69.0,
+        "util_pct": 26.0
+      },
+      "max_request_seconds": 1.8887703300001704,
+      "max_self_patch_error": 0.0,
+      "max_zero_add_error": 0.0,
+      "mean_request_seconds": 1.0231049281875286,
+      "passed": true,
+      "request_count": 32
+    },
+    {
+      "case_count": 8,
+      "cycle": 3,
+      "details": [
+        {
+          "layer": 6,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 6,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        }
+      ],
+      "elapsed_seconds": 31.76658551100013,
+      "gpu_after": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 72.0,
+        "util_pct": 20.0
+      },
+      "gpu_before": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 70.0,
+        "util_pct": 36.0
+      },
+      "max_request_seconds": 1.972254969000005,
+      "max_self_patch_error": 0.0,
+      "max_zero_add_error": 0.0,
+      "mean_request_seconds": 0.9926743008124674,
+      "passed": true,
+      "request_count": 32
+    },
+    {
+      "case_count": 8,
+      "cycle": 4,
+      "details": [
+        {
+          "layer": 6,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 0,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 6,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 13,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 20,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        },
+        {
+          "layer": 27,
+          "pair_index": 1,
+          "self_patch_max_abs": 0.0,
+          "zero_add_max_abs": 0.0
+        }
+      ],
+      "elapsed_seconds": 43.2375404070001,
+      "gpu_after": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3488.0,
+        "temp_c": 71.0,
+        "util_pct": 20.0
+      },
+      "gpu_before": {
+        "mem_total_mib": 4096.0,
+        "mem_used_mib": 3381.0,
+        "temp_c": 72.0,
+        "util_pct": 19.0
+      },
+      "max_request_seconds": 3.380354107999892,
+      "max_self_patch_error": 0.0,
+      "max_zero_add_error": 0.0,
+      "mean_request_seconds": 1.3511287069374944,
+      "passed": true,
+      "request_count": 32
+    }
+  ],
+  "engineering_task_id": "459e3b4a-88e4-4c2f-a80a-d94ecb8f67c4",
+  "kind": "PLANCARRY_V25_RTX3050_RUNTIME_QUALIFICATION",
+  "latency_monotonic_blowup": false,
+  "max_request_seconds": 4.181500209999967,
+  "memory_monotonic_blowup": false,
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.46.3"
+  },
+  "qualification_only_not_scientific_execution": true,
+  "request_timings": [
+    {
+      "method": "GET",
+      "ok": true,
+      "path": "/model_info",
+      "seconds": 0.01320773499992356
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 4.181500209999967
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.5370808830000442
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.2492300299999215
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.351235699999961
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07622133200004555
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.5374816659999624
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4593374029999495
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3143485089999558
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.11807634000001599
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.2999537489999966
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.2344125139999278
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4678756629999725
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06642649900004471
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.3781340629999477
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4379920100000163
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.2626285600000529
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06769473500003187
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.7157645660000753
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4919411790000368
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.6635902809999834
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.08169197800009442
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.6630592950000391
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.8449123579999878
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.729767651999964
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06774932899998021
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.343524360999936
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.427862299000026
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.8922495539999318
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.08162938399993891
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 2.7619281970000884
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.7710084709999592
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.662587437999946
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07194677900019997
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.0256213030002073
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 0.9374425809999138
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0603639720000047
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06650957600004404
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.1046646429999782
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.2893013519999386
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 0.7818227570001
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07307866699989063
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.1822991770000044
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0749002580000706
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.025301550999984
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.09281393499986734
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.0381990829998813
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.076300283000137
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.238366903000042
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06843222499992407
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.4611613640001906
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.6332551340001373
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.8887703300001704
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.05584261200010587
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.7538627019998785
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3258386790000714
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.366574842999853
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.08423266400018292
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.5099798670000837
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4629160689999026
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.663537161000022
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.08287435500005813
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.6008151229998475
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.8819708800001536
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.760360874000071
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.053230687999985093
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.080843219000144
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.235619558000053
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0645848700000897
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.10165234999999484
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.0821775299998535
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.1452162939999653
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 0.8438203829998656
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07613071400010085
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.1878308109999125
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0593641259999913
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 0.9850978479998957
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07807121700011521
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 0.9637437149999641
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0357420759999059
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.1729550769998696
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.05137468699990677
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.430898156000012
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.972254969000005
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.555030307999914
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.1140545989999282
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.6422483310000189
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3062576429999808
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.7649847369998497
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07779501300001357
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.7458380129999114
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3190926349998335
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.4735716000000139
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.0686502629998813
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.4895397820000653
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.296397801000012
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.2915086129999054
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07925696999996035
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.4528956460001154
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3194205409999995
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.055446818999826
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.05722454600004312
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.0025188069998876
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.0128069910001614
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 0.9713689960001375
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.07051313700003448
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.296967974999916
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.5041156190000038
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.1233193599998685
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06698928000014348
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.1229725749999488
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.3180913230000897
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.7910431190000509
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.13216543700013972
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 3.380354107999892
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 3.352133700999957
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.204805490999888
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.06334515000003194
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 2.145438509999849
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.563859665999871
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.7127800480000133
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.1127096289999372
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.8367046890000438
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.746532309000031
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 1.6314905619999536
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/capture",
+      "seconds": 0.08265113300012672
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/score_sequences",
+      "seconds": 1.8894608170000993
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.126665670999955
+    },
+    {
+      "method": "POST",
+      "ok": true,
+      "path": "/patch_score",
+      "seconds": 2.010069996999846
+    }
+  ],
+  "runner_sha256": "7f95e9e18934f41d42f81eb9b1715d3f1001ab4d27e616c826884f4d48bfba9a",
+  "scientific_result": "NOT_ASSESSED",
+  "source_competence_computed": false,
+  "total_case_count": 32,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "validator_sha256": "e40d3e75ec5d3fb9a7a51155fb709785cd5447851138a5ce02f083ffb5cc9b8c",
+  "work_item_id": "66f1ae05-7d51-41a6-b2de-2cd1fe3cf70f"
+}

@@ -1,0 +1,98 @@
+{
+  "algorithm": "Fixed-order modified Gram-Schmidt, exact contract semantics, Python float64-equivalent scalar arithmetic for design property checks.",
+  "collinear_redundancy_tested": true,
+  "environment_execution": 0,
+  "equal_norm_zero_source_contract": {
+    "unique_nonzero_required_control_zero": "Stage2-ineligible before grid, no replacement",
+    "unique_zero": "all matched interventions exact zero, family retained"
+  },
+  "fixed_cases": [
+    {
+      "basis_orthonormal_maxabs": 0.0,
+      "basis_rank": 3,
+      "dropped": [],
+      "name": "orthogonal_basis_unique_survives",
+      "passed": true,
+      "plan_norm": 5.477225575051661,
+      "reconstruction_abs": 0.0,
+      "reconstruction_rel": 0.0,
+      "unique_basis_max_abs_dot": 0.0,
+      "unique_norm": 4.0
+    },
+    {
+      "basis_orthonormal_maxabs": 0.0,
+      "basis_rank": 2,
+      "dropped": [
+        "past"
+      ],
+      "name": "exact_collinear_nuisance_dropped",
+      "passed": true,
+      "plan_norm": 5.477225575051661,
+      "reconstruction_abs": 0.0,
+      "reconstruction_rel": 0.0,
+      "unique_basis_max_abs_dot": 0.0,
+      "unique_norm": 5.0
+    },
+    {
+      "basis_orthonormal_maxabs": 0.0,
+      "basis_rank": 2,
+      "dropped": [
+        "deranged"
+      ],
+      "name": "plan_entirely_in_nuisance_span",
+      "passed": true,
+      "plan_norm": 5.0,
+      "reconstruction_abs": 0.0,
+      "reconstruction_rel": 0.0,
+      "unique_basis_max_abs_dot": 0.0,
+      "unique_norm": 0.0
+    },
+    {
+      "basis_orthonormal_maxabs": 0.0,
+      "basis_rank": 0,
+      "dropped": [
+        "next",
+        "past",
+        "deranged"
+      ],
+      "name": "all_zero_nuisance",
+      "passed": true,
+      "plan_norm": 5.477225575051661,
+      "reconstruction_abs": 0.0,
+      "reconstruction_rel": 0.0,
+      "unique_basis_max_abs_dot": 0.0,
+      "unique_norm": 5.477225575051661
+    },
+    {
+      "basis_orthonormal_maxabs": 0.0,
+      "basis_rank": 3,
+      "dropped": [],
+      "name": "zero_plan",
+      "passed": true,
+      "plan_norm": 0.0,
+      "reconstruction_abs": 0.0,
+      "reconstruction_rel": 0.0,
+      "unique_basis_max_abs_dot": 0.0,
+      "unique_norm": 0.0
+    }
+  ],
+  "game_files_opened": 0,
+  "hypothesis_id": "1461e8d4-b441-42b9-83b1-38913effece3",
+  "kind": "PLANCARRY_PLANUNIQUE_ORTHOGONAL_RESIDUAL_V1_PROJECTION_PROPERTY_TEST",
+  "model_calls": 0,
+  "near_collinear_redundancy_tested": true,
+  "scientific_result": "NOT_ASSESSED",
+  "status": "PASS_PRE_SCIENCE_CPU_ONLY",
+  "stress_cases": 200,
+  "stress_dimensions": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "stress_max_basis_orthonormal_error": 4.440892098500626e-16,
+  "stress_max_reconstruction_relative_error": 8.233696628795813e-17,
+  "stress_max_unique_basis_abs_dot": 9.924786686932308e-16,
+  "zero_nuisance_tested": true,
+  "zero_unique_semantics_tested": true
+}

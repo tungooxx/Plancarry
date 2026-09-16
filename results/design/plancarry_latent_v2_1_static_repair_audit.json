@@ -1,0 +1,24 @@
+{
+  "adversarial_review_sha256": "5a32831357414614e9824d05216f36a5cc9a3f48dfdfdc86b9b1b9bf9eb370b3",
+  "all_pass": true,
+  "checks": {
+    "alpha_grid_unchanged": true,
+    "claim_scope_unchanged": true,
+    "confirmation_all20": true,
+    "layers_unchanged": true,
+    "manifest_unchanged": true,
+    "model_unchanged": true,
+    "no_science": true,
+    "pair_semantics_unchanged": true,
+    "random_rademacher_frozen": true,
+    "score_command_only": true,
+    "sign_test_frozen": true,
+    "valid_seen_unseen_false": true,
+    "zero_epsilon_frozen": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_1_STATIC_REPAIR_AUDIT",
+  "model_outcomes_seen": false,
+  "scientific_result": "NOT_ASSESSED",
+  "source_prereg_sha256": "763400a293df3e689525a1b05f66106f2766ce529a73b44a3d55a5a8ef9ade8d",
+  "v2_1_prereg_sha256": "366af00bfb54c566c039705bd7119c1d0be10eb816672422dfcfebffd31b8744"
+}

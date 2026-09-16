@@ -1,0 +1,91 @@
+{
+  "all_noop_pass": true,
+  "canonical_authorization": false,
+  "canonical_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "case_count": 8,
+  "client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+  "confirmation_accessed": false,
+  "cpu_diag_bridge_sha256": "7eb6a1a281fa287331aba283f3941f0474c8260357606d78cc5dc591a55123cb",
+  "details": [
+    {
+      "layer": 6,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 0,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 6,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "pair_index": 1,
+      "self_patch_max_abs": 0.0,
+      "zero_add_max_abs": 0.0
+    }
+  ],
+  "elapsed_seconds": 798.4078483581543,
+  "kind": "PLANCARRY_V25_CPU_DIAGNOSTIC_LIVE_NOOP_AUDIT",
+  "max_self_patch_error": 0.0,
+  "max_zero_add_error": 0.0,
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cpu",
+    "device_name": "CPU_DIAGNOSTIC_ONLY",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.46.3"
+  },
+  "reason": "CPU rerun requested to diagnose repeated-call timeout; frozen v2.5 scientific device gate remains GTX1650",
+  "review_work_item_id": "9f1b2996-b19a-4b57-a914-2cd16c8f3a3d",
+  "runner_sha256": "7f95e9e18934f41d42f81eb9b1715d3f1001ab4d27e616c826884f4d48bfba9a",
+  "scientific_effects_computed": false,
+  "scientific_result": "NOT_ASSESSED_TECHNICAL_DIAGNOSTIC",
+  "source_competence_computed": false,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "validator_sha256": "e40d3e75ec5d3fb9a7a51155fb709785cd5447851138a5ce02f083ffb5cc9b8c"
+}

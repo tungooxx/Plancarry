@@ -1,0 +1,106 @@
+{
+  "created_at_utc": "2026-08-20T02:46:52.849214+00:00",
+  "file_hashes": {
+    "judge_adapter": "5e04b6c96165c6d6ee3dee9336b3b1fe829aa84f6222c1ea3d808c06c5c82031",
+    "judge_launcher": "1a7da64c6965546be60982d41c47fa4c39255c3ac3bdad928dcb3f534bffbe38",
+    "judge_tests": "9a81795fc5f42ffce49d46164aa76006fedc0912fcda226d5376533d172fa191",
+    "mab_evaluator": "64cfde7b4dac3eb6f4e06fdda85ee60441f6c8d113386d4ce3bf836c601c2927",
+    "readme": "fbc7405b16f0cb93828401bdab68f70dbba4da00a1cdf8f7138f89f5fd0a906b"
+  },
+  "gpu_model_inference_executed": false,
+  "judge_contract": {
+    "judge_model_default": "gpt-4o",
+    "official_prompt_assets_runtime_gate": "At future execution, the judge adapter must load the exact pinned MemoryAgentBench checkout and persist its computed official_contract_sha256. That hash becomes part of run_id. Because this runtime could not authenticate a fresh GitHub checkout, no prompt-source SHA is guessed here.",
+    "optional_env": [
+      "OPENAI_BASE_URL",
+      "OPENAI_API_BASE"
+    ],
+    "provider": "OpenAI-compatible chat completions",
+    "required_env": [
+      "OPENAI_API_KEY"
+    ],
+    "required_future_execution_policy": "Run both student and TransMem predictions from the exact same released Qwen3 configuration and source examples/prompt budget. Judge each judge-dependent source/mode with the same judge_model and exact official-contract hashes. Report per-source scores; do not fabricate an official cross-source aggregate.",
+    "required_modes": [
+      "student",
+      "transmem"
+    ],
+    "resume_integrity": [
+      "run_id hashes adapter version, source, mode, prediction input SHA256, judge model, and official contract SHA256",
+      "existing summary must match run_id or execution refuses",
+      "each judge prompt SHA256 is persisted; resume refuses if prompt hash changes",
+      "calls and rows are append+flush+fsync progress JSONL; summary is atomically written",
+      "missing parsed judge JSON fails closed"
+    ],
+    "retry": {
+      "backoff": "exponential capped",
+      "initial_backoff_seconds": 2.0,
+      "max_attempts": 6,
+      "max_backoff_seconds": 30.0
+    },
+    "sources": {
+      "infbench_sum_eng_shots2": {
+        "calls_per_question": 3,
+        "metrics": [
+          "f1",
+          "fluency",
+          "precision",
+          "recall"
+        ],
+        "parse": "official JSON parser + schema validator; unparseable/invalid responses are retried",
+        "questions_expected": 100,
+        "request": {
+          "max_tokens": 4096,
+          "seed": 42,
+          "temperature": 0.1,
+          "top_p": 0.9
+        },
+        "subjudges": [
+          "fluency",
+          "recall",
+          "precision"
+        ]
+      },
+      "longmemeval_s*": {
+        "calls_per_question": 1,
+        "metric": "official-compatible correctness accuracy and by-question-type accuracy",
+        "parse": "boolean label is true iff lowercase raw response contains yes",
+        "questions_expected": 300,
+        "request": {
+          "max_tokens": 10,
+          "temperature": 0.0
+        }
+      }
+    }
+  },
+  "kind": "TRANSMEM_MEMORYAGENTBENCH_JUDGE_PROTOCOL_V1",
+  "known_limitations": [
+    "Current official provenance does not establish which released adapter corresponds exactly to the paper-level 40.00% aggregate.",
+    "MemoryAgentBench/TransMem evaluator explicitly says there is no single official cross-source overall score.",
+    "Fresh MemoryAgentBench GitHub checkout was not materialized in this run due GitHub authentication; future execution must verify the pinned revision and judge adapter official_contract_sha256 before judge calls."
+  ],
+  "memoryagentbench": {
+    "cross_source_overall_score_official": false,
+    "expected_split_files": [
+      "Accurate_Retrieval-00000-of-00001.parquet",
+      "Conflict_Resolution-00000-of-00001.parquet",
+      "Long_Range_Understanding-00000-of-00001.parquet",
+      "Test_Time_Learning-00000-of-00001.parquet"
+    ],
+    "github_revision": "455306dcabc3842526eb83cd4e225e5d486c5c5d",
+    "hf_dataset": "ai-hyz/MemoryAgentBench",
+    "hf_dataset_revision": "7ea066982b140a19337e17e60d45d4076e042faf",
+    "source_count": 13
+  },
+  "official_transmem": {
+    "adapter": "Rayleihaodong/TransMem-qwen3-4B-D4",
+    "adapter_file": "best.pt",
+    "adapter_revision": "85ba1010eb226e312e208940180bb60424a2cb79",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "base_model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "repo_commit": "6d7a6127967ad44482c958b555d8c83bfb75e9b9"
+  },
+  "plancarry_scientific_outcome_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

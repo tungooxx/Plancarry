@@ -1,0 +1,89 @@
+{
+  "alfworld_scientific_calls": 0,
+  "captures": [
+    {
+      "finite": true,
+      "hidden_size": 2048,
+      "l2": 53.29128498654538,
+      "layer": 7,
+      "sequence_length": 32,
+      "token_index_resolved": 31,
+      "vector_sha256": "c37fd94171b9e49f2be575e71fb353937da946b7091eff92d034caba3a8bffd2"
+    },
+    {
+      "finite": true,
+      "hidden_size": 2048,
+      "l2": 151.72948565465495,
+      "layer": 14,
+      "sequence_length": 32,
+      "token_index_resolved": 31,
+      "vector_sha256": "e61853947655137fb53e2795bf45273b8c11493aab35fc6cbb0776cef8bace90"
+    },
+    {
+      "finite": true,
+      "hidden_size": 2048,
+      "l2": 1094.2564518655308,
+      "layer": 21,
+      "sequence_length": 32,
+      "token_index_resolved": 31,
+      "vector_sha256": "0cf4461cf34bd3360f00c56f4616c21685a4204dab924491e93852e11c8b79b1"
+    },
+    {
+      "finite": true,
+      "hidden_size": 2048,
+      "l2": 4390.806643157963,
+      "layer": 27,
+      "sequence_length": 32,
+      "token_index_resolved": 31,
+      "vector_sha256": "699d63e895384f7d666fe86c8a94b50b181f98c2b1169ad77c7667680b349d9e"
+    }
+  ],
+  "checks": {
+    "capture_layer_14_finite": true,
+    "capture_layer_21_finite": true,
+    "capture_layer_27_finite": true,
+    "capture_layer_7_finite": true,
+    "model_info_device_name": true,
+    "model_info_dtype": true,
+    "model_info_hidden_size": true,
+    "model_info_model_commit_resolved": true,
+    "model_info_model_id": true,
+    "model_info_model_revision_requested": true,
+    "model_info_num_layers": true,
+    "model_info_quantization": true,
+    "model_info_tokenizers_version": true,
+    "model_info_torch_version": true,
+    "model_info_transformers_version": true,
+    "patch_score_rejected_404": true,
+    "scientific_text_absent": true
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_RTX3050_SYNTHETIC_CAPTURE_ONLY_AUDIT_V1",
+  "model_calls": "synthetic_non_ALFWorld_only",
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "torch.bfloat16",
+    "hidden_size": 2048,
+    "mode": "real",
+    "model_commit_resolved": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_revision_requested": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "num_layers": 28,
+    "parameter_count": 1720574976,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.21.1",
+    "torch_version": "2.13.0+cu130",
+    "transformers_version": "4.51.3"
+  },
+  "passed": true,
+  "passed_count": 17,
+  "patch_score": {
+    "error_code": "NOT_FOUND",
+    "http_status": 404
+  },
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "total": 17
+}

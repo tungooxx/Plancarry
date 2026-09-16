@@ -1,0 +1,50 @@
+{
+  "candidate_branches": {
+    "model_only": {
+      "changed_dimension": "white-box model/runtime only to Qwen/Qwen3-1.7B",
+      "development_scope": "new environment-only 20-family cohort disjoint from primary40/T1R20/T2",
+      "feasibility_pass": "source competence >=12/20 at unchanged +0.10/-0.10 margins",
+      "source_representation": "v2.6 frozen source construction unchanged",
+      "work_item_id": "58c87e98-c36f-42e1-b245-949c9cebe43d"
+    },
+    "prompt_only": {
+      "changed_dimension": "source representation only",
+      "development_scope": "already-consumed discovery families 0..19",
+      "feasibility_pass": "source competence >=12/20 at unchanged +0.10/-0.10 margins",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct exact frozen revision/runtime",
+      "work_item_id": "41ab4c4a-1b5f-41fb-8d83-b5650d4c3be7"
+    }
+  },
+  "frozen_at_utc": "2026-08-20T13:45:35Z",
+  "kind": "PLANCARRY_EXPRESSIVITY_RECOVERY_BRANCH_RESOLUTION_V1",
+  "minimal_scientific_drift_rationale": "When both feasibility recoveries work, preserving the original model/runtime while changing exactly the diagnosed source-binding representation produces the cleaner causal lineage and leaves a model-family change available as independent later generalization.",
+  "outcome_blinding_at_freeze": {
+    "branch_outcomes_available_to_author": false,
+    "model_branch_outcome_inspected": false,
+    "prompt_branch_outcome_inspected": false
+  },
+  "purpose": "Prospectively resolve prompt-only versus model-only expressivity recovery without outcome-dependent cherry-picking.",
+  "resolution_rule": {
+    "prompt_FAIL__model_FAIL": "Kill both local recoveries. Return to source-site/mechanism redesign; do not weaken thresholds or search templates post hoc.",
+    "prompt_FAIL__model_PASS": "Advance Qwen3 model-only path only.",
+    "prompt_PASS__model_FAIL": "Advance prompt-only Qwen2.5 path only.",
+    "prompt_PASS__model_PASS": "Advance prompt-only Qwen2.5 as primary by predeclared minimal-scientific-drift principle; retain Qwen3 only for later cross-model robustness. Do not choose by competence magnitude or downstream effect."
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "shared_guards": [
+    "Both branches are competence-only feasibility diagnostics, never T1 evidence.",
+    "No pair filtering or replacement.",
+    "Do not lower +0.10/-0.10 source-competence margins or min12/20 cohort gate.",
+    "No ACTIVE/control causal-effect testing during feasibility recovery.",
+    "No original confirmation 20..39, valid_seen, valid_unseen, T1R reserve, or T2 cohort access.",
+    "No branch may reuse feasibility observations as confirmatory T1 evidence.",
+    "Any advancing branch requires a fresh full T1 preregistration, independent audit, executable readiness gate, and untouched confirmation cohort."
+  ],
+  "source_failure": {
+    "artifact_sha256": "626488c735c63815512c95538141b8ebb96a79dae3ba476dd0f194d01d57ce86",
+    "competent_count": 1,
+    "required_minimum": 12,
+    "run_id": "2e4777bf-f2db-4087-9ce1-9eecd6e34923",
+    "status": "INCONCLUSIVE_MODEL_EXPRESSIVITY"
+  }
+}

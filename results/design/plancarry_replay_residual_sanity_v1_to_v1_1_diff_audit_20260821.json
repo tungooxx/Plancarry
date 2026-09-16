@@ -1,0 +1,19 @@
+{
+  "changed_paths": [
+    "frozen_sanity_gate.requirements",
+    "kind",
+    "latent_payload_provenance_schema",
+    "leakage_and_phase_guards",
+    "novelty_boundary.strongest_mechanistic_null",
+    "primary_metrics.control_cosines",
+    "replay_conditions.NEXT_ACTION_PRESERVED_LATE_NULL",
+    "supersedes"
+  ],
+  "classification": "PRE_OUTCOME_STRICTER_CONTROL_AND_PROVENANCE_ONLY",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_SANITY_V1_TO_V1_1_DIFF_AUDIT",
+  "model_calls": 0,
+  "scientific_outcomes_accessed": false,
+  "source_sha256": "9705068138cfd3a5c8eaaa6dbf1a71cc67b9ca377ec791951fb5aeaa22a44c1a",
+  "target_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+  "unexpected_changes": []
+}

@@ -1,0 +1,22 @@
+{
+  "active_tokens": 63,
+  "all_pass": true,
+  "archived_tokens": 69,
+  "checks": {
+    "active_lengths_equal": true,
+    "archived_lengths_equal": true,
+    "left_suffix_prefix": true,
+    "no_literal_backslash_n_in_exec_templates": true,
+    "reset_ends_real_newline": true,
+    "reset_last_token_stable": true,
+    "reset_prefix": true,
+    "right_suffix_prefix": true,
+    "source_a_ends_real_newline": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_4_EXACT_TEMPLATE_TOKENIZER_AUDIT",
+  "model_inference": false,
+  "prompt_tokens": 39,
+  "reset_tokens": 37,
+  "scientific_result": "NOT_ASSESSED",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}

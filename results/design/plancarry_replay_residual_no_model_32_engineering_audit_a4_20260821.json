@@ -1,0 +1,29 @@
+{
+  "capture_calls": 1792,
+  "conditions": [
+    "PLAN_PRESENT",
+    "NEUTRAL_FILLER",
+    "SHUFFLED_PLAN",
+    "UNRELATED_PLAN",
+    "GENERIC_HISTORY",
+    "ALT_NEUTRAL_POSITION",
+    "NEXT_ACTION_PRESERVED_LATE_NULL"
+  ],
+  "development_candidates_checked": 32,
+  "environment_execution": 0,
+  "exact_qwen_tokenizer": true,
+  "exact_slot_tokens": 128,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_EXACT_QWEN_TOKENIZER_NO_MODEL_32_AUDIT_A4",
+  "layers": [
+    7,
+    14,
+    21,
+    27
+  ],
+  "model_calls": 0,
+  "passed": true,
+  "payload_tamper_rejected": true,
+  "scientific_result": "NOT_ASSESSED",
+  "sealed_population_accessed": false,
+  "synthetic_gate_label_for_plumbing_only": "FAIL_REPLAY_RESIDUAL_SANITY"
+}

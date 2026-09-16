@@ -1,0 +1,27 @@
+{
+  "all_pass": true,
+  "checks": {
+    "autonomous_confirmation_required": true,
+    "confirmation_all20": true,
+    "dev_scores_actions4_5": true,
+    "dev_state_matched": true,
+    "first_action_excluded_dev": true,
+    "fresh_claim_boundary": true,
+    "global_grid_unchanged": true,
+    "holm_fwer": true,
+    "matched_state_cannot_rescue": true,
+    "matched_state_dev_only": true,
+    "no_per_family_tuning": true,
+    "old_data_prohibited": true,
+    "pending_population_bind": true,
+    "single_injection_dev": true,
+    "task_success_not_entry": true
+  },
+  "draft_sha256": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_1_STATIC_AUDIT",
+  "model_calls": 0,
+  "note": "Prospective design-only successor. Registration/execution prohibited until fresh population manifest/exposure audit/independent population review are bound and the final prereg receives independent review.",
+  "scientific_outcomes_accessed": false,
+  "source_draft_sha256": "4f273c75426efcad3fac8f9952dda161bc0a50e0d21ba0b207f5508697f92ec3"
+}

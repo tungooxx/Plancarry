@@ -1,0 +1,166 @@
+{
+  "kind": "PLANCARRY_EXEC_PERSISTENCE_LOCUS_EXPOSURE_AUDIT_V1",
+  "date": "2026-08-28",
+  "policy": "filename/path-only pre-science exposure audit; no ALFWorld game opened and no scientific result inspected",
+  "canonical_inventory": {
+    "file": "results/design/plancarry_localcontinuation_canonical_inventory_v1_20260823.json",
+    "file_sha256": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+    "count": 790,
+    "path_normalization": "strip prefix through json_2.1.1/; freeze dataset-relative train/... path"
+  },
+  "binding_v1": {
+    "candidate_salt": "plancarry-binding-v1-2026-08-18",
+    "absolute_path_prefix": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/",
+    "count": 180,
+    "canonical_pool_sha256": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "relative_set_sha256": "c86211751972db67867b5631ff8e59faa1efe0b6b0d4a1e747950ed1a6a87e86"
+  },
+  "gdaa_development_union": {
+    "count": 199,
+    "relative_set_sha256": "c489a80865caa9c8b2eb0d75361bca5884e180d8fb1a38e1a5c383ff9a7e813f",
+    "sources": [
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_v1.json",
+        "file_sha256": "cd869fa96f19bd03221a47f6dca84596ef37eb4341a04244bbf0277876d08170",
+        "manifest_sha256": "7dbaff3bb3513c52458683cff7c7df17e9e387108492f7930e4c07601f62e874",
+        "candidate_count": 90
+      },
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_disjoint_v1.json",
+        "file_sha256": "3ea671cdda68ab38249df094ed1ccd80f0f7fd62f037160183689b65d9e27eba",
+        "manifest_sha256": "5beaeb849cc6abbee4397c1f8d5021700e272b799e356a2d77d47f920af4d418",
+        "candidate_count": 90
+      },
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_fresh_v2.json",
+        "file_sha256": "8dfdb3637189a6346e756fd35bac8a3372b8a42cec7827f65d5843d0245e84e8",
+        "manifest_sha256": "62d700e5d407e71ae1db030cb454e1b78a1c4bd505f24997024de4ecb71f008d",
+        "candidate_count": 90
+      }
+    ]
+  },
+  "historical_design_artifact_exposure": {
+    "count": 544,
+    "relative_set_sha256": "fe05c9b28830fcad65ff5c64512558e948f6d04f6ae79f584a27ff16b6c86ff7",
+    "source_count": 18,
+    "sources": [
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_disjoint_v1.json",
+        "file_sha256": "3ea671cdda68ab38249df094ed1ccd80f0f7fd62f037160183689b65d9e27eba",
+        "train_path_count": 90
+      },
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_fresh_v2.json",
+        "file_sha256": "8dfdb3637189a6346e756fd35bac8a3372b8a42cec7827f65d5843d0245e84e8",
+        "train_path_count": 90
+      },
+      {
+        "file": "results/design/gdaa_train_candidate_manifest_v1.json",
+        "file_sha256": "cd869fa96f19bd03221a47f6dca84596ef37eb4341a04244bbf0277876d08170",
+        "train_path_count": 90
+      },
+      {
+        "file": "results/design/latent_ab_pilot_manifest_v1.json",
+        "file_sha256": "b9d67ebda16f94c6ce2a182d32ee66954ebd02b77b96f53164b1fec9716daf0d",
+        "train_path_count": 40
+      },
+      {
+        "file": "results/design/latent_ab_pilot_manifest_v2.json",
+        "file_sha256": "05ddb9429c5a6b4f69b56454ded6668498cc90d34c09fc1e69ae6b2102196d71",
+        "train_path_count": 40
+      },
+      {
+        "file": "results/design/latent_ab_route_pairs_v1.json",
+        "file_sha256": "c92c5c13866e84c219aae4f59088370d08f515cc16c92905715e8e342158e65c",
+        "train_path_count": 32
+      },
+      {
+        "file": "results/design/plancarry_localcontinuation_exposed_paths_v1_20260823.json",
+        "file_sha256": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+        "train_path_count": 266
+      },
+      {
+        "file": "results/design/plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+        "file_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+        "train_path_count": 64
+      },
+      {
+        "file": "results/design/plancarry_planunique_orthogonal_residual_v1_fresh_population_20260824.json",
+        "file_sha256": "ad2d525124b333b7dd04617bf52dd04c8196b5b67325a44274f3c0cbe576215f",
+        "train_path_count": 64
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_additional_t1r_n20_reserve_v1_20260821.json",
+        "file_sha256": "d39beba4a768a3c633b54b01a5be032d35db26098cd42d7f5d488d7e34f9233a",
+        "train_path_count": 20
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json",
+        "file_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+        "train_path_count": 64
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_synthetic_e2e_engineering_result_a4_20260821.json",
+        "file_sha256": "f09215d16e79fe6c95d0529521a68c1dd3d380167d53f32e14c11f9150855c5e",
+        "train_path_count": 16
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_t1_population_binding_v1_20260821.json",
+        "file_sha256": "e84e6fe28594cab88e9d08b636fb3aaad164459eae2eb967fdb0bf36e5456c23",
+        "train_path_count": 64
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json",
+        "file_sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7",
+        "train_path_count": 32
+      },
+      {
+        "file": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_20260821.json",
+        "file_sha256": "1bb9270305130c51d0ea2c41a5de5ef36b24460a93e3d8f7cf0dd181dea9ef03",
+        "train_path_count": 32
+      },
+      {
+        "file": "results/design/plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json",
+        "file_sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+        "train_path_count": 64
+      },
+      {
+        "file": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v1_20260821.json",
+        "file_sha256": "9d3341208001718e37d4a7f6739e1d0848ac912a9c1778a6783be2696d459a68",
+        "train_path_count": 20
+      },
+      {
+        "file": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v2_family_unexposed_a3_20260821.json",
+        "file_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+        "train_path_count": 40
+      }
+    ]
+  },
+  "conservative_exclusion_union": {
+    "count": 614,
+    "relative_set_sha256": "84f3bd84b4184ba03ff132118d444256d1a831285158a374f1659c47d33cea92",
+    "rule": "binding_v1 UNION all three known GDAA development manifests UNION every train/pick_and_place_simple path referenced by the frozen source-file list above"
+  },
+  "fresh_capacity": {
+    "count": 176,
+    "selection_salt": "PlanCarry|EXEC_PERSISTENCE_LOCUS_V1|FRESH_TRAIN|20260828",
+    "ordering": "ascending SHA256(selection_salt + LF + dataset_relative_path), then relative path lexical tie-break",
+    "selected_scan_pool_count": 176,
+    "selected_scan_pool_sha256": "2c7c861a2ffcbd5cb7645285bd3035b8d491db4fab740d7cbd0f4b37fe195e43"
+  },
+  "disjointness": {
+    "scan_pool_vs_binding": true,
+    "scan_pool_vs_gdaa": true,
+    "scan_pool_vs_historical_design_artifacts": true
+  },
+  "prohibitions": [
+    "no environment reset/open",
+    "no model call/load/forward/generation",
+    "no binding result artifact access",
+    "no valid_seen",
+    "no valid_unseen",
+    "no expert plan",
+    "no hidden facts"
+  ],
+  "payload_sha256": "ae3f8f4ffa4f67364a718d43101ed914420d217bfd60eeb10b316bbe103ea614"
+}

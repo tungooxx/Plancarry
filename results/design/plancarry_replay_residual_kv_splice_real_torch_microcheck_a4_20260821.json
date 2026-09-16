@@ -1,0 +1,177 @@
+{
+  "alfworld_environment_execution": 0,
+  "checks": {
+    "all_arm_geometry_28x12": true,
+    "arm_matched_contrasts_test": {
+      "DIRECT": 0.17999999999999994,
+      "PROPAGATED": 0.16999999999999993,
+      "TOTAL": 0.2999999999999998
+    },
+    "dtype_bfloat16_cuda": true,
+    "endpoint_hashes": [
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      },
+      {
+        "A": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "D": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286",
+        "E": "b179354a9f445c1da9a4ecf3defbde6475c442a856d1d28fbc9ccaee522a6e1c",
+        "clean": "25c51e877ad693a5de0e191a8b066697c65506c5dd2f1f4200f0c18abd3f1286"
+      }
+    ],
+    "endpoint_repetitions": [
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 0
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 1
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 2
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 3
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 4
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 5
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 6
+      },
+      {
+        "D_vs_clean_max_abs": 0.0,
+        "E_vs_A_max_abs": 0.0,
+        "rep": 7
+      }
+    ],
+    "identity_guard": {
+      "full_restore_D_vs_clean_max_abs": 0.0,
+      "persist_A_vs_condition_max_abs": 0.0,
+      "sham_E_vs_A_max_abs": 0.0
+    },
+    "layers_all_28": true,
+    "real_cuda_torch": true,
+    "real_transformers_dynamic_cache": true,
+    "seen_tokens_by_arm": {
+      "A_PERSIST": 12,
+      "B_PREFIX_RESTORE": 12,
+      "C_CYCLE_RESTORE": 12,
+      "D_FULL_RESTORE": 12,
+      "E_SHAM_SPLICE": 12
+    },
+    "sequence_dimension_minus2": true,
+    "source_by_position_all_pass": true,
+    "source_by_position_checks": 560
+  },
+  "claim_boundary": "Engineering validity only. Does not support ReplayResidual T1, does not authorize mechanistic experiment execution before prospectively SUPPORTED primary T1.",
+  "clean_first_layer_key_sha256": "67808d5329654bb970435977d65eb5074cf3b53cbc0d61aa3d4995f8cdda2663",
+  "code": {
+    "path": "replay_residual_kv_mediation_v1.py",
+    "sha256": "60890dbfa342faa18abc74ed0931e5ac6f767953e7a984f68a348b10a42a1856"
+  },
+  "condition_first_layer_key_sha256": "326579d3c143c71833c810682202710ccdd5da67b525ab2ae40d27f617941d96",
+  "created_utc": "2026-08-21T08:55:00Z",
+  "engineering_task_id": "a4d61371-f183-49c5-b89f-a5ed6f2c0a34",
+  "experiment_id": "ff6ded3f-ff04-48e2-870b-1ab9d1b22fe1",
+  "frozen_pre_science_endpoint_identity_tolerance": 1e-06,
+  "implementation_review_verdict": "PASS_FOR_REAL_TORCH_KV_MICROCHECK",
+  "implementation_review_work_item_id": "c1d3d11c-7f8a-46a3-8746-c53ec78e7290",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_KV_SPLICE_REAL_TORCH_MICROCHECK_A4_V1",
+  "model_calls": 0,
+  "model_weights_loaded": false,
+  "observed_max_abs_endpoint_identity_error": 0.0,
+  "prediction_id": "fe99ff8f-fc47-4943-acee-ce1d249cb465",
+  "replayresidual_family_indices_accessed": false,
+  "runtime": {
+    "cuda_available": true,
+    "device_capability": [
+      8,
+      6
+    ],
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dynamic_cache_class": "DynamicCache",
+    "dynamic_cache_module": "transformers.cache_utils",
+    "python": "3.13.15",
+    "tokenizers": "0.21.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.51.3"
+  },
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "synthetic_input_recipe": {
+    "batch": 1,
+    "clean_offset": -2.0,
+    "condition_offset": 3.0,
+    "device": "cuda:0",
+    "dtype": "torch.bfloat16",
+    "endpoint": "tanh(sum_layer_weighted(mean(last3,K[:16])+mean(last3,V[:16]))/64)*arange(1,17)",
+    "endpoint_repetitions": 8,
+    "head_dim": 128,
+    "key_formula": "arange*0.0009765625 + offset + layer*0.25",
+    "kv_heads": 8,
+    "layers": 28,
+    "prefix_len": 7,
+    "seq_len": 12,
+    "value_formula": "reverse_lastdim(arange)*0.00048828125 + offset*1.5 + layer*0.125"
+  },
+  "synthetic_input_recipe_sha256": "9a8c7f233252ee254ab73e9a6d0786a09463e83e14042bcd816e171fb40b6370",
+  "tolerance_rule": "max(1e-6, 10 * observed_max_abs_identity_error) frozen from synthetic identical-input A/E and D/clean endpoints only; no scientific family/outcome access",
+  "verdict": "PASS_FOR_FRESH_INDEPENDENT_KV_ENGINEERING_READINESS_REVIEW",
+  "work_item_id": "224c842a-5e69-4a84-a9fa-32febfefcd49"
+}

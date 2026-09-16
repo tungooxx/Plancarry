@@ -1,0 +1,248 @@
+{
+  "alfworld_science_calls": 0,
+  "authoritative_sha256": {
+    "cohort": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+    "contam_audit": "b97a731eaaeb064cc10892a7736330627160bf336b745fc47242d6f2cf40ece6",
+    "prereg": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "rebind_audit": "a649dcb02aa2eecd658c0d32ed9cf714ea12f12d930d7c16909f98b8a4750155",
+    "rebound": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7",
+    "v1_v11_diff": "73b9eb775aa9cc0011ba71e1e176fc069f69abc3e1fa3ef3000495875b38ff66"
+  },
+  "checks": [
+    {
+      "detail": "results/design/plancarry_replay_residual_sanity_prereg_v1_1_20260821.json 394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+      "name": "hash_prereg",
+      "pass": true
+    },
+    {
+      "detail": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json 545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+      "name": "hash_cohort",
+      "pass": true
+    },
+    {
+      "detail": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json 14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7",
+      "name": "hash_rebound",
+      "pass": true
+    },
+    {
+      "detail": "results/design/plancarry_replay_residual_confirmation_v1_to_v1_1_lineage_rebind_diff_audit_20260821.json a649dcb02aa2eecd658c0d32ed9cf714ea12f12d930d7c16909f98b8a4750155",
+      "name": "hash_rebind_audit",
+      "pass": true
+    },
+    {
+      "detail": "results/design/plancarry_replay_residual_untouched_confirmation_contamination_audit_v1_20260821.json b97a731eaaeb064cc10892a7736330627160bf336b745fc47242d6f2cf40ece6",
+      "name": "hash_contam_audit",
+      "pass": true
+    },
+    {
+      "detail": "results/design/plancarry_replay_residual_sanity_v1_to_v1_1_diff_audit_20260821.json 73b9eb775aa9cc0011ba71e1e176fc069f69abc3e1fa3ef3000495875b38ff66",
+      "name": "hash_v1_v11_diff",
+      "pass": true
+    },
+    {
+      "detail": "n=64 indices=[0, 1]..[62, 63]",
+      "name": "cohort_64_fixed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "cohort_unique_family_path",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "dev_0_31_fixed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "reserve_32_63_sealed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "cohort_environment_only",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "cohort_no_replacement_rule",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_exact_20_32_51",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "replication_exact_12_52_63",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "roles_match_source_bytes",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "all_64_pairwise_disjoint",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "confirmation_unaccessed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "contamination_audit_pass",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "name": "rebind_audit_no_science_change",
+      "pass": false
+    },
+    {
+      "detail": "path=results/design/plancarry_replay_residual_sanity_v1_to_v1_1_diff_audit_20260821.json",
+      "name": "v1_v11_diff_pass",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "name": "v1_v11_diff_no_model_science",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "exact_qwen3_revision",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "name": "bf16_no_quant_offload",
+      "pass": false
+    },
+    {
+      "detail": "",
+      "name": "thinking_disabled",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "fixed_128_token_plan_slot",
+      "pass": true
+    },
+    {
+      "detail": "{\"anchors\": {\"t1\": \"after first completed post-plan action-observation cycle\", \"t2\": \"after second completed post-plan action-observation cycle; must precede the frozen interruption/reset point\"}, \"candidate_layers\": [7, 14, 21, 27], \"capture_token\": \"last token immediately before the next ACTION: field at each anchor\", \"invariant\": \"teacher-force the exact same realized action-observation trajectory in every replay arm; only the fixed 128-token plan block differs\", \"normalization\": \"retain raw FP32 residual for norm statistics; use L2-unit residual only for cosine/selectivity metrics; norm<=1",
+      "name": "same_trajectory_replay",
+      "pass": false
+    },
+    {
+      "detail": "['ALT_NEUTRAL_POSITION', 'GENERIC_HISTORY', 'NEUTRAL_FILLER', 'NEXT_ACTION_PRESERVED_LATE_NULL', 'PLAN_PRESENT', 'SHUFFLED_PLAN', 'UNRELATED_PLAN']",
+      "name": "all_required_conditions",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "next_action_preserved_late_null_strict",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "frozen_layers_7_14_21_27",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "t1_t2_fixed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "normalization_explicit",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "no_layer_site_scale_selection",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "future_norm_comparable_heldout",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "minimum_qualified_16",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "family_independent_unit",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "explicit_pass_fail_inconclusive",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "late_null_enters_gate",
+      "pass": true
+    },
+    {
+      "detail": "missing=[]",
+      "name": "payload_provenance_complete",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "payload_hash_failclosed",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "no_filter_replace_guard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "reserve_no_model_calls_guard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "sanity_no_causal_claim",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "fail_kills_before_causal",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "name": "rebound_binds_authoritative_v11",
+      "pass": true
+    },
+    {
+      "detail": "Prereq design does not authorize patching; downstream EngineeringTask requires /patch_score runtime-unreachable.",
+      "name": "engineering_capture_only_required",
+      "pass": true
+    }
+  ],
+  "important_boundary": "PASS authorizes sanity engineering only. It does not authorize scientific execution. Before any sanity science, downstream engineering must make /patch_score runtime-unreachable in capture-only mode and independently verify executable readiness.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_INDEPENDENT_SANITY_PREREG_REVIEW_A4",
+  "model_calls": 0,
+  "passed_count": 39,
+  "review_work_item_id": "ca4d2f95-df5f-4350-82c5-62bf51a7754a",
+  "reviewer_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "scientific_result": "NOT_ASSESSED",
+  "scope": "PRE_EXECUTION_DESIGN_AND_ISOLATION_ONLY_NO_MODEL_SCIENCE",
+  "total_count": 45,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

@@ -1,0 +1,218 @@
+{
+  "checker_history": [
+    {
+      "classification": "NONCANONICAL_CHECKER_FALSE_NEGATIVE",
+      "job_id": "local_886824d164b94d8e",
+      "reason": "obsolete top-level key assumptions"
+    },
+    {
+      "classification": "NONCANONICAL_CHECKER_FALSE_NEGATIVE",
+      "job_id": "local_bd9cf5d3d103471e",
+      "reason": "compiler_runtime explanatory suffix mismatch"
+    }
+  ],
+  "checks": {
+    "binomial_holm_exact": {
+      "detail": {
+        "effect_guards": {
+          "bidirectional_fraction_min": 0.6,
+          "mean_active_minus_each_control_min": 0.05,
+          "mean_cpse_active_min": 0.1,
+          "positive_family_fraction_min": 0.7
+        },
+        "method": "Exact one-sided independent-family Binomial sign tail, fixed n=20, zeros non-positive/failure",
+        "multiplicity": "Holm step-down across exactly four tests, FWER 0.05, lexicographic test-name tie order",
+        "tests": [
+          "active_gt_zero",
+          "active_gt_archived",
+          "active_gt_random",
+          "active_gt_unrelated"
+        ]
+      },
+      "pass": true
+    },
+    "canonical_primary": {
+      "detail": {
+        "authoritative_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+        "execution_if_primary_null_invalid_or_inconclusive": "FORBIDDEN",
+        "experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+        "independent_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+        "prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+        "required_primary_status": "SUPPORTED_T1 after valid all-20 confirmation assessment"
+      },
+      "pass": true
+    },
+    "conditional_only": {
+      "detail": {
+        "authoritative_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+        "execution_if_primary_null_invalid_or_inconclusive": "FORBIDDEN",
+        "experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+        "independent_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+        "prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+        "required_primary_status": "SUPPORTED_T1 after valid all-20 confirmation assessment"
+      },
+      "pass": true
+    },
+    "controls_exact": {
+      "detail": [
+        "NO_PATCH",
+        "ZERO_ADD",
+        "SELF_PATCH",
+        "ARCHIVED_ORDER",
+        "RANDOM_SAME_NORM",
+        "UNRELATED_PLAN_FROM_PRIMARY_DISCOVERY"
+      ],
+      "pass": true
+    },
+    "effect_guards_exact": {
+      "detail": {
+        "bidirectional_fraction_min": 0.6,
+        "mean_active_minus_each_control_min": 0.05,
+        "mean_cpse_active_min": 0.1,
+        "positive_family_fraction_min": 0.7
+      },
+      "pass": true
+    },
+    "expressivity_exact": {
+      "detail": {
+        "delayed_denominator": 12,
+        "delayed_min_competent": 8,
+        "overall_min_competent": 16,
+        "pair_competence": "source A margin >= +0.10 and source B margin <= -0.10 nats/token",
+        "population_rule": "If cohort gate passes, all 20 reserve families enter primary inference; no filtering/replacement."
+      },
+      "pass": true
+    },
+    "math_exact": {
+      "detail": "Same FP32 active/archived/unrelated epsilon=1e-8 zero-direction rule, same package-independent SHA256 Rademacher random control, same sign*alpha*||h_reset|| scaling; imported primary alpha.",
+      "pass": true
+    },
+    "model_exact": {
+      "detail": {
+        "compiler_runtime": "CC=/usr/bin/gcc; CXX=/usr/bin/g++ infrastructure only",
+        "device_policy": "CUDA device name contains GTX 1650",
+        "id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "precision": "float16",
+        "quantization": "NONE",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "tokenizers": "0.20.3",
+        "transformers": "4.46.3"
+      },
+      "pass": true
+    },
+    "no_numeric_identity_claim": {
+      "detail": false,
+      "pass": true
+    },
+    "no_retuning": {
+      "detail": {
+        "primary_discovery_selection_currently_exists": false,
+        "rule": "After primary T1 support, import the exact content-hashed primary v2.5 discovery-selection artifact. Reuse selected_layer, selected_alpha, and all 20 frozen primary discovery active donor directions. No reserve layer/alpha selection, threshold tuning, donor recapture from confirmation, or control substitution.",
+        "selection_sha_must_be_recorded_before_any_reserve_model_request": true
+      },
+      "pass": true
+    },
+    "primary_design_review": {
+      "detail": {
+        "authoritative_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+        "execution_if_primary_null_invalid_or_inconclusive": "FORBIDDEN",
+        "experiment_id": "7d53ac0d-8ed4-4cf1-98b8-afd02fc794e9",
+        "independent_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+        "prediction_id": "77a66100-358e-4387-9cd9-4f0db8dfb14e",
+        "required_primary_status": "SUPPORTED_T1 after valid all-20 confirmation assessment"
+      },
+      "pass": true
+    },
+    "rebind_hash": {
+      "detail": "6f824adeeae12976fd6733ac30a990d628fae543493bc9f907f16779c8d69ae7",
+      "pass": true
+    },
+    "reserve_counts": {
+      "detail": {
+        "delayed_divergence_pairs": 12,
+        "donor_map_path": "results/design/plancarry_latent_t1_replication_donor_map_v1.json",
+        "donor_map_sha256": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+        "independence": "Zero family-name/game-path overlap with primary 40; 20 unique reserve families; environment-only A/B replay validity was frozen before model access; no replacement.",
+        "manifest_path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json",
+        "manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+        "model_calls_during_this_rebind_design": 0,
+        "pair_count": 20,
+        "reserve_audit_path": "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json",
+        "reserve_audit_sha256": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+        "split": "train",
+        "superseded_old_reserve_experiment_id": "d6bc910b-0809-466a-a406-2694a3b2fe81",
+        "task_type": "pick_two_obj_and_place"
+      },
+      "pass": true
+    },
+    "reserve_files": {
+      "detail": {
+        "delayed_divergence_pairs": 12,
+        "donor_map_path": "results/design/plancarry_latent_t1_replication_donor_map_v1.json",
+        "donor_map_sha256": "94190b42f08f3eebbf624b4354effc31b49b8cd85e26bdf1c0e4200c3a0f6173",
+        "independence": "Zero family-name/game-path overlap with primary 40; 20 unique reserve families; environment-only A/B replay validity was frozen before model access; no replacement.",
+        "manifest_path": "results/design/plancarry_latent_t1_replication_train_manifest_v2.json",
+        "manifest_sha256": "98cb0a689813da3d723bcdd36125b0bbcced8225fac8359c4fe9d6c96b513784",
+        "model_calls_during_this_rebind_design": 0,
+        "pair_count": 20,
+        "reserve_audit_path": "results/design/plancarry_latent_t1_replication_reserve_audit_v1.json",
+        "reserve_audit_sha256": "3e382bed9958b24c68b3fe1692989f2abe4a626ab2c095534631a4e645424446",
+        "split": "train",
+        "superseded_old_reserve_experiment_id": "d6bc910b-0809-466a-a406-2694a3b2fe81",
+        "task_type": "pick_two_obj_and_place"
+      },
+      "pass": true
+    },
+    "scorer_provenance": {
+      "detail": {
+        "direct_vs_old_fullsequence_diagnostic_sha256": "99901c8a0e4869c8e1a0dc4fc288a0c0c5d3eab2ca057b9c0300aded26349dc5",
+        "measurement_implementation": "Use exact canonical v2.5 prefix-stable cached-prefix scorer for every reserve source/base/control score. Patch hook active only during prefix forward at frozen RESET boundary token; remove before sequential exact-suffix teacher forcing; no reinjection/recomputation.",
+        "numerical_identity_to_v24_claimed": false,
+        "plumbing_audit_sha256": "55e08892920a6d036e4c4f58b6377e786382f11a75da588d87bcc12474f29c54",
+        "prefix_stable_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+        "prefix_stable_engineering_result_id": "cb545b98-119b-49fa-a1eb-5b594ce0addc",
+        "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+      },
+      "pass": true
+    },
+    "sealed": {
+      "detail": [
+        "NOT_ASSESSED",
+        false,
+        false,
+        false
+      ],
+      "pass": true
+    },
+    "t1_scope_only": {
+      "detail": "Replication may strengthen robustness of T1 causal active-plan signal across disjoint families only; no checkpoint, compactness, multi-step persistence, cross-model/environment, or end-to-end superiority claim.",
+      "pass": true
+    },
+    "tests_exact": {
+      "detail": [
+        "active_gt_zero",
+        "active_gt_archived",
+        "active_gt_random",
+        "active_gt_unrelated"
+      ],
+      "pass": true
+    }
+  },
+  "checks_passed": 18,
+  "checks_total": 18,
+  "failed_checks": [],
+  "interpretation": "PASS only authorizes future conditional T1R registration. It contributes zero scientific support for T1/persistence until primary support and an executed untouched reserve.",
+  "kind": "PLANCARRY_V25_T1R_REBIND_INDEPENDENT_PREREG_REVIEW",
+  "review_work_item_id": "d42834c2-7bf5-48c5-97e3-5a4694c31c8b",
+  "reviewed_artifact": "results/design/plancarry_latent_v2_5_t1r_rebind_frozen_20260820T0258Z.json",
+  "reviewed_sha256": "6f824adeeae12976fd6733ac30a990d628fae543493bc9f907f16779c8d69ae7",
+  "scientific_result": "NOT_ASSESSED",
+  "sealed_state": {
+    "confirmation_accessed": false,
+    "primary_scientific_outcomes_seen": false,
+    "reserve_model_calls": 0,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "verdict": "PASS_FOR_T1R_REGISTRATION"
+}

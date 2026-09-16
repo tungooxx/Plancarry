@@ -1,0 +1,42 @@
+{
+  "alfworld_science": false,
+  "checks": {
+    "candidate_suffix_prefixes": true,
+    "capture_boundary": true,
+    "nonzero_changes_finite_scores": true,
+    "provenance": true,
+    "reset_prefix": true,
+    "self_patch_le_1e_4": true,
+    "source_lengths_equal": true,
+    "target_token_stable": true,
+    "zero_add_le_1e_6": true
+  },
+  "kind": "V24_SYNTHETIC_REAL_GTX1650_ENGINEERING_CHECK",
+  "metrics": {
+    "nonzero_max_abs": 0.0011360645294189453,
+    "reset_norm": 34.55194395653096,
+    "self_patch_max_abs": 0.0,
+    "source_contrast_norm": 1.199773776297492,
+    "zero_add_max_abs": 0.0
+  },
+  "model_info": {
+    "api_version": "plancarry-whitebox-v1",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce GTX 1650",
+    "dtype": "torch.float16",
+    "hidden_size": 1536,
+    "mode": "real",
+    "model_commit_resolved": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision_requested": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "num_layers": 28,
+    "parameter_count": 1543714304,
+    "python_version": "3.13.15",
+    "quantization": "NONE",
+    "scientific_result": "NOT_ASSESSED",
+    "tokenizers_version": "0.20.3",
+    "torch_version": "2.6.0+cu124",
+    "transformers_version": "4.46.3"
+  },
+  "scientific_result": "NOT_ASSESSED"
+}

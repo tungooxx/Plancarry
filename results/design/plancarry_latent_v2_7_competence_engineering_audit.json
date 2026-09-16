@@ -1,0 +1,36 @@
+{
+  "artifacts": {
+    "env_replay": "4485874719a1e24441f1a18906e78a17203aeb828998bb97bc0e55690ede9153",
+    "runner": "4a1c1b2d7fb4bc83b8bab508a5e24a77ef7c26606a80be00672ef743001d000c",
+    "synthetic_bridge": "4ee3735b545542217ed1e179e845c6b43dc297c87986abb3ec2982c458dd5203",
+    "tokenizer": "19e7609f406ef21b926e8fd6d80c1a35aabd7af27b89e4f1bffeb0bb20f846ef",
+    "validator": "7444264bbaf3874121f8a5d01aafee1ab810c4a2661beb4aaa5a2a5345e17dbe"
+  },
+  "checks": {
+    "artifact_hashes_exact": true,
+    "confirmation_and_causal_paths_absent": true,
+    "env_replay_20_of_20": true,
+    "exact_tokenizer_runtime": true,
+    "no_alfworld_model_science_during_engineering": true,
+    "static_12_of_12": true,
+    "suffix_semantics_exact_and_fail_closed": true,
+    "synthetic_exact_device": true,
+    "synthetic_exact_model": true,
+    "synthetic_exact_packages": true,
+    "synthetic_exact_precision": true,
+    "synthetic_score_two_rows": true,
+    "tokenizer_20_of_20": true
+  },
+  "competence_contract_sha256": "b5fb54cac2548508703c54ed5b90f7562fb9952dac13685a00e59a93734999e0",
+  "confirmation_accessed": false,
+  "design_sha256": "0b25f09d2010358c23838f0e999ce7c7bd41b1e68ce84f4f14aecafafd5bdc51",
+  "independent_design_review_sha256": "b3e4fb7f110b22fa1b9eaed10f355af5094f42c92513f404a84da73be4beab2d",
+  "kind": "PLANCARRY_LATENT_V2_7_COMPETENCE_ENGINEERING_AUDIT",
+  "model_science_accessed": false,
+  "passed": 13,
+  "scientific_result": "NOT_ASSESSED",
+  "status": "PASS",
+  "total": 13,
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false
+}

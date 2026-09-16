@@ -1,0 +1,29 @@
+{
+  "authorization": "Does not authorize science; execution owner must bind the repaired script/command via research_decision_create then research_experiment_execute.",
+  "change": {
+    "from": "PACKETS=\"$ROOT/results/science/plancarry_replay_residual_sanity_packets_v2_1\"",
+    "to": "PACKETS=\"$ROOT/results/science/plancarry_replay_residual_sanity_packets_v2\""
+  },
+  "changed_lines": [
+    13
+  ],
+  "environment_execution": 0,
+  "held_fixed": [
+    "canonical Experiment fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+    "canonical output results/science/plancarry_replay_residual_representation_sanity_v2_1.json",
+    "producer/validator/runner/bridge/client bytes",
+    "dev indices0..31 only",
+    "reserve32..63 prohibited",
+    "all V2.1 qualification/control/layer/metric/gate semantics"
+  ],
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_V2_1_SANITY_ORCHESTRATOR_PACKETPATH_REPAIR_A4",
+  "model_calls": 0,
+  "reason": "Reviewed packet producer FINAL_TARGET_REL is results/science/plancarry_replay_residual_sanity_packets_v2; source orchestrator expected incompatible v2_1 directory, which would consume Phase1 then fail before capture and make retry fail due to no-overwrite.",
+  "repaired_path": "results/design/plancarry_replay_residual_v2_1_sanity_orchestrator_packetpath_repaired_a4_20260821.sh",
+  "repaired_sha256": "10ccc684e5d356da3caf7108fa16120376d393224e1544d6c448fa3bdd52cf9b",
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "source_path": "results/design/plancarry_replay_residual_v2_1_sanity_orchestrator_a2_20260821.sh",
+  "source_sha256": "993c833cc4b497084c4c75b77c31c15206ac6f6adae1249a011d6951b6a6513c",
+  "status": "PRE_SCIENCE_ENGINEERING_ONLY"
+}

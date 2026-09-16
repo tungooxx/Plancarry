@@ -1,0 +1,323 @@
+{
+  "agenda_item_id": "d7423890-d47b-42c1-bcde-f3410b140ca6",
+  "arms": {
+    "ACTIVE_PLAN_RESIDUAL": "one injection of own episode r_PLAN",
+    "GENERIC_HISTORY": "visible-history/non-plan residual",
+    "NEXT_ACTION_PRESERVED_LATE_NULL": "late-null residual preserving a1 lexical evidence but no a2/a3 procedural commitments",
+    "NO_PATCH": "identical reset/session with no hook",
+    "RANDOM_EQ_NORM": "deterministic SHA256-Rademacher vector at active dimension/norm",
+    "SELF_REPLACE": "one replacement by exact captured reset hidden-state clone; plumbing sentinel only",
+    "SHUFFLED_PLAN": "same-plan deterministic clause permutation residual",
+    "UNRELATED_PLAN": "frozen different-family donor plan residual",
+    "VISIBLE_TEXT_PLAN": "descriptive positive ceiling: original 128-token plan slot visible in reset context, no activation hook",
+    "ZERO_ADD": "one exact zero-vector add; plumbing sentinel only"
+  },
+  "artifact_status": "PRE_OUTCOME_NONEXECUTABLE_MARGIN_DETERMINISM_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW_AND_POPULATION_BINDING",
+  "author_work_item_id": "46c8a154-e985-4500-a9e0-2d2e1ec32d97",
+  "confirmation": {
+    "all20_denominator": "If gate passes, all20 remain in every primary denominator. Any stage2-unqualified/zero-active-residual family gets ACTIVE LCA2=0 and d_no_patch<=0, d_specificity<=0 and cannot count as positive.",
+    "co_primary_tests": [
+      "Exact one-sided Binomial/sign test n=20 for d_no_patch>0; zero/nonpositive is failure.",
+      "Exact one-sided Binomial/sign test n=20 for d_specificity>0; zero/nonpositive is failure.",
+      "Holm step-down FWER=0.05 across the two tests."
+    ],
+    "decision_rule": "SUPPORTED iff expressivity gate passes, both sign tests pass Holm and every effect/competence/plumbing guard passes. If gate passes and execution valid but any co-primary/effect guard fails => REFUTED. Technical/provenance violation => TECHNICAL_INVALID/NOT_ASSESSED.",
+    "effect_guards": {
+      "ACTIVE_primary_valid_action_rate_ge": 0.95,
+      "ACTIVE_valid_action_rate_not_below_NO_PATCH_by_more_than": 0.05,
+      "mean_ACTIVE_LCA2_ge": 0.5,
+      "mean_d_no_patch_ge": 0.15,
+      "mean_d_specificity_ge": 0.1,
+      "positive_d_no_patch_at_least": "15/20",
+      "positive_d_specificity_at_least": "15/20",
+      "self_replace_no_patch_maxabs_le": 1e-06,
+      "zero_add_no_patch_maxabs_le": 1e-06
+    },
+    "expressivity_gate": "require >=15/20 stage2-qualified. Rationale: with all20 denominator and two co-primary one-sided sign tests under Holm, fewer than15 eligible families cannot possibly provide 15 positive signs, so lower gating would conflate structural non-expressivity with a causal null. If <15 => INCONCLUSIVE_LOCALCONTINUATION_CONFIRMATION_EXPRESSIVITY and close lineage without rescue.",
+    "matched_state_secondary": "At the frozen operating point, report matched-state MSA2 using the same teacher-forced assay as development, but it is secondary only.",
+    "null_label": "REFUTED_REPLAYRESIDUAL_LOCALCONTINUATION_T1",
+    "operating_point": "import exact frozen development layer/alpha/site/source/vector rules; zero retuning",
+    "population": "exact untouched fresh confirmation n=20 from bound population manifest; no replacement, no tuning",
+    "primary_endpoint": "Autonomous local_continuation_agreement_2step_LCA2 exactly as frozen in primary_endpoint; matched-state MSA2 is secondary mechanistic corroboration only and cannot rescue a null LCA2 confirmation.",
+    "support_requires_autonomous_behavior": true,
+    "supported_label": "SUPPORTED_REPLAYRESIDUAL_LOCALCONTINUATION_T1",
+    "technical_label": "TECHNICAL_INVALID_LOCALCONTINUATION"
+  },
+  "development": {
+    "autonomous_rollout_role": "Autonomous LCA2 on development may be reported descriptively as a pre-confirmation competence sanity check but cannot choose layer/alpha and cannot substitute for untouched autonomous confirmation.",
+    "family_contrasts": {
+      "d_no_patch_ms": "MSA2_ACTIVE-MSA2_NO_PATCH",
+      "d_specificity_ms": "MSA2_ACTIVE-max(MSA2_RANDOM_EQ_NORM,MSA2_NEXT_ACTION_PRESERVED_LATE_NULL,MSA2_UNRELATED_PLAN,MSA2_SHUFFLED_PLAN,MSA2_GENERIC_HISTORY)",
+      "joint_margin_ms": "min(d_no_patch_ms,d_specificity_ms)"
+    },
+    "freeze_before_confirmation": "content-hash selected layer/alpha, all development aggregates, exact runtime/code/vector/control/provenance schemas and bound population SHAs before the first confirmation model/environment request",
+    "futility_guard": "Do not open confirmation unless selected development median joint_margin_ms >=0.05 and ACTIVE matched-state top1 agreement MSA2 mean >=0.50 across qualified development families. Futility is development-only and cannot be rescued by another layer grid/model/horizon/cohort.",
+    "gate": "require >=16/32 stage2-qualified before any causal grid; otherwise stop INCONCLUSIVE_LOCALCONTINUATION_DEVELOPMENT_EXPRESSIVITY",
+    "grid": {
+      "alphas": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "layers": [
+        7,
+        14,
+        21,
+        27
+      ],
+      "source_anchor": "t2_only",
+      "target_site": "same_layer_reset_prefix_last_token_before_ACTION"
+    },
+    "population": "fresh frozen development n=32 from bound population manifest only",
+    "selection": "Select ONE global layer/alpha maximizing median joint_margin_ms across stage2-qualified development families. Tie-break in this exact order: (1) higher median ACTIVE MSA2 over the exact same stage2-qualified development denominator; (2) higher median ACTIVE reference_action_margin_family over that exact same denominator; (3) lower alpha; (4) earlier layer. No per-family point selection. All score equality and top1 command ties inherit exact V2.1 semantics: exact FP32 score equality and lexical-min command among maxima.",
+    "selection_endpoint": {
+      "first_action_excluded": true,
+      "matched_state_guards": [
+        "same exact reference action3/observation3 appended across every arm",
+        "same exact reference action4/observation4 appended across every arm",
+        "pre-action4 and pre-action5 world-state hashes must equal uninterrupted reference hashes in every arm",
+        "current admissible-command sets must equal the reference sets before each scored position",
+        "candidate scoring cannot mutate the live KV cache"
+      ],
+      "name": "matched_state_action_agreement_2step_MSA2",
+      "purpose": "development operating-point selection only; cannot establish behavioral persistence",
+      "range": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "reference_positions": [
+        "reference action4",
+        "reference action5"
+      ],
+      "single_injection_persistence": "For each arm, perform the one frozen reset-time intervention exactly once. Then teacher-force reference action3 + its exact resulting observation through the same persistent KV/session. At the resulting pre-action4 state score all current admissible commands; indicator4=1 iff reference action4 is the unique/lexical-tie-broken top-scoring admissible command. Then teacher-force reference action4 + exact observation4 through the same session and score the pre-action5 state analogously. MSA2=0.5*(indicator4+indicator5). No reinjection/reset-prefix rebuild/model-chosen branch is allowed during this development assay."
+    },
+    "selection_tiebreak_margin": {
+      "family_aggregation": "reference_action_margin_family = arithmetic mean(margin_4, margin_5). Both margins must be finite.",
+      "grid_tiebreak_aggregation": "For each grid cell, compute the median of ACTIVE reference_action_margin_family across the exact same stage2-qualified development families used by the primary selector. Higher median wins only after a tie on primary median joint_margin_ms and median ACTIVE MSA2.",
+      "name": "ACTIVE_reference_action_margin_family",
+      "position_formula": "For j in {4,5}: margin_j = score_FP32_meanlogprob(reference_action_j) - max(score_FP32_meanlogprob(c) for c in current_admissible_commands_j if c != reference_action_j).",
+      "role": "Late deterministic development tie-break only. It is not a primary endpoint, confirmation statistic, effect guard, or scientific support criterion.",
+      "score_equality_and_top1_ties": "Exact FP32 score equality; lexical-min command among equal maxima, inherited unchanged from V2.1.",
+      "scored_positions": [
+        "reference action4",
+        "reference action5"
+      ],
+      "scorer": "Exact inherited V2.1 admissible-command suffix arithmetic-mean FP32 logprob scorer at the matched uninterrupted-reference pre-action state; no sampled/generated action is appended during scoring.",
+      "single_admissible_fail_closed": "If the current admissible set at either scored position contains no non-reference command, the family/grid-cell is TECHNICAL_INVALID_MARGIN_UNDEFINED. Do not substitute +inf/-inf/0, do not drop/filter the family, and do not use that grid cell for selection."
+    }
+  },
+  "high_tier_claim_boundary": {
+    "candidate_claim": "On fresh ALFWorld pick_and_place_simple episodes that admit a model-own five-action local trajectory, an episode-specific plan-content residual injected exactly once after a true context reset causally preserves two subsequent autonomous first-action-excluded procedural steps beyond next-action-preserved, shuffled, unrelated-plan, history and equal-norm activation controls, while maintaining admissible-action competence. Development operating-point selection uses a matched-state reference-action assay; the claim requires untouched autonomous confirmation and cannot be supported by matched-state preference alone.",
+    "not_claimed": [
+      "whole-task success improvement",
+      "general memory solution",
+      "cross-model generality",
+      "cross-environment generality",
+      "minimal/compact checkpoint",
+      "representation is sufficient without causal confirmation"
+    ],
+    "paper_ladder": "fresh population audit -> independent prereg review -> dev global op-point freeze -> untouched n20 confirmation -> untouched n12 no-retuning replication. Cross-model/environment replication remains required for strongest NeurIPS/ICLR framing."
+  },
+  "hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_2_MARGIN_REPAIR",
+  "model_runtime": {
+    "dtype": "BF16",
+    "heavy_execution_policy": "No heavy science on local RTX3050. Before science, reviewed code/artifacts must be committed+pushed to origin/main; a controllable Vast GPU pulls the exact pinned commit and verifies runtime/content hashes before ResearchDecision-bound execution.",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "offload": false,
+    "planner_and_executor_contract": "inherit exact V2.1 planner/executor serialization, tokenizer decode, greedy plan generation, admissible-command suffix mean-FP32-logprob scoring and lexical tie-break from unified execution contract SHA 83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158, except qualification/primary endpoint changed exactly as frozen here.",
+    "planner_max_new_tokens": 128,
+    "planner_single_attempt": true,
+    "quantization": null,
+    "reference_environment_action_budget": 12,
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "thinking_disabled": true
+  },
+  "population_binding": {
+    "execution_forbidden_until_bound": true,
+    "exposure_audit_sha256": null,
+    "independent_population_review_sha256": null,
+    "manifest_sha256": null,
+    "population_work_item_id": "25181496-854b-4398-be0a-3931b38a3e0a",
+    "required_counts": {
+      "confirmation": 20,
+      "development": 32,
+      "reserve_replication": 12
+    },
+    "required_properties": [
+      "ALFWorld train/pick_and_place_simple only",
+      "all exact game paths never previously mentioned/bound anywhere in PlanCarry results/provenance",
+      "development/confirmation/reserve pairwise disjoint",
+      "no replacement",
+      "deterministic pre-outcome selection",
+      "no valid_seen/valid_unseen"
+    ],
+    "selector_algorithm": "rank each supplied canonical never-exposed relative path by SHA256('ReplayResidualLocalContinuation|V1|'+relative_path), lexical path tie-break; first32 development, next20 untouched confirmation, next12 reserve; no replacement",
+    "selector_independent_review_sha256": "3a15c424f9648e8afeee306efeb35fbbb5f190604e39b136b5b1bfbec876f1a9",
+    "selector_real_population_status": "NOT_YET_FROZEN",
+    "selector_utility_sha256": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b",
+    "status": "PENDING_POPULATION_FREEZE_AND_INDEPENDENT_REVIEW"
+  },
+  "primary_endpoint": {
+    "definition": "LCA2 = 0.5*(I[arm a2 == reference action4 AND arm pre-a2 world-state hash == uninterrupted reference pre-action4 hash] + I[arm a3 == reference action5 AND arm pre-a3 world-state hash == uninterrupted reference pre-action5 hash]). If arm diverges, terminates or lacks a2/a3, each unavailable/unmatched position scores0.",
+    "first_action_excluded": true,
+    "name": "local_continuation_agreement_2step_LCA2",
+    "range": [
+      0.0,
+      1.0
+    ],
+    "reference_window": "post-reset a1=reference action3, a2=action4, a3=action5; exactly three post-reset actions are generated for every primary arm unless environment terminates/diverges earlier",
+    "why": "The primary score contains exactly two post-reset procedural positions after excluding immediate next-action copying; route-equivalent but state/action-different behavior does not count as preservation of the original active plan."
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "provenance_and_leakage_guards": {
+    "must_bind": [
+      "population manifest SHA",
+      "exposure audit SHA",
+      "independent population-review SHA",
+      "final prereg SHA",
+      "independent prereg-review SHA",
+      "runner/runtime/control-builder hashes",
+      "model revision/runtime",
+      "selected development seal SHA before confirmation",
+      "development matched-state assay implementation/test hashes"
+    ],
+    "partial_outcomes": "No inspection/adaptation of arm-level development results before the complete grid; no confirmation partial-result adaptation; only coarse technical health before terminal artifacts.",
+    "prohibited": [
+      "old consumed dev0..31",
+      "old confirmation32..51",
+      "old T1R52..63",
+      "valid_seen",
+      "valid_unseen",
+      "expert/oracle plan/action/state",
+      "partial-outcome family replacement",
+      "post-hoc threshold changes",
+      "per-family layer/alpha",
+      "repeat intervention",
+      "confirmation tuning"
+    ]
+  },
+  "repair_provenance": {
+    "broader_unreviewed_hardened_v1_imported": false,
+    "environment_execution": 0,
+    "model_calls": 0,
+    "repair_scope": "Only deterministic definition of late development tie-break margin plus non-scientific binding to independently reviewed population-selector algorithm/provenance.",
+    "scientific_outcomes_accessed": false,
+    "trigger_finding_id": "LC_PREREG_V01_MARGIN_UNDEFINED",
+    "trigger_review_artifact_sha256": "37133a3a89c48516a561cbca1c9c1cebe5ce9da48ef98005557a768f46633156",
+    "trigger_review_work_item_id": "91ded9e9-db66-4f91-802d-c3de9b36b673",
+    "trigger_verdict": "MATERIAL_REPAIR_REQUIRED"
+  },
+  "reserve_replication": {
+    "activation": "only after terminal SUPPORTED_REPLAYRESIDUAL_LOCALCONTINUATION_T1",
+    "all12_denominator": true,
+    "effect_guards": {
+      "ACTIVE_primary_valid_action_rate_ge": 0.95,
+      "ACTIVE_valid_action_rate_not_below_NO_PATCH_by_more_than": 0.05,
+      "mean_ACTIVE_LCA2_ge": 0.5,
+      "mean_d_no_patch_ge": 0.15,
+      "mean_d_specificity_ge": 0.1,
+      "positive_each_at_least": "10/12"
+    },
+    "gate": "require >=10/12 stage2-qualified; otherwise INCONCLUSIVE_LOCALCONTINUATION_REPLICATION_EXPRESSIVITY",
+    "no_rescue": "No layer/alpha/horizon/model/task-family/family-selection change after primary outcome; valid_seen/unseen remain prohibited in this lineage.",
+    "null_label": "NOT_REPLICATED_REPLAYRESIDUAL_LOCALCONTINUATION_T1",
+    "operating_point": "import exact primary selected layer/alpha/site/vector/runtime with no retuning",
+    "population": "exact untouched fresh reserve n=12 from bound manifest",
+    "supported_label": "REPLICATED_REPLAYRESIDUAL_LOCALCONTINUATION_T1",
+    "tests": [
+      "exact one-sided sign n=12 for d_no_patch>0",
+      "exact one-sided sign n=12 for d_specificity>0",
+      "Holm FWER=.05"
+    ]
+  },
+  "reset_and_persistent_session": {
+    "external_state": "clone exact environment state immediately after reference action2; task instruction, current observation, sorted admissible commands, reset serialization and world-state hash must be identical across arms",
+    "failure_label": "TECHNICAL_INVALID_LOCALCONTINUATION for repeated intervention, reset/KV restart, state/provenance mismatch or arm-dependent reset serialization",
+    "persistence": "all later generated action tokens and exact environment observations/admissible-command updates append to the SAME KV/session; never rebuild reset prefix, restart KV or reinject/recompute vector",
+    "reset_serialization": "TASK + current reset observation + sorted current admissible commands + <STATE_END> + ACTION:; no pre-reset plan text/history/expert state",
+    "single_injection": "exactly one hook application during reset-prefix forward at selected layer; hook_count must equal1 for every intervention arm and remain1 thereafter",
+    "token_boundary": "tokenize the complete reset serialization jointly; identify the final ACTION: field boundary from the joint tokenization. Apply the one hook at the final reset-prefix token immediately before ACTION, remove it, then append the exact remaining ACTION: token tail through the SAME KV/session. Separate text-fragment retokenization is forbidden."
+  },
+  "scientific_difference": {
+    "layer_alpha_reuse_rationale": "Reuse [7,14,21,27] x [0.25,0.5,1.0] prospectively for comparability only; prior direct-T1 causal grid was never reached, so no causal outcome selected these values.",
+    "matched_state_development_rationale": "Matched-state MSA2 is prospectively frozen before any LocalContinuation outcome to reduce state-divergence variance during global layer/alpha selection. It teacher-forces the reference local continuation after the one intervention. Untouched confirmation support is based on autonomous LCA2 only; MSA2 cannot rescue confirmation.",
+    "not_a_rescue": [
+      "no reuse of consumed dev0..31",
+      "no old confirmation/T1R identities",
+      "no longer action budget",
+      "no model switch",
+      "no threshold relaxation on consumed data",
+      "no valid_seen/valid_unseen substitution"
+    ],
+    "old_causal_outcomes_used_for_design": false,
+    "old_lineage_terminal": "INCONCLUSIVE_T1_DEVELOPMENT_EXPRESSIVITY: 0/32 task wins under fixed <=12-action qualification; causal grid never reached.",
+    "prospective_change": "Whole-task success is removed from cohort entry. The new primary estimand is local first-action-excluded procedural continuation across a true reset on wholly fresh never-consumed game paths."
+  },
+  "secondary_endpoints": {
+    "active_no_patch_task_success": "After primary 3-step scoring, ACTIVE and NO_PATCH only may continue through the same session/environment up to the inherited total post-reset competence budget for descriptive TaskSuccess; never used for eligibility, op-point selection or support gate.",
+    "extended_lca": "optional descriptive agreement on additional uninterrupted reference actions only if prospectively available; never changes primary denominator or decision",
+    "first_action_match": "a1/reference action3 match, descriptive only and cannot rescue LCA2",
+    "valid_action_rate": "primary 3-step fraction of generated commands accepted by environment for every arm",
+    "visible_text_ceiling": "LCA2 under VISIBLE_TEXT_PLAN, descriptive ceiling"
+  },
+  "source_residual": {
+    "active": "r_PLAN(layer,t2)=h_PLAN_PRESENT(layer,t2)-h_NEUTRAL_FILLER(layer,t2), raw FP32",
+    "anchor": "t2 after reference action2/observation2",
+    "candidate_alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "candidate_layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "capture_site": "residual-stream output of candidate transformer block at the last token immediately before the next ACTION field in the exact replay serialization",
+    "semantic_controls": "each control residual = h_CONTROL(layer,t2)-h_NEUTRAL_FILLER(layer,t2)",
+    "vector_rule": "ACTIVE uses alpha*raw r_PLAN. Every NONZERO semantic/random control is deterministically rescaled to ||r_PLAN||_2 then multiplied by same alpha. Exact-zero control residual remains exact zero. If ||r_PLAN||<=1e-8, ACTIVE is zero and family remains in denominator/cannot count as positive; never filter it post-capture."
+  },
+  "stage1_local_trajectory_gate": {
+    "cut": "immediately after completed ACTION/OBSERVATION cycle for reference action2",
+    "development_if_below_min": "INCONCLUSIVE_LOCALCONTINUATION_DEVELOPMENT_EXPRESSIVITY; stop, no causal grid, no rescue",
+    "development_min_stage2_qualified": 16,
+    "no_family_replacement": true,
+    "plan_acceptance": "one complete decoded tagged <PLAN>...</PLAN> block <=96 model tokens including tags; no reasoning trace; no retry",
+    "qualification_independent_of": [
+      "whole-task win",
+      "future intervention outcome",
+      "layer",
+      "alpha",
+      "arm performance"
+    ],
+    "reference_trajectory": "uninterrupted model-own executor using current admissible commands only, same task/plan/history serialization as frozen V2.1, up to 12 environment actions or termination",
+    "required_action_count_min": 5,
+    "required_first_five_actions": "steps1..5 must each be accepted, error-free, current-admissible and nontrivial; exact excluded trivial commands are help, inventory, look",
+    "required_post_cut_reference_actions": [
+      "a1=reference action3",
+      "a2=reference action4",
+      "a3=reference action5"
+    ],
+    "task_success_required": false
+  },
+  "stage2_control_constructibility": {
+    "conditions": [
+      "PLAN_PRESENT",
+      "NEUTRAL_FILLER",
+      "SHUFFLED_PLAN",
+      "UNRELATED_PLAN",
+      "GENERIC_HISTORY",
+      "ALT_NEUTRAL_POSITION",
+      "NEXT_ACTION_PRESERVED_LATE_NULL"
+    ],
+    "constructibility_failure": "family is stage2-unqualified but never replaced; in confirmatory all-population analyses it contributes zero ACTIVE LCA and nonpositive co-primary contrasts after the population gate passes",
+    "exact_plan_slot_tokens": 128,
+    "freeze_order": "After all population members complete stage1, freeze E. Only then deterministically construct unrelated-plan donor/control slots. Final constructibility cannot alter stage1 E or trigger replacement.",
+    "next_action_late_null": "preserve verbatim a1/reference action3 lexical evidence while explicitly destroying/unproviding later procedural commitments a2/a3+",
+    "unrelated_donor": "deterministic cyclic next different-family donor over frozen stage1 E using the inherited V2.1 donor rule; final-qualified membership never participates; no alternate donor rescue"
+  },
+  "supersedes_draft_sha256": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667"
+}

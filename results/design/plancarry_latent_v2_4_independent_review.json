@@ -1,0 +1,212 @@
+{
+  "artifact_checks": {
+    "donor_sha_exact": true,
+    "gtx1650_real_backend": true,
+    "heldout_unused": true,
+    "immutable_artifact_path": true,
+    "immutable_policy_explicit": true,
+    "manifest_sha_exact": true,
+    "model_exact": true,
+    "prereg_sha_exact": true,
+    "static_audit_sha_exact": true,
+    "tokenizer_audit_sha_exact": true,
+    "zero_science": true
+  },
+  "command_suffix_checks": {
+    "go to object alpha": true,
+    "go to object beta": true,
+    "take object alpha from table delta": true,
+    "take object beta from table delta": true
+  },
+  "experiment_id": "e436f81c-e31f-43e9-8fef-f3e3c2c6e250",
+  "false_checks": {
+    "artifact": [],
+    "newline": [],
+    "pair": [],
+    "scientific": [],
+    "score": [],
+    "tokenizer": []
+  },
+  "field_info": {
+    "reset_block": {
+      "actual_newline_count": 7,
+      "ends_exact_state_end_newline": true,
+      "literal_backslash_n_count": 0,
+      "repr": "'TASK\\n{TASK_TEXT}\\nCURRENT OBSERVATION\\n{RESET_OBSERVATION}\\nADMISSIBLE COMMANDS\\n{ONE_COMMAND_PER_LINE_LEXICOGRAPHIC}\\n<STATE_END>\\n'",
+      "tail_codepoints": [
+        73,
+        67,
+        125,
+        10,
+        60,
+        83,
+        84,
+        65,
+        84,
+        69,
+        95,
+        69,
+        78,
+        68,
+        62,
+        10
+      ]
+    },
+    "reset_template": {
+      "actual_newline_count": 7,
+      "ends_exact_state_end_newline": true,
+      "literal_backslash_n_count": 0,
+      "repr": "'TASK\\n{TASK_TEXT}\\nCURRENT OBSERVATION\\n{RESET_OBSERVATION}\\nADMISSIBLE COMMANDS\\n{ONE_COMMAND_PER_LINE_LEXICOGRAPHIC}\\n<STATE_END>\\n'",
+      "tail_codepoints": [
+        73,
+        67,
+        125,
+        10,
+        60,
+        83,
+        84,
+        65,
+        84,
+        69,
+        95,
+        69,
+        78,
+        68,
+        62,
+        10
+      ]
+    },
+    "source_active_template": {
+      "actual_newline_count": 5,
+      "ends_exact_state_end_newline": true,
+      "literal_backslash_n_count": 0,
+      "repr": "'{RESET_BLOCK}PLAN OPTIONS\\nOPTION A: {CLAUSE_A}\\nOPTION B: {CLAUSE_B}\\nACTIVE ORDER: A THEN B\\n<STATE_END>\\n'",
+      "tail_codepoints": [
+        78,
+        32,
+        66,
+        10,
+        60,
+        83,
+        84,
+        65,
+        84,
+        69,
+        95,
+        69,
+        78,
+        68,
+        62,
+        10
+      ]
+    },
+    "source_archived_template": {
+      "actual_newline_count": 6,
+      "ends_exact_state_end_newline": true,
+      "literal_backslash_n_count": 0,
+      "repr": "'{RESET_BLOCK}PLAN OPTIONS\\nOPTION A: {CLAUSE_A}\\nOPTION B: {CLAUSE_B}\\nARCHIVED ORDER: A THEN B\\nACTIVE ORDER: NONE\\n<STATE_END>\\n'",
+      "tail_codepoints": [
+        79,
+        78,
+        69,
+        10,
+        60,
+        83,
+        84,
+        65,
+        84,
+        69,
+        95,
+        69,
+        78,
+        68,
+        62,
+        10
+      ]
+    }
+  },
+  "files": {
+    "results/design/plancarry_latent_v2_2_unrelated_donor_map.json": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+    "results/design/plancarry_latent_v2_4_exact_template_tokenizer_audit.json": "343513b6f707291dc8513d7adebc177789a1f1013c00361c24fac6d99709d16f",
+    "results/design/plancarry_latent_v2_4_prereg_immutable_20260819T1624Z.json": "e6fb83177173044cf0c77a2868a4bd16ad8f166318cbd522ccc856c0ca87cbe0",
+    "results/design/plancarry_latent_v2_4_static_newline_repair_audit.json": "70cf5e2da8c1b9aa84fcc0a1b26e951df50aeac3086c90181270a1c1da66a24a",
+    "results/design/plancarry_latent_v2_matched_pair_manifest.json": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb"
+  },
+  "kind": "PLANCARRY_LATENT_V2_4_INDEPENDENT_PREREG_REVIEW",
+  "material_findings": [],
+  "model_inference_executed": false,
+  "newline_checks": {
+    "reset_block": true,
+    "reset_template": true,
+    "source_active_template": true,
+    "source_archived_template": true
+  },
+  "notes": [
+    "Independent review used exact immutable v2.4 artifact bytes and independently loaded only pinned tokenizer; no model weights or scientific ALFWorld outcomes.",
+    "Superseded v2.3 archival file contains a valid first JSON document followed by literal \\n bytes; comparison used only its first JSON document. This does not affect immutable v2.4."
+  ],
+  "pair_semantic_equal": {
+    "clause_template": true,
+    "command_order": true,
+    "definition": true,
+    "label_orientation": true,
+    "label_randomization_reason": true,
+    "lexical_guard": true,
+    "source_active_b_change": true,
+    "source_archived_b_change": true,
+    "task_text_extraction": true
+  },
+  "prediction_id": "1e897859-2b38-4b10-b899-d4127e67034b",
+  "scientific_comparison_equal": {
+    "active_direction": true,
+    "alphas": true,
+    "archived_direction": true,
+    "confirmation_delayed": true,
+    "confirmation_pairs": true,
+    "confirmation_population": true,
+    "direction_epsilon": true,
+    "discovery_pairs": true,
+    "donor_map_sha": true,
+    "effect_guards": true,
+    "expected_direction": true,
+    "expressivity_gate": true,
+    "layers": true,
+    "manifest_sha": true,
+    "model_id": true,
+    "model_revision": true,
+    "pair_count": true,
+    "precision": true,
+    "prediction": true,
+    "primary_tests": true,
+    "quantization": true,
+    "random_direction": true,
+    "research_question": true,
+    "scientific_result": true,
+    "tokenizers": true,
+    "transformers": true,
+    "unrelated_direction": true
+  },
+  "scientific_outcomes_seen": false,
+  "score_semantic_equal": {
+    "candidate_suffix_serialization": true,
+    "margin": true,
+    "no_generation_primary": true,
+    "score": true,
+    "tie_rule": true,
+    "tie_tolerance_nats_per_token": true
+  },
+  "tokenizer_checks": {
+    "all_candidates_add_tokens": true,
+    "all_command_suffix_prefix_stable": true,
+    "archived_terminal_actual_newline": true,
+    "reset_equals_pair_reset": true,
+    "reset_final_token_id_stable": true,
+    "reset_prefix_scoring": true,
+    "source_A_B_token_lengths_equal": true,
+    "source_A_terminal_actual_newline": true,
+    "source_B_terminal_actual_newline": true
+  },
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "verdict": "PASS_FOR_V24_ENGINEERING"
+}

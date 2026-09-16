@@ -1,0 +1,52 @@
+{
+  "causal_effect_assessed": false,
+  "causal_grid_reached": false,
+  "checks": {
+    "canonical_command_wrapper_hash_bound": true,
+    "causal_grid_empty": true,
+    "confirmation_sealed": true,
+    "no_model_or_environment_rerun_in_this_audit": true,
+    "only_development_artifacts_fetched": true,
+    "remote_exact_commit_runtime_gpu_source_hashes_passed": true,
+    "remote_preflight_READY_NO_SCIENCE_before_development": true,
+    "research_decision_authorization_env_present": true,
+    "research_decision_bound": true,
+    "reviewed_development_launcher_only": true,
+    "run_exit_zero": true
+  },
+  "confirmation_accessed": false,
+  "decision_id": "c5a5bfd7-ee09-47cd-80e2-365b053f9708",
+  "experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "governance_defect": "PRE-SCIENCE transport review was not completed before canonical execution; stale review 32e982b0 was therefore closed MATERIAL_REPAIR_REQUIRED and must never be relabeled PASS.",
+  "immutable_job_artifacts": {
+    "command.sh": "d65a3f1ed0cee180caaac8ee25c909d860836823f1a4311a0cffd18009d312f0",
+    "development_grid": "0c841bc2750f6b55398dabaeb686e05dda7c7aebcdf1c391e242bb8f42fd32e7",
+    "development_terminal": "7be6601bbfe283b142224e2c894f74e91f1dc548b3552362fb3600235660a337",
+    "development_tgz": "06315a35536c2ac26c3d2f1dfdfb8fed33999059bffe5771041abc34d775d50a",
+    "exit_code": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "stderr.log": "6bc64db5574cdbd81d77b440a95ad0c2b2554fcfeff2037a473deeaecb73aa9d",
+    "stdout.log": "74eb2427418f1eaff7ec295e6dd43deefff958d9f20ef8c2f80c103c48f36b55"
+  },
+  "interpretation": "The new local five-action trajectory eligibility mechanism succeeded on all 32 fresh development families. The experiment became inconclusive only because the inherited fixed-slot semantic-control constructor could not construct any complete Stage2 control set. This is not evidence for or against the causal ReplayResidual/LocalContinuation effect.",
+  "kind": "PLANCARRY_LOCALCONTINUATION_FF4_POSTEXECUTION_TECHNICAL_AUDIT_A4_V1",
+  "prospective_dispatch_review_satisfied": false,
+  "remote_gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "remote_launcher_sha256": "a640e43a1bb253ac0ac0e78bcdc61c42c5e1894ba26be834877f301b9744e72f",
+  "remote_science_commit": "acd6576e6255b571870a13dc689db6094d0668eb",
+  "reserve_accessed": false,
+  "revisit_rule": "Do not patch/rerun these consumed 32 families. Any successor must prospectively redesign the control representation and use a fresh non-consumed population with independent preregistration/review.",
+  "run_id": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
+  "scientific_result": "INCONCLUSIVE_CAUSAL_TEST_NOT_REACHED",
+  "stage1_runtime_errors": 0,
+  "stage1_trajectory_eligible": "32/32",
+  "stage2_failure_taxonomy": {
+    "PLAN_CONTENT_TOO_LONG_GT96": 21,
+    "PLAN_NEEDS_AT_LEAST_TWO_CLAUSES_FOR_SHUFFLE": 11
+  },
+  "stage2_final_qualified": "0/32",
+  "technical_transport_valid": true,
+  "transport_wrapper_sha256": "10131604e4c03d562ab7dcacde17c92786fb121f9cdd7ccbf9cd13672f42d4fd",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "work_item_id": "ff5b2b86-d06c-4585-a8ac-25f0eda9c4cd"
+}

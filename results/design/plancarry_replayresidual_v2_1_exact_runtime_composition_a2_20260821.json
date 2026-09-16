@@ -1,0 +1,55 @@
+{
+  "alfworld_environment_execution": 0,
+  "canonical_experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "checks": {
+    "alfworld_runtime_import": true,
+    "capture_sidecar_import": true,
+    "cuda_device_exact": true,
+    "exact_packages": true,
+    "no_replayresidual_outcome_access": true,
+    "no_scientific_episode_access": true,
+    "no_version_shadowing": true,
+    "packet_producer_import": true,
+    "packet_validator_import": true,
+    "qwen_config_tokenizer_local_only": true,
+    "qwen_exact_model_load_previously_verified": true,
+    "sanity_runner_import": true
+  },
+  "created_utc": "2026-08-21T09:28:00Z",
+  "effective_versions": {
+    "alfworld": "0.4.2",
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "python": "3.13.15",
+    "textworld": "1.7.0",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "HF_HOME": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21",
+    "PYTHONPATH": "/opt/gpu-lab/envs/plancarry-rr-tokenizer4513/lib/python3.13/site-packages:/opt/gpu-lab/envs/plancarry-rr-alfworld-py313-v21/lib/python3.13/site-packages"
+  },
+  "evidence": {
+    "composed_package_stack_job": "local_256e609f35e84386",
+    "exact_model_synthetic_runtime_job": "local_8cbaf500f67b43af",
+    "local_files_only_config_tokenizer_import_job": "local_3a7b217e4501439b",
+    "packet_readiness_review_sha256": "4017fe2fb5ce59d4236cd263c91b6fbe0d4ef50cef5584c7d281e457e4f15577"
+  },
+  "execution_topology": "Sequential on one 4GiB RTX3050: packet producer loads exact Qwen and exits; then exact capture bridge loads Qwen with --disable-patch; capture-only sidecar fronts bridge; sanity runner consumes only the atomically published dev0..31 packet set. Never hold producer model and capture bridge model concurrently.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V2_1_EXACT_RUNTIME_COMPOSITION_A2_V1",
+  "model": {
+    "cached_revision_local": true,
+    "dtype": "bfloat16",
+    "id": "Qwen/Qwen3-1.7B",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "model_calls_in_this_work_item": "synthetic runtime evidence imported from prior reviewed job only; A2 local validation loaded config/tokenizer only, no weight inference",
+  "python": "/opt/gpu-lab/envs/attribot-official/bin/python",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "verdict": "PASS_FOR_EXACT_V2_1_SCIENCE_RUNTIME_BINDING",
+  "work_item_id": "6bcee843-a5e5-442f-bc2b-429917e339cc"
+}

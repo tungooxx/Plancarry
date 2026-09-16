@@ -1,0 +1,26 @@
+{
+  "author_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "binding_constraint": "Use research_execution_attest exactly once at RUN level after immutable runner attestation is produced. Do not feed per-family scientific noneligibility records through normalize_execution_attestation as if every family had to execute executor_started; per-family technical diagnostics may be aggregated separately, but the canonical run attestation represents whether the preregistered run-level stages completed.",
+  "checks": {
+    "brain_guard_blocks_nonmeasurement": true,
+    "exact_eight_stages_match_native": true,
+    "historical_v21_reset_crash_forces_technical_invalid": true,
+    "per_episode_use_of_executor_started_all_true_prohibited": true,
+    "planner_rejection_semantics_safe_only_as_run_level_aggregate": true,
+    "reset_canary_separate_nonstudy_zero_model_zero_action": true,
+    "scientific_variables_changed": [],
+    "single_research_execution_attest_is_run_level": true,
+    "valid_lt16_inconclusive_representable": true
+  },
+  "contract_sha256": "40ae9747f675dc136a59ecc6e2c7ae28d4d329860566c542cbf1691d84bbc666",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION_INDEPENDENT_REVIEW_A2_V1",
+  "model_calls": 0,
+  "native_brain_sha256": "77d6e3b8e5c89667ca72dcbaa5e88517c2f3b30eb990727c513d6f96cbf33e2e",
+  "native_execution_validity_sha256": "bf4bbc71bb1e866b6b4639868a1775f34490de913ee63d668e19cde47c9b1f4b",
+  "native_research_sha256": "4b5c0f67ecefb3cb76c4e52e051c9bc1e47d7ae5fdf82c0e47294ddf3b6506a1",
+  "reviewer_worker_id": "1203cf7a-7c65-421e-948c-0660261035ab",
+  "scientific_outcomes_accessed": false,
+  "static_audit_sha256": "825ed04dbf87e890abf9e9d2085e2fe39722696327dfbd49aa3ebe3435292ad1",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_V22_EXECUTION_ATTESTATION"
+}

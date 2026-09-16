@@ -1,0 +1,72 @@
+{
+  "bound": {
+    "exposure_index_sha256": "70e5ab8c7cfe944632cf916b3d41fa88d7908bdbfe762d6eacc2bd45f6ae20ed",
+    "repair_audit_sha256": "31902cad33a32a521f32a1cecfd3d65aacbf3bdd888b024083676c3ec4a561c9",
+    "repaired_contract_sha256": "b367145dce4c8476aafd8d0e3e4c59fe8294191bc78874f884d3decb97edc6fb",
+    "repaired_manifest_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+    "source_contract_sha256": "6f09d4cf87225c764dd57dd4ddb2395927bbd9b16eb042d8f499e5f6a19893e6"
+  },
+  "environment_execution": 0,
+  "independent_selection_reproduction": {
+    "all40_family_unique": true,
+    "all40_game_files_exist": true,
+    "all40_historically_unexposed": true,
+    "all40_path_unique": true,
+    "confirmation_n": 20,
+    "development_n": 20,
+    "environment_execution": 0,
+    "model_calls": 0,
+    "salt": "ReplayResidual|PHI4MINI_CROSSMODEL_V2_FAMILY_UNEXPOSED|",
+    "scientific_outcomes_accessed": false,
+    "selected_exact_match": true,
+    "usable_family_unexposed_train_candidate_count": 63
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PHI_CROSSMODEL_FAMILY_UNEXPOSED_INDEPENDENT_REVIEW_V2",
+  "material_defects": [
+    {
+      "issue": "These executable-looking fields still point to the superseded contaminated v1 manifest SHA 9d334120..., while the repaired cohort is stored under cohort_manifest_path/SHA 18f76f15.... A future runner using the generic manifest_path field could silently execute the wrong cohort.",
+      "path": "axis_a_cross_model.manifest_path / manifest_sha256",
+      "required_repair": "Replace canonical manifest_path/manifest_sha256 with the repaired v2 family-unexposed manifest. Preserve the old v1 manifest only inside explicit repair_provenance.source_manifest_* fields."
+    },
+    {
+      "issue": "Still says valid_train pick_and_place_simple, but repaired manifest and cohort_scope are train/train. This contradicts the actual repaired population and can overclaim split generality.",
+      "path": "axis_a_cross_model.development_population",
+      "required_repair": "State exact 20 family-unexposed train pick_and_place_simple development families, matching the repaired manifest. Confirmation remains exact 20 disjoint family-unexposed train families."
+    },
+    {
+      "issue": "Still bind activation to V2.1 Experiment fbfeb9e9, whose Run/Evidence were formally corrected to TECHNICAL_INVALID/NOT_ASSESSED. The current program now requires a NEW V2.2 sanity successor; therefore this gate can never validly activate as written and is stale provenance.",
+      "path": "activation_gate.required_all[0] and sources.primary_sanity_experiment_id",
+      "required_repair": "After the V2.2 successor Experiment is immutably registered, rebind only the sanity activation/source provenance to that exact successor Experiment/contract/review. Do not change PASS semantics or allow V2.2 to rescue a scientific null; V2.1 was technical-invalid, not a null."
+    }
+  ],
+  "mechanism_invariants_verified": {
+    "alpha_grid": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "claim_scope_narrowed_to_cross_model_family_only": true,
+    "first_action_excluded_lpa": true,
+    "no_rescue_primary_lineage": true,
+    "offload": "NONE",
+    "phi_layers": [
+      8,
+      16,
+      24,
+      31
+    ],
+    "phi_model_revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+    "precision": "BF16",
+    "quantization": "NONE",
+    "single_intervention_no_reinjection": true,
+    "source_anchor": "t2_only",
+    "tests_and_effect_guards_unchanged": true
+  },
+  "model_calls": 0,
+  "repair_scope": "COHORT/LABEL/LINEAGE PROVENANCE ONLY. No Phi model, layer/alpha mapping, natural-plan mechanism, controls, endpoints, statistics, effect guards, activation logic semantics, no-rescue rule, or claim scope may be broadened. scientific_variables_changed=[]; no execution.",
+  "reviewer_worker_id": "9e5c82b8-1181-4658-84c7-c59f3dd71801",
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "2ef3cb42-4023-4e6a-9970-cbb48146adea"
+}

@@ -1,0 +1,101 @@
+{
+  "as_of": "2026-08-23",
+  "bottom_line": "The A4 boundary is defensible only as a conjunction/causal-identification claim. LocalContinuation is not novel as activation steering, contrastive residual construction, one-shot latent steering, procedural activation memory, hidden-state transport, or persistent KV-mediated control. Its potentially publishable distinction is same-episode model-own natural-plan replay residual identification plus actual context reset plus exactly one residual-stream intervention plus ordinary same-session KV continuation with no reinjection plus untouched autonomous first-action-excluded multi-step procedural continuation under plan-structure and energy-matched controls.",
+  "claim_narrowing_is_already_compatible_with_a4_boundary": true,
+  "claim_narrowing_required": true,
+  "claims_forbidden_even_if_primary_passes": [
+    "first hidden-state transfer or latent communication method",
+    "first activation-steering method for agents",
+    "first procedural activation memory",
+    "first one-shot latent steering or persistent steering",
+    "proof of a distinct non-KV persistent plan-state substrate",
+    "general plan memory across models, tasks or environments",
+    "novelty from contrastive residual arithmetic or execution-boundary source selection alone"
+  ],
+  "closest_prior_art_checks": [
+    {
+      "effect_on_claim": "Replay pairing and the plan-persistence problem are prior art, not novelty.",
+      "finding": "Direct parent problem and replay-pairing diagnostic. It diagnoses plan-state decay and context dependence; it does not establish content-specific one-shot causal restoration across a reset.",
+      "paper": "Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents",
+      "url": "https://arxiv.org/abs/2606.22953"
+    },
+    {
+      "effect_on_claim": "Forbids broad claims that activation steering as procedural agent memory is new; faithful positioning/comparison is important.",
+      "finding": "Already establishes training-free implicit activation steering as procedural memory for agents, distilled from historical contrastive experiences.",
+      "paper": "Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steering",
+      "url": "https://arxiv.org/abs/2606.29824"
+    },
+    {
+      "effect_on_claim": "Makes generic execution-boundary/action-intent steering the strongest live null. The plan-specific controls and first-action-excluded endpoint are central identification requirements, not optional ablations.",
+      "finding": "Shows steering effectiveness can come from execution-boundary states and introduces tail subtraction to remove shared continuation semantics.",
+      "paper": "Where Steering Signals Come From: Activation Source Selection in Activation Steering",
+      "url": "https://arxiv.org/abs/2607.25270"
+    },
+    {
+      "effect_on_claim": "A positive LocalContinuation result supports causal sufficiency under ordinary persistent KV/session dynamics; it does not prove a distinct non-KV persistent substrate.",
+      "finding": "Shows residual-stream steering can be carried forward through KV-cache reuse and that a local intervention may have persistent downstream effects through stateful attention.",
+      "paper": "Prompt-Activation Duality: Improving Activation Steering via Attention-Level Interventions",
+      "url": "https://arxiv.org/abs/2605.10664"
+    },
+    {
+      "effect_on_claim": "One-shot persistence itself is not novel.",
+      "finding": "One-shot KV intervention can steer subsequent multi-token behavior.",
+      "paper": "KV Cache Steering for Controlling Frozen LLMs",
+      "url": "https://arxiv.org/abs/2507.08799"
+    },
+    {
+      "effect_on_claim": "Below-prompt latent memory or persistent latent guidance is not a novelty claim.",
+      "finding": "Training-free persistent/updateable guidance through latent KV memory slots is already demonstrated.",
+      "paper": "Memory Inception: Latent-Space KV Cache Manipulation for Steering LLMs",
+      "url": "https://arxiv.org/abs/2605.06225"
+    },
+    {
+      "effect_on_claim": "Forbids broad hidden-state/latent-transport first claims. StateBridge differs materially because LocalContinuation tests same-episode plan-specific causal restoration across a true reset within an agent/session rather than generic cross-agent latent communication.",
+      "finding": "Already transfers aligned hidden states as continuous prefixes between LLM agents without training.",
+      "paper": "StateBridge: Training-free Hidden-state Alignment for Latent Communication in LLM Multi-Agent Systems",
+      "url": "https://arxiv.org/abs/2608.13317"
+    }
+  ],
+  "environment_execution": 0,
+  "high_tier_assessment": "A primary-only positive result is potentially interesting but still vulnerable for NeurIPS/ICLR. Strong top-tier positioning needs untouched autonomous confirmation, no-retuning replication, a second model or task/environment axis, and faithful procedural/latent-memory baseline positioning. The novelty boundary itself is adequate after the two explicit 2026 prior-art additions above; no scientific protocol mutation is required by this review.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_NOVELTY_INDEPENDENT_REVIEW_WORKER9E5C_V1",
+  "model_calls": 0,
+  "protocol_change_required": false,
+  "required_paper_positioning_additions": [
+    "Explicitly cite and discuss arXiv:2607.25270 Activation Source Selection as the strongest execution-boundary steering alternative.",
+    "Explicitly cite and discuss arXiv:2608.13317 StateBridge so no hidden-state-transfer/latent-communication first claim is made.",
+    "Describe ActAdd/CAA/NPM/KV Cache Steering/Memory Inception/StateBridge as method ancestry or neighboring mechanisms rather than straw-man baselines.",
+    "State that the primary mechanism claim is causal episode-specific plan restoration across true reset under ordinary same-session KV dynamics, not discovery of an autonomous non-KV memory substrate.",
+    "Treat NEXT_ACTION_PRESERVED_LATE_NULL, shuffled/unrelated/history and equal-norm controls as core falsifiers in the main paper, not appendix-only ablations.",
+    "Keep single-model/single-task-family claims explicitly scoped until no-retuning replication and second-model/cross-task evidence exist."
+  ],
+  "reviewer_nulls": [
+    {
+      "assessment": "ADEQUATELY_TARGETED_IF_FROZEN_CONTROLS_SURVIVE",
+      "null": "The residual is an execution-boundary/action-intent direction rather than plan identity.",
+      "reason": "NEXT_ACTION_PRESERVED_LATE_NULL preserves immediate action evidence while removing later plan commitments; SHUFFLED_PLAN, UNRELATED_PLAN and GENERIC_HISTORY challenge plan structure/content; RANDOM_EQ_NORM controls energy; autonomous confirmation excludes the first action. A positive claim must require specificity beyond all these controls."
+    },
+    {
+      "assessment": "ADEQUATELY_TARGETED",
+      "null": "Teacher-forced matched-state development creates apparent persistence.",
+      "reason": "Matched-state MSA2 is development-only operating-point selection. Untouched confirmation must be autonomous and first-action-excluded; matched-state preference cannot rescue autonomous null behavior."
+    },
+    {
+      "assessment": "CLAIM_SCOPE_REQUIRED",
+      "null": "Persistence is simply ordinary KV carry-forward from a one-shot perturbation.",
+      "reason": "This is compatible with the primary causal-sufficiency claim. Do not claim a separate long-lived non-KV plan substrate without the separately preregistered KV-mediation decomposition."
+    },
+    {
+      "assessment": "ADEQUATELY_TARGETED_IF_POPULATION_AUDIT_PASSES",
+      "null": "Fresh population was selected to rescue the prior 0/32 outcome.",
+      "reason": "The prior lineage failed before causal testing because full-task success was a cohort-entry requirement. The successor changes the estimand prospectively, uses never-exposed exact paths, and must freeze population before new model/environment outcomes."
+    }
+  ],
+  "reviewer_worker_id": "9e5c82b8-1181-4658-84c7-c59f3dd71801",
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "source_audit_path": "results/design/plancarry_replayresidual_localcontinuation_preoutcome_novelty_audit_v1_20260823.json",
+  "source_audit_sha256": "aa9039ab35aeca0275879af1cd6549dd9f1694f7b9bca698a1a0ee8bfbc99eee",
+  "verdict": "PASS_FOR_LOCALCONTINUATION_NOVELTY_BOUNDARY",
+  "work_item_id": "4e4c146e-da71-4b3a-aa9e-02832f25d37f"
+}

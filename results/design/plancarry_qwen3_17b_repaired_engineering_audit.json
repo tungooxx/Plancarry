@@ -1,0 +1,41 @@
+{
+  "alFWorld_scientific_model_calls": 0,
+  "artifacts": {
+    "direct_bf16_feasibility_job": "local_b7944c531b464aab",
+    "environment_replay_sha256": "7cec5c005fb289f5dd10b8cbb169d15a39b7b93da057141d011390233bede846",
+    "static_acceptance_job": "local_ac22eefffe724f44",
+    "synthetic_bridge_job": "local_674c10801bf543f5",
+    "tokenizer_suffix_audit_sha256": "e7c0dc5a385ef1d6c3477bd682acef75a911a46b3be286003e8c49ae996afc6c"
+  },
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "checks": {
+    "compile_and_static_validator": true,
+    "environment_replay_20_of_20": true,
+    "environment_replay_model_calls_zero": true,
+    "exact_v26_leading_space_suffix_semantics": true,
+    "leading_space_changed_token_ids_40_of_40_suffixes": true,
+    "no_confirmation_patch_or_layer_grid_path": true,
+    "overwrite_refusal": true,
+    "qwen3_tokenizer_audit_20_of_20": true,
+    "real_rtx3050_qwen3_bf16_model_info": true,
+    "source_a_b_length_matched_20_of_20": true,
+    "synthetic_real_score_plumbing": true
+  },
+  "design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+  "kind": "PLANCARRY_QWEN3_17B_REPAIRED_ENGINEERING_AUDIT",
+  "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "pass": true,
+  "runner_sha256": "2416786530b119a7643704e3dd9ff616eec614439ab56547bf7aaa66ffa78a8d",
+  "runtime": {
+    "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "validator_sha256": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28"
+}

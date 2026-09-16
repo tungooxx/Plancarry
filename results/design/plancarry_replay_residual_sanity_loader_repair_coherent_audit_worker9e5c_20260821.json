@@ -1,0 +1,34 @@
+{
+  "accidental_qualification_aggregate_policy": "Previously exposed aggregate is frozen and MUST NOT be used to retune, filter, replace, rescue, or alter this cohort/protocol. Canonical terminal outcome remains to be produced by the reviewed runner path.",
+  "checks": {
+    "alfworld_execution": 0,
+    "bash_n_pass": true,
+    "bridge_sidecar_validator_hashes_unchanged": true,
+    "enumeration_suite_6_of_6_pass": true,
+    "frozen_validator_exit0_output_suppressed": true,
+    "launcher_pins_exact_runner_sha": true,
+    "metadata_suite_6_of_6_pass": true,
+    "model_calls": 0,
+    "packet_bytes_modified": false,
+    "python_compile_pass": true,
+    "representation_outcomes_inspected": false,
+    "reserve_or_t1_access": false
+  },
+  "created_utc": "2026-08-21T14:47:16.755284+00:00",
+  "engineering_task_id": "d1756d36-4f4c-429f-961e-c28a7cf52eb9",
+  "experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "failed_run_id": "e653ef3f-ee43-4429-a757-a8aa505fa285",
+  "hashes": {
+    "bridge": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404",
+    "enumeration_test": "569e33773612e3d45b7c451b5883a5128848082fe7a1c06849188867d0db964c",
+    "launcher": "f87f79acb690cea92969dd57d6fa054239170749f758426f880c4447833a5d3e",
+    "metadata_test": "75fe12d5f9521d0bb6956725a2b1d8487b6a78a5077df98b182c0a490aa6e1f3",
+    "runner": "7a2c45dadb89a6e0736e53638132b69a38792ab83a3915a9d67ef937ce0a1bd3",
+    "sidecar": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "validator": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2"
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_SANITY_LOADER_COHERENT_REPAIR_AUDIT_V1",
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "scientific_variable_changed": "NONE_ENGINEERING_ONLY",
+  "work_item_id": "9d0574cf-7046-4809-b9da-58c2bdc65d58"
+}

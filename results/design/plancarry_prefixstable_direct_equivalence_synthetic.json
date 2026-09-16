@@ -1,0 +1,36 @@
+{
+  "alfworld_science": false,
+  "kind": "PREFIX_STABLE_DIRECT_EQUIVALENCE_SYNTHETIC",
+  "max_abs_logprob_sum_delta": 0.003242015838623047,
+  "max_abs_meanlp_delta": 0.0016210079193115234,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "pass_1e_5_meanlp": false,
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "rows": [
+    {
+      "abs_delta": 0.0023021697998046875,
+      "cache_logprob_sum": -17.890604972839355,
+      "direct_logprob_sum": -17.89290714263916,
+      "meanlp_abs_delta": 0.0011510848999023438,
+      "suffix": " choose alpha",
+      "token_count": 2
+    },
+    {
+      "abs_delta": 0.0023021697998046875,
+      "cache_logprob_sum": -18.281229972839355,
+      "direct_logprob_sum": -18.28353214263916,
+      "meanlp_abs_delta": 0.0011510848999023438,
+      "suffix": " choose beta",
+      "token_count": 2
+    },
+    {
+      "abs_delta": 0.003242015838623047,
+      "cache_logprob_sum": -15.618226051330566,
+      "direct_logprob_sum": -15.614984035491943,
+      "meanlp_abs_delta": 0.0016210079193115234,
+      "suffix": " inspect object",
+      "token_count": 2
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED"
+}

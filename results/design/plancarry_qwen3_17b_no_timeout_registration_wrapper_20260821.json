@@ -1,0 +1,23 @@
+{
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+  "engineering_result_id": "b4e7269f-ffa2-4aec-9fe6-2404f2a41454",
+  "experiment_id": "6612eb07-c515-46f4-a373-88ac5a51e54a",
+  "frozen": true,
+  "hypothesis_id": "2b27883a-5545-496b-b49f-f60da8957dee",
+  "independent_review_sha256": "2bd8865a7da9c21f03b842edaa0863c7d6c811e9249284a0182a52141f722f65",
+  "kind": "PLANCARRY_QWEN3_17B_NO_TIMEOUT_REGISTRATION_WRAPPER",
+  "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "prediction_id": "92a30364-c2bf-42bc-9b6f-f166fce9745f",
+  "request_timeout": "NONE",
+  "runner_sha256": "7365e11146dc1e098c065e9000ae75beb88030c63ae01cdac3c20355f8b0d606",
+  "science": {
+    "n": 20,
+    "no_filtering_or_replacement": true,
+    "pass_min": 12,
+    "source_a_min": 0.1,
+    "source_b_max": -0.1
+  },
+  "supersedes_execution_provenance_only": "919c2113-3de9-4973-bfd0-6ac6e3383d18",
+  "validator_sha256": "ca8f675f42de95b7388baeaf2f966da42d3da8e12fe91ce8bd240705a131bf28"
+}

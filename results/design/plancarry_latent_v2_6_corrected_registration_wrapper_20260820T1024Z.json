@@ -1,0 +1,24 @@
+{
+  "canonical_experiment_id": "d347c226-139a-4b14-8f25-4329ee08ea37",
+  "canonical_prediction_id": "d09895b5-8a13-43db-a5a4-6084630242f4",
+  "confirmation_requires": "content-hashed PLANCARRY_LATENT_V2_6_DISCOVERY_SELECTION before any confirmation request",
+  "full_design_diff_audit_sha256": "aea3334b1499fba60c9c817cdef1b8f757849bc554331bd7e63d44d086804900",
+  "full_design_independent_review_sha256": "a24ee1d81fca6296d70b75c66c8c6f5180392008a54a78e19d883f1caf30b874",
+  "full_design_sha256": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+  "kind": "PLANCARRY_LATENT_V2_6_CORRECTED_REGISTRATION_WRAPPER",
+  "phase_seal": {
+    "active_or_control_science_accessed": false,
+    "confirmation_accessed": false,
+    "source_competence_accessed": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "quarantine_anomaly_id": "48014aa5-a404-4b16-903f-b31613833fe5",
+  "quarantined_historical_experiment_id": "11eb1b96-b343-4395-98a0-aa2e3c7507be",
+  "quarantined_historical_prediction_id": "a552e9cc-4c02-4f6e-8eb8-578ff1070b9a",
+  "rtx3050_host_qualification_engineering_result_id": "4e82846f-4b29-486f-85d9-d82b475cb5fe",
+  "runtime_rebind_review_sha256": "2c4f0c1857a4e1ec49952af1d73ae614ccdb6718eab6bf0f8194de9b307c6e4e",
+  "runtime_rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "scientific_override_paths": [],
+  "scientific_result": "NOT_ASSESSED"
+}

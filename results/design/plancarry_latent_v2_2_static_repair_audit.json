@@ -1,0 +1,30 @@
+{
+  "all_pass": true,
+  "anomaly_id": "e817e5f2-97dd-4878-af99-eb0a5524b96e",
+  "checks": {
+    "action_scoring_unchanged": true,
+    "alphas_unchanged": true,
+    "causal_semantics_unchanged": true,
+    "claim_scope_unchanged": true,
+    "confirmation_population_unchanged": true,
+    "donor_bijection_20_unique": true,
+    "donors_discovery_only": true,
+    "effect_guards_unchanged": true,
+    "holm_unchanged": true,
+    "layers_unchanged": true,
+    "manifest_file_unchanged": true,
+    "manifest_reference_unchanged": true,
+    "model_unchanged": true,
+    "no_family_overlap": true,
+    "no_science": true,
+    "sign_test_method_unchanged": true,
+    "targets_confirmation_only": true,
+    "valid_seen_unseen_false": true
+  },
+  "donor_map_sha256": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+  "kind": "PLANCARRY_LATENT_V2_2_STATIC_REPAIR_AUDIT",
+  "model_outcomes_seen": false,
+  "scientific_result": "NOT_ASSESSED",
+  "v2_1_prereg_sha256": "366af00bfb54c566c039705bd7119c1d0be10eb816672422dfcfebffd31b8744",
+  "v2_2_prereg_sha256": "a2682c209a0e7d7b52d93b8519ad54596209d7a01454380c06da2ec73f94eb47"
+}

@@ -1,0 +1,153 @@
+{
+  "algorithm": "Sort confirmation pairs by frozen_pair_index ascending. Sort all 20 discovery pairs by tuple(SHA256(base+\"|donor|\"+frozen_pair_index+\"|\"+family), frozen_pair_index) ascending. Zip positions one-to-one. base is exact UTF-8 string manifest_sha256+\"|unrelated_discovery_to_confirmation_bijection_v2_2\". Each discovery donor is used exactly once; no confirmation family is a donor.",
+  "base_string": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb|unrelated_discovery_to_confirmation_bijection_v2_2",
+  "confirmation_count": 20,
+  "discovery_donor_count": 20,
+  "kind": "PLANCARRY_LATENT_V2_2_UNRELATED_DONOR_BIJECTION",
+  "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "mapping": [
+    {
+      "confirmation_family": "pick_two_obj_and_place-CellPhone-None-Drawer-329",
+      "confirmation_pair_index": 20,
+      "discovery_donor_family": "pick_two_obj_and_place-SprayBottle-None-CounterTop-409",
+      "discovery_donor_pair_index": 3,
+      "donor_sort_sha256": "15ed9239074448ce4104735b60c9d2818c9dc225e62a5e5f868e6f54c9d42799"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-RemoteControl-None-Ottoman-210",
+      "confirmation_pair_index": 21,
+      "discovery_donor_family": "pick_two_obj_and_place-Book-None-Desk-309",
+      "discovery_donor_pair_index": 12,
+      "donor_sort_sha256": "20667fcb81f48e619efa8340321a5a7c056b48600ebd9ef37066c18eb9e7af05"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-ToiletPaper-None-Drawer-409",
+      "confirmation_pair_index": 22,
+      "discovery_donor_family": "pick_two_obj_and_place-CD-None-Dresser-303",
+      "discovery_donor_pair_index": 8,
+      "donor_sort_sha256": "229185650ba99fc8c29cdd583c5d9e8b09075519c6492a8d6e5512771e115116"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-KeyChain-None-Dresser-318",
+      "confirmation_pair_index": 23,
+      "discovery_donor_family": "pick_two_obj_and_place-RemoteControl-None-Sofa-207",
+      "discovery_donor_pair_index": 16,
+      "donor_sort_sha256": "274cdf9a29830eaca288de02b99a6ecfaae5239180bb70c230e2e7b8f86e6fbd"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SprayBottle-None-Toilet-417",
+      "confirmation_pair_index": 24,
+      "discovery_donor_family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-413",
+      "discovery_donor_pair_index": 5,
+      "donor_sort_sha256": "2dde307d490b1b6e786dd6aefd5f209f0797844a69a535a591ea698e5ef711dd"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBar-None-Cabinet-428",
+      "confirmation_pair_index": 25,
+      "discovery_donor_family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-420",
+      "discovery_donor_pair_index": 1,
+      "donor_sort_sha256": "32568ff0f13b51a97a9d609c370e62717dcee235d799ffa6ebe421aa7415cc67"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-CreditCard-None-DiningTable-329",
+      "confirmation_pair_index": 26,
+      "discovery_donor_family": "pick_two_obj_and_place-Cloth-None-Drawer-411",
+      "discovery_donor_pair_index": 2,
+      "donor_sort_sha256": "3aa00c06ac3a8dbc57f92381da6066554857b9c172b3e19637a66ec2ba951b6c"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Statue-None-Dresser-213",
+      "confirmation_pair_index": 27,
+      "discovery_donor_family": "pick_two_obj_and_place-Newspaper-None-ArmChair-214",
+      "discovery_donor_pair_index": 6,
+      "donor_sort_sha256": "4128d09eb9c346dc6b8faa34419a62657461c3ad784e5b39b8997bfb38bf9453"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Pencil-None-Drawer-327",
+      "confirmation_pair_index": 28,
+      "discovery_donor_family": "pick_two_obj_and_place-CellPhone-None-Sofa-224",
+      "discovery_donor_pair_index": 11,
+      "donor_sort_sha256": "560e3edd6e15f884011c8054d105d1d74f6ccc24a6bbdb6eb0e295f3b89724b7"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Cup-None-Shelf-1",
+      "confirmation_pair_index": 29,
+      "discovery_donor_family": "pick_two_obj_and_place-CellPhone-None-Drawer-318",
+      "discovery_donor_pair_index": 4,
+      "donor_sort_sha256": "5e10aa4ee4da7be4e6fe8eaf844df52ae7af36b29cf6a3e13a3d8cc308ce1519"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-ToiletPaper-None-Toilet-405",
+      "confirmation_pair_index": 30,
+      "discovery_donor_family": "pick_two_obj_and_place-Candle-None-CounterTop-406",
+      "discovery_donor_pair_index": 0,
+      "donor_sort_sha256": "6a5a736b5b4e295078d083b72ef16038dc12db570fcc7240dab3654a641a6e0d"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-DiningTable-230",
+      "confirmation_pair_index": 31,
+      "discovery_donor_family": "pick_two_obj_and_place-Book-None-Desk-302",
+      "discovery_donor_pair_index": 19,
+      "donor_sort_sha256": "6e369e1e09c6cb52ebba28b5c3f1d9fd8f48f6dbabe92119c117fb7e5ccee460"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-CreditCard-None-Desk-313",
+      "confirmation_pair_index": 32,
+      "discovery_donor_family": "pick_two_obj_and_place-Box-None-CoffeeTable-230",
+      "discovery_donor_pair_index": 10,
+      "donor_sort_sha256": "78e9dc6dbdae5c5aa5efa90419f86deed0cd4130c9c6d95722a2b3d974fbe2e0"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-KeyChain-None-Sofa-225",
+      "confirmation_pair_index": 33,
+      "discovery_donor_family": "pick_two_obj_and_place-KeyChain-None-Ottoman-208",
+      "discovery_donor_pair_index": 13,
+      "donor_sort_sha256": "7b4464c8764c426b9421cb794695332884a99a9bf1118d95750897ed211a9975"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-220",
+      "confirmation_pair_index": 34,
+      "discovery_donor_family": "pick_two_obj_and_place-Newspaper-None-Sofa-230",
+      "discovery_donor_pair_index": 7,
+      "donor_sort_sha256": "b1e62e88df1a727053872b0bad5b3ab4333aef5506e7922795abfd9f71b32443"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-230",
+      "confirmation_pair_index": 35,
+      "discovery_donor_family": "pick_two_obj_and_place-SoapBar-None-Drawer-420",
+      "discovery_donor_pair_index": 17,
+      "donor_sort_sha256": "b372c0f0858f113621aab99f3ba1029141c8426a9847a3ff5a942435a71d84b5"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBottle-None-Toilet-426",
+      "confirmation_pair_index": 36,
+      "discovery_donor_family": "pick_two_obj_and_place-ToiletPaper-None-Cabinet-412",
+      "discovery_donor_pair_index": 14,
+      "donor_sort_sha256": "c8b7fda07340ffa4d04bc5c38c2c67f83adecf9f604fe639fa2acd0eb58eab6d"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Watch-None-CoffeeTable-209",
+      "confirmation_pair_index": 37,
+      "discovery_donor_family": "pick_two_obj_and_place-CreditCard-None-Safe-323",
+      "discovery_donor_pair_index": 9,
+      "donor_sort_sha256": "d5b4d410e58297ddf6be9076109d1f3cc6d7c32dfd1e5bf6a7be6dbe33947862"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-RemoteControl-None-ArmChair-208",
+      "confirmation_pair_index": 38,
+      "discovery_donor_family": "pick_two_obj_and_place-Pencil-None-SideTable-329",
+      "discovery_donor_pair_index": 18,
+      "donor_sort_sha256": "e93e34cce78eeba21045793e47dc0ca23b2ab61613635f79e06ee585ae1bf96a"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBottle-None-Cabinet-417",
+      "confirmation_pair_index": 39,
+      "discovery_donor_family": "pick_two_obj_and_place-CD-None-Drawer-306",
+      "discovery_donor_pair_index": 15,
+      "donor_sort_sha256": "fdc08bdbb17c7a630827da3c9050c4cbee71dc630752f4912ece199112107816"
+    }
+  ],
+  "model_outcomes_seen": false,
+  "scientific_result": "NOT_ASSESSED",
+  "unique_donors": 20
+}

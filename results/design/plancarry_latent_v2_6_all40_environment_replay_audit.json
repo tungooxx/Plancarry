@@ -1,0 +1,18 @@
+{
+  "confirmation_count": 20,
+  "confirmation_scientific_outcomes_accessed": false,
+  "contexts_sha256": "a36595fb94214c8bca06085de8e0975af10e3403423d8ca44f55b23256ce39bf",
+  "discovery_count": 20,
+  "kind": "PLANCARRY_LATENT_V2_6_ALL40_ENVIRONMENT_REPLAY_AUDIT",
+  "model_calls": 0,
+  "pair_count": 40,
+  "pass": true,
+  "runner_sha256": "2a32eca7ad83d5d109872ac9c43403dbfaee3264768871017d585cfd3cd6cc90",
+  "scientific_effects_computed": false,
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "source_v25_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "unique_families": 40,
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "validator_sha256": "f9e720b6fd1dabb42649a5da9a42678c4e893ed881e87239b2142bfa35279b31"
+}

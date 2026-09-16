@@ -1,0 +1,209 @@
+{
+  "code_modified": false,
+  "conclusion": "The core one-shot causal runtime is already reusable. LocalContinuation still needs a genuinely new qualification/metric/phase orchestration layer; the old T1 phase runner is scientifically incompatible as-is. No heavy run is currently authorized.",
+  "critical_path_after_final_prereg_pass": [
+    "Implement new LocalContinuation packet/reference qualifier + validator using exact V2.1 planner/scorer and reviewed control primitives.",
+    "Implement one LocalContinuation causal phase runner/validator: MSA2 development grid + margin tie-break + immutable seal; autonomous LCA2 n20 confirmation; locked n12 replication.",
+    "Reuse reviewed PersistentTokenSession unchanged where possible; add synthetic/fake-model/fake-runtime tests locally and a bounded real-Torch synthetic compatibility check only.",
+    "Independent executable-readiness review of exact code/artifact hashes.",
+    "Commit/push reviewed bytes; freeze exact heavy command/cwd/env/commit.",
+    "STOP and wait for user to manually start designated Vast GPU; do not autonomously start or create Vast.",
+    "After user-start confirmation: verify host, pull exact commit, content/runtime preflight, fresh ResearchDecision, then heavy execution."
+  ],
+  "environment_execution": 0,
+  "experiment_registered": false,
+  "followup_creation_rule": "Do not create implementation WorkItems until final population-bound prereg has passed fresh independent review.",
+  "followup_work_items_created": [],
+  "gap_rows": [
+    {
+      "component": "exact natural-plan generation and admissible-command suffix scoring",
+      "evidence_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+      "gap": "None in primitive semantics. New caller must bind final LocalContinuation prereg/population and keep exact V2.1 decoding, separate \" \"+command suffix tokenization, FP32 arithmetic-mean suffix logprob, lexical-min tie.",
+      "reuse": [
+        "producer.planner_messages/planner_prefix_ids/accept_plan_new_ids/torch_generate_plan",
+        "producer.executor_prefix_and_suffixes/choose_admissible_command"
+      ],
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "fresh five-action local reference collection and stage1 gate",
+      "evidence_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+      "gap": "Current producer.stage1_eligibility requires whole-task success, >=4 actions and >=2 post-cut nontrivial actions. LocalContinuation requires accepted/error-free/current-admissible NONTRIVIAL steps1..5, task_success_required=false, cut after action2. Implement a new fail-closed LocalContinuation stage1 qualifier; do not mutate V2.1 producer.",
+      "reuse": [
+        "producer.produce_stage1_attempt action loop/action_row",
+        "producer.is_nontrivial",
+        "AlfRuntime"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "two-stage E freeze, unrelated donor, seven exact128 replay controls",
+      "evidence_sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+      "gap": "Control primitives and V2.1 donor rule are correct, but E membership must come from the new five-action/no-task-success stage1 population. New packet/control validator must bind fresh manifest and final prereg.",
+      "reuse": [
+        "producer.unrelated_ordering_key/frozen_eligible_order/unrelated_donor_for/apply_stage2",
+        "sanity_protocol.build_condition_slots"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "source t2 residual capture and norm-matched semantic/random controls",
+      "evidence_sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+      "gap": "Capture primitive is reviewed and exact-token. Old direct driver is old-lineage orchestration; LocalContinuation needs a new source/control adapter bound to final prereg and new packet schema. ACTIVE raw residual zero families must remain denominator/nonpositive per v0.2.",
+      "reuse": [
+        "sanity_protocol.build_replay",
+        "session_runtime.capture_activation_ids",
+        "old direct-driver source_vectors/rescale_to/rademacher_like as implementation reference"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "one reset-time intervention plus persistent same-KV continuation",
+      "evidence_sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6",
+      "gap": "Runtime already enforces exact caller-supplied IDs, single hook, hook removal, candidate-score live-cache nonmutation, and subsequent same-cache appends. New runner must build the v0.2 joint-token reset prefix/ACTION-tail boundary and bind LocalContinuation provenance.",
+      "reuse": [
+        "PersistentTokenSession",
+        "score_candidates",
+        "append_ids",
+        "choose_and_commit"
+      ],
+      "status": "PRESENT_VERIFIED"
+    },
+    {
+      "component": "matched-state development MSA2 assay",
+      "evidence_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "gap": "No top-level Python implementation contains MSA2/LocalContinuation metrics. Need teacher-forced action3+observation3, score pre-action4 without commit, teacher-force action4+observation4, score pre-action5, with exact reference state/admissible guards and candidate-score cache nonmutation.",
+      "reuse": [
+        "PersistentTokenSession.score_candidates/append_ids",
+        "old exact replay/reset helpers as patterns"
+      ],
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "reference-action margin tie-break",
+      "evidence_sha256": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1",
+      "gap": "Need exact margin_j=score(reference)-max(nonreference), finite action4/action5 family mean, median across same stage2-qualified dev denominator, fail closed TECHNICAL_INVALID_MARGIN_UNDEFINED if no non-reference candidate, then exact tie order joint margin -> ACTIVE MSA2 -> ACTIVE reference margin -> lower alpha -> earlier layer.",
+      "reuse": [
+        "PersistentTokenSession.score_candidates CandidateScore.mean_logprob"
+      ],
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "global 4x3 development selector and futility gate",
+      "evidence_sha256": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+      "gap": "Old phase runner selects by LPA specificity margin then TaskSuccess and requires old sanity/T1 hashes. LocalContinuation requires MSA2-based d_no_patch_ms/d_specificity_ms/joint_margin_ms, >=16/32 stage2 gate, median joint>=0.05 and ACTIVE MSA2 mean>=0.50, new tie-break and a new population-bound seal. Old selector must not be reused as-is.",
+      "reuse": [
+        "old phase_runner grid_key/_atomic_write_new as non-scientific utilities"
+      ],
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "autonomous first-action-excluded confirmation LCA2 rollout",
+      "evidence_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "gap": "Old rollout computes later_plan_agreement over an arbitrary remaining horizon. LocalContinuation must generate exactly post-reset a1/a2/a3 (unless terminate/diverge), exclude a1, score a2 against reference action4 and a3 against action5 only when pre-action world-state hashes match, unavailable/diverged positions=0, and track three-step valid-action rate for every arm.",
+      "reuse": [
+        "PersistentTokenSession.choose_and_commit",
+        "old direct-driver replay_to_reset/suffix_map/continuation_ids/rollout as patterns"
+      ],
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "confirmation all20 statistics and effect/competence/plumbing guards",
+      "evidence_sha256": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+      "gap": "Sign/Holm math is reusable, but old confirmation gate/guards are wrong for LocalContinuation (old >=16/20; positives14/13; TaskSuccess primary guards). New validator must implement >=15/20 stage2 gate, all20 denominator, positives>=15/20 both, mean ACTIVE LCA2>=.50, mean d_no>=.15, mean d_specificity>=.10, ACTIVE valid>=.95, not >.05 below NO_PATCH, zero/self <=1e-6; matched-state confirmation is secondary only.",
+      "reuse": [
+        "phase_runner.exact_one_sided_sign_p",
+        "phase_runner.holm_two",
+        "phase_runner atomic writer"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "n12 no-retuning replication statistics",
+      "evidence_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "gap": "Need separate reserve runner/validator locked until primary SUPPORTED, exact frozen op-point, >=10/12 stage2 gate, all12 denominator, exact two sign tests + Holm, positives>=10/12 plus v0.2 effect/valid-action guards. Old T1R unlock helper/status names are not sufficient.",
+      "reuse": [
+        "phase_runner.exact_one_sided_sign_p",
+        "phase_runner.holm_two"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "phase isolation, split access, immutable seals and atomic outputs",
+      "evidence_sha256": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8",
+      "gap": "Need new final-prereg/population hashes, fresh phase names/indices from bound manifest, development output refusal, confirmation bytes inaccessible before exact seal validation, reserve inaccessible before primary support, and no old consumed paths/valid splits.",
+      "reuse": [
+        "phase_runner._atomic_write_new and seal-before-confirmation pattern",
+        "producer.atomic_publish_packet_set pattern"
+      ],
+      "status": "REUSABLE_WITH_ADAPTER"
+    },
+    {
+      "component": "final LocalContinuation packet/phase validators",
+      "evidence_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "gap": "No LocalContinuation-specific validator exists. Must fail closed on population/prereg/runtime/source/control/vector/reset/session/arm/metric/statistic/seal/output provenance and distinguish TECHNICAL_INVALID/NOT_ASSESSED from scientific zero/nonpositive outcomes.",
+      "reuse": [
+        "existing V2.1 validator patterns"
+      ],
+      "status": "MISSING_IMPLEMENTATION"
+    },
+    {
+      "component": "manual Vast execution handoff",
+      "evidence_sha256": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1",
+      "gap": "User explicitly forbids autonomous heavy Vast start. After final prereg + independent review + local synthetic engineering + independent executable review, freeze one Git commit and exact heavy command/cwd/env. Stop before execution; user manually starts designated Vast host. Only then verify host, git pull exact commit, content/runtime hashes, create fresh ResearchDecision matching exact command, and execute. Never gpu_create/gpu_start/destroy as a substitute.",
+      "reuse": [
+        "Git content hashes and ResearchDecision exact-binding workflow"
+      ],
+      "status": "CONDITIONAL_ON_FINAL_PREREG_PASS"
+    }
+  ],
+  "heavy_gpu_execution": false,
+  "hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "inputs": {
+    "alfworld_runtime": {
+      "path": "alfworld_runtime.py",
+      "sha256": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6"
+    },
+    "direct_driver": {
+      "path": "replay_residual_t1_direct_override_causal_dev_v1_1.py",
+      "sha256": "7c91979472a1346193710126fc641da6968cf39815df178ba69c66125983dd8a"
+    },
+    "phase_runner": {
+      "path": "replay_residual_t1_phase_runner_v1.py",
+      "sha256": "c5c412c9440df857202d6137d2f5c2a1068f364c9ef15487c67154764d21afd8"
+    },
+    "producer": {
+      "path": "replay_residual_natural_packet_producer_v2_1.py",
+      "sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55"
+    },
+    "protocol": {
+      "path": "replay_residual_sanity_protocol_v1.py",
+      "sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef"
+    },
+    "session_runtime": {
+      "path": "replay_residual_t1_session_runtime_v1.py",
+      "sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6"
+    },
+    "v02_prereg": {
+      "path": "results/design/plancarry_replayresidual_localcontinuation_prereg_draft_v0_2_20260823.json",
+      "sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45"
+    },
+    "v02_review": {
+      "path": "results/design/plancarry_replayresidual_localcontinuation_prereg_v02_independent_review_a3_20260823.json",
+      "sha256": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1"
+    }
+  },
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_EXECUTION_GAP_MATRIX_V1_WORKER9E5C",
+  "model_calls": 0,
+  "population_binding_status": "INDEPENDENT_POPULATION_REVIEW_IN_FLIGHT_AT_AUDIT_TIME; no population hashes are treated as authoritative by this audit",
+  "research_decision_created": false,
+  "scientific_outcomes_accessed": false,
+  "status": "PRE_OUTCOME_ENGINEERING_GAP_AUDIT_COMPLETE",
+  "status_counts": {
+    "CONDITIONAL_ON_FINAL_PREREG_PASS": 1,
+    "MISSING_IMPLEMENTATION": 5,
+    "PRESENT_VERIFIED": 2,
+    "REUSABLE_WITH_ADAPTER": 6
+  },
+  "work_item_id": "f4294154-77ad-406e-b651-03bec5472f6a"
+}

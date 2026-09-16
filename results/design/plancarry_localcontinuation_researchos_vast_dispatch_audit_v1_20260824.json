@@ -1,0 +1,38 @@
+{
+  "engineering_task_id": "5afcab46-3f02-4962-8ffe-7c60c54bfc4b",
+  "expected_gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "incident": {
+    "cause": "Initial negative test assumed GPU_LAB_JOB_DIR absent, but LocalRunner injects it automatically; development child started without ResearchDecision binding.",
+    "classification": "TECHNICAL_PRE_SCIENCE_UNBOUND_PROCESS_CANCELLED",
+    "repair": "Added mandatory LOCALCONT_DEVELOPMENT_AUTHORIZATION=RESEARCH_DECISION_BOUND gate before SSH/development.",
+    "response": "local job cancelled; surviving remote launcher/driver processes explicitly terminated; subsequent GPU idle; all LocalContinuation development output targets verified absent.",
+    "scientific_outcome_inspected": false,
+    "scientific_output_persisted": false
+  },
+  "invariants": {
+    "canonical_local_job_artifact_pull_only": true,
+    "confirmation_access": false,
+    "development_only": true,
+    "manual_vast_start_only": true,
+    "remote_reviewed_science_bytes_unchanged": true,
+    "reserve_access": false,
+    "scientific_variables_changed": [],
+    "valid_seen_access": false,
+    "valid_unseen_access": false
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_RESEARCHOS_VAST_DISPATCH_AUDIT_V1",
+  "launcher_sha256": "a640e43a1bb253ac0ac0e78bcdc61c42c5e1894ba26be834877f301b9744e72f",
+  "remote_commit": "acd6576e6255b571870a13dc689db6094d0668eb",
+  "remote_instance": "vast_48459343",
+  "scientific_result": "NOT_ASSESSED",
+  "tests": {
+    "development_authorization_guard": "PASS local_2d808480e8b94b36",
+    "live_preflight": "PASS local_eec10ed5324341a8 READY_NO_SCIENCE model_calls=0 environment_execution=0",
+    "py_compile": "PASS",
+    "remote_source_runtime_attestation": "PASS exact commit/GPU/Python3.13.15/Torch2.13.0+cu130/Transformers4.51.3/Tokenizers0.21.1/ALFWorld0.4.2/TextWorld1.7.0/PyYAML6.0.3",
+    "static_scope": "PASS local_99eec9be0bdb4777"
+  },
+  "wrapper": "localcontinuation_researchos_vast_dispatch_v1.py",
+  "wrapper_sha256": "10131604e4c03d562ab7dcacde17c92786fb121f9cdd7ccbf9cd13672f42d4fd"
+}

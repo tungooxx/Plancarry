@@ -1,0 +1,21 @@
+{
+  "adaptation_due_to_incident": false,
+  "canonical_job_id": "local_a3505084e70caaf9cb6af421",
+  "canonical_run_id": "62452e65-42c3-4a5d-abbf-330e8c9e7502",
+  "claim_boundary": "Operational transparency only; not scientific evidence. Scheduling contention can affect runtime but, absent an OOM/technical error, does not change the frozen deterministic model/environment computation.",
+  "handling_rule": "No protocol change. If a CUDA OOM is emitted, use the already-frozen same-index retry rule; never skip/replace a family. Otherwise continue unchanged.",
+  "incident": "A non-study Qwen3 persistent-session VRAM smoke was inadvertently launched on the same RTX3050 while the canonical dev run was live. It was cancelled immediately after model-load progress was observed, before any synthetic score/result was emitted.",
+  "kind": "PLANCARRY_T1_DEV_CONCURRENT_SYNTHETIC_SMOKE_INCIDENT_AUDIT",
+  "post_cancel_checks": {
+    "canonical_attempt_progress_last_observed": 2,
+    "canonical_job_still_running": true,
+    "cuda_oom_retry_marker_observed": false,
+    "gpu_memory_used_mib": 3757,
+    "gpu_utilization_percent": 100,
+    "scientific_output_inspected": false,
+    "single_gpu_compute_process_observed": true
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "synthetic_job_id": "local_cc286219bd4d4de2"
+}

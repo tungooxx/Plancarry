@@ -1,0 +1,16 @@
+{
+  "change": "Fix atomic_publish_packet_set API binding and restore frozen full packet validator invocation; no scientific-variable change.",
+  "confirmation_accessed": false,
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_T1_DIRECT_OVERRIDE_DEV_RUNNER_REPAIR_AUDIT_V1",
+  "model_calls": 0,
+  "py_compile_pass": true,
+  "scientific_variables_changed": [],
+  "source_path": "replay_residual_t1_direct_override_dev_v1.py",
+  "source_sha256": "31150991878562c881080ef3872ddda8522a578d8bb978d84da6f3c107ed010f",
+  "successor_path": "replay_residual_t1_direct_override_dev_v1_1.py",
+  "successor_sha256": "d3d3aff0ba804603fe4509fe9c5c389d890ca77e334b8812c4b6d998fd7684f0",
+  "t1r_accessed": false,
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false
+}

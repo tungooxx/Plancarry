@@ -1,0 +1,82 @@
+{
+  "allowed_changed_paths": [
+    "action_scoring.cross_implementation_diagnostic.interpretation",
+    "artifact_integrity.policy",
+    "artifact_integrity.scientific_variables_changed_from_v2_5",
+    "artifact_integrity.source_v2_5_design_sha256",
+    "artifact_integrity.v2_5_readiness_outcome",
+    "artifact_integrity.v2_5_readiness_work_item_id",
+    "artifact_integrity.v2_6_runtime_rebind_audit_sha256",
+    "artifact_integrity.v2_6_runtime_rebind_sha256",
+    "kind",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "pre_registration_static_review.status",
+    "repair_scope",
+    "supersedes_experiment_id",
+    "supersedes_prediction_id",
+    "title",
+    "validity_guards[10]",
+    "validity_guards[18]",
+    "validity_guards[3]"
+  ],
+  "candidate_sha256": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+  "changed_path_count": 19,
+  "changed_paths": [
+    "action_scoring.cross_implementation_diagnostic.interpretation",
+    "artifact_integrity.policy",
+    "artifact_integrity.scientific_variables_changed_from_v2_5",
+    "artifact_integrity.source_v2_5_design_sha256",
+    "artifact_integrity.v2_5_readiness_outcome",
+    "artifact_integrity.v2_5_readiness_work_item_id",
+    "artifact_integrity.v2_6_runtime_rebind_audit_sha256",
+    "artifact_integrity.v2_6_runtime_rebind_sha256",
+    "kind",
+    "model.bridge_required_real_verification",
+    "model.execution_host_policy",
+    "pre_registration_static_review.status",
+    "repair_scope",
+    "supersedes_experiment_id",
+    "supersedes_prediction_id",
+    "title",
+    "validity_guards[10]",
+    "validity_guards[18]",
+    "validity_guards[3]"
+  ],
+  "confirmation_accessed": false,
+  "confirmation_selection_lineage": "v2.6",
+  "expected_repair_changed_paths": [
+    "action_scoring.cross_implementation_diagnostic.interpretation",
+    "artifact_integrity.policy",
+    "pre_registration_static_review.status",
+    "validity_guards[10]",
+    "validity_guards[18]"
+  ],
+  "historical_v25_references": [
+    [
+      "repair_scope",
+      "Prospective pre-scientific-outcome v2.6 runtime-provenance supersession of reviewed v2.5 after the frozen GTX1650 readiness path returned MATERIAL_REPAIR_REQUIRED from a late 120 s /patch_score timeout. No T1 scientific outcome/source competence/ACTIVE-control effect/confirmation was observed. v2.6 changes only authorized execution-device provenance to the new local NVIDIA GeForce RTX 3050 Laptop GPU while importing the complete v2.5 scientific design by exact SHA256; scorer mathematics, model/revision/FP16/no quantization, packages, cohorts, prompts, sites, grids, controls, statistics, thresholds and T1-only claim scope are unchanged."
+    ]
+  ],
+  "kind": "PLANCARRY_LATENT_V2_6_FULL_DESIGN_POST_LINEAGE_REPAIR_DIFF_AUDIT",
+  "material_stale_v25_references": [],
+  "missing_expected_changed_paths": [],
+  "prior_diff_audit_sha256": "2d84c339b7234e68d6429ed7131f6b63de4dff590f4bf3720909e90e48c2cf07",
+  "repair_changed_paths": [
+    "action_scoring.cross_implementation_diagnostic.interpretation",
+    "artifact_integrity.policy",
+    "pre_registration_static_review.status",
+    "validity_guards[10]",
+    "validity_guards[18]"
+  ],
+  "repair_exactly_five_reviewed_paths": true,
+  "runtime_rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "scientific_outcomes_seen": false,
+  "scientific_variables_changed": [],
+  "source_v25_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "starting_draft_sha256": "34e246e20d253ce6623ce25423cc21a5af512860be44c9ddc644332b8665fd5b",
+  "status": "CANDIDATE_NOT_REGISTERED_AWAITING_INDEPENDENT_REVIEW",
+  "unexpected_changed_paths": [],
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false
+}

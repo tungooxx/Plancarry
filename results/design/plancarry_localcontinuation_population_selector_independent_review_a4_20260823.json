@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "all_selected_unique": true,
+    "canonical_path_fail_closed": true,
+    "duplicate_fail_closed": true,
+    "environment_execution_zero": true,
+    "exact_rank_rule": true,
+    "exact_salt": true,
+    "exact_split_32_20_12": true,
+    "exposure_exclusion": true,
+    "filesystem_discovery_absent": true,
+    "forbidden_imports_absent": true,
+    "hashes_exact": true,
+    "input_permutation_byte_determinism": true,
+    "insufficient_remaining_fail_closed": true,
+    "model_calls_zero": true,
+    "phase_assignment_by_rank_exact": true,
+    "py_compile_and_11_unit_tests_passed_in_prior_independent_job": true,
+    "real_population_frozen": false,
+    "scientific_result": "NOT_ASSESSED_POPULATION_SELECTION_ONLY",
+    "unknown_exposed_fail_closed": true
+  },
+  "date": "2026-08-23",
+  "engineering_result_id": "b4c2528a-7853-4d78-9ab8-40ff8b53685e",
+  "hashes": {
+    "audit": "380fdbdf4fd722efdcfc6feeb43218bf6ab4e028678aca6f79535d852a10a0bf",
+    "manifest_v1": "4b6f836d181bf82973478f320770d025a54b18ab2d09a96eefde2e00b1d602da",
+    "manifest_v2": "2e160ace877b46729b4f3f474d90f1a575201da419587a8f7c1ffa22db377b17",
+    "manifest_v3": "e63f4815bdc2696e4cea1712c845030c8f72bb125bec943e991b5a3563a5738d",
+    "tests": "dbcda16252db581a300a422b4efc720407365e24ba4ae0d404366a320b33db1f",
+    "utility": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b"
+  },
+  "heavy_compute_used": false,
+  "kind": "PLANCARRY_LOCALCONTINUATION_POPULATION_SELECTOR_INDEPENDENT_REVIEW_V1",
+  "model_environment_calls": 0,
+  "reviewer_fixture_notes": [
+    "First extra reviewer fixture intentionally used a noncanonical ALFWorld path and was correctly rejected by the selector.",
+    "Second extra reviewer fixture assumed three top-level phase lists; actual reviewed schema is one selected[64] ranked list with explicit phase labels. This was a reviewer-harness assumption, not an implementation defect."
+  ],
+  "scientific_outcomes_accessed": false,
+  "scope": "Engineering-only PASS. Authorizes this selector utility to consume a separately supplied canonical real inventory after population-freeze workflow review. Does not itself freeze a real population, authorize ALFWorld/model execution, or constitute scientific evidence.",
+  "verdict": "PASS_FOR_LOCALCONTINUATION_POPULATION_SELECTOR",
+  "work_item_id": "23cb0fae-285d-4d1f-a10d-daa305668e8e"
+}

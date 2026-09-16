@@ -1,0 +1,179 @@
+{
+  "as_of": "2026-08-23",
+  "bound_prereg_draft_sha256": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667",
+  "claims_explicitly_forbidden": [
+    "first activation-steering method for agents",
+    "first neural/procedural memory for LLM agents",
+    "first one-shot latent steering method",
+    "first causal activation steering method",
+    "plans can generally be stored in a single vector",
+    "whole-task memory solved",
+    "general across models/tasks/environments before separate replication",
+    "persistent state without KV/session dependence"
+  ],
+  "conference_positioning": {
+    "current_if_primary_only": "Potential mechanistic/causal contribution but likely vulnerable at NeurIPS/ICLR without replication and faithful NPM/one-shot latent baseline positioning.",
+    "do_not_frame_as": "a new generic activation steering algorithm",
+    "high_tier_target": "Strongest framing is a causal identification paper about transporting episode-specific procedural state across context reset, with strict nulls, untouched autonomous confirmation/replication, and explicit comparison to agent procedural-memory and one-shot latent-state methods."
+  },
+  "defensible_primary_claim_if_all_frozen_gates_pass": "A replay-paired, episode-specific plan-content residual can be injected once after a true context reset and causally preserve autonomous later procedural continuation beyond immediate next-action copying and matched semantic/activation-energy controls, without repeated steering; evidence is limited to the frozen model/environment/cohort until replicated.",
+  "freeze_rule": "This novelty/claim boundary is PRE-OUTCOME. After LocalContinuation confirmation, results may weaken claims but may not retroactively broaden novelty or remove identified closest prior art/required controls.",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREOUTCOME_NOVELTY_AUDIT_V1",
+  "novelty_matrix": [
+    {
+      "actadd_caa": "generic behavior/concept contrast pairs",
+      "dimension": "episode-specific source",
+      "kv_methods": "text/reasoning-derived cache or latent memory guidance",
+      "localcontinuation": "same-episode model-own plan-present minus equal-length neutral residual captured after two realized actions",
+      "novelty_assessment": "potentially distinctive only in conjunction with reset-transfer causal test",
+      "npm": "skill vectors distilled from historical contrastive experiences",
+      "plans_dont_persist": "same-trajectory replay pairing used diagnostically, not causal reinjection"
+    },
+    {
+      "actadd_caa_cast": "activation steering during inference, commonly across generation positions/conditioned application",
+      "dimension": "intervention timing",
+      "kv_cache_steering": "one-shot KV modification before generation",
+      "localcontinuation": "exactly one injection after a true context reset; hook removed permanently",
+      "memory_inception": "latent KV slots retained/updated",
+      "novelty_assessment": "one-shot alone is NOT novel; reset-transfer provenance matters",
+      "npm": "implicit steering during agent execution"
+    },
+    {
+      "dimension": "persistence carrier",
+      "kv_methods": "explicitly manipulated/persisted KV memory is the carrier",
+      "localcontinuation": "intervention enters fresh reset state then all later actions/observations continue through same ordinary KV/session with no reinjection",
+      "novelty_assessment": "claim must be causal carry-forward after single residual intervention, not generic latent memory",
+      "npm": "continued activation steering is procedural-memory mechanism",
+      "plans_dont_persist": "asks whether standard hidden states naturally retain plan signal"
+    },
+    {
+      "dimension": "behavioral endpoint",
+      "localcontinuation": "untouched confirmation autonomous first-action-excluded two-step exact action + pre-action world-state agreement",
+      "novelty_assessment": "strong differentiator if confirmation survives",
+      "npm": "agent benchmark/task performance",
+      "plans_dont_persist": "hidden-state distance + plan-eviction task success",
+      "steering_prior": "behavior/task metrics not specifically matched original plan continuation after reset"
+    },
+    {
+      "dimension": "hard control",
+      "localcontinuation": "NEXT_ACTION_PRESERVED_LATE_NULL preserves exact immediate next-action lexical evidence while destroys later plan; plus shuffled/unrelated/history/equal-norm random/no-patch",
+      "novelty_assessment": "major identification strength; do not claim absolute first without exhaustive literature verification",
+      "prior_work": "common steering baselines generally test behavior contrast, random/equal-norm or prompt baselines but not this exact first-action-preserved later-plan falsifier"
+    },
+    {
+      "dimension": "selection/confirmation separation",
+      "localcontinuation": "matched-state MSA2 chooses one global op point on dev; autonomous LCA2 on untouched n20 is required for support; n12 no-retuning reserve",
+      "novelty_assessment": "methodological strength, not core novelty by itself",
+      "prior_work": "steering literature commonly tunes layer/scale on development/evaluation tasks; exact analogous separation varies"
+    }
+  ],
+  "reviewer_attacks_and_preemptions": [
+    {
+      "attack": "This is just ActAdd/CAA on an agent.",
+      "preemption": "Center contribution on causal reset-transfer estimand and first-action-excluded autonomous continuation, not vector arithmetic. Include ActAdd/CAA as method ancestry."
+    },
+    {
+      "attack": "NPM already does procedural activation memory.",
+      "preemption": "Directly compare claim boundaries: NPM learns reusable skill memory from historical experiences; LocalContinuation tests whether same-episode plan content can be transported across a reset with one intervention. Do not call the broad concept new."
+    },
+    {
+      "attack": "One-shot persistence is already KV cache steering / Memory Inception.",
+      "preemption": "Those intervene in KV/latent attention memory; LocalContinuation intervenes one residual-stream state at reset then uses ordinary evolving KV with no persistent injected memory bank. Include them as nearest one-shot latent-state baselines/positioning."
+    },
+    {
+      "attack": "Teacher forcing creates the result.",
+      "preemption": "Teacher-forced matched-state MSA2 is development selection only. Scientific support requires untouched autonomous LCA2; matched-state metrics cannot rescue null autonomous behavior."
+    },
+    {
+      "attack": "Effect is just copying the next action.",
+      "preemption": "Primary autonomous LCA2 excludes first post-reset action; mandatory late-null preserves exact next-action lexical evidence but deletes later plan structure."
+    },
+    {
+      "attack": "Effect is generic activation energy or topic/task identity.",
+      "preemption": "Equal-norm random, unrelated-plan, shuffled-plan, generic-history and no-patch controls; every nonzero control norm matched to active residual."
+    },
+    {
+      "attack": "Fresh cohort is outcome-selected after old failure.",
+      "preemption": "Old lineage terminally INCONCLUSIVE because whole-task-success eligibility failed before causal grid. New endpoint/population/rules are frozen before any new model/environment outcomes and exclude all previously exposed paths."
+    },
+    {
+      "attack": "Only one small model/environment.",
+      "preemption": "Keep primary claim scoped. Treat second-model and cross-environment replication as required for strongest top-tier framing, not optional decoration."
+    }
+  ],
+  "scientific_outcomes_accessed": false,
+  "sources": [
+    {
+      "date": "2026-06-22",
+      "key": "plans_dont_persist",
+      "relevance": "Direct parent problem framing: replay pairing shows plan signal decays rapidly and plan eviction hurts ALFWorld; probe-gated resurfacing does not recover success. Diagnostic/measurement, not content-specific causal transport.",
+      "title": "Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents",
+      "url": "https://arxiv.org/abs/2606.22953"
+    },
+    {
+      "date": "2026-06-29",
+      "key": "npm",
+      "relevance": "Closest agent-memory competitor. Distills procedural skills from historical contrastive experiences into steering vectors and applies activation steering across agent benchmarks. Establishes implicit activation steering as procedural memory; therefore PlanCarry cannot claim that concept broadly.",
+      "title": "Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steering",
+      "url": "https://arxiv.org/abs/2606.29824"
+    },
+    {
+      "date": "2025-07-11",
+      "key": "kv_cache_steering",
+      "relevance": "One-shot intervention directly into KV cache can influence subsequent multi-token generation; undercuts any generic one-shot latent steering novelty.",
+      "title": "KV Cache Steering for Controlling Frozen LLMs",
+      "url": "https://arxiv.org/abs/2507.08799"
+    },
+    {
+      "date": "2026-05-07",
+      "key": "memory_inception",
+      "relevance": "Training-free latent KV memory slots for persistent structured guidance and mid-conversation updates. Undercuts generic below-prompt latent memory novelty.",
+      "title": "Memory Inception: Latent-Space KV Cache Manipulation for Steering LLMs",
+      "url": "https://arxiv.org/abs/2605.06225"
+    },
+    {
+      "date": "2023-08-20",
+      "key": "actadd",
+      "relevance": "Foundational prompt-pair activation differences injected during inference; contrastive residual addition is not novel by itself.",
+      "title": "Steering Language Models With Activation Engineering",
+      "url": "https://arxiv.org/abs/2308.10248"
+    },
+    {
+      "date": "2023-12-09",
+      "key": "caa",
+      "relevance": "Contrastive activation difference steering over behavioral datasets; undercuts generic paired residual steering novelty.",
+      "title": "Steering Llama 2 via Contrastive Activation Addition",
+      "url": "https://arxiv.org/abs/2312.06681"
+    },
+    {
+      "date": "2025-04-24",
+      "key": "cast",
+      "relevance": "ICLR 2025 conditional/context-dependent activation steering. Context-selective control itself is established.",
+      "title": "Programming Refusal with Conditional Activation Steering",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/e2dd53601de57c773343a7cdf09fae1c-Abstract-Conference.html"
+    },
+    {
+      "date": "2026-03",
+      "key": "causal_sparse",
+      "relevance": "Frames activation steering causally through mediation and learns sparse targeted interventions. Causal language alone is not novel.",
+      "title": "Causal Activation Steering via Sparse Mediation",
+      "url": "https://aclanthology.org/2026.findings-eacl.57/"
+    },
+    {
+      "date": "2026-07",
+      "key": "infiagent",
+      "relevance": "Externalizes persistent agent state rather than latent transport. Important systems comparison showing explicit state management is a strong alternative.",
+      "title": "InfiAgent: An Infinite-Horizon Framework for General-Purpose Autonomous Agents",
+      "url": "https://aclanthology.org/2026.findings-acl.1787/"
+    }
+  ],
+  "stronger_claim_requires": [
+    "untouched n20 autonomous confirmation SUPPORT",
+    "untouched n12 no-retuning replication",
+    "at least one second model family with operating-point transfer or prospectively frozen retuning rule",
+    "preferably one second environment/task family",
+    "faithful NPM comparison under common model/benchmark if feasible",
+    "systems comparison against visible plan/full history/KV-memory baselines only after causal support"
+  ],
+  "work_item_id": "11b00781-5827-45db-b997-60050491d556"
+}

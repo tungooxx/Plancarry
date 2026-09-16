@@ -1,0 +1,163 @@
+{
+  "activation_gate": {
+    "if_any_primary_null_inconclusive_or_invalid": "DO_NOT_EXECUTE_GENERALIZATION; cannot rescue primary lineage",
+    "required_all": [
+      "canonical V2.1 representation sanity fbfeb9e9-4850-46c7-ad13-326cbe8da380 = PASS_REPLAY_RESIDUAL_SANITY",
+      "primary ReplayResidual T1 v1.1 SHA 77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2 = SUPPORTED_REPLAY_RESIDUAL_T1",
+      "family-disjoint primary T1R = REPLICATED_REPLAY_RESIDUAL_T1"
+    ]
+  },
+  "axis_a_cross_model": {
+    "claim_if_fail": "Primary within-Qwen mechanism remains as assessed; narrow generality to model-specific scope. No post-hoc replacement model or threshold rescue.",
+    "claim_if_pass": "Cross-model-family external validity on Phi-4-mini within ALFWorld pick_and_place_simple using project-unexposed families; not split, cross-environment, or universal generality.",
+    "claim_scope": "cross-model-family external validity only; not split generality",
+    "cohort_manifest_path": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v2_family_unexposed_a3_20260821.json",
+    "cohort_manifest_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+    "cohort_scope": "development n20 + confirmation n20, both train, exact-family-unexposed at freeze, disjoint, no replacement",
+    "confirmation_population": "exact 20 family-name-disjoint historically unexposed metadata-frozen train pick_and_place_simple families",
+    "development_population": "exact 20 metadata-frozen valid_train pick_and_place_simple families",
+    "endpoints_and_tests": {
+      "co_primary_tests": [
+        "exact one-sided sign/binomial n=20 d_no_patch>0",
+        "exact one-sided sign/binomial n=20 d_specificity>0",
+        "Holm FWER=0.05 across exactly these two"
+      ],
+      "confirmation_gate": "require >=16/20 valid own-plan checkpoint+controls; if passes all20 remain denominators and invalid/unconstructible families get ACTIVE LPA=0/nonpositive differences; no replacement",
+      "controls": [
+        "NO_PATCH",
+        "RANDOM_EQ_NORM",
+        "NEXT_ACTION_PRESERVED_LATE_NULL",
+        "UNRELATED_PLAN",
+        "SHUFFLED_PLAN",
+        "GENERIC_HISTORY",
+        "VISIBLE_TEXT_PLAN ceiling",
+        "SELF_REPLACE sentinel",
+        "ZERO_ADD sentinel"
+      ],
+      "effect_guards": [
+        "mean d_no_patch >=0.15",
+        "mean d_specificity >=0.10",
+        ">=70% all20 d_no_patch>0",
+        ">=65% all20 d_specificity>0",
+        "ACTIVE TaskSuccess>=0.50",
+        "ACTIVE-NO_PATCH TaskSuccess>=0.15",
+        "ACTIVE-max(RANDOM_EQ_NORM,NEXT_ACTION_PRESERVED_LATE_NULL,UNRELATED_PLAN) TaskSuccess>=0.10",
+        "ACTIVE valid-action rate no more than0.10 below NO_PATCH"
+      ],
+      "primary": "later_plan_agreement_LPA exactly primary T1 v1.1: first post-reset action excluded; downstream action/reference and pre-action world-state hash must both match; divergence/lack scores zero thereafter."
+    },
+    "manifest_path": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v1_20260821.json",
+    "manifest_sha256": "9d3341208001718e37d4a7f6739e1d0848ac912a9c1778a6783be2696d459a68",
+    "model": {
+      "architectures": [
+        "Phi3ForCausalLM"
+      ],
+      "chat_template_sha256": "febf589225c9728ab791f52e8897d7607a823d45368f0a4c92fa68997b40cce9",
+      "config_sha256": "ac65d86061d3d0d704ee2511fd0eb8713ef19eb6eedba17c3080a4165d5b933b",
+      "eos_token_id": [
+        200020,
+        199999
+      ],
+      "generation_config_sha256": "3e3f48753753f92d2b958679151861d4fd7bf26e4dfc41fd47056116c4914dcd",
+      "hidden_size": 3072,
+      "id": "microsoft/Phi-4-mini-instruct",
+      "max_position_embeddings": 131072,
+      "model_type": "phi3",
+      "num_attention_heads": 24,
+      "num_hidden_layers": 32,
+      "num_key_value_heads": 8,
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "tokenizer_config_sha256": "9c9b6bc0c94d95f69f826c41069a3e8b387ac3ced89601d201886e99240ac9db",
+      "torch_dtype": "bfloat16"
+    },
+    "natural_plan_contract": {
+      "executor": "same substantive admissible-command policy and ACTION: boundary; Phi native apply_chat_template; candidate suffix encoded separately as \" \"+command, suffix-only arithmetic-mean FP32 logprob, lexicographic exact tie-break",
+      "packet_publication": "same private staging/fsync/all-fixed-population validation/atomic final publication; no partial visibility or replacement",
+      "planner": "same substantive system/user prompt; model-native apply_chat_template; greedy single attempt max_new_tokens=128; exact decoded tagged PLAN fullmatch; whole tagged block <=96 Phi tokenizer tokens; no retry/truncation rescue/reasoning trace",
+      "semantics": "Reuse V2.1 observable/task extraction, one model-own explicit PLAN, trajectory eligibility, cut2/budget12/nontrivial help-inventory-look guards, two-stage fixed-E unrelated donor and seven matched exact-length replay conditions. Use Phi native tokenizer/chat template at the exact pinned revision; no Qwen byte/template assumption."
+    },
+    "offload": "NONE",
+    "precision": "BF16",
+    "purpose": "Model-family external validity while holding benchmark task type constant.",
+    "quantization": "NONE",
+    "representation_and_t1_mapping": {
+      "alpha_grid": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "confirmation_no_retuning": true,
+      "development_selection": "On exact frozen 20 development families only, select one global layer/alpha maximizing median ACTIVE_LPA - max_specificity_control_LPA; primary tie-breaks: higher ACTIVE TaskSuccess, lower alpha, earlier mapped layer. Freeze content hash before any confirmation request.",
+      "layer_mapping_rule": "For zero-based transformer blocks, map each frozen Qwen candidate l to round(l*(Phi_last_layer/Qwen_last_layer)) = round(l*31/27); deduplicate preserving order. No outcome-based layer additions.",
+      "phi_candidate_layers": [
+        8,
+        16,
+        24,
+        31
+      ],
+      "qwen_source_layers": [
+        7,
+        14,
+        21,
+        27
+      ],
+      "source_anchor": "t2_only",
+      "target_site": "same_layer_reset_prefix_last_token_before_ACTION",
+      "vector_rule": "ACTIVE uses alpha * raw Phi r_PLAN(t2); every nonzero residual/random control is rescaled to ||r_PLAN||_2 before same alpha, identical to primary T1 v1.1."
+    }
+  },
+  "axis_b_cross_task": {
+    "delegated_work_item_id": "ddcfe790-5008-4010-99d6-ad27c58429ff",
+    "required_nonoverlap": "Axis B must remain its own separately reviewed evidence family; this matrix only references its frozen contract.",
+    "role": "Complementary same-model cross-task/split external-validity axis created independently by A2. Do not duplicate its manifest/design here."
+  },
+  "canonical_object_sha256_without_self_field": "6d3220875f44189c627fa3922e757fd2cf91711a77dd768d61bf40d8d15479cf",
+  "created_utc": "2026-08-21T14:44:00Z",
+  "environment_execution": 0,
+  "high_tier_interpretation": {
+    "minimum_strong_story": "primary representation sanity + primary untouched causal T1 + family-disjoint T1R + at least one external-validity axis; strongest story includes both cross-model Axis A and cross-task Axis B plus faithful baseline systems comparison.",
+    "novelty_guard": "Do not claim first activation steering, hidden-state memory, latent planning representation, or generic memory transport. Claim the conjunction of episode-specific model-own plan residual, true reset, exactly one intervention, no reinjection, later-plan preservation beyond first action, matched plan-specific nulls, untouched confirmation/replication, and conditional external validity."
+  },
+  "hypothesis_id": "97c6bd41-b4b9-4722-ac20-6b41e8bd8907",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_HIGH_TIER_GENERALIZATION_MATRIX_V1_1_PHI_COHORT_REPAIR",
+  "model_calls": 0,
+  "prohibitions": [
+    "No execution before all activation gates pass.",
+    "No use to rescue primary null/inconclusive/invalid evidence.",
+    "No model substitution after primary outcomes.",
+    "No family dropping/replacement after model access.",
+    "No per-family layer/alpha selection.",
+    "No threshold relaxation or multiplicity change.",
+    "No repeated intervention/reinjection.",
+    "No expert/oracle plan/action fields.",
+    "No sharing development outcomes with untouched confirmation selection."
+  ],
+  "repair_provenance": {
+    "claim_scope": "cross-model-family external validity on Phi-4-mini within ALFWorld pick_and_place_simple family-unexposed train families; no split/task/environment/universal generality",
+    "cohort_change": "valid_train/train path-fresh -> train/train exact-family-unexposed 20+20",
+    "exposure_index_sha256": "70e5ab8c7cfe944632cf916b3d41fa88d7908bdbfe762d6eacc2bd45f6ae20ed",
+    "failed_review_sha256": "7dce791f901777a32e44891c0f7da8b0155185ea11a39948717d2e25a9c6df76",
+    "mechanism_variables_changed": [],
+    "new_manifest_path": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v2_family_unexposed_a3_20260821.json",
+    "new_manifest_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+    "scope": "AXIS_A_COHORT_ONLY",
+    "source_contract_sha256": "6f09d4cf87225c764dd57dd4ddb2395927bbd9b16eb042d8f499e5f6a19893e6",
+    "source_manifest_sha256": "9d3341208001718e37d4a7f6739e1d0848ac912a9c1778a6783be2696d459a68"
+  },
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_role": "CONDITIONAL_EXTERNAL_VALIDITY_FREEZE",
+  "sources": {
+    "cross_task_work_item_id": "ddcfe790-5008-4010-99d6-ad27c58429ff",
+    "primary_sanity_experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+    "t1_v1_1": {
+      "path": "results/design/plancarry_replay_residual_t1_prereg_v1_1_20260821.json",
+      "sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2"
+    },
+    "v2_1_execution_contract": {
+      "path": "results/design/plancarry_replay_residual_unified_execution_contract_v2_1_rw_20260821.json",
+      "sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158"
+    }
+  },
+  "work_item_id": "6956592d-0b8f-4013-9362-e36c30698cc5"
+}

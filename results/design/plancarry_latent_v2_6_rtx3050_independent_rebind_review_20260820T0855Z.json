@@ -1,0 +1,21 @@
+{
+  "check_count": 36,
+  "confirmation_accessed": false,
+  "failed_count": 0,
+  "independent_assertion_job_id": "local_e3641aa6660c495a",
+  "kind": "PLANCARRY_LATENT_V2_6_RTX3050_INDEPENDENT_REBIND_REVIEW",
+  "only_authorized_change": "execution CUDA device provenance: GTX1650 -> NVIDIA GeForce RTX 3050 Laptop GPU, 4096 MiB, driver 596.08; exact torch/CUDA runtime must be frozen by fresh readiness engineering",
+  "review_work_item_id": "99890f20-aa61-4693-b76b-31fe0489b225",
+  "science_outcomes_accessed": false,
+  "scientific_override_count": 0,
+  "scientific_result": "NOT_ASSESSED",
+  "source_rebind_sha256": "c6b5bbd8019e52d293aeaa761f628c83876f86769dc8355b1fbb11caa854c2f5",
+  "source_supersession_audit_sha256": "1a0ad88e40366708d5ebc4dc695135a2fa220b88d43513b90fbd61d9a2c793e5",
+  "source_v25_design_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "v25_prereg_review_sha256": "7b17804ed2ed5aa1b5e5524f7dbd274bf5b27c7e0b8b48ae3f57c8a112335ea5",
+  "v25_registration_wrapper_audit_sha256": "90453ef592502e51c5b4efb84d5b35bd9f51c856fb3136030246bc32d91a733d",
+  "v25_registration_wrapper_sha256": "4baeb09009e66574ffa881e12ea8d27c2386dbe54ce3cb07c2c150f080213f9b",
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "verdict": "PASS_FOR_V26_RTX3050_ENGINEERING"
+}

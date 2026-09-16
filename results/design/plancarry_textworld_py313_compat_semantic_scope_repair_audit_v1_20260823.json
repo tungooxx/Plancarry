@@ -1,0 +1,44 @@
+{
+  "author_worker_id": "14ebe23e-269a-4f64-8633-747c1f2544d9",
+  "base_commit": "7ea36c2d8e3184adc2929578c074b25d7cf1fc69",
+  "engineering_task_id": "719b7184-cf78-40f1-a22f-218973025030",
+  "held_fixed": {
+    "alfworld_runtime_sha256": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "packet_producer_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "sanity_protocol_sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef"
+  },
+  "kind": "PLANCARRY_TEXTWORLD_PY313_COMPAT_SEMANTIC_SCOPE_REPAIR_AUDIT_V1",
+  "provenance_limitation": "Current Git history starts from a later workspace import; it does not reconstruct the historical immediate-parent pre-repair alfworld_runtime.py bytes. This repair changes only the compatibility module relative to current Git base 7ea36c2; alfworld_runtime and frozen science files remain byte-identical.",
+  "repair": {
+    "new_compat_sha256": "cee3c3818b5856507179dd9f5c5c819260d1cd51c746faa012c612f79bf2fc83",
+    "old_compat_sha256": "9506534d044fafff43e19db99cfaf93e808d670eb05572c8b338dd137b095da4",
+    "semantic_delta": "explicit eval locals now contain legacy self and active context, then overlay a copied active_context[variables]; module globals/builtins, context fallback, TerminalSymbol return and idempotent install remain unchanged",
+    "test_sha256": "ff9cdf001063d4e6caea966a432f23260a7dd041b45d8afd24e985bba3064329"
+  },
+  "review_required": true,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "tests": {
+    "context_precedence_fallback": "PASS",
+    "idempotent_install": "PASS",
+    "job_id": "local_698a3788b8824d71",
+    "module_globals_builtins": "PASS via len(__name__)",
+    "no_context_mutation": "PASS",
+    "nonstudy_reset_canary": {
+      "actions_taken": 0,
+      "admissible_commands_n": 30,
+      "game": "train/look_at_obj_in_light-AlarmClock-None-DeskLamp-301/trial_T20190907_174127_043461/game.tw-pddl",
+      "model_calls": 0,
+      "observation_nonempty": true,
+      "pick_and_place_simple_accessed": false,
+      "status": "PASS_RESET_ONLY",
+      "step_count": 0,
+      "valid_seen_accessed": false,
+      "valid_unseen_accessed": false
+    },
+    "py_compile": "PASS",
+    "repaired_scope": "grammar variables+self+context resolve; variable overlay tested",
+    "scope_unittest": "PASS 4/4",
+    "upstream_python313_shape": "grammar variable NameError while self/context resolve"
+  }
+}

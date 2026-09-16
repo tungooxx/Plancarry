@@ -1,0 +1,166 @@
+{
+  "causal_runtime_and_controls": {
+    "injections_per_rollout": 1,
+    "intervention_controls": [
+      "NO_PATCH",
+      "ZERO_ADD",
+      "SELF_REPLACE",
+      "RANDOM_EQ_NORM",
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "UNRELATED_PLAN",
+      "PLAN_TOKEN_PERMUTED",
+      "PAST_ACTIONS_ONLY",
+      "VISIBLE_TEXT_PLAN"
+    ],
+    "random_control": "deterministic equal-norm SHA256-Rademacher as v1",
+    "reinjection": false,
+    "same_persistent_kv_session": true,
+    "source_residual": "PLAN_PRESENT - NEUTRAL_FILLER at t2",
+    "true_context_reset": true,
+    "zero_self_sentinels": "<=1e-6 as v1"
+  },
+  "date_utc": "2026-08-23",
+  "development_and_confirmation": {
+    "alphas": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "confirmation_gate": ">=15/20 Stage2-qualified on untouched fresh v2 confirmation",
+    "confirmation_primary": "autonomous first-action-excluded LCA2 on action4/action5 requiring action identity AND pre-action world-state hash equality; all20 denominator",
+    "development_endpoint": "matched-state MSA2 on reference actions4/5; one global operating point; same frozen tie/futility logic as reviewed v1 unless independently amended pre-data",
+    "development_gate": ">=16/32 Stage2-qualified on fresh v2 dev",
+    "layers": [
+      7,
+      14,
+      21,
+      27
+    ],
+    "reserve": "n12 locked until primary support; no retuning",
+    "statistics": "same two exact one-sided n20 sign tests vs NO_PATCH and max plan-specific control + Holm FWER .05 + frozen effect/valid-action/plumbing guards",
+    "task_success": "secondary only"
+  },
+  "environment_execution_in_this_design": 0,
+  "execution_forbidden_until": [
+    "fresh v2 population filename-only freeze PASS independent review",
+    "v2 prereg/control-spec PASS independent review",
+    "v2 implementation synthetic/readiness PASS independent review",
+    "fresh Research OS Experiment + ResearchDecision",
+    "user manually starts exact designated RTX4070 SUPER"
+  ],
+  "frozen_model_runtime": {
+    "dtype": "BF16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "note": "model size is not changed as rescue; v1 96-token failure was a control-slot ceiling, not context exhaustion",
+    "offload": "NONE",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_CONSTRUCTIBLE_CONTROLS_PREREG_DRAFT_V0_1",
+  "model_calls_in_this_design": 0,
+  "population": {
+    "exclusions": "all exact paths previously mentioned/bound/consumed in PlanCarry/ReplayResidual including all v1 LocalContinuation 64 paths",
+    "model_or_environment_outcome_access_before_freeze": false,
+    "required_phase_sizes": {
+      "development": 32,
+      "reserve": 12,
+      "untouched_confirmation": 20
+    },
+    "selection_rule": "new V2-specific SHA256 salt over canonical relative path + lexical tie, no replacement",
+    "status": "UNBOUND_PENDING_FILENAME_ONLY_FREEZE_AND_INDEPENDENT_REVIEW"
+  },
+  "prohibited_rescues": [
+    "rerun or patch consumed v1 development indices0..31",
+    "open v1 confirmation32..51 or v1 reserve52..63",
+    "raise old 96-token limit inside v1 and call it a retry",
+    "change model size because of v1 PLAN_CONTENT_TOO_LONG",
+    "outcome-dependent path filtering/replacement",
+    "post-hoc control deletion",
+    "per-family layer/alpha tuning"
+  ],
+  "required_pre_science_tests": [
+    "synthetic arbitrary-length history strings always map deterministically to <=64-token PAST_ACTIONS_ONLY content without future data",
+    "PLAN_TOKEN_PERMUTED preserves exact token multiset/count and is never identity for synthetic accepted plans",
+    "all semantic condition content IDs satisfy frozen <=96 budget on synthetic boundary cases",
+    "token-native slot builder emits exactly 128 IDs for content lengths 0..96 and identical downstream offset",
+    "wrong split/consumed v1 path access fails closed",
+    "no model, ALFWorld game reset, scientific output, confirmation or reserve access during design/tests"
+  ],
+  "scientific_difference_from_v1": [
+    "fresh non-consumed population required; v1 dev0..31/confirmation32..51/reserve52..63 are prohibited",
+    "replace text-retokenized fixed-slot semantic controls with token-native exact-128-slot construction",
+    "replace punctuation/clause-count SHUFFLED_PLAN with universally constructible same-token-multiset deterministic PLAN_TOKEN_PERMUTED",
+    "replace unbounded GENERIC_HISTORY text with deterministic bounded PAST_ACTIONS_ONLY control using only already-observed pre-cut actions",
+    "causal estimand, reset/session semantics, layer/alpha grid, development selection, confirmation endpoint/statistics and competence guards otherwise remain frozen from LocalContinuation v1 unless separately reviewed before data"
+  ],
+  "scientific_outcomes_accessed_in_this_design": false,
+  "semantic_conditions_v2": {
+    "ALT_NEUTRAL_POSITION": {
+      "same_scientific_role_as_v1": true
+    },
+    "NEUTRAL_FILLER": {
+      "source": "empty content + common neutral filler"
+    },
+    "NEXT_ACTION_PRESERVED_LATE_NULL": {
+      "budget_guard": "must be prospectively proven <=96 from ALFWorld command grammar/tokenizer or use a frozen exact-command-preserving encoding; no truncation that changes action identity",
+      "same_scientific_role_as_v1": true,
+      "source": "reference action3 only + fixed text that later procedural commitments are unavailable"
+    },
+    "PAST_ACTIONS_ONLY": {
+      "content_budget_tokens": 64,
+      "forbidden": [
+        "initial-observation duplication inside control slot",
+        "post-cut observations/actions",
+        "model-generated summary",
+        "future-plan language other than fixed NO FUTURE PLAN marker"
+      ],
+      "purpose": "bounded generic-history control with no future plan information",
+      "rendering": "fixed labels plus token-native action snippets; each action command is deterministically token-truncated to a predeclared per-action budget if ever needed; truncation depends only on its own token sequence, never outcomes",
+      "source": "only model-own actions 1 and 2 that occurred before the frozen cut; no action3+, no future observation, no expert data"
+    },
+    "PLAN_PRESENT": {
+      "content_budget": "<=96 tokens by existing accepted-plan contract",
+      "source": "accepted model-own complete <PLAN>...</PLAN> token IDs"
+    },
+    "PLAN_TOKEN_PERMUTED": {
+      "algorithm": "take exact PLAN_PRESENT content token-ID sequence; assign each original position i a SHA256(family|V2_PLAN_TOKEN_PERMUTE|i|token_id) key; stable-sort by key; if identity ordering occurs, cyclically rotate by one token; preserve exact token multiset and exact content-token count; never parse punctuation, clauses, actions or observations",
+      "constructibility": "defined for every accepted nonempty plan token sequence; complete tagged plan is necessarily nonempty",
+      "next_action_property": "contains the same lexical token multiset but does not preserve the model plan sequence or privileged next-action position",
+      "purpose": "plan-order/identity corruption without punctuation/clause parsing"
+    },
+    "UNRELATED_PLAN": {
+      "budget": "donor accepted plan <=96 tokens",
+      "source": "deterministic next-different-family donor from the frozen Stage1-eligible set, independent of final Stage2 qualification"
+    }
+  },
+  "slot_geometry_v2": {
+    "begin_ids": "fixed token IDs from one frozen neutral boundary string",
+    "construction": "TOKEN_NATIVE_NO_TEXT_RETOKENIZATION",
+    "end_ids": "fixed token IDs from one frozen neutral boundary string",
+    "fail_closed": [
+      "content_ids_len>96",
+      "slot_len!=128",
+      "non-deterministic token sequence",
+      "forbidden condition not constructible"
+    ],
+    "filler_ids": "fixed neutral filler token stream, prefix-sliced to make total slot length exactly 128",
+    "invariant": "all condition slots are exactly 128 token IDs; content starts at the same frozen offset; downstream reset/capture position is identical; no BPE seam/re-tokenization dependence",
+    "max_content_tokens": 96,
+    "slot_tokens": 128
+  },
+  "source_evidence_unit_id": "3210a578-7b39-482b-8f06-c921b2626cac",
+  "source_experiment_id": "6ccf7bd9-6622-404d-9f25-fcf7dbc41795",
+  "source_git_commit": "b0bfc77e6eb91c2c7b1454a6c5c1ed0fb7d11bdf",
+  "source_hypothesis_id": "a7982eda-fbfd-419b-96ad-dcb83ccff6e6",
+  "source_negative_result_id": "4dcad46c-7f6e-4a9e-bfbc-cdd0aad07e00",
+  "source_run_id": "ff4cb9fd-f644-4ec9-8d55-23634c8a86c1",
+  "stage1_local_reference": {
+    "cut_after_action": 2,
+    "eligibility": "accepted model-own plan + five consecutive current-admissible nontrivial error-free model-own actions; deterministic reset/replay integrity; no outcome-dependent replacement",
+    "required_reference_actions": 5,
+    "same_as_v1": true,
+    "task_success_required": false
+  },
+  "status": "PRE_OUTCOME_DRAFT_NOT_EXECUTABLE",
+  "vast_policy": "vast_48459343 RTX4070 SUPER remains stopped during design/local tests; no autonomous start or substitute rental"
+}

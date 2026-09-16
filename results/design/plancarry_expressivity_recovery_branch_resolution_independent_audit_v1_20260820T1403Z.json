@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "artifact_sha_exact": true,
+    "author_declares_no_outcomes": true,
+    "both_fail_kill_no_rescue": true,
+    "both_pass_minimal_drift_no_magnitude": true,
+    "feasibility_not_T1": true,
+    "fresh_T1_required": true,
+    "frozen_time_exact": true,
+    "historical_cutoff_no_completion_events": "Verified separately from canonical research_events(as_of=2026-08-20T13:45:35Z): prompt WorkItem 41ab4c4a and model WorkItem 58c87e98 had CLAIMED/STARTED events only; neither had WORK_COMPLETED, result, or experiment outcome events at cutoff.",
+    "model_gate_unchanged": true,
+    "no_causal_testing": true,
+    "no_confirmation_or_valid": true,
+    "no_pair_filtering": true,
+    "prompt_fail_model_pass": true,
+    "prompt_gate_unchanged": true,
+    "prompt_pass_model_fail": true
+  },
+  "historical_cutoff": "2026-08-20T13:45:35Z",
+  "historical_cutoff_evidence": "Canonical Research OS research_events(as_of cutoff) shows prompt branch WorkItem created13:42:46, claimed13:43:02, started13:43:10; model branch created13:43:15, claimed13:43:24, started13:43:33; branch-rule WorkItem created13:45:09 and claimed13:45:21. No completion/result/outcome event for either recovery appears at or before cutoff.",
+  "interpretation": "The branching policy is genuinely prospective and deterministic. It prevents magnitude-based post-hoc selection between source-representation and model-capacity recoveries. Passing a competence branch is feasibility only and requires a fresh T1 preregistration and untouched confirmation before causal claims.",
+  "kind": "PLANCARRY_EXPRESSIVITY_RECOVERY_BRANCH_RULE_INDEPENDENT_AUDIT_V1",
+  "model_calls": 0,
+  "recovery_outcomes_inspected_for_review": false,
+  "reviewed_artifact": "results/design/plancarry_expressivity_recovery_branch_resolution_v1_20260820T1345Z.json",
+  "reviewed_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "reviewer_worker_id": "c0eb2ca1-ed21-4545-8d5d-a73dfdc4b47f",
+  "scientific_result": "NOT_ASSESSED",
+  "verdict": "PASS_BRANCH_RULE"
+}

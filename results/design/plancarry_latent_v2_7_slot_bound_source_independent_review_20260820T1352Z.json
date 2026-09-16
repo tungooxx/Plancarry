@@ -1,0 +1,188 @@
+{
+  "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+  "check_count": 28,
+  "checks": [
+    {
+      "detail": null,
+      "name": "v27_design_sha_matches_b87069ba",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "diff_audit_sha_matches_af00304e",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "static_audit_sha_matches_dfbb729a",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "data_manifest_split_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "action_scoring_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "intervention_math_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "source_target_sites_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "model_expressivity_gate_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "confirmation_primary_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "primary_secondary_metrics_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "plumbing_guard_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "development_grid_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "development_selection_score_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "development_tie_break_exact_equal_v26",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "qwen25_exact_revision_fp16_noquant_unchanged",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "competence_thresholds_plus0p10_minus0p10_min12of20_unchanged",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "slot_bound_active_ab_only_clause_permutation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "matched_reference_ab_only_clause_permutation",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "active_reference_total_token_lengths_equal_40of40",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "lexical_bags_equal_40of40",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "model_inference_calls_zero_in_static_audit",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "single_template_no_search_fail_closed",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "confirmation_and_valid_splits_no_model_science_at_design",
+      "passed": true
+    },
+    {
+      "detail": "Two audit labels (active representation and archived/reference representation) are matched halves of the one declared source-representation successor; both are required to keep the specificity control matched.",
+      "name": "single_conceptual_scientific_dimension",
+      "passed": true
+    },
+    {
+      "detail": "artifact_integrity.policy still says \"This v2.6 frozen design artifact...\"",
+      "name": "artifact_integrity_policy_names_v27",
+      "passed": false
+    },
+    {
+      "detail": "pre_registration_static_review.status is PENDING_INDEPENDENT_V2_6_REVIEW",
+      "name": "pre_registration_review_status_names_v27",
+      "passed": false
+    },
+    {
+      "detail": "model.bridge_required_real_verification and execution_host_policy still authorize/require \"v2.6\" rather than explicitly binding v2.7 to fresh competence-only engineering or an explicit inherited v2.6 runtime result.",
+      "name": "runtime_readiness_authority_names_v27_or_inherits_verified_v26_explicitly",
+      "passed": false
+    },
+    {
+      "detail": "validity_guards[10] requires a content-hashed v2.6 discovery selection, impossible after v2.6 stopped at 1/20; must require the future content-hashed v2.7 development selection.",
+      "name": "confirmation_selection_barrier_names_v27",
+      "passed": false
+    }
+  ],
+  "checks_failed": 4,
+  "checks_passed": 24,
+  "confirmation_model_science_accessed": false,
+  "design_path": "results/design/plancarry_latent_v2_7_slot_bound_source_frozen_design_20260820T1347Z.json",
+  "design_sha256": "b87069baa1e5ebb181dcaccfb2694ae0cc8dc158edb2bd960d5437d06ddcc054",
+  "diff_audit_sha256": "af00304e3bab5418a3c2d1c183de3caa94fa169bc3c8d311db5d9cd3f1d7dd2f",
+  "failed_checks": [
+    {
+      "detail": "artifact_integrity.policy still says \"This v2.6 frozen design artifact...\"",
+      "name": "artifact_integrity_policy_names_v27",
+      "passed": false
+    },
+    {
+      "detail": "pre_registration_static_review.status is PENDING_INDEPENDENT_V2_6_REVIEW",
+      "name": "pre_registration_review_status_names_v27",
+      "passed": false
+    },
+    {
+      "detail": "model.bridge_required_real_verification and execution_host_policy still authorize/require \"v2.6\" rather than explicitly binding v2.7 to fresh competence-only engineering or an explicit inherited v2.6 runtime result.",
+      "name": "runtime_readiness_authority_names_v27_or_inherits_verified_v26_explicitly",
+      "passed": false
+    },
+    {
+      "detail": "validity_guards[10] requires a content-hashed v2.6 discovery selection, impossible after v2.6 stopped at 1/20; must require the future content-hashed v2.7 development selection.",
+      "name": "confirmation_selection_barrier_names_v27",
+      "passed": false
+    }
+  ],
+  "kind": "PLANCARRY_LATENT_V2_7_SLOT_BOUND_SOURCE_INDEPENDENT_PREEXEC_REVIEW",
+  "model_calls": 0,
+  "repair_scope": [
+    "Change only version/provenance/phase-barrier text from stale v2.6 identity to v2.7 where semantically required.",
+    "Replace validity_guards[10] with an exact future PLANCARRY_LATENT_V2_7 discovery/development-selection barrier.",
+    "Make runtime authority explicit: either fresh v2.7 competence-only engineering/readiness or explicit inheritance of immutable verified v2.6 bridge/client/runtime artifacts; do not loosen any runtime guard.",
+    "Set pre-registration review status to a v2.7-independent-review lineage.",
+    "Do not alter source templates, model, data, scorer, sites, layers, alphas, thresholds, controls, selection rule, confirmation statistics/effect guards, or claim scope."
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "static_audit_sha256": "dfbb729a3592b4d9a71dd547ce017714a764022a5fbd755eef4dd2261fd80a66",
+  "valid_seen_accessed": false,
+  "valid_unseen_accessed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}

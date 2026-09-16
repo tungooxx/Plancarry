@@ -1,0 +1,91 @@
+{
+  "alfworld_environment_execution": 0,
+  "authorization": "PASS authorizes canonical V2.1 packet production as part of the registered representation-sanity Experiment only after a fresh ResearchDecision binds exact command/cwd/env/python_env. It does not authorize reserve32..63, valid splits, causal injection, T1, confirmation, replication, or any interpretation beyond representation sanity.",
+  "canonical_experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "canonical_prediction_id": "d3208f84-ad00-47e3-ad77-c6a320e08c2d",
+  "created_utc": "2026-08-21T09:10:00Z",
+  "independent_evidence": {
+    "hashes_exact": true,
+    "hf_exact_revision_header_reachable": {
+      "http_status": 200,
+      "job_id": "local_3eef6b8e5b5f4759"
+    },
+    "production_entrypoint_source_inspected": true,
+    "real_qwen3_tokenizer_contract": {
+      "alfworld_calls": 0,
+      "failed": 0,
+      "job_id": "local_a70201f08a4e4854",
+      "model_weights_loaded": false,
+      "passed": 15
+    },
+    "unit_tests": {
+      "failed": 0,
+      "job_id": "local_c1e4007b3780441a",
+      "passed": 10
+    }
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_V2_1_PACKET_PRODUCER_A4_INDEPENDENT_READINESS_REVIEW_V1",
+  "model_calls": 0,
+  "replayresidual_scientific_outcomes_accessed": false,
+  "review_notes": [
+    "Initial text-search checker produced false positives/negatives because implementation uses imported constants/helpers; no readiness defect was inferred from those string-level misses.",
+    "A real pinned Qwen3 tokenizer integration check was added to cover boundaries not exercised by fake-tokenizer tests; it passed 15/15.",
+    "Exact revision endpoint was reachable. No model weights were loaded and no ALFWorld/ReplayResidual scientific episode was executed during review."
+  ],
+  "reviewed_artifacts": {
+    "engineering_audit": {
+      "path": "results/design/plancarry_replay_residual_v2_1_packet_producer_engineering_audit_20260821.json",
+      "sha256": "f19f2247c405f95b6a0d324cd8aa3f53af9cda487db63d1e20bd2c16f0b4c07e"
+    },
+    "producer": {
+      "path": "replay_residual_natural_packet_producer_v2_1.py",
+      "sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55"
+    },
+    "tests": {
+      "path": "test_replay_residual_natural_packet_v2_1.py",
+      "sha256": "1b7bbaef763cbbc5a29b701963e43f1a679d2dabcfb208fc82db56954ddc1cc8"
+    },
+    "validator": {
+      "path": "replay_residual_natural_packet_validator_v2_1.py",
+      "sha256": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2"
+    }
+  },
+  "reviewed_engineering_result_id": "4009f4bb-d38b-4676-be5c-fc4b50bba7ba",
+  "reviewed_engineering_task_id": "d18779cc-76d9-4774-82f7-ee22a713d6c0",
+  "reviewer_worker": "LLM A4",
+  "scientific_result": "NOT_ASSESSED_PRE_SCIENCE_READINESS_ONLY",
+  "semantic_checks": {
+    "action_budget_12_cut_2": true,
+    "all_32_attempted_before_E_freeze": true,
+    "all_seven_exact128_controls_including_late_null_anchor2": true,
+    "candidate_suffix_separate_space_plus_command_no_joint_retokenization": true,
+    "canonical_packet_manifest_hash_chain": true,
+    "complete_tagged_plan_block_le_96_tokens": true,
+    "development_indices_exact_0_31": true,
+    "donor_final_qualified_membership_never_used": true,
+    "exact_device_guard_nvidia_rtx3050_laptop_gpu": true,
+    "exact_numeric_tie_lexicographically_smallest_command": true,
+    "exact_qwen3_revision_bf16_no_quant_no_offload": true,
+    "executor_chat_template_ends_action": true,
+    "minimum_final_qualified_16_no_replacement_fail_closed": true,
+    "no_capture_patch_injection_t1_call_path": true,
+    "nontrivial_exact_case_sensitive_help_inventory_look_exclusion": true,
+    "planner_decode_skip_special_true_cleanup_false": true,
+    "planner_live_initial_observation_task_extraction": true,
+    "planner_one_greedy_call_max_new_tokens_128": true,
+    "planner_whitespace_strip_one_fullmatch_no_retry": true,
+    "private_inprogress_fsync_exact_set_validation_atomic_same_parent_rename": true,
+    "refuse_existing_final_no_resume_no_partial_visibility": true,
+    "reserve_32_63_absent_from_execution_path": true,
+    "suffix_only_fp32_arithmetic_mean_logprob": true,
+    "unrelated_donor_fixed_trajectory_eligible_E_only": true,
+    "valid_seen_unseen_absent_from_producer_path": true,
+    "validator_binds_experiment_prediction_contract_model_device": true,
+    "validator_binds_index_family_game_path": true,
+    "validator_rejects_causal_fields_and_wrong_model": true
+  },
+  "v2_1_contract_sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+  "v2_1_independent_review_sha256": "f6008a9f26a41c789f385c5efc33fde1f256811da0cd04ac49125898e2340743",
+  "verdict": "PASS_FOR_REPLAYRESIDUAL_V2_1_PACKET_EXECUTION",
+  "work_item_id": "a5ff7f1c-b155-43f5-a787-4a605de9b99e"
+}

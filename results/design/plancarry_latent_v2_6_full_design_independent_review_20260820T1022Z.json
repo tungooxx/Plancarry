@@ -1,0 +1,49 @@
+{
+  "base_v25_sha256": "9dc788dcb3ec1e8646bff5526020df4913315b4f2a61059f67f332137b577b90",
+  "candidate_path": "results/design/plancarry_latent_v2_6_rtx3050_full_design_candidate_v2_20260820T0904Z.json",
+  "candidate_sha256": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+  "diff_audit_sha256": "aea3334b1499fba60c9c817cdef1b8f757849bc554331bd7e63d44d086804900",
+  "kind": "PLANCARRY_LATENT_V2_6_FULL_DESIGN_INDEPENDENT_REVIEW",
+  "recursive_diff_count": 19,
+  "review_work_item_id": "30eda347-aa10-42e7-928b-87bb5bad9fb7",
+  "reviewed_repairs": [
+    "/action_scoring/cross_implementation_diagnostic/interpretation",
+    "/artifact_integrity/policy",
+    "/pre_registration_static_review/status",
+    "/validity_guards/10",
+    "/validity_guards/18"
+  ],
+  "reviewer_worker_id": "c0eb2ca1-ed21-4545-8d5d-a73dfdc4b47f",
+  "scientific_core_equality": {
+    "action_scoring_except_reviewed_diagnostic_text": true,
+    "alternative_hypotheses": true,
+    "confirmation_primary": true,
+    "data": true,
+    "development_selection": true,
+    "expected_direction": true,
+    "intervention_math": true,
+    "model_except_runtime_provenance_fields": true,
+    "plumbing_guard": true,
+    "prediction": true,
+    "primary_metric": true,
+    "research_question": true,
+    "secondary_metrics": true,
+    "source_and_target_sites": true
+  },
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "semantic_checks": {
+    "artifact_immutability_names_v26": true,
+    "confirmation_accessed": false,
+    "confirmation_requires_content_hashed_v26_discovery_selection": true,
+    "direct_vs_cache_is_engineering_only_non_gating": true,
+    "intentional_historical_v25_provenance_preserved": true,
+    "prereg_review_status_names_v26": true,
+    "scientific_result_not_assessed": true,
+    "source_competence_or_active_control_outcomes_accessed": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "unexpected_changed_paths": [],
+  "verdict": "PASS_FOR_V26_REGISTRATION"
+}

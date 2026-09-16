@@ -1,0 +1,70 @@
+{
+  "claim_if_supported": "Causal sufficiency of one episode-specific plan-residual intervention for first-action-excluded active-plan continuation under the preregistered model/environment and ordinary persistent KV/session dynamics, relative to frozen matched controls.",
+  "confirmation": {
+    "all20_denominators_after_gate": true,
+    "effect_guards_required": true,
+    "multiplicity": "Holm FWER 0.05 across exactly two co-primary tests",
+    "n": 20,
+    "natural_trajectory_gate": ">=16/20",
+    "source_indices": "32..51",
+    "tests": [
+      "exact one-sided sign/binomial d_no_patch>0",
+      "exact one-sided sign/binomial d_specificity>0"
+    ],
+    "zeros_nonpositive_fail": true
+  },
+  "environment_execution": 0,
+  "external_validity": {
+    "cannot_rescue_primary_null": true,
+    "separate_from_primary": true,
+    "zero_retuning": true
+  },
+  "identification_conditions": [
+    "reset-state equality",
+    "single hook exactly once",
+    "same persistent KV/session",
+    "exact token semantics and nonmutating candidate scoring",
+    "norm-matched controls",
+    "no cross-arm/family interference",
+    "prospective no-outcome-dependent selection",
+    "first-action-excluded world-state-matched endpoint"
+  ],
+  "kind": "PLANCARRY_REPLAYRESIDUAL_CAUSAL_ESTIMANDS_IDENTIFICATION_V1",
+  "kv_experiment_id": "ff6ded3f-ff04-48e2-870b-1ab9d1b22fe1",
+  "kv_mediation": {
+    "controls_within_arm": true,
+    "non_kv_substrate_claim": false,
+    "requires_primary_t1_support": true,
+    "total_prerequisite": true
+  },
+  "model_calls": 0,
+  "nonclaims": [
+    "causal necessity",
+    "distinct non-KV substrate",
+    "mediation from T1 alone",
+    "universal cross-model/task/environment generality",
+    "first latent memory",
+    "first hidden-state transport",
+    "first activation steering",
+    "first state continuity",
+    "first KV restoration"
+  ],
+  "paper_schema_sha256": "4f0a1b35bda1cd941ff0c296a44937e05ba053c335656fe77fc01b9a8c577d70",
+  "primary_estimands": {
+    "d_no_patch": "LPA_ACTIVE-LPA_NO_PATCH",
+    "d_specificity": "LPA_ACTIVE-max(LPA_RANDOM_EQ_NORM,LPA_NEXT_ACTION_PRESERVED_LATE_NULL,LPA_UNRELATED_PLAN,LPA_SHUFFLED_PLAN,LPA_GENERIC_HISTORY)",
+    "specificity_controls": [
+      "RANDOM_EQ_NORM",
+      "NEXT_ACTION_PRESERVED_LATE_NULL",
+      "UNRELATED_PLAN",
+      "SHUFFLED_PLAN",
+      "GENERIC_HISTORY"
+    ]
+  },
+  "sanity_experiment_id": "fbfeb9e9-4850-46c7-ad13-326cbe8da380",
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "status": "FROZEN_PRE_OUTCOME_METHOD_NOTE",
+  "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "work_item_id": "b587c4b4-f14a-4348-8940-9f36d8324196"
+}

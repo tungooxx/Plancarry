@@ -1,0 +1,35 @@
+{
+  "alfworld_calls": 0,
+  "baseline_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "bridge_sha256": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404",
+  "checks": {
+    "client_unchanged": true,
+    "disable_capture_200": true,
+    "disable_health_200": true,
+    "disable_model_info_200": true,
+    "disable_patch_rejected": true,
+    "disable_score_200": true,
+    "legacy_patch_200": true
+  },
+  "client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7",
+  "disable_patch_mode": {
+    "capture": 200,
+    "health": 200,
+    "model_info": 200,
+    "patch_error_code": "NOT_FOUND",
+    "patch_score": 404,
+    "score_sequences": 200
+  },
+  "kind": "PLANCARRY_WHITEBOX_CAPTURE_ONLY_BRIDGE_AUDIT_V1",
+  "legacy_mode": {
+    "capture": 200,
+    "health": 200,
+    "model_info": 200,
+    "patch_error_code": null,
+    "patch_score": 200,
+    "score_sequences": 200
+  },
+  "mock_only": true,
+  "model_calls": 0,
+  "passed": true
+}

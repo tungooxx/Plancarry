@@ -1,0 +1,89 @@
+{
+  "current_v26_full_design_candidate_sha256": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+  "defensible_evidence_ladder_if_supported": {
+    "G": {
+      "claim": "General mechanism rather than one model/environment artifact.",
+      "required_signature": "Second model family plus second interactive environment with frozen transfer/no-rescue rules and end-task robustness."
+    },
+    "T1": {
+      "claim": "Specific causal active-plan identity signal under matched observable reset state.",
+      "not_yet": "Persistence, checkpoint, compactness, generality, end-task superiority.",
+      "required_signature": "Episode-specific A/B sources differ only in ACTIVE ORDER; reciprocal +d/-d transplant changes exact first-divergent branch preference; active exceeds archived-order, unrelated-plan and random same-norm controls under preregistered all-family inference."
+    },
+    "T1R": {
+      "claim": "No-retuning family-disjoint replication of T1.",
+      "required_signature": "Import primary selected layer/alpha/donor directions without reserve retuning; same causal/specificity gates on untouched families."
+    },
+    "T2": {
+      "claim": "Persistence of a causally active plan state after a single intervention.",
+      "key_neighbor_separation": "This directly separates PlanCarry persistence from NPM-style per-token/repeated activation steering and TransMem-style answer-generation memory correction.",
+      "required_signature": "Inject once at the interruption boundary, then advance through a frozen common plan-independent action/observation prefix in the same persistent session/KV state; no reinjection, no recomputed patch, no repeated steering; later divergent branch remains donor-consistent."
+    },
+    "T3": {
+      "claim": "Endogenous compact checkpoint rather than a paired diagnostic contrast.",
+      "required_signature": "Extract from pre-interruption state without paired counterfactual source at deployment; demonstrate causal sufficiency/minimality and explicit storage/precision accounting."
+    }
+  },
+  "forbidden_broad_claims": [
+    "first latent memory for LLM agents",
+    "first hidden-state memory for LLMs",
+    "first activation-based procedural memory",
+    "first activation steering for agent memory",
+    "first causal localization of planning representations",
+    "first evidence that plans do not persist without context"
+  ],
+  "kind": "PLANCARRY_HIGH_TIER_NEAREST_NEIGHBOR_CLAIM_BOUNDARY_V2",
+  "nearest_neighbors": [
+    {
+      "arxiv": "2606.22953",
+      "claim_restriction": "Do not claim first demonstration that plans fail to persist or first context-eviction stress test.",
+      "date": "2026-06-22",
+      "name": "Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents",
+      "nonoverlap_for_plancarry": "Does not establish a content-specific matched active-plan identity carrier, reciprocal A<->B causal transplant under identical observable reset state, or a single-injection persistent checkpoint.",
+      "overlap": "Directly establishes that plan information can decay from hidden state and that plan eviction harms agent performance; motivates persistence as a real problem."
+    },
+    {
+      "arxiv": "2605.07984",
+      "claim_restriction": "Do not claim first causal localization or first activation patching of latent planning.",
+      "date": "2026-05-08",
+      "name": "Where's the Plan? Locating Latent Planning in Language Models with Lightweight Mechanistic Interventions",
+      "nonoverlap_for_plancarry": "Studies forward-looking rhyme constraints rather than interrupted agent plan identity/persistence; does not establish transport across reset or a reusable checkpoint.",
+      "overlap": "Uses probing and activation patching to localize causally used future-plan information in language models."
+    },
+    {
+      "arxiv": "2606.29824",
+      "claim_restriction": "Do not claim first activation-space procedural memory, first training-free agent memory steering, first contrastive procedural steering vector, or first activation steering evaluated on ALFWorld.",
+      "date": "2026-06-29",
+      "name": "Neural Procedural Memory: Empowering LLM Agents with Implicit Activation Steering",
+      "nonoverlap_for_plancarry": "NPM is task/skill memory synthesized from historical successful/failed experience and repeatedly injected during generation. It does not, in the reviewed paper, isolate episode-specific active-plan identity under an identical observable world state via reciprocal A<->B matched transplant, nor test whether one injection survives a later common action/observation prefix without reinjection.",
+      "overlap": "Training-free procedural agent memory via contrastive hidden-state steering vectors; evaluated on ALFWorld, WebShop, ScienceWorld and BabyAI. At inference it retrieves historical tasks, synthesizes a task-specific direction, and adds that direction to the residual stream during autoregressive generation.",
+      "paper_id": "98685519-b7be-496b-a474-41a49ec6f498",
+      "required_baseline_role_if_t1_survives": "NPM is a conceptually close system baseline. Compare or clearly distinguish repeated task-skill steering from episode-specific causal plan checkpointing; T2 must explicitly prohibit reinjection to make persistence evidence nontrivial."
+    },
+    {
+      "arxiv": "2607.29032",
+      "claim_restriction": "Do not claim first use of historical hidden states as reusable memory or first latent memory applied during generation.",
+      "date": "2026-07-31",
+      "name": "TransMem: Transforming Hidden States into Memory for Large Language Models",
+      "nonoverlap_for_plancarry": "Learned parametric memory module for long-context information utilization rather than matched active-plan identity causality; not an interruption-reset plan-carrier test and not a single endogenous episode checkpoint with reciprocal branch control.",
+      "overlap": "Uses sparse historical hidden states as memory and a learned transformation/gating module applied during answer generation; reports gains on LoCoMo, HotpotQA and MemoryAgentBench across Qwen and Llama backbones."
+    }
+  ],
+  "outcome_access": {
+    "confirmation_accessed": false,
+    "t1_active_control_effects_accessed": false,
+    "t1_source_competence_accessed": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "paper_positioning": {
+    "core_sentence": "The differentiator is not that activations can store or steer procedural behavior; it is whether an episode-specific active-plan identity can be causally isolated under a matched observable state, transported across reset, and\u2014after one injection\u2014remain behaviorally active through subsequent interaction without textual replay or repeated steering.",
+    "minimum_high_tier_story": "T1 + untouched T1R + T2, with NPM/TransMem/latent-planning/context-decay neighbors explicitly bounded. T3 materially strengthens the contribution from causal signal to checkpoint/memory object.",
+    "weak_story_to_avoid": "T1 alone framed as a new memory system or a new activation-steering method."
+  },
+  "primary_hypothesis_id": "2c4031ca-7269-43af-98dd-225c29e030a9",
+  "scientific_result": "NOT_ASSESSED_LITERATURE_BOUNDARY_ONLY",
+  "sources_reviewed_as_of": "2026-08-20",
+  "status": "FROZEN_PRE_T1_OUTCOME",
+  "work_item_id": "233ef5c7-2820-4233-800d-8563673fdb68"
+}

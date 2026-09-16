@@ -1,0 +1,23 @@
+{
+  "approved_change": "AXIS_A_COHORT_SELECTION_ONLY",
+  "checks": {
+    "all40_unexposed": true,
+    "all_game_files_exist": true,
+    "family_disjoint": true,
+    "n20_confirmation": true,
+    "n20_dev": true,
+    "no_science": true,
+    "path_disjoint": true
+  },
+  "created_utc": "2026-08-21T14:44:00Z",
+  "exposure_index_sha256": "70e5ab8c7cfe944632cf916b3d41fa88d7908bdbfe762d6eacc2bd45f6ae20ed",
+  "failed_review_sha256": "7dce791f901777a32e44891c0f7da8b0155185ea11a39948717d2e25a9c6df76",
+  "kind": "PLANCARRY_REPLAYRESIDUAL_PHI4MINI_CROSSMODEL_COHORT_REPAIR_A3_AUDIT_V1",
+  "mechanism_variables_changed": [],
+  "new_contract_sha256": "b367145dce4c8476aafd8d0e3e4c59fe8294191bc78874f884d3decb97edc6fb",
+  "new_manifest_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+  "source_contract_sha256": "6f09d4cf87225c764dd57dd4ddb2395927bbd9b16eb042d8f499e5f6a19893e6",
+  "source_manifest_sha256": "9d3341208001718e37d4a7f6739e1d0848ac912a9c1778a6783be2696d459a68",
+  "usable_unexposed_train": 63,
+  "verdict": "READY_FOR_FRESH_INDEPENDENT_REVIEW"
+}

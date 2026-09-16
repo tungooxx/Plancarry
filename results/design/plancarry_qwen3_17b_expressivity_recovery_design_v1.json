@@ -1,0 +1,81 @@
+{
+  "cohort": {
+    "development_only": true,
+    "future_inference_exclusion": "All 20 recovery families are forbidden from later T1R/T2 confirmation/inference.",
+    "manifest_path": "results/design/plancarry_qwen3_17b_expressivity_recovery_manifest_v1.json",
+    "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "n": 20,
+    "primary40_overlap": 0,
+    "split": "train",
+    "t1r20_overlap": 0
+  },
+  "failed_primary": {
+    "artifact_sha256": "626488c735c63815512c95538141b8ebb96a79dae3ba476dd0f194d01d57ce86",
+    "competent_count": 1,
+    "confirmation_accessed": false,
+    "experiment_id": "d347c226-139a-4b14-8f25-4329ee08ea37",
+    "n": 20,
+    "required_min": 12,
+    "run_id": "2e4777bf-f2db-4087-9ce1-9eecd6e34923",
+    "status": "INCONCLUSIVE_MODEL_EXPRESSIVITY",
+    "t1_causal_mechanism_assessed": false
+  },
+  "held_fixed_from_v26": {
+    "environment_construction": "Same cpst_v2_pair_manifest_builder.py::build_family A/B replay construction; environment-only, no expert plan fields.",
+    "pair_filtering": "NONE; all frozen 20 are denominator; zeros/non-competent are failures for qualification.",
+    "phase_scope": "EXPRESSIVITY ONLY. No activation capture for causal donor selection, no layer/alpha search, no ACTIVE/control CPSE, no confirmation.",
+    "source_competence": {
+      "cohort_n": 20,
+      "cohort_pass_min": 12,
+      "family_competent_rule": "both thresholds",
+      "source_a_margin_min": 0.1,
+      "source_b_margin_max": -0.1
+    },
+    "source_plan_semantics": "Same reset block, PLAN OPTIONS, OPTION A/B clauses, ACTIVE ORDER: A THEN B versus B THEN A marker semantics, ACTION teacher-forced exact divergent admissible command scoring."
+  },
+  "kind": "PLANCARRY_QWEN3_17B_MODEL_ONLY_EXPRESSIVITY_RECOVERY_DESIGN_V1",
+  "outcome_access_at_freeze": {
+    "original_confirmation_seen": false,
+    "qwen3_source_competence_seen": false,
+    "qwen3_task_outcomes_seen": false,
+    "valid_seen_seen": false,
+    "valid_unseen_seen": false
+  },
+  "parent_hypothesis_id": "2c4031ca-7269-43af-98dd-225c29e030a9",
+  "prohibited": [
+    "No reuse of the 1/20 successful family as a selected subset.",
+    "No threshold relaxation.",
+    "No source-prompt editing after Qwen3 outcomes begin.",
+    "No quantization or CPU/GPU offload without a new prospective runtime design if BF16 CUDA feasibility fails.",
+    "No causal intervention interpretation from this expressivity qualification."
+  ],
+  "purpose": "Discriminate whether the Qwen2.5-1.5B v2.6 failure was model/source expressivity rather than PlanCarry causal-mechanism failure, while changing the model/runtime but not the source-plan prompt semantics or competence threshold.",
+  "recovery_model": {
+    "architecture": "Qwen3ForCausalLM",
+    "hidden_size": 2048,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "num_layers": 28,
+    "precision": "bfloat16",
+    "quantization": "NONE",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "runtime_candidate": {
+      "device_required_exact": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "engineering_gate": "Must load and complete a >=128-token synthetic output_hidden_states forward on CUDA without OOM before any recovery model outcome. If this full-precision gate fails, this design MUST NOT execute; a new prospective runtime/model design is required. No silent quantization/offload amendment.",
+      "huggingface_hub": "0.36.2",
+      "tokenizers": "0.21.1",
+      "torch": "2.13.0+cu130",
+      "transformers": "4.51.3"
+    }
+  },
+  "scientific_result": "NOT_ASSESSED_EXPRESSIVITY_DESIGN_ONLY",
+  "selection_and_stop_rule": {
+    "fail": "If <12/20, freeze INCONCLUSIVE_MODEL_ONLY_RECOVERY and stop. Do not lower threshold or replace/filter families. Only then may a separately preregistered source-prompt recovery be considered on a different development cohort.",
+    "no_original_confirmation_access": true,
+    "no_t1r_outcomes": true,
+    "no_t2_outcomes": true,
+    "no_valid_seen": true,
+    "no_valid_unseen": true,
+    "pass": "If >=12/20 families are source-competent, freeze PASS_MODEL_EXPRESSIVITY_QWEN3_17B and then author a NEW full T1 preregistration before any causal layer/alpha selection."
+  },
+  "status": "FROZEN_PRE_MODEL_OUTCOME_PENDING_ENGINEERING_AND_INDEPENDENT_REVIEW"
+}

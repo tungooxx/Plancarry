@@ -1,0 +1,290 @@
+{
+  "action_scoring": {
+    "candidate_suffix_serialization": " {EXACT_ADMISSIBLE_COMMAND}",
+    "cross_implementation_diagnostic": {
+      "artifact": "results/design/plancarry_prefixstable_direct_equivalence_synthetic.json",
+      "interpretation": "Cached-prefix and ordinary full-sequence scoring are not claimed numerically identical. Every Qwen3 T1 condition must use the same prefix-stable scorer; no cross-version effect comparison is permitted.",
+      "scientific_role": "ENGINEERING_DIAGNOSTIC_ONLY_NOT_A_GATE",
+      "sha256": "99901c8a0e4869c8e1a0dc4fc288a0c0c5d3eab2ca057b9c0300aded26349dc5",
+      "synthetic_max_abs_logprob_sum_delta": 0.003242015838623047,
+      "synthetic_max_abs_meanlp_delta_vs_ordinary_full_sequence_fp16": 0.0016210079193115234
+    },
+    "margin": "m = meanLP(action_A)-meanLP(action_B). Positive favors A.",
+    "no_generation_primary": true,
+    "patch_token_rule": "RESET_BLOCK ends with exactly one actual newline character after literal <STATE_END>. Capture RESET_BLOCK including that newline and patch capture.sequence_length-1. tokenization(RESET_BLOCK) must be an exact prefix of tokenization(scoring_prompt), so the patched token is byte/token stable after ACTION: is appended.",
+    "prefix_stable_execution": {
+      "capture": "Capture source/reset activations with the same use_cache=True prefix-forward mode at the frozen terminal RESET/source token.",
+      "continuation": "Teacher-force exact gold suffix tokens sequentially from the returned KV cache; no intervention hook is active and no patch is recomputed or reinjected.",
+      "no_generation_primary": true,
+      "patch_lifetime": "If an intervention is requested, register the layer hook only for that prefix forward, modify only the frozen RESET-boundary token, then remove the hook before any suffix-token forward.",
+      "prefix_forward": "Run exact scoring_prompt once with use_cache=True and a full prefix attention mask.",
+      "suffix_isolation": "Each candidate suffix receives its own fresh prefix forward/cache; candidates never share mutated cache state."
+    },
+    "reset_block": "TASK\n{TASK_TEXT}\nCURRENT OBSERVATION\n{RESET_OBSERVATION}\nADMISSIBLE COMMANDS\n{ONE_COMMAND_PER_LINE_LEXICOGRAPHIC}\n<STATE_END>\n",
+    "score": "Prefix-stable exact teacher forcing. Tokenize scoring_prompt and scoring_prompt+candidate_suffix with exact-prefix guard. Run scoring_prompt once with use_cache=True. The next-token logits score the first gold suffix token; then feed each gold suffix token sequentially using past_key_values to score the next suffix token. Sum only exact candidate suffix token log-probabilities and divide by suffix token count. ACTION: remains prompt context and is never scored.",
+    "scoring_prompt": "{RESET_BLOCK}ACTION:",
+    "tie_rule": "abs(m)<=1e-6 is a tie; ties fail competence and count non-positive in sign summaries.",
+    "tie_tolerance_nats_per_token": 1e-06,
+    "tokenizer_boundary_guard": "Three exact-prefix guards are mandatory: tokenization(RESET_BLOCK) is an exact prefix of tokenization(scoring_prompt); the capture-returned final RESET_BLOCK token id remains identical at the target patch index in scoring_prompt; and tokenization(scoring_prompt) is an exact prefix of tokenization(scoring_prompt + command_suffix) for both exact divergent commands with >=1 suffix token. Failure is INVALID_TECHNICAL; no pair replacement."
+  },
+  "alternative_hypotheses": [
+    "Lexical/order-token steering rather than active plan semantics.",
+    "Generic residual perturbation rather than plan-specific control.",
+    "Unrelated plan/history state is equally effective.",
+    "The tested single last-token residual site is insufficient because plan state is distributed across tokens/layers.",
+    "No persistent causal plan state exists and continuation is reconstructed from context/world state."
+  ],
+  "artifact_integrity": {
+    "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+    "confirmation_accessed": false,
+    "model_calls": 0,
+    "original_primary_manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+    "policy": "Immutable once hashed. Any scientific-core edit requires a new version/path and fresh independent review.",
+    "qwen3_competence_outcome_accessed": false,
+    "qwen3_final_independent_review_sha256": "a84b3c928236c2d3643b5b1ffe2c2fe12afbc354e15c05cc6c5ad5e063673a9c",
+    "qwen3_recovery_design_sha256": "51e3f81671eddb306af3d15d4c34ba8b1301543e2efe2fce8ad0d514d0b5ec81",
+    "qwen3_recovery_manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+    "source_corrected_v2_6_design_sha256": "a704b9b16d8b7ca458065cf49e3d0abc58d03534f6424391349286582d1040d1",
+    "unrelated_donor_map_sha256": "739ac810f748b7bd633577631ed2cfcd0718b5811705c8746d9fdcf608fa7be8",
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false
+  },
+  "conditional_activation": {
+    "branch_rule_sha256": "7f4759dd96a4e1474423b77b02aea066ab238ed54e9d27bf67e0bdd10b1e0625",
+    "if_qwen3_competence_fails": "PERMANENTLY_DORMANT; both frozen recovery branches are killed; this design cannot be registered/executed as rescue.",
+    "qwen3_competence_outcome_accessed_at_freeze": false,
+    "required_terminal_outcome": "PASS_MODEL_EXPRESSIVITY_QWEN3_17B with competent_count >=12/20",
+    "requires_qwen3_competence_experiment_id": "919c2113-3de9-4973-bfd0-6ac6e3383d18",
+    "requires_qwen3_competence_prediction_id": "adf04b4d-1bdd-46ea-9bca-d347ef3deb4c"
+  },
+  "confirmation_primary": {
+    "effect_size_guards": {
+      "bidirectional_pair_fraction_min": 0.6,
+      "mean_active_minus_each_control_min": 0.05,
+      "mean_cpse_active_min": 0.1,
+      "positive_pair_fraction_min": 0.7
+    },
+    "matched_controls": [
+      "CPSE_archived",
+      "CPSE_random",
+      "CPSE_unrelated"
+    ],
+    "negative_condition": "If cohort-level expressivity and all technical guards pass but active CPSE fails the preregistered sign-test/effect-size guards across all 20 frozen confirmation families => NOT_SUPPORTED/WEAKENED for the tested single-site contrast mechanism.",
+    "nonspecific_condition": "Active effect is positive/significant but any matched specificity comparison fails => INCONCLUSIVE_NONSPECIFIC_ACTIVATION_EFFECT, not support.",
+    "population": "Exactly all 20 original-primary confirmation pairs indices 20..39, unfiltered and untouched by development. Pair-level source competence is recorded but never used to include/exclude/replace a confirmation pair. >=16/20 overall and >=8/13 delayed are cohort-level expressivity gates only; if either fails, classify INCONCLUSIVE_MODEL_EXPRESSIVITY and do not interpret intervention efficacy.",
+    "primary_metric": "Across all 20 frozen confirmation families, CPSE_active = qA(+active)-qA(-active), where qA=sigmoid(meanLP(command_A)-meanLP(command_B)). Also record delta_A=qA(+active)-qA(NO_PATCH) and delta_B=qA(NO_PATCH)-qA(-active).",
+    "support_condition": "Cohort-level expressivity gate passes (>=16/20 overall and >=8/13 delayed competent) with all technical/lexical/isolation guards; all four Holm-adjusted exact sign-test p-values <=0.05 across all 20 confirmation families; mean CPSE_active>=0.10 across all 20; >=70% of all 20 have CPSE_active>0; mean active-minus-each-control>=0.05 across all 20; and >=60% of all 20 have both delta_A>0 and delta_B>0.",
+    "tests": {
+      "active_gt_archived": "For each family define x_i=CPSE_active_i-CPSE_archived_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_random": "For each family define x_i=CPSE_active_i-CPSE_random_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_unrelated": "For each family define x_i=CPSE_active_i-CPSE_unrelated_i. Success iff x_i>0; x_i<=0 is failure.",
+      "active_gt_zero": "For each of all 20 independent frozen task families define x_i=CPSE_active_i. Success iff x_i>0; x_i<=0 (including exact zero) is failure.",
+      "independence_note": "For active_gt_unrelated, each confirmation statistic depends on one unique confirmation family and one distinct discovery-family donor direction frozen before confirmation. No confirmation family contributes activation to any other confirmation statistic; discovery donor directions are treated as fixed nuisance controls. The 20 confirmation task families remain the independent inferential units.",
+      "independence_unit": "One frozen unique ALFWorld task family/game per trial; manifest contains 20 distinct confirmation families.",
+      "method": "Exact one-sided independent-family sign test, fixed n=20. For k successes, raw p = sum_{j=k}^{20} C(20,j) * 0.5^20. No asymptotic approximation, no sign-randomization/permutation assumption, no competence filtering, and zeros remain conservative failures.",
+      "multiplicity": "Holm step-down correction across exactly four raw p-values at familywise alpha=0.05. Sort by (raw_p, test_name) with test_name lexicographic tie-break; report raw p, Holm adjusted p, k/20 for each."
+    }
+  },
+  "data": {
+    "confirmation": {
+      "delayed_divergence_n": 13,
+      "indices": [
+        20,
+        39
+      ],
+      "manifest_path": "results/design/plancarry_latent_v2_matched_pair_manifest.json",
+      "manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+      "n": 20,
+      "role": "UNTOUCHED_PRIMARY_CONFIRMATION",
+      "split": "valid_train confirmation"
+    },
+    "development": {
+      "indices": [
+        0,
+        19
+      ],
+      "manifest_path": "results/design/plancarry_qwen3_17b_expressivity_recovery_manifest_v1.json",
+      "manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+      "n": 20,
+      "role": "DEVELOPMENT_ONLY_SOURCE_COMPETENCE_AND_LAYER_ALPHA_SELECTION",
+      "split": "train expressivity_recovery_dev"
+    },
+    "development_confirmation_family_overlap": 0,
+    "environment": "ALFWorld 0.4.2 TextWorld",
+    "expert_plan_fields_read": false,
+    "valid_seen_consumed": false,
+    "valid_unseen_consumed": false
+  },
+  "development_selection": {
+    "cpse_definition": "For each patch, qA = sigmoid(meanLP(action_A)-meanLP(action_B)), a bounded length-normalized two-action preference index (not claimed to be a calibrated probability). CPSE_control = qA(+control_direction)-qA(-control_direction).",
+    "freeze_artifact_required": "Selected layer/alpha plus discovery-only aggregate table must be SHA256-frozen before any confirmation bridge request.",
+    "grid": "4 layers x 3 alphas, all active/archive/random/unrelated controls computed.",
+    "selection_score": "mean(CPSE_active) - max(abs(mean(CPSE_archived)), abs(mean(CPSE_random)), abs(mean(CPSE_unrelated))).",
+    "tie_break": "Higher selection_score; then higher mean CPSE_active; then smaller alpha; then smaller layer index.",
+    "uses": "Only competent pairs among all 20 frozen Qwen3 recovery-development families. Minimum competence is 12/20. No original confirmation prompt/capture/score may be requested before selection SHA is frozen."
+  },
+  "estimated_gpu_cost_usd": 0.0,
+  "estimated_runtime_minutes": 120,
+  "expected_direction": "For each pair, +active contrast increases normalized preference for action A over B and -active contrast increases preference for B over A; active CPSE is positive and larger than all matched controls.",
+  "fail_condition": "As specified in confirmation_primary.negative_condition; nonspecific positive effects are inconclusive, technical/expressivity failures are invalid/inconclusive.",
+  "interpretation_if_fail": "If technically valid and expressive but active contrast fails, weaken the tested last-token/single-layer residual-contrast mechanism. Do not build a memory module. Next discriminate distributed multi-token/multi-layer causal state versus reconstructive/no-persistent-state alternatives.",
+  "interpretation_if_pass": "T1 scoped causal-plan evidence only. Next preregister untouched within-model replication, then single-source checkpoint extraction and first-action-clamp/multi-step persistence. Do not call the v2 paired difference a deployable PlanCarry checkpoint.",
+  "intervention_math": {
+    "active_direction": "Let r=h_active_A-h_active_B in FP32. If ||r||_2<=1e-8, d_active=all-zero vector; otherwise d_active=r/||r||_2. Zero direction never excludes/replaces a pair and its +/- CPSE is defined as the corresponding zero-patch effect (0 within plumbing tolerance).",
+    "alpha_grid": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "archived_direction": "Same FP32 epsilon rule: r=h_archived_A-h_archived_B; if ||r||_2<=1e-8 use all-zero direction, else normalize.",
+    "direction_epsilon": "FP32 L2 epsilon = 1e-8 for every active/archived/unrelated source contrast.",
+    "orientation": "d_active is A-minus-B; + injection is A direction, - injection is B direction. Archived/unrelated control orientations follow their own A-minus-B construction; random orientation is fixed by seed.",
+    "patch_operation": "ADD only for causal/control interventions. SELF_PATCH separately uses REPLACE with captured h_reset and scale=1.0.",
+    "random_direction": "Package-independent SHA256 Rademacher unit vector, same algorithm as corrected v2.6. For each split use that cohort's frozen manifest SHA: development=bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5, split=development; confirmation=285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb, split=confirmation. Exact base UTF-8 string: \"{cohort_manifest_sha256}|{split}|{pair_index}|{layer_0based}|random_control_v2_1\"; coordinate construction/sign normalization unchanged.",
+    "target_scale": "Capture h_reset at the same layer/site. Injection vector = sign * alpha * ||h_reset||_2 * d_control.",
+    "unrelated_direction": "DEVELOPMENT: for each development family, UNRELATED_PLAN is the active A-minus-B source contrast from the deterministic cyclic next development family (donor=(pair_index+1)%20), frozen by index before model outcome inspection; no self donor. CONFIRMATION: use the unique Qwen3 development donor fixed in donor-map SHA256 739ac810f748b7bd633577631ed2cfcd0718b5811705c8746d9fdcf608fa7be8; confirmation pair 20+j receives development donor j. No confirmation activation is ever used as an unrelated donor. Capture/freeze all selected-layer development donor directions before any confirmation request. FP32 epsilon 1e-8; <=epsilon maps to all-zero direction with no exclusion."
+  },
+  "kind": "PLANCARRY_QWEN3_CONDITIONAL_FULL_T1_PREREG_V1",
+  "model": {
+    "compute_capability": "8.6",
+    "cuda_required": "13.0",
+    "device_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "driver": "596.08",
+    "full_causal_runner_status": "NOT_YET_ENGINEERED; must receive separate verified engineering + independent readiness before T1 science",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "offload": "NONE",
+    "precision": "bfloat16",
+    "prefix_stable_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+    "quantization": "NONE",
+    "qwen3_competence_engineering_result_id": "d2d9355c-8388-49cd-9ae4-0e6f30984447",
+    "qwen3_competence_independent_review_sha256": "a84b3c928236c2d3643b5b1ffe2c2fe12afbc354e15c05cc6c5ad5e063673a9c",
+    "temperature": 0,
+    "tokenizers_required": "0.21.1",
+    "torch_required": "2.13.0+cu130",
+    "transformers_required": "4.51.3",
+    "vram_mib": 4096,
+    "whitebox_client_sha256": "65e4d52651cd7f1a4fa1f1e9f9ece338228448cb417461ed9316be53bf2396c7"
+  },
+  "model_expressivity_gate": {
+    "confirmation_delayed_min_competent": 8,
+    "confirmation_min_competent": 16,
+    "confirmation_timing": "After Qwen3 development competence passes >=12/20, run and freeze the unchanged 4x3 layer/alpha development selection. Only after a content-hashed selection/donor artifact exists may original-primary confirmation source prompts be scored for the cohort expressivity gate; no confirmation intervention/capture contributes to selection.",
+    "discovery_min_competent": 12,
+    "failure_class": "If confirmation overall competence <16/20 or delayed competence <8/13: INCONCLUSIVE_MODEL_EXPRESSIVITY before interpreting confirmation intervention efficacy. Discovery minimum remains 12/20 for development selection.",
+    "no_replacement": "No frozen pair is ever replaced. Discovery competence may be used only for development grid selection as already frozen. Confirmation competence is cohort-level gating only; if gate passes, all 20 confirmation pairs enter every primary test/effect-size summary, including individually incompetent pairs.",
+    "pair_competent_if": "m_source_A >= +0.10 nats/token AND m_source_B <= -0.10 nats/token.",
+    "performed_before_any_intervention": "Score both divergent actions under full source active A and active B prompts."
+  },
+  "novelty_scope": {
+    "allowed_if_pass": "T1 only: scoped evidence that active plan ordering has a content-specific causal internal component capable of controlling resumed branch preference after a context reset.",
+    "claim_ladder_artifact": "results/design/plancarry_latent_high_tier_claim_ladder_v1.json",
+    "claim_ladder_sha256": "3f4ede8dcd167064370b57ea6d18823168037eebe26ed68def5afb7f8271309a",
+    "forbidden_if_pass": [
+      "deployable single-source checkpoint",
+      "minimal or compact state",
+      "multi-step persistent plan state",
+      "cross-model generality",
+      "end-to-end agent superiority"
+    ]
+  },
+  "pair_variable": {
+    "clause_template": "Complete {OBJECT} from {SOURCE_RECEPTACLE} into {TARGET_RECEPTACLE}.",
+    "command_order": "Render reset admissible commands in Python lexicographic order, one exact command per line. The exact divergent action candidates must be members of the recomputed reset command set and match the frozen manifest.",
+    "definition": "Two target-object commitments solve the identical two-object goal. OPTION A and OPTION B descriptions are held in fixed positions; only the symbolic active order line swaps A THEN B versus B THEN A.",
+    "label_orientation": "Apply the same frozen SHA256 orientation algorithm independently within each prospectively frozen cohort: development uses Qwen3 recovery manifest SHA bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5; confirmation uses original primary manifest SHA 285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb. For pair_index i: bit=int(SHA256(manifest_sha256|i|option_orientation_v1)[0:2],16)%2; bit=0 preserves manifest object_a/object_b, bit=1 swaps. No outcome-dependent relabeling.",
+    "label_randomization_reason": "Frozen hash A/B orientation prevents systematic object naming/lexicographic bias and fixes causal direction before model access. It is NOT used to justify the primary p-values; primary inference uses exact independent-family sign tests.",
+    "lexical_guard": "Active A/B source prompts must have identical Unicode-word/punctuation multisets and identical tokenizer length. Archived A/B must satisfy the same. Failure invalidates that pair; no replacement is allowed.",
+    "reset_template": "TASK\n{TASK_TEXT}\nCURRENT OBSERVATION\n{RESET_OBSERVATION}\nADMISSIBLE COMMANDS\n{ONE_COMMAND_PER_LINE_LEXICOGRAPHIC}\n<STATE_END>\n",
+    "source_active_b_change": "Replace only ACTIVE ORDER: A THEN B with ACTIVE ORDER: B THEN A. OPTION A/B lines remain byte-identical and fixed-position.",
+    "source_active_template": "{RESET_BLOCK}PLAN OPTIONS\nOPTION A: {CLAUSE_A}\nOPTION B: {CLAUSE_B}\nACTIVE ORDER: A THEN B\n<STATE_END>\n",
+    "source_archived_b_change": "Replace only ARCHIVED ORDER: A THEN B with ARCHIVED ORDER: B THEN A; ACTIVE ORDER remains NONE.",
+    "source_archived_template": "{RESET_BLOCK}PLAN OPTIONS\nOPTION A: {CLAUSE_A}\nOPTION B: {CLAUSE_B}\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n",
+    "task_text_extraction": "Extract exact visible task sentence from the initial TextWorld observation using the unique line beginning \"Your task is to:\"; no traj_data expert-plan field is read."
+  },
+  "pass_condition": "As specified in confirmation_primary.support_condition with all guards and expressivity minimums passing.",
+  "plumbing_guard": {
+    "failure": "Any ZERO_ADD, SELF_PATCH, patch-lifetime, token-boundary or provenance failure is INVALID_TECHNICAL; no scientific inference and no confirmation access.",
+    "patch_once_guard": "Intervention hook must be absent for every continuation-token forward; any evidence of reinjection/recomputed patching is INVALID_TECHNICAL.",
+    "self_patch": "Using the same prefix-stable capture/scoring mode, capture the token-stable RESET boundary residual then REPLACE that identical residual at the identical token/index during the prefix forward. Maximum absolute candidate-action meanLP change versus NO_PATCH must be <=1e-4 nats/token on Qwen3 development sentinels 0/1 at every candidate layer before source competence.",
+    "zero_add": "Using the prefix-stable scorer, ADD with scale=0 must match NO_PATCH within <=1e-6 nats/token on frozen Qwen3 development sentinels indices 0 and 1 at every candidate layer before source competence."
+  },
+  "pre_registration_static_review": {
+    "confirmation_accessed": false,
+    "model_calls": 0,
+    "qwen3_competence_outcome_accessed": false,
+    "status": "PENDING_INDEPENDENT_CONDITIONAL_QWEN3_T1_REVIEW"
+  },
+  "prediction": "If Qwen3-1.7B supplies an active-plan ordering representation, then bidirectional +/- ACTIVE intervention at the frozen development-selected layer/alpha will produce positive, specific CPSE on the complete untouched original-primary confirmation cohort under the unchanged exact sign/Holm and effect-size guards.",
+  "primary_metric": "Holm-corrected exact independent-family sign tests plus frozen effect-size guards for CPSE_active and its specificity advantages, all on the complete 20-family confirmation cohort after cohort-level expressivity gate.",
+  "research_question": "Conditional on prospectively frozen Qwen3 source competence passing >=12/20, does a single residual-stream active-plan contrast at a preselected layer causally and specifically redirect post-reset branch preference on an untouched 20-family confirmation cohort?",
+  "research_role": "FULL_CAUSAL_T1_ONLY_IF_QWEN3_COMPETENCE_PASSES_FROZEN_GATE",
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed_from_corrected_v2_6": [
+    "MODEL_RUNTIME_ONLY: Qwen2.5-1.5B FP16 -> Qwen3-1.7B BF16 exact frozen runtime",
+    "DEVELOPMENT_COHORT_ONLY: original-primary discovery 0..19 -> prospectively disjoint Qwen3 recovery development 0..19",
+    "UNRELATED_PLAN_DONOR_MAP_ONLY: mechanically rebound to new development cohort by pre-outcome index mapping"
+  ],
+  "scientific_variables_held_fixed_from_corrected_v2_6": [
+    "source/reset/action prompt semantics including one-leading-space teacher-forced suffix",
+    "candidate layers [6,13,20,27]",
+    "alphas [0.05,0.1,0.2]",
+    "prefix-stable patch/capture site and scorer",
+    "source competence +0.10/-0.10 and development min12/20",
+    "NO_PATCH/ZERO_ADD/SELF_PATCH/ARCHIVED/RANDOM_SAME_NORM/UNRELATED_PLAN control roles",
+    "selection score and tie-break",
+    "original-primary confirmation indices 20..39 all20 population",
+    "confirmation competence gates >=16/20 overall and >=8/13 delayed",
+    "four exact one-sided n=20 sign tests with zeros failures + Holm FWER .05",
+    "effect-size and bidirectionality guards",
+    "T1-only claim scope",
+    "no filtering/replacement"
+  ],
+  "secondary_metrics": [
+    "Frozen delayed-divergence subgroup CPSE",
+    "bidirectional branch flip rate",
+    "no-patch branch bias",
+    "source expressivity margins"
+  ],
+  "secondary_predeclared": {
+    "branch_flip_rate": "Fraction where +active makes m>0 and -active makes m<0.",
+    "delayed_subgroup": "Report the frozen delayed-divergence confirmation subgroup separately only if >=8 are competent; same selected layer/alpha, no retuning. This subgroup strengthens resistance to trivial initial-navigation confounds but is NOT by itself a post-injection multi-step persistence test and cannot rescue a failed primary.",
+    "no_patch_bias": "Report m_no_patch distribution.",
+    "source_competence": "Report source A/B margins for all frozen pairs before intervention."
+  },
+  "source_and_target_sites": {
+    "candidate_decoder_block_indices_0based": [
+      6,
+      13,
+      20,
+      27
+    ],
+    "source_capture_token": "last token of terminal literal <STATE_END> followed by exactly one actual newline character in each source prompt",
+    "target_patch_token": "last token of terminal literal <STATE_END> followed by exactly one actual newline character in RESET_BLOCK, index frozen as capture.sequence_length-1; RESET_BLOCK tokenization must remain an exact prefix after ACTION: is appended",
+    "why_fixed": "Four predeclared depth locations spanning the 28-layer model; no adjacent-layer expansion or post-hoc layer fishing in v2."
+  },
+  "status": "FROZEN_CONDITIONAL_PRE_QWEN3_COMPETENCE_OUTCOME_INSPECTION",
+  "storage_accounting": {
+    "future_single_source_rule": "Any later compactness study must report per-episode coefficient/checkpoint bytes AND global basis/projection bytes, both amortized and non-amortized, compared with full FP16 residual, KV cache and UTF-8/tokenized plan text.",
+    "paired_diagnostic_payload": "For Qwen3 hidden width d=2048, two BF16 source residual vectors per pair are 2*d*16 bits = 8192 bytes before serialization overhead. This is diagnostic accounting only; T1 makes no compactness claim.",
+    "v2_claim": "No compactness or deployable-checkpoint claim is permitted from conditional Qwen3 T1."
+  },
+  "title": "PlanCarry-Latent conditional Qwen3-1.7B causal T1 preregistration",
+  "unrelated_donor_map_artifact": "results/design/plancarry_qwen3_conditional_t1_unrelated_donor_map_20260821.json",
+  "unrelated_donor_map_sha256": "739ac810f748b7bd633577631ed2cfcd0718b5811705c8746d9fdcf608fa7be8",
+  "validity_guards": [
+    "Qwen3 competence outcome must not be inspected during design freeze; artifact records false.",
+    "No Qwen3 full causal T1 registration/execution unless frozen competence Experiment 919c2113... validly passes >=12/20.",
+    "If Qwen3 competence fails, this conditional design is permanently dormant; no rescue by threshold/prompt/family changes.",
+    "Development manifest SHA bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5 exactly 20 unique recovery families; confirmation manifest SHA 285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb exactly original indices 20..39; family overlap must equal 0.",
+    "No confirmation model request before content-hashed Qwen3 development selection + donor directions exists and is independently verified.",
+    "All 20 confirmation families enter primary tests if cohort expressivity gate passes; no pair filtering/replacement.",
+    "Confirmation competence gate is >=16/20 overall and >=8/13 delayed; failure is INCONCLUSIVE_MODEL_EXPRESSIVITY before causal interpretation.",
+    "Exact Qwen3 revision/BF16/no-quantization/no-offload/runtime/bridge/client required; no substitutions mid-run.",
+    "One-leading-space teacher-forced exact command scoring and all prefix/token guards unchanged.",
+    "ZERO_ADD<=1e-6 and SELF_PATCH<=1e-4 on development sentinels 0/1 at every candidate layer before scientific selection.",
+    "New unrelated donor map SHA 739ac810f748b7bd633577631ed2cfcd0718b5811705c8746d9fdcf608fa7be8 must have 20 unique development donors, 20 unique confirmation targets, zero family overlap; no confirmation donor.",
+    "No partial confirmation scientific outcome inspection; no valid_seen/valid_unseen/T1R/T2 access.",
+    "Any HTTP/OOM/model/token/state/scorer/plumbing failure is INVALID_TECHNICAL, never T1 refutation."
+  ]
+}

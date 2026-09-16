@@ -1,0 +1,116 @@
+{
+  "authoritative_inputs": {
+    "population_binding": {
+      "path": "results/design/plancarry_replay_residual_t1_population_binding_v1_20260821.json",
+      "sha256": "e84e6fe28594cab88e9d08b636fb3aaad164459eae2eb967fdb0bf36e5456c23"
+    },
+    "sanity_v1_1_sha256": "394222b7da7499899fb742080fa9f939a1f6fd7ce43310440f3ac61231ad135c",
+    "static_audit": {
+      "path": "results/design/plancarry_replay_residual_t1_prereg_static_audit_v1_20260821.json",
+      "sha256": "21783f8111cfd72e6e4eeda6f6abeecbbac05a8c0086705533ef83e8d96fe36a"
+    },
+    "t1_prereg": {
+      "path": "results/design/plancarry_replay_residual_t1_prereg_v1_20260821.json",
+      "sha256": "8ae963cfd6894a96b2c11097c82f460598b67d2e618c2b4ff39cf7c43ce5f858"
+    },
+    "untouched_population_sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+  },
+  "causal_outcomes_accessed": false,
+  "checks": {
+    "active_and_specificity_controls_norm_comparable": true,
+    "authoritative_t1_sha_exact": true,
+    "claim_scope_causal_episode_specific_cross_reset_multistep_only": true,
+    "confirmation_Holm_FWER_005": true,
+    "confirmation_all20_primary_denominators": true,
+    "confirmation_effect_guards_frozen": true,
+    "confirmation_operating_point_no_retuning": true,
+    "confirmation_two_exact_one_sided_n20_sign_tests": true,
+    "different_successful_routes_do_not_count_as_restoration": true,
+    "equal_norm_random_primary_specificity_control": true,
+    "exact_qwen3_revision_bf16_no_quant_offload": true,
+    "fresh_cohort_sha_exact": true,
+    "global_development_grid_alpha_025_05_10": true,
+    "global_development_grid_layers_7_14_21_27": true,
+    "hook_removed_after_reset_prefix": true,
+    "independent_sanity_review_sha_exact": true,
+    "latent_reset_session_provenance_extended": true,
+    "n20_Holm_geometry_attainable": true,
+    "next_action_preserved_late_null_primary_specificity_control": true,
+    "no_compactness_cross_model_environment_generality_claim": true,
+    "no_family_replacement_or_filtering": true,
+    "no_patch_zero_self_plumbing_present": true,
+    "no_per_family_operating_point_selection": true,
+    "no_reinjection_or_vector_recompute": true,
+    "no_reset_prefix_rebuild": true,
+    "no_science_executed_pre_review": true,
+    "persistent_same_KV_session_after_injection": true,
+    "population_binding_sha_exact": true,
+    "population_confirmation_n20_fixed": true,
+    "population_development_n32_fixed": true,
+    "population_replication_n12_fixed": true,
+    "populations_family_disjoint": true,
+    "primary_LPA_excludes_first_post_reset_action": true,
+    "primary_LPA_requires_reference_world_state_hash": true,
+    "repeated_intervention_fail_closed": true,
+    "replication_access_only_after_primary_support": true,
+    "replication_cannot_rescue_null_primary": true,
+    "replication_explicit_n12_statistical_decision_rule": false,
+    "replication_imports_exact_operating_point_no_retuning": true,
+    "sanity_FAIL_or_INCONCLUSIVE_blocks_T1": true,
+    "sanity_PASS_required_before_causal_development": true,
+    "sanity_v1_1_sha_exact": true,
+    "selection_frozen_before_confirmation": true,
+    "single_hook_exactly_once": true,
+    "single_reset_target_site": true,
+    "source_anchor_t2_only": true,
+    "static_audit_sha_exact": true,
+    "task_success_guard_frozen": true,
+    "unqualified_confirmation_families_conservative_nonpositive": true,
+    "untouched_population_sha_exact": true,
+    "valid_action_guard_frozen": true,
+    "visible_text_plan_is_ceiling_not_mechanistic_equivalence": true,
+    "zero_norm_family_cannot_count_positive": true
+  },
+  "confirmation_accessed": false,
+  "created_utc": "2026-08-21T01:44:01Z",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_INDEPENDENT_PREREG_REVIEW_V1",
+  "material_defects": [
+    {
+      "finding": "The n=12 family-disjoint replication reserve is frozen and cannot retune, but neither the T1 prereg nor the earlier untouched-population freeze defines an explicit T1R statistical support/failure rule. The text only says to import primary intervention/site/scale/metric thresholds. This does not specify whether T1R uses one or both sign tests, Holm correction, how zeros are treated, its natural-trajectory gate/denominator, or what exact label constitutes replicated support.",
+      "id": "T1R_N12_DECISION_RULE_NOT_FROZEN",
+      "required_repair": "Before any ReplayResidual scientific outcome, create a lineage-only successor prereg with identical model, populations, controls, development/confirmation rules, endpoints, thresholds and operating-point contract, changing only the T1R decision section. Freeze an explicit n=12 independent-family rule, including natural-trajectory handling/all12 denominator, exact co-primary tests and multiplicity if inferential, zero/tie handling, effect/task-success/valid-action guards, support/null/inconclusive labels, and a no-rescue clause. Demonstrate that the chosen rule is attainable at n=12. No population or primary threshold may change.",
+      "severity": "MATERIAL",
+      "why_material": "T1R is part of the stated minimum paper ladder. Leaving its decision rule unspecified until after the n=20 primary is observed creates a post-outcome researcher degree of freedom and can turn replication into a selectively interpreted robustness check."
+    }
+  ],
+  "model_calls": 0,
+  "non_material_recommendation": "For strongest NeurIPS/ICLR framing, report a mechanically defined same-first-action/different-later-commitment subset/stratum if enough frozen families naturally instantiate it, but do not filter the all20 primary population or make this a post-outcome rescue. The current LPA plus NEXT_ACTION_PRESERVED_LATE_NULL already provides a strong first-action-copying defense.",
+  "passed_count": 52,
+  "positive_findings": [
+    "Primary LPA excludes action1 and requires reference pre-action world-state hashes, blocking immediate-action copying and different-route inflation.",
+    "One-shot intervention and persistent same-KV/session semantics are explicit and fail closed on reinjection or prefix rebuild.",
+    "Development operating-point selection is global and frozen before confirmation; no per-family or confirmation tuning.",
+    "All20 confirmation denominator is conservative; unqualified/unconstructible families cannot become sign successes.",
+    "The n=20 two-test Holm design is statistically attainable and all main effect/competence guards are prospectively frozen."
+  ],
+  "replication_accessed": false,
+  "reviewer_worker_id": "864d68d1-1906-4392-a1d9-ff65cb0bc5b2",
+  "sanity_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "statistical_geometry": {
+    "n12_one_sided_sign": {
+      "note": "If a future repaired T1R uses the same two one-sided sign tests with Holm .05, 10/12 positive on both yields p=0.019287... and is attainable; 9/12 is not nominally <.05. This is an audit example, not a mandated repair choice.",
+      "p_ge_10": 0.019287109375,
+      "p_ge_9": 0.072998046875
+    },
+    "n20_one_sided_sign": {
+      "note": "For two similar co-primary p-values under Holm FWER .05, 15/20 positive is sufficient whereas 14/20 is not.",
+      "p_ge_14": 0.057659149169921875,
+      "p_ge_15": 0.020694732666015625
+    }
+  },
+  "total": 53,
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "4ee350ed-4fdb-472e-a288-612d4895ae97"
+}

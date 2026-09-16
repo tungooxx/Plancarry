@@ -1,0 +1,217 @@
+{
+  "claim_tiers": {
+    "T1": "Scoped causal active-plan signal only; no deployable memory/checkpoint/persistence/utility claim.",
+    "T2": "Untouched within-model replication with site/statistics frozen.",
+    "T3": "Single-source checkpoint: counterfactual B unavailable to extractor at test time.",
+    "T4": "Plan-not-action-feature: one-time restore survives first-action clamp and affects later branch.",
+    "T5": "Compact persistent agent state: honest bytes/bits including global basis plus matched text/KV/generic-memory baselines and end-task utility.",
+    "T6": "High-tier generalization: second model family + second interactive environment + end-task utility, no benchmark-switch rescue."
+  },
+  "current_scientific_stage": "T1 candidate only; Experiment 9701014b-3418-46a2-acb4-d59f235388dc remains NOT_ASSESSED.",
+  "high_tier_positioning": {
+    "conditional_mechanism_headline_after_T1_T2": "Active plan identity has a prospectively replicated causal internal component under matched observable state.",
+    "conditional_method_headline_after_T3_T5": "A causally identified single-source plan checkpoint can be restored after interruption, persists beyond immediate steering, and is compact under honest storage accounting.",
+    "forbidden_headline": "A new latent memory method for ALFWorld agents.",
+    "target_main_track_headline_after_T6": "Causal plan-state checkpointing is a reproducible interruption mechanism across model/environment families with demonstrated long-horizon utility."
+  },
+  "kind": "PLANCARRY_LATENT_HIGH_TIER_BASELINE_MATRIX_V1",
+  "mandatory_baselines_by_tier": {
+    "T1": [
+      "Plans Don't Persist anchor",
+      "Where's the Plan? causal-localization boundary",
+      "Function-vector/generic perturbation controls represented by archived/random/unrelated controls"
+    ],
+    "T2": [
+      "Independent untouched confirmation; no new system baselines needed if claim remains causal-localization only."
+    ],
+    "T3": [
+      "TransMem/generic hidden-state memory",
+      "StateBridge/latent transport if technically compatible",
+      "Memory Inception/text-derived latent/KV steering"
+    ],
+    "T4": [
+      "Where's the Plan? distinction via first-action clamp/later branch",
+      "Function-vector/action-feature mediation controls"
+    ],
+    "T5": [
+      "MemCompiler",
+      "ElasticMem",
+      "TransMem",
+      "Memory Inception",
+      "full KV/full residual/full plan text/matched-token summary",
+      "storage bytes/bits including global overhead"
+    ],
+    "T6": [
+      "Second model family",
+      "second interactive environment",
+      "MemCompiler/ElasticMem system-level comparison where comparable",
+      "architecture-dependent activation-transfer literature interpreted as conditional, not universal"
+    ]
+  },
+  "paper_structure_if_T1_negative": [
+    "Report valid causal kill test as scoped negative mechanism evidence if scientifically informative.",
+    "Do not build/benchmark a memory module to rescue the null.",
+    "Next mechanism question: distributed multi-token/multi-layer state versus reconstructive/no-persistent-state explanation."
+  ],
+  "paper_structure_if_T1_positive": [
+    "Phenomenon/anchor: Plans Don't Persist",
+    "Causal identification: v2.2 + untouched replication",
+    "Checkpoint construction: single-source extractor",
+    "Persistence mediation: first-action clamp + later branch",
+    "Minimality/storage: dimension/bytes/necessity",
+    "System comparison: MemCompiler/ElasticMem/TransMem/StateBridge/KV/text baselines",
+    "Generality: second model + second environment"
+  ],
+  "principle": "Do not burden T1 with system-performance comparisons that only become meaningful after a deployable single-source checkpoint exists. Conversely, do not promote a T1 causal-localization result into a memory/persistence/utility paper without T3-T6 gates.",
+  "prior_work_matrix": [
+    {
+      "must_not_claim": [
+        "first demonstration that plans decay from hidden state",
+        "first evidence that plan text/context is load-bearing"
+      ],
+      "paper_id": "ad23107a-7f41-4897-abe9-3162f32c3748",
+      "paper_stage": "ANCHOR / T1-T4",
+      "prior": "Plans Don't Persist: Why Context Management Is Load Bearing for LLM Agents",
+      "prior_scope": "Diagnoses rapid plan-signal decay/context dependence with replay pairing, probes, stripping controls and ALFWorld compression stress; naive eviction harms success and probe-gated resurfacing does not recover it.",
+      "required_gate": [
+        "T1 matched A<->B active-plan intervention beating lexical/random/unrelated controls",
+        "T3 single-source checkpoint from actually active plan only",
+        "T4 multi-step/first-action-clamp evidence before persistence claim"
+      ],
+      "surviving_differential": "Causal identification of plan identity under matched observable state and later checkpoint/restore of that causal carrier."
+    },
+    {
+      "must_not_claim": [
+        "first causal localization of planning representations",
+        "activation patching of a plan representation is itself novel"
+      ],
+      "paper_id": "fd269db2-791d-4694-a7d2-bbaa50d18509",
+      "paper_stage": "T1/T4/T6",
+      "prior": "Where's the Plan? Locating Latent Planning in Language Models with Lightweight Mechanistic Interventions",
+      "prior_scope": "Uses probes and activation patching to locate forward-looking planning information and causally influence generation across model families.",
+      "required_gate": [
+        "T1 reciprocal matched-state plan-order intervention",
+        "T4 later divergence after common/forced first action",
+        "T6 second-model replication"
+      ],
+      "surviving_differential": "Interruption-specific active-plan identity causally transported into a fresh-context continuation under identical external state/prompt."
+    },
+    {
+      "must_not_claim": [
+        "hidden states as memory are novel",
+        "latent memory is novel"
+      ],
+      "paper_id": "d01f4a22-61c4-4c85-9e07-cadb55333fe5",
+      "paper_stage": "T3/T5 baseline",
+      "prior": "TransMem: Transforming Hidden States into Memory for Large Language Models",
+      "prior_scope": "Uses transformed sparse historical hidden states as reusable latent memory via a learned memory/gating module.",
+      "required_gate": [
+        "T1 plan-specific causal identification",
+        "T3 compare single-source PlanCarry checkpoint against generic historical hidden-state memory",
+        "T5 matched storage/utility accounting"
+      ],
+      "surviving_differential": "Episode-specific plan-control state identified causally, then checkpointed/restored rather than generic historical-state memory."
+    },
+    {
+      "must_not_claim": [
+        "hidden-state transport itself is novel",
+        "training-free latent transfer itself is novel"
+      ],
+      "paper_id": "efd31c35-da57-4a10-87fd-2b94ae3b795b",
+      "paper_stage": "T3/T4/T6 baseline",
+      "prior": "StateBridge: Training-free Hidden-state Alignment for Latent Communication in LLM Multi-Agent Systems",
+      "prior_scope": "Training-free alignment and transport of hidden states between inference agents/contexts using continuous prefix states.",
+      "required_gate": [
+        "T3 direct latent-transport baseline if implementation permits",
+        "T4 prove transported state controls later plan branch rather than only first output",
+        "T6 cross-model transfer only after within-model checkpoint support"
+      ],
+      "surviving_differential": "Plan-specific causal checkpoint/restore across interruption, with donor identity tied to active plan rather than generic sender state."
+    },
+    {
+      "must_not_claim": [
+        "causal activation transfer itself is novel",
+        "cross-model activation transfer is uniformly reliable"
+      ],
+      "paper_id": "6183c89b-c0e7-4ac1-ab71-ad073c957cc0",
+      "paper_stage": "T1/T3/T6 novelty boundary",
+      "prior": "Architecture-Dependent Causal Transfer of Activation States Across Large Language Models",
+      "prior_scope": "Demonstrates end-to-end causal activation-state transfer can work for some cross-model pairs and fail for others.",
+      "required_gate": [
+        "T1 content-specific plan contrast",
+        "T3 single-source checkpoint",
+        "T6 treat cross-model replication as a separate architecture-dependent test with failures reported"
+      ],
+      "surviving_differential": "Active-plan-specific source state, matched counterfactual identification, interruption checkpoint/restore, and plan-branch outcome."
+    },
+    {
+      "must_not_claim": [
+        "state-conditioned memory for embodied agents is novel",
+        "latent/soft memory channel is novel",
+        "ALFWorld or ScienceWorld memory gains are novel"
+      ],
+      "paper_id": "97c84101-eae0-4df3-8dd2-f6ae388d9762",
+      "paper_stage": "T5/T6 system baseline",
+      "prior": "MemCompiler: Compile, Don't Inject -- State-Conditioned Memory for Embodied Agents",
+      "prior_scope": "State-conditioned memory compilation for embodied agents with text + latent Soft-Mem channels; evaluated on ALFWorld/ScienceWorld/EmbodiedBench with reported performance/latency benefits.",
+      "required_gate": [
+        "Do NOT add as a T1 performance baseline",
+        "At T5 compare end-task utility and cost against state-conditioned memory when a deployable checkpoint exists",
+        "At T6 include second-environment comparison if semantics align"
+      ],
+      "surviving_differential": "Causal identification and restoration of the model's own episode-specific active plan state, rather than learned compilation from an external memory store."
+    },
+    {
+      "must_not_claim": [
+        "adaptive latent-memory allocation is novel",
+        "learned latent memory for agents is novel",
+        "ALFWorld latent-memory gains establish novelty"
+      ],
+      "paper_id": "3681e30e-36c8-4aea-a8a0-adc7146afda2",
+      "paper_stage": "T5/T6 system baseline",
+      "prior": "ElasticMem: Latent Memory as a Learnable Resource for LLM Agents",
+      "prior_scope": "Learned latent-memory bank, hidden-state-conditioned retrieval and adaptive latent budget; includes ALFWorld gains and reusable evidence/plan memory.",
+      "required_gate": [
+        "No T1 performance comparison required",
+        "T5 storage-normalized comparison: per-episode payload + global basis/projection overhead vs ElasticMem memory bank/budget",
+        "T5/T6 TaskSuccess and latency/token/byte accounting"
+      ],
+      "surviving_differential": "Causally identified active-plan checkpoint with no memory-bank learning required for T1-T4; later compare true checkpoint payload/utility against learned latent memory."
+    },
+    {
+      "must_not_claim": [
+        "KV-cache latent steering is novel",
+        "persistent latent guidance without text replay is novel"
+      ],
+      "paper_id": "f9805bd1-a67d-42bc-87c0-f70b4683d5f1",
+      "paper_stage": "T3-T5 baseline",
+      "prior": "Memory Inception: Latent-Space KV Cache Manipulation for Steering LLMs",
+      "prior_scope": "Training-free text-derived KV-bank insertion at selected layers for persistent/updateable latent steering.",
+      "required_gate": [
+        "T3 compare against text-derived KV/latent steering if architecture permits",
+        "T4 one-time restore + later-branch persistence",
+        "T5 full-KV versus compact checkpoint storage accounting"
+      ],
+      "surviving_differential": "Checkpoint extracted from the agent's own active pre-interruption plan and causally validated by A<->B matched plan identity."
+    },
+    {
+      "must_not_claim": [
+        "compact causal internal vectors are novel",
+        "activation vectors controlling behavior are novel"
+      ],
+      "paper_id": "277cbacf-91ec-4a1c-8e8f-f55c91383792",
+      "paper_stage": "T1/T4/T5 mechanism baseline",
+      "prior": "Function Vectors in Large Language Models",
+      "prior_scope": "Identifies compact causal internal vectors for abstract input-output functions and uses interventions to trigger task behavior.",
+      "required_gate": [
+        "T1 archived/unrelated/random specificity controls",
+        "T4 first-action clamp/mediation and later divergence",
+        "T5 necessity/sufficiency and dimension/storage ablations"
+      ],
+      "surviving_differential": "Episode-specific active-plan carrier, not a generic task/function vector; later persistence must survive controls for immediate action features."
+    }
+  ],
+  "purpose": "Pre-outcome reviewer-facing novelty and baseline obligations. This is not evidence of scientific support and does not alter frozen v2.2.",
+  "scientific_result": "NOT_ASSESSED",
+  "source_scope": "Only canonical paper cards already ingested in Research OS plus frozen claim-ladder artifact; absence of other papers is not a novelty proof."
+}

@@ -1,0 +1,29 @@
+{
+  "canonical_prereg_sha256": "cf3328317b145db2bf25c6fb881ba01682c35bf904ded0a7c8a6fd14bdd33591",
+  "current_overwritten_path_sha256": "b8834149ea098c9fa0c1df0a9d17e766c38bb9b9b78a58258808903454d93058",
+  "experiment_id": "7dd92545-38b7-46a4-bc70-0d052f77e6ea",
+  "findings": {
+    "canonical_bytes_recoverable_exactly": true,
+    "canonical_filename_overwritten_after_registration": true,
+    "intended_newline_repair_capture_token_stable": true,
+    "intended_newline_repair_command_suffix_prefixes_stable": true,
+    "intended_newline_repair_prefix_stable": true,
+    "intended_newline_repair_source_active_lengths_equal": true,
+    "intended_old_serialization_prefix_stable": false,
+    "recovered_prereg_pair_variable_templates_have_actual_newlines": false,
+    "recovered_prereg_pair_variable_templates_have_literal_backslash_n": true,
+    "scientific_model_outcomes_seen": false,
+    "static_audit_object_semantically_valid_but_has_literal_trailing_backslash_n": true
+  },
+  "kind": "PLANCARRY_LATENT_V2_3_INDEPENDENT_PREREG_REVIEW",
+  "material_repair": "Register a prospective v2.4 rather than interpreting or mutating v2.3. Use a new immutable prereg path/hash; encode actual newline characters in RESET/source templates; assert zero literal \\n sequences in executable template fields; preserve exactly the v2.3 canonical scientific variables (40-family manifest/split, donor map, Qwen revision FP16 no quantization, GTX1650 real backend, layers [6,13,20,27], alphas [0.05,0.1,0.2], ACTIVE ORDER contrast, controls, FP32 epsilon/Rademacher, cohort gates, all-20 confirmation, exact sign/Holm/effect thresholds, T1-only scope). Re-run independent review before runner/science.",
+  "model_outcomes_seen": false,
+  "prediction_id": "a2ed257c-99ea-439a-98fc-3fbe2261b48e",
+  "recovered_archival_path": "results/design/plancarry_latent_v2_3_prereg_original_cf332_archival.json",
+  "recovered_archival_sha256": "cf3328317b145db2bf25c6fb881ba01682c35bf904ded0a7c8a6fd14bdd33591",
+  "scientific_result": "NOT_ASSESSED",
+  "static_audit_sha256": "ca6389049173ba459ea36acb09cd2bfec1ed11a2f58d43d753f045f92058e206",
+  "tokenizer_boundary_audit_sha256": "07723641b7348ec4dba9e43b6eddc8bd12084ca298894fccc39b83c125dff1b2",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "why_not_invalid_science": "No scientific outcome exists, and tokenizer-only evidence confirms the intended actual-newline boundary repair is technically sound. The failure is prereg artifact integrity/encoding, so prospective supersession can repair it without post-outcome adaptation."
+}

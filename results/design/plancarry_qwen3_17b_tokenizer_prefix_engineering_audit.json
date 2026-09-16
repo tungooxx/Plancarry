@@ -1,0 +1,355 @@
+{
+  "all_pass": true,
+  "contexts_sha256": "7368d79776b99053e67c66b15d7df321d8a65996b3fff8696cf48778c248a755",
+  "kind": "PLANCARRY_QWEN3_17B_TOKENIZER_PREFIX_ENGINEERING_AUDIT",
+  "model_calls": 0,
+  "model_id": "Qwen/Qwen3-1.7B",
+  "n": 20,
+  "passed": 20,
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "rows": [
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Bread-None-Fridge-7",
+      "idx": 0,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Pen-None-Dresser-327",
+      "idx": 1,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Potato-None-Microwave-8",
+      "idx": 2,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-TissueBox-None-GarbageCan-230",
+      "idx": 3,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-ToiletPaper-None-Toilet-418",
+      "idx": 4,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Pencil-None-CoffeeTable-229",
+      "idx": 5,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Book-None-Sofa-209",
+      "idx": 6,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-KeyChain-None-Desk-320",
+      "idx": 7,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-CreditCard-None-SideTable-326",
+      "idx": 8,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Pencil-None-Desk-327",
+      "idx": 9,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-AlarmClock-None-Desk-304",
+      "idx": 10,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-KeyChain-None-ArmChair-222",
+      "idx": 11,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-PepperShaker-None-DiningTable-19",
+      "idx": 12,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-PepperShaker-None-Cabinet-17",
+      "idx": 13,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-Candle-None-CounterTop-402",
+      "idx": 14,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-PepperShaker-None-Cabinet-8",
+      "idx": 15,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-AlarmClock-None-Dresser-318",
+      "idx": 16,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-TissueBox-None-Cart-430",
+      "idx": 17,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-SoapBottle-None-Drawer-423",
+      "idx": 18,
+      "pass": true
+    },
+    {
+      "checks": {
+        "active_a_prompt_suffix0_nonempty": true,
+        "active_a_prompt_suffix0_prefix_stable": true,
+        "active_a_prompt_suffix1_nonempty": true,
+        "active_a_prompt_suffix1_prefix_stable": true,
+        "active_b_prompt_suffix0_nonempty": true,
+        "active_b_prompt_suffix0_prefix_stable": true,
+        "active_b_prompt_suffix1_nonempty": true,
+        "active_b_prompt_suffix1_prefix_stable": true,
+        "suffix0_leading_space": true,
+        "suffix1_leading_space": true
+      },
+      "family": "pick_two_obj_and_place-CellPhone-None-Shelf-320",
+      "idx": 19,
+      "pass": true
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED_ENGINEERING_ONLY",
+  "tokenizers_version": "0.21.1",
+  "transformers_version": "4.51.3"
+}

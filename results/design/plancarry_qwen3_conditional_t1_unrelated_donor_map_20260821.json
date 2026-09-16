@@ -1,0 +1,158 @@
+{
+  "confirmation_accessed": false,
+  "confirmation_manifest_sha256": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+  "confirmation_n": 20,
+  "development_manifest_sha256": "bff529503ac72371102e8689be0ecf92b367b1fe039d6e62444c00b54a27d8b5",
+  "development_n": 20,
+  "family_overlap_count": 0,
+  "kind": "PLANCARRY_QWEN3_CONDITIONAL_T1_UNRELATED_DONOR_MAP_V1",
+  "mapping_rule": "For j=0..19, original-primary confirmation pair 20+j uses Qwen3 recovery-development pair j as its UNRELATED_PLAN active A-minus-B donor. Mapping is index-only, frozen before any Qwen3 competence result inspection, and never uses model outcomes.",
+  "model_calls": 0,
+  "qwen3_competence_outcome_accessed": false,
+  "rows": [
+    {
+      "confirmation_family": "pick_two_obj_and_place-CellPhone-None-Drawer-329",
+      "confirmation_pair_index": 20,
+      "development_donor_family": "pick_two_obj_and_place-Bread-None-Fridge-7",
+      "development_donor_pair_index": 0,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-RemoteControl-None-Ottoman-210",
+      "confirmation_pair_index": 21,
+      "development_donor_family": "pick_two_obj_and_place-Pen-None-Dresser-327",
+      "development_donor_pair_index": 1,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-ToiletPaper-None-Drawer-409",
+      "confirmation_pair_index": 22,
+      "development_donor_family": "pick_two_obj_and_place-Potato-None-Microwave-8",
+      "development_donor_pair_index": 2,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-KeyChain-None-Dresser-318",
+      "confirmation_pair_index": 23,
+      "development_donor_family": "pick_two_obj_and_place-TissueBox-None-GarbageCan-230",
+      "development_donor_pair_index": 3,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SprayBottle-None-Toilet-417",
+      "confirmation_pair_index": 24,
+      "development_donor_family": "pick_two_obj_and_place-ToiletPaper-None-Toilet-418",
+      "development_donor_pair_index": 4,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBar-None-Cabinet-428",
+      "confirmation_pair_index": 25,
+      "development_donor_family": "pick_two_obj_and_place-Pencil-None-CoffeeTable-229",
+      "development_donor_pair_index": 5,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-CreditCard-None-DiningTable-329",
+      "confirmation_pair_index": 26,
+      "development_donor_family": "pick_two_obj_and_place-Book-None-Sofa-209",
+      "development_donor_pair_index": 6,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Statue-None-Dresser-213",
+      "confirmation_pair_index": 27,
+      "development_donor_family": "pick_two_obj_and_place-KeyChain-None-Desk-320",
+      "development_donor_pair_index": 7,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Pencil-None-Drawer-327",
+      "confirmation_pair_index": 28,
+      "development_donor_family": "pick_two_obj_and_place-CreditCard-None-SideTable-326",
+      "development_donor_pair_index": 8,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Cup-None-Shelf-1",
+      "confirmation_pair_index": 29,
+      "development_donor_family": "pick_two_obj_and_place-Pencil-None-Desk-327",
+      "development_donor_pair_index": 9,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-ToiletPaper-None-Toilet-405",
+      "confirmation_pair_index": 30,
+      "development_donor_family": "pick_two_obj_and_place-AlarmClock-None-Desk-304",
+      "development_donor_pair_index": 10,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-DiningTable-230",
+      "confirmation_pair_index": 31,
+      "development_donor_family": "pick_two_obj_and_place-KeyChain-None-ArmChair-222",
+      "development_donor_pair_index": 11,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-CreditCard-None-Desk-313",
+      "confirmation_pair_index": 32,
+      "development_donor_family": "pick_two_obj_and_place-PepperShaker-None-DiningTable-19",
+      "development_donor_pair_index": 12,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-KeyChain-None-Sofa-225",
+      "confirmation_pair_index": 33,
+      "development_donor_family": "pick_two_obj_and_place-PepperShaker-None-Cabinet-17",
+      "development_donor_pair_index": 13,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-220",
+      "confirmation_pair_index": 34,
+      "development_donor_family": "pick_two_obj_and_place-Candle-None-CounterTop-402",
+      "development_donor_pair_index": 14,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-TissueBox-None-CoffeeTable-230",
+      "confirmation_pair_index": 35,
+      "development_donor_family": "pick_two_obj_and_place-PepperShaker-None-Cabinet-8",
+      "development_donor_pair_index": 15,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBottle-None-Toilet-426",
+      "confirmation_pair_index": 36,
+      "development_donor_family": "pick_two_obj_and_place-AlarmClock-None-Dresser-318",
+      "development_donor_pair_index": 16,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-Watch-None-CoffeeTable-209",
+      "confirmation_pair_index": 37,
+      "development_donor_family": "pick_two_obj_and_place-TissueBox-None-Cart-430",
+      "development_donor_pair_index": 17,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-RemoteControl-None-ArmChair-208",
+      "confirmation_pair_index": 38,
+      "development_donor_family": "pick_two_obj_and_place-SoapBottle-None-Drawer-423",
+      "development_donor_pair_index": 18,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    },
+    {
+      "confirmation_family": "pick_two_obj_and_place-SoapBottle-None-Cabinet-417",
+      "confirmation_pair_index": 39,
+      "development_donor_family": "pick_two_obj_and_place-CellPhone-None-Shelf-320",
+      "development_donor_pair_index": 19,
+      "rule": "confirmation_index_20_plus_j_maps_to_qwen3_development_index_j"
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "status": "FROZEN_PRE_QWEN3_COMPETENCE_OUTCOME_INSPECTION",
+  "unique_confirmation_targets": 20,
+  "unique_development_donors": 20
+}

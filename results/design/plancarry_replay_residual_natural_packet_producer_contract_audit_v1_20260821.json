@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "action_admissible_only": true,
+    "action_scoring_frozen": true,
+    "all32_packets": true,
+    "atomic_no_resume": true,
+    "cut_exact_2": true,
+    "indices_exact_0_31": true,
+    "minimum16": true,
+    "no_cut_search": true,
+    "no_replacement": true,
+    "no_science": true,
+    "no_traj_data": true,
+    "no_valid_splits": true,
+    "one_plan_attempt": true,
+    "runtime_exact": true,
+    "sealed_32_83": true,
+    "success_max12": true
+  },
+  "contract_sha256": "55438737a6672420905836d6ba39cc73e6095079d19b77b5a500343ddafc4752",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_PACKET_PRODUCER_CONTRACT_AUDIT_V1",
+  "model_calls": 0,
+  "passed": true,
+  "passed_count": 16,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_CONTRACT_AUDIT_ONLY",
+  "total": 16
+}

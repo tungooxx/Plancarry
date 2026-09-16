@@ -1,0 +1,32 @@
+{
+  "bundle_path": "deploy/rtx3050_whitebox_v1",
+  "checks": {
+    "compile_passed": true,
+    "live_rtx3050_whitebox_deployed": false,
+    "manifest_model_exact": true,
+    "manifest_rtx_only": true,
+    "mock_protocol_smoke_passed": true,
+    "no_alfworld_model_calls": true,
+    "no_gtx1650_model_gpu_workload_this_task": true,
+    "offline_negative_provenance_rejection_passed": true,
+    "scientific_result_not_assessed": true,
+    "static_launcher_validation_passed": true,
+    "upstream_bridge_immutable": true,
+    "upstream_client_immutable": true
+  },
+  "deployment_boundary": "192.168.1.51:11434 Ollama responds, but 192.168.1.51:8765/model_info timed out. GPU-lab has no demonstrated remote write/exec channel to that RTX3050 host, so package creation is verified but deployment is not claimed.",
+  "kind": "plancarry_rtx3050_whitebox_bundle_engineering_audit_v1",
+  "manifest_sha256": "3b39f837bd12d6db6756bca96fbe16db5cb5ae81f3e60e5dd54876f6590ba78f",
+  "metadata_probe_job": "local_dc83691c44b149b4",
+  "required_next_external_state": "Start this exact bundle on the RTX3050 host with a CUDA-enabled PyTorch environment and nonempty PLANCARRY_WHITEBOX_TOKEN; then /model_info must pass exact provenance before any scientific run.",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "VERIFIED_PACKAGE_NOT_DEPLOYED",
+  "upstream": {
+    "whitebox_bridge.py": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+    "whitebox_client.py": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae"
+  },
+  "validation_jobs": [
+    "local_182a5085ee334404",
+    "local_00e65c735f54499a"
+  ]
+}

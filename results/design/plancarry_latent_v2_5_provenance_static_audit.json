@@ -1,0 +1,32 @@
+{
+  "active_control_effects_computed": false,
+  "all_pass": true,
+  "checks": {
+    "alphas_unchanged": true,
+    "confirmation_primary": true,
+    "dataset": true,
+    "development_selection": true,
+    "engineering_result_bound": true,
+    "intervention_math": true,
+    "layers_unchanged": true,
+    "manifest_unchanged": true,
+    "model_expressivity_gate": true,
+    "pair_variable": true,
+    "prefix_bridge_bound": true,
+    "primary_inference": true,
+    "scientific_unassessed": true,
+    "secondary_metrics": true,
+    "secondary_predeclared": true,
+    "source_and_target_sites": true
+  },
+  "confirmation_accessed": false,
+  "kind": "PLANCARRY_LATENT_V2_5_PROVENANCE_STATIC_AUDIT",
+  "model_inference": false,
+  "prefix_bridge_sha256": "77e17e01553b5fb5c3d50ee20b6443b4b26d7da4be78ee3104472d17e16322be",
+  "scientific_result": "NOT_ASSESSED",
+  "v2_4_prereg_sha256": "e6fb83177173044cf0c77a2868a4bd16ad8f166318cbd522ccc856c0ca87cbe0",
+  "v2_4_runner_sha256": "19ce73cacdcbec50319959529c1c8a6fef9604bc080094d66578ebf0621e2d4e",
+  "v2_5_prereg_sha256": "8521eb18e9d3775344aed34ce1f7ea1dee11e4e74dcea28286a8da46fb536e61",
+  "v2_5_runner_sha256": "93165062d63f9a63dc8a420db353e3e9ca8b904184551f6021f7572a3ed88f3d",
+  "v2_5_validator_sha256": "73cdaf9a0114c0b6c3381494483ac531a7920e852fd281f14bceee41b3be956d"
+}

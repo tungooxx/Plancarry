@@ -1,0 +1,78 @@
+{
+  "allowed_engineering_changes": [
+    "replay_residual_sanity_runner_v1._load_packets exact JSON filename enumeration",
+    "new synthetic regression tests for packet enumeration",
+    "capture recovery launcher runner-SHA pin only"
+  ],
+  "artifacts": {
+    "bridge_sha256": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404",
+    "launcher": {
+      "path": "results/design/plancarry_replay_residual_v2_1_capture_recovery_launcher_20260821.sh",
+      "prior_sha256": "d2f76d1e16736cdfb64c1267b51883f9c8bb467d8089a67bde25dbbd05e17a89",
+      "sha256": "b79cb4db734e92919667db06a90ef0589d8a214b8feb9e4e675ea20ec1ea659a"
+    },
+    "producer_sha256": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "protocol_sha256": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "runner": {
+      "path": "replay_residual_sanity_runner_v1.py",
+      "prior_sha256": "5d64a1a97c3ca10050920c7fa8802d1bf5226f253172c9b9e17059d5be7deecb",
+      "sha256": "0409e1486620b370419e33c714478271ba4998266c638d8ee7a755bfa80fb2ce"
+    },
+    "sidecar_sha256": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "tests": {
+      "path": "test_replay_residual_sanity_runner_packet_enumeration_v1.py",
+      "sha256": "a1badd7710d013eb41817dcc217c28a59993066b161c051faeffd5d04f09e232"
+    },
+    "validator_sha256": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2"
+  },
+  "date": "2026-08-21",
+  "expected_unchanged_hashes": {
+    "bridge": "d8c5ad9abd3cf45181a07cf8f1f837e7b36d3c47d59e7dc7cc4225f1a5e66404",
+    "producer": "bb05eb8b3b02f15d32f768212730712f2f0a04062729a57ca4993be2031dec55",
+    "protocol": "9af0d247e8bb9cb5e17d11727008d827dab0c088d5c28142726be20cd2d883ef",
+    "sidecar": "9bc1b5976798c37a989fb4aa4a9e91b2d6004f90185713687c8bf13fee35e3aa",
+    "validator": "f63fc8508c262452a2f72f617cc5dbc79a9f2c595c96ebda5f3916651fab44f2"
+  },
+  "failed_run_id": "e653ef3f-ee43-4429-a757-a8aa505fa285",
+  "failure": "manifest.json was interpreted as a development packet by glob(\"*.json\")",
+  "failure_class": "TECHNICAL_INVALID_PRE_METRIC",
+  "guards": {
+    "exact_json_names_required": true,
+    "filename_index_mismatch_fail_closed": true,
+    "manifest_metadata_only": true,
+    "missing_extra_json_fail_closed": true,
+    "no_causal_path": true,
+    "no_model_or_alfworld_science": true,
+    "no_packet_mutation": true,
+    "provenance_metadata_only": true,
+    "reserve32_63_sealed": true
+  },
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_SANITY_RUNNER_MANIFEST_FIX_A3_AUDIT_V1",
+  "launcher_exact_delta_proof": {
+    "prior_launcher_sha256": "d2f76d1e16736cdfb64c1267b51883f9c8bb467d8089a67bde25dbbd05e17a89",
+    "reverse_only_new_runner_sha_to_prior_runner_sha_recovers_prior_launcher_sha256": true
+  },
+  "raw_byte_caveat": {
+    "explanation": "Implementation used Path.read_text()/write_text() exact string replacement, which preserved decoded source outside _load_packets but normalized pre-existing raw text formatting/newline bytes somewhere in the runner. No semantic source outside _load_packets was intentionally edited. Independent review must inspect semantics and frozen invariants rather than treat old-vs-new runner SHA as a one-hunk byte patch.",
+    "material_scientific_drift_detected": false,
+    "runner_reverse_hash_exact": false
+  },
+  "retry_authorization": "REQUIRES_FRESH_INDEPENDENT_REVIEW",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "semantic_scope_assertion": {
+    "launcher_only_intentional_semantic_change": "runner SHA fail-closed pin",
+    "runner_only_function_changed_intentionally": "_load_packets",
+    "scientific_variable_changes": [],
+    "test_file_new": true
+  },
+  "tests": {
+    "bash_n_launcher": "PASS",
+    "canonical_result_absent": true,
+    "frozen_packet_validator": "PASS",
+    "loader_enumeration_preflight": "PASS exact32 indices0..31",
+    "py_compile": "PASS",
+    "unit_tests": "6/6 PASS"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "checks": {
+    "all40_environment_replay_pass": true,
+    "all40_newline_pass": true,
+    "all_frozen_hashes_pass": true,
+    "independent_prereg_review_pass": true,
+    "pure_causal_statistical_ast_equal": true,
+    "synthetic_exact_model_device": true,
+    "synthetic_nonzero_patch_finite": true,
+    "synthetic_real_scientific_unassessed": true,
+    "synthetic_self_patch_pass": true,
+    "synthetic_zero_add_pass": true,
+    "tokenizer_audit_pass": true
+  },
+  "comparisons": {
+    "runner:_capture": true,
+    "runner:_control_cpse": true,
+    "runner:_patched_q": true,
+    "runner:_score_pair": true,
+    "runner:_source_direction": true,
+    "runner:plumbing_guard": true,
+    "runner:source_competence": true,
+    "validator:confirmation_decision": true,
+    "validator:exact_sign_tail": true,
+    "validator:f32": true,
+    "validator:holm_adjust": true,
+    "validator:l2": true,
+    "validator:l2_f32": true,
+    "validator:mean_lp": true,
+    "validator:normalized_contrast": true,
+    "validator:option_orientation_bit": true,
+    "validator:primary_test_statistics": true,
+    "validator:q_a": true,
+    "validator:rademacher_direction": true,
+    "validator:sigmoid": true
+  },
+  "confirmation_model_output_accessed": false,
+  "engineering_task_id": "226b2a26-af20-44f8-9cf3-148123e1053b",
+  "experiment_id": "e436f81c-e31f-43e9-8fef-f3e3c2c6e250",
+  "focused_tests": "10 passed",
+  "hash_checks": {
+    "all40_audit": {
+      "actual": "5d140efb4b5a0d20b00bcb17577b8f9c48199334e7a4f1b025e66ced10c83fd3",
+      "expected": "5d140efb4b5a0d20b00bcb17577b8f9c48199334e7a4f1b025e66ced10c83fd3",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_partial_runner_disconnect_audit.json"
+    },
+    "bridge": {
+      "actual": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+      "expected": "f1a505ad22ae50f61eff563ff8ce6cce7ae9bd2f08a91bc051b411d3b5029eb2",
+      "pass": true,
+      "path": "whitebox_bridge.py"
+    },
+    "client": {
+      "actual": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae",
+      "expected": "e77f8c1727140be5f1e9a81e9fda6f8a5b629687a4362aa1678b0f4dc5cfa3ae",
+      "pass": true,
+      "path": "whitebox_client.py"
+    },
+    "donor_map": {
+      "actual": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+      "expected": "a2e342e35dd719d14a15a8559b23d545bb51b695405025c3d5964e7290f101f5",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_2_unrelated_donor_map.json"
+    },
+    "manifest": {
+      "actual": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+      "expected": "285d85b10171fcec0a80cc2960a79ae3349472e3b38935b6e97ec10deeaf0feb",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_matched_pair_manifest.json"
+    },
+    "prereg": {
+      "actual": "e6fb83177173044cf0c77a2868a4bd16ad8f166318cbd522ccc856c0ca87cbe0",
+      "expected": "e6fb83177173044cf0c77a2868a4bd16ad8f166318cbd522ccc856c0ca87cbe0",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_prereg_immutable_20260819T1624Z.json"
+    },
+    "review": {
+      "actual": "fe3df8f0c72bc16307cdc9f009eeb377d60257a97d7d5904817be3f4687a1a54",
+      "expected": "fe3df8f0c72bc16307cdc9f009eeb377d60257a97d7d5904817be3f4687a1a54",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_independent_review.json"
+    },
+    "static_audit": {
+      "actual": "70cf5e2da8c1b9aa84fcc0a1b26e951df50aeac3086c90181270a1c1da66a24a",
+      "expected": "70cf5e2da8c1b9aa84fcc0a1b26e951df50aeac3086c90181270a1c1da66a24a",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_static_newline_repair_audit.json"
+    },
+    "synthetic_gtx_check": {
+      "actual": "7a57e17c086dd7bf01aaf81c4f85dad53ecdf6a26edb3fb7ac80d5647e4b4c7b",
+      "expected": "7a57e17c086dd7bf01aaf81c4f85dad53ecdf6a26edb3fb7ac80d5647e4b4c7b",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_synthetic_real_gtx1650_check.json"
+    },
+    "tokenizer_audit": {
+      "actual": "343513b6f707291dc8513d7adebc177789a1f1013c00361c24fac6d99709d16f",
+      "expected": "343513b6f707291dc8513d7adebc177789a1f1013c00361c24fac6d99709d16f",
+      "pass": true,
+      "path": "results/design/plancarry_latent_v2_4_exact_template_tokenizer_audit.json"
+    },
+    "v2_2_runner": {
+      "actual": "f5e61aef3c204afc075530eb4bb06797e28d899b09ff1aaf04c27e1b887faf46",
+      "expected": "f5e61aef3c204afc075530eb4bb06797e28d899b09ff1aaf04c27e1b887faf46",
+      "pass": true,
+      "path": "plancarry_latent_v2_2_runner.py"
+    },
+    "v2_2_validator": {
+      "actual": "d2e7422fa34fb6f048919899d0898caa434ddde51fe02d2fb1dc3d48f9c4b077",
+      "expected": "d2e7422fa34fb6f048919899d0898caa434ddde51fe02d2fb1dc3d48f9c4b077",
+      "pass": true,
+      "path": "plancarry_latent_v2_2_validator.py"
+    }
+  },
+  "kind": "PLANCARRY_LATENT_V2_4_RUNNER_ENGINEERING_AUDIT",
+  "runner_sha256": "19ce73cacdcbec50319959529c1c8a6fef9604bc080094d66578ebf0621e2d4e",
+  "scientific_model_pair_executed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "test_sha256": "158a8cc3baa156918e4f6ac8a3fd942b1d603281ae3dfdd4a027fafb7ef37f15",
+  "valid_seen_consumed": false,
+  "valid_unseen_consumed": false,
+  "validator_sha256": "e57783fdf83365561c122f5ba8f0dc9ba827b6e36a1af43ef85c36a1beb3c5d9",
+  "verdict": "PASS_ENGINEERING_READY_FOR_INDEPENDENT_RUNNER_REVIEW"
+}

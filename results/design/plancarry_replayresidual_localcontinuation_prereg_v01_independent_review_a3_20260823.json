@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "all20_after_gate": "PASS",
+    "autonomous_confirmation_lca2_required": "PASS",
+    "cut_after_action2": "PASS",
+    "development_msa2_state_matching": "PASS",
+    "development_secondary_tie_break_margin": "FAIL_AMBIGUOUS",
+    "futility_thresholds_prospectively_fixed": "PASS",
+    "holm_two_sign_tests": "PASS",
+    "msa2_primary_top1_tie_rule": "PASS WITH INHERITED RULE: V2.1 candidate scorer uses exact FP32 score equality and lexical-min command among maxima",
+    "no_old_populations_or_valid_splits": "PASS",
+    "population_binding_pending_and_execution_forbidden": "PASS",
+    "scientific_difference_from_consumed_0of32": "PASS: fresh population + changed local-continuation estimand; no threshold rescue/reuse",
+    "semantic_and_equal_norm_controls": "PASS",
+    "sign_geometry_n12_10": "PASS p=0.019287109375; 9 gives 0.072998046875",
+    "sign_geometry_n20_15": "PASS p=0.020694732666015625; 14 gives 0.057659149169921875",
+    "single_injection_same_persistent_kv": "PASS",
+    "source_t2_plan_minus_neutral": "PASS",
+    "stage1_five_action_gate": "PASS",
+    "unqualified_zero_residual_nonpositive": "PASS",
+    "unrelated_donor_family_semantics": "PASS: inherited V2.1 family is object/receptacle-level episode family, not task-prefix; donor requires different family over frozen E",
+    "whole_task_success_removed_from_entry": "PASS"
+  },
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_V01_INDEPENDENT_REVIEW_A3",
+  "material_findings": [
+    {
+      "finding": "The final development selection tie-break invokes higher ACTIVE matched-state reference mean-logprob margin averaged over action4/action5, but the draft does not define the margin mathematically. Multiple reasonable implementations (reference minus max non-reference, reference minus second-ranked after tie-break, raw score difference to selected top command, or another aggregation) could choose different global layer/alpha when earlier tie-breaks tie.",
+      "id": "LC_PREREG_V01_MARGIN_UNDEFINED",
+      "required_repair": "Freeze the exact formula before population binding/outcome access. Recommended: at each scored position j in {4,5}, margin_j = score(reference_action_j) - max(score(c) for c in current_admissible_commands_j if c != reference_action_j); if no non-reference candidate exists define margin_j=+inf only if explicitly desired, otherwise fail closed. Aggregate exactly mean(margin_4, margin_5) per family, then specify whether the grid tie-break uses mean or median across qualified development families. Also state all score equality and command tie-breaking inherit the exact V2.1 float-equality + lexical-min rule. Any different formula is acceptable only if frozen explicitly and audited prospectively.",
+      "scope": "NARROW; no change to hypothesis, populations, grid, causal intervention, primary confirmation endpoint, controls, thresholds, or statistics is required.",
+      "severity": "MATERIAL_PRE_REGISTRATION_DETERMINISM"
+    }
+  ],
+  "model_calls": 0,
+  "non_material_notes": [
+    "Population manifest/exposure/review SHAs correctly remain null; execution must remain forbidden until bound and independently reviewed.",
+    "The all-pick_and_place_simple task prefix does not make unrelated-plan donor impossible because V2.1 family is a more specific episode family string; the previously frozen cohort had 32 unique family values.",
+    "Development matched-state MSA2 is appropriately restricted to operating-point selection and cannot support the causal persistence claim without autonomous untouched confirmation."
+  ],
+  "required_next_step": "Repair only the undefined development reference-margin tie-break, regenerate static audit, then request a fresh independent prereg review before population binding/Experiment registration. Do not execute model/environment science.",
+  "reviewer_worker_id": "2bb6f4e8-22bd-4a4b-be6e-a7c574aac032",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_DESIGN_REVIEW",
+  "target_draft_sha256": "59e989c45a8bf1c584734a1190ed50f5809dda868bf38539f94d26a82fc71667",
+  "target_static_audit_sha256": "c98b4e53317d2758550aebcb628bf5b69671e5dad3c6c66945639d648ff59357",
+  "verdict": "MATERIAL_REPAIR_REQUIRED",
+  "work_item_id": "91ded9e9-db66-4f91-802d-c3de9b36b673"
+}

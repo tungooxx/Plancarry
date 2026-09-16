@@ -1,0 +1,775 @@
+{
+  "all_boundary_token_stable": true,
+  "all_reset_prefix_exact": true,
+  "all_suffixes_nonempty": true,
+  "kind": "PLANCARRY_LATENT_V2_6_FINAL_BINDING_TOKENIZER_PREFIX_AUDIT",
+  "model_inference_calls": 0,
+  "pair_count": 40,
+  "pass": true,
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "rows": [
+    {
+      "boundary_token_stable": true,
+      "pair_index": 0,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 187,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 189,
+      "source_token_lengths": {
+        "active_a": 235,
+        "active_b": 235,
+        "archived_a": 241,
+        "archived_b": 241
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 1,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 230,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 232,
+      "source_token_lengths": {
+        "active_a": 284,
+        "active_b": 284,
+        "archived_a": 290,
+        "archived_b": 290
+      },
+      "suffix_token_counts": [
+        11,
+        11
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 2,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 201,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 203,
+      "source_token_lengths": {
+        "active_a": 249,
+        "active_b": 249,
+        "archived_a": 255,
+        "archived_b": 255
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 3,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 216,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 218,
+      "source_token_lengths": {
+        "active_a": 268,
+        "active_b": 268,
+        "archived_a": 274,
+        "archived_b": 274
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 4,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 247,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 249,
+      "source_token_lengths": {
+        "active_a": 293,
+        "active_b": 293,
+        "archived_a": 299,
+        "archived_b": 299
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 5,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 227,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 229,
+      "source_token_lengths": {
+        "active_a": 279,
+        "active_b": 279,
+        "archived_a": 285,
+        "archived_b": 285
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 6,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 174,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 176,
+      "source_token_lengths": {
+        "active_a": 224,
+        "active_b": 224,
+        "archived_a": 230,
+        "archived_b": 230
+      },
+      "suffix_token_counts": [
+        5,
+        7
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 7,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 199,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 201,
+      "source_token_lengths": {
+        "active_a": 248,
+        "active_b": 248,
+        "archived_a": 254,
+        "archived_b": 254
+      },
+      "suffix_token_counts": [
+        7,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 8,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 224,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 226,
+      "source_token_lengths": {
+        "active_a": 270,
+        "active_b": 270,
+        "archived_a": 276,
+        "archived_b": 276
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 9,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 233,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 235,
+      "source_token_lengths": {
+        "active_a": 281,
+        "active_b": 281,
+        "archived_a": 287,
+        "archived_b": 287
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 10,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 320,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 322,
+      "source_token_lengths": {
+        "active_a": 372,
+        "active_b": 372,
+        "archived_a": 378,
+        "archived_b": 378
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 11,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 307,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 309,
+      "source_token_lengths": {
+        "active_a": 355,
+        "active_b": 355,
+        "archived_a": 361,
+        "archived_b": 361
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 12,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 245,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 247,
+      "source_token_lengths": {
+        "active_a": 291,
+        "active_b": 291,
+        "archived_a": 297,
+        "archived_b": 297
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 13,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 205,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 207,
+      "source_token_lengths": {
+        "active_a": 257,
+        "active_b": 257,
+        "archived_a": 263,
+        "archived_b": 263
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 14,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 255,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 257,
+      "source_token_lengths": {
+        "active_a": 306,
+        "active_b": 306,
+        "archived_a": 312,
+        "archived_b": 312
+      },
+      "suffix_token_counts": [
+        6,
+        5
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 15,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 203,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 205,
+      "source_token_lengths": {
+        "active_a": 250,
+        "active_b": 250,
+        "archived_a": 256,
+        "archived_b": 256
+      },
+      "suffix_token_counts": [
+        5,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 16,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 237,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 239,
+      "source_token_lengths": {
+        "active_a": 287,
+        "active_b": 287,
+        "archived_a": 293,
+        "archived_b": 293
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 17,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 222,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 224,
+      "source_token_lengths": {
+        "active_a": 273,
+        "active_b": 273,
+        "archived_a": 279,
+        "archived_b": 279
+      },
+      "suffix_token_counts": [
+        7,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 18,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 302,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 304,
+      "source_token_lengths": {
+        "active_a": 352,
+        "active_b": 352,
+        "archived_a": 358,
+        "archived_b": 358
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 19,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 242,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 244,
+      "source_token_lengths": {
+        "active_a": 288,
+        "active_b": 288,
+        "archived_a": 294,
+        "archived_b": 294
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 20,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 187,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 189,
+      "source_token_lengths": {
+        "active_a": 235,
+        "active_b": 235,
+        "archived_a": 241,
+        "archived_b": 241
+      },
+      "suffix_token_counts": [
+        6,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 21,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 268,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 270,
+      "source_token_lengths": {
+        "active_a": 318,
+        "active_b": 318,
+        "archived_a": 324,
+        "archived_b": 324
+      },
+      "suffix_token_counts": [
+        5,
+        5
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 22,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 210,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 212,
+      "source_token_lengths": {
+        "active_a": 260,
+        "active_b": 260,
+        "archived_a": 266,
+        "archived_b": 266
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 23,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 243,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 245,
+      "source_token_lengths": {
+        "active_a": 293,
+        "active_b": 293,
+        "archived_a": 299,
+        "archived_b": 299
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 24,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 216,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 218,
+      "source_token_lengths": {
+        "active_a": 268,
+        "active_b": 268,
+        "archived_a": 274,
+        "archived_b": 274
+      },
+      "suffix_token_counts": [
+        11,
+        11
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 25,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 242,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 244,
+      "source_token_lengths": {
+        "active_a": 293,
+        "active_b": 293,
+        "archived_a": 299,
+        "archived_b": 299
+      },
+      "suffix_token_counts": [
+        7,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 26,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 191,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 193,
+      "source_token_lengths": {
+        "active_a": 243,
+        "active_b": 243,
+        "archived_a": 249,
+        "archived_b": 249
+      },
+      "suffix_token_counts": [
+        6,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 27,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 285,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 287,
+      "source_token_lengths": {
+        "active_a": 335,
+        "active_b": 335,
+        "archived_a": 341,
+        "archived_b": 341
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 28,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 212,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 214,
+      "source_token_lengths": {
+        "active_a": 258,
+        "active_b": 258,
+        "archived_a": 264,
+        "archived_b": 264
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 29,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 307,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 309,
+      "source_token_lengths": {
+        "active_a": 353,
+        "active_b": 353,
+        "archived_a": 359,
+        "archived_b": 359
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 30,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 266,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 268,
+      "source_token_lengths": {
+        "active_a": 318,
+        "active_b": 318,
+        "archived_a": 324,
+        "archived_b": 324
+      },
+      "suffix_token_counts": [
+        6,
+        6
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 31,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 209,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 211,
+      "source_token_lengths": {
+        "active_a": 263,
+        "active_b": 263,
+        "archived_a": 269,
+        "archived_b": 269
+      },
+      "suffix_token_counts": [
+        11,
+        11
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 32,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 208,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 210,
+      "source_token_lengths": {
+        "active_a": 258,
+        "active_b": 258,
+        "archived_a": 264,
+        "archived_b": 264
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 33,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 248,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 250,
+      "source_token_lengths": {
+        "active_a": 299,
+        "active_b": 299,
+        "archived_a": 305,
+        "archived_b": 305
+      },
+      "suffix_token_counts": [
+        6,
+        7
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 34,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 220,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 222,
+      "source_token_lengths": {
+        "active_a": 272,
+        "active_b": 272,
+        "archived_a": 278,
+        "archived_b": 278
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 35,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 292,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 294,
+      "source_token_lengths": {
+        "active_a": 346,
+        "active_b": 346,
+        "archived_a": 352,
+        "archived_b": 352
+      },
+      "suffix_token_counts": [
+        10,
+        10
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 36,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 319,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 321,
+      "source_token_lengths": {
+        "active_a": 371,
+        "active_b": 371,
+        "archived_a": 377,
+        "archived_b": 377
+      },
+      "suffix_token_counts": [
+        11,
+        11
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 37,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 289,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 291,
+      "source_token_lengths": {
+        "active_a": 339,
+        "active_b": 339,
+        "archived_a": 345,
+        "archived_b": 345
+      },
+      "suffix_token_counts": [
+        8,
+        8
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 38,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 203,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 205,
+      "source_token_lengths": {
+        "active_a": 253,
+        "active_b": 253,
+        "archived_a": 259,
+        "archived_b": 259
+      },
+      "suffix_token_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "boundary_token_stable": true,
+      "pair_index": 39,
+      "reset_final_token_id": 397,
+      "reset_prefix_exact": true,
+      "reset_tokens": 238,
+      "scoring_token_at_reset_boundary": 397,
+      "scoring_tokens": 240,
+      "source_token_lengths": {
+        "active_a": 289,
+        "active_b": 289,
+        "archived_a": 295,
+        "archived_b": 295
+      },
+      "suffix_token_counts": [
+        5,
+        6
+      ]
+    }
+  ],
+  "scientific_result": "NOT_ASSESSED",
+  "tokenizer_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "tokenizers_version": "0.20.3"
+}

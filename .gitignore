@@ -1,0 +1,40 @@
+# Secrets / local credentials
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Python caches / local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv*/
+.kv_microcheck_deps/
+.qwen3_pydeps/
+.whitebox_tf446/
+.whitebox_vendor/
+.vendor-whitebox-real/
+
+# Model / HF caches
+.hf_cache/
+.hf_cache_*/
+
+# Local inspection / audit clones
+.inspection_*/
+third_party/
+
+# Generated logs
+*.log
+
+# Generated scientific/qualification outputs stay canonical in Research OS/local artifacts.
+# Keep frozen preregistration/design material under version control.
+results/*
+!results/design/
+!results/design/**
+
+# Re-apply generated-file exclusions inside the explicitly included design tree.
+results/design/**/__pycache__/
+results/design/**/*.py[cod]
+results/design/**/*.log

@@ -1,0 +1,14 @@
+{
+  "archived_obsolete_path": "results/design/plancarry_latent_v2_3_prereg_obsolete_cc10_host_only_b883.json",
+  "archived_obsolete_sha256": "b8834149ea098c9fa0c1df0a9d17e766c38bb9b9b78a58258808903454d93058",
+  "byte_equal_to_archival": true,
+  "canonical_source_path": "results/design/plancarry_latent_v2_3_prereg_original_cf332_archival.json",
+  "canonical_source_sha256": "cf3328317b145db2bf25c6fb881ba01682c35bf904ded0a7c8a6fd14bdd33591",
+  "kind": "PLANCARRY_LATENT_V2_3_ARTIFACT_RESTORE_AUDIT",
+  "model_inference": false,
+  "pass": true,
+  "pre_current_sha256": "b8834149ea098c9fa0c1df0a9d17e766c38bb9b9b78a58258808903454d93058",
+  "restored_canonical_path": "results/design/plancarry_latent_v2_3_prereg_final.json",
+  "restored_canonical_sha256": "cf3328317b145db2bf25c6fb881ba01682c35bf904ded0a7c8a6fd14bdd33591",
+  "scientific_result": "NOT_ASSESSED"
+}

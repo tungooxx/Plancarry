@@ -1,0 +1,9 @@
+# PlanCarry RTX3050 white-box bridge runtime dependencies.
+# IMPORTANT: install a CUDA-enabled PyTorch build separately for this host/GPU.
+# This file intentionally does NOT install `torch`, because an ordinary pip install
+# may select a CPU-only or CUDA-incompatible wheel. The launchers fail closed unless
+# torch.cuda.is_available() and the device name contains "RTX 3050".
+transformers==4.46.3
+tokenizers==0.20.3
+safetensors>=0.4.5,<0.6
+huggingface-hub>=0.26,<0.27

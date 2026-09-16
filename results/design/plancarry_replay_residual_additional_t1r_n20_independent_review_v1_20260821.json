@@ -1,0 +1,75 @@
+{
+  "authoritative_inputs": {
+    "author_audit": {
+      "path": "results/design/plancarry_replay_residual_additional_t1r_n20_reserve_audit_v1_20260821.json",
+      "sha256": "f3bff397c48b4d2c6420d0ac429d794c7f71b9058bcbb95721b1a10aa4fa662c"
+    },
+    "fresh_cohort": {
+      "path": "results/design/plancarry_replay_residual_fresh_cohort_v1_20260821.json",
+      "sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009"
+    },
+    "independent_reconstruction": {
+      "path": "results/design/plancarry_replay_residual_additional_t1r_n20_independent_reconstruction_v1_20260821.json",
+      "sha256": "4437d393a74a78c2bdb04f5e31998fe03af4916b6bb3f4f2b29c564ca3dfc957"
+    },
+    "reserve": {
+      "path": "results/design/plancarry_replay_residual_additional_t1r_n20_reserve_v1_20260821.json",
+      "sha256": "d39beba4a768a3c633b54b01a5be032d35db26098cd42d7f5d488d7e34f9233a"
+    },
+    "untouched_population": {
+      "path": "results/design/plancarry_replay_residual_untouched_confirmation_freeze_v1_1_20260821.json",
+      "sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+    }
+  },
+  "checks": {
+    "author_audit_14_14": true,
+    "author_audit_sha_exact": true,
+    "cannot_rescue_primary": true,
+    "eligible_remaining_160": true,
+    "exposure_union_246": true,
+    "first64_zero_mismatch": true,
+    "fresh_source_sha_exact": true,
+    "future_rule_required": true,
+    "independent_reconstruction_15_15": true,
+    "n20_population_exact": true,
+    "new_n20_zero_mismatch": true,
+    "no_retuning": true,
+    "no_science_access": true,
+    "p15_exact": true,
+    "power80_exact": true,
+    "recon_all_exposure_source_hashes_exact": true,
+    "recon_disjoint_from_dev": true,
+    "recon_disjoint_from_existing_n12": true,
+    "recon_disjoint_from_historical_exposure_union": true,
+    "recon_disjoint_from_primary_confirmation": true,
+    "recon_eligible_remaining_160_exact": true,
+    "recon_existing_n12_wrapper_still_bound": true,
+    "recon_exposure_union_246_exact": true,
+    "recon_first64_exact_reconstruction": true,
+    "recon_new_n20_unique": true,
+    "recon_no_model_environment_execution": true,
+    "recon_p15_exact": true,
+    "recon_power80_exact": true,
+    "recon_ranks64_83_exact_reconstruction": true,
+    "recon_valid_seen_unseen_not_used": true,
+    "reserve_sha_exact": true,
+    "separate_n12_preserved": true,
+    "untouched_population_sha_exact": true
+  },
+  "decision": "The additional n20 is accepted only as a prospectively frozen, family-disjoint, higher-power future replication population. It does not modify or rescue the primary n20 confirmation or existing n12 T1R. Future execution requires primary T1 support and a separately frozen/reviewed n20 decision rule.",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_ADDITIONAL_N20_T1R_INDEPENDENT_REVIEW_V1",
+  "model_calls": 0,
+  "passed": true,
+  "passed_count": 33,
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_REVIEW_ONLY",
+  "statistical_geometry": {
+    "illustrative_power_sign_p_0_8": 0.8042077854595504,
+    "n": 20,
+    "one_sided_p_ge_15": 0.020694732666015625,
+    "positive_threshold": 15
+  },
+  "total": 33,
+  "verdict": "PASS_FOR_ADDITIONAL_N20_T1R_RESERVE"
+}

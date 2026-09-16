@@ -1,0 +1,363 @@
+{
+  "changed_leaf_count": 58,
+  "changed_leaves": [
+    {
+      "after": "PRE_OUTCOME_FINAL_POPULATION_BOUND_PENDING_FRESH_INDEPENDENT_FINAL_REVIEW_NO_EXECUTION",
+      "before": "PRE_OUTCOME_NONEXECUTABLE_MARGIN_DETERMINISM_REPAIR_PENDING_FRESH_INDEPENDENT_REVIEW_AND_POPULATION_BINDING",
+      "path": "artifact_status"
+    },
+    {
+      "after": "d3870151-4d6c-4387-8759-36df18f1d913",
+      "before": "<MISSING>",
+      "path": "canonical_design_work_item_id"
+    },
+    {
+      "after": true,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.binding_only"
+    },
+    {
+      "after": 0,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.environment_execution"
+    },
+    {
+      "after": true,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.execution_forbidden"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.heavy_compute_used"
+    },
+    {
+      "after": 0,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.model_calls"
+    },
+    {
+      "after": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_exposed_sha256"
+    },
+    {
+      "after": "8c7b0b6f627c71aa050751b06bd3b6bed5e9aa597bb77457f1636821498a1f38",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_exposure_audit_sha256"
+    },
+    {
+      "after": "bd730ea81e7bfea75fa7eb79e357505c794e6300c5ad53500bffe092947c82b0",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_independent_review_sha256"
+    },
+    {
+      "after": "PASS_FOR_LOCALCONTINUATION_FRESH_POPULATION_FREEZE",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_independent_review_verdict"
+    },
+    {
+      "after": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_inventory_sha256"
+    },
+    {
+      "after": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_manifest_sha256"
+    },
+    {
+      "after": "25181496-854b-4398-be0a-3931b38a3e0a",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.population_work_item_id"
+    },
+    {
+      "after": true,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.registration_forbidden_until_fresh_final_independent_review_pass"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.scientific_outcomes_accessed"
+    },
+    {
+      "after": [],
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.scientific_variables_changed"
+    },
+    {
+      "after": "3a15c424f9648e8afeee306efeb35fbbb5f190604e39b136b5b1bfbec876f1a9",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.selector_independent_review_sha256"
+    },
+    {
+      "after": "bf8e167449520fe917ddd7562519fba71d364c88ae95d74acf36684c3e0fd58b",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.selector_utility_sha256"
+    },
+    {
+      "after": "results/design/plancarry_replayresidual_localcontinuation_prereg_draft_v0_2_20260823.json",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.source_v02_path"
+    },
+    {
+      "after": "results/design/plancarry_replayresidual_localcontinuation_prereg_v02_independent_review_a3_20260823.json",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.source_v02_review_path"
+    },
+    {
+      "after": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.source_v02_review_sha256"
+    },
+    {
+      "after": "PASS_FOR_LOCALCONTINUATION_POPULATION_BINDING",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.source_v02_review_verdict"
+    },
+    {
+      "after": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "before": "<MISSING>",
+      "path": "final_binding_provenance.source_v02_sha256"
+    },
+    {
+      "after": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_FINAL_V1_POPULATION_BOUND",
+      "before": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_PREREG_DRAFT_V0_2_MARGIN_REPAIR",
+      "path": "kind"
+    },
+    {
+      "after": [
+        32,
+        51
+      ],
+      "before": "<MISSING>",
+      "path": "population_binding.confirmation_frozen_indices"
+    },
+    {
+      "after": 20,
+      "before": "<MISSING>",
+      "path": "population_binding.confirmation_n"
+    },
+    {
+      "after": [
+        0,
+        31
+      ],
+      "before": "<MISSING>",
+      "path": "population_binding.development_frozen_indices"
+    },
+    {
+      "after": 32,
+      "before": "<MISSING>",
+      "path": "population_binding.development_n"
+    },
+    {
+      "after": false,
+      "before": true,
+      "path": "population_binding.execution_forbidden_until_bound"
+    },
+    {
+      "after": true,
+      "before": "<MISSING>",
+      "path": "population_binding.execution_forbidden_until_final_independent_review"
+    },
+    {
+      "after": "results/design/plancarry_localcontinuation_exposed_paths_v1_20260823.json",
+      "before": "<MISSING>",
+      "path": "population_binding.exposed_file"
+    },
+    {
+      "after": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+      "before": "<MISSING>",
+      "path": "population_binding.exposed_file_sha256"
+    },
+    {
+      "after": 266,
+      "before": "<MISSING>",
+      "path": "population_binding.exposed_n"
+    },
+    {
+      "after": "results/design/plancarry_replayresidual_localcontinuation_fresh_population_exposure_audit_v1_20260823.json",
+      "before": "<MISSING>",
+      "path": "population_binding.exposure_audit_file"
+    },
+    {
+      "after": "8c7b0b6f627c71aa050751b06bd3b6bed5e9aa597bb77457f1636821498a1f38",
+      "before": null,
+      "path": "population_binding.exposure_audit_sha256"
+    },
+    {
+      "after": "results/design/plancarry_replayresidual_localcontinuation_fresh_population_independent_review_a4_20260823.json",
+      "before": "<MISSING>",
+      "path": "population_binding.independent_population_review_file"
+    },
+    {
+      "after": "bd730ea81e7bfea75fa7eb79e357505c794e6300c5ad53500bffe092947c82b0",
+      "before": null,
+      "path": "population_binding.independent_population_review_sha256"
+    },
+    {
+      "after": "PASS_FOR_LOCALCONTINUATION_FRESH_POPULATION_FREEZE",
+      "before": "<MISSING>",
+      "path": "population_binding.independent_population_review_verdict"
+    },
+    {
+      "after": "results/design/plancarry_localcontinuation_canonical_inventory_v1_20260823.json",
+      "before": "<MISSING>",
+      "path": "population_binding.inventory_file"
+    },
+    {
+      "after": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+      "before": "<MISSING>",
+      "path": "population_binding.inventory_file_sha256"
+    },
+    {
+      "after": 790,
+      "before": "<MISSING>",
+      "path": "population_binding.inventory_n"
+    },
+    {
+      "after": "results/design/plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json",
+      "before": "<MISSING>",
+      "path": "population_binding.manifest_file"
+    },
+    {
+      "after": "438ec489cdcf12d2335a59064e2d3ad86d77dc4d776cb37883cd9ad0364b695f",
+      "before": "<MISSING>",
+      "path": "population_binding.manifest_internal_exposed_paths_sha256"
+    },
+    {
+      "after": "aef394f328d21ce65d56123ec4faa2dd8d3b8357d172da4313139ddbb1047191",
+      "before": "<MISSING>",
+      "path": "population_binding.manifest_internal_inventory_paths_sha256"
+    },
+    {
+      "after": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+      "before": null,
+      "path": "population_binding.manifest_sha256"
+    },
+    {
+      "after": 524,
+      "before": "<MISSING>",
+      "path": "population_binding.remaining_unexposed_n"
+    },
+    {
+      "after": [
+        52,
+        63
+      ],
+      "before": "<MISSING>",
+      "path": "population_binding.reserve_replication_frozen_indices"
+    },
+    {
+      "after": 12,
+      "before": "<MISSING>",
+      "path": "population_binding.reserve_replication_n"
+    },
+    {
+      "after": 0,
+      "before": "<MISSING>",
+      "path": "population_binding.selected_exposed_overlap"
+    },
+    {
+      "after": 64,
+      "before": "<MISSING>",
+      "path": "population_binding.selected_n"
+    },
+    {
+      "after": "d08ef6aab0ca227c2d6f1e647439d6640d0fae3cde1f81b236cd3399a895b7f7",
+      "before": "<MISSING>",
+      "path": "population_binding.selected_paths_sha256"
+    },
+    {
+      "after": "FROZEN_AND_INDEPENDENTLY_REVIEWED",
+      "before": "NOT_YET_FROZEN",
+      "path": "population_binding.selector_real_population_status"
+    },
+    {
+      "after": "BOUND_TO_INDEPENDENTLY_REVIEWED_FRESH_POPULATION_PENDING_FINAL_PREREG_REVIEW",
+      "before": "PENDING_POPULATION_FREEZE_AND_INDEPENDENT_REVIEW",
+      "path": "population_binding.status"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "population_binding.valid_seen_accessed"
+    },
+    {
+      "after": false,
+      "before": "<MISSING>",
+      "path": "population_binding.valid_unseen_accessed"
+    },
+    {
+      "after": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1",
+      "before": "<MISSING>",
+      "path": "source_v02_independent_review_sha256"
+    },
+    {
+      "after": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+      "before": "<MISSING>",
+      "path": "source_v02_sha256"
+    }
+  ],
+  "checks": {
+    "arms_byte_equal": true,
+    "confirmation_byte_equal": true,
+    "counts_exact_790_266_524_64_32_20_12": true,
+    "development_byte_equal": true,
+    "final_review_gate_closed": true,
+    "high_tier_claim_boundary_byte_equal": true,
+    "hypothesis_id_byte_equal": true,
+    "model_runtime_byte_equal": true,
+    "no_model_environment_outcomes": true,
+    "no_valid_splits": true,
+    "phase_indices_exact": true,
+    "population_artifact_hashes_exact": true,
+    "population_review_pass_bound": true,
+    "primary_endpoint_byte_equal": true,
+    "reserve_replication_byte_equal": true,
+    "reset_and_persistent_session_byte_equal": true,
+    "scientific_difference_byte_equal": true,
+    "scientific_variables_changed_empty": true,
+    "secondary_endpoints_byte_equal": true,
+    "selected_exposed_overlap_zero": true,
+    "source_residual_byte_equal": true,
+    "source_v02_sha_exact": true,
+    "stage1_local_trajectory_gate_byte_equal": true,
+    "stage2_control_constructibility_byte_equal": true,
+    "v02_review_pass_bound": true
+  },
+  "environment_execution": 0,
+  "execution_forbidden": true,
+  "experiment_registration_forbidden": true,
+  "final_prereg_path": "results/design/plancarry_replayresidual_localcontinuation_prereg_final_v1_20260823.json",
+  "final_prereg_sha256": "a6972b33caaf7f2b7b28af248acd528a540e077bfdb59283f5f288de5e297ec8",
+  "heavy_compute_used": false,
+  "kind": "PLANCARRY_REPLAYRESIDUAL_LOCALCONTINUATION_FINAL_V1_POPULATION_BINDING_AUDIT",
+  "model_calls": 0,
+  "population_review_sha256": "bd730ea81e7bfea75fa7eb79e357505c794e6300c5ad53500bffe092947c82b0",
+  "science_equal_keys": [
+    "hypothesis_id",
+    "model_runtime",
+    "stage1_local_trajectory_gate",
+    "source_residual",
+    "stage2_control_constructibility",
+    "reset_and_persistent_session",
+    "arms",
+    "development",
+    "primary_endpoint",
+    "confirmation",
+    "secondary_endpoints",
+    "reserve_replication",
+    "scientific_difference",
+    "high_tier_claim_boundary"
+  ],
+  "scientific_outcomes_accessed": false,
+  "scientific_variables_changed": [],
+  "source_v02_path": "results/design/plancarry_replayresidual_localcontinuation_prereg_draft_v0_2_20260823.json",
+  "source_v02_review_sha256": "0c731db0b2b7cef27da2ba89d8f49470957ad4eac7cba86353ad1c3f662454b1",
+  "source_v02_sha256": "394a5946aa3d59be344b867fcbb7fbc00032a4628ce825e0b593db8c60256d45",
+  "status": "PASS_READY_FOR_FRESH_FINAL_INDEPENDENT_PREREG_REVIEW",
+  "unexpected_changed_paths": []
+}

@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "all_40_actual_newline_no_literal_backslash_n": true,
+    "all_40_environment_replay_and_serialization": true,
+    "compile_import": true,
+    "confirmation_selection_sha_barrier_precedes_bridge": true,
+    "donor_map_exact": true,
+    "exact_sign_tail_15_20": true,
+    "exact_sign_tail_16_20": true,
+    "fp32_zero_direction_rule": true,
+    "frozen_bundle_hashes": true,
+    "gtx1650_exact_provenance_accept": true,
+    "holm_deterministic": true,
+    "partial_confirmation_logs_counts_only": true,
+    "rtx3050_wrong_gpu_reject": true,
+    "sha256_rademacher_deterministic_unit_norm": true
+  },
+  "engineering_task_id": "226b2a26-af20-44f8-9cf3-148123e1053b",
+  "kind": "PLANCARRY_LATENT_V2_4_PARTIAL_RUNNER_DISCONNECT_AUDIT",
+  "limits": [
+    "No v2.4 dedicated test file or engineering result had yet been persisted by the owning worker at audit time.",
+    "This audit did not edit runner/validator or execute model/scientific outcomes.",
+    "PASS_SO_FAR does not authorize discovery; owning WorkItem must complete and independent runner-readiness review must pass."
+  ],
+  "model_outcomes_seen": false,
+  "runner_sha256": "19ce73cacdcbec50319959529c1c8a6fef9604bc080094d66578ebf0621e2d4e",
+  "runner_work_item_id": "044eebb1-f649-43e8-822b-9d2c07222818",
+  "scientific_result": "NOT_ASSESSED",
+  "validator_sha256": "e57783fdf83365561c122f5ba8f0dc9ba827b6e36a1af43ef85c36a1beb3c5d9",
+  "verdict": "PASS_SO_FAR_NOT_ENGINEERING_COMPLETION"
+}

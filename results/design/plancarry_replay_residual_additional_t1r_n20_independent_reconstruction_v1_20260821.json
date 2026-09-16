@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "all_exposure_source_hashes_exact": true,
+    "disjoint_from_dev": true,
+    "disjoint_from_existing_n12": true,
+    "disjoint_from_historical_exposure_union": true,
+    "disjoint_from_primary_confirmation": true,
+    "eligible_remaining_160_exact": true,
+    "existing_n12_wrapper_still_bound": true,
+    "exposure_union_246_exact": true,
+    "first64_exact_reconstruction": true,
+    "new_n20_unique": true,
+    "no_model_environment_execution": true,
+    "p15_exact": true,
+    "power80_exact": true,
+    "ranks64_83_exact_reconstruction": true,
+    "valid_seen_unseen_not_used": true
+  },
+  "eligible_remaining_family_count": 160,
+  "environment_execution": 0,
+  "exposure_union_family_count": 246,
+  "first64_mismatches": [],
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_ADDITIONAL_N20_T1R_INDEPENDENT_RECONSTRUCTION_V1",
+  "model_calls": 0,
+  "new_n20_mismatches": [],
+  "passed": true,
+  "passed_count": 15,
+  "qualification_or_success_contents_read": false,
+  "reserve_sha256": "d39beba4a768a3c633b54b01a5be032d35db26098cd42d7f5d488d7e34f9233a",
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED_PRE_OUTCOME_RECONSTRUCTION_ONLY",
+  "source_count": 18,
+  "source_fresh_sha256": "545dff3c31a0b05ec86241aaf2ec4a1de49af8d4426cf2731ebc669b30c39009",
+  "statistical_geometry": {
+    "illustrative_power_sign_p_0_8": 0.8042077854595504,
+    "n": 20,
+    "one_sided_p_ge_15": 0.020694732666015625,
+    "positive_threshold": 15
+  },
+  "total": 15,
+  "untouched_population_sha256": "14a13254be9ff84f455a0bbc44901f6fae9430d2c2676707687987fcf67a35e7"
+}

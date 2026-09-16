@@ -1,0 +1,80 @@
+{
+  "design_authority": {
+    "control_contract_sha256": "8511bf400e5032920440485ca8d1d32b64299082f386663b2d0d23cb8f6dbf8c",
+    "design_commit": "d538f98f9860319a57a0f3db4952fdcd7b7f2ebd",
+    "independent_token_freeze_review_sha256": "05c16eeb150f40ccc93edee81ce1b98be483c303382c33fcbce96e07aa9e1de6",
+    "independent_token_freeze_review_work_item_id": "8ac98b2e-b363-44b4-9892-7c3a5fb4aa60",
+    "independent_token_freeze_verdict": "PASS_FOR_LOCALCONTINUATION_V2_TOKEN_MATERIALIZATION_FREEZE",
+    "materialization_audit_sha256": "64c1c5cdf701b51a322f0a60b4df1bb0e68b133884224faaa6653d69fa3046da",
+    "population_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+    "prereg_sha256": "73aa5277b7fb20bcaebd5963e82cd62553b60b0a1bb975e8e223e0e4c1e8a716",
+    "static_audit_sha256": "e246cd9f33443c6a5a1fb2917b0066c6ee2a9c1a6bdc79be5b140c2f0c048f51",
+    "token_test_sha256": "38fc49adc4a50cadd26c3f97b664e6c6664e2df6327cf651b6d7587bb07cdcdd"
+  },
+  "diff_scope": {
+    "changed_tracked_files": [
+      "localcontinuation_controls_v2.py",
+      "localcontinuation_packet_builder_v2.py",
+      "tests/test_localcontinuation_v2_controls.py"
+    ],
+    "prohibited_changes_detected": [],
+    "scientific_variable_drift": false,
+    "scientific_variables_changed": [],
+    "unrelated_changes": false
+  },
+  "engineering_task_id": "260e799a-6e75-4488-9ca4-d2bbcdf0ab37",
+  "exact_token_materialization": {
+    "action_rule": "action1/action2/action3 control token IDs encoded once and persisted pre-E; action3 full length <=96",
+    "direct_replay": "encode(prefix)+exact128_slot_ids+encode(suffix)",
+    "neutral_filler_length": 128,
+    "neutral_filler_literal_ids_sha256": "557e30342fe6309165f388724a14895474db6d7ef82e4a3679c4459f4f7ae287",
+    "past_actions_separator_ids": [
+      198
+    ],
+    "plan_rule": "one accepted-plan tokenization with offsets pre-E; tag/boundary-overlap tokens frozen; mutable only wholly interior nonempty offsets; >=2 positions and >=2 distinct values; deterministic strict primary/fallback derangement; no replacement",
+    "stage2_rule": "stored source/donor plan/action IDs only; no semantic decode/re-tokenize"
+  },
+  "execution_attestation": {
+    "alfworld_study_execution": 0,
+    "confirmation_accessed": false,
+    "experiment_execution": 0,
+    "experiment_registration": 0,
+    "model_calls": 0,
+    "reserve_accessed": false,
+    "valid_seen_accessed": false,
+    "valid_unseen_accessed": false,
+    "vast_usage": 0
+  },
+  "implementation_base_commit": "8c168479c51915ab1f882e9244648a1a4cc4edf9",
+  "implementation_files_sha256": {
+    "localcontinuation_controls_v2.py": "c93bc0b76110a88eb54dfc0b0d2ea63f13b515140b68e927c12da2f495ec0367",
+    "localcontinuation_packet_builder_v2.py": "cfb2b616cf2ba5bd7f81adda5c09a42bf7f26e4d99b4a8de5793ed0779d85685",
+    "localcontinuation_validator_v2.py": "e2283c110e8180b754c221bbe00af86c482af4bb56fbebbbff0cbf2e0760e0c1",
+    "tests/test_localcontinuation_v2_controls.py": "a53acf12ab800b612604a6acb14c2f8567206f01d7f1e28e07d2be450151c414"
+  },
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_FINAL_CONTROL_IMPLEMENTATION_AUDIT_A2_V1",
+  "scientific_result": "NOT_ASSESSED",
+  "status": "VERIFIED_TARGETED_PRE_SCIENCE_PENDING_INDEPENDENT_EXECUTABLE_REVIEW",
+  "tests": {
+    "actual_qwen_tokenizer_boundary_smoke": "PASS",
+    "full_gate_job_id": "local_c651703b50864cce",
+    "full_synthetic_dev32_stage1_E_donor_stage2": "PASS",
+    "git_diff_check": "PASS",
+    "legacy_execution_stack": "15/15 PASS",
+    "pinned_authority_and_v1_hashes": "13/13 PASS",
+    "population_selector": "11/11 PASS",
+    "py_compile": "PASS",
+    "stage2_exploding_tokenizer_no_semantic_calls": "PASS",
+    "static_diff_job_id": "local_b59f2f399e144301",
+    "strict_counts": {
+      "all_equal_fail_closed": 27,
+      "constructible": 88542,
+      "fallback": 29496,
+      "primary": 59046
+    },
+    "targeted_patch_job_id": "local_4db0dc7642ac431e",
+    "token_materialization": "PASS",
+    "v2_tests": "14/14 PASS"
+  },
+  "work_item_id": "a33c0c9e-93ea-49df-b058-facb6fb7074f"
+}

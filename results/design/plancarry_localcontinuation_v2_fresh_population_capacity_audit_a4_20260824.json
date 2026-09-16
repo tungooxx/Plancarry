@@ -1,0 +1,22 @@
+{
+  "counts": {
+    "canonical_inventory": 790,
+    "eligible_after_excluding_exposed_and_all_v1_selected": 460,
+    "historically_exposed": 266,
+    "required_new_cohort": 64,
+    "spare_after_new64": 396,
+    "v1_selected_all_phases": 64,
+    "v1_selected_exposed_overlap": 0
+  },
+  "environment_execution": 0,
+  "kind": "PLANCARRY_LOCALCONTINUATION_V2_FRESH_POPULATION_CAPACITY_AUDIT_A4_V1",
+  "model_calls": 0,
+  "rule": "Any v2 successor must select by a new prospectively frozen filename-only salt from inventory - historically_exposed - ALL v1 selected64; do not reuse v1 confirmation/reserve merely because they were unopened. This artifact establishes capacity only and does not select paths.",
+  "scientific_result": "NOT_ASSESSED",
+  "selected_successor_paths": 0,
+  "source_hashes": {
+    "historically_exposed": "a96c4cd6bd46a16341b364fc86c0e3daf6580a857a6c2c1f6615b98d851d5284",
+    "inventory": "fd9f90789e3c2bf616df593a6ed65a2dcfb4a5ab4e12454633c93d259e6c47bf",
+    "v1_population": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543"
+  }
+}

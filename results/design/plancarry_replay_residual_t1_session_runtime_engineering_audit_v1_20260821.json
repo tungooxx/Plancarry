@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "microcheck": {
+      "path": "results/design/plancarry_replay_residual_t1_session_runtime_real_torch_microcheck_v1_worker9e5c_20260821.json",
+      "sha256": "dafef2c366c3d8af5b5e9a2d7fbfb23020c6b79190b874a4388ab53c5e4f801a"
+    },
+    "runtime": {
+      "path": "replay_residual_t1_session_runtime_v1.py",
+      "sha256": "585e44ec5cd2395be0804b865de85ac36c5db79117cf4061566cf16a9749e3b6"
+    },
+    "tests": {
+      "path": "test_replay_residual_t1_session_runtime_v1.py",
+      "sha256": "234a4f56a25fd8cce7c9d7edf74c9415c17916598f592dca315d29f44eb849e7"
+    }
+  },
+  "diff_scope": [
+    "new runtime module",
+    "new synthetic test module",
+    "new engineering-only microcheck/audit artifacts"
+  ],
+  "engineering_invariants": {
+    "candidate_scoring_live_cache_byte_identical": true,
+    "candidate_scoring_live_length_identical": true,
+    "device_cuda_if_available": true,
+    "direct_ids_hashes_present": true,
+    "dynamic_cache_live_nonempty": true,
+    "hook_count_exactly_one": true,
+    "no_alfworld_or_textworld_imports": true,
+    "no_confirmation_or_valid_split_science_path": true,
+    "same_session_cache_extended": true,
+    "source_hash_nonempty": true,
+    "tests_hash_nonempty": true,
+    "zero_add_cache_exact": true,
+    "zero_add_equivalent_atol_1e_6": true
+  },
+  "engineering_task_id": "b63b7c66-5cfd-4c16-9302-ea09111c9d42",
+  "environment_execution": 0,
+  "existing_scientific_sources_modified": false,
+  "gap_matrix_sha256": "8cd22aff1d89b7a54eaa07b833dc75ecc1286f6938e39ee72256dd9705cba895",
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_T1_SESSION_RUNTIME_ENGINEERING_AUDIT_V1",
+  "model_science_calls": 0,
+  "pre_outcome": true,
+  "scientific_outcomes_accessed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "scientific_variables_changed": [],
+  "t1_prereg_sha256": "77a7d9c9ee597551da8e8ef0b8a2c79038990968e3f62735ff90ed8c9c7d55e2",
+  "test_result": "5/5 unittest PASS + py_compile PASS + real-Torch DynamicCache synthetic microcheck PASS",
+  "v2_1_contract_sha256": "83370fbfc65c4818ada159a0e3c83cf778b88ed02f964bcf7887e5cea3843158",
+  "work_item_id": "9ce176bc-503b-4d90-9b2e-00a949e3fff8"
+}

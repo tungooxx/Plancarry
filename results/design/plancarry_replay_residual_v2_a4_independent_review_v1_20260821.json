@@ -1,0 +1,67 @@
+{
+  "author_worker": "LLM A4",
+  "authorization": "DO_NOT_REGISTER_SUCCESSOR_EXPERIMENT_FROM_THIS_V2_BYTES. Repair only the two listed contradictions prospectively, freeze new bytes+semantic diff, then obtain fresh independent review. No model/environment science authorized.",
+  "created_utc": "2026-08-21T08:13:53Z",
+  "environment_execution": 0,
+  "kind": "PLANCARRY_REPLAY_RESIDUAL_V2_A4_INDEPENDENT_REVIEW_V1",
+  "material_findings": [
+    {
+      "evidence_paths": [
+        "qualification.stage2.unrelated_plan_donor_rule.domain",
+        "replay_conditions.UNRELATED_PLAN"
+      ],
+      "id": "V2-DONOR-DOMAIN-INTERNAL-CONTRADICTION",
+      "observed": "qualification.stage2 correctly freezes donor selection over trajectory-eligible E, but replay_conditions.UNRELATED_PLAN says donor comes from the fixed qualified set. Final qualification itself depends on all-seven control constructibility, so qualified-set donor selection is circular and can change which families qualify.",
+      "required_repair": "Replace the stale replay_conditions.UNRELATED_PLAN wording with deterministic different-family donor from fixed frozen E exactly as qualification.stage2 defines; explicitly state final-qualified membership never participates in donor selection. No other donor rule change.",
+      "severity": "MATERIAL_REPAIR_REQUIRED"
+    },
+    {
+      "evidence_paths": [
+        "prohibitions",
+        "claim_boundary",
+        "phase_isolation",
+        "registration_and_authority.successor_requirement"
+      ],
+      "id": "V2-PROHIBITION-SCOPE-INTERNAL-CONTRADICTION",
+      "observed": "top-level prohibitions unqualifiedly say no model calls and no ALFWorld/environment execution, while the same contract is intended to govern a future successor packet-production/representation-sanity experiment that necessarily performs model and environment calls. claim_boundary/phase_isolation indicate those zeros apply to contract materialization, but prohibitions does not scope them.",
+      "required_repair": "Split or scope prohibitions: model_calls=0/environment_execution=0/scientific_outcome_access apply to V2 materialization/review only. Preserve future science prohibitions on reserve32..63, valid splits, expert/oracle fields, causal patch/injection, family replacement, threshold rescue, stale-v1/old-experiment execution. This clarification must not authorize science before successor registration/review.",
+      "severity": "MATERIAL_REPAIR_REQUIRED"
+    }
+  ],
+  "mechanical_checks": {
+    "all_seven_authoritative_source_hashes_match_bytes": true,
+    "canonical_development_0_31_min16_cut2_budget12_no_replacement_preserved": true,
+    "canonical_object_self_hash_recomputed_matches": true,
+    "contract_file_sha256_matches": true,
+    "machine_audit_environment_execution_zero": true,
+    "machine_audit_file_sha256_matches": true,
+    "machine_audit_model_calls_zero": true,
+    "machine_audit_scientific_outcomes_accessed_false": true,
+    "machine_audit_unexpected_changed_paths_empty": true,
+    "old_experiment_5ac34da1_explicitly_prohibited": true,
+    "qualifier_entire_plan_text_token_length_le_96_matches_v2_tagged_block_rule": true,
+    "qualifier_exact_planner_system_user_match_v2": true,
+    "qualifier_executor_system_user_and_action_terminal_match_v2": true,
+    "qualifier_greedy_max_new_tokens_128_matches_v2": true,
+    "qualifier_nontrivial_excludes_exact_help_inventory_look_matches_v2": true,
+    "qualifier_sorted_commands_and_fp32_suffix_mean_rule_match_v2": true,
+    "seven_controls_layers_7_14_21_27_sanity_metrics_and_gates_preserved": true,
+    "untouched_population_exactly_confirmation_32_51_replication_52_63": true
+  },
+  "model_calls": 0,
+  "non_material_notes": [
+    "Sanity v1.1 field names say max_plan_content_tokens/content<=96, but qualifier v1 exact parser and replay_residual_sanity_protocol_v1 validate the entire plan_text including tags; V2 complete-tagged-block<=96 is therefore the justified executable interpretation, not a defect.",
+    "sealed_reserve_indices=[32,63] is interpreted as inclusive range endpoints by the frozen lineage; untouched population bytes independently enumerate confirmation32..51 and replication52..63."
+  ],
+  "review_work_item_id": "6f838bdb-8101-4454-b0f1-22c0d77efc16",
+  "reviewed_contract": {
+    "path": "results/design/plancarry_replay_residual_unified_execution_contract_v2_20260821.json",
+    "sha256": "7a7709356cff14ebede95920d1e26399b2b1665c00780c6fc2c5749c5d97ac03"
+  },
+  "reviewed_machine_audit": {
+    "path": "results/design/plancarry_replay_residual_unified_execution_contract_v2_semantic_audit_v1_20260821.json",
+    "sha256": "6083748e88008fca45ff32e090e53f12a57f3e9c8049626ae57616f0d747b1cd"
+  },
+  "scientific_outcomes_accessed": false,
+  "verdict": "MATERIAL_REPAIR_REQUIRED"
+}
