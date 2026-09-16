@@ -19,12 +19,12 @@ def rows():
     ]
 
 
-def payload(name: str, shift: int = 0):
+def payload(shift: int = 0):
     triples = [
         p.PayloadTriple(transformer_block_index=i // 4, mlp_intermediate_channel_index=shift + i, gain=p.ALLOWED_GAINS[i % 2])
         for i in range(p.PAYLOAD_K)
     ]
-    return p.make_payload_manifest(name, triples)
+    return p.make_payload_manifest(triples)
 
 
 def test_phi_api_is_target_bit_weight_and_identity_blind():
@@ -141,7 +141,7 @@ def test_p_mix_makes_one_prediction_per_original_record_with_frozen_tie_rule():
 
 
 def test_off_support_diagnostic_cannot_select_payload():
-    cp, cq = payload("C_p"), payload("C_q", shift=100)
+    cp, cq = payload(), payload(shift=100)
     assert p.select_payload_from_observed_support("p", cp, cq, observed_support=True) == cp
     assert p.select_payload_from_observed_support("q", cp, cq, observed_support=True) == cq
     diag = p.off_support_q_toggle_diagnostic({"synthetic": True})
@@ -153,19 +153,48 @@ def test_off_support_diagnostic_cannot_select_payload():
 
 
 def test_payload_manifest_exact_budget_gains_uniqueness_checksum_and_stability():
-    cp = payload("C_p")
+    cp = payload()
     assert len(cp.triples) == p.PAYLOAD_K
     assert all(t.gain in p.ALLOWED_GAINS for t in cp.triples)
     assert p.validate_payload_manifest(cp)
-    cp_again = payload("C_p")
+    cp_again = payload()
     assert cp.checksum == cp_again.checksum
 
     duplicate = [p.PayloadTriple(i // 4, i, p.ALLOWED_GAINS[i % 2]) for i in range(p.PAYLOAD_K - 1)]
     duplicate.append(duplicate[-1])
     with pytest.raises(p.ProtocolViolation):
-        p.make_payload_manifest("C_p", duplicate)
+        p.make_payload_manifest(duplicate)
     with pytest.raises(p.ProtocolViolation):
         p.PayloadTriple(0, 0, 1.0)
+
+
+def test_applied_payload_is_anonymous_and_checksum_has_no_semantic_bank_identity():
+    from dataclasses import fields
+
+    first = payload()
+    same_bytes_from_other_bank_slot = payload()
+    assert first.checksum == same_bytes_from_other_bank_slot.checksum
+    assert {field.name for field in fields(p.PayloadManifest)} == {"version", "triples", "checksum"}
+    assert set(first.unsigned_payload()) == {"version", "triples"}
+    assert set(first.serialized_payload()) == {"version", "triples", "checksum"}
+    assert not hasattr(first, "name")
+
+    # Bank-side semantic mapping exists only in local control flow.  The object
+    # crossing the boundary is byte-identical for identical anonymous content.
+    bank = {"p": first, "q": same_bytes_from_other_bank_slot}
+    selected_p = p.select_payload_from_observed_support("p", bank["p"], bank["q"], observed_support=True)
+    selected_q = p.select_payload_from_observed_support("q", bank["p"], bank["q"], observed_support=True)
+    assert selected_p.serialized_payload() == selected_q.serialized_payload()
+    serialized_text = p.stable_json(selected_p.serialized_payload())
+    assert '"name"' not in serialized_text
+    assert "C_p" not in serialized_text and "C_q" not in serialized_text
+
+
+def test_payload_checksum_preimage_is_exact_anonymous_version_plus_triples():
+    manifest = payload(shift=37)
+    assert manifest.checksum == p.sha256_json(manifest.unsigned_payload())
+    assert set(manifest.unsigned_payload()) == {"version", "triples"}
+    assert len(manifest.unsigned_payload()["triples"]) == p.PAYLOAD_K
 
 
 def test_decoder_relative_null_canary_requires_reference_equality_not_redundancy_claim():

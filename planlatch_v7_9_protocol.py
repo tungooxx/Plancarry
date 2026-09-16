@@ -350,33 +350,40 @@ class PayloadTriple:
 
 @dataclass(frozen=True)
 class PayloadManifest:
-    name: str
+    """Anonymous payload bytes allowed to cross the reset/application boundary.
+
+    Semantic bank identity is deliberately absent.  The checksum preimage is
+    exactly ``{version, triples}``; callers may map a predicted label to one
+    of two manifests outside this object, but that mapping is never serialized
+    into or authenticated as part of the applied payload.
+    """
+
     version: str
     triples: tuple[PayloadTriple, ...]
     checksum: str
 
     def unsigned_payload(self) -> dict[str, object]:
         return {
-            "name": self.name,
             "version": self.version,
             "triples": [list(t.payload()) for t in self.triples],
         }
 
+    def serialized_payload(self) -> dict[str, object]:
+        return {**self.unsigned_payload(), "checksum": self.checksum}
 
-def make_payload_manifest(name: str, triples: Iterable[PayloadTriple], *, version: str = PROTOCOL_VERSION) -> PayloadManifest:
-    if name not in ("C_p", "C_q"):
-        raise ProtocolViolation("payload name must be C_p or C_q")
+
+def make_payload_manifest(triples: Iterable[PayloadTriple], *, version: str = PROTOCOL_VERSION) -> PayloadManifest:
     frozen = tuple(triples)
     if len(frozen) != PAYLOAD_K:
         raise ProtocolViolation(f"payload must contain exactly {PAYLOAD_K} triples")
     if len(set(frozen)) != PAYLOAD_K:
         raise ProtocolViolation("payload triples must be unique")
-    unsigned = {"name": name, "version": version, "triples": [list(t.payload()) for t in frozen]}
-    return PayloadManifest(name=name, version=version, triples=frozen, checksum=sha256_json(unsigned))
+    unsigned = {"version": version, "triples": [list(t.payload()) for t in frozen]}
+    return PayloadManifest(version=version, triples=frozen, checksum=sha256_json(unsigned))
 
 
 def validate_payload_manifest(manifest: PayloadManifest) -> bool:
-    rebuilt = make_payload_manifest(manifest.name, manifest.triples, version=manifest.version)
+    rebuilt = make_payload_manifest(manifest.triples, version=manifest.version)
     if rebuilt.checksum != manifest.checksum:
         raise ProtocolViolation("payload checksum mismatch")
     return True
@@ -384,23 +391,22 @@ def validate_payload_manifest(manifest: PayloadManifest) -> bool:
 
 def select_payload_from_observed_support(
     s_hat: str | OffSupportDiagnostic,
-    c_p: PayloadManifest,
-    c_q: PayloadManifest,
+    payload_for_p: PayloadManifest,
+    payload_for_q: PayloadManifest,
     *,
     observed_support: bool,
 ) -> PayloadManifest:
+    """Select at the bank side, returning only an anonymous payload object."""
     if isinstance(s_hat, OffSupportDiagnostic):
         raise ProtocolViolation("off-support diagnostics cannot select payloads")
     if not observed_support:
         raise ProtocolViolation("payload selection requires actual observed-support Q")
-    validate_payload_manifest(c_p)
-    validate_payload_manifest(c_q)
-    if c_p.name != "C_p" or c_q.name != "C_q":
-        raise ProtocolViolation("payload identities must be bound as C_p and C_q")
+    validate_payload_manifest(payload_for_p)
+    validate_payload_manifest(payload_for_q)
     if s_hat == "p":
-        return c_p
+        return payload_for_p
     if s_hat == "q":
-        return c_q
+        return payload_for_q
     raise ProtocolViolation("S_hat must be p or q")
 
 
