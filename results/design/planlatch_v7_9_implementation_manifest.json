@@ -76,6 +76,45 @@
   "protocol_version": "planlatch-v7.9-prescience-v1",
   "repair_base_commit": "00c4c1027d536e24c75630e1dbe3f2b918cc45c8",
   "repair_scope": "anonymous_payload_serialization_application_only",
+  "runtime_candidate": {
+    "broader_checks": [
+      "python -m py_compile protocol/runner/model-runtime/tests",
+      "git diff --check"
+    ],
+    "candidate_payload_hash": "c6faef0cfb0ea8454ff90e572dcecdb17e25a51be9950406a493e0192410c271",
+    "exact_protocol_base_commit": "13f7b903a6a4ea098798dd48350531de0b838a20",
+    "files": {
+      "planlatch_v7_9_model_runtime.py": "4f693e43fe66c855e1dbca8cba0ef0f664b8960ff450813d6d86b50bc0b4a260",
+      "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+      "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "results/design/planlatch_v7_9_runtime_freeze.json": "acfc89b328723c0e0f8c59258dc79d27de02f3f78d6d101044315285e77e26fb",
+      "tests/test_planlatch_v7_9_model_runtime.py": "cff02c03baf1ac21ace15e014415b4c9e30fc224438690ce53d76dbdc32f6cea",
+      "tests/test_planlatch_v7_9_runner.py": "47db77c1dc8e27b0be8e30152de1a809b93ae8eb9bb84cb895ae8c97cf9f6bd9"
+    },
+    "kind": "PLANLATCH_V7_9_RUNTIME_IMPLEMENTATION_CANDIDATE_NOT_SCIENTIFIC_EVIDENCE",
+    "model_or_environment_loaded_by_acceptance": false,
+    "notes": "PRE_SOURCE freezes pre-response frame/probe/channel/decoder-config/fresh-TRAIN identities. POST_FIT_HELDOUT freezes FIT-derived phi/source-model/payload/reset hashes before SUPPORT/PILOT/CROSS_REALIZATION access. No legacy one-stage circular manifest is accepted.",
+    "protocol_engineering_result_id": "db5af483-26eb-4669-b07b-98a4147ba702",
+    "protocol_fidelity_record_id": "f6e98dd3-e5a0-4760-9690-4e718a3adb96",
+    "protocol_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "real_execution_cli_authorized": false,
+    "relay_gate_evaluator": "G13-G20 exact frozen thresholds plus payload/reset/provenance attestations",
+    "runtime_engineering_task_id": "4ce82e65-714f-4d54-96e7-b28e1b38880b",
+    "runtime_freeze_file_sha256": "acfc89b328723c0e0f8c59258dc79d27de02f3f78d6d101044315285e77e26fb",
+    "runtime_freeze_hash": "fb204777fe6b2e22295c5fc1cdf551a07cf713fdd0cc07ee6fa772204d0918a4",
+    "runtime_work_item_id": "cf13a4bf-c1c6-426a-9f7d-0c145e57747d",
+    "scientific_execution_performed": false,
+    "source_gate_evaluator": "G1-G12 exact frozen thresholds plus explicit non-numerical attestations",
+    "staged_execution_contract": {
+      "POST_FIT_HELDOUT": "phi/source-decoder/payload/reset hashes freeze using FIT only before SUPPORT/PILOT/CROSS_REALIZATION",
+      "PRE_SOURCE": "frame/probe/channel/decoder-config/fresh-TRAIN freeze before donor response"
+    },
+    "targeted_test_command": "PYTHONPATH=.deps:. CUDA_VISIBLE_DEVICES='' python -m pytest -q tests/test_planlatch_v7_9_protocol.py tests/test_planlatch_v7_9_runner.py tests/test_planlatch_v7_9_model_runtime.py",
+    "targeted_test_result": {
+      "failed": 0,
+      "passed": 43
+    }
+  },
   "scientific_design_id": "c8b8981a-352f-48c0-9bee-08bba6a46f7f",
   "scientific_execution_performed": false,
   "scientific_semantic_hash": "6e53b8f713b2de6f3a2b489b351b1ca37f355eaf850228e9706a596a47ba62ef",

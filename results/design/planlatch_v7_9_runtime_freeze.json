@@ -1,0 +1,200 @@
+{
+  "audits": {
+    "decoder_canary": {
+      "attempts": [
+        {
+          "config": {
+            "l2": 0.01,
+            "lr": 0.2,
+            "steps": 400
+          },
+          "metrics": {
+            "factorized_abs_ba_gain": 0.0,
+            "factorized_abs_log_gain": 0.0,
+            "positive_ba_gain": 0.5,
+            "positive_log_gain": 0.5766628971304391
+          },
+          "passed": true
+        }
+      ],
+      "selected": {
+        "config_hash": "ae4eb9ad18cf60e530d62e5955458c2f8f1e20447b75dda15fe15e3fe37f3d14",
+        "family": "binary-logistic-fullbatch-gd-v1",
+        "l2": 0.01,
+        "lr": 0.2,
+        "steps": 400
+      }
+    },
+    "protocol_checks": {
+      "payload_anonymous_fields": true,
+      "protocol_canaries": {
+        "J_selection_boundary": {
+          "interpretation": "selected-population-only guard; no selection-immunity upgrade",
+          "passed": true
+        },
+        "collapsed_symmetric_null_objective_equivalence": {
+          "max_parameter_or_prediction_abs_diff": 5.551115123125783e-17,
+          "passed": true
+        },
+        "conditional_placebo": {
+          "passed": true
+        },
+        "decoder_relative_common_transform_null": {
+          "passed": true
+        },
+        "factorized_negative": {
+          "metrics": {
+            "factorized_abs_ba_gain": 0.0,
+            "factorized_abs_log_gain": 0.0,
+            "positive_ba_gain": 0.5,
+            "positive_log_gain": 0.5766628971304391
+          },
+          "passed": true
+        },
+        "incompatible_nuisance_router": {
+          "passed": true,
+          "per_u_mean_log_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "label_permutation_preprocessing_invariance": {
+          "passed": true
+        },
+        "off_support_toggle_boundary": {
+          "passed": true
+        },
+        "orbit_redundant_chart_boundary": {
+          "interpretation": "positive gain is compatible with Q being deterministic from O*",
+          "mean_decoder_relative_log_gain": 0.5766628971304392,
+          "passed": true
+        },
+        "placebo_metric_reduction": {
+          "passed": true
+        },
+        "positive": {
+          "metrics": {
+            "factorized_abs_ba_gain": 0.0,
+            "factorized_abs_log_gain": 0.0,
+            "positive_ba_gain": 0.5,
+            "positive_log_gain": 0.5766628971304391
+          },
+          "passed": true
+        },
+        "singleton_zero": {
+          "passed": true
+        }
+      }
+    }
+  },
+  "freeze": {
+    "candidate_channel_algorithm": {
+      "count": 256,
+      "method": "sha256-rank-over-all-block-intermediate-channels",
+      "semantic_inputs": false
+    },
+    "decoder": {
+      "config_hash": "ae4eb9ad18cf60e530d62e5955458c2f8f1e20447b75dda15fe15e3fe37f3d14",
+      "family": "binary-logistic-fullbatch-gd-v1",
+      "l2": 0.01,
+      "lr": 0.2,
+      "selection": "first-candidate-passing-synthetic-canaries-only",
+      "steps": 400
+    },
+    "design_id": "c8b8981a-352f-48c0-9bee-08bba6a46f7f",
+    "endpoint_scoring_contract": {
+      "endpoint_ids": "opaque",
+      "method": "exact-prefix-suffix-logprob-sum-and-mean;choice-softmax-over-mean-v1",
+      "semantic_orientation": "sealed-until-scores-freeze"
+    },
+    "factor_contract": {
+      "A": [
+        0,
+        1
+      ],
+      "H": [
+        0,
+        1
+      ],
+      "M0": "pre-S exogenous mapping/surface-program id",
+      "S": [
+        "p",
+        "q"
+      ],
+      "U": "(A,H,M0)",
+      "sham": true,
+      "washout": "equal-token-frozen"
+    },
+    "freeze_hash": "fb204777fe6b2e22295c5fc1cdf551a07cf713fdd0cc07ee6fa772204d0918a4",
+    "g_action": "global-sign-involution-minus-I-v1",
+    "model_dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "opaque_probe_algorithm": {
+      "count": 8,
+      "method": "sha256-token-id-selection-without-decoding",
+      "semantic_inputs": false
+    },
+    "partition_contract": {
+      "CROSS_REALIZATION_min": 4,
+      "CROSS_REALIZATION_selected": 4,
+      "FIT": 12,
+      "PILOT": 8,
+      "SUPPORT": 12,
+      "dependency_key_types": [
+        "base_task_identity",
+        "relation_template_group_id",
+        "source_template_instance_family_id",
+        "paired_rng_ancestor_id",
+        "generation_seed_family_id",
+        "constructor_randomization_table_id",
+        "cache_namespace_parent_id",
+        "source_data_origin_family_id"
+      ],
+      "response_conditioned_replacement": false,
+      "whole_B": true
+    },
+    "payload_application_contract": {
+      "composition": "one-distinct-channel-per-payload;simultaneous-multiplicative-gain-v1",
+      "scope": "last-visible-context-token-only",
+      "site": "qwen-mlp-down_proj-input-post-gated-last-visible-token-v1"
+    },
+    "payload_contract": {
+      "K": 16,
+      "bank_construction": "FIT-only",
+      "gains": [
+        0.8,
+        1.25
+      ],
+      "serialized_fields": [
+        "version",
+        "triples",
+        "checksum"
+      ]
+    },
+    "protocol_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "quantization": "NONE",
+    "runtime_packages": {
+      "python_major_minor": "3.12",
+      "tokenizers": "0.21.1",
+      "torch": "2.13.0+cu130",
+      "transformers": "4.51.3"
+    },
+    "runtime_version": "planlatch-v7.9-runtime-v1",
+    "semantic_hash": "6e53b8f713b2de6f3a2b489b351b1ca37f355eaf850228e9706a596a47ba62ef",
+    "source_ablation_contract": {
+      "response": "baseline-minus-zero-ablation-next-token-logprob-over-opaque-probes-v1",
+      "site": "qwen-mlp-down_proj-input-post-gated-last-visible-token-v1",
+      "tensor_order": "candidate-major/probe-major"
+    },
+    "staged_execution_contract": {
+      "POST_FIT_HELDOUT": "phi/source-decoder/payload/reset hashes freeze using FIT only before SUPPORT/PILOT/CROSS_REALIZATION",
+      "PRE_SOURCE": "frame/probe/channel/decoder-config/fresh-TRAIN freeze before donor response"
+    },
+    "t_float_format": "ieee754-f32-le",
+    "task_split": "train"
+  },
+  "kind": "PLANLATCH_V7_9_PRE_SCIENCE_RUNTIME_FREEZE_NOT_SCIENTIFIC_EVIDENCE",
+  "model_or_environment_loaded": false,
+  "scientific_execution_performed": false
+}
