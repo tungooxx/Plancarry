@@ -1,0 +1,80 @@
+{
+  "acceptance": {
+    "driver_suite": {
+      "failed": 0,
+      "passed": 13
+    },
+    "full_suite": {
+      "duration_seconds": 10.36,
+      "failed": 0,
+      "passed": 56
+    },
+    "git_diff_check": true,
+    "py_compile": true,
+    "reviewed_runtime_byte_identity": true,
+    "synthetic_execution": {
+      "all_g1_g20_passed": true,
+      "model_or_environment_real_access": false,
+      "result_sha256": "e4d4225d5bdcb081181a39026c2983c0be19c52432a5b1e5976a58676c55ab3d",
+      "scientific_execution_performed": false,
+      "stage_order": [
+        "PRE_SOURCE_FROZEN",
+        "POST_FIT_HELDOUT_FROZEN",
+        "SOURCE_REPORT_FROZEN",
+        "PILOT_RAW_ARM_SCORES_FROZEN",
+        "CROSS_RAW_ARM_SCORES_FROZEN",
+        "RESULT_FROZEN"
+      ]
+    }
+  },
+  "base_commit": "e6ff6bb3714a84a395336c0ab06327b594d30d04",
+  "engineering_task_id": "11c5f60f-3212-4ae5-806e-714b06ba4aa5",
+  "experiment_id": "35f1abdc-7647-4f39-811d-f18c0213682d",
+  "kind": "PLANLATCH_V79_EXECUTION_DRIVER_IMPLEMENTATION_NOT_SCIENTIFIC_EVIDENCE",
+  "manifest_logical_sha256": "e0370d99993acdcd139465ff27a1d0db7e3e5e9572fa29fc9c89c84bf885976a",
+  "model_or_environment_loaded_during_implementation": false,
+  "new_files": {
+    "planlatch_v7_9_execution_driver.py": "dca227d5ed088ce5d382fda7f0e6e3cad0b2a40eb45c07f449175ce53add4632",
+    "tests/test_planlatch_v7_9_execution_driver.py": "7c7ec8fbcb8a0af8349e34260c7a976926292fd343c573e34b1b12df1f258c7b"
+  },
+  "operationalizations_frozen_pre_outcome": {
+    "endpoint_nonreversal": "Reuse the already-frozen >=3/4 CROSS_REALIZATION criterion separately for choice-probability, mean-logprob, logprob-sum and top1 non-reversal.",
+    "sham_specificity": "Matched sham fails specificity if it itself satisfies the already-frozen SUPPORT+PILOT source-evidence thresholds; no new numeric threshold.",
+    "true_s_stratification": "Positive median payload direction within each true-S stratum; sign-only interpretation.",
+    "valid_action_guard": "Each relay record prospectively binds valid_endpoint_ids equal to its opaque scored endpoints; count blocks where payload valid-action rate is below NO."
+  },
+  "prediction_id": "76a326dd-22f4-4a6f-99b9-1701b9d5123a",
+  "real_execution_requires": [
+    "ResearchDecision ID",
+    "PRE_SCIENCE release candidate ID",
+    "final independent release review PASS",
+    "exact reviewed runtime bytes",
+    "fresh output namespace"
+  ],
+  "real_science_authorized": false,
+  "reviewed_hashes": {
+    "planlatch_v7_9_model_runtime.py": "4f693e43fe66c855e1dbca8cba0ef0f664b8960ff450813d6d86b50bc0b4a260",
+    "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200"
+  },
+  "reviewed_runtime_hashes": {
+    "planlatch_v7_9_model_runtime.py": "4f693e43fe66c855e1dbca8cba0ef0f664b8960ff450813d6d86b50bc0b4a260",
+    "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200"
+  },
+  "runtime_engineering_result_id": "8493b2b5-4f33-42b3-872f-11623f265625",
+  "runtime_fidelity_record_id": "d44ecf92-bc6d-452e-8d04-1666a22defba",
+  "scientific_design_id": "c8b8981a-352f-48c0-9bee-08bba6a46f7f",
+  "scientific_execution_performed": false,
+  "scientific_semantic_hash": "6e53b8f713b2de6f3a2b489b351b1ca37f355eaf850228e9706a596a47ba62ef",
+  "stage_contract": [
+    "PRE_SOURCE",
+    "FIT",
+    "POST_FIT_HELDOUT",
+    "SUPPORT/PILOT/CROSS_REALIZATION",
+    "RAW_ARM_SCORES_FROZEN",
+    "EVALUATOR_ORIENTATION_UNSEALED",
+    "G1_G20_RESULT"
+  ],
+  "work_item_id": "ca1bf04c-b829-4f17-9fa5-f1757e63b67e"
+}
