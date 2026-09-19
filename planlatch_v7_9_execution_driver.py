@@ -2,7 +2,9 @@
 
 This module is additive to the independently reviewed v7.9 runtime. Importing
 it does not import torch/transformers/ALFWorld and cannot execute science.
-Real execution requires a reviewed authority bundle and explicit --execute.
+This local wrapper exposes no real-execution CLI or authority parser. Real science
+must be admitted and launched by the canonical Research OS
+research_experiment_execute control-plane boundary after release review.
 
 The wrapper enforces the frozen custody order:
 PRE_SOURCE -> FIT -> POST_FIT_HELDOUT -> SUPPORT/PILOT/CROSS_REALIZATION.
@@ -34,7 +36,7 @@ RUNTIME_ENGINEERING_RESULT_ID = "8493b2b5-4f33-42b3-872f-11623f265625"
 RUNTIME_FIDELITY_ID = "d44ecf92-bc6d-452e-8d04-1666a22defba"
 DRIVER_VERSION = "planlatch-v7.9-execution-driver-v1"
 ROOT_KIND = "PLANLATCH_V79_EXECUTION_INPUT_V1"
-AUTHORITY_KIND = "PLANLATCH_V79_RELEASE_AUTHORITY_V1"
+CANONICAL_REAL_EXECUTION_BOUNDARY = "research_experiment_execute"
 PARTITIONS = ("FIT", "SUPPORT", "PILOT", "CROSS_REALIZATION")
 REVIEWED_HASHES = {
     "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
@@ -203,43 +205,6 @@ class Backend(Protocol):
     def score_single_gain(self, visible_context: str, endpoints: Mapping[str, str], block: int, channel: int, gain: float) -> Mapping[str, Any]: ...
 
 
-class RealBackend:
-    """Lazy exact-Qwen backend. Constructor is the first real model-access point."""
-    def __init__(self) -> None:
-        import planlatch_v7_9_model_runtime as mr
-        self._mr = mr
-        self._rt = mr.RealQwenRuntime(device="cuda")
-        fp = self._rt.fingerprint()
-        self.candidate_channels = tuple(core.ChannelCoordinate(int(b), int(c)) for b, c in fp.candidate_channels)
-        self.probe_bank_hash = fp.opaque_probe_hash
-        self.candidate_channel_hash = fp.candidate_channel_hash
-
-    def parameter_sha256(self) -> str:
-        return self._rt.parameter_sha256()
-
-    def collect_response_tensor(self, donor_prompt: str) -> tuple[float, ...]:
-        return self._rt.collect_response_tensor(donor_prompt)
-
-    def score_endpoints(self, visible_context: str, endpoints: Mapping[str, str], payload: protocol.PayloadManifest | None) -> Mapping[str, Any]:
-        return self._rt.score_opaque_endpoints(visible_context, endpoints, payload)
-
-    def score_single_gain(self, visible_context: str, endpoints: Mapping[str, str], block: int, channel: int, gain: float) -> Mapping[str, Any]:
-        if gain not in protocol.ALLOWED_GAINS:
-            raise DriverViolation("single-gain candidate outside frozen gain set")
-        if block < 0 or block >= len(self._rt.layers) or channel < 0 or channel >= self._rt.intermediate_sizes[block]:
-            raise DriverViolation("single-gain candidate outside exact model")
-        down = self._rt.layers[block].mlp.down_proj
-        def hook(_module: Any, args: tuple[Any, ...]):
-            x = args[0]
-            y = x.clone()
-            y[:, -1, channel] = y[:, -1, channel] * float(gain)
-            return (y, *args[1:])
-        handle = down.register_forward_pre_hook(hook)
-        try:
-            return self._rt.score_opaque_endpoints(visible_context, endpoints, None)
-        finally:
-            handle.remove()
-
 
 class SyntheticBackend:
     """Pure deterministic backend used only for wrapper acceptance tests."""
@@ -306,41 +271,6 @@ class SyntheticBackend:
         mag = 0.04 + 0.04 * (1 if gain == 1.25 else 0)
         return self._rows(endpoints, 0.5 + sign * mag)
 
-
-@dataclass(frozen=True)
-class AuthorityBinding:
-    research_decision_id: str
-    release_candidate_id: str
-    final_review_id: str
-    authority_hash: str
-
-
-def verify_authority_bundle(raw: Mapping[str, Any]) -> AuthorityBinding:
-    required = {
-        "kind": AUTHORITY_KIND,
-        "experiment_id": EXPERIMENT_ID,
-        "scientific_design_id": DESIGN_ID,
-        "scientific_semantic_hash": SEMANTIC_HASH,
-        "implementation_commit": REVIEWED_RUNTIME_COMMIT,
-        "runtime_engineering_result_id": RUNTIME_ENGINEERING_RESULT_ID,
-        "runtime_fidelity_record_id": RUNTIME_FIDELITY_ID,
-    }
-    for key, expected in required.items():
-        if raw.get(key) != expected:
-            raise DriverViolation(f"authority mismatch: {key}")
-    rid = raw.get("research_decision_id")
-    rcid = raw.get("release_candidate_id")
-    review = raw.get("final_review")
-    if not isinstance(rid, str) or not rid or not isinstance(rcid, str) or not rcid:
-        raise DriverViolation("research decision/release candidate authority missing")
-    if not isinstance(review, Mapping) or review.get("verdict") != "PASS":
-        raise DriverViolation("final PRE_SCIENCE review PASS required")
-    if review.get("release_candidate_id") != rcid:
-        raise DriverViolation("final review release candidate mismatch")
-    frid = review.get("review_id")
-    if not isinstance(frid, str) or not frid:
-        raise DriverViolation("final review id missing")
-    return AuthorityBinding(rid, rcid, frid, sha_json(raw))
 
 
 class StageJournal:
@@ -1029,30 +959,32 @@ def synthetic_execution(output: str | Path) -> Mapping[str, Any]:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    p = argparse.ArgumentParser()
+    p = argparse.ArgumentParser(
+        description=(
+            "PlanLatch v7.9 pre-science wrapper. Local CLI is synthetic-only; "
+            "real scientific execution must be admitted and launched by the canonical "
+            "Research OS research_experiment_execute control-plane path."
+        )
+    )
     p.add_argument("--synthetic-execution", action="store_true")
-    p.add_argument("--execute", action="store_true")
-    p.add_argument("--input-manifest")
-    p.add_argument("--authority-bundle")
     p.add_argument("--output")
     args = p.parse_args(argv)
     if not args.output:
         raise DriverViolation("--output required")
     if args.synthetic_execution:
         result = synthetic_execution(args.output)
-        print(stable_json({"synthetic_execution": True, "all_gates_passed": result["g1_g20"]["all_passed"], "scientific_execution_performed": False}))
+        print(stable_json({
+            "synthetic_execution": True,
+            "all_gates_passed": result["g1_g20"]["all_passed"],
+            "scientific_execution_performed": False,
+            "real_execution_available_locally": False,
+            "canonical_real_execution_boundary": "research_experiment_execute",
+        }))
         return 0
-    if args.execute:
-        if not args.authority_bundle or not args.input_manifest:
-            raise DriverViolation("--execute requires --authority-bundle and --input-manifest")
-        authority_raw = json.loads(Path(args.authority_bundle).read_text())
-        verify_authority_bundle(authority_raw)
-        root = load_root_input(args.input_manifest)
-        # Authority is verified before this constructor can load torch/model/tokenizer.
-        result = run_pipeline(root, RealBackend(), args.output, synthetic=False)
-        print(stable_json({"experiment_id": EXPERIMENT_ID, "result_sha256": sha_file(Path(args.output) / "result.json"), "all_gates_passed": result["g1_g20"]["all_passed"]}))
-        return 0
-    raise DriverViolation("choose --synthetic-execution or --execute")
+    raise DriverViolation(
+        "local wrapper is synthetic-only; real science requires canonical "
+        "Research OS research_experiment_execute admission"
+    )
 
 
 if __name__ == "__main__":

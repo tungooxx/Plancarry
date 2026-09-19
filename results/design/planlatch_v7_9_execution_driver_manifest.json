@@ -1,11 +1,16 @@
 {
   "acceptance": {
+    "authority_provenance_repair_canary": {
+      "canonical_real_execution_boundary": "research_experiment_execute",
+      "forged_local_authority_surface_absent": true,
+      "real_execution_available_locally": false
+    },
     "driver_suite": {
       "failed": 0,
       "passed": 13
     },
     "full_suite": {
-      "duration_seconds": 10.36,
+      "duration_seconds": 11.53,
       "failed": 0,
       "passed": 56
     },
@@ -27,15 +32,23 @@
       ]
     }
   },
+  "authority_provenance_repair": {
+    "canonical_boundary_property": "Research OS validates persisted ResearchDecision/action binding before process submission; later release/final-review/confirmation authority must be server-side, not caller-authored JSON.",
+    "canonical_real_execution_boundary": "research_experiment_execute",
+    "engineering_task_id": "72dd998a-8861-40d6-ad6a-368f08cf255f",
+    "forged_local_authority_can_unlock_model": false,
+    "repair": "Removed caller-authored authority validation, local RealBackend, and --execute/--authority-bundle CLI. Local wrapper is synthetic-only.",
+    "source_violation_fidelity_record_id": "7805e471-2c25-41ee-90ac-b8752f5d2bc1"
+  },
   "base_commit": "e6ff6bb3714a84a395336c0ab06327b594d30d04",
   "engineering_task_id": "11c5f60f-3212-4ae5-806e-714b06ba4aa5",
   "experiment_id": "35f1abdc-7647-4f39-811d-f18c0213682d",
   "kind": "PLANLATCH_V79_EXECUTION_DRIVER_IMPLEMENTATION_NOT_SCIENTIFIC_EVIDENCE",
-  "manifest_logical_sha256": "e0370d99993acdcd139465ff27a1d0db7e3e5e9572fa29fc9c89c84bf885976a",
+  "manifest_logical_sha256": "db7a26a03406ef8721cf84bedacb44861bd99500fd11828a611b5985d5274fbb",
   "model_or_environment_loaded_during_implementation": false,
   "new_files": {
-    "planlatch_v7_9_execution_driver.py": "dca227d5ed088ce5d382fda7f0e6e3cad0b2a40eb45c07f449175ce53add4632",
-    "tests/test_planlatch_v7_9_execution_driver.py": "7c7ec8fbcb8a0af8349e34260c7a976926292fd343c573e34b1b12df1f258c7b"
+    "planlatch_v7_9_execution_driver.py": "b074afb6ec0ef93bcc1b05dff72d00be82f05de885fa4554d8b41b7fc7bc8cbc",
+    "tests/test_planlatch_v7_9_execution_driver.py": "5239a960b4cecc109d770604a92439a6bb37017cd42fb17f7842a3eb750c118e"
   },
   "operationalizations_frozen_pre_outcome": {
     "endpoint_nonreversal": "Reuse the already-frozen >=3/4 CROSS_REALIZATION criterion separately for choice-probability, mean-logprob, logprob-sum and top1 non-reversal.",
@@ -45,11 +58,8 @@
   },
   "prediction_id": "76a326dd-22f4-4a6f-99b9-1701b9d5123a",
   "real_execution_requires": [
-    "ResearchDecision ID",
-    "PRE_SCIENCE release candidate ID",
-    "final independent release review PASS",
-    "exact reviewed runtime bytes",
-    "fresh output namespace"
+    "No local wrapper path exists.",
+    "Future real science must be launched by canonical Research OS research_experiment_execute after server-side release/final-review authority."
   ],
   "real_science_authorized": false,
   "reviewed_hashes": {

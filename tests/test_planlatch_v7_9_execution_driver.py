@@ -19,28 +19,16 @@ def test_import_is_model_environment_lazy():
     assert "planlatch_v7_9_model_runtime" not in d.__dict__
 
 
-def test_authority_bundle_fail_closed():
-    good = {
-        "kind": d.AUTHORITY_KIND,
-        "experiment_id": d.EXPERIMENT_ID,
-        "scientific_design_id": d.DESIGN_ID,
-        "scientific_semantic_hash": d.SEMANTIC_HASH,
-        "implementation_commit": d.REVIEWED_RUNTIME_COMMIT,
-        "runtime_engineering_result_id": d.RUNTIME_ENGINEERING_RESULT_ID,
-        "runtime_fidelity_record_id": d.RUNTIME_FIDELITY_ID,
-        "research_decision_id": "decision-x",
-        "release_candidate_id": "candidate-x",
-        "final_review": {"verdict": "PASS", "release_candidate_id": "candidate-x", "review_id": "review-x"},
-    }
-    b = d.verify_authority_bundle(good)
-    assert b.research_decision_id == "decision-x"
-    for mutation in (
-        {**good, "implementation_commit": "bad"},
-        {**good, "research_decision_id": ""},
-        {**good, "final_review": {"verdict": "FAIL", "release_candidate_id": "candidate-x", "review_id": "review-x"}},
-    ):
-        with pytest.raises(d.DriverViolation):
-            d.verify_authority_bundle(mutation)
+def test_no_local_authority_or_real_backend_surface():
+    src = Path("planlatch_v7_9_execution_driver.py").read_text()
+    assert not hasattr(d, "verify_authority_bundle")
+    assert not hasattr(d, "AuthorityBinding")
+    assert not hasattr(d, "RealBackend")
+    assert "--authority-bundle" not in src
+    assert 'add_argument("--execute"' not in src
+    assert "import planlatch_v7_9_model_runtime" not in src
+    assert "from planlatch_v7_9_model_runtime" not in src
+    assert d.CANONICAL_REAL_EXECUTION_BOUNDARY == "research_experiment_execute"
 
 
 def test_synthetic_pipeline_all_gates_and_stage_order(tmp_path):
@@ -122,25 +110,28 @@ def test_sham_specificity_uses_existing_source_thresholds_not_new_numeric_gate()
         assert literal in src
 
 
-def test_real_backend_not_instantiated_by_synthetic_execution(tmp_path, monkeypatch):
-    class Boom:
-        def __init__(self):
-            raise AssertionError("real backend must not load")
-    monkeypatch.setattr(d, "RealBackend", Boom)
+def test_synthetic_execution_has_no_real_backend_or_model_import(tmp_path):
+    assert not hasattr(d, "RealBackend")
     result = d.synthetic_execution(tmp_path / "out")
     assert result["g1_g20"]["all_passed"]
+    assert result["scientific_execution_performed"] is False
 
 
-def test_cli_execute_missing_authority_fails_before_real_backend(tmp_path, monkeypatch):
-    called = {"real": False}
-    class Boom:
-        def __init__(self):
-            called["real"] = True
-            raise AssertionError
-    monkeypatch.setattr(d, "RealBackend", Boom)
-    with pytest.raises(d.DriverViolation):
-        d.main(["--execute", "--output", str(tmp_path / "out")])
-    assert called["real"] is False
+def test_forged_authority_material_cannot_unlock_cli(tmp_path):
+    forged = tmp_path / "forged.json"
+    forged.write_text(json.dumps({
+        "research_decision_id": "FORGED-DECISION-NOT-IN-RESEARCH-OS",
+        "release_candidate_id": "FORGED-RC-NOT-IN-RESEARCH-OS",
+        "final_review": {"verdict": "PASS", "review_id": "FORGED-REVIEW"},
+    }))
+    with pytest.raises(SystemExit):
+        d.main([
+            "--execute",
+            "--authority-bundle", str(forged),
+            "--input-manifest", str(tmp_path / "fake-input.json"),
+            "--output", str(tmp_path / "out"),
+        ])
+    assert not (tmp_path / "out").exists()
 
 def test_relay_requires_prospectively_valid_endpoints(tmp_path):
     inp = tmp_path / "inp"
