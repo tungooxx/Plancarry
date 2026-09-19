@@ -1,0 +1,517 @@
+{
+  "orientations": {
+    "cell-00b0e1ac3d83996e8779": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-03f9e3fb0e87bd40363f": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-03ff50c5defce4851089": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-078f8e39152e270d054d": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-0945ccbcfb461a8b97de": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-0e1d54e19ad8014a90ef": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-0eb97ebadbd67f730d3c": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-0eed2bbf3d6c96c92661": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-0f23a4dfe26f65dee617": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-1031d6d29916bf7985cb": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-14a664c777d613b89de5": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-18f042c38bfaf353472a": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-19d4be8910253b2700dd": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-232fe91d0bf02ac93ceb": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-234074bd60968170cf8a": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-242b4b49d3effbfe3bb5": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-24dfbff73846706377e2": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-27ad8330436c4e516ca7": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-287ce9d39eb508038ed3": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-292e18b67fa6e983f095": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-2b5339d3926fff64601e": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-2b5d633bc69a3d204168": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-2be40997f55985b712b4": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-2d5cf3d9d2c848725de5": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-2f0b5d965d732ce7d4fa": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-2f5bc8902f401933d0f8": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-2f643e09eafccbdb1ee8": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-3073f242b33b4b5114c7": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-3291037a8541e3286faf": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-32ffeb68bf8900919575": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-3480df2c7d895ef6c153": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-35bd505d99e0833ca9aa": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-37c99b51baaff54ced77": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-38aaec95b43a49978637": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-3932dfed6fbb073226d4": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-3aa9944fc6c30d1045af": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-3aae3b47fa03869a3b08": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-3cbf259bd1b7224bbd0f": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-43fb8cbda7c544419837": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-44221235061173f5f54b": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-46eecc6d77cd51ddc64c": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-47693748a13e2a6c108a": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-47c3febba219634b7b02": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-4855dec145cd3bafd46a": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-4d069b1689d5647e7225": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-5419e75aeebcb0999f2d": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-55f018bc8629a49293a0": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-598fbcb735fc7b62ede7": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-5ad606a36366a4fc8e39": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-5cd25cb43c46585a7e75": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-627fb63b27ec6b4b57a5": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-6794084aaf603976f523": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-67ae686de51c3c80bd10": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-6a077ce62527e36703f4": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-6c9a0cc88a87def02801": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-6d2efeb8f270cdb3bfb5": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-6dca63c0ab966b8c56f2": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-6fc048929aa685aeb1da": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-719d738489bd719e490d": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-72f0e05beef774ab5316": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-77841d2fd75007699f55": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-779b95b8c59298959055": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-7a2f0fb380bf04c36fb8": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-7d315c0f0c3f62d6d55f": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-7e83fe40a195ca56677d": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-80b2f2a67d4e83632812": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-844c9c2e32795b0627f6": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-85b226bc543783528cf2": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-85bfe705f372daa5e49d": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-85f4f1a264d69b727ca3": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-87029dc84c095bf820bf": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-877fc2f5e1b89b093ade": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-8873cba8d0a70b8e29cc": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-891bdcf04c75f1f46758": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-8e148b51993bd83c7583": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-91ba25c9a0f37b11daef": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-939a85b66f1012bfe23c": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-93aa474630eefb143ddd": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-98547bb89d7d206ff1f6": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-988b2e6cb5e55bdb3a4d": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-991121626bc8f310ae25": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-99cc9d24a98ac5b00277": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-9d9e014fbeed8f917fc0": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-9e2a7a048cfda12eb3c3": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-9eb6b39ce96f97beec72": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-a00cd48a31a0feef5c4f": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-a0ed4d4bc317266dddec": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-a10aab51a9b145d56755": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-a3e4d8b0321df8d4bc79": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-a729b086be2b83cecf15": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-a9985278ba53ba9292b8": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-abc3a0441bd7768556a3": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-ae74a656d186af8528f7": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-ae7869787b07c6268064": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-aecc020825b873d907e9": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-aedaeb210cfb2dbc88e6": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-af0e06cd55e49ba353e3": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-af26526f7f8c605a2829": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-b02e99d01d7f8f459357": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-b0cb9890a4bc3232ce90": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-b77d49e97cdd0b34ab0f": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-ba565ca7cdaba55c11c2": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-ba94aa5218dc42bd2eb3": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-bd2a30a4c9bbe9ee4821": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-c0fcd59f93185f52ad38": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-c10c90e7b51b6e2e2f35": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-c25003dbc1bf50ae0405": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-c3d5ceeac9ad7132a30d": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-c99f83c64df2e5b8a30a": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-cad7ae03b5c27f1cee1f": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-cc006ac0b31157cc4dc8": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-d3965ffbf8d0e2b7e8c1": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-d72c8ef98e3ebdaac397": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-d7b214969b66875ba9ae": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-d90c93bbf21c1326d0e5": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-d9a6845e100969ed7cd8": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-da28b280c67308583321": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-da72fa4ac6dd8e875d66": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-dd7dad5fd7505c987aa4": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-e149462316cf430a6b67": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-e150818da4ae689382d8": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-e6a497f3b79ba60b9cae": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-eb9c6a36ebc4d05c7fc2": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-ebab6c93bb5c688b82f8": {
+      "e0": "q",
+      "e1": "p"
+    },
+    "cell-f2d718f6d7e31e979747": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-fb6caa3e78731d5e82e9": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-fcd117709602307e1358": {
+      "e0": "p",
+      "e1": "q"
+    },
+    "cell-ff4655e740808dc064f7": {
+      "e0": "q",
+      "e1": "p"
+    }
+  },
+  "partition": "PILOT"
+}

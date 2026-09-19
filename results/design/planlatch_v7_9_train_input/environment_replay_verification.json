@@ -1,0 +1,733 @@
+{
+  "all_passed": true,
+  "cohort_manifest_sha256": "78969b5e87443942754d6569666c3313fdc59cda922d9370c3e2bb9e871a1e4e",
+  "fail_count": 0,
+  "failures": [],
+  "fast_downward_lib_sha256": "7202a1fd19eb072710892a6b05f8ad25e99e20e1e1bdd1cdc76b46bb71016ad7",
+  "kind": "PLANLATCH_V79_FROZEN_COHORT_ENVIRONMENT_REPLAY_VERIFICATION",
+  "mode": "independent_per_family_process_parallel8",
+  "pass_count": 36,
+  "rows": [
+    {
+      "audit_sha256": "1a81d3e4083ef1d0f967553f18755edb5477d5d843023f0b13ac4ff88b923d89",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 14.41197156906128,
+      "family": "pick_two_obj_and_place-Book-None-Drawer-307"
+    },
+    {
+      "audit_sha256": "6241c45f0e313543859e36bfbd801fe0f04cd0af17d56628fd7197e9aa4c4d38",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 17.985846996307373,
+      "family": "pick_two_obj_and_place-Bowl-None-CoffeeTable-203"
+    },
+    {
+      "audit_sha256": "ab7c987c03c4cbf05cf8e9c1cdea61a807d0dd0c88146e3e34ce0a26cc58eb16",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 17.53602886199951,
+      "family": "pick_two_obj_and_place-Candle-None-Cabinet-428"
+    },
+    {
+      "audit_sha256": "c3bf1b2e8c1d8dcc0676dc8762c71ddf5f6c57e2b18498b72d6269ca4de12dfb",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 21.350031852722168,
+      "family": "pick_two_obj_and_place-Candle-None-Drawer-426"
+    },
+    {
+      "audit_sha256": "e428e8fe5442e5da46aaa07bb001dd69bdd0064a41985bbed8ddc3492d0bb7b6",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 24.567450761795044,
+      "family": "pick_two_obj_and_place-CellPhone-None-ArmChair-229"
+    },
+    {
+      "audit_sha256": "cd2af084f749c610845e326f01b42f5eee0818745ded356d7e34cf9e6ee89ac8",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 22.390522718429565,
+      "family": "pick_two_obj_and_place-CellPhone-None-Sofa-218"
+    },
+    {
+      "audit_sha256": "78d0cdfe333c752b5c221e2890821606b1f458ea0e637588e4a2de65d5ceb9a1",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 24.22164225578308,
+      "family": "pick_two_obj_and_place-CreditCard-None-ArmChair-207"
+    },
+    {
+      "audit_sha256": "2ccb78330211d5233f23dda895e70ecbfb2603b0c4a460edd134a798bc62253a",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 25.503114938735962,
+      "family": "pick_two_obj_and_place-CreditCard-None-ArmChair-222"
+    },
+    {
+      "audit_sha256": "901d45b0b63801794580f3660484222a62ce7e4f7fa6a122ec9bd341698c1eb5",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 23.69384503364563,
+      "family": "pick_two_obj_and_place-CreditCard-None-ArmChair-227"
+    },
+    {
+      "audit_sha256": "f1be106b9a70f290b75efc72559b26a0856a5eb850bfb876bb72c4c47922281f",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 18.505566358566284,
+      "family": "pick_two_obj_and_place-HandTowel-None-Toilet-427"
+    },
+    {
+      "audit_sha256": "4e21fa7951117f413a610891b4f78e448c8fec1386f5d2f845e6331950f57a5b",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 37.50008702278137,
+      "family": "pick_two_obj_and_place-Kettle-None-DiningTable-18"
+    },
+    {
+      "audit_sha256": "cf1f50b4900beb5cf0ff268856b41c2cca6fa1ebcc82c8b71beb5413562661af",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 18.906074047088623,
+      "family": "pick_two_obj_and_place-KeyChain-None-Drawer-317"
+    },
+    {
+      "audit_sha256": "e985a69a2a467a45790bc9ae3be79fc53f3f3248ec6ce8c36f69f51482e03fc3",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 26.875399827957153,
+      "family": "pick_two_obj_and_place-KeyChain-None-Dresser-330"
+    },
+    {
+      "audit_sha256": "07b0b77f6a1cfc9fe0e1cb73e326999cb2af81a29ff5ae59b202b4d3a32c307e",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 19.965893030166626,
+      "family": "pick_two_obj_and_place-Newspaper-None-Sofa-218"
+    },
+    {
+      "audit_sha256": "7144f3612af7d12f1c078aab39ee99f4b8d5078c94b8347ae4f34de4904bf86d",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 12.659492492675781,
+      "family": "pick_two_obj_and_place-Pen-None-Shelf-320"
+    },
+    {
+      "audit_sha256": "c5ada6e9fdcb07d1d56057277303f3d5fab7e2edd1784ffb32a2793e9cf36929",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 21.395622491836548,
+      "family": "pick_two_obj_and_place-Pen-None-SideTable-330"
+    },
+    {
+      "audit_sha256": "cee9e589f707a8c17f93a050869dc29d9f1aeebe01c54580fa66eb3e0ab216e1",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 21.124093532562256,
+      "family": "pick_two_obj_and_place-Pencil-None-Desk-303"
+    },
+    {
+      "audit_sha256": "86024e29e3d39333347b4c9db12f2690cb82ad16cf7136139fa219e0246cdc1a",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 15.654161214828491,
+      "family": "pick_two_obj_and_place-Pencil-None-Desk-313"
+    },
+    {
+      "audit_sha256": "053c1fc0720188738aec36ca980708b854ce7d209efe787dba4e0e21ece9dfb4",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 14.557697296142578,
+      "family": "pick_two_obj_and_place-Pencil-None-Desk-314"
+    },
+    {
+      "audit_sha256": "6b8df4ffeeb6efaeffc34af275fe19c13ab8a6872e05e43b6beb48220cb0fe67",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 38.67861986160278,
+      "family": "pick_two_obj_and_place-PepperShaker-None-DiningTable-18"
+    },
+    {
+      "audit_sha256": "373fc4e698b980810fe47e07819f858cdb6bd1e317a0d664c006f8b96828ed97",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 35.113701820373535,
+      "family": "pick_two_obj_and_place-PepperShaker-None-SideTable-28"
+    },
+    {
+      "audit_sha256": "7a21c624f65bdaff7f85655fc866745fb103310fa06525d8aa2360a974be471d",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 16.954437255859375,
+      "family": "pick_two_obj_and_place-SoapBottle-None-Cart-430"
+    },
+    {
+      "audit_sha256": "f0421491959889197f6363b50f9f0bc5d0324114b258073c7affa5cbaa9c76d2",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 14.142746686935425,
+      "family": "pick_two_obj_and_place-SoapBottle-None-CounterTop-407"
+    },
+    {
+      "audit_sha256": "0309a1e6c9d097be7f36a022315e74f2712e14a36c1ae8adda03d3403d3b58a6",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 20.08990216255188,
+      "family": "pick_two_obj_and_place-SoapBottle-None-CounterTop-411"
+    },
+    {
+      "audit_sha256": "d291b17a003992655d00fb07e9fc890ff78af4ac1511361ab6fb95097d64029e",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 18.33893322944641,
+      "family": "pick_two_obj_and_place-SoapBottle-None-Toilet-405"
+    },
+    {
+      "audit_sha256": "4b66e7bb5d1e0eb7e68135e4611648c72c7b6fc82f21625f157fca0e74f0be9d",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 16.652602672576904,
+      "family": "pick_two_obj_and_place-SoapBottle-None-Toilet-428"
+    },
+    {
+      "audit_sha256": "55d48746ddec9f4a52ecd5e02c188d8af09be7851b6bffac1658c771d5940716",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 19.41136074066162,
+      "family": "pick_two_obj_and_place-SprayBottle-None-Cabinet-417"
+    },
+    {
+      "audit_sha256": "84fd54690d706451ab16babb07aa62aea6255f6d1da434b0a088cc055b12d62c",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 15.071575164794922,
+      "family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-408"
+    },
+    {
+      "audit_sha256": "bcbaaf9cc0befef736af4d185645be54e524318c89a1330966358ed37703a32e",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 14.613673686981201,
+      "family": "pick_two_obj_and_place-SprayBottle-None-GarbageCan-428"
+    },
+    {
+      "audit_sha256": "ed253852c8d8c8464cbc1dad2aa13d67ba0d92d88acd331a43060e98e3075973",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 20.101022005081177,
+      "family": "pick_two_obj_and_place-SprayBottle-None-Toilet-402"
+    },
+    {
+      "audit_sha256": "490bec650dc35f9471bb0d13dc8fca315cc3c67bf60c9df62d8618c6416d1aac",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 19.082594633102417,
+      "family": "pick_two_obj_and_place-SprayBottle-None-Toilet-429"
+    },
+    {
+      "audit_sha256": "febfcc46af318ed091e8d40b00248f05c00412bff1aaaf1c9150055c017e4b8d",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 12.194720268249512,
+      "family": "pick_two_obj_and_place-TissueBox-None-SideTable-321"
+    },
+    {
+      "audit_sha256": "4c49b55a2a97dae9def1e3d1d7f5ce145e89b69f0272ebef353be8f8444c03bc",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 14.755668640136719,
+      "family": "pick_two_obj_and_place-ToiletPaper-None-Shelf-415"
+    },
+    {
+      "audit_sha256": "f2aa33e347b1d33bb7a07908f00b6af0561bd29531ce3e90687d041479253e44",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 10.051988124847412,
+      "family": "pick_two_obj_and_place-Watch-None-CoffeeTable-217"
+    },
+    {
+      "audit_sha256": "d519bd68a94ac8dc6dac4f17af87ef5c50febd8b0f7f4d878eb505fc175e49c4",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 31.200430631637573,
+      "family": "pick_two_obj_and_place-WineBottle-None-Cabinet-3"
+    },
+    {
+      "audit_sha256": "d2681eb37ecc126c0b2ffeb54aeb09f20a533e4602ee56f65424ef71a73271b8",
+      "bad": [],
+      "checks": {
+        "branch_a_won": true,
+        "branch_b_won": true,
+        "delayed_divergence": true,
+        "eligible": true,
+        "game_path": true,
+        "game_sha256": true,
+        "p_command_orientation": true,
+        "q_command_orientation": true,
+        "reset_admissible_commands_sha256": true,
+        "reset_observation_sha256": true,
+        "reset_state_hash": true,
+        "trial": true
+      },
+      "elapsed": 41.254631757736206,
+      "family": "pick_two_obj_and_place-WineBottle-None-GarbageCan-1"
+    }
+  ],
+  "selected_count": 36
+}

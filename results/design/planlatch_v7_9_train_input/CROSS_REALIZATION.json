@@ -1,0 +1,901 @@
+{
+  "partition": "CROSS_REALIZATION",
+  "records": [
+    {
+      "cell_id": "cell-3b09adaaba569517c19d",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-4ea6efdd29af1f017c8b",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8279c7b476049e1218f4",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-45644cf9cdd413aa5faf",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-62ec6db78a1035ba9098",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-57c1422c1b986a9e3612",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-d922ce79a7ff1bb5ada2",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-de2f6d4ce7852f93c95a",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-cf00c984fbadaea58634",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-06b5432dde8d284a7f19",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-2a6387b47a3095cfa4ea",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8be4f1b69ea64b2e76b1",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8021383344cca535eb9c",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-170bc44030fb89f655f0",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-3adf0b1c98cda279544f",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-f4e183c2c16539b1012e",
+      "donor_prompt": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete pencil 3 from drawer 3 into desk 1.\nOPTION B: Complete pencil 4 from drawer 4 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to drawer 3",
+        "e1": "go to drawer 4"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two pencil in desk.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 2, a shelf 1, and a sidetable 1.\n\nYour task is to: put two pencil in desk.\nADMISSIBLE COMMANDS\ngo to bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-b50147b8576cd26de4ad",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-f9fdaf34c44889ec6447",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-9f01cb9d1cf0bf569b79",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-ef42473ed411c108f344",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-610d58a0862d7529fc6d",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-00f179e83d42b5f2d09f",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8d28f948df28b6ef8a69",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-be3ab1dc3bc0c71d06eb",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-7141eb00af49c3d12fd5",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-9f062a9580b54a3cf7dd",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-77fcfa13e0567ae6c278",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-38870e0896d443f96621",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-d456d2e2789ed02a8a4f",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-5a7edf49601b24d6b904",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-bcbd0a05028f1df44794",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-e25ad48ac695b2f166a5",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 1 from drawer 2 into dresser 1.\nOPTION B: Complete keychain 2 from armchair 1 into dresser 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "go to armchair 1",
+        "e1": "go to drawer 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in dresser.\nCURRENT OBSERVATION\n-= Welcome to TextWorld, ALFRED! =-\n\nYou are in the middle of a room. Looking quickly around you, you see a armchair 1, a bed 1, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 2, a dresser 1, a garbagecan 1, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\n\nYour task is to: put two keychain in dresser.\nADMISSIBLE COMMANDS\ngo to armchair 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 12\ngo to drawer 13\ngo to drawer 14\ngo to drawer 15\ngo to drawer 16\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to dresser 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-7b827682dcd781630394",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-486c9e097ac9a4c183c0",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-d0bc70a06dafeb014e68",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-b8efb3ea2c443388f48f",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-76215b3795d3dceebc2b",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-91474bc9e105f8c6c227",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-1f8e44f72a9327498505",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-3c21672978e3693a57ff",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-afc5c7ef769f141d74a3",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-1f497a86e9d602c4b483",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-3a921bedf2543dc60f41",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-f4b9879977918d59d8eb",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-70531c3b6c92f0ad2dd5",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-6d0f49ccc380757603f4",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-650966a1b1796b79988d",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-046069f8c9b4bd92bab2",
+      "donor_prompt": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 3 from safe 1 into drawer 1.\nOPTION B: Complete keychain 2 from safe 1 into drawer 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from safe 1",
+        "e1": "take keychain 3 from safe 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two keychain and put them in drawer.\nCURRENT OBSERVATION\nYou open the safe 1. The safe 1 is open. In it, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nclose safe 1\nexamine safe 1\ngo to bed 1\ngo to drawer 1\ngo to drawer 10\ngo to drawer 11\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to drawer 6\ngo to drawer 7\ngo to drawer 8\ngo to drawer 9\ngo to dresser 1\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to sidetable 1\nhelp\ninventory\nlook\ntake keychain 2 from safe 1\ntake keychain 3 from safe 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-c915dd1cc3aef1275c55",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-bcb5b6b1f5f11c46acc6",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8cd4e097a7c56d898649",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-ff33f24062a53658ad42",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-6d9a6a33347496c96323",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-0526c91ff22b29a2e0f6",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-8d5a99fc31946b04714c",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-ac2aced178e397d5543b",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-947e370f120dcc5b63ec",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-b23f1c8e299c24a48004",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-e6afce669638a8693232",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-892a2651481b5ff04a47",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-1fcb019754506e371dc4",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-7d6f9269f5493909d200",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-d3abc63021d90472ee2f",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "cell-445d6dcb94592ed0afb7",
+      "donor_prompt": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete creditcard 2 from tvstand 1 into armchair 1.\nOPTION B: Complete creditcard 1 from tvstand 1 into armchair 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take creditcard 1 from tvstand 1",
+        "e1": "take creditcard 2 from tvstand 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two creditcard and put them in armchair.\nCURRENT OBSERVATION\nYou arrive at tvstand 1. On the tvstand 1, you see a creditcard 2, a creditcard 1, a remotecontrol 1, a statue 1, a television 1, and a vase 1.\nADMISSIBLE COMMANDS\nexamine shelf 2\nexamine tvstand 1\ngo to armchair 1\ngo to armchair 2\ngo to coffeetable 1\ngo to coffeetable 2\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 3\ngo to shelf 4\ngo to shelf 5\ngo to shelf 6\ngo to shelf 7\ngo to shelf 8\ngo to sofa 1\nhelp\ninventory\nlook\ntake creditcard 1 from tvstand 1\ntake creditcard 2 from tvstand 1\ntake remotecontrol 1 from tvstand 1\ntake statue 1 from tvstand 1\ntake vase 1 from tvstand 1\n<STATE_END>\n",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    }
+  ]
+}

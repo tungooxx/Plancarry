@@ -1,0 +1,26 @@
+{
+  "a_h_byte_identity": true,
+  "cell_count": 576,
+  "cohort_manifest_sha256": "78969b5e87443942754d6569666c3313fdc59cda922d9370c3e2bb9e871a1e4e",
+  "dependency_hash": "b6b3f2eb056d9df761896b609d4e41aeb743c20ca4577e74ed688297a74850bd",
+  "donor_program_hash": "29cbb402f2f2a222ab1f5e1a15f184ef11940b5395b51b2db26e25db7e4da9ae",
+  "frame_hash": "f0d353162ce537eb52c384851a849381ee50084f6ce63a24dbbf5572cd40af8d",
+  "fresh_eligible_count": 178,
+  "kind": "PLANLATCH_V79_TRAIN_INPUT_MATERIALIZATION_NOT_SCIENTIFIC_EVIDENCE",
+  "model_calls": 0,
+  "output_dir": "results/design/planlatch_v7_9_train_input",
+  "p_q_lexical_multiset_equal": true,
+  "partition_counts": {
+    "CROSS_REALIZATION": 4,
+    "FIT": 12,
+    "PILOT": 8,
+    "SUPPORT": 12
+  },
+  "prior_referenced_family_count": 197,
+  "root_sha256": "924b3f23c4412bbf3fa1f8d0069a93f01f705b6c573a033e83b35622a3ed484e",
+  "scientific_execution_performed": false,
+  "scientific_result": "NOT_ASSESSED",
+  "selected_count": 36,
+  "tokenizer_loads": 0,
+  "washout_hash": "f03d52d9edc600355b3f55fd8150e67f5b9c02106018ca6e9e4ef26835c1496a"
+}

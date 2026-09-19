@@ -1,0 +1,663 @@
+{
+  "cohort_manifest": {
+    "path": "results/design/planlatch_v7_9_train_input/cohort_manifest.json",
+    "sha256": "78969b5e87443942754d6569666c3313fdc59cda922d9370c3e2bb9e871a1e4e"
+  },
+  "donor_program_hash": "29cbb402f2f2a222ab1f5e1a15f184ef11940b5395b51b2db26e25db7e4da9ae",
+  "experiment_id": "35f1abdc-7647-4f39-811d-f18c0213682d",
+  "freshness_attestation": {
+    "all_task_ids_never_consumed": true,
+    "environment_audit_only_before_freeze": true,
+    "excluded_family_set_hash": "bace2b44e994b6f6f0fcbf6bcf2d290b8fd05434a7c0612556fcf32acdcbe67d",
+    "exclusion_snapshot_hash": "c91778cefe2504243d2e908719424f444886c6b50e3e81819cc715a8c49d412d",
+    "method": "family name absent from every pre-existing results/design and results/science text artifact at freeze time",
+    "model_calls_before_freeze": 0,
+    "selected_family_set_hash": "c5206f19af15cd846437a34d8a7b864098b38a275e700825c44ef203f73aeeec",
+    "selected_intersection_with_excluded": [],
+    "source_split": "train"
+  },
+  "kind": "PLANLATCH_V79_EXECUTION_INPUT_V1",
+  "orientation_files": {
+    "CROSS_REALIZATION": {
+      "path": "results/design/planlatch_v7_9_train_input/CROSS_REALIZATION_orientation.json",
+      "sha256": "27f6bcb3d71f92400d1bf2638ec46f8f738f228ff95fce1d1350e64a4fa215bc"
+    },
+    "PILOT": {
+      "path": "results/design/planlatch_v7_9_train_input/PILOT_orientation.json",
+      "sha256": "e1b8ff790b920619361b8b6c9e6c68c48d07b6e24d2e581b93e18638c4f39698"
+    }
+  },
+  "partition_files": {
+    "CROSS_REALIZATION": {
+      "path": "results/design/planlatch_v7_9_train_input/CROSS_REALIZATION.json",
+      "sha256": "5bc777920e4adc0961e312de1d4119c6572ded47cb08ad4c297dee048bde7671"
+    },
+    "FIT": {
+      "path": "results/design/planlatch_v7_9_train_input/FIT.json",
+      "sha256": "f7e0649cfba3b29b5b092fca0a861d8c8cde97ee4ca6c88993802240c3e4f62f"
+    },
+    "PILOT": {
+      "path": "results/design/planlatch_v7_9_train_input/PILOT.json",
+      "sha256": "7db0d7b0f7337679a781cd5bd997ed6c36cb00f2a63bfb84820a3d7f1587048f"
+    },
+    "SUPPORT": {
+      "path": "results/design/planlatch_v7_9_train_input/SUPPORT.json",
+      "sha256": "a98bf99b439e584bc56c626ad6f2e8295e20bad522e7dbd023fc67edc0d40ea1"
+    }
+  },
+  "tasks": [
+    {
+      "cross_realization_tag": "xr-38906d5f42304510d6f9",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-PepperShaker-None-DiningTable-18::trial_T20190919_002034_827829",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-b438fe8fba56c5abd7e4",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-aa691262b05505736b80",
+        "generation_seed_family_id": "generation_seed_family_id-cc9a1936bf5c858b8002",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-c3b1c69ebb4504330854",
+        "relation_template_group_id": "relation_template_group_id-8bbbaaae0cb7e863fbe8",
+        "source_data_origin_family_id": "source_data_origin_family_id-8789c1377a0482bc6b46",
+        "source_template_instance_family_id": "source_template_instance_family_id-670c5bc616ab292d9ac4"
+      },
+      "m0": "m0-617becf0b3e14875",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-PepperShaker-None-DiningTable-18::trial_T20190919_002034_827829"
+    },
+    {
+      "cross_realization_tag": "xr-6eae0d90dd5397e9771a",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Toilet-428::trial_T20190906_225647_716768",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-137be9ac3445572d250c",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-c9156c9193aa3bc66419",
+        "generation_seed_family_id": "generation_seed_family_id-5686e4c8ac84d6555b64",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-4d5c206c3d2f32aef75d",
+        "relation_template_group_id": "relation_template_group_id-88b08b4ab503f4153a0a",
+        "source_data_origin_family_id": "source_data_origin_family_id-0b1b0e8f84255dc56ad7",
+        "source_template_instance_family_id": "source_template_instance_family_id-40580600a89f79e12b90"
+      },
+      "m0": "m0-8b6b2d13f57504a1",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Toilet-428::trial_T20190906_225647_716768"
+    },
+    {
+      "cross_realization_tag": "xr-05fc06cdd8665a5bee0f",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-HandTowel-None-Toilet-427::trial_T20190909_030341_261977",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-0c59d2dc3ca9447f4d91",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-963fc2f0deb9c1d8ac93",
+        "generation_seed_family_id": "generation_seed_family_id-cf77104863e9e7e4edac",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-1d156855d61a1edc2905",
+        "relation_template_group_id": "relation_template_group_id-c19c15f0f7e0c5643d46",
+        "source_data_origin_family_id": "source_data_origin_family_id-205073c187735fc33bfa",
+        "source_template_instance_family_id": "source_template_instance_family_id-23828149baeb645437b7"
+      },
+      "m0": "m0-5a99287f718f4a1d",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-HandTowel-None-Toilet-427::trial_T20190909_030341_261977"
+    },
+    {
+      "cross_realization_tag": "xr-af61ba4fba1f008091cd",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-PepperShaker-None-SideTable-28::trial_T20190908_120349_475518",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-d068e1e649c7ac2e84fa",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-e20f24a22a090c52e251",
+        "generation_seed_family_id": "generation_seed_family_id-1a1586583f0c64f34e8c",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-46144ceef8898de6a10c",
+        "relation_template_group_id": "relation_template_group_id-3fd5d21f4f45887ebb9b",
+        "source_data_origin_family_id": "source_data_origin_family_id-563da93b0bc6e15576fe",
+        "source_template_instance_family_id": "source_template_instance_family_id-4d8a6155841e37de6c06"
+      },
+      "m0": "m0-d4140595459fb6f0",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-PepperShaker-None-SideTable-28::trial_T20190908_120349_475518"
+    },
+    {
+      "cross_realization_tag": "xr-d1fb29164f26d1089502",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-WineBottle-None-Cabinet-3::trial_T20190909_074653_538268",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-026f4c3ced987d50560a",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-d091e5e4556286457c5c",
+        "generation_seed_family_id": "generation_seed_family_id-d97f4d52b40c6cd53c04",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-ab6e9054446c47be15cb",
+        "relation_template_group_id": "relation_template_group_id-20c04a20e0aa4e61e01f",
+        "source_data_origin_family_id": "source_data_origin_family_id-c6090f34e0c198b69944",
+        "source_template_instance_family_id": "source_template_instance_family_id-fbd413333d24f6a4da11"
+      },
+      "m0": "m0-b3eb9b8d3b3bb119",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-WineBottle-None-Cabinet-3::trial_T20190909_074653_538268"
+    },
+    {
+      "cross_realization_tag": "xr-0e5888c3018c73397c3f",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Candle-None-Cabinet-428::trial_T20190909_053754_615376",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-92a7ab004c35cce9b71d",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-ec2d295e0ed5f53c27ef",
+        "generation_seed_family_id": "generation_seed_family_id-0bfda88e63e84e500e17",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-6be6238f121e089ace1d",
+        "relation_template_group_id": "relation_template_group_id-49d8f0b7e2f6137db574",
+        "source_data_origin_family_id": "source_data_origin_family_id-3edbf030cb8db8829603",
+        "source_template_instance_family_id": "source_template_instance_family_id-cb723cf848cab455e6eb"
+      },
+      "m0": "m0-318de4cd260b26ed",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Candle-None-Cabinet-428::trial_T20190909_053754_615376"
+    },
+    {
+      "cross_realization_tag": "xr-7761b2af926e9fe3d64f",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Toilet-402::trial_T20190911_213113_817208",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-d4abaea56dd6aa6da2e4",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-cb5f4032367ae27b97dc",
+        "generation_seed_family_id": "generation_seed_family_id-951d4cc9905c65501dc7",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-9633d20cd930bd13520f",
+        "relation_template_group_id": "relation_template_group_id-c46ad3059a893c698b46",
+        "source_data_origin_family_id": "source_data_origin_family_id-78bc9d19a8d792a3ccbc",
+        "source_template_instance_family_id": "source_template_instance_family_id-b43fd4d2233b41cca165"
+      },
+      "m0": "m0-d7b2f467aba102de",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Toilet-402::trial_T20190911_213113_817208"
+    },
+    {
+      "cross_realization_tag": "xr-615aad983db248fcfd9a",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Toilet-405::trial_T20190909_014901_056414",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-a913a6a998f0972cd460",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-69c978cda69233411c8b",
+        "generation_seed_family_id": "generation_seed_family_id-32dbba4438fad9204e4d",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-d8da26b50ab0643715b3",
+        "relation_template_group_id": "relation_template_group_id-e184de13bcb765873d77",
+        "source_data_origin_family_id": "source_data_origin_family_id-78126b2cc18e9b3198aa",
+        "source_template_instance_family_id": "source_template_instance_family_id-d2565178a9f317afbca0"
+      },
+      "m0": "m0-37afd5773e05ef85",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Toilet-405::trial_T20190909_014901_056414"
+    },
+    {
+      "cross_realization_tag": "xr-d892ba2e87eb4dcf520f",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Kettle-None-DiningTable-18::trial_T20190906_233756_544999",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-7aef161521d3c526c598",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-a1ecfe9550f87c0bdf90",
+        "generation_seed_family_id": "generation_seed_family_id-bca9567678dfc46017d1",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-0193a9de2c31c66cf553",
+        "relation_template_group_id": "relation_template_group_id-fb7babed003d175e8cc7",
+        "source_data_origin_family_id": "source_data_origin_family_id-04de933137b08dcf47e1",
+        "source_template_instance_family_id": "source_template_instance_family_id-e4c9171b66d5d57e7b62"
+      },
+      "m0": "m0-458d05ef5a2e38b4",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Kettle-None-DiningTable-18::trial_T20190906_233756_544999"
+    },
+    {
+      "cross_realization_tag": "xr-4cfdf6ecde3201ac97cd",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-GarbageCan-408::trial_T20190918_161527_784403",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-38621c36ea6b84d36893",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-e8c266018d3bcd13adad",
+        "generation_seed_family_id": "generation_seed_family_id-95c9f86d7eae0958cfbe",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-bacd1367afed075acc86",
+        "relation_template_group_id": "relation_template_group_id-e07c599f7e8a86810364",
+        "source_data_origin_family_id": "source_data_origin_family_id-4b6f634046a3d26a4285",
+        "source_template_instance_family_id": "source_template_instance_family_id-2a335325152048289a7d"
+      },
+      "m0": "m0-2f7b0d2a596f0163",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-GarbageCan-408::trial_T20190918_161527_784403"
+    },
+    {
+      "cross_realization_tag": "xr-445d9525d1662e1042a3",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-484d54187ae5c2134c63",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-61c5aa237310a3d3841f",
+        "generation_seed_family_id": "generation_seed_family_id-dc6cb341e0f1a381e29e",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-2e229a1f62bfd0ce6329",
+        "relation_template_group_id": "relation_template_group_id-05ad02c40abf3a9bea55",
+        "source_data_origin_family_id": "source_data_origin_family_id-83a60a33515e0236ab30",
+        "source_template_instance_family_id": "source_template_instance_family_id-5d91afb61b1488702971"
+      },
+      "m0": "m0-2ce42f9f17ebca23",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-313::trial_T20190906_200931_060619"
+    },
+    {
+      "cross_realization_tag": "xr-012972109cc90000ebb2",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-303::trial_T20190908_220248_075224",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-8afa0714ffb4ddee922d",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-8e7f1df069ef57c8ed9a",
+        "generation_seed_family_id": "generation_seed_family_id-72b14b9bd32df1883513",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-179145a1bf9de627c439",
+        "relation_template_group_id": "relation_template_group_id-7019a266e5b039d70713",
+        "source_data_origin_family_id": "source_data_origin_family_id-6e2b7a38f24d1fb300b8",
+        "source_template_instance_family_id": "source_template_instance_family_id-2489eb933581e90c45f9"
+      },
+      "m0": "m0-bd900e233714fce9",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-303::trial_T20190908_220248_075224"
+    },
+    {
+      "cross_realization_tag": "xr-d69b018ea52498599072",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-TissueBox-None-SideTable-321::trial_T20190908_030013_798472",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-4728e67d9f10ac1e5ba1",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-8f55961f9924a778aa6f",
+        "generation_seed_family_id": "generation_seed_family_id-ca3945bcf08ffb693fdc",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-7888aaf1258d6a411b9b",
+        "relation_template_group_id": "relation_template_group_id-d5aca67e6b97c1174367",
+        "source_data_origin_family_id": "source_data_origin_family_id-92431403a42dc5ec2f93",
+        "source_template_instance_family_id": "source_template_instance_family_id-86f7e2549f7ba85d2dbf"
+      },
+      "m0": "m0-26f77e2ce09cb20e",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-TissueBox-None-SideTable-321::trial_T20190908_030013_798472"
+    },
+    {
+      "cross_realization_tag": "xr-cf3c4b51191cc10450c8",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Pen-None-Shelf-320::trial_T20190907_174259_205684",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-ee8286ad2f2228b7f614",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-5e100628cac72dc26213",
+        "generation_seed_family_id": "generation_seed_family_id-7829901ddd470ac57d10",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-c25ea677b92a56bec3df",
+        "relation_template_group_id": "relation_template_group_id-2d89adf296063d7d5c68",
+        "source_data_origin_family_id": "source_data_origin_family_id-7897cab605b711a67864",
+        "source_template_instance_family_id": "source_template_instance_family_id-626c2b4b412ec04a5516"
+      },
+      "m0": "m0-220d387f41aaf02c",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pen-None-Shelf-320::trial_T20190907_174259_205684"
+    },
+    {
+      "cross_realization_tag": "xr-8aeaa26fa3a3c79064ed",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Bowl-None-CoffeeTable-203::trial_T20190907_153332_888821",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-5329582d9bb55762bdd8",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-93f4097827760f1c5529",
+        "generation_seed_family_id": "generation_seed_family_id-bb1c7e26989d3b9f3e29",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-edea383785d4c28f8b37",
+        "relation_template_group_id": "relation_template_group_id-9b65dc3bb7e1ded28425",
+        "source_data_origin_family_id": "source_data_origin_family_id-cb115253f0ec9ad35bdd",
+        "source_template_instance_family_id": "source_template_instance_family_id-ee6ce79d996fe3073a74"
+      },
+      "m0": "m0-362c90304362b127",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Bowl-None-CoffeeTable-203::trial_T20190907_153332_888821"
+    },
+    {
+      "cross_realization_tag": "xr-97012fcdce7f4686ad0e",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-CounterTop-407::trial_T20190908_055449_353538",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-4ff0e0551cebb5480dbe",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-403c721ca55b40bf9e5e",
+        "generation_seed_family_id": "generation_seed_family_id-8f4e543280ec1cee5e22",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-a4a64546ca93f42fd8d6",
+        "relation_template_group_id": "relation_template_group_id-1b06c8b12fa20e30b1d7",
+        "source_data_origin_family_id": "source_data_origin_family_id-390c95a265ab754f10a1",
+        "source_template_instance_family_id": "source_template_instance_family_id-ef87d1e9275f1c7d43e9"
+      },
+      "m0": "m0-db2da63e9c2ce3c5",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-CounterTop-407::trial_T20190908_055449_353538"
+    },
+    {
+      "cross_realization_tag": "xr-7bc0ac648ed4d65b05bf",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Pen-None-SideTable-330::trial_T20190908_121048_491026",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-45f8bf93d41d95228979",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-9b3c88fd0647ac76976f",
+        "generation_seed_family_id": "generation_seed_family_id-f77b89a4ec35a39dc96a",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-9e326f1b3b3bf4b551d0",
+        "relation_template_group_id": "relation_template_group_id-85007a29f2c525967b17",
+        "source_data_origin_family_id": "source_data_origin_family_id-f3e79cdd99d51b0f2462",
+        "source_template_instance_family_id": "source_template_instance_family_id-81a0aeaaf08996f31092"
+      },
+      "m0": "m0-d164a5dd3be3d21d",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pen-None-SideTable-330::trial_T20190908_121048_491026"
+    },
+    {
+      "cross_realization_tag": "xr-b438b8c346934372d752",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-ToiletPaper-None-Shelf-415::trial_T20190908_172002_224650",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-ebf3255ca69e06a89106",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-0d0d81241f18152cbdf2",
+        "generation_seed_family_id": "generation_seed_family_id-f6898fb25a6ddc52a52a",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-634ba1d05a3f599f6901",
+        "relation_template_group_id": "relation_template_group_id-caf8afd047955be2a8a7",
+        "source_data_origin_family_id": "source_data_origin_family_id-48bb9b999d0bbc1e5138",
+        "source_template_instance_family_id": "source_template_instance_family_id-08649c6a2588ec69ac72"
+      },
+      "m0": "m0-a4f312738cfd66fd",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-ToiletPaper-None-Shelf-415::trial_T20190908_172002_224650"
+    },
+    {
+      "cross_realization_tag": "xr-d1dea3ab9f224f1ec029",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-32bfb9f2ece9cc124933",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-c07ffe5e4a35e0350c2b",
+        "generation_seed_family_id": "generation_seed_family_id-dbf68712c141afc8ab6b",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-60f65be6088db5f4ce77",
+        "relation_template_group_id": "relation_template_group_id-2dbe3912bb5c8e38aaea",
+        "source_data_origin_family_id": "source_data_origin_family_id-241be1559937cb9364b9",
+        "source_template_instance_family_id": "source_template_instance_family_id-ceae0a1a6390610fe762"
+      },
+      "m0": "m0-453a7b996a83fd85",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Drawer-317::trial_T20190911_161750_831181"
+    },
+    {
+      "cross_realization_tag": "xr-2cf016ea593cda58d047",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Book-None-Drawer-307::trial_T20190909_111455_006363",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-f8bee990fb295706ddcf",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-ca8197d2f418463bdce3",
+        "generation_seed_family_id": "generation_seed_family_id-cdf20876e8515d9e4085",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-eacfe4fd6bdc11eb18ed",
+        "relation_template_group_id": "relation_template_group_id-ce7afdf6cd43b0128bac",
+        "source_data_origin_family_id": "source_data_origin_family_id-837b89f6c225f2445b13",
+        "source_template_instance_family_id": "source_template_instance_family_id-29fbbbc96a4f1c5917f8"
+      },
+      "m0": "m0-e783c6645f45807d",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Book-None-Drawer-307::trial_T20190909_111455_006363"
+    },
+    {
+      "cross_realization_tag": "xr-99a414da1eb24cdbe53c",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-15b4c9eb8a81b1521595",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-f4e2920a8706a10b8276",
+        "generation_seed_family_id": "generation_seed_family_id-93dfa7b98530626f9804",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-103f7e315e52f54250f8",
+        "relation_template_group_id": "relation_template_group_id-5eaa57f58b8bd3c4953a",
+        "source_data_origin_family_id": "source_data_origin_family_id-5bf0054d26dacba101f0",
+        "source_template_instance_family_id": "source_template_instance_family_id-93d50198938ba0cc3fcc"
+      },
+      "m0": "m0-6fe77045245bbb46",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-KeyChain-None-Dresser-330::trial_T20190908_135832_399583"
+    },
+    {
+      "cross_realization_tag": "xr-5fd3dbdcecc62ce8cd24",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-314::trial_T20190907_044915_976409",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-065558ee8f1aaab12c7e",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-eae58a813abe5fce3e2c",
+        "generation_seed_family_id": "generation_seed_family_id-ca3f192029cde8d922b2",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-40e29b7d0e457bbd14f0",
+        "relation_template_group_id": "relation_template_group_id-a8bc413c8b904d26a0bc",
+        "source_data_origin_family_id": "source_data_origin_family_id-1ccaa898792426974dac",
+        "source_template_instance_family_id": "source_template_instance_family_id-7e4cbb210afe782ab6c8"
+      },
+      "m0": "m0-8589e229f60e7573",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Pencil-None-Desk-314::trial_T20190907_044915_976409"
+    },
+    {
+      "cross_realization_tag": "xr-0b21129476aebe083282",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-CounterTop-411::trial_T20190907_110947_693826",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-01b30113e75407b271d9",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-77320d7600a90a4e15a7",
+        "generation_seed_family_id": "generation_seed_family_id-b78d9294b3ed97d00ecc",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-8f526909f720ec1c77c7",
+        "relation_template_group_id": "relation_template_group_id-4858417c9da24f3531ab",
+        "source_data_origin_family_id": "source_data_origin_family_id-78a7cc0d7157008f0264",
+        "source_template_instance_family_id": "source_template_instance_family_id-373089de86eee8605237"
+      },
+      "m0": "m0-1d851a1729325323",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-CounterTop-411::trial_T20190907_110947_693826"
+    },
+    {
+      "cross_realization_tag": "xr-d66b3739cfa772c7c356",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Toilet-429::trial_T20190907_033947_142227",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-161b0634d39aa177591f",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-82ab37df1b2e820169c5",
+        "generation_seed_family_id": "generation_seed_family_id-e115e95b7f9588d98819",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-f82bab5dfae2c8800f61",
+        "relation_template_group_id": "relation_template_group_id-1c59f3ba176356aee893",
+        "source_data_origin_family_id": "source_data_origin_family_id-6dda8ada575046752440",
+        "source_template_instance_family_id": "source_template_instance_family_id-aa06f175f3e712a73592"
+      },
+      "m0": "m0-fb06dcbc825db264",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Toilet-429::trial_T20190907_033947_142227"
+    },
+    {
+      "cross_realization_tag": "xr-f605dc9de9bbe9cc4be3",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-CellPhone-None-ArmChair-229::trial_T20190907_081902_634047",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-37451e57904965d34eec",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-a55a2205c6a2725eabbc",
+        "generation_seed_family_id": "generation_seed_family_id-593e5e1a879de1963716",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-3dd3cf50a32b4919a89f",
+        "relation_template_group_id": "relation_template_group_id-876e732270eff01b5258",
+        "source_data_origin_family_id": "source_data_origin_family_id-4fc66629a4b5214bb75b",
+        "source_template_instance_family_id": "source_template_instance_family_id-735b223d2eeb16d71128"
+      },
+      "m0": "m0-44a6db4674c3498a",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CellPhone-None-ArmChair-229::trial_T20190907_081902_634047"
+    },
+    {
+      "cross_realization_tag": "xr-32e88c1f2c53ec1fe402",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-7c669c78bf976188473d",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-123b33aea32b3b5fbe05",
+        "generation_seed_family_id": "generation_seed_family_id-04f5f4b7ceb0142d5545",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-febe97719eb5a13c7dea",
+        "relation_template_group_id": "relation_template_group_id-8449961641084691ad42",
+        "source_data_origin_family_id": "source_data_origin_family_id-fbadb74a020e14ee2207",
+        "source_template_instance_family_id": "source_template_instance_family_id-a049f1cb8ba815211424"
+      },
+      "m0": "m0-1bff7016a5890101",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-207::trial_T20190906_201623_682219"
+    },
+    {
+      "cross_realization_tag": "xr-50cac76fd80cc3bf086c",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-CellPhone-None-Sofa-218::trial_T20190907_231953_945601",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-c997dc5692b670bdbb0c",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-61d6b801ab3e2b637d46",
+        "generation_seed_family_id": "generation_seed_family_id-d37b8c5de0ac59e48a63",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-fd09049c900a2312c0f1",
+        "relation_template_group_id": "relation_template_group_id-960ce8e92f74fea8fde3",
+        "source_data_origin_family_id": "source_data_origin_family_id-19b35f24b5d8ac0d8f43",
+        "source_template_instance_family_id": "source_template_instance_family_id-adce1d38957da74c25c7"
+      },
+      "m0": "m0-87f1eca4899b49a7",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CellPhone-None-Sofa-218::trial_T20190907_231953_945601"
+    },
+    {
+      "cross_realization_tag": "xr-7d458969d983b7ca11c7",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-WineBottle-None-GarbageCan-1::trial_T20190906_200307_446636",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-e8b8769fd6512ac482b2",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-f38b0af72edd3e880e25",
+        "generation_seed_family_id": "generation_seed_family_id-928cd857e7ca227a5bf7",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-052a3e6c97ef353610cf",
+        "relation_template_group_id": "relation_template_group_id-88c511b0c2d13fa643cd",
+        "source_data_origin_family_id": "source_data_origin_family_id-2f54ff31b730e6477f04",
+        "source_template_instance_family_id": "source_template_instance_family_id-e73169f2bfe87b870f0e"
+      },
+      "m0": "m0-81e87b6b761436df",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-WineBottle-None-GarbageCan-1::trial_T20190906_200307_446636"
+    },
+    {
+      "cross_realization_tag": "xr-d3982db0557c38046b9d",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-222::trial_T20190908_042418_833206",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-a8b034fe73e934196da7",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-27f01b52811fbc4a94df",
+        "generation_seed_family_id": "generation_seed_family_id-ae2f04f3ac844e7f43c8",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-30e40d836f0b024d366a",
+        "relation_template_group_id": "relation_template_group_id-4b34abcb633618691f6a",
+        "source_data_origin_family_id": "source_data_origin_family_id-854b8c63aa5f0e3fc7b0",
+        "source_template_instance_family_id": "source_template_instance_family_id-c2d400a363ba43f67c5f"
+      },
+      "m0": "m0-10cdb40cb0038a43",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-222::trial_T20190908_042418_833206"
+    },
+    {
+      "cross_realization_tag": "xr-684de1316a78b900eae2",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Cabinet-417::trial_T20190909_112757_524439",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-fe36af169f11ba3d0f63",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-e51733716b29916d8019",
+        "generation_seed_family_id": "generation_seed_family_id-f869b61771d7496b7ecb",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-71057248858b7597d4d7",
+        "relation_template_group_id": "relation_template_group_id-a2751288e8f8ff877db6",
+        "source_data_origin_family_id": "source_data_origin_family_id-c3c63adb0f69e30fc01a",
+        "source_template_instance_family_id": "source_template_instance_family_id-c185cc5d41750836c39b"
+      },
+      "m0": "m0-b6773133dc0844cd",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-Cabinet-417::trial_T20190909_112757_524439"
+    },
+    {
+      "cross_realization_tag": "xr-e02a6b46887a7b49ea0a",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Newspaper-None-Sofa-218::trial_T20190907_203939_531678",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-9988e74436a948610aa1",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-9f2e404f712506b1f2ad",
+        "generation_seed_family_id": "generation_seed_family_id-480da93a2bc95b546a88",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-3bf48f051d4c11bde511",
+        "relation_template_group_id": "relation_template_group_id-b2b67fea6c9edf90a49e",
+        "source_data_origin_family_id": "source_data_origin_family_id-33152d776484cc25b222",
+        "source_template_instance_family_id": "source_template_instance_family_id-f3a4fcd6764a952475f9"
+      },
+      "m0": "m0-7b0fb4ab13472a9e",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Newspaper-None-Sofa-218::trial_T20190907_203939_531678"
+    },
+    {
+      "cross_realization_tag": "xr-7c39fd8a50ce02b83f13",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Candle-None-Drawer-426::trial_T20190907_133551_259209",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-4b9bebbf98eab93f61e2",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-1e8bbc33578443522716",
+        "generation_seed_family_id": "generation_seed_family_id-20a75bb20394e3f0cecf",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-1159a4e685357c66522e",
+        "relation_template_group_id": "relation_template_group_id-03418aaa9396cd42772f",
+        "source_data_origin_family_id": "source_data_origin_family_id-cb41c90465cdde3b7c5e",
+        "source_template_instance_family_id": "source_template_instance_family_id-5d70c2469769bf925872"
+      },
+      "m0": "m0-5468281902792bff",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Candle-None-Drawer-426::trial_T20190907_133551_259209"
+    },
+    {
+      "cross_realization_tag": "xr-5a217b830b2a3809cd00",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Cart-430::trial_T20190908_130358_157745",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-632b03d7915c49947348",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-007fc8519b283236ab68",
+        "generation_seed_family_id": "generation_seed_family_id-b04a53eef42d51e3d4fe",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-8b9dada7a0e9fec2eb05",
+        "relation_template_group_id": "relation_template_group_id-4eddf9ef6ea67056fa97",
+        "source_data_origin_family_id": "source_data_origin_family_id-2af216620cf06744826c",
+        "source_template_instance_family_id": "source_template_instance_family_id-20554e39698c3220f748"
+      },
+      "m0": "m0-170bfdd39490b238",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SoapBottle-None-Cart-430::trial_T20190908_130358_157745"
+    },
+    {
+      "cross_realization_tag": "xr-a2dbbfa4a20cbf8d656b",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-227::trial_T20190907_075752_838584",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-6c2c9a8869a9d1c2ec72",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-4f574c778e200d42af1d",
+        "generation_seed_family_id": "generation_seed_family_id-7226edca8272507fa63d",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-75ea2f0e1a522af5d7ec",
+        "relation_template_group_id": "relation_template_group_id-a8eb9b39342a39d473ec",
+        "source_data_origin_family_id": "source_data_origin_family_id-5b497a52587153906090",
+        "source_template_instance_family_id": "source_template_instance_family_id-ff1faf11ebf82a0ad5c4"
+      },
+      "m0": "m0-8f2c34d1229bb00b",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-CreditCard-None-ArmChair-227::trial_T20190907_075752_838584"
+    },
+    {
+      "cross_realization_tag": "xr-2672c53aa6f241f0fe78",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-GarbageCan-428::trial_T20190909_055155_468865",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-3085a497b77655cee0c4",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-ddaecc309c1cf17af614",
+        "generation_seed_family_id": "generation_seed_family_id-3bd19ca19eb4a2434eb1",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-28aec604b59bf0ce6c44",
+        "relation_template_group_id": "relation_template_group_id-f298da653bf96fb7d310",
+        "source_data_origin_family_id": "source_data_origin_family_id-219d2b4368dd4844d0a3",
+        "source_template_instance_family_id": "source_template_instance_family_id-3f9dea2376ce873d1d53"
+      },
+      "m0": "m0-706be27fdea98a74",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-SprayBottle-None-GarbageCan-428::trial_T20190909_055155_468865"
+    },
+    {
+      "cross_realization_tag": "xr-35be310f42fceb9cd7b4",
+      "dependency_keys": {
+        "base_task_identity": "planlatch-v79-train::pick_two_obj_and_place-Watch-None-CoffeeTable-217::trial_T20190910_181734_928506",
+        "cache_namespace_parent_id": "cache_namespace_parent_id-854abc1112d7e5afe5f1",
+        "constructor_randomization_table_id": "constructor_randomization_table_id-be577550d228a991878b",
+        "generation_seed_family_id": "generation_seed_family_id-849ce2c7174b65b11db9",
+        "paired_rng_ancestor_id": "paired_rng_ancestor_id-1f5255af760a77a5d60c",
+        "relation_template_group_id": "relation_template_group_id-5c416bf3043c617b47ac",
+        "source_data_origin_family_id": "source_data_origin_family_id-f8fc7509400fff574239",
+        "source_template_instance_family_id": "source_template_instance_family_id-863c809e1b91f43123d6"
+      },
+      "m0": "m0-74ab8018eb816a42",
+      "never_consumed": true,
+      "split": "train",
+      "task_id": "planlatch-v79-train::pick_two_obj_and_place-Watch-None-CoffeeTable-217::trial_T20190910_181734_928506"
+    }
+  ],
+  "washout_hash": "f03d52d9edc600355b3f55fd8150e67f5b9c02106018ca6e9e4ef26835c1496a"
+}
