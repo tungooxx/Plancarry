@@ -247,6 +247,10 @@ class RealQwenRuntime:
         best=sorted(ids,key=lambda k:(-rows[k]["choice_probability"],k))[0]
         return {"endpoints":rows,"top1_endpoint":best,"payload_applied":payload is not None,"scoring_contract":ENDPOINT_SCORING}
 
+    def score_endpoints(self,visible_context: str,endpoints: Mapping[str,str],payload: protocol.PayloadManifest|None) -> dict[str,Any]:
+        """Backend compatibility alias; semantics are exactly score_opaque_endpoints."""
+        return self.score_opaque_endpoints(visible_context,endpoints,payload)
+
     def parameter_sha256(self) -> str:
         """Expensive full parameter checksum, used at science boundary before/after interventions."""
         h=hashlib.sha256()
