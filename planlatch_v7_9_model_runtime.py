@@ -116,8 +116,10 @@ class RealQwenRuntime:
         self.layers=self._layers()
         self.intermediate_sizes=tuple(self._intermediate_size(layer) for layer in self.layers)
         self.candidate_channels=core.derive_candidate_channels(self.intermediate_sizes)
+        self.candidate_channel_hash=_sha(tuple((x.block,x.channel) for x in self.candidate_channels))
         specials=set(getattr(self.tokenizer,"all_special_ids",[]) or [])
         self.probe_bank=core.derive_opaque_probe_bank(int(self.model.config.vocab_size),specials)
+        self.probe_bank_hash=self.probe_bank.bank_hash
 
     def _layers(self):
         layers=getattr(getattr(self.model,"model",None),"layers",None)
