@@ -62,3 +62,35 @@ def test_real_runtime_checks_actual_dtype_device_and_quantization():
     assert 'quantized model configuration is forbidden' in src
     assert 'non-bfloat16 floating parameters detected' in src
     assert 'offloaded/non-CUDA parameters detected' in src
+
+
+def test_real_runtime_implements_required_single_gain_interface_at_frozen_site():
+    src=Path("planlatch_v7_9_model_runtime.py").read_text()
+    tree=ast.parse(src)
+    cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=="RealQwenRuntime")
+    methods={n.name:n for n in cls.body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    assert "score_endpoints" in methods
+    assert "score_single_gain" in methods
+    sg=ast.get_source_segment(src,methods["score_single_gain"])
+    assert "protocol.PayloadTriple" in sg
+    assert "register_forward_pre_hook" in sg
+    assert "prompt_len-1" in sg
+    assert "down_proj" in sg
+
+
+def test_single_gain_scoring_keeps_endpoint_scoring_contract_math():
+    src=Path("planlatch_v7_9_model_runtime.py").read_text()
+    tree=ast.parse(src)
+    cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=="RealQwenRuntime")
+    methods={n.name:n for n in cls.body if isinstance(n,ast.FunctionDef)}
+    opaque=ast.get_source_segment(src,methods["score_opaque_endpoints"])
+    single=ast.get_source_segment(src,methods["score_single_gain"])
+    for fragment in (
+        "log_softmax",
+        "mean_logprob",
+        "math.exp(v-m)/z",
+        "choice_probability",
+        "ENDPOINT_SCORING",
+    ):
+        assert fragment in opaque
+        assert fragment in single

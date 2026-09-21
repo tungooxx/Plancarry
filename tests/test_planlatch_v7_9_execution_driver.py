@@ -153,3 +153,14 @@ def test_cross_endpoint_nonreversal_reuses_three_of_four_rule():
     src = Path("planlatch_v7_9_execution_driver.py").read_text()
     assert 'sum(r["metric_direction"][field]["cp"] > 0 for r in first4) >= 3' in src
     assert 'sum(r["metric_direction"][field]["cq"] > 0 for r in first4) >= 3' in src
+
+
+def test_operational_progress_counters_expose_indices_only():
+    src = Path("planlatch_v7_9_execution_driver.py").read_text()
+    assert "PLANCARRY_PROGRESS FIT_RECORD {cell_index}/{total_cells}" in src
+    assert "PLANCARRY_PROGRESS PAYLOAD_PAIR {pair_index}/{pair_total}" in src
+    progress_lines=[line.strip() for line in src.splitlines() if "PLANCARRY_PROGRESS" in line]
+    assert len(progress_lines)==2
+    forbidden=("psh","qsh","choice_probability","coord.block","coord.channel","gain","payload_bank","semantic")
+    for line in progress_lines:
+        assert not any(x in line for x in forbidden)

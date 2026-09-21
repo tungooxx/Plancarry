@@ -251,6 +251,41 @@ class RealQwenRuntime:
         """Backend compatibility alias; semantics are exactly score_opaque_endpoints."""
         return self.score_opaque_endpoints(visible_context,endpoints,payload)
 
+    def score_single_gain(self,visible_context: str,endpoints: Mapping[str,str],block: int,channel: int,gain: float) -> dict[str,Any]:
+        """FIT-only single-coordinate actuator score at the frozen payload intervention site."""
+        triple=protocol.PayloadTriple(int(block),int(channel),float(gain))
+        block_i=triple.transformer_block_index; channel_i=triple.mlp_intermediate_channel_index; gain_f=float(triple.gain)
+        if block_i >= len(self.layers): raise ModelRuntimeViolation("single-gain block outside model")
+        width=self.intermediate_sizes[block_i]
+        if channel_i >= width: raise ModelRuntimeViolation("single-gain channel outside intermediate width")
+        if len(endpoints)<2: raise ModelRuntimeViolation("at least two opaque endpoints required")
+        rows={}
+        for endpoint_id in sorted(endpoints):
+            if any(x in endpoint_id.lower() for x in ("p","q","semantic","label")):
+                raise ModelRuntimeViolation("endpoint IDs must be opaque")
+            prompt_ids,full_cpu=self._exact_prefix_ids(visible_context,endpoints[endpoint_id])
+            prompt_len=int(prompt_ids.numel()); full=full_cpu.unsqueeze(0).to(self.device); mask=self.torch.ones_like(full)
+            def hook(_module: Any,args: tuple[Any,...],*,prompt_index: int=prompt_len-1):
+                x=_hidden_arg(args)
+                if prompt_index<0 or prompt_index>=int(x.shape[1]): raise ModelRuntimeViolation("prompt boundary outside sequence")
+                y=x.clone(); y[:,prompt_index,channel_i]=y[:,prompt_index,channel_i]*gain_f
+                return (y,*args[1:])
+            handle=self.layers[block_i].mlp.down_proj.register_forward_pre_hook(hook)
+            try:
+                with self.torch.inference_mode():
+                    out=self.model(input_ids=full,attention_mask=mask,use_cache=False)
+                    logits=out.logits[:,:-1,:].float(); labels=full[:,1:]
+                    lp=self.torch.log_softmax(logits,dim=-1).gather(-1,labels.unsqueeze(-1)).squeeze(-1)[0]
+                    cont=lp[prompt_len-1:]
+                    total=float(cont.sum().item()); count=int(cont.numel())
+            finally:
+                handle.remove()
+            rows[endpoint_id]={"logprob_sum":total,"token_count":count,"mean_logprob":total/count}
+        ids=sorted(rows); vals=[rows[k]["mean_logprob"] for k in ids]; m=max(vals); z=sum(math.exp(v-m) for v in vals)
+        for k,v in zip(ids,vals): rows[k]["choice_probability"]=math.exp(v-m)/z
+        best=sorted(ids,key=lambda k:(-rows[k]["choice_probability"],k))[0]
+        return {"endpoints":rows,"top1_endpoint":best,"payload_applied":True,"scoring_contract":ENDPOINT_SCORING}
+
     def parameter_sha256(self) -> str:
         """Expensive full parameter checksum, used at science boundary before/after interventions."""
         h=hashlib.sha256()

@@ -41,7 +41,7 @@ PARTITIONS = ("FIT", "SUPPORT", "PILOT", "CROSS_REALIZATION")
 REVIEWED_HASHES = {
     "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
     "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
-    "planlatch_v7_9_model_runtime.py": "55fc64cfa7ba1223d81b956e75c55ab41d51e60e3944520ab5d7b9340a7771fc",
+    "planlatch_v7_9_model_runtime.py": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
 }
 
 
@@ -317,7 +317,9 @@ def _verify_partition_coverage(frame: core.FrameFreeze, partition: str, rows: Ma
 def _collect_partition(frame: core.FrameFreeze, partition: str, rows: Mapping[str, Mapping[str, Any]], backend: Backend) -> list[Obs]:
     _verify_partition_coverage(frame, partition, rows)
     out = []
-    for cell in _frame_cells(frame, partition):
+    cells = _frame_cells(frame, partition)
+    total_cells = len(cells)
+    for cell_index, cell in enumerate(cells, 1):
         row = rows[cell.cell_id]
         if row.get("task_id") != cell.task_id:
             raise DriverViolation("cell task_id mismatch")
@@ -326,6 +328,8 @@ def _collect_partition(frame: core.FrameFreeze, partition: str, rows: Mapping[st
             raise DriverViolation("donor_prompt missing")
         orbit = core.canonicalize_response(backend.collect_response_tensor(prompt))
         out.append(Obs(cell, orbit))
+        if partition == "FIT":
+            print(f"PLANCARRY_PROGRESS FIT_RECORD {cell_index}/{total_cells}", flush=True)
     return out
 
 
@@ -536,6 +540,8 @@ def _build_payloads(fit_rows: Mapping[str, Mapping[str, Any]], fit_obs: Sequence
         raise DriverViolation("no FIT actuator records")
     evid = []
     provenance_hash = sha_json([{"cell_id": c, "context_hash": sha_json(ctx), "endpoint_hash": sha_json(ep)} for c, ctx, ep, _, _, _ in eligible])
+    pair_total = len(backend.candidate_channels) * len(protocol.ALLOWED_GAINS)
+    pair_index = 0
     for coord in backend.candidate_channels:
         for gain in protocol.ALLOWED_GAINS:
             psh = []
@@ -549,6 +555,8 @@ def _build_payloads(fit_rows: Mapping[str, Mapping[str, Any]], fit_obs: Sequence
                 sum(psh) / len(psh), sum(qsh) / len(qsh),
                 "FIT", provenance_hash,
             ))
+            pair_index += 1
+            print(f"PLANCARRY_PROGRESS PAYLOAD_PAIR {pair_index}/{pair_total}", flush=True)
     cp, cq, audit = core.construct_payload_bank_fit_only(evid)
     if hasattr(backend, "bind_payloads"):
         getattr(backend, "bind_payloads")(cp, cq)
