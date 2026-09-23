@@ -1,0 +1,21 @@
+{
+  "gate_policy": "G1-G20 populate status only; cannot suppress fields or select claim variants",
+  "mandatory_fields": [
+    "terminal_state",
+    "terminal_reason",
+    "source_report",
+    "relay_report",
+    "g1_g20",
+    "heterogeneity",
+    "runtime_attestation",
+    "universe_receipt_hash",
+    "membership_receipt_hash",
+    "implementation_fingerprint",
+    "claim_scope"
+  ],
+  "terminal_missing_value": {
+    "reason": "NA_NOT_AVAILABLE_IN_TERMINAL_STATE",
+    "value": null
+  },
+  "version": "planlatch-v7.20-total-report-schema-v1"
+}

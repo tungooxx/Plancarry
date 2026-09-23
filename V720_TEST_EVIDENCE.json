@@ -1,0 +1,64 @@
+{
+  "binding_hardening_job_id": "local_23c88045183f4aeb",
+  "certification_mode": "EXACT_BYTE_SEMANTIC_WHITELIST_PLUS_FAIL_CLOSED_UNKNOWN_AST",
+  "design_id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+  "direct_source_poison_classes": [
+    "hidden_content_branch",
+    "branchless_soft_gate",
+    "hard_mask_compute_both",
+    "content_rng_seed",
+    "content_keyed_cache",
+    "content_early_exit",
+    "argmax_module_selection",
+    "topk_selection",
+    "fallback",
+    "dynamic_threshold_payload_aggregation_report_lookup",
+    "dynamic_shape",
+    "dynamic_schedule",
+    "reflection_dynamic_native"
+  ],
+  "inherited_v79_regression": {
+    "passed": 59
+  },
+  "kind": "PLANLATCH_V720_SELECTION_DOMAIN_REPAIR_TEST_EVIDENCE",
+  "live_authority_consumed": false,
+  "live_membership_draw": false,
+  "paid_gpu_used": false,
+  "predecessor_fidelity_violation_id": "eb3247e3-afd3-463d-876d-71bf162a2d17",
+  "prior_effect_verifier_repair_evidence": {
+    "binding_hardening_job_id": "local_23c88045183f4aeb",
+    "prior_predecessor_fidelity_violation_id": "dffda88a-a836-4b5c-a85e-4c376aec2a65",
+    "prior_validation_job_id": "local_ad3350da9b9c4798"
+  },
+  "production_numeric_dependency_certificate": "PENDING_EXACT_RUNTIME_FREEZE",
+  "repair_work_item_id": "18407c13-f5d4-4016-9540-7f6262e56d24",
+  "repaired_v720_pytest": {
+    "passed": 47
+  },
+  "scientific_execution_performed": false,
+  "selected_body_access": false,
+  "selection_domain_regression": {
+    "controls_sha256": "06e7c8da9294c9e677fa421d9219ee36fa84ae01e2dd128eb978ce089d889173",
+    "exact_preimage_regression_asserted": true,
+    "predecessor_wrong_domain_tag": "PlanLatch-v7.20",
+    "required_domain_tag": "PlanLatch-v7.18",
+    "required_inherited_design": "v7.18"
+  },
+  "semantic_hash": "d7b7022b8a38e93c884b8a5fce6f01d0ae0007ab5ab52571040faa47b4129263",
+  "synthetic_pipeline": {
+    "all_gates_passed": true,
+    "fit_records": "192/192",
+    "gates_passed": "20/20",
+    "payload_pairs": "512/512",
+    "u_star_strata": 8
+  },
+  "test_dependency_versions": {
+    "numpy": "2.3.3",
+    "pytest": "8.4.2"
+  },
+  "tree_sha256": "ef977b7550bb6753d8302ee0e9136da2bcf23425ebf54446d0def0dfce932155",
+  "v720_deep_checks": {
+    "passed": 11
+  },
+  "validation_job_id": "local_4aa0b0f33fce426e"
+}

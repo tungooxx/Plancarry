@@ -1,0 +1,286 @@
+{
+  "canonical_payload_sha256": "fd840a837da430e12d9749bab64c055716e98aab09a1eec39d60af8330ff1682",
+  "determinism_contract": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "inference_mode_for_forward": true,
+    "model_eval_mode": true,
+    "torch_cuda_manual_seed_all": 0,
+    "torch_manual_seed": 0,
+    "torch_use_deterministic_algorithms": true,
+    "use_cache": false
+  },
+  "epistemic_status": {
+    "exact_model_snapshot_locked": true,
+    "historical_runtime_canary_verified": true,
+    "pre_host_runtime_bytes_locked": true,
+    "production_execution_authorized": false,
+    "production_host_runtime_fully_locked": false,
+    "remaining_blocker": "Exact reserved-host runtime identity and Python-3.12 package/wheel bytes."
+  },
+  "historical_v79_runtime_provenance": {
+    "bundle_path": "/workspace/local-vlm/planlatch_v79_v4_bundle.tar.gz",
+    "bundle_sha256": "a24eae23d8f4ec6818ea2a2faad454aac24ec2d826e6042abfcb719af45938fd",
+    "bundle_size_bytes": 107059,
+    "code_bundle_sha256": "a1c6ae2543873f5a7d580032554521dfb7d76f3b4a37e1e45c7ffe967e3706ca",
+    "driver_sha256": "23f39c4615f2f8de7b9bf3094090db7df0a7297309a3de68d272563c37281505",
+    "execution_manifest_implementation_commit": "a1eaba953e372bdbab7e924b169a85d5ba5ef877",
+    "protocol_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "reviewed_runtime_commit_declared_by_driver": "efc93508a591c6f4929b6e20166df78903928497",
+    "runner_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+    "runtime_canary": {
+      "exact_reviewed_implementation_preserved": true,
+      "id": "631d8b1d-a396-4337-b4d3-c300a8333f14",
+      "model_forward_not_executed_by_canary": true,
+      "no_model_instantiated_by_canary": true,
+      "reviewed_runtime_identity_pass": true,
+      "runtime_fingerprint": "e23b0fc7ffee12e5914e77a1d9ca3067405447e3c8ce4a86254c1dce8d3fa884",
+      "scientific_data": false,
+      "scientific_stages_claimed": false,
+      "status": "VERIFIED_REAL",
+      "technical_status": "PASS"
+    },
+    "runtime_sha256": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
+    "testdeps_tar_sha256": "9658d19ed7bf44ad7235ed592bcf59c40af46ec5793865e7d9c3f2d6ed8beadd"
+  },
+  "implementation_tree_sha256": "ef977b7550bb6753d8302ee0e9136da2bcf23425ebf54446d0def0dfce932155",
+  "kind": "PLANLATCH_V7_20_PRE_HOST_RUNTIME_LOCK_V4_NUMERIC_DEPENDENCY_CLOSURE",
+  "local_qwen_snapshot": {
+    "files": {
+      "config.json": {
+        "sha256": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197"
+      },
+      "generation_config.json": {
+        "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2"
+      },
+      "merges.txt": {
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+      },
+      "model-00001-of-00002.safetensors": {
+        "sha256": "169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5",
+        "size_bytes": 3441185608
+      },
+      "model-00002-of-00002.safetensors": {
+        "sha256": "912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9",
+        "size_bytes": 622329984
+      },
+      "model.safetensors.index.json": {
+        "sha256": "0d660e94b165eb912669a5249dff44b83188c4777a07ddb9611fb78d91b0578d"
+      },
+      "tokenizer.json": {
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      "tokenizer_config.json": {
+        "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101"
+      },
+      "vocab.json": {
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    },
+    "path": "/workspace/local-vlm/LLM/plancarry/.hf_cache_qwen3_v21/hub/models--Qwen--Qwen3-1.7B/snapshots/70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e"
+  },
+  "nonproduction_local_reference_environment": {
+    "admissible_as_production_equivalent": false,
+    "installed_dist_info_hashes_not_wheel_archive_hashes": {
+      "tokenizers-0.21.1.dist-info": {
+        "METADATA": "18befc4e990a387f0a05b07505b6b4d705e0a7d22660260f02d9909772787599",
+        "RECORD": "323e8683c2615f7c24adf1cb1b9f2289bef008ff1d3adf40564340bb2f95b044",
+        "WHEEL": "7f97f2b428af3eaa22b457a2f24d982a6edfd43477a0d9aa2d37d9bee0256197"
+      },
+      "torch-2.13.0.dist-info": {
+        "METADATA": "63e791c950d477e7107e22f186e91ae81fbca5beec545c013a71edbde72f6c00",
+        "RECORD": "77713c05d0c3f2c2aa70101193708c39196d1c7b4f5d5e0a4e36205f3e74b46e",
+        "WHEEL": "3ddc61dc71ffa7fdd63f9e90532ca6539ce19098a60dc50a569992439e3f4f37"
+      },
+      "transformers-4.51.3.dist-info": {
+        "METADATA": "a7fc5edbab63ce77b74b91957a376d101a5159c1b20036aaa33b9349034141ac",
+        "RECORD": "640c6ffa9efdcc321df82723d4daa57b0616eaaa14eec652b8575143414e75c1",
+        "WHEEL": "b59a1e1a3b56c5645f769944ec4ddde3954f94b3509ef6ca8989f1ee0c00cbc0"
+      }
+    },
+    "path": "/opt/gpu-lab/envs/plancarry-replayresidual-t1-retry",
+    "reason": "Python 3.13.15 does not satisfy the frozen Python 3.12 runtime contract.",
+    "versions": {
+      "python": "3.13.15",
+      "tokenizers": "0.21.1",
+      "torch": "2.13.0+cu130",
+      "transformers": "4.51.3"
+    }
+  },
+  "production_numeric_dependency_certificate": {
+    "host_freeze_requirements": {
+      "cpu_flags_sha256": "canonical sorted CPU feature/flag set hash",
+      "cpu_model": "exact reserved host CPU model string",
+      "numeric_threading_environment_sha256": "canonical hash of OMP/MKL/OPENBLAS/NUMEXPR thread/env variables relevant to numeric execution",
+      "numpy_exact_version": "must equal realized imported numpy.__version__ on reserved host",
+      "numpy_installed_tree_sha256": "canonical hash of all installed NumPy package files after installation",
+      "numpy_linked_native_libraries_manifest_sha256": "canonical path+sha256 manifest for native shared libraries loaded/referenced by NumPy",
+      "numpy_runtime_config_sha256": "canonicalized numpy.show_config() output hash",
+      "numpy_wheel_archive_sha256": "hash exact installed source wheel/archive used to construct environment; if no archive provenance exists, fail closed"
+    },
+    "registration_guard": "REJECT_UNLESS_ALL_NUMERIC_RUNTIME_FIELDS_FROZEN",
+    "required": [
+      "numpy exact bytes/version",
+      "python runtime exact bytes/version"
+    ],
+    "selection_independence": "all fields must freeze before one-shot registration and before beacon/membership",
+    "source_manifest": "V720_EFFECT_MANIFEST.json",
+    "status": "PENDING_RESERVED_HOST",
+    "substitution_policy": "any mismatch after registration => TERMINAL_NONEXECUTION; no alternate environment, host or redraw"
+  },
+  "production_runtime_contract": {
+    "device_requirement": "CUDA",
+    "dtype": "bfloat16",
+    "low_cpu_mem_usage": false,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "model_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "numeric_dependency_policy": "freeze-exact-before-registration; no post-membership substitution",
+    "numpy_exact_version": "PENDING_RESERVED_HOST",
+    "offload_forbidden": true,
+    "python_major_minor": "3.12",
+    "quantization": "NONE",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3",
+    "trust_remote_code": false
+  },
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "repair_provenance": {
+    "accepted_scientific_design_id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+    "anomaly_id": "88c83f82-b932-4637-a476-d3f9ce3dea3e",
+    "corrected_domain_tag": "PlanLatch-v7.18",
+    "fidelity_violation_id": "eb3247e3-afd3-463d-876d-71bf162a2d17",
+    "independent_llm_a_review_required": true,
+    "inherited_selection_design_id": "3db83dce-6de1-4132-943c-bd45dcc01c08",
+    "numeric_dependency_closure_anomaly_id": "8e333408-5aed-4696-9ed4-78aede1c6a00",
+    "old_artifacts_preserved_byte_identical": true,
+    "predecessor_runtime_bundle_v2_sha256": "e264f9a40c77e329539d612d9e9472b4d707a10062b0896bb60e09d72392b508",
+    "predecessor_runtime_lock_v2_sha256": "06c666fd89fcb915e3ce94e270bee33300d31020379bf4242e084a9d8d3a80d0",
+    "predecessor_runtime_lock_v3_file_sha256": "a802ea948cc8ee3b831f67f873f450e2b60ee541dd406b4fef510c935fae4ad9",
+    "predecessor_runtime_repair_provenance": {
+      "accepted_engineering_result_id": "38d5b591-8441-4dec-bf9f-5911416ccb23",
+      "accepted_implementation_tree_sha256": "b7785211447f8acfdbc1f362d9cd966fddb3b888ef163c28e38da858d784a1a6",
+      "anomaly_id": "4d9a41b3-d310-4586-9177-daa7ed0216e0",
+      "failed_review_result_id": "912369ec-bdf9-4036-872e-6c2647f8f14b",
+      "independent_re_review_required": true,
+      "invalid_predecessor_bundle_sha256": "257f270fd1818de16d9c9f039073e5edd66ceab54647233cc4eaa52fb7eecd5c",
+      "invalid_predecessor_lock_file_sha256": "9cb6e6c7a018395d749b177cff5dfe2abe5274b7d8b0e2ea5b4d3bdc55b2155c",
+      "old_artifacts_preserved_byte_identical": true,
+      "reason": "Replace stale pre-science bundle that declared tree b7785211 but contained predecessor controls/runner/manifests."
+    },
+    "predecessor_tree_sha256": "b7785211447f8acfdbc1f362d9cd966fddb3b888ef163c28e38da858d784a1a6",
+    "predecessor_v3_preserved_byte_identical": true,
+    "predecessor_wrong_domain_tag": "PlanLatch-v7.20",
+    "reason": "Correct inherited one-shot selection domain tag from PlanLatch-v7.20 to frozen v7.18 literal PlanLatch-v7.18 and regenerate all bound runtime provenance.",
+    "reason_numeric_v4": "V720_EFFECT_MANIFEST requires exact NumPy bytes/version; v3 omitted NumPy from exact runtime freeze.",
+    "repair_work_item_id": "18407c13-f5d4-4016-9540-7f6262e56d24",
+    "repaired_tree_sha256": "ef977b7550bb6753d8302ee0e9136da2bcf23425ebf54446d0def0dfce932155"
+  },
+  "reserved_host_required_fields": {
+    "fields": {
+      "complete_python312_environment_manifest_sha256": "PENDING_RESERVED_HOST",
+      "container_image_digest": "PENDING_RESERVED_HOST",
+      "container_image_reference": "PENDING_RESERVED_HOST",
+      "cpu_flags_sha256": "PENDING_RESERVED_HOST",
+      "cpu_model": "PENDING_RESERVED_HOST",
+      "cuda_driver_api_version": "PENDING_RESERVED_HOST",
+      "cuda_runtime_version": "PENDING_RESERVED_HOST",
+      "gpu_firmware_vbios": "PENDING_RESERVED_HOST",
+      "gpu_model": "PENDING_RESERVED_HOST",
+      "gpu_uuid": "PENDING_RESERVED_HOST",
+      "numeric_threading_environment_sha256": "PENDING_RESERVED_HOST",
+      "numpy_exact_version": "PENDING_RESERVED_HOST",
+      "numpy_installed_tree_sha256": "PENDING_RESERVED_HOST",
+      "numpy_linked_native_libraries_manifest_sha256": "PENDING_RESERVED_HOST",
+      "numpy_runtime_config_sha256": "PENDING_RESERVED_HOST",
+      "numpy_wheel_archive_sha256": "PENDING_RESERVED_HOST",
+      "nvidia_driver_version": "PENDING_RESERVED_HOST",
+      "python_exact_version": "PENDING_RESERVED_HOST",
+      "python_executable_sha256": "PENDING_RESERVED_HOST",
+      "tokenizers_wheel_archive_sha256": "PENDING_RESERVED_HOST",
+      "torch_wheel_archive_sha256": "PENDING_RESERVED_HOST",
+      "transformers_wheel_archive_sha256": "PENDING_RESERVED_HOST"
+    },
+    "reason": "Host-specific facts and exact Python-3.12 package/wheel bytes are not established by the non-equivalent local environment.",
+    "status": "PENDING_RESERVED_HOST"
+  },
+  "scientific_design_id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+  "scientific_semantic_hash": "d7b7022b8a38e93c884b8a5fce6f01d0ae0007ab5ab52571040faa47b4129263",
+  "scope": {
+    "authority_consumed": false,
+    "beacon_read": false,
+    "membership_drawn": false,
+    "model_download_performed": false,
+    "model_instantiated": false,
+    "paid_gpu_or_host_reserved": false,
+    "scientific_execution_performed": false,
+    "selected_bodies_accessed": false
+  },
+  "v720_pre_science_bundle": {
+    "member_count": 26,
+    "member_sha256": {
+      "V720_EFFECT_MANIFEST.json": "658589326d06c9f9a84af98abe81aa278fc3131dd51c987d521bdc7c9aeed17d",
+      "V720_IMPLEMENTATION_MANIFEST.json": "d4cf9e095f34f6f2cb3aa87db8a721828fa45e5249117481018e1291c7f0be82",
+      "V720_REPORT_SCHEMA.json": "ce3d5e39089b954c694224b23d71ccc9628ae86e45e3f21166bc72fdc7b1954f",
+      "V720_RUNTIME_MANIFEST_TEMPLATE.json": "f2c49aab6e0c1dfe0aa6d04081e4a8180a5955d84ba1aa3a998432c9be7fe4c7",
+      "V720_TEST_EVIDENCE.json": "ff042d43e9aeae855fb669afbf98bdcaf22d81944e1c95f0ff9955d3b3fe046f",
+      "planlatch_v7_20_controls.py": "06e7c8da9294c9e677fa421d9219ee36fa84ae01e2dd128eb978ce089d889173",
+      "planlatch_v7_20_effect_manifest.py": "a2f29fbeefef4731791d7316723a9554b42d226859e087b1539d15e684922358",
+      "planlatch_v7_20_execution_driver.py": "f19a27ad8dc7d216c47a634588e60affd965357bc1b733c5d2a8da34b6b3a18b",
+      "planlatch_v7_20_manifest_builder.py": "2b6c83a0e4d9bb16d6ed477f94b587a7b20dda984cd86e3ecd98a8375da4ba27",
+      "planlatch_v7_20_preflight.py": "3fd460e486b04d6ac8ddefa10f6cc08a6c5c85a21ba70ac4421d8b3cad544505",
+      "planlatch_v7_20_runner.py": "b728c83a92c976f5ed341c1084ac21bc667c11cd6be99507b052611c2aea58f9",
+      "planlatch_v7_9_execution_driver.py": "23f39c4615f2f8de7b9bf3094090db7df0a7297309a3de68d272563c37281505",
+      "planlatch_v7_9_model_runtime.py": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
+      "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+      "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "tests/run_planlatch_v7_20_checks.py": "008165853b125514eca63d9ac3341b4b6ed0b1e86b44402d36d919b1a9c6c273",
+      "tests/test_planlatch_v7_20_controls.py": "1c6c1c5aef070fd062cfd166a093b1a62fc1fa6b23df5b5a8c02faccd10bdc87",
+      "tests/test_planlatch_v7_20_effect_manifest.py": "bc5f8d8f0c3536a83b3e8820f3e8d241d719a42d9db04239a0c021a6ee68ce9a",
+      "tests/test_planlatch_v7_20_execution_driver.py": "2128b7861b3f9b3af1d44f0db2dc48560365d7c91f2284067c728c61a9a570dc",
+      "tests/test_planlatch_v7_20_manifests.py": "9f39e4f63664aa7b2089961882e3712e4be3d1de6153561fcf4502066d243e7d",
+      "tests/test_planlatch_v7_20_runner.py": "6c083fd2f1a45315f61d69205819732f134fc10ab44f005c3b2cc65e17960ff8",
+      "tests/test_planlatch_v7_9_execution_driver.py": "7c763c313a7283f8fe1f3545a46779bad605100605fb585eb094257b3ddecf34",
+      "tests/test_planlatch_v7_9_model_runtime.py": "fa93e3f179cef8a8e6bfddfaea1ffae944dc1b4b2af1f20cce407fd739669902",
+      "tests/test_planlatch_v7_9_protocol.py": "0c5090844f1cc344ee28428072bf5eabae569b0550929dcb6be0bbf80085c478",
+      "tests/test_planlatch_v7_9_runner.py": "47db77c1dc8e27b0be8e30152de1a809b93ae8eb9bb84cb895ae8c97cf9f6bd9",
+      "v720_test_requirements.txt": "bf4dc0555928a3facf67b3370001388d4b65e69a071c339f8b201310bde4486a"
+    },
+    "member_size_bytes": {
+      "V720_EFFECT_MANIFEST.json": 7129,
+      "V720_IMPLEMENTATION_MANIFEST.json": 5084,
+      "V720_REPORT_SCHEMA.json": 549,
+      "V720_RUNTIME_MANIFEST_TEMPLATE.json": 526,
+      "V720_TEST_EVIDENCE.json": 2269,
+      "planlatch_v7_20_controls.py": 18989,
+      "planlatch_v7_20_effect_manifest.py": 11164,
+      "planlatch_v7_20_execution_driver.py": 49645,
+      "planlatch_v7_20_manifest_builder.py": 4104,
+      "planlatch_v7_20_preflight.py": 3207,
+      "planlatch_v7_20_runner.py": 15068,
+      "planlatch_v7_9_execution_driver.py": 48307,
+      "planlatch_v7_9_model_runtime.py": 16858,
+      "planlatch_v7_9_protocol.py": 19133,
+      "planlatch_v7_9_runner.py": 52357,
+      "tests/run_planlatch_v7_20_checks.py": 9098,
+      "tests/test_planlatch_v7_20_controls.py": 6306,
+      "tests/test_planlatch_v7_20_effect_manifest.py": 2873,
+      "tests/test_planlatch_v7_20_execution_driver.py": 2792,
+      "tests/test_planlatch_v7_20_manifests.py": 1779,
+      "tests/test_planlatch_v7_20_runner.py": 3911,
+      "tests/test_planlatch_v7_9_execution_driver.py": 6830,
+      "tests/test_planlatch_v7_9_model_runtime.py": 4311,
+      "tests/test_planlatch_v7_9_protocol.py": 9430,
+      "tests/test_planlatch_v7_9_runner.py": 16215,
+      "v720_test_requirements.txt": 14
+    },
+    "path": "/workspace/local-vlm/planlatch_v720_pre_science_bundle_v3.tar.gz",
+    "sha256": "f7854e808e80ca20de4a67ecaf97702e86569aa3b6950cde48c4af23b10c892a",
+    "source_manifest": "V720_IMPLEMENTATION_MANIFEST.json",
+    "source_manifest_tree_sha256": "ef977b7550bb6753d8302ee0e9136da2bcf23425ebf54446d0def0dfce932155"
+  },
+  "work_item_id": "18407c13-f5d4-4016-9540-7f6262e56d24"
+}

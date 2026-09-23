@@ -1,0 +1,340 @@
+{
+  "donor_program_hash": "29cbb402f2f2a222ab1f5e1a15f184ef11940b5395b51b2db26e25db7e4da9ae",
+  "experiment_id": "UNREGISTERED_PRE_SCIENCE_V720",
+  "kind": "PLANLATCH_V720_SYNTHETIC_INPUT_V1",
+  "orientation_files": {
+    "CROSS_REALIZATION": {
+      "path": "results/design/planlatch_v7_20_train_input/CROSS_REALIZATION_orientation.json",
+      "sha256": "50d757d8fb09e7b95b4daa732dd96a3db34ce476455bf0601b714b3dff4c8c0d"
+    },
+    "PILOT": {
+      "path": "results/design/planlatch_v7_20_train_input/PILOT_orientation.json",
+      "sha256": "2e5a1475c857140d7da3bea7125998a5e3786f684d1804f08ac00c99c6fffc7d"
+    }
+  },
+  "partition_files": {
+    "CROSS_REALIZATION": {
+      "path": "results/design/planlatch_v7_20_train_input/CROSS_REALIZATION.json",
+      "sha256": "de81e9b7899e0d811d77f930c570c737f89622a8e97584d2b85d3c0b84810b21"
+    },
+    "FIT": {
+      "path": "results/design/planlatch_v7_20_train_input/FIT.json",
+      "sha256": "00b1f7ced1378e4881f49a06a3104bf713ca87746e8edcd6ae4c8cfcf09ba4cb"
+    },
+    "PILOT": {
+      "path": "results/design/planlatch_v7_20_train_input/PILOT.json",
+      "sha256": "0b5ca3e3184258324d9e0b0e3cec4ee055f1d64ea62ef4e331a9677e433e1e0e"
+    },
+    "SUPPORT": {
+      "path": "results/design/planlatch_v7_20_train_input/SUPPORT.json",
+      "sha256": "7af4bdc29788d5289756dd7807fea48e68b1b2dc37a4bbdc82003ed03368789b"
+    }
+  },
+  "tasks": [
+    {
+      "m0": "m0-702f7f3cc820317b",
+      "opaque_block_handle": "v720-fit-slot-00",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-29c8f977302fe4da",
+      "opaque_block_handle": "v720-fit-slot-01",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-49310a455f4ceb96",
+      "opaque_block_handle": "v720-fit-slot-02",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-99a7ef17a34f1eb4",
+      "opaque_block_handle": "v720-fit-slot-03",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-390415552ff675ea",
+      "opaque_block_handle": "v720-fit-slot-04",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-c341d65acc5a255f",
+      "opaque_block_handle": "v720-fit-slot-05",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-3cd6e8d72e690c20",
+      "opaque_block_handle": "v720-fit-slot-06",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-2a93bbc66fa8678a",
+      "opaque_block_handle": "v720-fit-slot-07",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-e39b703ac73f2554",
+      "opaque_block_handle": "v720-fit-slot-08",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-9ccc5e69e566cbb7",
+      "opaque_block_handle": "v720-fit-slot-09",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-8d571960345a8c7e",
+      "opaque_block_handle": "v720-fit-slot-10",
+      "partition": "FIT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-5123f8a3fb63ca7f",
+      "opaque_block_handle": "v720-fit-slot-11",
+      "partition": "FIT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-afd375314346d405",
+      "opaque_block_handle": "v720-pilot-slot-00",
+      "partition": "PILOT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-94470f20feb76a37",
+      "opaque_block_handle": "v720-pilot-slot-01",
+      "partition": "PILOT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-50b91fb7c8b1589d",
+      "opaque_block_handle": "v720-pilot-slot-02",
+      "partition": "PILOT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-7948f12a340d6502",
+      "opaque_block_handle": "v720-pilot-slot-03",
+      "partition": "PILOT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-1e872db649eb495d",
+      "opaque_block_handle": "v720-pilot-slot-04",
+      "partition": "PILOT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-cd5fb946b68b030f",
+      "opaque_block_handle": "v720-pilot-slot-05",
+      "partition": "PILOT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-d60b6c607021e9ff",
+      "opaque_block_handle": "v720-pilot-slot-06",
+      "partition": "PILOT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-02d91a6f8e0fa606",
+      "opaque_block_handle": "v720-pilot-slot-07",
+      "partition": "PILOT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-5c03fe0d4662bfb6",
+      "opaque_block_handle": "v720-support-slot-00",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-f32b0494cbf653b5",
+      "opaque_block_handle": "v720-support-slot-01",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-9db9c568560875a0",
+      "opaque_block_handle": "v720-support-slot-02",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-b7ae5c36662f66cf",
+      "opaque_block_handle": "v720-support-slot-03",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-0776326795209849",
+      "opaque_block_handle": "v720-support-slot-04",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-712c58aebe3942ca",
+      "opaque_block_handle": "v720-support-slot-05",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-daed70cf16f95320",
+      "opaque_block_handle": "v720-support-slot-06",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-21bfa97825d8b1ff",
+      "opaque_block_handle": "v720-support-slot-07",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-afd703e3154e7eff",
+      "opaque_block_handle": "v720-support-slot-08",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-2ce02861518009ef",
+      "opaque_block_handle": "v720-support-slot-09",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-bd900e233714fce9",
+      "opaque_block_handle": "v720-support-slot-10",
+      "partition": "SUPPORT",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-4a59efe1c0ae3ae7",
+      "opaque_block_handle": "v720-support-slot-11",
+      "partition": "SUPPORT",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-58d98150692deca3",
+      "opaque_block_handle": "v720-cross_realization-slot-00",
+      "partition": "CROSS_REALIZATION",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-4edf1e2f9d750f04",
+      "opaque_block_handle": "v720-cross_realization-slot-01",
+      "partition": "CROSS_REALIZATION",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-8c152044932274e9",
+      "opaque_block_handle": "v720-cross_realization-slot-02",
+      "partition": "CROSS_REALIZATION",
+      "r": 0,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    },
+    {
+      "m0": "m0-8400e76ec5ed7410",
+      "opaque_block_handle": "v720-cross_realization-slot-03",
+      "partition": "CROSS_REALIZATION",
+      "r": 1,
+      "r_producer_id": "planlatch-repeatable-orientation-R-v1",
+      "split": "train"
+    }
+  ],
+  "universe_attestation": {
+    "candidate_universe_hash": "2bbd5228e125a6e3aaf3a7b41b7f0c44f194323bc6ba84880253cfff91056d26",
+    "membership_receipt_file_sha256": "41cadd45b57967097e195dded6b831f4d915aa84c4574abdac2f0a7ec0e7b75c",
+    "membership_receipt_sha256": "816185dbb1d966057a56d2994afc678ead6acdf8571b56a02616f240fc92a734",
+    "mode": "DETERMINISTIC_FIXED36_PRE_OUTCOME_EXECUTION_SELECTION_V1",
+    "model_calls_before_input_freeze": 0,
+    "no_global_freshness_claim": true,
+    "partition_counts": {
+      "CROSS_REALIZATION": 4,
+      "FIT": 12,
+      "PILOT": 8,
+      "SUPPORT": 12
+    },
+    "selected_count": 36,
+    "selection_seed_sha256": "3cf55aa89486a9561848b890caf22aae59532e9bde8348a7c5e828d94fb21d87"
+  },
+  "washout_hash": "f03d52d9edc600355b3f55fd8150e67f5b9c02106018ca6e9e4ef26835c1496a"
+}

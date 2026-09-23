@@ -1,0 +1,68 @@
+{
+  "binding_sha256": "934c3ece94d0c5871c25307d18caad78401392e8f1a6caeb95dcbdc7e76e8a37",
+  "cuda_runtime_discovery": "ctypes.find_library first; if cudart absent, exactly-one resolved sys.prefix CUDA package library; fail closed on zero/ambiguity",
+  "execution_boundary": "reserved host only, before one-shot registration",
+  "fail_closed": [
+    "missing wheel archive",
+    "wheel metadata mismatch",
+    "missing GPU/container identity",
+    "Python/package mismatch",
+    "missing CUDA driver/runtime API",
+    "missing NumPy native dependency evidence",
+    "any PENDING/empty field"
+  ],
+  "forbidden": [
+    "model/tokenizer loading",
+    "ALFWorld/task access",
+    "network/provider lifecycle",
+    "authority registration",
+    "beacon read",
+    "membership draw",
+    "scientific execution"
+  ],
+  "frozen_required_versions": {
+    "python_major_minor": "3.12",
+    "tokenizers": "0.21.1",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.51.3"
+  },
+  "kind": "PLANLATCH_V720_RESERVED_HOST_ATTESTATION_COLLECTOR_CONTRACT_V2",
+  "numpy_policy": "do not guess version; bind exact realized installed version and exact source wheel before registration",
+  "orchestrator_required_environment": [
+    "PLANCARRY_RESERVED_GPU_UUID",
+    "PLANCARRY_CONTAINER_IMAGE_REFERENCE",
+    "PLANCARRY_CONTAINER_IMAGE_DIGEST"
+  ],
+  "output_required_fields": [
+    "complete_python312_environment_manifest_sha256",
+    "container_image_digest",
+    "container_image_reference",
+    "cpu_flags_sha256",
+    "cpu_model",
+    "cuda_driver_api_version",
+    "cuda_runtime_version",
+    "gpu_firmware_vbios",
+    "gpu_model",
+    "gpu_uuid",
+    "nvidia_driver_version",
+    "numeric_threading_environment_sha256",
+    "numpy_exact_version",
+    "numpy_installed_tree_sha256",
+    "numpy_linked_native_libraries_manifest_sha256",
+    "numpy_runtime_config_sha256",
+    "numpy_wheel_archive_sha256",
+    "python_exact_version",
+    "python_executable_sha256",
+    "tokenizers_wheel_archive_sha256",
+    "torch_wheel_archive_sha256",
+    "transformers_wheel_archive_sha256"
+  ],
+  "required_wheel_manifest_keys": [
+    "numpy",
+    "tokenizers",
+    "torch",
+    "transformers"
+  ],
+  "runtime_lock_v4_file_sha256": "9fe4f5c568418eb5b126bffe386a4e0d52e0048ad5d5a80042a51bee10fdd2ad",
+  "supersedes_collector_v1_sha256": "63506a8f2324bc6ab19aa34422d0fd678f16bfe3395c0df896df42d6f4598d10"
+}

@@ -1,0 +1,837 @@
+{
+  "partition": "CROSS_REALIZATION",
+  "records": [
+    {
+      "cell_id": "v720-cell-10966c69d31c8f82957dff6d",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-f6e75b58c94c7e000acd9ec3",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-51db395405ce36cc2578e204",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-ee5c3682a370ca17276cd63f",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-4a2c4aad54ca54654c0779ca",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-b2d0d6d7a7b98c0e9f4f1020",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-1bb8eba2e897e783bd3296e5",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-1424b5df8a77785a44628471",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-49b0a553d2bf0449fd74645e",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-c502f8f7224b78a6fde112e4",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-54d0605253235805bdde9e7b",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-61f3f91b500d754fecf0d15c",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-c4b443e8e0b0d6873bccf13a",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-e00b90fe812d76144e2eb694",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-c614f5e4c22665539bd17403",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-2717f4cd3cf15e0fd4f8160b",
+      "donor_prompt": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete tissuebox 1 from countertop 1 into cart 1.\nOPTION B: Complete tissuebox 2 from countertop 1 into cart 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take tissuebox 1 from countertop 1",
+        "e1": "take tissuebox 2 from countertop 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two tissuebox and put them in cart.\nCURRENT OBSERVATION\nYou arrive at countertop 1. On the countertop 1, you see a dishsponge 3, a soapbar 1, a soapbottle 3, a soapbottle 2, a tissuebox 2, a tissuebox 1, and a toiletpaper 1.\nADMISSIBLE COMMANDS\nexamine countertop 1\ngo to bathtubbasin 1\ngo to cart 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to garbagecan 1\ngo to handtowelholder 1\ngo to shelf 1\ngo to sinkbasin 1\ngo to toilet 1\ngo to toiletpaperhanger 1\ngo to towelholder 1\nhelp\ninventory\nlook\ntake dishsponge 3 from countertop 1\ntake soapbar 1 from countertop 1\ntake soapbottle 2 from countertop 1\ntake soapbottle 3 from countertop 1\ntake tissuebox 1 from countertop 1\ntake tissuebox 2 from countertop 1\ntake toiletpaper 1 from countertop 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-fa21268c3b2568527b7e35dd",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-66613ce0ddae597589d4a073",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-aec81cb2526d65b25427cf9d",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-8256bc895823363e3eafe681",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-752c7731f3cce632d75b75d2",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-a6533451c282f49989a98733",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-494f6934d605777e8059215e",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-1233af843e50d2e17cc92be4",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-30d1edb614c99363f0db8d64",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-3136208c1511f844938529c3",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-60d24d0fb33b1333bddd9b48",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-1a5655a3ab4b06f6e7a0f66d",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-45a47f70653051b7d68f1bd8",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-1cab2fbc8d27add4c1aef8d6",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-a19dc31e4dd26db4bc4cc471",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-948fce92a21c55ca8f53445d",
+      "donor_prompt": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete laptop 1 from bed 1 into desk 1.\nOPTION B: Complete laptop 2 from bed 1 into desk 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take laptop 1 from bed 1",
+        "e1": "take laptop 2 from bed 1"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two laptop and put them in desk.\nCURRENT OBSERVATION\nYou arrive at bed 1. On the bed 1, you see a book 1, a cellphone 2, a cellphone 1, a laptop 3, a laptop 2, a laptop 1, and a pillow 1.\nADMISSIBLE COMMANDS\nexamine bed 1\ngo to desk 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to garbagecan 1\ngo to laundryhamper 1\ngo to shelf 1\ngo to shelf 2\ngo to sidetable 1\nhelp\ninventory\nlook\ntake book 1 from bed 1\ntake cellphone 1 from bed 1\ntake cellphone 2 from bed 1\ntake laptop 1 from bed 1\ntake laptop 2 from bed 1\ntake laptop 3 from bed 1\ntake pillow 1 from bed 1\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-66f8979ed4cd6033eb7e8548",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-26246048bf16317d48462f14",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-a49fa7982888099fc42acd5f",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-6ef908046e5dd79dc2c455ea",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-90969c237d612a2417d2c2e6",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-72c84eefe0a26ea456a6d3a7",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-d5fd67c0771e9fe36e31b950",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-2a36a333c47d2b5e2e2f2a60",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-5698add8efeca5f8dd9a62c8",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-43f5f4a4c81f6df5ce888d57",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-9819bfee3a5792902ca7ead9",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-86dafddc4800a75778940f6c",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-0ca502d71da3940a6d3f1efa",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-f1bae5b2c95768f76f4dea55",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-31f4932aea989d8f99915b9d",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-f040ec22015649ee12efc8b2",
+      "donor_prompt": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete keychain 2 from drawer 6 into sidetable 1.\nOPTION B: Complete keychain 3 from drawer 6 into sidetable 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take keychain 2 from drawer 6",
+        "e1": "take keychain 3 from drawer 6"
+      },
+      "relay_visible_context": "TASK\nYour task is to: put two keychain in sidetable.\nCURRENT OBSERVATION\nYou arrive at drawer 6. On the drawer 6, you see a keychain 3, and a keychain 2.\nADMISSIBLE COMMANDS\nexamine drawer 6\ngo to armchair 1\ngo to bed 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to drawer 4\ngo to drawer 5\ngo to dresser 1\ngo to garbagecan 1\ngo to sidetable 1\ngo to sidetable 2\nhelp\ninventory\nlook\ntake keychain 2 from drawer 6\ntake keychain 3 from drawer 6\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-40893f5563fb5c66ec728916",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-e23ed907d484644581735c7a",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-9bff3c2c99ad4f2f03f93ea9",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-09ffeb63ec99a464a515fd7c",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-eb01f28577fc301a733d48b1",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-904a6dd36868b1026d3c707d",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-6bb122b3af3c7b60bf7bc14c",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: A THEN B\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-d859a6a422bbda26de9c15e5",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: A THEN B\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-54c795f0aed8511b1393e489",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-37f215f247547c04ee0c1050",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-9057359256745b07cd51d10e",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-438d1fc293a3d474f22edd31",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-a97e3cf57f6699e9d0219d67",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-a2c1921200dd8a1e6ecc2af7",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-dc8e6b774c2fdf77b7e25713",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nACTIVE ORDER: B THEN A\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    },
+    {
+      "cell_id": "v720-cell-6240c702c4085d95b45df2ee",
+      "donor_prompt": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\nPLAN OPTIONS\nOPTION A: Complete lettuce 1 from countertop 2 into fridge 1.\nOPTION B: Complete lettuce 2 from countertop 2 into fridge 1.\nARCHIVED ORDER: B THEN A\nACTIVE ORDER: NONE\n<STATE_END>\n\n<NEUTRAL_WASHOUT>\n\n</NEUTRAL_WASHOUT>\n",
+      "relay_endpoints": {
+        "e0": "take lettuce 1 from countertop 2",
+        "e1": "take lettuce 2 from countertop 2"
+      },
+      "relay_visible_context": "TASK\nYour task is to: find two lettuce and put them in fridge.\nCURRENT OBSERVATION\nYou arrive at countertop 2. On the countertop 2, you see a knife 2, a ladle 2, a lettuce 2, a lettuce 1, a pan 1, a soapbottle 1, and a winebottle 2.\nADMISSIBLE COMMANDS\nexamine countertop 2\ngo to cabinet 1\ngo to cabinet 10\ngo to cabinet 11\ngo to cabinet 12\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to cabinet 7\ngo to cabinet 8\ngo to cabinet 9\ngo to coffeemachine 1\ngo to countertop 1\ngo to diningtable 1\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nhelp\ninventory\nlook\ntake knife 2 from countertop 2\ntake ladle 2 from countertop 2\ntake lettuce 1 from countertop 2\ntake lettuce 2 from countertop 2\ntake pan 1 from countertop 2\ntake soapbottle 1 from countertop 2\ntake winebottle 2 from countertop 2\n<STATE_END>\n",
+      "valid_endpoint_ids": [
+        "e0",
+        "e1"
+      ]
+    }
+  ]
+}

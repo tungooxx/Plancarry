@@ -1,0 +1,128 @@
+{
+  "binding": {
+    "authorization": {
+      "reason_codes": [
+        "PENDING_INDEPENDENT_REVIEW",
+        "PENDING_RESERVED_HOST_RUNTIME_FREEZE",
+        "PENDING_SOURCE_CONTROL_PLANE_IMPLEMENTATION_AND_REVIEW"
+      ],
+      "registration_authorized": false,
+      "scientific_execution_authorized": false
+    },
+    "candidate_universe": {
+      "body_blind_eligibility": true,
+      "candidate_count": 813,
+      "canonical_exact_body_count": 813,
+      "engineering_result_id": "3d5ceecb-ded0-484e-9d8e-018f7f0562e6",
+      "membership_drawn": false,
+      "ordered_universe_hash": "2bbd5228e125a6e3aaf3a7b41b7f0c44f194323bc6ba84880253cfff91056d26"
+    },
+    "claim_family_authority_key": "PLANCARRY_PLANLATCH_SOURCE_RELAY_EXACT36_CONFIRMATORY_FAMILY",
+    "control_plane_semantics": {
+      "alternate_round_or_redraw_forbidden": true,
+      "pending_unconsumed_state_forbidden": true,
+      "quicknet_verifier_reuse": "READ_ONLY_VERIFIER_ONLY",
+      "registration_is_consumption": true,
+      "registration_transition": "ATOMIC_CREATE_ATTEMPT_AND_CONSUMED_WAITING_BEACON",
+      "terminal_failure_never_restores_authority": true,
+      "v21_authority_state_reuse_forbidden": true
+    },
+    "implementation": {
+      "engineering_result_id": "c65246f1-40ea-4aa0-a3ab-2b97e381702b",
+      "manifest_file_sha256": "d4cf9e095f34f6f2cb3aa87db8a721828fa45e5249117481018e1291c7f0be82",
+      "partition_counts": {
+        "CROSS_REALIZATION": 4,
+        "FIT": 12,
+        "PILOT": 8,
+        "SUPPORT": 12
+      },
+      "selection_domain_tag": "PlanLatch-v7.18",
+      "tree_sha256": "ef977b7550bb6753d8302ee0e9136da2bcf23425ebf54446d0def0dfce932155"
+    },
+    "kind": "PLANLATCH_V7_20_PRE_REGISTRATION_BINDING_V4",
+    "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+    "review": {
+      "excluded_worker_ids": [
+        "f369e19c-7d78-414d-b9d5-7c4a6e22ea2a",
+        "1203cf7a-7c65-421e-948c-0660261035ab"
+      ],
+      "fresh_independent_planCarry_llm_a_review_required": true,
+      "status": "PENDING"
+    },
+    "runtime": {
+      "numeric_dependency_certificate_status": "PENDING_RESERVED_HOST",
+      "pending_reserved_host_fields": [
+        "complete_python312_environment_manifest_sha256",
+        "container_image_digest",
+        "container_image_reference",
+        "cpu_flags_sha256",
+        "cpu_model",
+        "cuda_driver_api_version",
+        "cuda_runtime_version",
+        "gpu_firmware_vbios",
+        "gpu_model",
+        "gpu_uuid",
+        "numeric_threading_environment_sha256",
+        "numpy_exact_version",
+        "numpy_installed_tree_sha256",
+        "numpy_linked_native_libraries_manifest_sha256",
+        "numpy_runtime_config_sha256",
+        "numpy_wheel_archive_sha256",
+        "nvidia_driver_version",
+        "python_exact_version",
+        "python_executable_sha256",
+        "tokenizers_wheel_archive_sha256",
+        "torch_wheel_archive_sha256",
+        "transformers_wheel_archive_sha256"
+      ],
+      "post_registration_substitution": "TERMINAL_NONEXECUTION_NO_REDRAW",
+      "registration_guard": "REJECT_UNLESS_ALL_RESERVED_HOST_AND_NUMERIC_FIELDS_FROZEN_AND_MATCH",
+      "reserved_host_status": "PENDING_RESERVED_HOST",
+      "runtime_bundle_v3_sha256": "f7854e808e80ca20de4a67ecaf97702e86569aa3b6950cde48c4af23b10c892a",
+      "runtime_lock_v4_canonical_payload_sha256": "fd840a837da430e12d9749bab64c055716e98aab09a1eec39d60af8330ff1682",
+      "runtime_lock_v4_file_sha256": "9fe4f5c568418eb5b126bffe386a4e0d52e0048ad5d5a80042a51bee10fdd2ad",
+      "runtime_v4_engineering_result_id": "32a2c091-f3cb-4ca7-91f9-4653efd7e41a"
+    },
+    "scientific_design": {
+      "accepted_status": "ACCEPTED_FOR_TEST",
+      "execution_authorized": false,
+      "id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+      "semantic_hash": "d7b7022b8a38e93c884b8a5fce6f01d0ae0007ab5ab52571040faa47b4129263"
+    },
+    "scope": {
+      "live_authority_consumed": false,
+      "live_beacon_read": false,
+      "membership_drawn": false,
+      "paid_gpu_or_host_reserved": false,
+      "scientific_execution_performed": false,
+      "selected_bodies_accessed": false
+    },
+    "source_control_plane": {
+      "production_primitive_status": "NOT_IMPLEMENTED_CURRENT_TUPLE",
+      "stale_work_items_forbidden": [
+        "cf3adcfa-2f83-4cbb-9c42-f0220305ef9b",
+        "d300f19e-67fb-455d-84ba-47914d9bd786",
+        "38b677df-82a6-4216-9172-a0367ff40363"
+      ]
+    },
+    "source_objects": {
+      "implementation_engineering_result_id": "c65246f1-40ea-4aa0-a3ab-2b97e381702b",
+      "runtime_v4_engineering_result_id": "32a2c091-f3cb-4ca7-91f9-4653efd7e41a",
+      "target_policy_v2_engineering_result_id": "7445fd66-897d-4f5c-bc8e-b6c6350cbe69",
+      "universe_engineering_result_id": "3d5ceecb-ded0-484e-9d8e-018f7f0562e6"
+    },
+    "target_round_policy": {
+      "authoritative_time_source": "DURABLE_DATABASE_COMMIT_RECEIPT_TIME",
+      "engineering_result_id": "7445fd66-897d-4f5c-bc8e-b6c6350cbe69",
+      "formula": "target_round=max(1, floor((commit_receipt_unix_ns + 300000000000 - 1692803367000000000) / 3000000000) + 2)",
+      "max_abs_utc_error_ns": 30000000000,
+      "max_time_attestation_age_ns": 30000000000,
+      "policy_file_sha256": "5908c1aef22ab5bcd4de5fcbe9ee1ef0e276016692ec0a2453ebb8a6b3a82e03",
+      "policy_sha256": "c2d3d438c580ae95a5d229ae9c33d47f9743170e7ac4ec641ae5fce4709432bc",
+      "safety_margin_ns": 300000000000,
+      "safety_rounds": 100
+    },
+    "version": "planlatch-v7.20-pre-registration-binding-v4"
+  },
+  "binding_sha256": "934c3ece94d0c5871c25307d18caad78401392e8f1a6caeb95dcbdc7e76e8a37"
+}

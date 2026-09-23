@@ -1,0 +1,17 @@
+{
+  "cell_count": 576,
+  "frame_hash": "25991201dd708282801bef9473c209b17a64c7988e8205ebdee4e021153382af",
+  "kind": "PLANLATCH_V720_EXECUTION_INPUT_MATERIALIZATION",
+  "membership_receipt_sha256": "816185dbb1d966057a56d2994afc678ead6acdf8571b56a02616f240fc92a734",
+  "model_calls": 0,
+  "partition_counts": {
+    "CROSS_REALIZATION": 4,
+    "FIT": 12,
+    "PILOT": 8,
+    "SUPPORT": 12
+  },
+  "root_sha256": "79c3794975964e6a201458c4baa51028cca936d9c209c2f14c491de0668a0d2f",
+  "scientific_execution_performed": false,
+  "selected_count": 36,
+  "universe_hash": "2bbd5228e125a6e3aaf3a7b41b7f0c44f194323bc6ba84880253cfff91056d26"
+}

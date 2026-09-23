@@ -38,3 +38,8 @@ results/*
 results/design/**/__pycache__/
 results/design/**/*.py[cod]
 results/design/**/*.log
+.venv-planlatch-v720/
+.runtime-wheels/
+.hf-planlatch-v720/
+.qwen3-1.7b-70d244/
+results/science/planlatch_v7_20_exact36_v1/

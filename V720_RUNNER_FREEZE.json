@@ -1,0 +1,42 @@
+{
+  "design_id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+  "factor_contract": {
+    "A": [
+      0,
+      1
+    ],
+    "H": [
+      0,
+      1
+    ],
+    "M0": "provenance-only; forbidden from scientific routing",
+    "R": [
+      0,
+      1
+    ],
+    "S": [
+      "p",
+      "q"
+    ],
+    "U*": "(A,H,R)",
+    "sham": true,
+    "washout": "equal-token-frozen"
+  },
+  "inherited_v79_byte_identity": "c0a430a38f432a5dcc90b8e2ac3247876eb54d1440b8d47084b9a9f5bcd6ea2d",
+  "inherited_v79_files": {
+    "model_runtime_sha256": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
+    "protocol_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "runner_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200"
+  },
+  "partition_contract": {
+    "CROSS_REALIZATION": 4,
+    "FIT": 12,
+    "PILOT": 8,
+    "SUPPORT": 12,
+    "response_conditioned_replacement": false,
+    "whole_B": true
+  },
+  "scientific_canaries_required_at_exact_runtime_preflight": true,
+  "semantic_hash": "d7b7022b8a38e93c884b8a5fce6f01d0ae0007ab5ab52571040faa47b4129263",
+  "version": "planlatch-v7.20-runner-adapter-v1"
+}

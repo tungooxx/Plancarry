@@ -1,0 +1,25 @@
+{
+  "artifact_sha256": {
+    "alias_receipt.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "source_manifest.json": "6a8fc6abd679793829ffe3d131e7487ed27e6c92ad23f567ed025fd7638ac370",
+    "universe_receipt.json": "224aa0062d9b0f86930c7a409443ce6023e14fe5b9d084ecfb32258c71e07215",
+    "universe_repair_provenance.json": "e54a8210eb77031e347c3560f52995011431635bd7603348019a14ffdee7c376"
+  },
+  "canonical_exact_body_count": 813,
+  "collapsed_alias_count": 0,
+  "collapsed_alias_groups": 0,
+  "excluded_unknown_count": 0,
+  "ordered_universe_hash": "2bbd5228e125a6e3aaf3a7b41b7f0c44f194323bc6ba84880253cfff91056d26",
+  "permutation_invariance": true,
+  "prohibited_surfaces": {
+    "beacon": false,
+    "membership_draw": false,
+    "model_science": false,
+    "partition_assignment": false,
+    "selection_key": false,
+    "semantic_environment_replay": false,
+    "v79_trial_salt": false
+  },
+  "serialized_rebuild_exact": true,
+  "source_candidate_count": 813
+}

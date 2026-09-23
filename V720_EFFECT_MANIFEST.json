@@ -1,0 +1,135 @@
+{
+  "certification_mode": "EXACT_BYTE_SEMANTIC_WHITELIST_PLUS_FAIL_CLOSED_UNKNOWN_AST",
+  "design_id": "2f2edabb-e86c-4d24-8233-87e681270f50",
+  "dynamic_scientific_indexing": "FAIL_CLOSED",
+  "exact_audited_file_hashes": {
+    "planlatch_v7_20_controls.py": "06e7c8da9294c9e677fa421d9219ee36fa84ae01e2dd128eb978ce089d889173",
+    "planlatch_v7_20_execution_driver.py": "f19a27ad8dc7d216c47a634588e60affd965357bc1b733c5d2a8da34b6b3a18b",
+    "planlatch_v7_20_runner.py": "b728c83a92c976f5ed341c1084ac21bc667c11cd6be99507b052611c2aea58f9",
+    "planlatch_v7_9_execution_driver.py": "23f39c4615f2f8de7b9bf3094090db7df0a7297309a3de68d272563c37281505",
+    "planlatch_v7_9_model_runtime.py": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
+    "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200"
+  },
+  "extensional_content_selection": "FORBIDDEN",
+  "files": {
+    "planlatch_v7_20_controls.py": "06e7c8da9294c9e677fa421d9219ee36fa84ae01e2dd128eb978ce089d889173",
+    "planlatch_v7_20_effect_manifest.py": "a2f29fbeefef4731791d7316723a9554b42d226859e087b1539d15e684922358",
+    "planlatch_v7_20_execution_driver.py": "f19a27ad8dc7d216c47a634588e60affd965357bc1b733c5d2a8da34b6b3a18b",
+    "planlatch_v7_20_manifest_builder.py": "2b6c83a0e4d9bb16d6ed477f94b587a7b20dda984cd86e3ecd98a8375da4ba27",
+    "planlatch_v7_20_preflight.py": "3fd460e486b04d6ac8ddefa10f6cc08a6c5c85a21ba70ac4421d8b3cad544505",
+    "planlatch_v7_20_runner.py": "b728c83a92c976f5ed341c1084ac21bc667c11cd6be99507b052611c2aea58f9",
+    "planlatch_v7_9_execution_driver.py": "23f39c4615f2f8de7b9bf3094090db7df0a7297309a3de68d272563c37281505",
+    "planlatch_v7_9_model_runtime.py": "d042978a0fc31e2d9c3124695d80854e8d9580d40a2c2393666d4798fca0ec01",
+    "planlatch_v7_9_protocol.py": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+    "planlatch_v7_9_runner.py": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+    "tests/run_planlatch_v7_20_checks.py": "008165853b125514eca63d9ac3341b4b6ed0b1e86b44402d36d919b1a9c6c273",
+    "tests/test_planlatch_v7_20_controls.py": "1c6c1c5aef070fd062cfd166a093b1a62fc1fa6b23df5b5a8c02faccd10bdc87",
+    "tests/test_planlatch_v7_20_effect_manifest.py": "bc5f8d8f0c3536a83b3e8820f3e8d241d719a42d9db04239a0c021a6ee68ce9a",
+    "tests/test_planlatch_v7_20_execution_driver.py": "2128b7861b3f9b3af1d44f0db2dc48560365d7c91f2284067c728c61a9a570dc",
+    "tests/test_planlatch_v7_20_manifests.py": "9f39e4f63664aa7b2089961882e3712e4be3d1de6153561fcf4502066d243e7d",
+    "tests/test_planlatch_v7_20_runner.py": "6c083fd2f1a45315f61d69205819732f134fc10ab44f005c3b2cc65e17960ff8",
+    "tests/test_planlatch_v7_9_execution_driver.py": "7c763c313a7283f8fe1f3545a46779bad605100605fb585eb094257b3ddecf34",
+    "tests/test_planlatch_v7_9_model_runtime.py": "fa93e3f179cef8a8e6bfddfaea1ffae944dc1b4b2af1f20cce407fd739669902",
+    "tests/test_planlatch_v7_9_protocol.py": "0c5090844f1cc344ee28428072bf5eabae569b0550929dcb6be0bbf80085c478",
+    "tests/test_planlatch_v7_9_runner.py": "47db77c1dc8e27b0be8e30152de1a809b93ae8eb9bb84cb895ae8c97cf9f6bd9",
+    "v720_test_requirements.txt": "bf4dc0555928a3facf67b3370001388d4b65e69a071c339f8b201310bde4486a"
+  },
+  "operators": [
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_phi",
+      "implementation_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+      "name": "phi",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_full_decoder",
+      "implementation_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "name": "full_decoder",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_placebo_decoder",
+      "implementation_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "name": "placebo_decoder",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_p_mix",
+      "implementation_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+      "name": "p_mix",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_source_scoring",
+      "implementation_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "name": "source_scoring",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_payload_bank_fit_only",
+      "implementation_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "name": "payload_bank",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_observed_support_payload_select",
+      "implementation_sha256": "e10db7c0b1552ca56e297ae0b8effe8e05988aad1be5e77ee9c42c534bc8222a",
+      "name": "payload_select",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_relay_scoring",
+      "implementation_sha256": "23f39c4615f2f8de7b9bf3094090db7df0a7297309a3de68d272563c37281505",
+      "name": "relay_scoring",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v79_g1_g20_terminal",
+      "implementation_sha256": "5e185c990e0f994485ac2d5d0434430d7c8723a09b6eb505a68ec5b41e5ed200",
+      "name": "g1_g20",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v720_u_star_router",
+      "implementation_sha256": "b728c83a92c976f5ed341c1084ac21bc667c11cd6be99507b052611c2aea58f9",
+      "name": "u_star",
+      "recursively_verified": true
+    },
+    {
+      "certificate_basis": "EXACT_AUDITED_MODULE_BYTES",
+      "formula": "v720_total_report",
+      "implementation_sha256": "06e7c8da9294c9e677fa421d9219ee36fa84ae01e2dd128eb978ce089d889173",
+      "name": "total_report",
+      "recursively_verified": true
+    }
+  ],
+  "production_numeric_dependency_certificate": {
+    "required": [
+      "numpy exact bytes/version",
+      "python runtime exact bytes/version"
+    ],
+    "status": "PENDING_EXACT_RUNTIME_FREEZE"
+  },
+  "semantic_hash": "d7b7022b8a38e93c884b8a5fce6f01d0ae0007ab5ab52571040faa47b4129263",
+  "unknown_opaque_native_callbacks": "FAIL_CLOSED",
+  "unknown_source_control_flow": "FAIL_CLOSED",
+  "version": "planlatch-v7.20-effect-manifest-v2",
+  "whole_program_policy": {
+    "Ustar_only_router": "authenticated A,H,R",
+    "extensional_compute_both_mask_or_soft_gate": "FORBIDDEN",
+    "terminal_gates": "status-only/no-feedback",
+    "unknown_opaque_native_callback_plugin_reflection_dynamic_import": "FAIL_CLOSED",
+    "unknown_source_control_or_selection": "FAIL_CLOSED"
+  }
+}

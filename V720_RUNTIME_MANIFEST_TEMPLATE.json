@@ -1,0 +1,21 @@
+{
+  "host_class_fallback": false,
+  "required_fields": [
+    "container_sha256",
+    "code_tree_sha256",
+    "model_sha256",
+    "tokenizer_sha256",
+    "host_id",
+    "gpu_device_uuid",
+    "gpu_model",
+    "driver_version",
+    "cuda_runtime",
+    "firmware_id",
+    "dtype",
+    "deterministic_flags_sha256",
+    "environment_sha256"
+  ],
+  "status": "TEMPLATE_NOT_RESERVED",
+  "unavailable_after_registration": "TERMINAL_NONEXECUTION_AUTHORITY_REMAINS_CONSUMED",
+  "version": "planlatch-v7.20-exact-runtime-template-v1"
+}
