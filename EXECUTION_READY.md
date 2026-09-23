@@ -2,10 +2,15 @@
 
 This checkout is frozen for execution. No further design/fidelity/review loop is part of the run path.
 
-On a fresh CUDA 13-capable Vast host:
+Canonical Git ref:
+- branch: `planlatch-v7.20-exec`
+- immutable tag: `planlatch-v7.20-exec-v1`
+
+On a fresh CUDA-13-capable Vast host:
 
 ```bash
-git pull
+git clone --branch planlatch-v7.20-exec-v1 --single-branch https://github.com/tungooxx/Plancarry.git
+cd Plancarry
 ./run_v720.sh
 ```
 

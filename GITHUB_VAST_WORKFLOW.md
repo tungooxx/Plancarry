@@ -1,33 +1,41 @@
-# GitHub -> Vast execution workflow
+# PlanLatch v7.20 GitHub -> Vast execution workflow
 
-Canonical code-transfer repository:
+Canonical repository:
 
-- SSH: `git@github.com:tungooxx/Plancarry.git`
-- HTTPS: `https://github.com/tungooxx/Plancarry`
+- HTTPS: `https://github.com/tungooxx/Plancarry.git`
+- execution branch: `planlatch-v7.20-exec`
+- immutable execution tag: `planlatch-v7.20-exec-v1`
 
-## Local/GPU-lab
+## Fresh Vast host
 
-Work in `/workspace/local-vlm/LLM/plancarry`, commit reproducible source/design changes, and push to `main`.
-Do not commit `.env`, SSH/private keys, Hugging Face/model caches, virtual environments, or generated sealed scientific outputs.
-
-## Vast
-
-Clone once:
+Clone the immutable execution tag:
 
 ```bash
-git clone git@github.com:tungooxx/Plancarry.git
+git clone --branch planlatch-v7.20-exec-v1 --single-branch https://github.com/tungooxx/Plancarry.git
 cd Plancarry
+git rev-parse HEAD
+./run_v720.sh
 ```
 
-For later runs:
+The tag is intentionally detached/frozen. Do not switch to `main` before execution.
+
+## Updating the execution branch before a future tag
+
+Only operational packaging changes may be added without changing frozen science. If the branch itself is intentionally updated:
 
 ```bash
-git fetch origin
-git checkout main
-git pull --ff-only origin main
+git clone --branch planlatch-v7.20-exec --single-branch https://github.com/tungooxx/Plancarry.git
+cd Plancarry
+git pull --ff-only origin planlatch-v7.20-exec
 git rev-parse HEAD
 ```
 
-Before any scientific execution, record/verify the exact Git commit SHA and the declared model/runtime environment against the Research OS Experiment/ResearchDecision. Moving execution to Vast is a technical host change only; it does not authorize changes to frozen populations, seeds, model revision, precision, hook sites, intervention rules, metrics, gates, or sealed-result handling.
+Scientific execution should use the immutable tag named above unless a later tag is explicitly frozen.
 
-Run exact-runtime canaries/equivalence checks whenever required by the frozen experiment contract before interpreting outcomes.
+## Runtime behavior
+
+`./run_v720.sh` performs the execution preflight itself. It verifies the frozen v7.20 implementation/manifests, exact36 input, runtime-lock asset, exact Python package freeze, exact core wheel hashes, exact Qwen revision/file hashes, CUDA availability, and the 36-block / 576-cell frame before loading the real model.
+
+The exact36 input is already materialized in Git. ALFWorld/TextWorld is not required on the GPU host.
+
+Do not commit credentials, model caches, runtime wheels, virtual environments, or scientific outputs.
