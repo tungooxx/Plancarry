@@ -1,0 +1,46 @@
+{
+  "audit_type": "BIND-v0.3 G0 synthetic A/B reset prefix byte evidence",
+  "date": "2026-10-10",
+  "authority": "NOT_AUTHORIZED",
+  "scientific_gate": "BLOCKED_INDEPENDENT_FULL_STATE_AND_HISTORICAL_USAGE_ATTESTATION",
+  "git_branch": "research/bind-v02-source-custody-20261010",
+  "source": {
+    "path": "research/bind_g0_ab_prefix_byte_equality.py",
+    "commit": "8d58074a89c6985c62be957a52ff8548753b60af",
+    "sha256": "7656f53dbeecb1748194d11e3fb27344fd4aeef9b10d36f5090a09dd043fee07"
+  },
+  "tests": {
+    "path": "tests/test_bind_g0_ab_prefix_byte_equality.py",
+    "commit": "c9d5ab190337b93e40139e06fabcb586b77c5dc5",
+    "sha256": "ab02b3d5d81f3cd981e77efe15f5c60ca4887b8f10bbcefc4965d608feec8a87"
+  },
+  "execution": {
+    "job_id": "local_6cefa02d9e354870",
+    "exit_code": 0,
+    "tests_pass": 16,
+    "tests_total": 16,
+    "cli_status": "MATCHED_SYNTHETIC_PREFIX_ONLY",
+    "report_sha256": "84275f3eeef7f15937274b18c230b661eec98240628572d52f9a29a12738b2bb"
+  },
+  "scope": {
+    "tested": [
+      "action byte exact identity, including information actions",
+      "ordered legal-command bytes without sorting",
+      "observation output bytes",
+      "full hidden state bytes supplied by toy adapter",
+      "RNG state bytes supplied by toy adapter",
+      "two independent toy backend instance IDs",
+      "strictly consecutive prefix steps",
+      "no self-certified ALFWorld authority"
+    ],
+    "not_tested": [
+      "original TRAIN data (not opened)",
+      "ALFWorld/TextWorld PDDL backend cloning",
+      "actual internal full-state snapshot authority",
+      "historical source utilization/non-consumption",
+      "any language model call or source competence",
+      "G1-G3 scientific gate"
+    ]
+  },
+  "fail_closed": "Even exact toy prefix equality reports NOT_AUTHORIZED, and malformed or forged real-backend input is rejected."
+}
