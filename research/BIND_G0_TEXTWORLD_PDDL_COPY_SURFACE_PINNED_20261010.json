@@ -1,0 +1,28 @@
+{
+  "g0_state_equivalence": "BLOCKED_STATE_EQUIVALENCE",
+  "local_runtime_is_historical_revision_attested": false,
+  "observations": {
+    "core_environment_copy_declared": true,
+    "core_environment_copy_is_abstract_not_implemented": true,
+    "game_state_copy_is_deepcopy_of_reported_readout": true,
+    "gym_batch_exposes_copy_or_clone": false,
+    "pddl_env_overrides_copy": false,
+    "plancarry_alf_runtime_exposes_copy_or_clone": false,
+    "plancarry_alf_runtime_exposes_full_state_export_restore": false,
+    "synchronous_batch_env_overrides_copy": false
+  },
+  "pre_g1_need": "Pin actual historically installed TextWorld/ALFWorld/PDDL backend versions and verify complete state or transition-equivalent independently reset clones, including ordered public action/observation bytes and full hidden facts/RNG, on synthetic toy games before source/train games. An unchanged legacy state hash never suffices.",
+  "schema": "plancarry.bind.g0.textworld-copy-surface-audit.v1",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "scope": "Pinned upstream main (2026-09-29) is a static code snapshot, not evidence of the exact version installed in Aug 2026. A GameState.copy() of reported readout does not clone the underlying PDDL interpreter. No direct full-state clone API appears on the inspected original Plancarry wrapper or upstream PddlEnv+Gym batch stack. This does not rule out custom independent reset/replay or another verified backend with complete RNG/state snapshot support.",
+  "sources_sha256": {
+    "batch": "4fffe8e2ceaec86d68d085d1cc30a8a3500e8e2b40d10f593e7b40f27bb192fc",
+    "core": "439bda7539816637c05f5bcd181101e8d96d4a5c8a76e2d9245c004e0647d176",
+    "gym_batch": "8dec4478630707e1e4c5e7f0f96a8670bcb2ffb3c5c498cb98760b7102d2e0c3",
+    "local_runtime": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+    "pddl": "3795f5fb7471c7a4551e137267785ffb3e21e49653d17491d6be963b41f454b4"
+  },
+  "status": "BACKEND_COPY_SURFACE_STATIC_AUDITED",
+  "upstream_git_revision": "6d88a0845bc904751d3b7f128d61f21cabdf6f70",
+  "upstream_matches_original_installed_package_digest": false
+}
