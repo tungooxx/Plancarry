@@ -14,6 +14,14 @@ from pathlib import Path
 from typing import Any
 
 SCHEMA = "plancarry.bind.g0.frozen-input.v0.3"
+# PRE-SOURCE only. source_a/b_request_context_sha256 binds complete,
+# already-materialized prospective *input message/request bytes* at G0;
+# source_a/b_prompt_sha256 binds respective G0 prompt bytes. No model-
+# generated history, future plan, success, or G1 outcome exists here.
+# G1 execution must use a separate append-only output ledger. Empty histories
+# require the checksum of the actual canonical empty input, never placeholders.
+# A valid syntactic hash is NOT content/custody attestation by itself.
+
 SHA256 = re.compile(r"^[a-f0-9]{64}$")
 TOP_KEYS = frozenset({"schema", "phase", "pinned", "candidates", "frozen_sha256"})
 PIN_HASH_KEYS = frozenset({
@@ -26,8 +34,8 @@ PIN_KEYS = PIN_HASH_KEYS | frozenset({
 })
 CANDIDATE_HASH_KEYS = frozenset({
     "game_sha256", "reset_full_state_sha256", "goal_sha256",
-    "ordered_actions_sha256", "source_a_history_sha256",
-    "source_b_history_sha256", "source_a_prompt_sha256",
+    "ordered_actions_sha256", "source_a_request_context_sha256",
+    "source_b_request_context_sha256", "source_a_prompt_sha256",
     "source_b_prompt_sha256",
 })
 CANDIDATE_KEYS = CANDIDATE_HASH_KEYS | frozenset({
