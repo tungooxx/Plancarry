@@ -45,6 +45,20 @@ class G1Test(unittest.TestCase):
     def test_frozen_manifest(self):
         self.assertEqual(audit(manifest())["verdict"], "FROZEN_MANIFEST_STRUCTURAL_ONLY")
 
+    def test_frozen_manifest_rejects_missing_digest(self):
+        d = manifest()
+        del d["frozen_sha256"]
+        result = audit(d)
+        self.assertEqual(result["verdict"], "INVALID_PREEXECUTION_CONTRACT")
+        self.assertIn("frozen_sha256 missing or does not match pre-registration", result["errors"])
+
+    def test_frozen_manifest_rejects_wrong_digest(self):
+        d = manifest()
+        d["frozen_sha256"] = "f" * 64
+        result = audit(d)
+        self.assertEqual(result["verdict"], "INVALID_PREEXECUTION_CONTRACT")
+        self.assertIn("frozen_sha256 missing or does not match pre-registration", result["errors"])
+
     def test_threshold_is_not_scientific_pass(self):
         self.assertEqual(audit(source_audit(manifest()))["verdict"],
                          "G1_STRUCTURAL_THRESHOLD_ONLY_REQUIRES_INDEPENDENT_REVIEW")
