@@ -59,7 +59,7 @@ class IntegrityTests(unittest.TestCase):
 
     def test_source_history_mutation_detected(self):
         m = fixture()
-        m["candidates"][2]["source_a_history_sha256"] = h(888887)
+        m["candidates"][2]["source_a_request_context_sha256"] = h(888887)
         self.assert_invalid(m)
 
     def test_action_menu_mutation_detected(self):
@@ -124,6 +124,23 @@ class IntegrityTests(unittest.TestCase):
         result = audit(fixture())
         self.assertNotEqual("PASS", result["verdict"])
         self.assertEqual("NOT_AUTHORIZED", result["scientific_gate"])
+
+    def test_forbid_model_generated_history_field_after_rehash(self):
+        m = fixture()
+        m["candidates"][0]["source_a_generated_plan_history_sha256"] = h(123456)
+        m["frozen_sha256"] = frozen_digest(m)
+        self.assert_invalid(m)
+
+    def test_forbid_future_source_success_field_after_rehash(self):
+        m = fixture()
+        m["candidates"][0]["source_b_future_success"] = True
+        m["frozen_sha256"] = frozen_digest(m)
+        self.assert_invalid(m)
+
+    def test_change_presource_request_context_detected(self):
+        m = fixture()
+        m["candidates"][0]["source_a_request_context_sha256"] = h(333333)
+        self.assert_invalid(m)
 
 
 if __name__ == "__main__":
