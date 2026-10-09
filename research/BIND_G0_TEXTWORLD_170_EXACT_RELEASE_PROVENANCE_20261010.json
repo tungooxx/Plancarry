@@ -1,0 +1,53 @@
+{
+  "status": "PINNED_RELEASE_SOURCE_VERIFIED",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "source_project": "microsoft/TextWorld",
+  "source_release": "1.7.0",
+  "source_release_commit": "9fce9ee107fa042ef2656e41e0b362450a35ecd8",
+  "original_installation_evidence": "Historical PlanCarry 2026-08-21 environment requirements_replayresidual_v21_alfworld_py313.txt pinned textworld==1.7.0 and alfworld==0.4.2; does not prove exact package SHA for all historical runs",
+  "requirements_file_sha1": "4822dcf6538536fcf34d287df62e26ec0981a8d6",
+  "requirements_lines": [
+    "alfworld==0.4.2",
+    "textworld==1.7.0",
+    "PyYAML==6.0.3"
+  ],
+  "byte_comparison": [
+    {
+      "path": "textworld/core.py",
+      "release_sha256": "439bda7539816637c05f5bcd181101e8d96d4a5c8a76e2d9245c004e0647d176",
+      "previous_snapshot_sha256": "439bda7539816637c05f5bcd181101e8d96d4a5c8a76e2d9245c004e0647d176",
+      "byte_identical": true,
+      "len": 16665
+    },
+    {
+      "path": "textworld/envs/pddl/pddl.py",
+      "release_sha256": "3795f5fb7471c7a4551e137267785ffb3e21e49653d17491d6be963b41f454b4",
+      "previous_snapshot_sha256": "3795f5fb7471c7a4551e137267785ffb3e21e49653d17491d6be963b41f454b4",
+      "byte_identical": true,
+      "len": 6746
+    },
+    {
+      "path": "textworld/envs/batch/batch_env.py",
+      "release_sha256": "4fffe8e2ceaec86d68d085d1cc30a8a3500e8e2b40d10f593e7b40f27bb192fc",
+      "previous_snapshot_sha256": "4fffe8e2ceaec86d68d085d1cc30a8a3500e8e2b40d10f593e7b40f27bb192fc",
+      "byte_identical": true,
+      "len": 8798
+    },
+    {
+      "path": "textworld/gym/envs/textworld_batch.py",
+      "release_sha256": "8dec4478630707e1e4c5e7f0f96a8670bcb2ffb3c5c498cb98760b7102d2e0c3",
+      "previous_snapshot_sha256": "8dec4478630707e1e4c5e7f0f96a8670bcb2ffb3c5c498cb98760b7102d2e0c3",
+      "byte_identical": true,
+      "len": 8209
+    }
+  ],
+  "every_audited_backend_file_matches_release": true,
+  "prior_upstream_main_commit": "6d88a0845bc904751d3b7f128d61f21cabdf6f70",
+  "prior_static_audit": "research/BIND_G0_TEXTWORLD_PDDL_COPY_SURFACE_PINNED_20261010.json",
+  "limitations": [
+    "Exact historical py312 installed package digest has not been recovered (environment directory absent).",
+    "Code-source match does not demonstrate live/full TextWorld PDDL state clone, snapshot, or RNG attestation.",
+    "G0 and G1 remain BLOCKED, no model or TRAIN game used in this verification."
+  ],
+  "cpu_job_id": "local_abe1e823a660473d"
+}
