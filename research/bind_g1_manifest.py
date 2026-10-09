@@ -176,8 +176,8 @@ def audit(manifest: dict[str, Any]) -> dict[str, Any]:
     frozen_sha = digest(_immutable(manifest))
     if phase == "SOURCE_AUDIT" and manifest.get("frozen_sha256") != frozen_sha:
         errors.append("frozen_sha256: immutable candidate/protocol definition drift")
-    if phase == "FROZEN_MANIFEST" and manifest.get("frozen_sha256") not in (None, frozen_sha):
-        errors.append("frozen_sha256 does not match pre-registration")
+    if phase == "FROZEN_MANIFEST" and manifest.get("frozen_sha256") != frozen_sha:
+        errors.append("frozen_sha256 missing or does not match pre-registration")
     counts = {k: 0 for k in ("ELIGIBLE", "INELIGIBLE", "TECHNICAL_FAILURE")}
     if phase == "SOURCE_AUDIT":
         for c in cs:
