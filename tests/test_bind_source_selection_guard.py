@@ -1,10 +1,11 @@
 """Synthetic CPU-only regression: source selection has exactly one SHA delimiter."""
 import sys
+import os
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "research"))
-from bind_source_selection_guard import SCHEMA, _pick, audit
+from bind_source_selection_guard import SCHEMA, _pick, audit, ORIGINAL_BINDING_PATH_ROOT
 
 
 def fixture():
@@ -15,6 +16,7 @@ def fixture():
         "binding_count": 12,
         "binding_selected": _pick(population, salt, 12, legacy=False),
         "pilot_selected": [],
+        "hash_preimage_root": ORIGINAL_BINDING_PATH_ROOT,
     }
 
 
@@ -80,6 +82,51 @@ class Tests(unittest.TestCase):
         x = fixture(); x["pilot_selected"] = x["binding_selected"][:2]
         r = audit(x)
         self.assertNotIn("PASS", r["verdict"])
+        self.assertEqual("NOT_AUTHORIZED", r["scientific_gate"])
+
+    def test_historical_pinned_root_emitted(self):
+        x = fixture(); x["pilot_selected"] = x["population"][-1:]
+        self.assertEqual(ORIGINAL_BINDING_PATH_ROOT, audit(x)["hash_preimage_root"])
+
+    def test_altered_original_root_rejected(self):
+        x = fixture(); x["pilot_selected"] = x["population"][-1:]
+        x["hash_preimage_root"] = "/different/host/path"
+        self.assert_invalid(x)
+
+    def test_wrong_relative_preimage_is_rejected(self):
+        import hashlib
+        x = fixture()
+        pop = x["population"]
+        x["binding_selected"] = sorted(pop, key=lambda p: hashlib.sha256(
+            (x["binding_salt"] + "\\n" + p).encode("utf-8")).hexdigest())[:12]
+        x["pilot_selected"] = pop[-1:]
+        self.assertEqual("BLOCKED_BINDING_SELECTION_MISMATCH", audit(x)["verdict"])
+
+    def test_790_synthetic_original_abs_preimage(self):
+        # Only synthetic data -- never claim this reconstructs historical 790.
+        pop = [f"train/pick_and_place_simple-Book-None-Desk-{i}/trial_T0_{i}/game.tw-pddl"
+               for i in range(790)]
+        x = fixture(); x["population"] = pop
+        x["binding_count"] = 180
+        x["binding_selected"] = _pick(pop, x["binding_salt"], 180, legacy=False)
+        x["pilot_selected"] = x["binding_selected"][:11] + [
+            p for p in pop if p not in x["binding_selected"]][:29]
+        r = audit(x)
+        self.assertEqual((180, 40, 11),
+                         (r["binding_count"], r["pilot_count"], r["literal_overlap_count"]))
+        self.assertEqual("BLOCKED_SELECTED_COHORT_OVERLAP", r["verdict"])
+        self.assertEqual("NOT_AUTHORIZED", r["scientific_gate"])
+
+    @unittest.skipUnless(os.getenv("PLANCARRY_BINDING_790_AUDIT_FIXTURE"),
+                         "true historical 790-path fixture absent in this runner")
+    def test_real_historical_790_original_abs_preimage(self):
+        import json
+        v = json.loads(Path(os.environ["PLANCARRY_BINDING_790_AUDIT_FIXTURE"]).read_text())
+        self.assertEqual((790, 180, 40),
+                         (len(v["population"]), len(v["binding_selected"]), len(v["pilot_selected"])))
+        r = audit(v)
+        self.assertEqual("BLOCKED_SELECTED_COHORT_OVERLAP", r["verdict"])
+        self.assertEqual(11, r["literal_overlap_count"])
         self.assertEqual("NOT_AUTHORIZED", r["scientific_gate"])
 
 
