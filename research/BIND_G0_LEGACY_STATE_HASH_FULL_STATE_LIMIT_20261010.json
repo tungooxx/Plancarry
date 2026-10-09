@@ -1,0 +1,25 @@
+{
+  "full_state_named_method_present": false,
+  "original_alf_runtime_methods": [
+    "__init__",
+    "admissible_commands",
+    "close",
+    "hash",
+    "step",
+    "won"
+  ],
+  "required_before_G1": "Independently authenticated complete game state export/restore + RNG or demonstrably equivalent state clones and full ordered public action and returned observation byte comparison; the digest proxy alone cannot pass G0.",
+  "schema": "plancarry.bind.g0.legacy-state-hash-limit.v1",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "scope": "The existing digest is invariant to the tested changes. This proves digest equality is INSUFFICIENT to certify byte-exact ordered command menus, hidden-state/RNG equality, or complete clone/replay. It does not prove two actual ALFWorld states have different RNG or are otherwise invalid.",
+  "source_file_sha256": "53e550f70711a3779409c565ecbd3e2fd971751a03633dad3566d5569a6fb3c6",
+  "state_hash_sorts_action_menu_in_source": true,
+  "synthetic_probe": {
+    "action_menu_order_changed": true,
+    "baseline_hash": "091e100844a335ced581103444accd3f422ae9270966d5e844d2f6400667993d",
+    "hash_unchanged_when_action_order_reversed": true,
+    "hash_unchanged_when_omitted_private_field_changed": true,
+    "hash_unchanged_when_omitted_rng_field_changed": true
+  },
+  "verdict": "BLOCKED_FULL_STATE_AUTHORITY_FROM_LEGACY_HASH"
+}
