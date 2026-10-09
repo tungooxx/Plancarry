@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-10",
+  "status": "CPU_TESTED_UNMERGED_HISTORICAL_SOURCE_SELECTION_REPAIR",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "history": {
+    "source_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "train_game_count": 790,
+    "frozen_binding_pool_digest": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "selected_binding_count": 180,
+    "pilot_count": 40,
+    "exact_selected_intersection": 11
+  },
+  "original_pr": {
+    "number": 2,
+    "status": "DRAFT_UNMERGED",
+    "head": "73a7f4d4c708690b005524e25afdf7744a40f901",
+    "legacy_defect": "sha256(salt+'\\n'+RELATIVE_PATH) rather than frozen sha256(salt+'\\n'+ABSOLUTE_PATH)"
+  },
+  "repair": {
+    "source": "research/bind_source_selection_historical_absolute_guard.py",
+    "source_commit": "1d8938b5f6248c6e89d610f4e3d61db0e9d8927f",
+    "source_sha256": "8422213cec88be715a1ec7f03a8275b46b5c6ef8a087a6abc600348ce6b0c2ba",
+    "tests": "tests/test_bind_source_selection_historical_absolute_guard.py",
+    "tests_commit": "9299c9366877067b0a820f9b45b0d6ef6ee5aff4",
+    "tests_sha256": "c8e2e3331d445bb8177f921ccdfbabdbe26716f0aa2b263567ddeb582349d611",
+    "canonical_historical_absolute_path_prefix": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/",
+    "exact_sha256_preimage": "binding_salt + '\\n' + original_absolute_prefix + relative_train_path"
+  },
+  "verification": {
+    "gpu_lab_cpu_job_id": "local_c6729de4e8204fbe",
+    "job_exit_code": 0,
+    "synthetic_unit_test_count": 13,
+    "synthetic_unit_test_failed": 0,
+    "full_original_train_population_count": 790,
+    "original_binding_selected_checksum_verified": true,
+    "original_binding_selection_matches_correct_delimiter": true,
+    "legacy_wrong_delimiter_match": false,
+    "source_selection_verdict": "BLOCKED_SELECTED_COHORT_OVERLAP",
+    "literal_overlap_count": 11,
+    "scientific_gate": "NOT_AUTHORIZED"
+  },
+  "constraints": [
+    "This branch contains a tested standalone reviewer's patch, not A2 draft PR#2 itself.",
+    "A2 should port minimal fix into its PR and request genuinely independent identity review; shared GitHub account cannot approve its own PR.",
+    "Never infer source freshness, actual LLM inference overlap, G0/G1 pass, or permission for model/GPU calls from path-selection verification."
+  ]
+}
