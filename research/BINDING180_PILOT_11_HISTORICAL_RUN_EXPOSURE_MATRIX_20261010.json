@@ -1,0 +1,255 @@
+{
+  "schema": "plancarry.binding_pilot_historical_run_exposure.v1",
+  "status": "BOUNDED_HISTORICAL_EVIDENCE_RECONCILED",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "source_blobs": {
+    "original_binding180": "5043ac60cf803f43db04f084b517f442d6ef9d57",
+    "latent_ab_pilot40": "f0a3786d62efe7e3adeaa9ce7181a5827f4d60b4",
+    "latent_route_pairs32": "9dd11772f20bbfae6c54ec5b0d1e034c2b632965"
+  },
+  "historical_jobs": [
+    {
+      "job_id": "local_a2debb765575fe69f652f204",
+      "research_os_run_id": "43f2e3f6-15d4-45a0-b277-93541e1ea026",
+      "experiment_id": "49a5eed0-dc91-497a-a0e7-f9b5fc4cd5b1",
+      "start_utc": "2026-08-21T23:47:03.933262Z",
+      "exit_code": 1,
+      "status": "failed",
+      "mechanism": "Connection refused at first OpenAI client.chat.completions.create, before first model response and before logging a qualification result",
+      "scientific_result": "NOT_ASSESSED",
+      "model_response_count_according_to_trace": "0 successful responses observed",
+      "environment_reset_path_inferred_from_runner": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Lettuce-None-CounterTop-25/trial_T20190907_000052_389529/game.tw-pddl",
+      "environment_reset_path_is_in_pilot40": false,
+      "artifact_stdout_bytes": 0,
+      "artifact_stderr_bytes": 6635,
+      "raw_old_job_files_currently_accessible": false
+    },
+    {
+      "job_id": "local_75aa27a0ede54111",
+      "name": "latent-pilot-manifest-v2-freeze",
+      "start_utc": "2026-08-19T06:19:19.777980Z",
+      "status": "completed",
+      "exit_code": 0,
+      "mechanism": "Constructs candidate manifest only; historical script uses incorrect SHA256(binding_salt + path) exclusion, omitting newline.",
+      "model_evidence": "No model/API invocation in recorded command"
+    },
+    {
+      "job_id": "local_7bd88fb99ccd406e",
+      "name": "latent-pilot-pair-freeze",
+      "start_utc": "2026-08-19T06:20:03.103873Z",
+      "status": "completed",
+      "exit_code": 0,
+      "mechanism": "Iterates over all 40 pilot candidates, instantiates AlfRuntime for each, checks environment admissibility of route X/Y, then freezes first32",
+      "environment_inspected_all_40": true,
+      "model_evidence": "No model/API call in recorded command"
+    },
+    {
+      "job_id": "local_5d2b8cde6fa54023",
+      "name": "latent-pair-semantic-audit",
+      "start_utc": "2026-08-19T06:31:39.163395Z",
+      "status": "completed",
+      "exit_code": 0,
+      "mechanism": "Inspects first five frozen route pairs via AlfRuntime, environment only",
+      "model_evidence": "No model/API call in recorded command"
+    }
+  ],
+  "facts": {
+    "verified_old_binding_selected_count": 180,
+    "old_binding_selected_sha256": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "pilot_candidates_total": 40,
+    "old_binding_pilot_selected_overlap": 11,
+    "overlapping_candidates_environment_inspected_by_pilot_pair_job": 11,
+    "overlapping_candidates_frozen_as_route_pairs": 9,
+    "overlap_first_binding_failed_job_environment_reset_with_pilot": 0,
+    "confirmed_repeated_model_inference_events_from_evidence": 0
+  },
+  "per_game_overlap": [
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-ArmChair-206/trial_T20190909_023729_905485/game.tw-pddl",
+      "pilot_candidate_index_1based": 1,
+      "binding_selected_index_1based": 138,
+      "route_pair_freeze": {
+        "pair_index_1based": 1,
+        "plan_a": [
+          "go to tvstand 2",
+          "go to armchair 1"
+        ],
+        "plan_b": [
+          "go to armchair 1",
+          "go to tvstand 2"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_064648_618132/game.tw-pddl",
+      "pilot_candidate_index_1based": 3,
+      "binding_selected_index_1based": 73,
+      "route_pair_freeze": {
+        "pair_index_1based": 3,
+        "plan_a": [
+          "go to armchair 3",
+          "go to drawer 1"
+        ],
+        "plan_b": [
+          "go to drawer 1",
+          "go to armchair 3"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Pan-None-CounterTop-8/trial_T20190908_105438_904625/game.tw-pddl",
+      "pilot_candidate_index_1based": 4,
+      "binding_selected_index_1based": 41,
+      "route_pair_freeze": {
+        "pair_index_1based": 4,
+        "plan_a": [
+          "go to cabinet 10",
+          "go to countertop 4"
+        ],
+        "plan_b": [
+          "go to countertop 4",
+          "go to cabinet 10"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-Tomato-None-Microwave-6/trial_T20190907_235735_175320/game.tw-pddl",
+      "pilot_candidate_index_1based": 5,
+      "binding_selected_index_1based": 32,
+      "route_pair_freeze": {
+        "pair_index_1based": 5,
+        "plan_a": [
+          "go to cabinet 5",
+          "go to countertop 2"
+        ],
+        "plan_b": [
+          "go to countertop 2",
+          "go to cabinet 5"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Cabinet-403/trial_T20190908_221042_476220/game.tw-pddl",
+      "pilot_candidate_index_1based": 9,
+      "binding_selected_index_1based": 93,
+      "route_pair_freeze": {
+        "pair_index_1based": 9,
+        "plan_a": [
+          "go to towelholder 2",
+          "go to countertop 1"
+        ],
+        "plan_b": [
+          "go to countertop 1",
+          "go to towelholder 2"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-KeyChain-None-Dresser-217/trial_T20190910_203316_646156/game.tw-pddl",
+      "pilot_candidate_index_1based": 21,
+      "binding_selected_index_1based": 101,
+      "route_pair_freeze": {
+        "pair_index_1based": 21,
+        "plan_a": [
+          "go to armchair 1",
+          "go to drawer 4"
+        ],
+        "plan_b": [
+          "go to drawer 4",
+          "go to armchair 1"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SprayBottle-None-Toilet-420/trial_T20190909_113828_525912/game.tw-pddl",
+      "pilot_candidate_index_1based": 26,
+      "binding_selected_index_1based": 29,
+      "route_pair_freeze": {
+        "pair_index_1based": 26,
+        "plan_a": [
+          "go to garbagecan 1",
+          "go to drawer 1"
+        ],
+        "plan_b": [
+          "go to drawer 1",
+          "go to garbagecan 1"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CellPhone-None-SideTable-326/trial_T20190909_150051_438324/game.tw-pddl",
+      "pilot_candidate_index_1based": 27,
+      "binding_selected_index_1based": 140,
+      "route_pair_freeze": {
+        "pair_index_1based": 27,
+        "plan_a": [
+          "go to bed 1",
+          "go to diningtable 1"
+        ],
+        "plan_b": [
+          "go to diningtable 1",
+          "go to bed 1"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CreditCard-None-Desk-310/trial_T20190908_033219_058539/game.tw-pddl",
+      "pilot_candidate_index_1based": 32,
+      "binding_selected_index_1based": 126,
+      "route_pair_freeze": {
+        "pair_index_1based": 32,
+        "plan_a": [
+          "go to cabinet 4",
+          "go to shelf 1"
+        ],
+        "plan_b": [
+          "go to shelf 1",
+          "go to cabinet 4"
+        ]
+      },
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-CD-None-Shelf-326/trial_T20190908_050350_303115/game.tw-pddl",
+      "pilot_candidate_index_1based": 34,
+      "binding_selected_index_1based": 125,
+      "route_pair_freeze": null,
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    },
+    {
+      "game_path": "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/train/pick_and_place_simple-SoapBottle-None-GarbageCan-411/trial_T20190908_051545_764778/game.tw-pddl",
+      "pilot_candidate_index_1based": 36,
+      "binding_selected_index_1based": 107,
+      "route_pair_freeze": null,
+      "confirmed_pilot_environment_access_source": "local_7bd88fb99ccd406e completed0 loops all 40 candidates and instantiates AlfRuntime; environment semantics only",
+      "binding_failed_run_model_use": "NO_MODEL_RESPONSE; first Binding selected game was different; no evidence these 11 reached in that failed run"
+    }
+  ],
+  "limits": [
+    "0 confirmed repeated model inference events is not proof that other unindexed/remote jobs did not execute these games",
+    "The historical binding run failed on its FIRST model API request; this does not imply all Binding-180 candidates were consumed in science or environment",
+    "Latent pair-freeze did use the ALFWorld runtime for every pilot candidate; it checked environment route legality and did not run the LLM in its recorded command",
+    "9 overlapping frozen route-pairs are NOT 9 model-inferred branch choices",
+    "The local job files from Aug 19-21 are absent; evidence is Research OS canonical failed ExperimentRun, job metadata and exact recorded command payloads",
+    "No future G0/G1 fresh-cohort authorizations. Repair cohort selection and actual run inventory independently before G1."
+  ],
+  "root_cause": "local_75aa27a0ede54111 command source uses sha256(binding_salt+p), whereas frozen Binding runner uses sha256(binding_salt+'\\n'+p). A2/engineering notified in prior turn."
+}
