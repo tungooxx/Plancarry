@@ -1,0 +1,468 @@
+{
+  "schema": "plancarry.binding180.hash_order_proof.v1",
+  "scientific_verdict": "BLOCKED_PROVENANCE_CONTRADICTION",
+  "status": "CONDITIONAL_DEDUCTION_ONLY",
+  "source_git_blob_sha1": "eeb263cbe36715929ba2da4224db599e62c54e42",
+  "source_project": "tungooxx/Plancarry",
+  "frozen_historical_runner": "alfworld_binding_runner.py",
+  "salt": "plancarry-binding-v1-2026-08-18",
+  "candidate_sort_rule": "SHA256(salt + '\\n' + absolute_path), ascending",
+  "assumed_global_train_count": 790,
+  "assumed_binding_count": 180,
+  "gdaa_union_paths": 199,
+  "pilot_paths": 40,
+  "pilot_reported_binding_gdaa_intersection": 47,
+  "reason": "If the historical claim |Binding180 ∩ GDAA199|=47 is correct and Binding180 is the global first 180 sorted hashes of exactly the same TRAIN 790 source paths, the 47 minimum hashes in GDAA199 must belong to Binding180. Any pilot path with smaller hash must then also belong to Binding180, contradicting reported pilot exclusion.",
+  "threshold_gdaa_47th": "5cecb7790790430ee28003045d97fff45de273c301eea9f906c691316635ef0f",
+  "conditionally_in_binding_gdaa_47": [
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Sofa-201/trial_T20190908_132617_405517/game.tw-pddl",
+      "binding_salted_key": "062bad5a34818782f7da815577de91f6887ba58e122866218b8964547c15396c",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Desk-310/trial_T20190909_121828_424706/game.tw-pddl",
+      "binding_salted_key": "072ac208dc129af7844164973f841417d8a27aec13219c86bf1a1411a71fd1fe",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Sofa-229/trial_T20190907_042933_874605/game.tw-pddl",
+      "binding_salted_key": "0c11670f2906bbd84168cebea67797f6c7754c19f5640fe39ba3a80c2fdadb02",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Bowl-None-Fridge-6/trial_T20190906_231022_136645/game.tw-pddl",
+      "binding_salted_key": "0e4be7f6594cef770507f8a05abe5092d4a547fee1078af9e281fcaa26441cdd",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Desk-310/trial_T20190909_115859_563203/game.tw-pddl",
+      "binding_salted_key": "107ba8f5c86951411927aeadd0850434f869375886b2024e5aa5e2950c3292fc",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-229/trial_T20190906_203051_143723/game.tw-pddl",
+      "binding_salted_key": "10b6274abd82fb19c3b8e6f302dd08dfc77e212b542bbeb49bf8a2d733eea68e",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Box-None-ArmChair-212/trial_T20190908_032830_891800/game.tw-pddl",
+      "binding_salted_key": "1cf171cfb7d5f199e109254c8abdcda462d8216f4fc06adba83a5a3ae8948397",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Sofa-209/trial_T20190909_035152_742504/game.tw-pddl",
+      "binding_salted_key": "2e66e0183382ab4ecef244bb61611ead8f1b5d574cecb62248d678e6e94f94f4",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-318/trial_T20190909_113100_297495/game.tw-pddl",
+      "binding_salted_key": "319c9626a1a8a86e04a2e67cb5812cdd98e4d7ee9332c294a0bfe951cda31858",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Desk-310/trial_T20190908_002122_419694/game.tw-pddl",
+      "binding_salted_key": "32827b2098185f58e5ac2d645e752006d7634c59fe8c3af68db45389559bb944",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Dresser-319/trial_T20190906_204235_124843/game.tw-pddl",
+      "binding_salted_key": "354ef1ee445f10bfb73ba9c95790ee4e276e135343880b1f55077d8232c65936",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Desk-304/trial_T20190908_141258_600679/game.tw-pddl",
+      "binding_salted_key": "38cf2cb4a173d6c7f00dcffddf50255e8ccf4dfea53386373b6c503b514ceee3",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Dresser-319/trial_T20190908_002747_623437/game.tw-pddl",
+      "binding_salted_key": "3a3f6a80ed865e4dc093c7352566486e964e5ea5da979768804d372959568e3b",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Desk-304/trial_T20190908_141325_880062/game.tw-pddl",
+      "binding_salted_key": "3a9a69a82a78c80a04726fcf94149283b083b9a7352514e1788f1a0b98c3e8f8",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Box-None-ArmChair-217/trial_T20190907_170746_281017/game.tw-pddl",
+      "binding_salted_key": "3b470a033afa655a7386b839de9c0f244b56cc442c51e43f329172d11537a3ef",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-DiningTable-329/trial_T20190909_022322_775566/game.tw-pddl",
+      "binding_salted_key": "3b4b3bdf9b1691ed1dea4b4fde9c6b53376e8bdad325462cd1c2003cf16f13b3",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Desk-310/trial_T20190909_121806_908997/game.tw-pddl",
+      "binding_salted_key": "3c1dd87af89a38e8c6f0ebb8b2ef6f09d1cea9153f14bc9a9056ceeb48f22164",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-318/trial_T20190909_112937_058752/game.tw-pddl",
+      "binding_salted_key": "3fc40058b46e2333265d68bf8288c1d541a0115e575bf8c35396cba630189b2e",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-SideTable-329/trial_T20190908_050528_227725/game.tw-pddl",
+      "binding_salted_key": "3fcdc75b116b2ee4f56f9c751ae3069c843e061bee3a3fe15e4ffba61ac00cd5",
+      "sources": [
+        "gdaa_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Shelf-320/trial_T20190907_121134_827602/game.tw-pddl",
+      "binding_salted_key": "41a215042a991dabfc11d5aa82a43214d6d8c8da458fac35e09d58cdb78f7b64",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Dresser-413/trial_T20190909_040707_760902/game.tw-pddl",
+      "binding_salted_key": "41f081a859edd0175ce60619ac9246afea70c1ea4afafd356363da0929077aea",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Toilet-407/trial_T20190909_055329_734896/game.tw-pddl",
+      "binding_salted_key": "42c23aaf5c18ce2edeffd15925ebfcb8e61c909a805dcb5a927168c64ae65805",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Desk-316/trial_T20190909_053356_708088/game.tw-pddl",
+      "binding_salted_key": "440da4a65d11101b06c536ab2c518f218c804c645b7827f9776ba44228f309e9",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CD-None-Dresser-323/trial_T20190908_005542_694744/game.tw-pddl",
+      "binding_salted_key": "45e5d2dcbf616d403e785999e22c44b8c06659ba23866e15df9e113e133107f9",
+      "sources": [
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Drawer-302/trial_T20190907_235426_919624/game.tw-pddl",
+      "binding_salted_key": "465cdaf155a90809626cdb0b723718095424938345b97dec6e643ebaad7b9451",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CD-None-SideTable-329/trial_T20190908_002233_981326/game.tw-pddl",
+      "binding_salted_key": "47a34be5b2e04ad70eef2f0a97f40e1d9f7e6ccc14336bf87e33fda07bc08cd5",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Safe-323/trial_T20190907_234512_145231/game.tw-pddl",
+      "binding_salted_key": "4b1b546c7460330833157c6a2d26443b565bc89de67738c9b600d83c27e1697c",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-DiningTable-329/trial_T20190909_074122_684942/game.tw-pddl",
+      "binding_salted_key": "4ba03ab3da3d1c020e472356a7b790a9d66b84490ea267f13f316f24a26b29f1",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Bed-322/trial_T20190907_163944_460921/game.tw-pddl",
+      "binding_salted_key": "4f7bbd2d3ffe8d66179680a260eb30d6395af04b860c599188943155e3bbd43f",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-209/trial_T20190909_091617_854251/game.tw-pddl",
+      "binding_salted_key": "4fc5df52400987feb860719fee4d2ca5a4c102ce15cb4f42ef6c4eed038d3153",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Box-None-Sofa-220/trial_T20190907_165554_112021/game.tw-pddl",
+      "binding_salted_key": "502fa7810de8976e28529c1d89b649d1a2d5a567f98ce1f94deca972cd84f6c5",
+      "sources": [
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-Bed-306/trial_T20190907_125249_700188/game.tw-pddl",
+      "binding_salted_key": "513d3ecf5add3a13e2df733522b0041ca5311aefe9258415b2459226c8d20a33",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Bread-None-Microwave-15/trial_T20190907_041007_141387/game.tw-pddl",
+      "binding_salted_key": "52dde0ab5308b239985fc56f3868afee59970f633534bac632ab711125ef1517",
+      "sources": [
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Box-None-ArmChair-217/trial_T20190907_170704_319038/game.tw-pddl",
+      "binding_salted_key": "532894dfa02368fd1d7b2f8ad71a9c9356cbea924fc0be2f116fc2258ef6fd28",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Bed-313/trial_T20190907_092230_655414/game.tw-pddl",
+      "binding_salted_key": "538b107a17c118e06466b05fbc13dcc26c196e0f415868ada17a5e085ce550a6",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-ButterKnife-None-Drawer-8/trial_T20190907_142645_859732/game.tw-pddl",
+      "binding_salted_key": "53a983b26b9f2b422813758637b16f0e6e4abf368c25d10bb156cbefaac39024",
+      "sources": [
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Drawer-411/trial_T20190909_093518_959671/game.tw-pddl",
+      "binding_salted_key": "53f36f993fae981f48dc5c232687b7641d263c9274f989aeda036a0f24e4ca3d",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Desk-307/trial_T20190907_072329_828593/game.tw-pddl",
+      "binding_salted_key": "56b6bca35e1405447aa2d225f51f2cf483774ce0f5f3861396fc8e89d82cbe71",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-Bed-322/trial_T20190907_163932_211569/game.tw-pddl",
+      "binding_salted_key": "56c37e5ab28d27f89b65a52eccb3ebbace9d304d330ff614f874ac3428a552b8",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-Desk-310/trial_T20190908_002100_024659/game.tw-pddl",
+      "binding_salted_key": "575d069a2cb9dfd7def8b2ed248e51fa4aff1347eab161155f5368395f06365f",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Toilet-413/trial_T20190909_104025_525772/game.tw-pddl",
+      "binding_salted_key": "5813528c16d3c63a665a1e32f41f1e9701b659dc0da2e3dfcdd070cea37f3962",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Toilet-418/trial_T20190907_184947_274026/game.tw-pddl",
+      "binding_salted_key": "590271c29b7801bce8dec5b5bd2e7b878e197b4c596e096c744b2cf6fc9fa37a",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-Toilet-419/trial_T20190908_042522_882708/game.tw-pddl",
+      "binding_salted_key": "5a37628163c7b4e4e402d23957d308880172539e5387d5c9c10cf053554ed8de",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-209/trial_T20190909_091451_936328/game.tw-pddl",
+      "binding_salted_key": "5a96e02921e57fb5860ac22522145749993d039e4664ba99acb8995e95c1d538",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-AlarmClock-None-SideTable-329/trial_T20190909_013608_170798/game.tw-pddl",
+      "binding_salted_key": "5b08249dcf33d67fae97e0975c4156d554e85208b71d6d3e6c90d0345b8ddd14",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Book-None-ArmChair-229/trial_T20190906_203034_911544/game.tw-pddl",
+      "binding_salted_key": "5c6e416e6e3450e16bec4a4d79c92e8cd89a8a0a853e36a266c7aaca4f9c3dcb",
+      "sources": [
+        "gdaa_v1",
+        "gdaa_disjoint_v1"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Candle-None-CounterTop-411/trial_T20190906_200812_843662/game.tw-pddl",
+      "binding_salted_key": "5cecb7790790430ee28003045d97fff45de273c301eea9f906c691316635ef0f",
+      "sources": [
+        "gdaa_fresh_v2"
+      ]
+    }
+  ],
+  "pilot_witnesses_that_must_be_in_binding_but_reported_excluded": [
+    {
+      "relative_game_path": "train/pick_and_place_simple-SprayBottle-None-Toilet-420/trial_T20190909_113828_525912/game.tw-pddl",
+      "binding_salted_key": "0bcfff45ae7ba5fdf9ba20d1a3d19c1e21653ce4a6b419578e7baf612a7715e0",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Tomato-None-Microwave-6/trial_T20190907_235735_175320/game.tw-pddl",
+      "binding_salted_key": "0d55a61ef241c3abe146624cf1912121d331a1a0bc2ae613e7c6514b07267344",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Pan-None-CounterTop-8/trial_T20190908_105438_904625/game.tw-pddl",
+      "binding_salted_key": "1072c4e8a7509218265b0b3e2889910dc06e8847d4f38cc6f730ad6ae7fa4bea",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Pencil-None-SideTable-309/trial_T20190909_064648_618132/game.tw-pddl",
+      "binding_salted_key": "1ec169464bf695c2a82dcb98f9f8a014a0c94610b6b59c3c69b5e944619eed6b",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-SprayBottle-None-Cabinet-403/trial_T20190908_221042_476220/game.tw-pddl",
+      "binding_salted_key": "26ec0e2c640fab577528567eb5023fccd80e663a5ca29847338beb4d858e69c1",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-KeyChain-None-Dresser-217/trial_T20190910_203316_646156/game.tw-pddl",
+      "binding_salted_key": "29adb7a38eb9f819cf94af82b17fe6350c65ba8b54fff231ed185560e3d7943d",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-SoapBottle-None-GarbageCan-411/trial_T20190908_051545_764778/game.tw-pddl",
+      "binding_salted_key": "2b9c325cdd3fc1a1a49b4d6518e952490830e24b4977957c9d4e84fef55f3f33",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CD-None-Shelf-326/trial_T20190908_050350_303115/game.tw-pddl",
+      "binding_salted_key": "30f8e470745b85aa9a156fc3daa1e8b9fcc2a7cf30ab555e0d1929bb348c8dd0",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CreditCard-None-Desk-310/trial_T20190908_033219_058539/game.tw-pddl",
+      "binding_salted_key": "313ef36c3b4b0d4218706fa4906fdbcd693aba971a4c042d41dda2fe21633db9",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CreditCard-None-ArmChair-206/trial_T20190909_023729_905485/game.tw-pddl",
+      "binding_salted_key": "34ed2a6bc8264a73431f369ecbccc2603947e2bfc953764e7d26b0d53fa574ba",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-CellPhone-None-SideTable-326/trial_T20190909_150051_438324/game.tw-pddl",
+      "binding_salted_key": "3563bfc85b0d2a3673a21c63fa81029b1d4e2d653950869f9dba6e42365eed36",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Cloth-None-CounterTop-414/trial_T20190909_064959_475757/game.tw-pddl",
+      "binding_salted_key": "45b5dd4756fbbf08423df8483bb58f70cf7a339190732317d74928e9520d6e1a",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-Pen-None-Drawer-305/trial_T20190907_224041_853486/game.tw-pddl",
+      "binding_salted_key": "4bf53de18541442e98acd5f1002a5b507be413e172417c99124556ca187fce5b",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    },
+    {
+      "relative_game_path": "train/pick_and_place_simple-SoapBottle-None-Toilet-408/trial_T20190907_084114_235446/game.tw-pddl",
+      "binding_salted_key": "517b060ef9de7399036069c6a33e62fe70d9771183ce597f9886d5e04de84cdc",
+      "sources": [
+        "latent_ab_pilot_v2"
+      ]
+    }
+  ],
+  "contradiction_count": 14,
+  "not_proven": [
+    "Neither assumed historical overlap 47 nor actual full 790-path hash order is authenticated independently",
+    "This does not establish complete Binding180 paths, actual model execution, leakage, source competence, or an evaluated treatment outcome"
+  ],
+  "must_reconcile": [
+    "Enumerate actual 790 train pick_and_place_simple game.tw-pddl files on canonical dataset root",
+    "Reproduce expected old Binding180 pooled digest d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "Compare computed 180-game set with pilot40, GDAA199, historical true run logs and full-state dataset version before G1"
+  ],
+  "science_authority": "NOT_ACCEPTED_FOR_TEST"
+}
