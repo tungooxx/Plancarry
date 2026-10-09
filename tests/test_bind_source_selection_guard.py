@@ -98,7 +98,7 @@ class Tests(unittest.TestCase):
         x = fixture()
         pop = x["population"]
         x["binding_selected"] = sorted(pop, key=lambda p: hashlib.sha256(
-            (x["binding_salt"] + "\\n" + p).encode("utf-8")).hexdigest())[:12]
+            (x["binding_salt"] + "\n" + p).encode("utf-8")).hexdigest())[:12]
         x["pilot_selected"] = pop[-1:]
         self.assertEqual("BLOCKED_BINDING_SELECTION_MISMATCH", audit(x)["verdict"])
 
