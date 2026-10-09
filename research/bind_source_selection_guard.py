@@ -2,7 +2,8 @@
 """Fail-closed static check for historical BIND/Pilot cohort-selection drift.
 
 Only checks deterministic SHA-256 source-selection consistency and literal
-membership. Never certifies actual prior LLM use, unseen TRAIN status, source
+membership. Original Binding hashes the ABSOLUTE runtime source path, not
+the relative train/... path used for candidate membership. Never certifies actual prior LLM use, unseen TRAIN status, source
 competence, or permission to run a model/experiment.
 """
 from __future__ import annotations
@@ -13,30 +14,37 @@ import json
 from pathlib import Path
 from typing import Any
 
-SCHEMA = "plancarry.bind.selection-audit.v0.1"
+SCHEMA = "plancarry.bind.selection-audit.v0.2"
+# Original Binding-v1 source SHA preimage hashes an ABSOLUTE path.
+# The manifest stores relative train/... for membership only.
+ORIGINAL_BINDING_PATH_ROOT = "/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1"
 
 
 def _pick(paths: list[str], salt: str, n: int, *, legacy: bool) -> list[str]:
     # Correct frozen Binding source rule has the newline delimiter.
     prefix = salt if legacy else salt + "\n"
-    return sorted(paths, key=lambda p: hashlib.sha256((prefix + p).encode("utf-8")).hexdigest())[:n]
+    return sorted(paths, key=lambda p: hashlib.sha256(
+        (prefix + ORIGINAL_BINDING_PATH_ROOT + "/" + p).encode("utf-8")
+    ).hexdigest())[:n]
 
 
 def audit(value: Any) -> dict[str, Any]:
     errors: list[str] = []
     if not isinstance(value, dict):
         return {"verdict": "INVALID_INPUT", "errors": ["expected JSON object"], "scientific_gate": "NOT_AUTHORIZED"}
-    if set(value) != {"schema", "population", "binding_selected", "pilot_selected", "binding_salt", "binding_count"}:
+    if set(value) != {"schema", "population", "binding_selected", "pilot_selected", "binding_salt", "binding_count", "hash_preimage_root"}:
         errors.append("unexpected/missing top-level fields")
     if value.get("schema") != SCHEMA:
         errors.append("invalid schema")
+    if value.get("hash_preimage_root") != ORIGINAL_BINDING_PATH_ROOT:
+        errors.append("historical source hash root must be exact original absolute path")
     pop, bind, pilot = (value.get(k) for k in ("population", "binding_selected", "pilot_selected"))
     for label, group in (("population", pop), ("binding_selected", bind), ("pilot_selected", pilot)):
         if not isinstance(group, list) or not group or not all(isinstance(x, str) and x for x in group):
             errors.append(f"invalid {label} path list")
         elif len(group) != len(set(group)):
             errors.append(f"duplicate {label} path")
-        elif any("\\" in x or x.startswith("/") or ".." in x.split("/") for x in group):
+        elif any("\\" in x or x.startswith("/") or ".." in x.split("/") or "." in x.split("/") or "//" in x for x in group):
             errors.append(f"noncanonical {label} path")
         elif any(not x.startswith("train/pick_and_place_simple-") or not x.endswith("/game.tw-pddl") for x in group):
             errors.append(f"non-target TRAIN path in {label}")
@@ -73,6 +81,8 @@ def audit(value: Any) -> dict[str, Any]:
         "verdict": verdict,
         "scientific_gate": "NOT_AUTHORIZED",
         "errors": [],
+        "hash_namespace": "historical_original_absolute_path_v1",
+        "hash_preimage_root": ORIGINAL_BINDING_PATH_ROOT,
         "binding_selection_matches_correct_delimiter": matches_correct,
         "binding_selection_matches_wrong_legacy_delimiter": matches_legacy,
         "binding_count": len(bind),
