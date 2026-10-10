@@ -4,9 +4,10 @@
 The ORIGINAL game.tw-pddl embeds a privileged walkthrough with short human
 object names ("sofa 1"). The real TextWorld 1.7 / Fast Downward 20.6.4 PddlEnv
 admissible menu uses coordinate-encoded object IDs ("sofa_bar__plus_...").
-This tool checks whether each original trusted walkthrough action uniquely
-maps to an actually admissible native action, executes it, and verifies actual
-native terminal PDDL goal/score. No walkthrough or privileged hint is ever
+This tool searches a bounded, source-oracle action-TYPE skeleton over legal
+native actions, failing closed on missing or ambiguous unresolved routes, and
+requires an actual native terminal PDDL goal/score. Original numerical object
+IDs are NOT certified equivalent to encoded PDDL coordinates. No walkthrough or privileged hint is ever
 returned to an evaluated agent or included in its prompt.
 
 Research engineering ONLY on the 11 ALREADY historically environment-inspected
@@ -56,9 +57,17 @@ def unique_native_match(original: str, native_menu: list[str]) -> str:
     return matches[0]
 
 
-def run_one(path: Path, task_sha256: str) -> dict:
+def run_one(path: Path, task_sha256: str, max_nodes: int = 96) -> dict:
+    """Verify existence of a native PDDL win matching the original action-TYPE
+    skeleton; do not claim exact original numbered instance alias semantics.
+
+    Privileged walkthrough and success-gated search are trusted verifier data
+    only. The successful native trajectory MUST NOT become a "model-owned"
+    plan or enter an LLM prompt as a source-generated plan.
+    """
     from textworld.core import EnvInfos
     from textworld.envs.pddl.pddl import PddlEnv
+    from fast_downward.interface import Atom
     from bind_alfworld_original_public_task import original_public_task
 
     report=original_public_task(path)
@@ -70,40 +79,78 @@ def run_one(path: Path, task_sha256: str) -> dict:
     private_oracle=private_game.get("walkthrough")
     if type(private_oracle) is not list or not 0<len(private_oracle)<=80:
         raise ValueError("Missing original private oracle route")
-    # private_oracle is used in trusted local verifier ONLY, not returned.
+    if type(max_nodes) is not int or not 1<=max_nodes<=128:
+        raise ValueError("Invalid bounded verification budget")
+    expected_types=[normalized_original_command(c) for c in private_oracle]
+
     env=PddlEnv(EnvInfos(admissible_commands=True,objective=True))
+    def reset_native_signature() -> tuple:
+        n=env.downward_lib.get_state_size()
+        if not 0<n<10000:
+            raise ValueError("Invalid native PDDL state size")
+        atoms=(Atom*n)()
+        env.downward_lib.get_state(atoms)
+        return (tuple(x.name for x in atoms),
+                tuple(env.state.get("admissible_commands",[])),
+                bool(env._pddl_state.check_goal()))
     try:
         env.load(str(path))
         env.reset()
-        steps=0
-        native_unique=[]
-        for item in private_oracle:
-            if env._pddl_state.check_goal():
-                raise ValueError("Already goal before last original walkthrough step")
+        baseline=reset_native_signature()
+        frontier=[()]          # tuples of exactly legal raw native actions
+        expansions=0
+        ambiguous_nodes=0
+        verified=None
+        while frontier and expansions<max_nodes:
+            prefix=frontier.pop()
+            expansions+=1
+            env.reset()
+            if reset_native_signature()!=baseline:
+                raise ValueError("Repeated native reset is not exact")
+            score=0
+            done=False
+            for action in prefix:
+                if action not in env.state.get("admissible_commands",[]):
+                    raise ValueError("Deterministic replay lost actual legal action")
+                _,score,done=env.step(action)
+            if len(prefix)==len(private_oracle):
+                if done and score==1 and env._pddl_state.check_goal():
+                    verified=prefix
+                    break
+                continue
+            if done or env._pddl_state.check_goal():
+                continue
             menu=env.state.get("admissible_commands")
-            command=unique_native_match(item, menu)
-            state, score, done=env.step(command)
-            steps+=1
-            native_unique.append(len(set(menu))==len(menu))
-            if steps<len(private_oracle) and (done or env._pddl_state.check_goal()):
-                raise ValueError("Oracle claimed unnecessary post-goal steps")
-        if not env._pddl_state.check_goal() or score != 1 or not done:
-            raise ValueError("Original walkthrough not native terminal goal with score1")
+            if type(menu) is not list or len(menu)!=len(set(menu)):
+                raise ValueError("Native admissible menu corrupted")
+            matches=[x for x in menu
+                     if normalized_native_command(x)==expected_types[len(prefix)]]
+            if len(matches)>1:
+                ambiguous_nodes+=1
+            # Source game instance numbers are NOT blindly treated as
+            # equivalent to coordinate-encoded PDDL IDs. Branch and demand
+            # actual native terminal goal for any candidate accepted.
+            for candidate in reversed(matches):
+                frontier.append(prefix+(candidate,))
+        if verified is None:
+            raise ValueError("No source-type-skeleton native terminal goal within bounded search")
         return {
             "game_sha256":report["source_game_sha256"],
             "original_public_task_sha256":report["task_instruction_sha256"],
-            "privileged_oracle_step_count":len(private_oracle),
-            "executed_native_steps":steps,
-            "each_native_step_unique_legal_menu_match":all(native_unique),
+            "privileged_original_oracle_action_count":len(private_oracle),
+            "executed_native_steps":len(verified),
+            "bounded_native_prefix_expansions":expansions,
+            "ambiguous_native_type_match_nodes_encountered":ambiguous_nodes,
             "native_terminal_goal_reached":True,
             "native_terminal_score":1,
             "native_episode_done":True,
-            "safe_to_expose_oracle_to_agent":False,
+            "verified_claim":"EXISTS_PDDL_GOAL_ROUTE_WITH_ORIGINAL_ORACLE_ACTION_TYPE_SKELETON",
+            "original_numbered_instance_aliases_proven_equivalent":False,
+            "safe_to_expose_oracle_or_native_solution_to_agent":False,
             "model_authored_source_plan":False,
         }
     finally:
         env.close()
-
 
 def main() -> int:
     p=argparse.ArgumentParser()
@@ -151,19 +198,19 @@ def main() -> int:
         pub=original_public_task(file)
         try:
             record=run_one(file,pub["task_instruction_sha256"])
-            record["status"]="NATIVE_ORIGINAL_WALKTHROUGH_GOAL_VERIFIED"
+            record["status"]="NATIVE_ORIGINAL_TYPE_SKELETON_GOAL_VERIFIED"
         except (ValueError,RuntimeError,KeyError,TypeError) as exc:
             record={
                 "game_sha256":digest,
                 "original_public_task_sha256":pub["task_instruction_sha256"],
-                "status":"NATIVE_ORIGINAL_WALKTHROUGH_NOT_VERIFIED",
+                "status":"NATIVE_ORIGINAL_TYPE_SKELETON_NOT_VERIFIED",
                 "failure_type":type(exc).__name__,
                 "failure_sha256":hashlib.sha256(str(exc).encode()).hexdigest(),
                 "model_authored_source_plan":False,
             }
         record["original_game_relative_path"]=str(relative)
         results.append(record)
-    count=sum(x["status"]=="NATIVE_ORIGINAL_WALKTHROUGH_GOAL_VERIFIED" for x in results)
+    count=sum(x["status"]=="NATIVE_ORIGINAL_TYPE_SKELETON_GOAL_VERIFIED" for x in results)
     report={
         "schema":"plancarry.bind.native-original-oracle-to-pddl-goal-attestation.v1",
         "source_archive_sha256":ORIGINAL_ARCHIVE_SHA,
@@ -173,21 +220,24 @@ def main() -> int:
         "cases":results,
         "private_original_oracle_only_used_by_trusted_verifier":True,
         "source_oracle_ever_emitted_in_report":False,
+        "native_verified_routes_ever_exposed_as_model_owned":False,
+        "original_instance_ordinal_to_encoded_PDDL_ID_equivalence_proven":False,
         "model_authored_source_plan_count":0,
         "realized_llm_calls":0,
         "scientific_gate":"NOT_AUTHORIZED",
         "full_native_rng_clone_attested":False,
+        "search_uses_private_oracle_skeleton_and_goal_criterion":True,
         "no_false_model_effect_claim":True,
     }
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n")
     print(json.dumps({
-        "status":"REAL_ORIGINAL_ALFWORLD_NATIVE_WALKTHROUGH_GOAL_AUDIT",
+        "status":"REAL_ORIGINAL_ALFWORLD_NATIVE_ACTION_TYPE_SKELETON_GOAL_AUDIT",
         "verified":count,
         "checked":len(results),
         "failures":[
             {"case":j,"type":x.get("failure_type")}
-            for j,x in enumerate(results) if x["status"]!="NATIVE_ORIGINAL_WALKTHROUGH_GOAL_VERIFIED"
+            for j,x in enumerate(results) if x["status"]!="NATIVE_ORIGINAL_TYPE_SKELETON_GOAL_VERIFIED"
         ],
         "oracle_shared_with_model":False,
         "G0_CERTIFIED":False,
