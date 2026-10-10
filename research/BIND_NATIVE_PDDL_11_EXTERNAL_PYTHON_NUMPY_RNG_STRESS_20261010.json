@@ -1,0 +1,75 @@
+{
+  "schema": "plancarry.bind.original-alfworld.native-python-rng-perturbation-audit.v1",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "subject": "Original ALFWorld PDDL 11 historically environment-inspected games, independent subprocess external RNG stress",
+  "author_role": "A2 engineering-only; authored BIND v0.3 design, not an independent scientific reviewer",
+  "git_branch": "a2/bind-real-pddl-external-rng-probe-20261010",
+  "exact_git_commit": "c7e5bc592253ea5917068ad5f882babca9ba03af",
+  "source_file": "research/bind_original_alfworld_native_python_rng_stress.py",
+  "original_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+  "historical_inspected_11_matrix_sha256": "ea9376a6c86c41afb24dc00e14d5ff5849b44e4900e2f8a1ebfc60deea4201d5",
+  "native_backend": "TextWorld 1.7.0 + fast-downward-textworld 20.6.4, real PddlEnv per OS subprocess",
+  "runtime_verified_file_sha256": {
+    "textworld.envs.pddl.textgen": "f947c1a0add69fe3b309c71e9904a4990af934ed479296fb10972effa8c43f5e",
+    "textworld.envs.pddl.pddl": "3795f5fb7471c7a4551e137267785ffb3e21e49653d17491d6be963b41f454b4",
+    "textworld.envs.pddl.logic": "7c5ea3b0ddc21dc105c1e5c5979006a9d47365b556c10c048973bd62eb0ad35e",
+    "fast_downward.interface": "c5c23ec7d6d8acd845fb6788c8edd01f7d527ee1f0148ba333e7bacc517c151b",
+    "fast_downward.native": "339350d63ca18f5c63d4a12ab72490d33b5af2af2bd7f4865d264ebdcbd1d3be"
+  },
+  "static_backend_finding": "Installed pinned ContextSensitiveGrammar.replace selects first applicable grammar production via rules[0]; PddlEnv calls grammar.derive for intro, action commands and feedback. No inference that every possible native planner RNG state is absent.",
+  "experiment": {
+    "single_game_preflight_job": "local_8c5b623218934777",
+    "single_game_preflight_exit_code": 0,
+    "all_11_job": "local_27afb59bd83b4d41",
+    "all_11_exit_code": 0,
+    "games": 11,
+    "new_qualification_games_accessed": 0,
+    "OS_interpreters_per_game": 2,
+    "shared_action_length": 4,
+    "actions_per_game": "look, first native legal go-to movement, look, first distinct legal go-to movement",
+    "rng_channels": [
+      "Python random global module",
+      "NumPy global legacy generator"
+    ],
+    "A": {
+      "seed": 0,
+      "extra_external_draws_per_milestone": 2
+    },
+    "B": {
+      "seed": 987654321,
+      "extra_external_draws_per_milestone": 103
+    },
+    "independent_rng_initial_state_hashes_distinct_all_11": true,
+    "independent_rng_final_state_hashes_distinct_all_11": true,
+    "native_PDDL_operator_sequence_equal_all_11": true,
+    "native_atom_facts_feedback_menu_goal_projection_equal_all_11": true,
+    "actual_native_progress_required": true,
+    "native_binary_and_PDDL_Python_source_SHA_verified": true,
+    "native_Cplusplus_rng_state_sufficiency_attested": false,
+    "all_possible_action_histories_attested": false,
+    "full_RNG_readout_restore_API_attested": false,
+    "historical_successful_LLM_source_consumption_ledger_complete": false,
+    "source_model_authored_plans_attested": false,
+    "G0_CERTIFIED": false,
+    "G1_G2_G3_AUTHORIZED": false,
+    "science_gate": "NOT_AUTHORIZED",
+    "model_calls": 0,
+    "GPU_or_paid_API": false,
+    "confirmation": false,
+    "paper": false
+  },
+  "durable_result": {
+    "sha256": "e1284d08189cee4739e9181f15472960bd8097aeba9fb989fecbcb54359b62cd",
+    "bytes": 10916,
+    "verified_promoted": true,
+    "uri": "sha256:e1284d08189cee4739e9181f15472960bd8097aeba9fb989fecbcb54359b62cd",
+    "canonical_reference": "plancarry:bind-v03:original-alfworld-PDDL-external-python-numpy-RNG-stress-11-20261010"
+  },
+  "limits": [
+    "External Python/NumPy RNG perturbations cannot validate opaque native C++ or planner RNG/readout/restoration state.",
+    "Identical trace on 11 environmentally inspected games does not prove the full state-equivalence contract or 32 unused model-owned sources.",
+    "No scientific model or fair BIND vs DIRECT_REMINDER effect was measured."
+  ],
+  "next": "A1 independent engineering code review; inspect native C++/state surface and global historical LLM TRAIN request-response evidence before any actual BIND-v0.3 G0/G1 acceptance. Preserve original archive; do not duplicate PSB PR7/10/12 gateways."
+}
