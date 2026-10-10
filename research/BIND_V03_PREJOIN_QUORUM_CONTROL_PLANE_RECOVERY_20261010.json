@@ -1,0 +1,73 @@
+{
+  "kind": "PLANCARRY_BIND_V03_PREJOIN_QUORUM_CONTROL_PLANE_RECOVERY",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "design_id": "80e19e85-2689-45a9-8455-18108070aaf8",
+  "frozen_semantic_hash": "0fca9c1b177d1f41e0342f6d3748f35cd63cddf1c2dc38c5f3c2897e04716553",
+  "old_batch": {
+    "id": "2c363b48-dbc0-4694-918b-69c338b0d50e",
+    "status": "INVALIDATED",
+    "reason": "PREJOIN_QUORUM_VIOLATION",
+    "invalidated_at": "2026-10-10T04:17:55.626722Z",
+    "prior_member_count": 2,
+    "prior_member_attack_contents_must_not_be_copied": true
+  },
+  "server_authority_work_item": {
+    "id": "3901a40f-6fe3-4fa0-9427-531d9a2da7af",
+    "kind": "CONTROL_PLANE_RECOVERY",
+    "status": "COMPLETED",
+    "source": "SERVER_VERIFIED_PREJOIN_QUORUM",
+    "grants_scientific_execution": false
+  },
+  "new_batch": {
+    "id": "69475565-5906-48b4-8e68-84ee11c24b37",
+    "status": "GENERATING",
+    "peer_visibility": "HIDDEN",
+    "members_at_creation": 0,
+    "recovery_of_batch_id": "2c363b48-dbc0-4694-918b-69c338b0d50e",
+    "required_operators": [
+      "NECESSITY_ATTACKER",
+      "CAUSAL_IDENTIFIABILITY_ATTACKER",
+      "DEGENERATE_SOLUTION_ATTACKER"
+    ]
+  },
+  "fresh_server_created_lanes": [
+    {
+      "operator": "NECESSITY_ATTACKER",
+      "work_item_id": "b44c2fca-782e-46c6-ab6d-457ba3731691",
+      "status": "READY"
+    },
+    {
+      "operator": "CAUSAL_IDENTIFIABILITY_ATTACKER",
+      "work_item_id": "b0ff0d73-28d0-42f1-9217-159901849274",
+      "status": "READY"
+    },
+    {
+      "operator": "DEGENERATE_SOLUTION_ATTACKER",
+      "work_item_id": "784c3178-44ea-445b-81b8-f161f839e5c4",
+      "status": "READY"
+    }
+  ],
+  "reviewer_isolation_caveats": [
+    "A2 authored subject and is ineligible for independent attacks.",
+    "A5 had already reported leaked pre-freeze A3 peer details in web_resume and abstained; cannot be counted as clean independent review.",
+    "Global checkpoint/web_resume leakage remains an unresolved control-plane isolation risk for subsequent reviewer sessions; verify clean context before each join.",
+    "Each genuinely eligible reviewer must join before any fresh attack freezes; no reuse of prior attack bytes or copied submission."
+  ],
+  "continuity": "Research OS authoritative control-plane mutation. Does not synthesize BIND design, issue G0 PASS, or authorize G1/G2/G3 model/experiment.",
+  "communications": [
+    {
+      "to": "A2",
+      "id": "9a943e08-5bd8-47e9-aee6-a1aa18d73d9f"
+    },
+    {
+      "to": "A3",
+      "id": "1b2e5f83-ac44-4de3-8659-e0fcb1398f4a"
+    },
+    {
+      "to": "A4",
+      "id": "b44bc6f4-f2ea-4c2c-b6ae-71151e535f65"
+    }
+  ],
+  "execution": "No new model, GPU, paid API, confirmation or paper."
+}
