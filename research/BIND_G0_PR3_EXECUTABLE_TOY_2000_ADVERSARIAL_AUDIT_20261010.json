@@ -1,0 +1,59 @@
+{
+  "kind": "PLANCARRY_BIND_V03_G0_PR3_ADVERSARIAL_AND_EXECUTABLE_TOY_REPLAY_AUDIT",
+  "date": "2026-10-10",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "repo": "tungooxx/Plancarry",
+  "branch": "research/bind-v02-source-custody-20261010",
+  "pr3": {
+    "number": 3,
+    "head": "feb863c40d26e52f1b015b5b121f691393df876b",
+    "base_at_review": "dbcdac417812d4b856a91ea7390f545785733a9b",
+    "status_at_review": "DRAFT_UNMERGED",
+    "checker": "research/bind_g0_ab_prefix_byte_equality.py",
+    "pinned_checker_sha256": "3ab3e446b5c789a4e4d03ae16a7939f9643ca9b3ac31e74c6c8c7605b59dbe4c"
+  },
+  "independent_pin_review": {
+    "gpu_lab_cpu_job": "local_af42cc1fab764523",
+    "result": "PASS",
+    "author_reported_tests_rerun": "19/19 PASS",
+    "adversarial_seed": 127010,
+    "adversarial_scenarios": 2000,
+    "identical": 406,
+    "mutated": 1594,
+    "mismatches": 0,
+    "permission_granted": false
+  },
+  "real_executable_toy": {
+    "note": "Toy-only independent state machines with distinct Python Random instances, actual reset and common three-step action prefixes, not real ALFWorld or TextWorld TRAIN.",
+    "source": "research/bind_g0_independent_toy_replay.py",
+    "source_commit": "f9ef26d49f4ed4b9d420c40809ecab3e87b3985f",
+    "source_sha256": "7599936abd103bad1a2cffeecba69d3848d336485e3353a20daeda7ba596f021",
+    "tests": "tests/test_bind_g0_independent_toy_replay.py",
+    "test_created_commit": "2ebd10ac5952c683603b16a2e80ff9348e451ccc",
+    "test_updated_commit": "d397f5a04e425d260163745e3bc94d4758563bf0",
+    "result": "PASS",
+    "cpu_job": "local_2ab5aa5977ae4afe",
+    "toy_tests": 12,
+    "matched_seed_17": "MATCHED_SYNTHETIC_PREFIX_ONLY",
+    "changed_seed_18": "MISMATCHED_SYNTHETIC_PREFIX",
+    "changed_rng_detected": true,
+    "changed_hidden_state_detected": true,
+    "changed_observation_detected": true,
+    "illegal_action_raises": true
+  },
+  "base_vs_pr3": {
+    "cpu_job": "local_69d1cfdf73e04767",
+    "base_commit": "d397f5a04e425d260163745e3bc94d4758563bf0",
+    "base": "11 pass, 1 intentional conditional SKIP pending PR#3 action admissibility checker",
+    "pr3": "12/12 PASS no skip",
+    "checked_by_pinned_commit_urls": true
+  },
+  "limitations": [
+    "No genuine ALFWorld or TRAIN game loaded",
+    "No successful source LLM/model calls and no claim of source competence",
+    "No verified authority or completeness of real TextWorld hidden PDDL/RNG export",
+    "No G0, G1, G2 or G3 scientific authorization",
+    "Conditional pre-PR3 skip is deliberately reported as skipped, never counted PASS",
+    "Author A2 cannot provide independent approval of own draft PR3"
+  ]
+}
