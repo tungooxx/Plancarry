@@ -1,0 +1,79 @@
+{
+  "schema": "plancarry.20261010.bind-original-public-ALFWorld-task-provenance-v1",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "scope": "PlanCarry BIND source-goal integrity repair using unchanged original public ALFWorld; CPU/no-model engineering only",
+  "original_source": {
+    "archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "original_790_content_manifest_sha256": "498a30ae3086a49c890b5969205b3ecaac47a49ea3a77d6cf8c9dbf2a0090aac",
+    "exact_BIND180_legacy_selection_hash": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "original_game_format": "game.tw-pddl is JSON with grammar, pddl_domain, pddl_problem, solvable and privileged walkthrough",
+    "public_goal_truth": "Inside grammar :: rhs TextWorld task key; intro rhs references #task# and is intended public instruction. PddlEnv Envinfos objective field absent/empty in earlier native reset, so earlier directory-derived descriptor was NOT the original public task.",
+    "verified_original_game_count": 790,
+    "verified_unique_public_task_count": 280,
+    "all_790_have_exactly_one_task_and_intro_reference": true,
+    "public_source_task_manifest_sha256": "63118effcff1cdb1f1efffd471de6792ae427aaa6f11c2dffb218d4934fdceb3",
+    "public_source_task_manifest_bytes": 363285,
+    "public_source_task_manifest_promoted_durable": true,
+    "public_source_task_manifest_job": "local_393b5465b400483b",
+    "source_public_task_examples": [
+      "Your task is to: put some lettuce on countertop.",
+      "Your task is to: put a creditcard in armchair.",
+      "Your task is to: put some pencil on sidetable."
+    ],
+    "no_privileged_walkthrough_exposed": true
+  },
+  "implemented": {
+    "new_parser": "research/bind_alfworld_original_public_task.py",
+    "new_parser_first_commit": "b4c1bd7ef23b4b2043d5a80fcb1c7b65353eae7c",
+    "new_parser_sha256": "cf3f14af6cf800bf7bc8353c89f8b9655333d7d0b241d7d3bb8ac08c73c85030",
+    "updated_native_integration": "research/bind_alfworld_native_strong_direct_integrated_preflight.py",
+    "integration_fix_commit": "03320f38b1a0e9a85a7de2ba7abc7d2c58c2ff9e",
+    "integration_source_sha256": "c38c16fc394dfcf2a400722fd526de52b3e173138c44cd209c2c37f9ae8bc2b0",
+    "unit_tests": "tests/test_bind_alfworld_original_public_task.py",
+    "unit_test_latest_commit": "a8283f6d0c5931bb9f92dc4790e868dc23fd9d2d",
+    "unit_test_sha256": "cf985845691c1edfbe0285821626b358585a4be070033175933d830f264bb0ca",
+    "unit_test_job": "local_434bbb4295ba4bc0",
+    "unit_test_result": "5/5 PASS against actual original 790 source files plus fail-closed duplicate/missing intro and no walkthrough leakage"
+  },
+  "real_PDDL_integration": {
+    "engine": "TextWorld 1.7.0 + Fast Downward TextWorld 20.6.4",
+    "CPU_job": "local_3d4101e2d03b4445",
+    "exit_code": 0,
+    "historical_environmental_inspection_scope": "Eleven previously Pilot40 environmentally inspected original ALFWorld TRAIN games; no additional previously untouched source episode explored",
+    "native_games": 11,
+    "reciprocal_donor_directions": 22,
+    "matched_public_inputs": "Both BIND and imperative DIRECT_REMINDER receive exactly same source-authenticated public task instruction, native feedback, ordered legal commands, real common prefix and mechanical donor-future action list",
+    "paired_real_native_common_prefix": "Actual look plus same admissible go to movement before legal divergent next actions",
+    "report_sha256": "fd99fac1d2ed3a1df6cef45ff4e76a3c57b0bcf9adf554f46c7aa04a0660ca27",
+    "report_bytes": 30967,
+    "report_promoted_durable": true,
+    "previous_wrong_directory_goal_report_sha256": "bfec7073106abf1be172558f922e8687356843b6fa312a2f54d5530f103ad514",
+    "old_directory_derived_goal_report_superseded": true,
+    "mechanical_future_actions_only": true,
+    "successful_model_owned_source_plans_attested": false,
+    "model_specific_token_budget_parity_attested": false,
+    "complete_PDDL_RNG_state_clone_attested": false,
+    "model_inferences": 0,
+    "scientific_gate": "NOT_AUTHORIZED"
+  },
+  "PSB_SYM1": {
+    "native_isolated_PR7": "https://github.com/tungooxx/Plancarry/pull/7",
+    "strict_public_json_PR10": "https://github.com/tungooxx/Plancarry/pull/10",
+    "PR10_exact_HEAD": "71d230c51e87855dbd11b4a7b33cc897a09767bf",
+    "PR10_tests": "20/20 native TextWorld 1.7 CPU PASS local_7e1ce5ac0e8c4201 after duplicate JSON command action side-effect fix",
+    "additional_adversarial_JSON_depth_probe": "local_086d15b9109944be: 2003B deeply nested request rejected INVALID_REQUEST and native state unchanged",
+    "old_unsafe_PR8": "CLOSED/UNMERGED due shared Quest reward state",
+    "PR7_PR10_merged": false,
+    "scientific_design_accepted": false
+  },
+  "science_limits": [
+    "Original BIND-v0.3 frozen ScienceDesign 80e19e85... remains UNDER_ATTACK/NOT_ACCEPTED_FOR_TEST; original global LLM source-use ledger and complete PDDL RNG clone attestations remain incomplete.",
+    "The exact original ALFWorld task sentence source blocker is RESOLVED for all 790 ORIGINAL source files; no need to ask where ALFWorld is or synthesize goals from paths.",
+    "Real 11x22 BIND/DIRECT prompt previews are mechanically selected future plans, not LLM-authored source-competent two-plan pairs; no effect, adherence, top-1, utility gain or statistical CI may be claimed.",
+    "Input semantic equality does not prove model-specific token/cost/role salience parity.",
+    "PSB-SYM-1 PR7/PR10 engineering tools remain independent proposal and drafts; no privileged Python subprocess isolation attestation or LLM efficacy results.",
+    "No paid GPU, APIs, original TRAIN model experiments, confirmation, or paper."
+  ],
+  "next": "A3 independently attack fair DIRECT_REMINDER and verify frozen model tokenizer/salience; for BIND preserve public task source hashes and log actual model-owned successful source plans BEFORE science. For PSB get qualified independent code-owner review PR7/PR10 and process-isolated JSON IPC acceptance; do not run LLM on unapproved science."
+}
