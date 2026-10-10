@@ -41,6 +41,10 @@ def bytes_field(value: Any) -> bytes:
         raise ValueError("Invalid base64 bytes") from e
     if not data:
         raise ValueError("Encoded empty bytes are not accepted")
+    # Require unique canonical wire bytes. Python accepts alternate Base64
+    # spellings differing only in unused padding bits unless checked here.
+    if base64.b64encode(data).decode("ascii") != value:
+        raise ValueError("Noncanonical base64 bytes")
     return data
 
 
@@ -52,13 +56,27 @@ def snapshot(snap: Any) -> dict[str, Any]:
     if not isinstance(snap, dict) or set(snap) != set(SNAP_FIELDS):
         raise ValueError("Snapshot must supply every exact full-state and public field")
     cmds = snap["ordered_commands"]
-    if not isinstance(cmds, list) or not cmds or not all(isinstance(x, str) and x for x in cmds):
-        raise ValueError("Ordered command array missing")
+    if not isinstance(cmds, list) or not all(isinstance(x, str) and x for x in cmds):
+        raise ValueError("Ordered command array invalid")
     # Do NOT sort: bytewise order and distinctions between strings matter.
     if len(set(cmds)) != len(cmds):
         raise ValueError("Duplicate commands cannot form a trusted menu")
     result = {k: bytes_field(snap[k]) for k in SNAP_FIELDS if k != "ordered_commands"}
-    result["ordered_commands"] = [bytes_field(x) for x in cmds]
+    decoded_commands = [bytes_field(x) for x in cmds]
+    # Enforce uniqueness on the actual command byte strings, not merely their
+    # encoded representation, which is a weaker invariant.
+    if len(set(decoded_commands)) != len(decoded_commands):
+        raise ValueError("Duplicate decoded command bytes cannot form a trusted menu")
+    result["ordered_commands"] = decoded_commands
+    # Terminal marker has a strict canonical byte encoding in synthetic
+    # traces. Arbitrary non-empty marker bytes cannot masquerade as False.
+    if result["done_b64"] not in (b"0", b"1"):
+        raise ValueError("Terminal marker must be exact ASCII 0 or 1")
+    # A completed episode may have no remaining admissible actions. An empty
+    # menu on a nonterminal state is an invalid pre-action witness. The
+    # existing step validator still forbids any action after done == b"1".
+    if not decoded_commands and result["done_b64"] != b"1":
+        raise ValueError("Nonterminal snapshot cannot have an empty command menu")
     return result
 
 
@@ -97,6 +115,11 @@ def structural_audit(record: Any) -> dict[str, Any]:
     if len(left["steps"]) < 2:
         raise ValueError("Must include initial step and >=1 common prefix action")
     failures = []
+    # Preserve exact ordered legal-action menus for each previous snapshot.
+    # Byte-identical transitions are insufficient if both sides replay the
+    # same impossible action. This is a NECESSARY toy lint, never a full-state
+    # authority certificate.
+    previous_a = previous_b = None
     step_n = len(left["steps"])
     for i in range(step_n):
         a = left["steps"][i]
@@ -113,8 +136,19 @@ def structural_audit(record: Any) -> dict[str, Any]:
         else:
             if aa != bb:
                 failures.append(f"step_{i}.actual_action")
+            if previous_a is None or previous_b is None:
+                raise ValueError("Missing previous snapshots for action validation")
+            if previous_a["done_b64"] == b"1":
+                failures.append(f"step_{i}.A.action_after_terminal")
+            if previous_b["done_b64"] == b"1":
+                failures.append(f"step_{i}.B.action_after_terminal")
+            if aa not in previous_a["ordered_commands"]:
+                failures.append(f"step_{i}.A.action_not_admissible")
+            if bb not in previous_b["ordered_commands"]:
+                failures.append(f"step_{i}.B.action_not_admissible")
         sa, sb = snapshot(a["after"]), snapshot(b["after"])
         failures.extend(f"step_{i}.{x}" for x in mismatch(sa, sb))
+        previous_a, previous_b = sa, sb
     if not failures:
         status = "MATCHED_SYNTHETIC_PREFIX_ONLY"
     else:
