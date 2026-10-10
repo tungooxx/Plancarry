@@ -65,7 +65,22 @@ def dispatch_json(instance: GuardedSymbolicEnv, raw: bytes) -> bytes:
     if type(raw) is not bytes or not 0<len(raw)<=_MAX_REQUEST_BYTES:
         return b'{"status":"INVALID_REQUEST"}'
     try:
-        data=json.loads(raw.decode("utf-8"))
+        # JSON duplicate object members are ambiguous across parsers and
+        # could make the audited command differ from the executed command.
+        # Reject duplicates at every nesting depth instead of Python's
+        # default last-key-wins semantics.
+        def unique_object(pairs):
+            record={}
+            for key,value in pairs:
+                if key in record:
+                    raise ValueError("duplicate JSON member")
+                record[key]=value
+            return record
+        def forbid_nonfinite(token):
+            raise ValueError("nonfinite JSON token")
+        data=json.loads(raw.decode("utf-8"),
+                        object_pairs_hook=unique_object,
+                        parse_constant=forbid_nonfinite)
         result=dispatch(instance,data)
         return json.dumps(result,sort_keys=True,separators=(",",":"),
                           ensure_ascii=True,allow_nan=False).encode("ascii")
