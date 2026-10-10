@@ -1,0 +1,58 @@
+{
+  "schema": "plancarry.bind.alfworld-pddl.strict-native-atom-audit.v1",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "user_direction": "Continue original ALFWorld BIND and PSB, no paper or inference",
+  "source_scope": {
+    "original_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "historical_11_inspected_matrix_sha256": "ea9376a6c86c41afb24dc00e14d5ff5849b44e4900e2f8a1ebfc60deea4201d5",
+    "cohort_size": 11,
+    "new_uninspected_games_opened": 0
+  },
+  "exact_execution": {
+    "github_branch": "research/bind-v02-source-custody-20261010",
+    "exact_git_commit": "e0287511cb034668ac0f6b684390abdea7c97c36",
+    "source_file": "research/bind_alfworld_pddl_independent_process_preflight.py",
+    "native_backend": "TextWorld 1.7.0 + FastDownward-TextWorld 20.6.4",
+    "cpu_job": "local_1d90e2004b144703",
+    "cpu_job_exit_code": 0,
+    "verified_games": 11,
+    "total_games": 11,
+    "two_distinct_OS_subprocesses_per_game": true,
+    "strict_progress_precondition": "After actual native look and same legal go-to movement, native Atom SHA or PDDL logical fact SHA MUST change",
+    "strict_fork_precondition": "Two different legal fork actions MUST have distinct native Atom or PDDL logical-fact SHAs, not just text feedback",
+    "both_native_prefixes_identical": true,
+    "report_original_bytes_sha256": "f4588b97c27744cd7d4ac0c6f712708497a6390f29d0309dc5152727207063bf",
+    "report_bytes": 11277,
+    "durable_verified": true,
+    "durable_uri": "sha256:f4588b97c27744cd7d4ac0c6f712708497a6390f29d0309dc5152727207063bf",
+    "identity_with_prior_report": "Same report byte digest as earlier 11-game loose guard, because the added strict checks PASS but output format unchanged",
+    "older_11_game_job": "local_5a205d5a5c344268",
+    "first_strict_single_game_job": "local_785d1b2af6a04164"
+  },
+  "native_runtime_API": {
+    "cpu_read_only_inventory_job": "local_ef3baaef15d144b1",
+    "visible_fast_downward_python_C_bindings": [
+      "get_state_size",
+      "get_state",
+      "apply_operator",
+      "load_lib"
+    ],
+    "complete_rng_export_restore_proven": false,
+    "note": "Absence from this limited Python binding scan is not proof there is no method in other native code; needs independent complete-state/RNG attestation."
+  },
+  "scientific_boundary": {
+    "source_model_history_complete": false,
+    "source_plan_model_owned": false,
+    "full_native_hidden_state_RNG_equivalence": false,
+    "BIND_v03_original_G0_authorized": false,
+    "G1_G2_G3_authorized": false,
+    "PSB_model_study_authorized": false,
+    "model_calls": 0,
+    "GPU_used": false,
+    "paid_API_used": false,
+    "confirmation_used": false,
+    "paper_written": false,
+    "next": "Independent native code/data review and full backend RNG/state authority & historical global LLM TRAIN consumption ledger; do not promote observed process-state prefix parity into scientific G0 acceptance."
+  }
+}
