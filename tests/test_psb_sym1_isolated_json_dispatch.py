@@ -71,7 +71,7 @@ class NativeDispatchTests(unittest.TestCase):
         self.assertEqual("OK",observed["status"])
 
     def test_bad_prefix_rejected_before_scientific_attempt(self):
-        for commands in [(),("go east","go west"),("go east",None)]:
+        for commands in [(),("go east","go south"),("go east",None)]:
             with self.subTest(commands=commands):
                 with self.assertRaises((ValueError,RuntimeError)):
                     make_isolated_prefix_pair(GAME,commands)
