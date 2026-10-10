@@ -18,6 +18,10 @@ from psb_sym1_isolated_public_bridge import (
 _PUBLIC_KEYS=frozenset({"status","observation","done","score"})
 _ACTIONS=frozenset({"observe","act"})
 _MAX_REQUEST_BYTES=2048
+# Engineering-only action cap for the fixed single-game evaluation interface.
+# Once this many valid actions execute, `done=True` reports time-budget end;
+# count goal success by score==1 rather than `done` alone.
+MAX_EPISODE_ACTIONS=12
 
 
 def _reply(result: Mapping[str,Any]) -> dict[str,Any]:
@@ -39,6 +43,26 @@ def _reply(result: Mapping[str,Any]) -> dict[str,Any]:
     }
 
 
+def _bounded_reply(instance: GuardedSymbolicEnv, response: Mapping[str,Any]) -> dict[str,Any]:
+    """Close the public episode after a fixed number of NATIVE legal actions.
+
+    Budget expiry returns done=True while score stays at its native value;
+    the frozen game only counts goal success when score==1.
+    """
+    public=_reply(response)
+    if public.get("status") != STATUS_OK:
+        return public
+    try:
+        moves=instance._env._moves  # privileged controller only, never exposed
+        if type(moves) is not int or not 0 <= moves <= MAX_EPISODE_ACTIONS:
+            return {"status":"ENGINE_ERROR"}
+        if moves == MAX_EPISODE_ACTIONS:
+            public["done"]=True
+        return public
+    except Exception:
+        return {"status":"ENGINE_ERROR"}
+
+
 def dispatch(instance: GuardedSymbolicEnv, request: dict[str,Any]) -> dict[str,Any]:
     """The ONLY agent-facing operation: observe or exact native action.
 
@@ -48,15 +72,22 @@ def dispatch(instance: GuardedSymbolicEnv, request: dict[str,Any]) -> dict[str,A
     if type(request) is not dict:
         return {"status":"INVALID_REQUEST"}
     cmd=request.get("command")
-    if cmd not in _ACTIONS:
+    if type(cmd) is not str or cmd not in _ACTIONS:
         return {"status":"INVALID_REQUEST"}
     if cmd=="observe" and set(request)=={"command"}:
-        try:return _reply(instance.observe())
+        try:return _bounded_reply(instance, instance.observe())
         except Exception:return {"status":"ENGINE_ERROR"}
     if cmd=="act" and set(request)=={"command","action"} and type(request["action"]) is str \
        and len(request["action"])<=256:
-        try:return _reply(instance.act(request["action"]))
-        except Exception:return {"status":"ENGINE_ERROR"}
+        try:
+            moves=instance._env._moves
+            if type(moves) is not int or moves < 0 or moves > MAX_EPISODE_ACTIONS:
+                return {"status":"ENGINE_ERROR"}
+            if moves == MAX_EPISODE_ACTIONS:
+                return {"status":"TERMINAL"}
+            return _bounded_reply(instance, instance.act(request["action"]))
+        except Exception:
+            return {"status":"ENGINE_ERROR"}
     return {"status":"INVALID_REQUEST"}
 
 
