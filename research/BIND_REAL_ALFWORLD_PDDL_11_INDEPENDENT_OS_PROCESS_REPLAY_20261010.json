@@ -1,0 +1,61 @@
+{
+  "schema": "plancarry.bind.original-alfworld.pddl.independent-process-engineering-audit.v1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "date": "2026-10-10",
+  "science_gate": "NOT_AUTHORIZED",
+  "G0_CERTIFIED": false,
+  "G1_AUTHORIZED": false,
+  "source": {
+    "original_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "historical_inspected_matrix_sha256": "ea9376a6c86c41afb24dc00e14d5ff5849b44e4900e2f8a1ebfc60deea4201d5",
+    "scope": "ONLY 11 already environmentally inspected Pilot40/Binding180 overlapping source games",
+    "original_train_new_game_opened": 0
+  },
+  "native_execution": {
+    "backend": "TextWorld 1.7.0 + Fast Downward TextWorld 20.6.4 native PddlEnv",
+    "policy": "Two separate OS-level Python interpreter subprocesses per game; identical exact publicly legal look->go-to shared prefix then divergent legal movements",
+    "real_native_atom_get_state": true,
+    "common_prefix_captures": [
+      "native_atom_count",
+      "native_atom_sha256",
+      "logical_facts_sha256",
+      "ordered_native_admissible_menu",
+      "feedback_sha256",
+      "public_goal"
+    ],
+    "independent_subprocesses_per_game": 2,
+    "game_count": 11,
+    "status": "REAL_PDDL_PROCESS_ISOLATION_PREFIX_ONLY",
+    "job_id": "local_5a205d5a5c344268",
+    "job_exit_code": 0,
+    "exact_committed_code_head": "0ca2cbb89af76e72f1ac51debba84fa6f8471190",
+    "protected_report_sha256": "f4588b97c27744cd7d4ac0c6f712708497a6390f29d0309dc5152727207063bf",
+    "protected_report_uri": "sha256:f4588b97c27744cd7d4ac0c6f712708497a6390f29d0309dc5152727207063bf",
+    "protected_canonical_reference": "plancarry:bind-v03:original-alfworld-pddl-independent-os-process-11-20261010",
+    "all_11_subprocess_pairs_identical_prefix": true,
+    "all_11_distinct_observable_legal_forks": true
+  },
+  "stricter_subsequent_code": {
+    "commit": "3c253bfeeccb0c8614812aea78c84fc7deb2ebc8",
+    "diff": "Reject common movement if native Atom and native logical-fact digests remain unchanged; reject fork arms that differ only in narration, not Atom/facts.",
+    "job_id": "local_785d1b2af6a04164",
+    "job_exit_code": 0,
+    "strict_games_executed": 1,
+    "strict_games_passed": 1,
+    "strict_11_games_result": "NOT_RUN_ON_NEW_CODE"
+  },
+  "prohibited_inference": [
+    "No complete native RNG/export/restore state authority demonstrated",
+    "No independently attested exhaustive model request/response TRAIN consumption ledger",
+    "No independently accepted BIND-v0.3 scientific design/G0 or G1 execution permission",
+    "No BIND versus strong DIRECT_REMINDER model experiment or measured effect"
+  ],
+  "resource_usage": {
+    "LLM_model_calls": 0,
+    "paid_GPU": false,
+    "paid_API": false,
+    "paper": false,
+    "confirmation": false
+  },
+  "follow_up": "Independent engineering review; any future native full-state/RNG audit requires exact source, fixed provenance and clear authority. No rerun of same 11 merely to claim G1."
+}
