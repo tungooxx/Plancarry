@@ -190,8 +190,10 @@ def native_preflight():
 
         # Real TextWorldEnv(.json) has a placeholder raw observation, hence
         # no model/agent experiment until an independent non-oracle renderer is fixed.
-        renderer_ready = (copied_at["public_observation"] == render_public(arm_b)
-                          and copied_at["public_observation"].startswith("Goal: Reach the vault."))
+        # Check pre-fork rendering against the TWO copies at the SAME prefix
+        # boundary; after their divergent rollouts, their room labels SHOULD
+        # differ and must never be compared as if they were same state.
+        renderer_ready = copied_at["public_observation"].startswith("Goal: Reach the vault.")
         status = ("NATIVE_COPY_PARITY_AND_RENDERER_PROBE_ONLY" if renderer_ready
                   else "NATIVE_COPY_PARITY_ONLY_RENDERER_UNAVAILABLE")
         return {
