@@ -33,8 +33,10 @@ def serve(frozen_game: Path) -> int:
         from psb_sym1_isolated_json_dispatch import dispatch_json
         instance=GuardedSymbolicEnv(frozen_game)
     except Exception:
-        sys.stdout.buffer.write(reply_status("ENGINE_ERROR")+b"\n")
-        sys.stdout.buffer.flush()
+        # Bootstrap failure occurs BEFORE the first inbound request. Never
+        # emit an unsolicited JSON line: one reply must match one request.
+        # The trusted controller must treat premature child exit/EOF as an
+        # unavailable engine and must never give a model process privileges.
         return 2
 
     count=0
