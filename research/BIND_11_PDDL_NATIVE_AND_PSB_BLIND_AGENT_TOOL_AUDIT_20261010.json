@@ -1,0 +1,90 @@
+{
+  "schema": "plancarry.bind-plus-psbsym1.native-engine-preflight-and-public-agent-tool-boundary.v1",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "worker": "LLM A1",
+  "scope": "Supporting engineering only, no LLM, no model experiment, no GPU, no paid API, no confirmation, no paper",
+  "BIND": {
+    "original_source_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "original_dataset_root": "/workspace/local-vlm/plancarry_assets/alfworld_dataset/json_2.1.1",
+    "historical_180_cohort_exact_hash": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "native_backend": "TextWorld 1.7.0 PddlEnv plus fast-downward-textworld 20.6.4",
+    "preflight_github_path": "research/bind_alfworld_native_pddl_ab_preflight.py",
+    "preflight_source_commit": "da6bbb7b928c9f2f5e2250566611c8eae8e9a432",
+    "native_probe_job": "local_9dbe699bc1564855",
+    "real_game_count": 11,
+    "historical_population": "11 games known to have been environmentally inspected in historical Pilot40 and overlapped original BIND180, NOT a new model-source cohort",
+    "native_downward_atom_counts": [
+      600,
+      392,
+      1946,
+      1447,
+      372,
+      314,
+      196,
+      881,
+      345,
+      1146,
+      345
+    ],
+    "same_reset_actual_native_atom_projection": true,
+    "identical_public_observation_and_ordered_legal_commands": true,
+    "same_actual_prefix_action": "look",
+    "same_prefix_actual_native_atom_projection": true,
+    "independent_native_downward_handles": true,
+    "A_act_does_not_mutate_B": true,
+    "A_B_differ_after_A_fork": true,
+    "durable_report_sha256": "301651074617cdcc922b0836dfe5ffa94c61838d970e6abc9d14ab45b48bd07b",
+    "durable_report_bytes": 12457,
+    "report_promoted_and_hash_verified": true,
+    "limitations": [
+      "These are real CPU engine resets and a same 'look' prefix; no model-agent inference or efficacy is measured.",
+      "Native Downward get_state Atom values and TextWorld logical/public projections are checked, but this does not attest all backend external/native RNG state or universal save/restore.",
+      "An actual progress-action prefix and paired model-owned plan source competence still require independently defined matched science design.",
+      "Legacy historical request-response/source consumption ledger remains incomplete; this 11-game engineering-only extension does not resolve that missing history.",
+      "Frozen original BIND-v0.3 science G0 remains not accepted. No G1/G2/G3 authorization or paper."
+    ]
+  },
+  "PSB_SYM1": {
+    "distinct_study": "Prospective symbolic TextWorld research design, not an alias for or silent rescue of BIND-v0.3",
+    "hardened_native_renderer_PR": "https://github.com/tungooxx/Plancarry/pull/6",
+    "renderer_pinned_PR6_HEAD": "088b91a217647550d0f01b6e7e10094a541f8e5a",
+    "frozen_game_sha256": "40e0654afa677d45b173552ee77c5c38dd862df9cddbfb79b4deb4783a2b3f67",
+    "new_gateway_source": "research/psb_sym1_blind_public_tool_gateway.py",
+    "gateway_source_commit": "311c8c7f05f423fa8fb77f8cb1064ca05d9c10ed",
+    "new_gateway_test": "tests/test_psb_sym1_blind_public_tool_gateway.py",
+    "gateway_test_commit": "380174fdae2732a5f2d17e7349f703fb2219afb7",
+    "native_tests_count": 8,
+    "native_tests_passed": 8,
+    "native_tests_job": "local_ebeaa35eaed34613",
+    "additional_native_gateway_negative_controls_job": "local_fd53963a948640d8",
+    "agent_tool_names": [
+      "observe",
+      "act"
+    ],
+    "model_visible_fields": [
+      "observation",
+      "legal_actions",
+      "done",
+      "score"
+    ],
+    "model_input_validation": "Exact JSON key sets and exact native action strings, reject unknown or terminal requests",
+    "backend_error_handling": "Generic error strings. No backend exceptions, hidden facts, graph, policies, scoring oracle or Python stack traces returned to model through intended dispatcher.",
+    "shared_game_metadata_spoof": "A4's known room-name mutation causes generic refusal rather than forged room output",
+    "real_native_branch_test": "Controller forks A/B after real go east + look common prefix, two different legal native routes score 1 each",
+    "limitations": [
+      "Intended JSON tool dispatcher is a projection, not an OS sandbox. Agent processes must be prevented from importing the Python object directly.",
+      "Gateway depends on PR6's frozen_public_room_names/render_public implementation; PR6 remains DRAFT/UNMERGED. Integration review and merge order required.",
+      "One original symbolic game fixture, not a 32-task registered science cohort.",
+      "No model-owned source plans; no strong DIRECT_REMINDER causal comparison, no LLM calls.",
+      "Prospective scientific design not independently accepted; science remains NOT_AUTHORIZED."
+    ]
+  },
+  "scientific_gate": "NOT_AUTHORIZED_FOR_MODEL_EXPERIMENTS",
+  "last_github_reviews": "A1 independent PR6 comment 6095311616, 7/7 native tests, no independent GitHub review approval",
+  "next_actions": [
+    "Distinct code-owner review of PSB-SYM-1 PR6 and dependent public-tool gateway; reject any model interface exposing raw env.state.",
+    "Native ALFWorld BIND matching tests should use a nontrivial common progress action, compare full available state and preserve original source identities without touching confirmation.",
+    "Preregister a token/semantic-matched strong direct plan reminder before any model-effect claims. Preserve exact model plan ownership, G0 provenance and scientific decision boundary."
+  ]
+}
