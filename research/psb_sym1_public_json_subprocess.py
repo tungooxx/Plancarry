@@ -38,7 +38,7 @@ def serve(frozen_game: Path) -> int:
         return 2
 
     count=0
-    while count<MAX_IPC_REQUESTS:
+    while True:
         raw=sys.stdin.buffer.readline(MAX_INPUT_LINE+2)
         if not raw:
             return 0
@@ -48,6 +48,12 @@ def serve(frozen_game: Path) -> int:
             sys.stdout.buffer.write(reply_status("INVALID_REQUEST")+b"\n")
             sys.stdout.buffer.flush()
             return 2
+        if count >= MAX_IPC_REQUESTS:
+            # Exactly one response per accepted wire request; do not emit
+            # an unsolicited status after the preceding request.
+            sys.stdout.buffer.write(reply_status("REQUEST_BUDGET_EXHAUSTED")+b"\n")
+            sys.stdout.buffer.flush()
+            return 0
         request=raw[:-1]
         try:
             response=dispatch_json(instance,request)
@@ -58,12 +64,6 @@ def serve(frozen_game: Path) -> int:
         sys.stdout.buffer.write(response+b"\n")
         sys.stdout.buffer.flush()
         count+=1
-    # Request count exhaustion is terminal and avoids an infinite public
-    # observe() probe channel; valid ACTION budget remains separately 12.
-    sys.stdout.buffer.write(reply_status("REQUEST_BUDGET_EXHAUSTED")+b"\n")
-    sys.stdout.buffer.flush()
-    return 0
-
 
 def main() -> int:
     p=argparse.ArgumentParser()
