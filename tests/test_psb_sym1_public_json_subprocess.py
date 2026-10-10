@@ -4,6 +4,7 @@ No LLM, historical ALFWorld TRAIN, GPU, confirmation, or science G1.
 """
 from __future__ import annotations
 import json
+import select
 import subprocess
 import sys
 import unittest
@@ -92,6 +93,22 @@ class ProcessIsolation(unittest.TestCase):
             result=a.send(b'{"command":"observe","unused":"' + b'X'*2050+b'"}')
             self.assertEqual({"status":"INVALID_REQUEST"},result)
             self.assertEqual(2,a.process.wait(timeout=7))
+        finally:a.close()
+
+
+    def test_request_budget_never_emits_unsolicited_extra_frame(self):
+        a=Child()
+        try:
+            for _ in range(64):
+                response=a.send({"command":"observe"})
+                self.assertEqual("OK",response["status"])
+            # The old worker sent an unexpected 65th status immediately
+            # after answering request #64, making external transcripts shift.
+            readable,_,_=select.select([a.process.stdout],[],[],0.12)
+            self.assertFalse(readable,"Unsolicited JSON line after #64")
+            answer=a.send({"command":"observe"})
+            self.assertEqual({"status":"REQUEST_BUDGET_EXHAUSTED"},answer)
+            self.assertEqual(0,a.process.wait(timeout=8))
         finally:a.close()
 
 
