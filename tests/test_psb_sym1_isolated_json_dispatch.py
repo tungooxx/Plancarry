@@ -89,6 +89,27 @@ class NativeDispatchTests(unittest.TestCase):
         self.assertEqual({"status":"INVALID_REQUEST"},dispatch(a,{"command":"observe","x":[]}))
         self.assertEqual(b'{"status":"INVALID_REQUEST"}',dispatch_json(a,b'\xff'))
 
+    def test_duplicate_command_keys_never_execute_native_action(self):
+        a,_=isolated_pair(GAME)
+        before=dispatch(a,{"command":"observe"})
+        raw=b'{"command":"observe","command":"act","action":"go east"}'
+        answer=json.loads(dispatch_json(a,raw))
+        after=dispatch(a,{"command":"observe"})
+        self.assertEqual({"status":"INVALID_REQUEST"},answer)
+        self.assertEqual(before,after)
+
+    def test_duplicate_nested_member_and_nonfinite_literals_rejected(self):
+        a,_=isolated_pair(GAME)
+        for raw in (
+            b'{"command":"observe","junk":{"x":1,"x":2}}',
+            b'{"command":"act","action":"look","action":"go east"}',
+            b'{"command":"observe","nonce":NaN}',
+            b'{"command":"observe","nonce":Infinity}',
+        ):
+            with self.subTest(raw=raw):
+                self.assertEqual(b'{"status":"INVALID_REQUEST"}',dispatch_json(a,raw))
+        self.assertIn("foyer",dispatch(a,{"command":"observe"})["observation"])
+
 
 if __name__=="__main__":
     unittest.main()
