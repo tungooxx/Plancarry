@@ -17,12 +17,42 @@ import json
 import sys
 import tempfile
 from pathlib import Path
+from types import MappingProxyType
+from typing import Mapping
 
 
 PUBLIC_TASK_GOAL = "Reach the vault."
 
 
-def render_public(env) -> str:
+def frozen_public_room_names(game_file: Path, expected_sha256: str) -> Mapping[str, str]:
+    """Immutable names derived from digest-pinned original JSON, never env._game."""
+    raw = game_file.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != expected_sha256:
+        raise ValueError("Frozen game digest mismatch before renderer binding")
+    record = json.loads(raw)
+    infos = record.get("infos")
+    if not isinstance(infos, list):
+        raise ValueError("Frozen game lacks canonical entity list")
+    rooms = {}
+    for row in infos:
+        if not isinstance(row, list) or len(row) != 2:
+            raise ValueError("Malformed frozen entity record")
+        identifier, item = row
+        if not isinstance(item, dict):
+            raise ValueError("Malformed entity payload")
+        if item.get("type") != "r":
+            continue
+        name = item.get("name")
+        if not (isinstance(identifier, str) and identifier.startswith("r_")
+                and isinstance(name, str) and name and identifier not in rooms):
+            raise ValueError("Invalid or duplicate frozen room identity")
+        rooms[identifier] = name
+    if not rooms:
+        raise ValueError("Frozen fixture contains no rooms")
+    return MappingProxyType(rooms)
+
+
+def render_public(env, room_names: Mapping[str, str]) -> str:
     """Only the public task goal, current player room and legal action menu.
 
     Do NOT include complete world facts, future solution, policy commands,
@@ -39,9 +69,12 @@ def render_public(env) -> str:
     if len(positions) != 1:
         raise ValueError("Ambiguous public player position")
     room_id = positions[0].arguments[1].name
-    room_name = env._game.infos[room_id].name
+    room_name = room_names.get(room_id)
     if not isinstance(room_name, str) or not room_name:
-        raise ValueError("Missing public room name")
+        raise ValueError("Room absent from SHA-pinned public fixture")
+    # TextWorldEnv.copy() shares _game; fail closed on A->B metadata changes.
+    if env._game.infos[room_id].name != room_name:
+        raise ValueError("Shared mutable Game room metadata drift detected")
     commands = state.get("admissible_commands")
     if not isinstance(commands, list) or len(set(commands)) != len(commands):
         raise ValueError("Native ordered action menu unavailable/duplicated")
@@ -52,7 +85,7 @@ def render_public(env) -> str:
             "Available actions (in native order):\n"
             + "".join(f"- {cmd}\n" for cmd in commands))
 
-def snapshot(env):
+def snapshot(env, room_names: Mapping[str, str]):
     """Restricted engineering projection; NOT a complete backend certificate."""
     gp = env._game_progression
     if gp is None:
@@ -71,7 +104,7 @@ def snapshot(env):
         "valid_actions": sorted(str(a) for a in gp.valid_actions),
         "ordered_public_commands": list(state["admissible_commands"]),
         "observation": str(state.feedback),
-        "public_observation": render_public(env),
+        "public_observation": render_public(env, room_names),
         "moves": env._moves,
         "won": bool(state.get("won")),
         "lost": bool(state.get("lost")),
@@ -80,12 +113,12 @@ def snapshot(env):
     }
 
 
-def invoke(env, command):
-    before = snapshot(env)
+def invoke(env, command, room_names: Mapping[str, str]):
+    before = snapshot(env, room_names)
     if command not in before["ordered_public_commands"]:
         raise AssertionError(f"Native engine says action is NOT admissible: {command!r}")
     state, score, done = env.step(command)
-    after = snapshot(env)
+    after = snapshot(env, room_names)
     if state.get("done", False) != done:
         raise AssertionError("Inconsistent native done bit")
     if gp_score := (int(score) != after["score"]):
@@ -159,13 +192,14 @@ def native_preflight(frozen_game: Path | None = None, expected_game_sha256: str 
         if expected_game_sha256 is not None and game_sha != expected_game_sha256:
             raise ValueError("Frozen TextWorld game bytes differ from committed SHA256")
 
+        room_names = frozen_public_room_names(path, game_sha)
         info = EnvInfos(admissible_commands=True, facts=True, objective=True,
                         moves=True, last_action=True)
         base = TextWorldEnv(info)
         base.load(str(path))
         base.reset()
 
-        source = snapshot(base)
+        source = snapshot(base, room_names)
         # Copy immediately after RESET then apply exact same real prefix
         # action to each native instance. The complete engine projection
         # and exact externally visible renderer output must match each step.
@@ -173,35 +207,35 @@ def native_preflight(frozen_game: Path | None = None, expected_game_sha256: str 
         arm_b = base.copy()
         if id(arm_a) == id(arm_b) or id(arm_a._game_progression) == id(arm_b._game_progression):
             raise AssertionError("Not independent native game progression instances")
-        if not (snapshot(arm_a) == snapshot(base) == snapshot(arm_b)):
+        if not (snapshot(arm_a, room_names) == snapshot(base, room_names) == snapshot(arm_b, room_names)):
             raise AssertionError("Cloned reset projections differ")
         prefix = ("go east", "look")
         prefix_checks = []
         for command in prefix:
-            a_before, a_after = invoke(arm_a, command)
-            b_before, b_after = invoke(arm_b, command)
+            a_before, a_after = invoke(arm_a, command, room_names)
+            b_before, b_after = invoke(arm_b, command, room_names)
             if a_before != b_before or a_after != b_after:
                 raise AssertionError("Native A/B common-prefix state or renderer diverged")
             prefix_checks.append({"action": command,
                                   "snapshot_sha256": hashlib.sha256(
                                       json.dumps(a_after, sort_keys=True).encode()).hexdigest(),
                                   "public_bytes_sha256": hashlib.sha256(
-                                      render_public(arm_a).encode()).hexdigest()})
-        copied_at = snapshot(arm_a)
+                                      render_public(arm_a, room_names).encode()).hexdigest()})
+        copied_at = snapshot(arm_a, room_names)
 
         shared_game_before = sorted(str(x) for x in base._game.world.state.facts)
-        b_before = snapshot(arm_b)
-        invoke(arm_a, "go north")  # A fork
-        if snapshot(arm_b) != b_before:
+        b_before = snapshot(arm_b, room_names)
+        invoke(arm_a, "go north", room_names)  # A fork
+        if snapshot(arm_b, room_names) != b_before:
             raise AssertionError("A's mutation changed B's native state")
         if sorted(str(x) for x in base._game.world.state.facts) != shared_game_before:
             raise AssertionError("A's progression changed shared Game initial world")
 
-        invoke(arm_b, "go east")   # B fork, from identical pre-fork state
-        invoke(arm_a, "go east")   # gallery -> vault, terminal
-        invoke(arm_b, "go north")  # workshop -> vault, terminal
+        invoke(arm_b, "go east", room_names)   # B fork, from identical pre-fork state
+        invoke(arm_a, "go east", room_names)   # gallery -> vault, terminal
+        invoke(arm_b, "go north", room_names)  # workshop -> vault, terminal
 
-        end_a, end_b = snapshot(arm_a), snapshot(arm_b)
+        end_a, end_b = snapshot(arm_a, room_names), snapshot(arm_b, room_names)
         if not (end_a["won"] and end_b["won"] and
                 not end_a["lost"] and not end_b["lost"]):
             raise AssertionError("Two mechanically distinct routes did not both win")
@@ -239,7 +273,7 @@ def native_preflight(frozen_game: Path | None = None, expected_game_sha256: str 
             "terminal_scores": [end_a["score"], end_b["score"]],
             "terminal_action_counts": [end_a["moves"], end_b["moves"]],
             "public_renderer_ready": renderer_ready,
-            "public_renderer_kind": "public-goal-current-room-ordered-actions-only",
+            "public_renderer_kind": "sha-pinned-room-name-whitelist-with-shared-metadata-drift-veto",
             "public_renderer_src_independently_reviewed": False,
             "G0_CERTIFIED": False,
             "MODEL_OWNED_SOURCE_PLANS_VERIFIED": False,
