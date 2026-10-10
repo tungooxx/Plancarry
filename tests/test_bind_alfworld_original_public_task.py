@@ -43,9 +43,10 @@ class OriginalPublicTaskTests(unittest.TestCase):
         p=self.real()
         data=json.loads(p.read_text())
         # Duplicate embedded public grammar stanza is an invalid source schema.
-        key='"task": ['
-        self.assertIn(key,data["grammar"])
-        data["grammar"]=data["grammar"].replace(key,key+"\n"+key,1)
+        from bind_alfworld_original_public_task import _TASK
+        task_match=_TASK.search(data["grammar"])
+        self.assertIsNotNone(task_match)
+        data["grammar"] += "\n" + task_match.group(0)
         with tempfile.TemporaryDirectory() as t:
             q=Path(t)/"game.tw-pddl"
             q.write_text(json.dumps(data))
