@@ -64,13 +64,19 @@ class ModelBoundaryTests(unittest.TestCase):
         self.assertEqual((True,1),(bb["done"],bb["score"]))
         self.assertEqual({"error"},set(agent_tool_dispatch(a,{"command":"act","action":"look"})))
 
-    def test_adversarial_shared_room_name_mutation_is_private_and_rejected(self):
+    def test_adversarial_private_room_name_mutation_isolated_from_peer(self):
         a=self.new()
         b=a.controller_copy()
+        self.assertIsNot(a._env._game,b._env._game)
+        self.assertIsNot(a._env._inform7,b._env._inform7)
+        self.assertIsNot(a._env._game_progression,b._env._game_progression)
         a._env._game.infos["r_0"].name="A4_SPOOFED_ROOM_PRIVATE"
         answer=agent_tool_dispatch(b,{"command":"observe"})
-        self.assertEqual({"error":"Environment unavailable"},answer)
+        self.assertEqual({"observation","legal_actions","done","score"},set(answer))
+        self.assertIn("Current room: foyer",answer["observation"])
         self.assertNotIn("A4_SPOOFED_ROOM",json.dumps(answer))
+        self.assertEqual({"error":"Environment unavailable"},
+                         agent_tool_dispatch(a,{"command":"observe"}))
 
     def test_bad_source_digest_rejected_before_reset(self):
         with self.assertRaises(ValueError):
@@ -87,6 +93,64 @@ class ModelBoundaryTests(unittest.TestCase):
         g=self.new()
         for arg in (None,[],3,"__dict__",{"command":"observe","x":"debug"}):
             self.assertEqual({"error":"Invalid request"},agent_tool_dispatch(g,arg))
+
+    def test_fork_replays_entire_real_prefix_with_distinct_native_engine(self):
+        a=self.new()
+        before=agent_tool_dispatch(a,{"command":"observe"})
+        for action in ("go east","look"):
+            result=agent_tool_dispatch(a,{"command":"act","action":action})
+            self.assertEqual({"observation","legal_actions","done","score"},set(result))
+        b=a.controller_copy()
+        self.assertIsNot(a._env._game,b._env._game)
+        self.assertIsNot(a._env._inform7,b._env._inform7)
+        self.assertIsNot(a._env._game_progression,b._env._game_progression)
+        self.assertEqual(("go east","look"),a._history)
+        self.assertEqual(a._history,b._history)
+        self.assertEqual(a._prefix_witnesses,b._prefix_witnesses)
+        self.assertEqual(agent_tool_dispatch(a,{"command":"observe"}),
+                         agent_tool_dispatch(b,{"command":"observe"}))
+        self.assertNotEqual(before["observation"],result["observation"])
+        a_next=agent_tool_dispatch(a,{"command":"act","action":"go north"})
+        self.assertIn("gallery",a_next["observation"])
+        self.assertIn("hub",agent_tool_dispatch(b,{"command":"observe"})["observation"])
+
+    def test_replay_detects_unlogged_native_step_and_blocks_fork(self):
+        a=self.new()
+        a._env.step("go east")
+        with self.assertRaisesRegex(RuntimeError,"outside recorded actions"):
+            a.controller_copy()
+
+    def test_private_room_tampering_blocks_only_original_fork(self):
+        a=self.new()
+        old=a._env._game.infos["r_0"].name
+        try:
+            a._env._game.infos["r_0"].name="FORGED_ROOM"
+            with self.assertRaises((ValueError,RuntimeError)):
+                a.controller_copy()
+        finally:
+            a._env._game.infos["r_0"].name=old
+        b=a.controller_copy()
+        self.assertIn("foyer",agent_tool_dispatch(b,{"command":"observe"})["observation"])
+
+    def test_terminal_episode_can_be_reconstructed_without_extra_actions(self):
+        a=self.new()
+        for action in ("go east","look","go north","go east"):
+            result=agent_tool_dispatch(a,{"command":"act","action":action})
+        self.assertEqual((True,1),(result["done"],result["score"]))
+        b=a.controller_copy()
+        self.assertEqual(agent_tool_dispatch(a,{"command":"observe"}),
+                         agent_tool_dispatch(b,{"command":"observe"}))
+        self.assertEqual({"error":"Episode finished"},
+                         agent_tool_dispatch(b,{"command":"act","action":"look"}))
+
+    def test_invalid_action_has_no_native_step_or_log(self):
+        a=self.new()
+        self.assertEqual({"error":"Invalid action"},
+                         agent_tool_dispatch(a,{"command":"act","action":"teleport"}))
+        self.assertEqual((),a._history)
+        self.assertEqual(1,len(a._prefix_witnesses))
+        self.assertEqual(agent_tool_dispatch(a,{"command":"observe"}),
+                         agent_tool_dispatch(a.controller_copy(),{"command":"observe"}))
 
 
 if __name__=="__main__":
