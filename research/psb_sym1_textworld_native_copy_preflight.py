@@ -19,6 +19,39 @@ import tempfile
 from pathlib import Path
 
 
+PUBLIC_TASK_GOAL = "Reach the vault."
+
+
+def render_public(env) -> str:
+    """Only the public task goal, current player room and legal action menu.
+
+    Do NOT include complete world facts, future solution, policy commands,
+    quest trees, RNG, game graph or the private native-state digest.
+    """
+    state = env.state
+    goal = state.get("objective")
+    if not isinstance(goal, str) or goal != PUBLIC_TASK_GOAL:
+        raise ValueError("Game's public objective is missing or drifted")
+    facts = env._game_progression.state.facts
+    positions = [p for p in facts
+                 if p.name == "at" and len(p.arguments) == 2
+                 and p.arguments[0].name == "P" and p.arguments[1].type == "r"]
+    if len(positions) != 1:
+        raise ValueError("Ambiguous public player position")
+    room_id = positions[0].arguments[1].name
+    room_name = env._game.infos[room_id].name
+    if not isinstance(room_name, str) or not room_name:
+        raise ValueError("Missing public room name")
+    commands = state.get("admissible_commands")
+    if not isinstance(commands, list) or len(set(commands)) != len(commands):
+        raise ValueError("Native ordered action menu unavailable/duplicated")
+    if not all(isinstance(command, str) and command for command in commands):
+        raise ValueError("Invalid public command string")
+    return (f"Goal: {goal}\n"
+            f"Current room: {room_name}\n"
+            "Available actions (in native order):\n"
+            + "".join(f"- {cmd}\n" for cmd in commands))
+
 def snapshot(env):
     """Restricted engineering projection; NOT a complete backend certificate."""
     gp = env._game_progression
@@ -38,6 +71,7 @@ def snapshot(env):
         "valid_actions": sorted(str(a) for a in gp.valid_actions),
         "ordered_public_commands": list(state["admissible_commands"]),
         "observation": str(state.feedback),
+        "public_observation": render_public(env),
         "moves": env._moves,
         "won": bool(state.get("won")),
         "lost": bool(state.get("lost")),
@@ -82,6 +116,7 @@ def build_prospective_game(textworld, directory):
     goal = maker.new_fact("at", maker.player, vault)
     maker.quests = [Quest(win_events=[Event(conditions={goal})])]
     game = maker.build()
+    game._objective = PUBLIC_TASK_GOAL
     game_path = directory / "psb-sym1-new-prospective-game.json"
     game.save(str(game_path))
     return game_path
@@ -107,17 +142,28 @@ def native_preflight():
         base.reset()
 
         source = snapshot(base)
-        for command in ("go east", "look"):
-            invoke(base, command)
-        copied_at = snapshot(base)
-
-        # Real native cloning, not an invented record or a mirror of one object.
+        # Copy immediately after RESET then apply exact same real prefix
+        # action to each native instance. The complete engine projection
+        # and exact externally visible renderer output must match each step.
         arm_a = base.copy()
         arm_b = base.copy()
         if id(arm_a) == id(arm_b) or id(arm_a._game_progression) == id(arm_b._game_progression):
             raise AssertionError("Not independent native game progression instances")
-        if not (snapshot(arm_a) == copied_at == snapshot(arm_b)):
-            raise AssertionError("Copied environment projections differ before fork")
+        if not (snapshot(arm_a) == snapshot(base) == snapshot(arm_b)):
+            raise AssertionError("Cloned reset projections differ")
+        prefix = ("go east", "look")
+        prefix_checks = []
+        for command in prefix:
+            a_before, a_after = invoke(arm_a, command)
+            b_before, b_after = invoke(arm_b, command)
+            if a_before != b_before or a_after != b_after:
+                raise AssertionError("Native A/B common-prefix state or renderer diverged")
+            prefix_checks.append({"action": command,
+                                  "snapshot_sha256": hashlib.sha256(
+                                      json.dumps(a_after, sort_keys=True).encode()).hexdigest(),
+                                  "public_bytes_sha256": hashlib.sha256(
+                                      render_public(arm_a).encode()).hexdigest()})
+        copied_at = snapshot(arm_a)
 
         shared_game_before = sorted(str(x) for x in base._game.world.state.facts)
         b_before = snapshot(arm_b)
@@ -144,7 +190,8 @@ def native_preflight():
 
         # Real TextWorldEnv(.json) has a placeholder raw observation, hence
         # no model/agent experiment until an independent non-oracle renderer is fixed.
-        renderer_ready = "To get text observation use" not in str(copied_at["observation"])
+        renderer_ready = (copied_at["public_observation"] == render_public(arm_b)
+                          and copied_at["public_observation"].startswith("Goal: Reach the vault."))
         status = ("NATIVE_COPY_PARITY_AND_RENDERER_PROBE_ONLY" if renderer_ready
                   else "NATIVE_COPY_PARITY_ONLY_RENDERER_UNAVAILABLE")
         return {
@@ -152,7 +199,8 @@ def native_preflight():
             "scientific_gate": "NOT_AUTHORIZED",
             "scope": "Newly generated native TextWorld symbolic JSON game; not PDDL or ALFWorld.",
             "game_sha256": game_sha,
-            "prefix_actions": ["go east", "look"],
+            "prefix_actions": list(prefix),
+            "prefix_checks": prefix_checks,
             "fork_actions": {"A": ["go north", "go east"],
                              "B": ["go east", "go north"]},
             "post_prefix_projection_sha256": hashlib.sha256(
@@ -162,6 +210,8 @@ def native_preflight():
             "terminal_scores": [end_a["score"], end_b["score"]],
             "terminal_action_counts": [end_a["moves"], end_b["moves"]],
             "public_renderer_ready": renderer_ready,
+            "public_renderer_kind": "public-goal-current-room-ordered-actions-only",
+            "public_renderer_src_independently_reviewed": False,
             "G0_CERTIFIED": False,
             "MODEL_OWNED_SOURCE_PLANS_VERIFIED": False,
         }
