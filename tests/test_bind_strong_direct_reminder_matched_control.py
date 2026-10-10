@@ -104,6 +104,32 @@ class ReminderControlTests(unittest.TestCase):
             check_shape(replace(original,plan_a=replace(original.plan_a,
                 source_record_sha256="no-model-source-record")))
 
+    def test_unattested_source_is_not_presented_as_model_authored(self):
+        pair=fixture()
+        record=paired_messages(pair,"A")
+        self.assertFalse(record["model_owned_plan_attested"])
+        for frame in record["messages"].values():
+            self.assertNotIn("You are given a model-authored",frame["content"])
+            self.assertIn("not independently attested",frame["content"])
+        self.assertEqual("NOT_AUTHORIZED",record["science_gate"])
+
+    def test_divergent_plans_cannot_share_same_source_record_digest(self):
+        pair=fixture()
+        alias=replace(pair,plan_b=replace(pair.plan_b,
+                      source_record_sha256=pair.plan_a.source_record_sha256))
+        with self.assertRaisesRegex(ValueError,"cannot share a source-record digest"):
+            check_shape(alias)
+
+    def test_diagnostic_byte_cost_is_not_token_parity(self):
+        rec=paired_messages(fixture(),"B")
+        raw=rec["messages"]
+        lengths={key:len(raw[key]["content"].encode("utf8")) for key in raw}
+        self.assertEqual(lengths,rec["prompt_utf8_bytes"])
+        self.assertEqual(lengths["BIND"]-lengths["DIRECT_REMINDER"],
+                         rec["prompt_byte_delta_bind_minus_direct"])
+        self.assertFalse(rec["tokenizer_realized_costs_matched"])
+        self.assertEqual("NOT_AUTHORIZED",rec["science_gate"])
+
     def test_unknown_donor_not_rendered(self):
         with self.assertRaises(ValueError):paired_messages(fixture(),"neither")
 
