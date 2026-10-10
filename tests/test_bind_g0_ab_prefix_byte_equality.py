@@ -161,6 +161,40 @@ class TraceTests(unittest.TestCase):
         self.assertEqual([],got["failures"])
         self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
 
+    def test_both_sides_cannot_act_after_terminal_reset(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_1.A.action_after_terminal",got["failures"])
+        self.assertIn("step_1.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_only_one_side_cannot_act_after_terminal(self):
+        d=fixture()
+        d["B"]["steps"][0]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_0.done_b64",got["failures"])
+        self.assertIn("step_1.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_final_step_may_terminate(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_noncanonical_terminal_marker_invalid(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["done_b64"]=enc(b"FALSE")
+        with self.assertRaises(ValueError):
+            structural_audit(d)
+
 
 if __name__=="__main__":
     unittest.main()
