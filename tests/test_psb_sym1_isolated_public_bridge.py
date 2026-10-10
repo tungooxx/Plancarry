@@ -49,6 +49,24 @@ class BridgeRegression(unittest.TestCase):
         self.assertEqual(failed,{"status":"GUARD_VIOLATION"})
         self.assertNotIn("SPOOFING_SECRET_PLAN",json.dumps(failed))
 
+    def test_mutating_a_shared_quest_reward_cannot_influence_b_score(self):
+        # In PR #8's TextWorldEnv.copy() design, modifying A's shared
+        # Game.quests[0].reward to 9 also changes B's terminal score to 9.
+        # Our separately loaded A/B environments must forbid this coupling.
+        a,b=isolated_pair(GAME)
+        self.assertIsNot(a._env._game.quests[0],b._env._game.quests[0])
+        self.assertIsNot(
+            a._env._game_progression.quest_progressions[0].quest,
+            b._env._game_progression.quest_progressions[0].quest)
+        a._env._game.quests[0].reward=9
+        self.assertEqual(b._env._game.quests[0].reward,1)
+        for command in ("go east","go north","go east"):
+            self.assertEqual(a.act(command)["status"],"OK")
+            self.assertEqual(b.act(command)["status"],"OK")
+        self.assertEqual(a.observe()["score"],9)
+        self.assertEqual(b.observe()["score"],1)
+        self.assertTrue(a.observe()["done"] and b.observe()["done"])
+
     def test_private_plan_and_metadata_never_enter_public_observe(self):
         a,b=isolated_pair(GAME)
         marker="SECRET_DONOR_ROUTE_DO_NOT_EMIT"
