@@ -135,6 +135,29 @@ class TraceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             structural_audit(d)
 
+    def test_distinct_base64_aliases_of_same_action_are_not_two_menu_entries(self):
+        # Both strings are accepted by Python's Base64 decoder and decode to
+        # the SAME single byte b"a": pad bits alone differ.
+        self.assertEqual(base64.b64decode("YQ==", validate=True), b"a")
+        self.assertEqual(base64.b64decode("YR==", validate=True), b"a")
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["ordered_commands"]=["YQ==","YR=="]
+            d[side]["steps"][1]["actual_action_b64"]=enc(b"a")
+        # The old code compared only the encoded strings for duplicates, so
+        # this otherwise byte-identical (but duplicated) menu passed.
+        with self.assertRaisesRegex(ValueError, "Noncanonical base64|Duplicate decoded"):
+            structural_audit(d)
+
+    def test_noncanonical_base64_of_legal_action_is_rejected(self):
+        self.assertEqual(base64.b64decode("bG9vaw==", validate=True), b"look")
+        self.assertEqual(base64.b64decode("bG9vax==", validate=True), b"look")
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["actual_action_b64"]="bG9vax=="
+        with self.assertRaisesRegex(ValueError, "Noncanonical base64"):
+            structural_audit(d)
+
     def test_two_sides_same_illegal_action_must_not_match(self):
         d=fixture()
         for side in ("A","B"):
