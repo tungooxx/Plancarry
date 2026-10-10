@@ -1,0 +1,94 @@
+{
+  "schema": "plancarry.psb-sym1.native-textworld170-copy-and-frozen-source-verified.v1",
+  "date": "2026-10-10",
+  "scope": "ENGINEERING_ONLY: newly generated prospective TextWorld 1.7.0 symbolic JSON. NOT ALFWorld, not BIND-v0.3, not model science.",
+  "proposal": "research/PSB_SYM1_PROSPECTIVE_SYMBOLIC_STATE_FEASIBILITY_PROPOSAL_20261010.md",
+  "program": {
+    "path": "research/psb_sym1_textworld_native_copy_preflight.py",
+    "revision": "407bcaa5bfa6adfb0caba43d8a2e6d9fa04ffcdc",
+    "description": "Native TextWorldEnv reset/clone and equal prefix, two independent A/B route rollouts; minimal public goal/current-room/native-ordered-menu renderer, fail-closed reused game fixture digest."
+  },
+  "native_backend": {
+    "library": "TextWorld",
+    "version": "1.7.0",
+    "installed_offline_from_exact_local_wheel": true,
+    "jericho_version": "3.3.1",
+    "virtualenv": "/workspace/local-vlm/.cache/plancarry-a1-symbolic-tw170-env",
+    "installation_job": "local_6a833a0c40e64429",
+    "symbolic_environment": "textworld.envs.tw.TextWorldEnv.copy",
+    "pddl_backend_used": false,
+    "train_game_used": false,
+    "real_engine_not_toy": true,
+    "copy_witness_limited_to": "Verified separate GameProgression objects, exact projection of facts, progression states, legal menu, moves, score and public renderer across reset and two same-prefix actions; B unchanged by A action; shared original game initial facts unchanged. Does not assert comprehensive external native engine/RNG state attestation."
+  },
+  "source_reproducibility": {
+    "problem_detected": "Three fresh generated game files using same declared generator seed had different byte-level SHA256 while engine state projections and public renderer byte hashes were equal.",
+    "fresh_generation_audit_job": "local_ef94aaf55b494b46",
+    "new_game_shas": [
+      "b83ef09c4d6260f26821d3b665df8599a3165f15e6b786f659ee5899215f9e83",
+      "b1c5f8fc23a29f9f36c2a4e4bdd40e1df3e50d06e0d6bd62dfa248243446",
+      "9d064c288bc8754e47ea8ed32f012cba0c29758e53a13cfe7cffff89d439894a"
+    ],
+    "fix": "One-time exclusive immutable native generated fixture and SHA256-bound repeat use. Missing/altered source fails closed rather than rerandomizing generator.",
+    "fixture_github_path": "research/fixtures/psb_sym1_prospective_frozen_game.json",
+    "fixture_git_commit": "307ea0c0f10fb18223ae448d99a221d41660eba2",
+    "fixture_sha256": "40e0654afa677d45b173552ee77c5c38dd862df9cddbfb79b4deb4783a2b3f67",
+    "fixture_byte_size": 17590,
+    "create_replay_wrong_hash_job": "local_90f87eb6d9c64209",
+    "github_exact_frozen_fixture_retrieval_independent_job": "local_5c6fb4bca38e4f1a",
+    "github_fixture_rehash_verified": true,
+    "wrong_hash_rejected": true
+  },
+  "native_execution": {
+    "status": "NATIVE_COPY_PARITY_AND_RENDERER_PROBE_ONLY",
+    "native_engine_run_job": "local_ab12b6cfb6f14ef8",
+    "frozen_replay_job": "local_90f87eb6d9c64209",
+    "fully_cached_git_replay_job": "local_5c6fb4bca38e4f1a",
+    "prefix_actions": [
+      "go east",
+      "look"
+    ],
+    "prefix_snapshot_sha256_after_actions": [
+      "512689cb5ed084a4e80076eef6f78f62162c6e3a3651b2039ebcb6859ab8df8c",
+      "a9becfe52e90fd10da80bbbbe42b1f92cd5ec85576bf7c0f61f3005b98b578ca"
+    ],
+    "public_observation_sha256_after_each": "40c17ca20a6c2c31683d6295fff1b4dc3a4fc43382816ae762f51b93b67f77dd",
+    "A_post_fork": [
+      "go north",
+      "go east"
+    ],
+    "B_post_fork": [
+      "go east",
+      "go north"
+    ],
+    "both_goal_won": true,
+    "terminal_scores": [
+      1,
+      1
+    ],
+    "terminal_total_actions": [
+      4,
+      4
+    ],
+    "native_gameprogression_object_independence_verified": true,
+    "shared_original_game_immutable_in_observed_transitions": true,
+    "source_blind_renderer": "Only declared public goal, currently occupied player room, native ordered legal actions. No future winning route or quest tree emitted.",
+    "independent_renderer_review_complete": false,
+    "model_owned_source_plan_generation_attempts": 0
+  },
+  "authority": {
+    "BIND_v03_G0": "NO_GO_UNDER_CURRENT_EVIDENCE_NOT_CHANGED",
+    "new_prospective_SCIENTIFIC_DESIGN_FROZEN": false,
+    "new_design_independently_accepted": false,
+    "G0_CERTIFIED": false,
+    "MODEL_OWNED_SOURCE_PLANS_VERIFIED": false,
+    "G1_G2_G3_AUTHORIZED": false,
+    "scientific_result": "NOT_ASSESSED",
+    "paid_api_used": false,
+    "gpu_used": false,
+    "model_calls": 0,
+    "confirmation_touched": false,
+    "paper_written": false
+  },
+  "next_required": "Independent renderer/hidden-fact/copy-state audit (soft shared Game and Inform7Game refs, RNG scope), preregistration of meaningful 32-task prospective cohort with model-owned source plan competence, strongest fair direct-reminder null and power plan; independent design attack and explicit Research OS execution authorization BEFORE any model call. This is a single proven native fixture, not an inference experiment or evidence of BIND superiority."
+}
