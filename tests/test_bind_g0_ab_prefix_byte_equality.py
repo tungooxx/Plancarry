@@ -135,6 +135,121 @@ class TraceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             structural_audit(d)
 
+    def test_distinct_base64_aliases_of_same_action_are_not_two_menu_entries(self):
+        # Both strings are accepted by Python's Base64 decoder and decode to
+        # the SAME single byte b"a": pad bits alone differ.
+        self.assertEqual(base64.b64decode("YQ==", validate=True), b"a")
+        self.assertEqual(base64.b64decode("YR==", validate=True), b"a")
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["ordered_commands"]=["YQ==","YR=="]
+            d[side]["steps"][1]["actual_action_b64"]=enc(b"a")
+        # The old code compared only the encoded strings for duplicates, so
+        # this otherwise byte-identical (but duplicated) menu passed.
+        with self.assertRaisesRegex(ValueError, "Noncanonical base64|Duplicate decoded"):
+            structural_audit(d)
+
+    def test_noncanonical_base64_of_legal_action_is_rejected(self):
+        self.assertEqual(base64.b64decode("bG9vaw==", validate=True), b"look")
+        self.assertEqual(base64.b64decode("bG9vax==", validate=True), b"look")
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["actual_action_b64"]="bG9vax=="
+        with self.assertRaisesRegex(ValueError, "Noncanonical base64"):
+            structural_audit(d)
+
+    def test_two_sides_same_illegal_action_must_not_match(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["actual_action_b64"]=enc(b"teleport into a future state")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_1.A.action_not_admissible",got["failures"])
+        self.assertIn("step_1.B.action_not_admissible",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_one_side_menu_lacks_shared_action(self):
+        d=fixture()
+        d["B"]["steps"][0]["after"]["ordered_commands"]=[enc(b"go to desk")]
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_0.ordered_commands",got["failures"])
+        self.assertIn("step_1.B.action_not_admissible",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_shared_information_action_remains_legal(self):
+        d=fixture()
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual([],got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_both_sides_cannot_act_after_terminal_reset(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_1.A.action_after_terminal",got["failures"])
+        self.assertIn("step_1.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_only_one_side_cannot_act_after_terminal(self):
+        d=fixture()
+        d["B"]["steps"][0]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_0.done_b64",got["failures"])
+        self.assertIn("step_1.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_final_step_may_terminate(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["after"]["done_b64"]=enc(b"1")
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_noncanonical_terminal_marker_invalid(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][0]["after"]["done_b64"]=enc(b"FALSE")
+        with self.assertRaises(ValueError):
+            structural_audit(d)
+
+    def test_terminal_last_snapshot_can_have_empty_menu(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][-1]["after"]["done_b64"]=enc(b"1")
+            d[side]["steps"][-1]["after"]["ordered_commands"]=[]
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual([],got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_nonterminal_empty_menu_remains_invalid(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][-1]["after"]["ordered_commands"]=[]
+        with self.assertRaisesRegex(ValueError,"Nonterminal snapshot"):
+            structural_audit(d)
+
+    def test_terminal_empty_menu_does_not_allow_next_action(self):
+        d=fixture()
+        for side in ("A","B"):
+            last=d[side]["steps"][-1]
+            last["after"]["done_b64"]=enc(b"1")
+            last["after"]["ordered_commands"]=[]
+            # A fabricated action after terminal must NOT turn equal streams
+            # into an accepted identical-prefix witness.
+            d[side]["steps"].append({"prefix_step":2,"actual_action_b64":enc(b"look"),"after":last["after"].copy()})
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_2.A.action_after_terminal",got["failures"])
+        self.assertIn("step_2.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
 
 if __name__=="__main__":
     unittest.main()
