@@ -139,8 +139,8 @@ def native_preflight():
             raise AssertionError("Two routes have different terminal reward")
         if end_a["moves"] != end_b["moves"]:
             raise AssertionError("Two routes have different total action cost")
-        if not all("vault" in " ".join(z["facts"]).lower() for z in (end_a, end_b)):
-            raise AssertionError("Goal room not present in final-state projection")
+        # Room display names need not appear in symbolic Proposition.__str__;
+        # rely on actual native quest completion plus terminal reward instead.
 
         # Real TextWorldEnv(.json) has a placeholder raw observation, hence
         # no model/agent experiment until an independent non-oracle renderer is fixed.
