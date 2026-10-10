@@ -1,5 +1,5 @@
 {
-  "schema": "plancarry.bind-and-psb-real-native-terminal-and-os-process-preflight.v1",
+  "schema": "plancarry.bind-and-psb-real-native-terminal-and-os-process-preflight.v2",
   "date": "2026-10-10",
   "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
   "user_direction": "Continue BIND and PSB-SYM-1 using original ALFWorld. No more PR creation, no paper.",
@@ -77,22 +77,26 @@
     "native_game_fixture_sha256": "40e0654afa677d45b173552ee77c5c38dd862df9cddbfb79b4deb4783a2b3f67",
     "working_branch_contains": "PR7 fully independent Game/Quest/Inform7 per-arm source loads and PR10/12 strict JSON observe/act + 12 valid action engineering cap; previous 24/24 Python/native regression tests PASS.",
     "new_native_os_subprocess_worker": "research/psb_sym1_public_json_subprocess.py",
-    "new_native_os_subprocess_worker_code_commit": "f1e1f91c8d5ba37c8c373377a74d71fe25adc9cd",
-    "worker_code_sha256": "5c85733978914abfb38387eaff788d3c457a56cea5221ff99ecd499eccc1b116",
+    "new_native_os_subprocess_worker_code_commit": "1ec3ea3e288b1aa7d8725b3be65927abe31c0360",
+    "worker_code_sha256": "99a2151b1787aeca2f8c0a2f1206a22fe0d4647d3564a7b9fb588e488a4df3b7",
     "new_tests": "tests/test_psb_sym1_public_json_subprocess.py",
-    "new_test_commit": "e44a54747b7aa78c9b16f1eeee57739c001e68c6",
-    "test_sha256": "fe90579ec6510ba9a7cfc72cd3e66bd1679d5e7df4ebf622613ecd6f3ca8a105",
-    "native_real_two_os_process_test_job": "local_573d36ad73924e69",
-    "native_test_result": "4/4 PASS in 41.156s, exit0, source files fetched exactly from canonical GitHub head e44a547...",
+    "new_test_commit": "2625dc0824df2a62f05ca1b6baa564d561fecb05",
+    "test_sha256": "f8253c856e6627582ab3303675d3705f13ab9e8352d969cdaa591a3e02e2b9d2",
+    "native_real_two_os_process_test_job": "local_0baf5d7ea9604cbb",
+    "native_test_result": "5/5 PASS in 52.974s, exit0, exactly-one-response-per-input regression added, original 4 tests retained",
     "test_details": [
       "Separate actual OS child Python processes with distinct PIDs receive source-pinned original game and strict line-JSON requests",
       "Same public initial observations and prefix go east/look, then independent routes north/east vs east/north, both goal score1",
       "Duplicated JSON command observe+act rejected without moving actual native player; debug/quest requests refused",
       "Action cap12 valid looks vs inventory enforced separately; both terminate score0 under truncation",
-      "Oversized JSON frame blocked before split and process safely terminates"
+      "Oversized JSON frame blocked before split and process safely terminates",
+      "Verified that exactly 64 successful observe requests produce exactly 64 responses with no unsolicited extra frame, and request65 gets REQUEST_BUDGET_EXHAUSTED only after its input"
     ],
     "agent_only_interface": "External evaluated model receives only serialized JSON responses through trusted IPC, never native Python Game/Quest or engine object.",
-    "limits": "This is a JSON line process interface, not an OS security sandbox if a model is given filesystem, shell or PID capabilities. Request limit64 per worker and native action limit12 are ENGINEERING DEFAULTS, not preregistered science."
+    "limits": "This is a JSON line process interface, not an OS security sandbox if a model is given filesystem, shell or PID capabilities. Request limit64 per worker and native action limit12 are ENGINEERING DEFAULTS, not preregistered science.",
+    "earlier_four_test_native_job": "local_573d36ad73924e69",
+    "earlier_worker_source_commit": "f1e1f91c8d5ba37c8c373377a74d71fe25adc9cd",
+    "further_bug_and_fix": "Original subprocess emitted unsolicited REQUEST_BUDGET_EXHAUSTED immediately after request64. Fixed: no unsolicited line after request64; request65 receives one REQUEST_BUDGET_EXHAUSTED response and worker exits. Real two-OS-child test passed."
   },
   "available_offline_model_for_future_budget_calibration": {
     "manifest": "/workspace/local-vlm/.ollama-models-binding/manifests/registry.ollama.ai/library/qwen2.5/7b-instruct",
