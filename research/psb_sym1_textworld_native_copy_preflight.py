@@ -122,7 +122,7 @@ def build_prospective_game(textworld, directory):
     return game_path
 
 
-def native_preflight():
+def native_preflight(frozen_game: Path | None = None, expected_game_sha256: str | None = None):
     try:
         import textworld
         from textworld.core import EnvInfos
@@ -132,8 +132,32 @@ def native_preflight():
                 "detail": type(exc).__name__, "scientific_gate": "NOT_AUTHORIZED"}
 
     with tempfile.TemporaryDirectory(prefix="psb-sym1-prospective-") as name:
-        path = build_prospective_game(textworld, Path(name))
+        newly_frozen = False
+        if frozen_game is None:
+            if expected_game_sha256 is not None:
+                raise ValueError("Digest expectation requires an existing frozen-game path")
+            path = build_prospective_game(textworld, Path(name))
+        else:
+            if frozen_game.name != "psb_sym1_prospective_frozen_game.json":
+                raise ValueError("Frozen file name must be the dedicated PSB-SYM-1 fixture")
+            if frozen_game.exists():
+                if expected_game_sha256 is None:
+                    raise ValueError("Cannot reuse frozen source without expected SHA256")
+                path = frozen_game
+            else:
+                if expected_game_sha256 is not None:
+                    raise ValueError("Expected immutable source is missing; never silently regenerate")
+                staging = build_prospective_game(textworld, Path(name))
+                frozen_game.parent.mkdir(parents=True, exist_ok=True)
+                # Exclusive creation prevents overwriting an already frozen
+                # source when two workers race; use digest-pinned replay later.
+                with frozen_game.open("xb") as output:
+                    output.write(staging.read_bytes())
+                path = frozen_game
+                newly_frozen = True
         game_sha = hashlib.sha256(path.read_bytes()).hexdigest()
+        if expected_game_sha256 is not None and game_sha != expected_game_sha256:
+            raise ValueError("Frozen TextWorld game bytes differ from committed SHA256")
 
         info = EnvInfos(admissible_commands=True, facts=True, objective=True,
                         moves=True, last_action=True)
@@ -201,6 +225,9 @@ def native_preflight():
             "scientific_gate": "NOT_AUTHORIZED",
             "scope": "Newly generated native TextWorld symbolic JSON game; not PDDL or ALFWorld.",
             "game_sha256": game_sha,
+            "frozen_game_reused": frozen_game is not None and not newly_frozen,
+            "frozen_game_created_this_run": newly_frozen,
+            "frozen_game_expected_digest_matched": expected_game_sha256 == game_sha if expected_game_sha256 else False,
             "prefix_actions": list(prefix),
             "prefix_checks": prefix_checks,
             "fork_actions": {"A": ["go north", "go east"],
@@ -222,9 +249,12 @@ def native_preflight():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--output",type=Path,required=True)
+    p.add_argument("--frozen-game",type=Path,default=None)
+    p.add_argument("--expected-game-sha256",type=str,default=None)
     args = p.parse_args()
     try:
-        result = native_preflight()
+        result = native_preflight(frozen_game=args.frozen_game,
+                                  expected_game_sha256=args.expected_game_sha256)
     except Exception as err:
         result = {"status": "BLOCKED_NATIVE_BACKEND_PREFLIGHT",
                   "error_type": type(err).__name__,
