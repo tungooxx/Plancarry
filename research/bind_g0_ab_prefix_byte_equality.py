@@ -56,8 +56,8 @@ def snapshot(snap: Any) -> dict[str, Any]:
     if not isinstance(snap, dict) or set(snap) != set(SNAP_FIELDS):
         raise ValueError("Snapshot must supply every exact full-state and public field")
     cmds = snap["ordered_commands"]
-    if not isinstance(cmds, list) or not cmds or not all(isinstance(x, str) and x for x in cmds):
-        raise ValueError("Ordered command array missing")
+    if not isinstance(cmds, list) or not all(isinstance(x, str) and x for x in cmds):
+        raise ValueError("Ordered command array invalid")
     # Do NOT sort: bytewise order and distinctions between strings matter.
     if len(set(cmds)) != len(cmds):
         raise ValueError("Duplicate commands cannot form a trusted menu")
@@ -72,6 +72,11 @@ def snapshot(snap: Any) -> dict[str, Any]:
     # traces. Arbitrary non-empty marker bytes cannot masquerade as False.
     if result["done_b64"] not in (b"0", b"1"):
         raise ValueError("Terminal marker must be exact ASCII 0 or 1")
+    # A completed episode may have no remaining admissible actions. An empty
+    # menu on a nonterminal state is an invalid pre-action witness. The
+    # existing step validator still forbids any action after done == b"1".
+    if not decoded_commands and result["done_b64"] != b"1":
+        raise ValueError("Nonterminal snapshot cannot have an empty command menu")
     return result
 
 
