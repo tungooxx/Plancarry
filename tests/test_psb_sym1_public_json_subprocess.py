@@ -4,6 +4,7 @@ No LLM, historical ALFWorld TRAIN, GPU, confirmation, or science G1.
 """
 from __future__ import annotations
 import json
+import tempfile
 import select
 import subprocess
 import sys
@@ -110,6 +111,28 @@ class ProcessIsolation(unittest.TestCase):
             self.assertEqual({"status":"REQUEST_BUDGET_EXHAUSTED"},answer)
             self.assertEqual(0,a.process.wait(timeout=8))
         finally:a.close()
+
+
+    def test_invalid_fixture_startup_has_no_unsolicited_response(self):
+        # The worker fails during GuardedSymbolicEnv init before any JSON
+        # request. There MUST NOT be a phantom first ENGINE_ERROR line.
+        with tempfile.TemporaryDirectory(prefix="psb-bad-source-init-") as td:
+            source=Path(td)/"psb_sym1_prospective_frozen_game.json"
+            source.write_bytes(GAME.read_bytes()+b"\\n")
+            child=subprocess.Popen(
+                [sys.executable,"-u",str(WORKER),"--frozen-game",str(source)],
+                stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+                cwd=ROOT/"research",bufsize=0)
+            try:
+                code=child.wait(timeout=12)
+                self.assertEqual(2,code)
+                self.assertEqual(b"",child.stdout.read(),
+                    "Worker emitted JSON before any request was sent")
+            finally:
+                if child.poll() is None:
+                    child.kill();child.wait(timeout=4)
+                for handle in (child.stdin,child.stdout,child.stderr):
+                    if handle is not None:handle.close()
 
 
 if __name__=="__main__":
