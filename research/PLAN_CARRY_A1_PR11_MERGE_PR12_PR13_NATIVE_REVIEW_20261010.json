@@ -1,0 +1,59 @@
+{
+  "schema": "plancarry.20261010.A1-independent-PR11-PR12-PR13-verification.v1",
+  "project": "PlanCarry a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "user_scope": "Continue BIND and PSB-SYM-1 using existing unchanged ALFWorld; no paper, no paid GPU, no inferred experimental efficacy",
+  "BIND": {
+    "original_source_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "original_source_task_manifest_sha256": "63118effcff1cdb1f1efffd471de6792ae427aaa6f11c2dffb218d4934fdceb3",
+    "source": "Original 790 ALFWorld game.tw-pddl and exact game-specific public TextWorld grammar task, not filename-inferred goal",
+    "independent_A3_comparator_PR": "https://github.com/tungooxx/Plancarry/pull/11",
+    "PR11_tested_head": "969f5a6f919ee90aaaf20a0653e16b3597e04291",
+    "PR11_independent_CPU_job": "local_cd862f92e2a3405d",
+    "PR11_independent_unit_result": "13/13 PASS",
+    "PR11_integrated_real_native_result": "11 historically inspected original ALFWorld PDDL game sources, 22 reciprocal BIND vs strong imperative DIRECT_REMINDER prompt previews, PASS; actual original public task used",
+    "PR11_real_native_integrated_report_sha256": "14451af5b62b5c05d706b47fb221f3dd21c69324e85b39d206e1201e4e9fea61",
+    "PR11_real_native_report_bytes": 30967,
+    "PR11_real_native_report_durable": true,
+    "PR11_GitHub_review_comment": 6096492679,
+    "PR11_merge_action": "MERGED via guarded expected_head_sha squash into research/bind-v02-source-custody-20261010; NOT main",
+    "PR11_merge_commit_sha": "a2cdb2ae6b94d65817f1548a5e3d0a468328872b",
+    "PR11_scope": "No fake 'model-authored' prompt language, reject divergent plans with shared source record SHA, expose UTF8 prompt byte costs only; does not prove model-specific tokenizer parity or historical source-plan ownership",
+    "A2_native_external_rng_PR": "https://github.com/tungooxx/Plancarry/pull/13",
+    "PR13_tested_head": "4b5dfb14772b986111c1c8097941f95d43ec7a4b",
+    "PR13_independent_A1_first_original_game_CPU_job": "local_77306099e5eb4aed",
+    "PR13_independent_first_game_result": "PASS: native real PDDL 2 separate OS processes, disjoint Python/NumPy global RNG seeds/draw counts, actual four-step ordered native action projections equal",
+    "PR13_A1_one_game_report_sha256": "a1e65e273fc3b8ad18478f1a526bfedcc159b1312c3e01327a9c7eb70678095e",
+    "PR13_A2_all11_claim": "A2 CPU job local_27afb59bd83b4d41 11/11 PASS, durable report e1284d08189cee4739e9181f15472960bd8097aeba9fb989fecbcb54359b62cd; A1 DID NOT personally rerun all 11",
+    "PR13_independent_review_comment": 6096499886,
+    "PR13_scientific_limitation": "Only tested specifically external Python random and NumPy legacy global RNG channels; NOT complete C++ native state/RNG clone/save/restore or historical model use ledger. PR13 draft/unmerged."
+  },
+  "PSB_SYM1": {
+    "isolated_Game_Quest_source_PR": "https://github.com/tungooxx/Plancarry/pull/7",
+    "public_JSON_agent_PR": "https://github.com/tungooxx/Plancarry/pull/10",
+    "finite_action_budget_PR": "https://github.com/tungooxx/Plancarry/pull/12",
+    "PR12_exact_head": "d6da6cfe4eb6b4922b10ed238372749b22346af4",
+    "PR12_independent_CPU_job": "local_e0c2f54f25464f5b",
+    "PR12_real_TextWorld17_tests": "24/24 PASS (10 native bridge isolation + 14 JSON dispatch)",
+    "frozen_game_sha256": "40e0654afa677d45b173552ee77c5c38dd862df9cddbfb79b4deb4783a2b3f67",
+    "verified_points": [
+      "A/B native Game/Quest/Inform7 independence and A private reward mutation doesn't affect B",
+      "Duplicate JSON command input rejection and no hidden plan leakage",
+      "Bounded 12-valid-action native episode; 12th returns done true; score0 indicates truncation not success; independent action caps per A/B"
+    ],
+    "PR12_A1_review_comment": 6096502896,
+    "PR12_limitations": "Draft stacked on unmerged PR10/PR7; 12 actions not science-preregistered, JSON-only API not process sandbox, no model-owned source plans, no G0/G1 authority."
+  },
+  "science_state": {
+    "BIND_frozen_design": "80e19e85-2689-45a9-8455-18108070aaf8 UNDER_ATTACK/NOT_ACCEPTED_FOR_TEST",
+    "BIND_historical_source_model_use_ledger_certified": false,
+    "BIND_full_native_Cpp_rng_certified": false,
+    "model_tokenizer_cost_parity_certified": false,
+    "model_owned_source_plan_verified": false,
+    "PSB_design_accepted": false,
+    "model_calls": 0,
+    "GPU_or_paid": false,
+    "confirmation_used": false,
+    "paper_written": false
+  },
+  "next": "Continue original BIND research only with genuine model-owned plans and frozen-tokenizer matched inference once independently authorized, not more toy tests. For PSB, review PR7->10->12 stack including trusted process-only JSON IPC and horizon registration; no invented model effects."
+}
