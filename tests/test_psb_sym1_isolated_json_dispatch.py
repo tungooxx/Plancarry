@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"research"))
 from psb_sym1_isolated_public_bridge import isolated_pair
-from psb_sym1_isolated_json_dispatch import dispatch,dispatch_json,make_isolated_prefix_pair
+from psb_sym1_isolated_json_dispatch import dispatch,dispatch_json,make_isolated_prefix_pair,MAX_EPISODE_ACTIONS
 
 GAME=ROOT/"research/fixtures/psb_sym1_prospective_frozen_game.json"
 
@@ -109,6 +109,45 @@ class NativeDispatchTests(unittest.TestCase):
             with self.subTest(raw=raw):
                 self.assertEqual(b'{"status":"INVALID_REQUEST"}',dispatch_json(a,raw))
         self.assertIn("foyer",dispatch(a,{"command":"observe"})["observation"])
+
+
+    def test_native_look_spam_truncates_at_identical_action_budget(self):
+        a,b=isolated_pair(GAME)
+        self.assertEqual(MAX_EPISODE_ACTIONS,12)
+        for i in range(MAX_EPISODE_ACTIONS):
+            payload=json.loads(dispatch_json(a,b'{"command":"act","action":"look"}'))
+            self.assertEqual(payload["status"],"OK")
+            self.assertEqual(payload["score"],0)
+            self.assertEqual(payload["done"],i==MAX_EPISODE_ACTIONS-1)
+        self.assertEqual(a._env._moves,MAX_EPISODE_ACTIONS)
+        self.assertEqual(b._env._moves,0)
+        self.assertEqual(dispatch(a,{"command":"act","action":"look"}),{"status":"TERMINAL"})
+        self.assertEqual(json.loads(dispatch_json(a,b'{"command":"observe"}'))["done"],True)
+        self.assertFalse(dispatch(b,{"command":"observe"})["done"])
+        self.assertEqual(dispatch(b,{"command":"act","action":"go east"})["status"],"OK")
+
+    def test_direct_dispatch_invalid_non_string_command_returns_schema_error(self):
+        a,_=isolated_pair(GAME)
+        for value in ([],{},None,123,True):
+            with self.subTest(value=value):
+                self.assertEqual(dispatch(a,{"command":value}),{"status":"INVALID_REQUEST"})
+        self.assertEqual(a._env._moves,0)
+
+    def test_normal_success_before_budget_preserves_goal_reward(self):
+        a,_=make_isolated_prefix_pair(GAME,("go east","look"))
+        for action in ("go north","go east"):
+            payload=dispatch(a,{"command":"act","action":action})
+            self.assertEqual(payload["status"],"OK")
+        self.assertEqual((payload["done"],payload["score"]),(True,1))
+        self.assertEqual(a._env._moves,4)
+        self.assertEqual(dispatch(a,{"command":"act","action":"look"}),{"status":"TERMINAL"})
+
+    def test_bounded_timeout_does_not_count_as_goal_success(self):
+        a,_=isolated_pair(GAME)
+        for _ in range(MAX_EPISODE_ACTIONS):
+            timeout=dispatch(a,{"command":"act","action":"inventory"})
+        self.assertEqual((timeout["status"],timeout["done"],timeout["score"]),("OK",True,0))
+        self.assertEqual(dispatch(a,{"command":"act","action":"go east"}),{"status":"TERMINAL"})
 
 
 if __name__=="__main__":
