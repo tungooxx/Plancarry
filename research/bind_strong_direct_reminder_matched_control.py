@@ -19,8 +19,9 @@ _HEX_SHA=re.compile(r"^[a-f0-9]{64}$")
 _SOURCE_ATTESTATION="MISSING_MODEL_AUTHORED_SOURCE_HISTORY"
 _TOKEN_ATTESTATION="MISSING_MODEL_TOKENIZER_AND_REALIZED_BUDGET_AUDIT"
 _COMMON_FRAME=(
-    "You are given a model-authored future plan and the current public task "
-    "context. The legal action menu and task goal are immutable. This text "
+    "You are given a proposed future plan whose model authorship is "
+    "not independently attested here, and the current public task context. "
+    "The legal action menu and task goal are immutable. This text "
     "must not modify, filter, hide, reorder, force, or execute an action. "
     "Only choose an action through the same external legal-action tool."
 )
@@ -79,6 +80,12 @@ def check_shape(pair:MatchedPair)->None:
         raise ValueError("Invalid legal commands")
     if pair.plan_a.plan_id==pair.plan_b.plan_id:
         raise ValueError("Plan identities cannot alias")
+    # These hashes purport to bind the COMPLETE source-plan history records.
+    # Different model-owned A/B histories with diverging later actions cannot
+    # share that exact byte identity; matching IDs alone are not provenance.
+    # This is necessary consistency checking, never attestation of either hash.
+    if pair.plan_a.source_record_sha256==pair.plan_b.source_record_sha256:
+        raise ValueError("Distinct divergent source histories cannot share a source-record digest")
     for plan in (pair.plan_a,pair.plan_b):
         if not plan.plan_id or not re.fullmatch(r"[A-Za-z0-9_.-]{1,64}",plan.plan_id):
             raise ValueError("Unsafe plan identifier")
@@ -134,6 +141,14 @@ def paired_messages(pair:MatchedPair, donor:Literal["A","B"])->dict:
         "same_role_for_both":"user",
         "same_semantic_payload":shared,
         "semantic_payload_sha256":hashlib.sha256(shared.encode("utf8")).hexdigest(),
+        # Byte-cost diagnostics are observable without any model call and
+        # show that identical semantic payload is NOT equal prompt budget.
+        # Model-specific token counts, attention and actual spend remain unknown.
+        "prompt_utf8_bytes":{
+            "BIND":len(binding.encode("utf8")),
+            "DIRECT_REMINDER":len(direct.encode("utf8")),
+        },
+        "prompt_byte_delta_bind_minus_direct":len(binding.encode("utf8"))-len(direct.encode("utf8")),
         "messages":{
             "BIND":{"role":"user","content":binding},
             "DIRECT_REMINDER":{"role":"user","content":direct},
