@@ -77,8 +77,9 @@ def child_replay(path: Path, arm: str) -> dict:
             raise ValueError("No matching real progress and two fork exits")
         progress = movements[0]
         post_progress = step(progress)
-        if post_progress == reset:
-            raise ValueError("Supposed progress did not change captured state")
+        if (post_progress["native_atoms_sha256"] == looked["native_atoms_sha256"]
+                and post_progress["logical_facts_sha256"] == looked["logical_facts_sha256"]):
+            raise ValueError("Common movement did not change native Atom or fact state")
         forks = [x for x in post_progress["ordered_menu"] if x.startswith("go to ") and x != progress]
         if len(forks) < 2:
             raise ValueError("No 2 legal distinct fork actions")
@@ -150,6 +151,9 @@ def run_pinned(archive, root, manifest, exec_tmp, max_games):
             raise ValueError("Different forks were not distinct")
         if a["after_fork"] == b["after_fork"]:
             raise ValueError("Native fork paths did not yield observable divergence")
+        if (a["after_fork"]["native_atoms_sha256"] == b["after_fork"]["native_atoms_sha256"]
+                and a["after_fork"]["logical_facts_sha256"] == b["after_fork"]["logical_facts_sha256"]):
+            raise ValueError("Forks only differed in narration, not native world state")
         if a["game_sha256"] != b["game_sha256"]:
             raise ValueError("Different original source game bytes")
         results.append({
