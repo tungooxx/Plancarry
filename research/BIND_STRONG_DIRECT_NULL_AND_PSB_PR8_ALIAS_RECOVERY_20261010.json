@@ -1,0 +1,68 @@
+{
+  "schema": "plancarry.bind.psb.20261010.independent-control-review-and-quest-alias-recovery.v1",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "date": "2026-10-10",
+  "user_direction": "Continue BOTH BIND and PSB-SYM-1 on already durable original ALFWorld; do not retry source hunting, no paper.",
+  "PSB_SYM1": {
+    "critical_A4_independent_find": "PR #8 controller_copy() used native TextWorldEnv.copy(), causing shared mutable Game. A4 demonstrated A's private quest reward mutation from1->9 silently changed B terminal score 9, CPU local_10963984e2bd4733. Contradicts unconditional independent paired reward/route-outcome guarantee, although evaluated LLM JSON-only calls lack arbitrary Python object mutation privilege.",
+    "unsafe_PR": "https://github.com/tungooxx/Plancarry/pull/8",
+    "unsafe_PR_closed": true,
+    "unsafe_PR_merged": false,
+    "unsafe_PR_closure_comment": 6095740902,
+    "independent_native_isolation_PR7": "https://github.com/tungooxx/Plancarry/pull/7",
+    "PR7_head_sha": "8cf24e14501156e55ccd0ebbf7e3c268231dfe47",
+    "PR7_native_source": "research/psb_sym1_isolated_public_bridge.py",
+    "PR7_native_source_sha256": "ff4c26967fb67c0d5b1d4fecbb905eeb7f3fe081291430fd50f65492091fc257",
+    "PR7_native_tests": "tests/test_psb_sym1_isolated_public_bridge.py",
+    "PR7_tests_sha256": "c0973319ccbd7ee5671b34a2b0aa5a8f86f92b4db46c2cbf1c6519192e0c0944",
+    "PR7_fixture_sha256": "40e0654afa677d45b173552ee77c5c38dd862df9cddbfb79b4deb4783a2b3f67",
+    "PR7_independent_A1_native_CPU_job": "local_a763c956b56c4423",
+    "PR7_tests_passed": "10/10",
+    "PR7_retest_quest_outcomes": "A quest reward mutation yields A=9 B=1; Game/Inform7/quest instances are independently source loaded",
+    "safe_dependent_PR10": "https://github.com/tungooxx/Plancarry/pull/10",
+    "safe_dependent_PR10_base": "research/psb-sym1-isolated-public-bridge-a4-20261010",
+    "safe_dependent_PR10_draft": true,
+    "safe_dispatch_source": "research/psb_sym1_isolated_json_dispatch.py",
+    "safe_dispatch_code_commit": "b890b5f387d6a1167cbe041b22ad1c9530b66a3d",
+    "safe_dispatch_tests": "tests/test_psb_sym1_isolated_json_dispatch.py",
+    "safe_dispatch_tests_commit": "fae554e98abdd698addae88f8e66cb162a7d6499",
+    "safe_dispatch_A1_CPU_job": "local_1cebf30b396a4687",
+    "safe_dispatch_native_test_result": "18/18 PASS (10 PR7 baseline native and 8 new strict JSON dispatch/alias/route/horizon tests)",
+    "safe_dispatch_policy": "Only observe/act through bounded JSON and finite sanitized public output; separate actual Game/Quest instances. Does NOT provide operating system process isolation; Python model code must never receive trusted native instance handles.",
+    "scientific_gate": "NOT_AUTHORIZED, no model calls, no plan-owned cohort, no approval to claim causal effect"
+  },
+  "BIND": {
+    "original_ALFWorld_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf",
+    "original_180_logical_selection_digest": "d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee",
+    "native_PDDL_11_nontrivial_shared_prefix_report_sha256": "9dfe1a45d827965bd4b40a96f47ef6d4bbc679f660704ad8dac9bf251e3b46bb",
+    "new_strongest_direct_null_source": "research/bind_strong_direct_reminder_matched_control.py",
+    "new_strongest_direct_null_test": "tests/test_bind_strong_direct_reminder_matched_control.py",
+    "control_code_sha256": "4278dab102656742a664c72a05b540b9dd885fb0d8860e4acb8935577510436b",
+    "control_test_sha256": "6485e3d3cd1a5432f3f15c1f11762b8662570a3e0b6163709732a146d136e5f7",
+    "control_tests_commit": "ded3fc3c0f9d9c2a093c6ca1cb145eb7b0de6726",
+    "control_unit_CPU_job": "local_ce21cc600429453f",
+    "control_tests_passed": "10/10",
+    "control_payload_contract": "Both BIND and deliberately strong imperative DIRECT_REMINDER receive exactly same canonical serialized public goal, actual action prefix, public observation, ordered legal command menu, donor plan ID, donor source record SHA and complete future donor plan; same user role; only text framing differs. Both A->B/B->A reciprocal directions shape-validated. No backend action filters/masks/rerank implemented.",
+    "null_limitations": [
+      "Same semantic payload does not mean exact tokenizer count parity or identical effective salience, role and costs. These must be measured with chosen model/tokenizer and review before model runs.",
+      "The SHA of model-authored source records is a supplied value; this checker does not authenticate model history. Test data uses explicitly unverified mechanical symbolic route examples.",
+      "11 original ALFWorld PDDL games were already historically environmentally inspected; the native checks are engineering only and cannot certify fresh model-run consumption histories.",
+      "Frozen BIND-v0.3 has not passed independent review/G0 and cannot launch G1/G2/G3 models on basis of this script."
+    ],
+    "independent_engineering_review_workitem": "27124e6b-e9b9-41d7-8144-1797d6b5b843",
+    "independent_engineering_review_status": "READY preferred A3",
+    "science_gate": "NOT_AUTHORIZED"
+  },
+  "resources": {
+    "model_calls": 0,
+    "GPU": false,
+    "paid_API": false,
+    "confirmation": false,
+    "paper": false
+  },
+  "next_steps": [
+    "A3 to independently attack direct-reminder parity/source ownership/token salience and native G0 limits.",
+    "Review PR7 and stacked PR10 separately, then gate trusted host process separation before model trial.",
+    "Only preregister model-owned source tasks and actual matched-model token/cost budget after science authority; do not convert code-only tests into efficacy claim."
+  ]
+}
