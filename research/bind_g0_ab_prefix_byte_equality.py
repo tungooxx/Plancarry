@@ -59,6 +59,10 @@ def snapshot(snap: Any) -> dict[str, Any]:
         raise ValueError("Duplicate commands cannot form a trusted menu")
     result = {k: bytes_field(snap[k]) for k in SNAP_FIELDS if k != "ordered_commands"}
     result["ordered_commands"] = [bytes_field(x) for x in cmds]
+    # Terminal marker has a strict canonical byte encoding in synthetic
+    # traces. Arbitrary non-empty marker bytes cannot masquerade as False.
+    if result["done_b64"] not in (b"0", b"1"):
+        raise ValueError("Terminal marker must be exact ASCII 0 or 1")
     return result
 
 
@@ -120,6 +124,10 @@ def structural_audit(record: Any) -> dict[str, Any]:
                 failures.append(f"step_{i}.actual_action")
             if previous_a is None or previous_b is None:
                 raise ValueError("Missing previous snapshots for action validation")
+            if previous_a["done_b64"] == b"1":
+                failures.append(f"step_{i}.A.action_after_terminal")
+            if previous_b["done_b64"] == b"1":
+                failures.append(f"step_{i}.B.action_after_terminal")
             if aa not in previous_a["ordered_commands"]:
                 failures.append(f"step_{i}.A.action_not_admissible")
             if bb not in previous_b["ordered_commands"]:
