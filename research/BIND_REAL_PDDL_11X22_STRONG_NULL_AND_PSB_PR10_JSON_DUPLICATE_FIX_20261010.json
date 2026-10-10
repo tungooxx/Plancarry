@@ -1,0 +1,63 @@
+{
+  "schema": "plancarry.2026-10-10.bind-native-direct-null-plus-psb-native-duplicate-JSON-fix.v1",
+  "project": "PlanCarry a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "worker": "A1",
+  "date": "2026-10-10",
+  "scope": "Two-lane engineering progress, no LLM model inference or experimental science claims",
+  "BIND": {
+    "original_ALFWorld_data": "PRESERVED exact original 790 games, 180 selection hash d6e289b04ae1bfea0a8210f2cb643f91699a4e48a6e46cd84721310cc8f946ee; do not ask for/re-download old dataset",
+    "real_backend": "TextWorld 1.7.0 + fast-downward-textworld 20.6.4, isolated native PddlEnv instances and real native get_state atoms",
+    "new_source": "research/bind_alfworld_native_strong_direct_integrated_preflight.py",
+    "new_source_commit": "acc5e9439b330444c191d4c5ed93e8f6f030ee25",
+    "new_source_sha256": "719d14d284d4955e0ca78693be008b684af98494d0824a11dd221f1ab2195818",
+    "control_source": "research/bind_strong_direct_reminder_matched_control.py",
+    "control_source_sha256": "4278dab102656742a664c72a05b540b9dd885fb0d8860e4acb8935577510436b",
+    "real_CPU_job": "local_97b6b14731644767",
+    "CPU_status": "COMPLETED_EXIT_0",
+    "game_count": 11,
+    "direction_count": 22,
+    "selection_scope": "Only historically environmentally inspected Pilot40/BIND180 original TRAIN overlap games, not untouched confirmation",
+    "integration_verdict": "All eleven original real PDDL game resets, shared look+legal movement prefixes, observed full available native atom/ordered legal menu/feedback projections, two legal forks and reciprocal BIND vs strongest imperative DIRECT_REMINDER serialized prompt frames PASS structural integration",
+    "model_plan_source_origin": "MECHANICAL_DRY_RUN_ONLY_NOT_MODEL_AUTHORED_OR_GOAL_SUCCESSFUL",
+    "goal_origin": "TASK_CATEGORY_DESCRIPTOR_FROM_HISTORICAL_FAMILY_FILENAME_NOT_OFFICIAL_AGENT_INSTRUCTION",
+    "tokenizer_available_for_model": false,
+    "model_token_parity_attested": false,
+    "model_successor_experiment_authorized": false,
+    "model_calls": 0,
+    "report_sha256": "bfec7073106abf1be172558f922e8687356843b6fa312a2f54d5530f103ad514",
+    "report_size_bytes": 28015,
+    "report_durable_uri": "sha256:bfec7073106abf1be172558f922e8687356843b6fa312a2f54d5530f103ad514",
+    "independent_control_critique_workitem": "27124e6b-e9b9-41d7-8144-1797d6b5b843 READY preferred A3",
+    "scientific_limit": "BIND-v0.3 frozen ScienceDesign 80e19e85 UNDER_ATTACK/NOT_ACCEPTED_FOR_TEST due incomplete original model-use consumption log and complete native PDDL RNG/save-state certification. Structural integration does not license G1/G2/G3."
+  },
+  "PSB_SYM1": {
+    "old_gateway": "PR #8 unsafe controller_copy shared Game/Quest reward, independently falsified and CLOSED, not merged",
+    "base_isolated_native": "PR #7, exact head 8cf24e14501156e55ccd0ebbf7e3c268231dfe47, separate source-pinned native Game per arm, 10/10 tests PASS",
+    "new_gateway": "PR #10 https://github.com/tungooxx/Plancarry/pull/10 (DRAFT, stacked on PR #7)",
+    "negative_test": "Old PR10 default json.loads accepted duplicate command members; example observe,act duplicate key with go east actually moved player from foyer to hub",
+    "negative_CPU_job": "local_90f539b2b4e54061 COMPLETED_EXIT_0",
+    "new_fix_commit": "bd05d5bbfeae8beef121dfa74fa2f4ac4569bfc7",
+    "new_tests_commit": "71d230c51e87855dbd11b4a7b33cc897a09767bf",
+    "new_fix": "Reject duplicate JSON object members at all depths via object_pairs_hook; reject JSON NaN/Infinity via parse_constant; invalid input constant safe error; no action side effect. No controller or hidden facts passed through strict dispatch.",
+    "test_job": "local_7e1ce5ac0e8c4201",
+    "test_result": "20/20 native TextWorld 1.7 regression tests PASS, real separate Game/Quest, source SHA locked, duplicates and nonfinite payloads rejected, legal route replay",
+    "review_comment_id": 6095942948,
+    "independent_code_owner_approval": false,
+    "scientific_design_accepted": false,
+    "real_model_to_Python_process_isolation_attested": false,
+    "model_calls": 0
+  },
+  "next_valuable_action": [
+    "A3 critical reviewer test source-plan authenticity, task-goal renderer integrity and matched direct reminder role/token priority on actual selected model/tokenizer, not on placeholder values.",
+    "A4 independently review PR #7 and stacked #10 native IPC boundary/JSON parser and prove no further privileged state or alias leaks. Keep both drafts pending review.",
+    "If model experiments become authorized, use source-authenticated model-owned plans and frozen official task goals with explicit run-level prompt/response/source ledger before any A/B effect claim. Avoid more toy/synthetic-only tests."
+  ],
+  "resources": {
+    "GPU": false,
+    "paid_API": false,
+    "LLM_inference": false,
+    "training": false,
+    "confirmation": false,
+    "paper": false
+  }
+}
