@@ -97,6 +97,11 @@ def structural_audit(record: Any) -> dict[str, Any]:
     if len(left["steps"]) < 2:
         raise ValueError("Must include initial step and >=1 common prefix action")
     failures = []
+    # Preserve exact ordered legal-action menus for each previous snapshot.
+    # Byte-identical transitions are insufficient if both sides replay the
+    # same impossible action. This is a NECESSARY toy lint, never a full-state
+    # authority certificate.
+    previous_a = previous_b = None
     step_n = len(left["steps"])
     for i in range(step_n):
         a = left["steps"][i]
@@ -113,8 +118,15 @@ def structural_audit(record: Any) -> dict[str, Any]:
         else:
             if aa != bb:
                 failures.append(f"step_{i}.actual_action")
+            if previous_a is None or previous_b is None:
+                raise ValueError("Missing previous snapshots for action validation")
+            if aa not in previous_a["ordered_commands"]:
+                failures.append(f"step_{i}.A.action_not_admissible")
+            if bb not in previous_b["ordered_commands"]:
+                failures.append(f"step_{i}.B.action_not_admissible")
         sa, sb = snapshot(a["after"]), snapshot(b["after"])
         failures.extend(f"step_{i}.{x}" for x in mismatch(sa, sb))
+        previous_a, previous_b = sa, sb
     if not failures:
         status = "MATCHED_SYNTHETIC_PREFIX_ONLY"
     else:
