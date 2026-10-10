@@ -135,6 +135,32 @@ class TraceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             structural_audit(d)
 
+    def test_two_sides_same_illegal_action_must_not_match(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][1]["actual_action_b64"]=enc(b"teleport into a future state")
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_1.A.action_not_admissible",got["failures"])
+        self.assertIn("step_1.B.action_not_admissible",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_one_side_menu_lacks_shared_action(self):
+        d=fixture()
+        d["B"]["steps"][0]["after"]["ordered_commands"]=[enc(b"go to desk")]
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_0.ordered_commands",got["failures"])
+        self.assertIn("step_1.B.action_not_admissible",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_shared_information_action_remains_legal(self):
+        d=fixture()
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual([],got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
 
 if __name__=="__main__":
     unittest.main()
