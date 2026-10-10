@@ -218,6 +218,38 @@ class TraceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             structural_audit(d)
 
+    def test_terminal_last_snapshot_can_have_empty_menu(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][-1]["after"]["done_b64"]=enc(b"1")
+            d[side]["steps"][-1]["after"]["ordered_commands"]=[]
+        got=structural_audit(d)
+        self.assertEqual("MATCHED_SYNTHETIC_PREFIX_ONLY",got["status"])
+        self.assertEqual([],got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
+    def test_nonterminal_empty_menu_remains_invalid(self):
+        d=fixture()
+        for side in ("A","B"):
+            d[side]["steps"][-1]["after"]["ordered_commands"]=[]
+        with self.assertRaisesRegex(ValueError,"Nonterminal snapshot"):
+            structural_audit(d)
+
+    def test_terminal_empty_menu_does_not_allow_next_action(self):
+        d=fixture()
+        for side in ("A","B"):
+            last=d[side]["steps"][-1]
+            last["after"]["done_b64"]=enc(b"1")
+            last["after"]["ordered_commands"]=[]
+            # A fabricated action after terminal must NOT turn equal streams
+            # into an accepted identical-prefix witness.
+            d[side]["steps"].append({"prefix_step":2,"actual_action_b64":enc(b"look"),"after":last["after"].copy()})
+        got=structural_audit(d)
+        self.assertEqual("MISMATCHED_SYNTHETIC_PREFIX",got["status"])
+        self.assertIn("step_2.A.action_after_terminal",got["failures"])
+        self.assertIn("step_2.B.action_after_terminal",got["failures"])
+        self.assertEqual("NOT_AUTHORIZED",got["scientific_gate"])
+
 
 if __name__=="__main__":
     unittest.main()
