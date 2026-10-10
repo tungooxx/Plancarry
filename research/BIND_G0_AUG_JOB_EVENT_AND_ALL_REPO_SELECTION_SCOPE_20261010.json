@@ -1,0 +1,62 @@
+{
+  "schema": "plancarry.bind.g0.historical-registry-and-four-manifest-evidence-scope.v1",
+  "date": "2026-10-10",
+  "project": "PlanCarry BIND-v0.3",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "original_source": {
+    "archive_game_paths": 790,
+    "families": 322,
+    "prior_two_record_candidate_families": 34,
+    "prior_two_record_candidate_games": 83,
+    "original_archive_sha256": "5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf"
+  },
+  "repository_scan": {
+    "pinned_git_revision": "986194dd26aa420e330ab5a97638427ea8758342",
+    "source_repo": "tungooxx/Plancarry",
+    "cpu_job_id": "local_916ee3a5670c4570",
+    "repository_text_files_scanned": 530,
+    "all_34_candidates_mentioned_in_general_full_inventory": true,
+    "bounded_new_scope": "Four additional frozen PRE-SCIENCE selection manifests only. All declare zero model calls and zero environment executions; they are not an inference usage ledger.",
+    "families_in_those_four_selected_candidates": 31,
+    "original_games_in_those_families": 6,
+    "families_absent_from_four_selected_candidate_manifests": 3,
+    "absent_from_four_selected_candidates": [
+      "pick_and_place_simple-Pencil-None-Shelf-313",
+      "pick_and_place_simple-SoapBottle-None-Cabinet-413",
+      "pick_and_place_simple-Watch-None-Shelf-207"
+    ],
+    "four_scoped_manifests_report": "research/BIND_G0_34_FAMILY_FOUR_ZERO_CALL_SELECTION_RECORDS_20261010.json",
+    "four_scoped_manifests_report_commit": "a5b13b1dca072326ebf8097539010f828be6441d",
+    "four_scoped_manifests_integrity_sha256": "39e676984acae06153ab25172a3850a2cba98bd9513ff251f2caa8493d750468",
+    "test_and_real_source_validation": {
+      "cpu_job": "local_63b31593fb9b485f",
+      "unit_tests_passed": 8,
+      "unit_tests_total": 8,
+      "real_original_manifest_integration_passed": true
+    }
+  },
+  "execution_registry_bounded": {
+    "cpu_job_id": "local_bec0b1f60c1e462f",
+    "table": "/data/gpu_lab.db jobs and events, read-only",
+    "jobs_total_examined_at_run": 47436,
+    "jobs_august_2026": 15787,
+    "events_total_examined": 1982,
+    "candidate_families_with_literal_mention_in_august_jobs_commands_or_event_text": 0,
+    "MODEL_PROMPT_RESPONSE_AUDIT_COMPLETE": false,
+    "runtime_logs_from_august_not_available_at_local_job_paths": true
+  },
+  "classification_rules": {
+    "prior_selection_population_presence": "Not evidence a model saw a game",
+    "scoped_model_calls_zero": "No recorded calls by that frozen manifest-writing operation only",
+    "no_literal_command_or_event_mention": "Not a global non-consumption certificate",
+    "missing_name_in_four_manifests": "Not proof this family was never used in another experiment",
+    "certified_fresh_train_games": 0
+  },
+  "g0_decision": "BLOCKED_HISTORICAL_SOURCE_USAGE_AND_FULL_STATE_ATTESTATION",
+  "limitations": [
+    "Global logged model request/response events and durable complete TRAIN usage ledger are missing.",
+    "Actual installed historical TextWorld/ALFWorld PDDL full hidden state and RNG clone attestation is missing.",
+    "These zero-call selection artifacts must not be retroactively reinterpreted as model inference or as complete historical unused-status certification.",
+    "No TRAIN games opened or model/GPU/paid resources used in this audit."
+  ]
+}
