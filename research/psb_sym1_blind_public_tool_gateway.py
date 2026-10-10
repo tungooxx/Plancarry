@@ -50,19 +50,47 @@ class BlindSymbolicGateway:
         self._done = False
         self._score = 0
         self._max_turns = max_turns
+        # These commitments remain trusted-controller-only. The future agent
+        # sees exactly observe()/act() payloads, never private native facts.
+        from psb_sym1_textworld_native_copy_preflight import snapshot
+        self._history: tuple[str, ...] = ()
+        self._prefix_witnesses = (snapshot(self._env, self._names),)
 
     @classmethod
     def _from_copy(cls, original: "BlindSymbolicGateway"):
-        self = object.__new__(cls)
-        self._source=original._source
-        self._names=original._names
-        self._request_infos=original._request_infos
-        self._env=original._env.copy()
-        self._turns=original._turns
-        self._done=original._done
-        self._score=original._score
-        self._max_turns=original._max_turns
-        return self
+        """Reconstruct an isolated native engine; never soft-copy Game/Inform7.
+
+        Only a deterministic, same-source, byte/state-matched replay is
+        eligible to fork. This is a one-fixture engineering invariant, not
+        full RNG/process isolation or a scientific state-equivalence proof.
+        """
+        if len(original._history) != original._turns or (
+            len(original._prefix_witnesses) != original._turns + 1
+        ):
+            raise RuntimeError("Incomplete original native action history")
+        # Refuse to bless a source already mutated at its public boundary.
+        old_public = original._public()
+        from psb_sym1_textworld_native_copy_preflight import snapshot
+        if snapshot(original._env, original._names) != original._prefix_witnesses[-1]:
+            raise RuntimeError("Original native state changed outside recorded actions")
+        fresh = cls(original._source, SOURCE_SHA256, original._max_turns)
+        if (fresh._env._game is original._env._game
+                or fresh._env._inform7 is original._env._inform7
+                or fresh._env._game_progression is original._env._game_progression):
+            raise RuntimeError("Native fork still shares mutable engine references")
+        if fresh._prefix_witnesses != original._prefix_witnesses[:1]:
+            raise RuntimeError("Frozen native reset did not replay identically")
+        for i, action in enumerate(original._history, 1):
+            # A recorded action must reproduce the original witness after
+            # EVERY common-prefix step, not just coincide at the final room.
+            fresh.act(action)
+            if fresh._prefix_witnesses[i] != original._prefix_witnesses[i]:
+                raise RuntimeError("Native prefix replay diverged")
+        if (fresh._history != original._history or fresh._turns != original._turns
+                or fresh._done != original._done or fresh._score != original._score
+                or fresh._public() != old_public):
+            raise RuntimeError("Native fork public/terminal parity mismatch")
+        return fresh
 
     def controller_copy(self) -> "BlindSymbolicGateway":
         """Only privileged evaluator/controller may fork; never expose via LLM tool."""
@@ -105,7 +133,12 @@ class BlindSymbolicGateway:
             self._turns += 1
             self._score = int(score)
             self._done = bool(done) or self._turns >= self._max_turns
-            return self._public()
+            public = self._public()
+            from psb_sym1_textworld_native_copy_preflight import snapshot
+            next_witness = snapshot(self._env, self._names)
+            self._history += (action,)
+            self._prefix_witnesses += (next_witness,)
+            return public
         except PublicToolError:
             raise
         except Exception:
