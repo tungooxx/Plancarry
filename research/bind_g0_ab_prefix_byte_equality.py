@@ -41,6 +41,10 @@ def bytes_field(value: Any) -> bytes:
         raise ValueError("Invalid base64 bytes") from e
     if not data:
         raise ValueError("Encoded empty bytes are not accepted")
+    # Require unique canonical wire bytes. Python accepts alternate Base64
+    # spellings differing only in unused padding bits unless checked here.
+    if base64.b64encode(data).decode("ascii") != value:
+        raise ValueError("Noncanonical base64 bytes")
     return data
 
 
@@ -58,7 +62,12 @@ def snapshot(snap: Any) -> dict[str, Any]:
     if len(set(cmds)) != len(cmds):
         raise ValueError("Duplicate commands cannot form a trusted menu")
     result = {k: bytes_field(snap[k]) for k in SNAP_FIELDS if k != "ordered_commands"}
-    result["ordered_commands"] = [bytes_field(x) for x in cmds]
+    decoded_commands = [bytes_field(x) for x in cmds]
+    # Enforce uniqueness on the actual command byte strings, not merely their
+    # encoded representation, which is a weaker invariant.
+    if len(set(decoded_commands)) != len(decoded_commands):
+        raise ValueError("Duplicate decoded command bytes cannot form a trusted menu")
+    result["ordered_commands"] = decoded_commands
     # Terminal marker has a strict canonical byte encoding in synthetic
     # traces. Arbitrary non-empty marker bytes cannot masquerade as False.
     if result["done_b64"] not in (b"0", b"1"):
