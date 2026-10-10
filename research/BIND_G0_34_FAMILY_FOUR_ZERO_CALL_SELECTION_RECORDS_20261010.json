@@ -1,0 +1,138 @@
+{
+  "FULL_SIMULATOR_STATE_ATTESTED": false,
+  "GLOBAL_SOURCE_NONCONSUMPTION_ATTESTED": false,
+  "g0_decision": "BLOCKED_HISTORICAL_SOURCE_USAGE_AND_FULL_STATE_ATTESTATION",
+  "limitations": [
+    "Four documents are frozen pre-science population selections, NOT a ledger of every historical model prompt/response.",
+    "Their declared model_calls=0 applies only to those record-producing operations, not all jobs or later execution.",
+    "Selection mentions are NOT themselves model inference, and a missing mention is NOT proof of being unused.",
+    "Historical 2026-Aug local job registry has no complete persisted runtime request/response transcripts.",
+    "No TRAIN game, model, or external execution is used in this audit."
+  ],
+  "manifests": [
+    {
+      "file_sha256": "18f76f15312ed6df15a779915fc8ec5e149a905cfc89498ae7aaa71a5a4ef7c5",
+      "interpretation": "SELECTION_ONLY_LOCAL_RECORD_NOT_GLOBAL_NONCONSUMPTION",
+      "local_record_environment_execution": 0,
+      "local_record_model_calls": 0,
+      "original_34_families_selected": 22,
+      "path": "results/design/plancarry_replayresidual_phi4mini_crossmodel_manifest_v2_family_unexposed_a3_20260821.json",
+      "selected_from_original_34": [
+        "pick_and_place_simple-CreditCard-None-Shelf-307",
+        "pick_and_place_simple-DishSponge-None-Cart-401",
+        "pick_and_place_simple-Egg-None-Fridge-7",
+        "pick_and_place_simple-Glassbottle-None-Cabinet-17",
+        "pick_and_place_simple-HandTowel-None-GarbageCan-423",
+        "pick_and_place_simple-KeyChain-None-Safe-323",
+        "pick_and_place_simple-Pen-None-SideTable-309",
+        "pick_and_place_simple-Pencil-None-GarbageCan-316",
+        "pick_and_place_simple-PepperShaker-None-Shelf-20",
+        "pick_and_place_simple-SoapBottle-None-CounterTop-428",
+        "pick_and_place_simple-SoapBottle-None-Drawer-423",
+        "pick_and_place_simple-SoapBottle-None-GarbageCan-413",
+        "pick_and_place_simple-SoapBottle-None-SideTable-420",
+        "pick_and_place_simple-SprayBottle-None-CounterTop-427",
+        "pick_and_place_simple-Statue-None-CoffeeTable-228",
+        "pick_and_place_simple-Statue-None-CoffeeTable-229",
+        "pick_and_place_simple-TissueBox-None-GarbageCan-427",
+        "pick_and_place_simple-ToiletPaper-None-GarbageCan-416",
+        "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-414",
+        "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-423",
+        "pick_and_place_simple-Vase-None-CoffeeTable-207",
+        "pick_and_place_simple-Watch-None-CoffeeTable-222"
+      ],
+      "selection_family_count": 40
+    },
+    {
+      "file_sha256": "59a4d79bceff17700411753828fe58b36826cc723557fd0b171a367c352d1b18",
+      "interpretation": "SELECTION_ONLY_LOCAL_RECORD_NOT_GLOBAL_NONCONSUMPTION",
+      "local_record_environment_execution": 0,
+      "local_record_model_calls": 0,
+      "original_34_families_selected": 13,
+      "path": "results/design/plancarry_localcontinuation_v2_fresh_population_v1_20260824.json",
+      "selected_from_original_34": [
+        "pick_and_place_simple-Glassbottle-None-Cabinet-17",
+        "pick_and_place_simple-HandTowel-None-Cabinet-414",
+        "pick_and_place_simple-KeyChain-None-Safe-323",
+        "pick_and_place_simple-KeyChain-None-Sofa-208",
+        "pick_and_place_simple-Laptop-None-ArmChair-205",
+        "pick_and_place_simple-Pen-None-SideTable-309",
+        "pick_and_place_simple-RemoteControl-None-Sofa-222",
+        "pick_and_place_simple-SoapBottle-None-Drawer-423",
+        "pick_and_place_simple-SoapBottle-None-GarbageCan-413",
+        "pick_and_place_simple-SprayBottle-None-Drawer-423",
+        "pick_and_place_simple-Statue-None-CoffeeTable-228",
+        "pick_and_place_simple-Statue-None-CoffeeTable-229",
+        "pick_and_place_simple-Watch-None-CoffeeTable-222"
+      ],
+      "selection_family_count": 62
+    },
+    {
+      "file_sha256": "b4225a3818b1fa757a492670317481081b173192f9129b61cf8370ad52d32bc7",
+      "interpretation": "SELECTION_ONLY_LOCAL_RECORD_NOT_GLOBAL_NONCONSUMPTION",
+      "local_record_environment_execution": 0,
+      "local_record_model_calls": 0,
+      "original_34_families_selected": 12,
+      "path": "results/design/plancarry_action_matched_future_plan_population_v1_20260825.json",
+      "selected_from_original_34": [
+        "pick_and_place_simple-Egg-None-Fridge-7",
+        "pick_and_place_simple-Pencil-None-GarbageCan-316",
+        "pick_and_place_simple-PepperShaker-None-Shelf-20",
+        "pick_and_place_simple-SoapBottle-None-Drawer-423",
+        "pick_and_place_simple-SoapBottle-None-GarbageCan-11",
+        "pick_and_place_simple-SprayBottle-None-CounterTop-427",
+        "pick_and_place_simple-Statue-None-CoffeeTable-228",
+        "pick_and_place_simple-TissueBox-None-GarbageCan-427",
+        "pick_and_place_simple-ToiletPaper-None-GarbageCan-416",
+        "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-414",
+        "pick_and_place_simple-ToiletPaper-None-ToiletPaperHanger-423",
+        "pick_and_place_simple-Vase-None-CoffeeTable-207"
+      ],
+      "selection_family_count": 135
+    },
+    {
+      "file_sha256": "adba81b7073707ef01589fbd022106e678f8542182f780f6f789ef1a47dff543",
+      "interpretation": "SELECTION_ONLY_LOCAL_RECORD_NOT_GLOBAL_NONCONSUMPTION",
+      "local_record_environment_execution": 0,
+      "local_record_model_calls": 0,
+      "original_34_families_selected": 10,
+      "path": "results/design/plancarry_replayresidual_localcontinuation_fresh_population_v1_20260823.json",
+      "selected_from_original_34": [
+        "pick_and_place_simple-DishSponge-None-Toilet-430",
+        "pick_and_place_simple-Egg-None-Fridge-7",
+        "pick_and_place_simple-HandTowel-None-GarbageCan-420",
+        "pick_and_place_simple-HandTowel-None-GarbageCan-423",
+        "pick_and_place_simple-Pen-None-Shelf-330",
+        "pick_and_place_simple-Pen-None-SideTable-309",
+        "pick_and_place_simple-RemoteControl-None-Sofa-222",
+        "pick_and_place_simple-SoapBottle-None-CounterTop-428",
+        "pick_and_place_simple-SoapBottle-None-SideTable-420",
+        "pick_and_place_simple-Statue-None-CoffeeTable-228"
+      ],
+      "selection_family_count": 62
+    }
+  ],
+  "no_selection_family_names": [
+    "pick_and_place_simple-Pencil-None-Shelf-313",
+    "pick_and_place_simple-SoapBottle-None-Cabinet-413",
+    "pick_and_place_simple-Watch-None-Shelf-207"
+  ],
+  "no_selection_game_count": 6,
+  "no_selection_game_count_by_family": {
+    "pick_and_place_simple-Pencil-None-Shelf-313": 3,
+    "pick_and_place_simple-SoapBottle-None-Cabinet-413": 1,
+    "pick_and_place_simple-Watch-None-Shelf-207": 2
+  },
+  "no_selection_in_these_four_additional_records": 3,
+  "original_baseline": {
+    "candidate_families": 34,
+    "candidate_game_paths": 83,
+    "file": "research/BIND_G0_HISTORICAL_FAMILY_EXPOSURE_790_AUDIT_20261010.json",
+    "sha256": "a20979e169c04104794ff03435c1a6e052c79722a4944d0a6b8880cf8fd615ef"
+  },
+  "schema": "plancarry.bind.g0.multi-manifest-scoped-zero-call-trace.v1",
+  "scientific_gate": "NOT_AUTHORIZED",
+  "status": "SCOPED_HISTORICAL_SELECTION_RECORDS_RECONCILED",
+  "union_selected_games_in_original_candidate_families": 77,
+  "union_selected_in_four_planning_records": 31
+}
