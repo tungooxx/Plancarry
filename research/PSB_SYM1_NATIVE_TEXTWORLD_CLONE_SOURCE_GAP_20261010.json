@@ -1,0 +1,79 @@
+{
+  "schema": "plancarry.psb-sym1.symbolic-backend-candidate-source-and-cpu-preflight.v1",
+  "date": "2026-10-10",
+  "project": "PlanCarry",
+  "role": "LLM A1 supporting exploratory engineering",
+  "scope": "New prospective symbolic-state proposal, NOT terminal BIND-v0.3 rescue",
+  "old_design": {
+    "id": "80e19e85-2689-45a9-8455-18108070aaf8",
+    "status": "UNDER_ATTACK and NO_GO_FOR_G1_UNDER_CURRENT_G0_EVIDENCE",
+    "unchanged": true
+  },
+  "native_candidates": [
+    {
+      "kind": "TextWorld 1.7.0 PddlEnv (old ALFWorld backend)",
+      "upstream": "https://github.com/microsoft/TextWorld/blob/1.7.0/textworld/envs/pddl/pddl.py",
+      "blob_sha": "a06b138f8b9b76c8c29bfbba5b9f1af0a24b9bf6",
+      "concrete_copy_api": false,
+      "verdict": "NO_VERIFIED_FULL_STATE_EXPORT_OR_CLONE"
+    },
+    {
+      "kind": "TextWorld 1.7.0 TextWorldEnv symbolic JSON",
+      "upstream": "https://github.com/microsoft/TextWorld/blob/1.7.0/textworld/envs/tw.py",
+      "blob_sha": "8532f5733b7106299bff0b1d8731860ec68a4ab7",
+      "concrete_copy_api": true,
+      "copy_semantics": "Copies GameState, EnvInfos, prev state, moves, last action, and GameProgression copy. Shares _game and _inform7 references, not certified immutable. Native symbolic observations default to placeholder.",
+      "upstream_test": "https://github.com/microsoft/TextWorld/blob/1.7.0/textworld/envs/tests/test_tw.py",
+      "native_live_tested_by_A1": false,
+      "verdict": "CANDIDATE_NEEDS_NATIVE_GAME_AND_RENDERER_ATTESTATION"
+    },
+    {
+      "kind": "TextWorld 1.7.0 JerichoEnv ZMachine",
+      "upstream": "https://github.com/microsoft/TextWorld/blob/1.7.0/textworld/envs/zmachine/jericho.py",
+      "concrete_copy_api": true,
+      "copy_semantics": "Calls underlying Jericho FrotzEnv.copy after game load; game text response provided. Exact compiled z-file, Jericho state and RNG snapshot trust not independently attested.",
+      "native_live_tested_by_A1": false,
+      "verdict": "ALTERNATIVE_CANDIDATE_NOT_SELECTED_OR_RUNTIME_VERIFIED"
+    }
+  ],
+  "prospective_proposal": {
+    "file": "research/PSB_SYM1_PROSPECTIVE_SYMBOLIC_STATE_FEASIBILITY_PROPOSAL_20261010.md",
+    "commit": "ae6877f34e40662348da8e90187446e275b8fb21",
+    "scientific_design_status": "NOT_FROZEN_NOT_ACCEPTED_NO_MODEL_EXECUTION"
+  },
+  "engineering": {
+    "workitem_id": "1c5a48f6-1b13-4094-9ed0-5f23eb234668",
+    "status_created": "READY",
+    "preferred_worker": "A2",
+    "native_copy_preflight_file": "research/psb_sym1_textworld_native_copy_preflight.py",
+    "file_commit": "7f81def3e7f68e7469660209fa008168b4ef0302",
+    "pinned_cpu_test_job": "local_3dc9c4cfa88b4a30",
+    "sha256": "350436d764f70bfe6e3ceddb1e5c7d53431405695c7f7cab5d5ca7e103a66bb9",
+    "python_compile": "PASS",
+    "native_actual_execution": "BLOCKED_NATIVE_DEPENDENCIES_UNAVAILABLE",
+    "native_exit_code": 2,
+    "real_native_clone_parity_observed": false,
+    "logical_fork_pair_generated": false,
+    "scientific_gate": "NOT_AUTHORIZED",
+    "wheel_available": true,
+    "isolated_pip_install_job": "local_b612d13e40364e51",
+    "isolated_pip_install_result": "TIMED_OUT_AFTER_170_SECONDS"
+  },
+  "next_required_steps": [
+    "Bounded dependency availability repair, execute actual native generated symbolic game on CPU only; no model.",
+    "Independently verify TextWorldEnv shared _game and _inform7 aliasing, quest and fact parity after copy, goal-equal route and exact ordered command menu.",
+    "Define blind agent-visible renderer that never leaks symbolic hidden facts or winning policies and has equal bytes across BIND and DIRECT_REMINDER.",
+    "Distinct independent review and explicit Research OS acceptance of scientifically falsifiable new estimand before any source model, GPU or confirmation.",
+    "If backend unavailable, stop new preflight; no toy substitutes or reclassification of old BIND G0."
+  ],
+  "assertions": {
+    "fresh_ALFWorld_TRAIN_consumption_ledger": false,
+    "old_G0_pass": false,
+    "new_native_parity_pass": false,
+    "source_models_run": 0,
+    "gpu_used": false,
+    "paid_api_used": false,
+    "confirmation_touched": false,
+    "paper_written": false
+  }
+}
