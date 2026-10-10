@@ -22,8 +22,9 @@ GAME = ROOT / "research" / "fixtures" / "psb_sym1_prospective_frozen_game.json"
 class BridgeRegression(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.assertEqual(cls, hashlib.sha256(GAME.read_bytes()).hexdigest(),
-                        EXPECTED_GAME_SHA256)
+        actual = hashlib.sha256(GAME.read_bytes()).hexdigest()
+        if actual != EXPECTED_GAME_SHA256:
+            raise AssertionError("Frozen fixture digest differs: " + actual)
 
     def test_distinct_fully_loaded_native_instance_objects(self):
         a,b=isolated_pair(GAME)
