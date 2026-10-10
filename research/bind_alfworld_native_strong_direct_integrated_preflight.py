@@ -6,8 +6,9 @@ Pilot40/BIND180 11 games. Real native TextWorld/PddlEnv instances, shared
 actual information/movement prefix and two legal later-fork commands.
 
 The two 'donor source plans' are MECHANICALLY CHOSEN placeholders and HAVE NOT
-been authored/succeeded by any model. A public task *descriptor* parsed from
-historical directory names is NOT the official natural-language ALFWorld goal.
+been authored/succeeded by any model. The public task is loaded ONLY from the
+original ALFWorld game's embedded TextWorld grammar #task# sentence.
+No privileged walkthrough or hidden PDDL winning goal enters the prompt.
 Never classify this preflight as G0/G1/G2/G3 model outcome evidence.
 """
 from __future__ import annotations
@@ -22,6 +23,7 @@ from pathlib import Path
 from bind_strong_direct_reminder_matched_control import (
     SourcePlan, MatchedPair, reciprocal_preflight,
 )
+from bind_alfworld_original_public_task import original_public_task
 
 OLD_ROOT="/opt/gpu-lab/data/plancarry-alfworld/json_2.1.1/"
 EXPECTED_ARCHIVE="5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36cf"
@@ -29,15 +31,6 @@ EXPECTED_ARCHIVE="5df77ea759f2211a4106082839ddbbb790f1ba4e7d097ed732cf453f72aa36
 
 def sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
-
-
-def descriptor(path: Path) -> str:
-    family=path.parent.parent.name
-    m=re.fullmatch(r"pick_and_place_simple-(.+?)-None-(.+)-\d+",family)
-    if m is None:
-        raise ValueError("Invalid original task family metadata")
-    # Descriptive task identity ONLY. Not an attested public agent instruction.
-    return f"Source task descriptor: pick_and_place_simple; object_type={m[1]}; target_type={m[2]}"
 
 
 def run_case(file: Path) -> dict:
@@ -96,7 +89,10 @@ def run_case(file: Path) -> dict:
             "MECHANICAL_PLACEHOLDER_NO_MODEL_AUTHORED_PLAN":True,
             "game_sha":game_sha,"actions":donor_b
         },sort_keys=True).encode())
-        goal=descriptor(file)
+        task=original_public_task(file)
+        if task["source_game_sha256"]!=game_sha or not task["is_public_intro_task"]:
+            raise ValueError("Source task not attested to same original game")
+        goal=task["task_instruction"]
         common_feedback=state_a["feedback"]
         pair=MatchedPair(
             source_game_sha256=game_sha,
@@ -135,7 +131,10 @@ def run_case(file: Path) -> dict:
         return {
             "task_family":file.parent.parent.name,
             "game_sha256":game_sha,
-            "task_descriptor_is_official_agent_goal":False,
+            "public_task_instruction":goal,
+            "public_task_instruction_sha256":task["task_instruction_sha256"],
+            "task_instruction_provenance":task["provenance"],
+            "public_intro_uses_original_task":True,
             "native_atom_count":len(state_a["atoms"]),
             "real_common_prefix_actions":list(prefix),
             "prefix_native_projection_sha256":sha(json.dumps(state_a,sort_keys=True).encode()),
@@ -192,7 +191,8 @@ def main():
         "source_scope":"Previously environmentally inspected original Pilot40/BIND180 overlap only",
         "model_owned_plans_generated":False,
         "source_plan_probes_mechanically_selected_only":True,
-        "goal_descriptors_derived_from_source_family_not_agent_instructions":True,
+        "all_task_instructions_from_original_public_grammar":True,
+        "task_filenames_used_to_infer_goal":False,
         "same_semantic_future_plan_and_native_public_tool_context":True,
         "tokenizer_parity_certified":False,
         "full_native_rng_state_certificate":False,
