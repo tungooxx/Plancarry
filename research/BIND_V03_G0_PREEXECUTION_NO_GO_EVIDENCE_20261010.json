@@ -1,0 +1,73 @@
+{
+  "schema": "plancarry.bind.v03.g0.preexecution-go-no-go.v1",
+  "date": "2026-10-10",
+  "project_id": "a7bdabba-d07e-44ca-b572-cdef6d3210b2",
+  "worker": "LLM A1 / SUPPORTING ENGINEERING-EVIDENCE DECISION",
+  "frozen_design": {
+    "id": "80e19e85-2689-45a9-8455-18108070aaf8",
+    "semantic_hash": "0fca9c1b177d1f41e0342f6d3748f35cd63cddf1c2dc38c5f3c2897e04716553",
+    "server_design_status_last_checked": "UNDER_ATTACK",
+    "not_accepted_for_test": true
+  },
+  "decision": {
+    "current_recommendation": "NO_GO_FOR_G1_UNDER_CURRENT_G0_EVIDENCE",
+    "is_empirical_test_of_hypothesis": false,
+    "positive_g0_authorization": false,
+    "negative_binder_effect_observed": false,
+    "do_not_authorize_model_calls": true,
+    "do_not_relabel_as_refutation": true,
+    "scope": "Current exact frozen BIND-v0.3 only, not all PlanCarry mechanisms",
+    "epistemic_status": "TECHNICAL_PREEXPERIMENTAL_STOP_NOT_SCIENTIFIC_NEGATIVE"
+  },
+  "blocking_predicates": [
+    {
+      "key": "GLOBAL_PRIOR_TRAIN_SOURCE_CONSUMPTION_LEDGER",
+      "status": "NOT_ATTESTED",
+      "evidence": [
+        "research/BINDING180_PILOT_RUNLEVEL_EXPOSURE_AUDIT_20261010.md: historical Binding first LLM request failed; 11 overlap games environment-inspected by pilot but not confirmed duplicated model inference",
+        "research/BIND_G0_34_FAMILY_FOUR_ZERO_CALL_SELECTION_RECORDS_20261010.json: 31/34 historical families occur in selection-only manifests with local model_calls=0, 3/34 do not; none is independently certified globally unused",
+        "research/BIND_G0_AUG_JOB_EVENT_AND_ALL_REPO_SELECTION_SCOPE_20261010.json: Aug 2026 read-only registry scan 15,787 jobs/1,982 events, no literal 34-family names in available command/event text, but no full runtime prompt/response ledger"
+      ],
+      "not_equivalent_to": "No literal reference or zero calls in a selection script is NOT an authoritative history of all model exposure"
+    },
+    {
+      "key": "NATIVE_TEXTWORLD_PDDL_COMPLETE_STATE_AND_RNG_EQUIVALENCE",
+      "status": "NOT_ATTESTED",
+      "evidence": [
+        "research/BIND_G0_TEXTWORLD_170_PDDL_CLONE_API_REVIEW_20261010.md: in pinned TextWorld 1.7.0 Environment.copy raises NotImplementedError, PddlEnv does not implement complete save/restore, native Downward mutable calls potentially carry state outside GameState.copy",
+        "research/BIND_G0_TEXTWORLD_170_EXACT_RELEASE_PROVENANCE_20261010.json: pinned TextWorld 1.7.0 source verified",
+        "CPU job local_283956bd62294ed0 exit0: current isolated runner /usr/local/bin/python3 Py3.12.14 lacks installed alfworld/textworld/downward_lib and previously used /opt/gpu-lab paths; absence applies ONLY to current CPU runner, not historical runs",
+        "research/BIND_G0_PR3_EXECUTABLE_TOY_2000_ADVERSARIAL_AUDIT_20261010.json: toy bytes and action legality regression do NOT attest native PDDL hidden state equivalence"
+      ],
+      "not_equivalent_to": "Lack of PddlEnv.copy() does not prove deterministic cross-process reset-and-replay impossible; no proof of native singleton aliasing was produced."
+    },
+    {
+      "key": "INDEPENDENT_DESIGN_REVIEW_QUORUM",
+      "status": "NOT_COMPLETE",
+      "evidence": [
+        "DesignAttackBatch 2c363b48-dbc0-4694-918b-69c338b0d50e invalidated PREJOIN_QUORUM_VIOLATION",
+        "Replacement 69475565-5906-48b4-8e68-84ee11c24b37 at latest check GENERATING HIDDEN: CAUSAL and DEGENERATE joined, clean NECESSITY reviewer absent",
+        "User withdrew A5's previously contaminated NECESSITY advisory: explicitly discard, do not quote, synthesize or count",
+        "Control-plane individual-reviewer FREEZE semantics engineering task 121d2acb-9ef3-424a-a177-f4602804ffc9 OPEN"
+      ],
+      "not_equivalent_to": "Two submitted reviews cannot supply three valid independent reviews; technical no-go does not manufacture quorum"
+    }
+  ],
+  "actions_taken_this_activation": [
+    "Cancelled stale READY WorkItems ce698d39-fbb8-4912-93b7-3599898c6b1b, 2cefd6a9-697a-4da3-8fc3-bd58b8cdb8d6, 28c41e66-f180-4678-86bd-02a2282a0ef1, each referencing INVALIDATED batch 2c363b48; no valid replacement lanes touched",
+    "Read-only pinned native-backend package availability job local_283956bd62294ed0 exit0",
+    "Rechecked frozen scientific design coverage: UNDER_ATTACK, 0/6 assumption coverage accepted, synthesis null"
+  ],
+  "strict_reopen_requirements": [
+    "An independently authenticated append-only per-run prior TRAIN source identity/LLM request-response/execution inventory for complete historical relevant project scope; cryptographically match exact game hashes, split aliases, and trial provenance",
+    "An independently reviewed complete native PDDL, simulator state and RNG equivalence witness across process-isolated A/B reset + every common-prefix action, including ordered legal menu and exact rendered observations; NOT a public hash or synthetic toy-only proof",
+    "Valid separately constituted qualified independent review for frozen design before science authorization, excluding design author and contaminated prior reviewer",
+    "New explicit Research OS execution gate approval; no model, G1, G2, G3, or confirmation calls before all evidence."
+  ],
+  "next_valid_options": [
+    "STOP exact BIND-v0.3 at G0 on presently available evidence, with a reopen-only-if-new-primary-evidence policy; do not interpret as BIND empirically weak.",
+    "A separately proposed successor could switch to prospectively generated, independently held-out tasks with authenticated deterministic per-process state, but this changes the scientific design and dataset estimand and MUST be independently reviewed/frozen rather than silently substituted into v0.3.",
+    "Do not spend further effort on generic toy checker expansions that cannot satisfy either missing positive attestation."
+  ],
+  "cost_policy": "No model inference, paid GPU, ALFWorld TRAIN execution, confirmation access, or paper in this work."
+}
